@@ -1,349 +1,250 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nicolas Pieper | Engineering Leader</title>
+  <title>Nicolas Pieper — Engineering Leadership Crafted with Care</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: ["class", '[data-theme="dark"]'],
-      theme: {
-        container: {
-          center: true,
-          padding: "1.5rem",
-          screens: {
-            "2xl": "1024px"
-          }
-        },
-        extend: {
-          fontFamily: {
-            sans: ["Inter", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"]
-          },
-          colors: {
-            border: "hsl(var(--border))",
-            input: "hsl(var(--input))",
-            ring: "hsl(var(--ring))",
-            background: "hsl(var(--background))",
-            foreground: "hsl(var(--foreground))",
-            primary: {
-              DEFAULT: "hsl(var(--primary))",
-              foreground: "hsl(var(--primary-foreground))"
-            },
-            secondary: {
-              DEFAULT: "hsl(var(--secondary))",
-              foreground: "hsl(var(--secondary-foreground))"
-            },
-            muted: {
-              DEFAULT: "hsl(var(--muted))",
-              foreground: "hsl(var(--muted-foreground))"
-            },
-            accent: {
-              DEFAULT: "hsl(var(--accent))",
-              foreground: "hsl(var(--accent-foreground))"
-            },
-            popover: {
-              DEFAULT: "hsl(var(--popover))",
-              foreground: "hsl(var(--popover-foreground))"
-            },
-            card: {
-              DEFAULT: "hsl(var(--card))",
-              foreground: "hsl(var(--card-foreground))"
-            }
-          },
-          borderRadius: {
-            xl: "var(--radius)",
-            lg: "calc(var(--radius) - 2px)",
-            md: "calc(var(--radius) - 4px)"
-          },
-          boxShadow: {
-            card: "0 20px 45px -20px rgba(15, 23, 42, 0.25)"
-          }
-        }
-      }
-    }
-  </script>
 </head>
-<body class="min-h-screen bg-background text-foreground font-sans">
-  <div class="relative flex min-h-screen flex-col">
-    <header class="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
-      <div class="container flex h-16 items-center justify-between">
-        <a href="#top" class="inline-flex items-center gap-2 text-sm font-semibold tracking-wide">
-          <span class="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card shadow-card">NP</span>
-          <span class="hidden sm:inline-flex flex-col leading-tight">
-            <span class="text-xs uppercase text-muted-foreground">Engineering Leader</span>
-            <span>Nicolas Pieper</span>
-          </span>
-        </a>
-        <div class="flex items-center gap-4 md:gap-6">
-          <nav class="hidden items-center gap-4 text-sm font-medium text-muted-foreground md:flex">
-            <a class="transition-colors hover:text-foreground" href="#about">About</a>
-            <a class="transition-colors hover:text-foreground" href="#experience">Experience</a>
-            <a class="transition-colors hover:text-foreground" href="#skills">Skills</a>
-            <a class="transition-colors hover:text-foreground" href="#contact">Contact</a>
-          </nav>
-          <details id="mobile-nav" class="relative md:hidden">
-            <summary class="inline-flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
-              <span class="sr-only">Toggle navigation</span>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </summary>
-            <div class="absolute right-0 mt-2 w-44 rounded-xl border border-border bg-card p-2 text-sm shadow-card">
-              <a class="block rounded-lg px-3 py-2 text-muted-foreground transition hover:bg-muted hover:text-foreground" href="#about">About</a>
-              <a class="block rounded-lg px-3 py-2 text-muted-foreground transition hover:bg-muted hover:text-foreground" href="#experience">Experience</a>
-              <a class="block rounded-lg px-3 py-2 text-muted-foreground transition hover:bg-muted hover:text-foreground" href="#skills">Skills</a>
-              <a class="block rounded-lg px-3 py-2 text-muted-foreground transition hover:bg-muted hover:text-foreground" href="#contact">Contact</a>
-            </div>
-          </details>
-          <button id="theme-toggle" type="button" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" aria-label="Toggle theme">
-            <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="4"></circle>
-              <path d="M12 2v2"></path>
-              <path d="M12 20v2"></path>
-              <path d="M4.93 4.93l1.41 1.41"></path>
-              <path d="M17.66 17.66l1.41 1.41"></path>
-              <path d="M2 12h2"></path>
-              <path d="M20 12h2"></path>
-              <path d="M6.34 17.66l-1.41 1.41"></path>
-              <path d="M19.07 4.93l-1.41 1.41"></path>
-            </svg>
-            <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="hidden h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-          </button>
-        </div>
-      </div>
+<body>
+  <div class="page" id="top">
+    <header class="shell top-bar" aria-label="Primary">
+      <a class="wordmark" href="#top">
+        <span class="wordmark-logo" aria-hidden="true">NP</span>
+        <span class="wordmark-text">
+          <span class="wordmark-title">Nicolas Pieper</span>
+          <span class="wordmark-subtitle">Engineering Manager</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#vision">Vision</a>
+        <a href="#journey">Journey</a>
+        <a href="#principles">Principles</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </header>
 
-    <main id="top" class="flex-1">
-      <section class="py-16">
-        <div class="container">
-          <div class="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-start">
-            <div class="rounded-3xl border border-border bg-card p-8 text-card-foreground shadow-card">
-              <span class="inline-flex items-center gap-2 rounded-full border border-border bg-muted/70 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">🚀 Engineering Manager</span>
-              <h1 class="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl">Hello, I’m <span class="text-primary">Nicolas Pieper</span></h1>
-              <p class="mt-6 text-base text-muted-foreground sm:text-lg">
-                I lead teams that design and operate secure, high-volume platforms for regulated industries. I thrive where strategy meets execution, pairing engineering excellence with empathetic leadership.
-              </p>
-              <div class="mt-8 flex flex-wrap items-center gap-3">
-                <a href="#contact" class="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">Let’s work together</a>
-                <a href="#experience" class="inline-flex items-center justify-center rounded-full border border-border px-5 py-2 text-sm font-semibold transition hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">View my journey</a>
-              </div>
-            </div>
-            <aside class="flex flex-col gap-6 rounded-3xl border border-border bg-card p-6 text-card-foreground shadow-card">
-              <div>
-                <h2 class="text-sm font-semibold uppercase tracking-wide text-muted-foreground">Currently</h2>
-                <p class="mt-2 text-base font-medium">Engineering Supervisor @ Victor Buck Services</p>
-                <p class="text-sm text-muted-foreground">Driving secure communication platforms and mentoring full-stack teams.</p>
-              </div>
-              <div class="grid gap-2">
-                <h3 class="text-sm font-semibold uppercase tracking-wide text-muted-foreground">Open to</h3>
-                <div class="flex flex-wrap gap-2">
-                  <span class="inline-flex items-center rounded-full border border-border bg-muted/60 px-3 py-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">Engineering Leadership</span>
-                  <span class="inline-flex items-center rounded-full border border-border bg-muted/60 px-3 py-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">Java Architecture</span>
-                  <span class="inline-flex items-center rounded-full border border-border bg-muted/60 px-3 py-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">Team Coaching</span>
-                </div>
-              </div>
-              <div class="grid gap-2">
-                <h3 class="text-sm font-semibold uppercase tracking-wide text-muted-foreground">Location</h3>
-                <p class="text-sm text-muted-foreground">Based in Luxembourg · collaborating across Europe</p>
-              </div>
-            </aside>
+    <main>
+      <section class="hero shell" aria-labelledby="hero-title">
+        <div class="hero-content">
+          <p class="eyebrow">Leadership in secure platforms &amp; human-centred teams</p>
+          <h1 id="hero-title">Designing calm, resilient systems that let people do their best work.</h1>
+          <p class="lead">
+            I’m Nicolas Pieper, an engineering leader orchestrating secure communication platforms for regulated environments.
+            I build teams that balance rigour with warmth so innovation feels effortless for everyone involved.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="mailto:nicolas@pieper.dev">Start a conversation</a>
+            <a class="button ghost" href="#journey">Explore my track record</a>
           </div>
+          <dl class="hero-stats" aria-label="Key figures">
+            <div>
+              <dt>Years shaping platforms</dt>
+              <dd>9+</dd>
+            </div>
+            <div>
+              <dt>Teams empowered</dt>
+              <dd>From 8 to 10 engineers</dd>
+            </div>
+            <div>
+              <dt>Industries served</dt>
+              <dd>Finance · Gov · IIoT</dd>
+            </div>
+          </dl>
+        </div>
+        <figure class="hero-portrait">
+          <div class="portrait-frame">
+            <img src="assets/nicolas-pieper.png" alt="Portrait of Nicolas Pieper" loading="lazy">
+          </div>
+          <figcaption>Based in Luxembourg · Open to strategic engineering leadership roles</figcaption>
+        </figure>
+      </section>
+
+      <section class="shell vision" id="vision" aria-labelledby="vision-title">
+        <div class="section-heading">
+          <p class="eyebrow">Signature impact</p>
+          <h2 id="vision-title">What innovation feels like under my watch.</h2>
+        </div>
+        <div class="vision-grid" role="list">
+          <article class="vision-card" role="listitem">
+            <h3>Secure communication at scale</h3>
+            <p>
+              From PCI-DSS compliant ecosystems to government-grade distribution chains, I align security, compliance, and delivery velocity so trust is built-in, not bolted on.
+            </p>
+          </article>
+          <article class="vision-card" role="listitem">
+            <h3>Momentum for multidisciplinary teams</h3>
+            <p>
+              I bring clarity to complex roadmaps, coach engineers across experience levels, and nurture rituals that make craft, collaboration, and learning inseparable.
+            </p>
+          </article>
+          <article class="vision-card" role="listitem">
+            <h3>Architecture that leaves room to grow</h3>
+            <p>
+              Whether rebuilding IoT backbones or modernising AAA portals, my architectures anticipate the next decade—resilient, observable, and a joy to extend.
+            </p>
+          </article>
         </div>
       </section>
 
-      <section id="about" class="py-12">
-        <div class="container">
-          <div class="rounded-3xl border border-border bg-card p-8 text-card-foreground shadow-card">
-            <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-              <div class="max-w-3xl">
-                <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">About</span>
-                <h2 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Curious leader, hands-on engineer</h2>
-                <p class="mt-6 text-base text-muted-foreground sm:text-lg">
-                  With 9+ years of experience designing and operating high-volume platforms—from IoT ecosystems to secure document delivery pipelines—I transform ambitious ideas into resilient products. I enjoy defining technical strategy, partnering with stakeholders, and still diving into code when it moves the mission forward.
-                </p>
-                <p class="mt-4 text-base text-muted-foreground sm:text-lg">
-                  Rooted in Luxembourg and collaborating internationally, I bring depth in Java engineering, scalable architecture, and modern delivery practices that keep teams shipping with confidence.
-                </p>
+      <section class="journey" id="journey" aria-labelledby="journey-title">
+        <div class="shell">
+          <div class="section-heading">
+            <p class="eyebrow">Journey</p>
+            <h2 id="journey-title">A timeline of leadership in motion.</h2>
+          </div>
+          <div class="timeline" role="list">
+            <article class="timeline-card" role="listitem">
+              <div class="brand-badge brand-vbs" aria-hidden="true">
+                <span>VBS</span>
               </div>
-              <div class="flex flex-col gap-4 rounded-2xl border border-border bg-background/60 p-6">
-                <h3 class="text-sm font-semibold uppercase tracking-wide text-muted-foreground">Highlights</h3>
-                <ul class="space-y-3 text-sm text-muted-foreground">
-                  <li class="flex items-start gap-3">
-                    <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    Led AAA platform evolution, CI/CD pipelines, and security initiatives for finance and public sector clients.
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    Scaled IoT and document generation platforms serving millions of devices and 10M+ monthly reports.
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    Mentored cross-functional teams through modern engineering practices anchored in agility and DevOps.
-                  </li>
+              <div class="timeline-body">
+                <p class="timeline-era">Jun 2024 — Present</p>
+                <h3>Engineering Supervisor · Victor Buck Services</h3>
+                <p>
+                  Leading a 10-person full-stack group to craft secure document ecosystems for European financial institutions and public services, aligning partners, platforms, and people.
+                </p>
+                <ul>
+                  <li>Steering continuous improvement programmes across high-trust products.</li>
+                  <li>Owning relationships with strategic vendors and stakeholders.</li>
                 </ul>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            </article>
 
-      <section id="experience" class="py-12">
-        <div class="container">
-          <div class="rounded-3xl border border-border bg-card p-8 text-card-foreground shadow-card">
-            <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Experience</span>
-            <h2 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Professional journey</h2>
-            <div class="mt-10 space-y-8 md:border-l md:border-border/60 md:pl-12">
-              <article class="relative rounded-2xl border border-border bg-background/60 p-6">
-                <span class="absolute -left-12 top-8 hidden h-6 w-6 items-center justify-center rounded-full border border-border bg-background shadow md:flex">
-                  <span class="h-2 w-2 rounded-full bg-primary"></span>
-                </span>
-                <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                  <h3 class="text-xl font-semibold">Victor Buck Services · Engineering Supervisor</h3>
-                  <span class="text-sm text-muted-foreground">Jun 2024 – Present</span>
-                </div>
-                <p class="mt-4 text-sm text-muted-foreground">
-                  Leading 10 full-stack engineers to deliver secure document platforms for financial institutions and government bodies. I coordinate product improvements, steward strategic partnerships, and ensure AAA services evolve with business needs.
-                </p>
-              </article>
-
-              <article class="relative rounded-2xl border border-border bg-background/60 p-6">
-                <span class="absolute -left-12 top-8 hidden h-6 w-6 items-center justify-center rounded-full border border-border bg-background shadow md:flex">
-                  <span class="h-2 w-2 rounded-full bg-primary"></span>
-                </span>
-                <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                  <h3 class="text-xl font-semibold">Victor Buck Services · Senior Full Stack Engineer</h3>
-                  <span class="text-sm text-muted-foreground">Jan 2023 – Jun 2024</span>
-                </div>
-                <p class="mt-4 text-sm text-muted-foreground">
-                  Owned the VSafe portal covering authentication, authorization, and accounting. Established Jenkins + Kubernetes CI/CD, introduced TOTP-based strong authentication, and mentored engineers to reduce technical debt.
-                </p>
-              </article>
-
-              <article class="relative rounded-2xl border border-border bg-background/60 p-6">
-                <span class="absolute -left-12 top-8 hidden h-6 w-6 items-center justify-center rounded-full border border-border bg-background shadow md:flex">
-                  <span class="h-2 w-2 rounded-full bg-primary"></span>
-                </span>
-                <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                  <h3 class="text-xl font-semibold">Digital Freelance · Nicolas Pieper Engineering</h3>
-                  <span class="text-sm text-muted-foreground">Jun 2022 – Present</span>
-                </div>
-                <p class="mt-4 text-sm text-muted-foreground">
-                  Advising companies on digital transformation end-to-end. I design robust architectures, modernize delivery pipelines, and coach teams through sustainable engineering practices.
-                </p>
-              </article>
-
-              <article class="relative rounded-2xl border border-border bg-background/60 p-6">
-                <span class="absolute -left-12 top-8 hidden h-6 w-6 items-center justify-center rounded-full border border-border bg-background shadow md:flex">
-                  <span class="h-2 w-2 rounded-full bg-primary"></span>
-                </span>
-                <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                  <h3 class="text-xl font-semibold">Worldline · Technical Leader</h3>
-                  <span class="text-sm text-muted-foreground">Oct 2019 – Sep 2022</span>
-                </div>
-                <p class="mt-4 text-sm text-muted-foreground">
-                  Built a high-volume banking document generation platform producing 10M+ reports monthly in PCI-DSS environments. Delivered microservice architectures, automation pipelines, and monitoring dashboards.
-                </p>
-              </article>
-
-              <article class="relative rounded-2xl border border-border bg-background/60 p-6">
-                <span class="absolute -left-12 top-8 hidden h-6 w-6 items-center justify-center rounded-full border border-border bg-background shadow md:flex">
-                  <span class="h-2 w-2 rounded-full bg-primary"></span>
-                </span>
-                <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                  <h3 class="text-xl font-semibold">Worldline · Lead Developer</h3>
-                  <span class="text-sm text-muted-foreground">Jul 2016 – Oct 2019</span>
-                </div>
-                <p class="mt-4 text-sm text-muted-foreground">
-                  Architected and scaled the IoT platform used by Bosch/Siemens and Gorenje. Led Azure Kubernetes migrations, delivered real-time notification systems, and coordinated international teams.
-                </p>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="skills" class="py-12">
-        <div class="container">
-          <div class="rounded-3xl border border-border bg-card p-8 text-card-foreground shadow-card">
-            <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Skills</span>
-            <h2 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">What I bring to the table</h2>
-            <div class="mt-8 flex flex-wrap gap-3">
-              <span class="inline-flex items-center rounded-full border border-border bg-muted/60 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Engineering Leadership</span>
-              <span class="inline-flex items-center rounded-full border border-border bg-muted/60 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Secure Communication Platforms</span>
-              <span class="inline-flex items-center rounded-full border border-border bg-muted/60 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Java &amp; Spring Ecosystem</span>
-              <span class="inline-flex items-center rounded-full border border-border bg-muted/60 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">CI/CD &amp; DevOps Practices</span>
-              <span class="inline-flex items-center rounded-full border border-border bg-muted/60 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Cloud Architecture (Azure &amp; Kubernetes)</span>
-              <span class="inline-flex items-center rounded-full border border-border bg-muted/60 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Team Mentoring &amp; Coaching</span>
-              <span class="inline-flex items-center rounded-full border border-border bg-muted/60 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Scalable Systems Design</span>
-              <span class="inline-flex items-center rounded-full border border-border bg-muted/60 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Customer Communication Management</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="py-12">
-        <div class="container">
-          <div class="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
-            <div class="rounded-3xl border border-border bg-card p-8 text-card-foreground shadow-card">
-              <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Contact</span>
-              <h2 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Let’s build what’s next</h2>
-              <p class="mt-6 text-base text-muted-foreground sm:text-lg">
-                I’m open to engineering leadership and architecture opportunities. Reach out to explore how we can create secure, scalable solutions together.
-              </p>
-              <div class="mt-8 flex flex-wrap items-center gap-3">
-                <a href="mailto:nicolas@pieper.dev" class="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">Email me</a>
-                <a href="#experience" class="inline-flex items-center justify-center rounded-full border border-border px-5 py-2 text-sm font-semibold transition hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">Review experience</a>
+            <article class="timeline-card" role="listitem">
+              <div class="brand-badge brand-vbs" aria-hidden="true">
+                <span>VBS</span>
               </div>
-            </div>
-            <div class="rounded-3xl border border-dashed border-border bg-card/50 p-8 text-card-foreground shadow-card">
-              <h3 class="text-sm font-semibold uppercase tracking-wide text-muted-foreground">Quick facts</h3>
-              <dl class="mt-6 grid grid-cols-1 gap-6 text-sm text-muted-foreground sm:grid-cols-2">
-                <div class="rounded-2xl border border-border bg-background/60 p-4">
-                  <dt class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Years of experience</dt>
-                  <dd class="mt-2 text-lg font-semibold text-foreground">9+</dd>
-                </div>
-                <div class="rounded-2xl border border-border bg-background/60 p-4">
-                  <dt class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Domains</dt>
-                  <dd class="mt-2 text-lg font-semibold text-foreground">Finance, Gov, IoT</dd>
-                </div>
-                <div class="rounded-2xl border border-border bg-background/60 p-4">
-                  <dt class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Teams led</dt>
-                  <dd class="mt-2 text-lg font-semibold text-foreground">10 Full-stack devs</dd>
-                </div>
-                <div class="rounded-2xl border border-border bg-background/60 p-4">
-                  <dt class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Languages</dt>
-                  <dd class="mt-2 text-lg font-semibold text-foreground">English, French</dd>
-                </div>
-              </dl>
-            </div>
+              <div class="timeline-body">
+                <p class="timeline-era">Jan 2023 — Jun 2024</p>
+                <h3>Senior Full Stack Engineer · Victor Buck Services</h3>
+                <p>
+                  Scaled the VSafe authentication portal, introduced resilient CI/CD with Kubernetes, and modernised legacy Spring estates to keep mission-critical delivery fluent.
+                </p>
+                <ul>
+                  <li>Designed strong TOTP-based authentication for internal platforms.</li>
+                  <li>Mentored engineers to elevate craftsmanship and operational excellence.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="timeline-card" role="listitem">
+              <div class="brand-badge brand-freelance" aria-hidden="true">
+                <span>NE</span>
+              </div>
+              <div class="timeline-body">
+                <p class="timeline-era">Jun 2022 — Present</p>
+                <h3>Founder &amp; Consultant · Nicolas Pieper Engineering</h3>
+                <p>
+                  Advising organisations on high-volume platform design, from ideation to production, and embedding modern delivery practices that endure.
+                </p>
+                <ul>
+                  <li>Architected bespoke solutions spanning secure comms, IoT, and automation.</li>
+                  <li>Partnered with leadership teams to de-risk digital transformations.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="timeline-card" role="listitem">
+              <div class="brand-badge brand-worldline" aria-hidden="true">
+                <span>WL</span>
+              </div>
+              <div class="timeline-body">
+                <p class="timeline-era">Oct 2019 — Sep 2022</p>
+                <h3>Technical Leader · Worldline</h3>
+                <p>
+                  Crafted a microservice platform generating 10M+ regulated banking reports monthly, marrying performance with compliance in a PCI-DSS environment.
+                </p>
+                <ul>
+                  <li>Ran benchmarks to inform rendering strategy across PDF, AFP, and PostScript.</li>
+                  <li>Instituted end-to-end observability and operational dashboards.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="timeline-card" role="listitem">
+              <div class="brand-badge brand-worldline" aria-hidden="true">
+                <span>WL</span>
+              </div>
+              <div class="timeline-body">
+                <p class="timeline-era">Jul 2016 — Oct 2019</p>
+                <h3>Lead Developer · Worldline</h3>
+                <p>
+                  Reimagined a global IoT backbone connecting one million+ devices daily, directing near-shore collaboration and cloud migrations without disrupting service.
+                </p>
+                <ul>
+                  <li>Migrated the platform to Azure Kubernetes and resilient microservices.</li>
+                  <li>Delivered a real-time notification fabric spanning mobile and MQTT.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="timeline-card" role="listitem">
+              <div class="brand-badge brand-enib" aria-hidden="true">
+                <span>ENIB</span>
+              </div>
+              <div class="timeline-body">
+                <p class="timeline-era">2013 — 2016</p>
+                <h3>Master’s in Engineering · ENIB</h3>
+                <p>
+                  Graduated with a focus on computer science and electronics, delivering projects in 3D reconstruction, robotics, and secure systems design.
+                </p>
+                <ul>
+                  <li>Exchange semester at Université de Sherbrooke in advanced software security.</li>
+                  <li>Prototyped full-stack products from mobile to kernel-level development.</li>
+                </ul>
+              </div>
+            </article>
           </div>
+        </div>
+      </section>
+
+      <section class="principles shell" id="principles" aria-labelledby="principles-title">
+        <div class="section-heading">
+          <p class="eyebrow">Principles</p>
+          <h2 id="principles-title">How I make leadership tangible every day.</h2>
+        </div>
+        <div class="principles-grid">
+          <article>
+            <h3>Clarity before velocity</h3>
+            <p>I align strategy, stakeholders, and execution with narratives everyone can own, ensuring autonomy never compromises direction.</p>
+          </article>
+          <article>
+            <h3>Craft with empathy</h3>
+            <p>Systems succeed when teams feel seen. I cultivate rituals, feedback loops, and tooling that keep curiosity thriving alongside accountability.</p>
+          </article>
+          <article>
+            <h3>Secure by design</h3>
+            <p>Compliance is not a checkbox—it’s a design choice. I weave privacy, security, and reliability into the earliest sketches of any platform.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="shell callout" aria-labelledby="callout-title">
+        <div class="callout-panel">
+          <div>
+            <p class="eyebrow">Let’s collaborate</p>
+            <h2 id="callout-title">Ready to scale your next chapter?</h2>
+            <p>
+              Whether you’re unlocking a new market, hardening mission-critical platforms, or looking for a steady hand to guide a high-performing team, I’d love to help.
+            </p>
+          </div>
+          <a class="button primary" href="mailto:nicolas@pieper.dev">Book a conversation</a>
         </div>
       </section>
     </main>
 
-    <footer class="border-t border-border/60 bg-background/80 py-8 text-sm text-muted-foreground">
-      <div class="container flex flex-col items-center justify-between gap-4 text-center md:flex-row md:text-left">
-        <p>&copy; <span id="year"></span> Nicolas Pieper. Crafted with curiosity and care.</p>
-        <a class="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground transition hover:border-primary hover:text-primary" href="#top">Back to top ↑</a>
+    <footer class="shell footer" id="contact">
+      <div>
+        <p class="footer-title">Let’s keep in touch</p>
+        <a class="footer-link" href="mailto:nicolas@pieper.dev">nicolas@pieper.dev</a>
+      </div>
+      <div class="footer-meta">
+        <p>Luxembourg · Operating across Europe</p>
+        <p>&copy; <span id="year"></span> Nicolas Pieper. Crafted with curiosity and precision.</p>
       </div>
     </footer>
   </div>

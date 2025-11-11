@@ -1,63 +1,44 @@
-const storageKey = 'np-theme';
-const documentElement = document.documentElement;
-const toggleButton = document.getElementById('theme-toggle');
-const iconSun = document.getElementById('icon-sun');
-const iconMoon = document.getElementById('icon-moon');
 const yearEl = document.getElementById('year');
-
-const prefersDark = () => window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-function applyTheme(theme, persist = false) {
-  documentElement.setAttribute('data-theme', theme);
-  if (persist) {
-    localStorage.setItem(storageKey, theme);
-  }
-  const isDark = theme === 'dark';
-  iconSun.classList.toggle('hidden', isDark);
-  iconMoon.classList.toggle('hidden', !isDark);
-  if (toggleButton) {
-    toggleButton.setAttribute('aria-pressed', String(isDark));
-  }
-}
-
-function initializeTheme() {
-  const storedTheme = localStorage.getItem(storageKey);
-  if (storedTheme === 'light' || storedTheme === 'dark') {
-    applyTheme(storedTheme);
-    return;
-  }
-  applyTheme(prefersDark() ? 'dark' : 'light');
-}
-
-if (toggleButton) {
-  toggleButton.addEventListener('click', () => {
-    const currentTheme = documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-    const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    applyTheme(nextTheme, true);
-  });
-}
-
-if (window.matchMedia) {
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
-    const storedTheme = localStorage.getItem(storageKey);
-    if (storedTheme !== 'light' && storedTheme !== 'dark') {
-      applyTheme(event.matches ? 'dark' : 'light');
-    }
-  });
-}
-
-initializeTheme();
-
 if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
 
-const anchorLinks = document.querySelectorAll('a[href^="#"]');
-anchorLinks.forEach((link) => {
+const navLinks = Array.from(document.querySelectorAll('.nav a')).map((link) => [link.getAttribute('href').replace('#', ''), link]);
+const navMap = new Map(navLinks);
+
+if (navLinks.length) {
+  setActiveNav(navLinks[0][0]);
+}
+
+function setActiveNav(id) {
+  navMap.forEach((link) => link.classList.remove('is-active'));
+  const active = navMap.get(id);
+  if (active) {
+    active.classList.add('is-active');
+  }
+}
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries
+      .filter((entry) => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
+      .forEach((entry, index) => {
+        if (index === 0) {
+          setActiveNav(entry.target.id);
+        }
+      });
+  },
+  {
+    rootMargin: '-40% 0px -40% 0px',
+    threshold: [0.2, 0.45, 0.7],
+  }
+);
+
+Array.from(document.querySelectorAll('main section[id]')).forEach((section) => observer.observe(section));
+
+navMap.forEach((link, id) => {
   link.addEventListener('click', () => {
-    const drawer = document.getElementById('mobile-nav');
-    if (drawer && drawer.hasAttribute('open')) {
-      drawer.removeAttribute('open');
-    }
+    setActiveNav(id);
   });
 });
