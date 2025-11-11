@@ -1,253 +1,302 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="wa-cloak wa-theme-default">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nicolas Pieper — Engineering Leadership Crafted with Care</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <title>Nicolas Pieper · Engineering Leader Resume</title>
+  <meta name="description" content="Online resume for Nicolas Pieper, an engineering leader building secure communication platforms and calm, high-performing teams.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@awesome.me/webawesome@latest/dist-cdn/styles/webawesome.css">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@awesome.me/webawesome@latest/dist-cdn/webawesome.loader.js"></script>
 </head>
-<body>
-  <div class="page" id="top">
-    <header class="shell top-bar" aria-label="Primary">
-      <a class="wordmark" href="#top">
-        <span class="wordmark-logo" aria-hidden="true">NP</span>
-        <span class="wordmark-text">
-          <span class="wordmark-title">Nicolas Pieper</span>
-          <span class="wordmark-subtitle">Engineering Manager</span>
-        </span>
-      </a>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#vision">Vision</a>
-        <a href="#journey">Journey</a>
-        <a href="#principles">Principles</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+<body class="wa-stack wa-gap-3xl" style="margin: 0; background: var(--wa-color-surface-subtle);">
+  <header class="wa-stack" style="margin-inline: auto; margin-top: clamp(var(--wa-space-l), 6vw, var(--wa-space-3xl)); width: min(1100px, 100%);">
+    <wa-card style="border: none; border-radius: var(--wa-border-radius-xl); box-shadow: var(--wa-shadow-m);">
+      <div class="wa-stack wa-gap-xl" style="padding: clamp(var(--wa-space-xl), 6vw, var(--wa-space-2xl));">
+        <div class="wa-flank wa-align-items-center wa-gap-xl" style="flex-wrap: wrap;">
+          <wa-avatar
+            image="images/nicolas_pieper.png"
+            label="Portrait of Nicolas Pieper"
+            shape="rounded"
+            style="--size: 4.25rem;"
+          ></wa-avatar>
+          <div class="wa-stack wa-gap-xs" style="flex: 1 1 240px;">
+            <span class="wa-heading-2xl">Nicolas Pieper</span>
+            <span class="wa-body-m wa-color-text-quiet">Engineering leader for resilient, human-centred platforms</span>
+            <div class="wa-cluster wa-gap-xs" style="flex-wrap: wrap;">
+              <wa-tag variant="brand" appearance="accent" size="small">Secure platform delivery</wa-tag>
+              <wa-tag variant="neutral" appearance="filled" size="small">Team coaching &amp; rituals</wa-tag>
+              <wa-tag variant="success" appearance="outlined" size="small">Calm execution at scale</wa-tag>
+            </div>
+          </div>
+          <div class="wa-cluster wa-gap-xs" style="flex-wrap: wrap;">
+            <wa-button appearance="plain" size="small" href="#about">About</wa-button>
+            <wa-button appearance="plain" size="small" href="#experience">Experience</wa-button>
+            <wa-button appearance="plain" size="small" href="#skills">Skills</wa-button>
+            <wa-button appearance="plain" size="small" href="#education">Education</wa-button>
+            <wa-button variant="brand" size="small" href="mailto:nicolas@pieper.dev">
+              <wa-icon slot="start" name="envelope"></wa-icon>
+              Connect
+            </wa-button>
+          </div>
+        </div>
+        <wa-divider></wa-divider>
+        <div class="wa-stack wa-gap-xl">
+          <div class="wa-stack wa-gap-s wa-longform-m" id="about">
+            <span class="wa-caption-s wa-color-text-quiet">Profile</span>
+            <p>
+              I help regulated organisations deliver trustworthy communication platforms without sacrificing momentum. My teams work
+              with clarity, steady cadence, and just enough guardrails to let curiosity flourish. The result: dependable products,
+              confident stakeholders, and engineers who have the space to do their best work.
+            </p>
+          </div>
+          <div class="wa-grid" style="--min-column-size: 22ch;">
+            <wa-card appearance="filled" class="wa-stack wa-gap-xs" style="box-shadow: none;">
+              <div class="wa-flank wa-gap-s wa-align-items-center">
+                <wa-avatar shape="rounded" label="Years of experience" style="--size: 3rem; background: var(--wa-color-brand-fill-quiet); color: var(--wa-color-brand-on-quiet);">
+                  <wa-icon slot="icon" name="calendar-star"></wa-icon>
+                </wa-avatar>
+                <div class="wa-stack wa-gap-2xs">
+                  <span class="wa-caption-s wa-color-text-quiet">Years shaping platforms</span>
+                  <span class="wa-heading-xl">9+</span>
+                </div>
+              </div>
+            </wa-card>
+            <wa-card appearance="filled" class="wa-stack wa-gap-xs" style="box-shadow: none;">
+              <div class="wa-flank wa-gap-s wa-align-items-center">
+                <wa-avatar shape="rounded" label="Teams empowered" style="--size: 3rem; background: var(--wa-color-success-fill-quiet); color: var(--wa-color-success-on-quiet);">
+                  <wa-icon slot="icon" name="people-group"></wa-icon>
+                </wa-avatar>
+                <div class="wa-stack wa-gap-2xs">
+                  <span class="wa-caption-s wa-color-text-quiet">Teams empowered</span>
+                  <span class="wa-heading-xl">8–10 engineers</span>
+                </div>
+              </div>
+            </wa-card>
+            <wa-card appearance="filled" class="wa-stack wa-gap-xs" style="box-shadow: none;">
+              <div class="wa-flank wa-gap-s wa-align-items-center">
+                <wa-avatar shape="rounded" label="Industries" style="--size: 3rem; background: var(--wa-color-indigo-60); color: var(--wa-color-indigo-95);">
+                  <wa-icon slot="icon" name="building-columns"></wa-icon>
+                </wa-avatar>
+                <div class="wa-stack wa-gap-2xs">
+                  <span class="wa-caption-s wa-color-text-quiet">Industries served</span>
+                  <span class="wa-heading-xl">Finance · Gov · IIoT</span>
+                </div>
+              </div>
+            </wa-card>
+          </div>
+        </div>
+      </div>
+    </wa-card>
+  </header>
 
-    <main>
-      <section class="hero shell" aria-labelledby="hero-title">
-        <div class="hero-content">
-          <p class="eyebrow">Leadership in secure platforms &amp; human-centred teams</p>
-          <h1 id="hero-title">Designing calm, resilient systems that let people do their best work.</h1>
-          <p class="lead">
-            I’m Nicolas Pieper, an engineering leader orchestrating secure communication platforms for regulated environments.
-            I build teams that balance rigour with warmth so innovation feels effortless for everyone involved.
+  <main class="wa-stack wa-gap-3xl" style="margin-inline: auto; width: min(1100px, 100%); padding-inline: clamp(var(--wa-space-l), 6vw, var(--wa-space-2xl)); padding-bottom: clamp(var(--wa-space-3xl), 8vw, var(--wa-space-5xl));">
+    <section class="wa-stack wa-gap-l" aria-labelledby="experience-title" id="experience">
+      <div class="wa-stack wa-gap-2xs">
+        <span class="wa-caption-s wa-color-text-quiet">Career journey</span>
+        <h2 class="wa-heading-xl" id="experience-title">Recent experience</h2>
+      </div>
+      <div class="wa-stack wa-gap-l">
+        <wa-card class="wa-stack wa-gap-s" appearance="outlined">
+          <div class="wa-flank wa-gap-l wa-align-items-start" style="flex-wrap: wrap;">
+            <div class="wa-frame wa-border-radius-m" style="inline-size: 92px; aspect-ratio: 1; background: var(--wa-color-surface-default);">
+              <img src="images/victor_buck_services_logo.jpg" alt="Victor Buck Services logo" style="object-fit: contain; width: 100%; height: 100%;">
+            </div>
+            <div class="wa-stack wa-gap-xs" style="flex: 1 1 240px;">
+              <span class="wa-caption-s wa-color-text-quiet">Jun 2024 — Present</span>
+              <h3 class="wa-heading-l">Engineering Supervisor · Victor Buck Services</h3>
+              <p class="wa-body-m">
+                Guiding a 10-person full-stack group to deliver secure document ecosystems for European financial services and public administrations.
+              </p>
+              <ul class="wa-body-s wa-stack wa-gap-2xs" style="list-style: disc; padding-inline-start: var(--wa-space-xl);">
+                <li>Scaled continuous improvement rituals across mission-critical communication workflows.</li>
+                <li>Aligned vendors, compliance, and delivery teams around a single operational narrative.</li>
+              </ul>
+            </div>
+          </div>
+        </wa-card>
+
+        <wa-card class="wa-stack wa-gap-s" appearance="outlined">
+          <div class="wa-flank wa-gap-l wa-align-items-start" style="flex-wrap: wrap;">
+            <div class="wa-frame wa-border-radius-m" style="inline-size: 92px; aspect-ratio: 1; background: var(--wa-color-surface-default);">
+              <img src="images/victor_buck_services_logo.jpg" alt="Victor Buck Services logo" style="object-fit: contain; width: 100%; height: 100%;">
+            </div>
+            <div class="wa-stack wa-gap-xs" style="flex: 1 1 240px;">
+              <span class="wa-caption-s wa-color-text-quiet">Jan 2023 — Jun 2024</span>
+              <h3 class="wa-heading-l">Senior Full Stack Engineer · Victor Buck Services</h3>
+              <p class="wa-body-m">
+                Modernised the VSafe authentication portal, weaving resilient CI/CD pipelines and contemporary Spring services into regulated delivery chains.
+              </p>
+              <ul class="wa-body-s wa-stack wa-gap-2xs" style="list-style: disc; padding-inline-start: var(--wa-space-xl);">
+                <li>Introduced strong TOTP-based authentication and self-service identity tooling.</li>
+                <li>Mentored engineers to uplift craftsmanship, observability, and deployment discipline.</li>
+              </ul>
+            </div>
+          </div>
+        </wa-card>
+
+        <wa-card class="wa-stack wa-gap-s" appearance="outlined">
+          <div class="wa-flank wa-gap-l wa-align-items-start" style="flex-wrap: wrap;">
+            <div class="wa-frame wa-border-radius-m" style="inline-size: 92px; aspect-ratio: 1; background: var(--wa-color-surface-default);">
+              <img src="images/nicolas_pieper_engineering_logo.jpg" alt="Nicolas Pieper Engineering logo" style="object-fit: contain; width: 100%; height: 100%;">
+            </div>
+            <div class="wa-stack wa-gap-xs" style="flex: 1 1 240px;">
+              <span class="wa-caption-s wa-color-text-quiet">Jun 2022 — Present</span>
+              <h3 class="wa-heading-l">Founder &amp; Consultant · Nicolas Pieper Engineering</h3>
+              <p class="wa-body-m">
+                Advising leadership teams on high-volume platform design, from ideation to go-live, with delivery practices tailored for longevity.
+              </p>
+              <ul class="wa-body-s wa-stack wa-gap-2xs" style="list-style: disc; padding-inline-start: var(--wa-space-xl);">
+                <li>Architected bespoke solutions spanning secure communications, industrial IoT, and automation.</li>
+                <li>Embedded discovery-to-delivery playbooks that keep transformations low-risk and measurable.</li>
+              </ul>
+            </div>
+          </div>
+        </wa-card>
+
+        <wa-card class="wa-stack wa-gap-s" appearance="outlined">
+          <div class="wa-flank wa-gap-l wa-align-items-start" style="flex-wrap: wrap;">
+            <div class="wa-frame wa-border-radius-m" style="inline-size: 92px; aspect-ratio: 1; background: var(--wa-color-surface-default);">
+              <img src="images/worldlineglobal_logo.jpg" alt="Worldline logo" style="object-fit: contain; width: 100%; height: 100%;">
+            </div>
+            <div class="wa-stack wa-gap-xs" style="flex: 1 1 240px;">
+              <span class="wa-caption-s wa-color-text-quiet">Oct 2019 — Sep 2022</span>
+              <h3 class="wa-heading-l">Technical Leader · Worldline</h3>
+              <p class="wa-body-m">
+                Crafted a microservice platform generating 10M+ regulated banking reports per month while balancing PCI-DSS compliance and performance.
+              </p>
+              <ul class="wa-body-s wa-stack wa-gap-2xs" style="list-style: disc; padding-inline-start: var(--wa-space-xl);">
+                <li>Orchestrated multi-region Kubernetes workloads and high-availability data processing pipelines.</li>
+                <li>Delivered observability suites and runbooks enabling 24/7 support across global teams.</li>
+              </ul>
+            </div>
+          </div>
+        </wa-card>
+
+        <wa-card class="wa-stack wa-gap-s" appearance="outlined">
+          <div class="wa-flank wa-gap-l wa-align-items-start" style="flex-wrap: wrap;">
+            <div class="wa-frame wa-border-radius-m" style="inline-size: 92px; aspect-ratio: 1; background: var(--wa-color-surface-default);">
+              <img src="images/worldlineglobal_logo.jpg" alt="Worldline logo" style="object-fit: contain; width: 100%; height: 100%;">
+            </div>
+            <div class="wa-stack wa-gap-xs" style="flex: 1 1 240px;">
+              <span class="wa-caption-s wa-color-text-quiet">Jul 2016 — Oct 2019</span>
+              <h3 class="wa-heading-l">Lead Developer · Worldline</h3>
+              <p class="wa-body-m">
+                Reimagined a global IoT backbone connecting over one million devices daily while steering near-shore collaboration and cloud migrations.
+              </p>
+              <ul class="wa-body-s wa-stack wa-gap-2xs" style="list-style: disc; padding-inline-start: var(--wa-space-xl);">
+                <li>Transitioned legacy services to Azure Kubernetes without interrupting regulated operations.</li>
+                <li>Built event-driven notification fabrics covering mobile, web, and MQTT endpoints.</li>
+              </ul>
+            </div>
+          </div>
+        </wa-card>
+      </div>
+    </section>
+
+    <wa-divider role="presentation"></wa-divider>
+
+    <section class="wa-stack wa-gap-l" aria-labelledby="skills-title" id="skills">
+      <div class="wa-stack wa-gap-2xs">
+        <span class="wa-caption-s wa-color-text-quiet">Toolbox</span>
+        <h2 class="wa-heading-xl" id="skills-title">Core strengths</h2>
+      </div>
+      <wa-card appearance="filled" class="wa-stack wa-gap-m" style="box-shadow: none;">
+        <div class="wa-stack wa-gap-xs">
+          <span class="wa-caption-s wa-color-text-quiet">Leadership themes</span>
+          <div class="wa-cluster wa-gap-xs" style="flex-wrap: wrap;">
+            <wa-tag variant="brand" appearance="filled">Platform strategy</wa-tag>
+            <wa-tag variant="brand" appearance="outlined">Delivery enablement</wa-tag>
+            <wa-tag variant="brand" appearance="accent">Team rituals</wa-tag>
+            <wa-tag variant="brand" appearance="filled-outlined">Stakeholder alignment</wa-tag>
+          </div>
+        </div>
+        <div class="wa-stack wa-gap-xs">
+          <span class="wa-caption-s wa-color-text-quiet">Engineering depth</span>
+          <div class="wa-cluster wa-gap-xs" style="flex-wrap: wrap;">
+            <wa-tag variant="neutral" appearance="filled">Kubernetes</wa-tag>
+            <wa-tag variant="neutral" appearance="filled">Spring ecosystem</wa-tag>
+            <wa-tag variant="neutral" appearance="filled">CI/CD automation</wa-tag>
+            <wa-tag variant="neutral" appearance="filled">Observability</wa-tag>
+            <wa-tag variant="neutral" appearance="filled">Domain-driven design</wa-tag>
+            <wa-tag variant="neutral" appearance="filled">Secure SDLC</wa-tag>
+          </div>
+        </div>
+      </wa-card>
+    </section>
+
+    <wa-divider role="presentation"></wa-divider>
+
+    <section class="wa-stack wa-gap-l" aria-labelledby="education-title" id="education">
+      <div class="wa-stack wa-gap-2xs">
+        <span class="wa-caption-s wa-color-text-quiet">Education</span>
+        <h2 class="wa-heading-xl" id="education-title">Foundations</h2>
+      </div>
+      <div class="wa-grid" style="--min-column-size: 28ch;">
+        <wa-card class="wa-stack wa-gap-s" appearance="outlined">
+          <div class="wa-flank wa-gap-l wa-align-items-start">
+            <div class="wa-frame wa-border-radius-m" style="inline-size: 80px; aspect-ratio: 1; background: var(--wa-color-surface-default);">
+              <img src="images/eni_brest_logo.jpg" alt="École Nationale d'Ingénieurs de Brest logo" style="object-fit: contain; width: 100%; height: 100%;">
+            </div>
+            <div class="wa-stack wa-gap-2xs">
+              <span class="wa-caption-s wa-color-text-quiet">2013 — 2016</span>
+              <h3 class="wa-heading-m">Master's in Engineering · ENIB</h3>
+              <p class="wa-body-s">
+                Focus on computer science and electronics with capstone projects in 3D reconstruction, robotics, and secure systems design.
+              </p>
+            </div>
+          </div>
+        </wa-card>
+        <wa-card class="wa-stack wa-gap-s" appearance="outlined">
+          <div class="wa-flank wa-gap-l wa-align-items-start">
+            <div class="wa-frame wa-border-radius-m" style="inline-size: 80px; aspect-ratio: 1; background: var(--wa-color-surface-default);">
+              <img src="images/universite_de_sherbrooke_logo.jpg" alt="Université de Sherbrooke logo" style="object-fit: contain; width: 100%; height: 100%;">
+            </div>
+            <div class="wa-stack wa-gap-2xs">
+              <span class="wa-caption-s wa-color-text-quiet">2015</span>
+              <h3 class="wa-heading-m">Exchange Semester · Université de Sherbrooke</h3>
+              <p class="wa-body-s">
+                Advanced coursework in secure software engineering and applied research collaborations within North American industry labs.
+              </p>
+            </div>
+          </div>
+        </wa-card>
+      </div>
+    </section>
+
+    <wa-divider role="presentation"></wa-divider>
+
+    <section class="wa-stack wa-gap-l" aria-labelledby="contact-title" id="contact">
+      <div class="wa-stack wa-gap-2xs">
+        <span class="wa-caption-s wa-color-text-quiet">Let’s collaborate</span>
+        <h2 class="wa-heading-xl" id="contact-title">Stay in touch</h2>
+      </div>
+      <wa-callout variant="brand" size="large" appearance="filled-outlined">
+        <wa-icon slot="icon" name="comments"></wa-icon>
+        <div class="wa-stack wa-gap-s">
+          <p class="wa-body-m" style="margin: 0;">
+            Whether you’re unlocking a new market, hardening critical infrastructure, or searching for a calm engineering leader, I’d love to connect.
           </p>
-          <div class="hero-actions">
-            <a class="button primary" href="mailto:nicolas@pieper.dev">Start a conversation</a>
-            <a class="button ghost" href="#journey">Explore my track record</a>
-          </div>
-          <dl class="hero-stats" aria-label="Key figures">
-            <div>
-              <dt>Years shaping platforms</dt>
-              <dd>9+</dd>
+          <div class="wa-grid" style="--min-column-size: 26ch;">
+            <div class="wa-flank wa-gap-s wa-align-items-center">
+              <wa-icon name="envelope"></wa-icon>
+              <a class="wa-link" href="mailto:nicolas@pieper.dev">nicolas@pieper.dev</a>
             </div>
-            <div>
-              <dt>Teams empowered</dt>
-              <dd>From 8 to 10 engineers</dd>
+            <div class="wa-flank wa-gap-s wa-align-items-center">
+              <wa-icon name="location-dot"></wa-icon>
+              <span class="wa-body-s">Based in Luxembourg · Collaborating across Europe</span>
             </div>
-            <div>
-              <dt>Industries served</dt>
-              <dd>Finance · Gov · IIoT</dd>
+            <div class="wa-flank wa-gap-s wa-align-items-center">
+              <wa-icon name="globe"></wa-icon>
+              <a class="wa-link" href="https://pieper.dev" target="_blank" rel="noreferrer">pieper.dev</a>
             </div>
-          </dl>
-        </div>
-        <figure class="hero-portrait">
-          <div class="portrait-frame">
-            <img src="assets/nicolas-pieper.png" alt="Portrait of Nicolas Pieper" loading="lazy">
-          </div>
-          <figcaption>Based in Luxembourg · Open to strategic engineering leadership roles</figcaption>
-        </figure>
-      </section>
-
-      <section class="shell vision" id="vision" aria-labelledby="vision-title">
-        <div class="section-heading">
-          <p class="eyebrow">Signature impact</p>
-          <h2 id="vision-title">What innovation feels like under my watch.</h2>
-        </div>
-        <div class="vision-grid" role="list">
-          <article class="vision-card" role="listitem">
-            <h3>Secure communication at scale</h3>
-            <p>
-              From PCI-DSS compliant ecosystems to government-grade distribution chains, I align security, compliance, and delivery velocity so trust is built-in, not bolted on.
-            </p>
-          </article>
-          <article class="vision-card" role="listitem">
-            <h3>Momentum for multidisciplinary teams</h3>
-            <p>
-              I bring clarity to complex roadmaps, coach engineers across experience levels, and nurture rituals that make craft, collaboration, and learning inseparable.
-            </p>
-          </article>
-          <article class="vision-card" role="listitem">
-            <h3>Architecture that leaves room to grow</h3>
-            <p>
-              Whether rebuilding IoT backbones or modernising AAA portals, my architectures anticipate the next decade—resilient, observable, and a joy to extend.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="journey" id="journey" aria-labelledby="journey-title">
-        <div class="shell">
-          <div class="section-heading">
-            <p class="eyebrow">Journey</p>
-            <h2 id="journey-title">A timeline of leadership in motion.</h2>
-          </div>
-          <div class="timeline" role="list">
-            <article class="timeline-card" role="listitem">
-              <div class="brand-badge brand-vbs" aria-hidden="true">
-                <span>VBS</span>
-              </div>
-              <div class="timeline-body">
-                <p class="timeline-era">Jun 2024 — Present</p>
-                <h3>Engineering Supervisor · Victor Buck Services</h3>
-                <p>
-                  Leading a 10-person full-stack group to craft secure document ecosystems for European financial institutions and public services, aligning partners, platforms, and people.
-                </p>
-                <ul>
-                  <li>Steering continuous improvement programmes across high-trust products.</li>
-                  <li>Owning relationships with strategic vendors and stakeholders.</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="timeline-card" role="listitem">
-              <div class="brand-badge brand-vbs" aria-hidden="true">
-                <span>VBS</span>
-              </div>
-              <div class="timeline-body">
-                <p class="timeline-era">Jan 2023 — Jun 2024</p>
-                <h3>Senior Full Stack Engineer · Victor Buck Services</h3>
-                <p>
-                  Scaled the VSafe authentication portal, introduced resilient CI/CD with Kubernetes, and modernised legacy Spring estates to keep mission-critical delivery fluent.
-                </p>
-                <ul>
-                  <li>Designed strong TOTP-based authentication for internal platforms.</li>
-                  <li>Mentored engineers to elevate craftsmanship and operational excellence.</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="timeline-card" role="listitem">
-              <div class="brand-badge brand-freelance" aria-hidden="true">
-                <span>NE</span>
-              </div>
-              <div class="timeline-body">
-                <p class="timeline-era">Jun 2022 — Present</p>
-                <h3>Founder &amp; Consultant · Nicolas Pieper Engineering</h3>
-                <p>
-                  Advising organisations on high-volume platform design, from ideation to production, and embedding modern delivery practices that endure.
-                </p>
-                <ul>
-                  <li>Architected bespoke solutions spanning secure comms, IoT, and automation.</li>
-                  <li>Partnered with leadership teams to de-risk digital transformations.</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="timeline-card" role="listitem">
-              <div class="brand-badge brand-worldline" aria-hidden="true">
-                <span>WL</span>
-              </div>
-              <div class="timeline-body">
-                <p class="timeline-era">Oct 2019 — Sep 2022</p>
-                <h3>Technical Leader · Worldline</h3>
-                <p>
-                  Crafted a microservice platform generating 10M+ regulated banking reports monthly, marrying performance with compliance in a PCI-DSS environment.
-                </p>
-                <ul>
-                  <li>Ran benchmarks to inform rendering strategy across PDF, AFP, and PostScript.</li>
-                  <li>Instituted end-to-end observability and operational dashboards.</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="timeline-card" role="listitem">
-              <div class="brand-badge brand-worldline" aria-hidden="true">
-                <span>WL</span>
-              </div>
-              <div class="timeline-body">
-                <p class="timeline-era">Jul 2016 — Oct 2019</p>
-                <h3>Lead Developer · Worldline</h3>
-                <p>
-                  Reimagined a global IoT backbone connecting one million+ devices daily, directing near-shore collaboration and cloud migrations without disrupting service.
-                </p>
-                <ul>
-                  <li>Migrated the platform to Azure Kubernetes and resilient microservices.</li>
-                  <li>Delivered a real-time notification fabric spanning mobile and MQTT.</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="timeline-card" role="listitem">
-              <div class="brand-badge brand-enib" aria-hidden="true">
-                <span>ENIB</span>
-              </div>
-              <div class="timeline-body">
-                <p class="timeline-era">2013 — 2016</p>
-                <h3>Master’s in Engineering · ENIB</h3>
-                <p>
-                  Graduated with a focus on computer science and electronics, delivering projects in 3D reconstruction, robotics, and secure systems design.
-                </p>
-                <ul>
-                  <li>Exchange semester at Université de Sherbrooke in advanced software security.</li>
-                  <li>Prototyped full-stack products from mobile to kernel-level development.</li>
-                </ul>
-              </div>
-            </article>
           </div>
         </div>
-      </section>
+      </wa-callout>
+    </section>
+  </main>
 
-      <section class="principles shell" id="principles" aria-labelledby="principles-title">
-        <div class="section-heading">
-          <p class="eyebrow">Principles</p>
-          <h2 id="principles-title">How I make leadership tangible every day.</h2>
-        </div>
-        <div class="principles-grid">
-          <article>
-            <h3>Clarity before velocity</h3>
-            <p>I align strategy, stakeholders, and execution with narratives everyone can own, ensuring autonomy never compromises direction.</p>
-          </article>
-          <article>
-            <h3>Craft with empathy</h3>
-            <p>Systems succeed when teams feel seen. I cultivate rituals, feedback loops, and tooling that keep curiosity thriving alongside accountability.</p>
-          </article>
-          <article>
-            <h3>Secure by design</h3>
-            <p>Compliance is not a checkbox—it’s a design choice. I weave privacy, security, and reliability into the earliest sketches of any platform.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="shell callout" aria-labelledby="callout-title">
-        <div class="callout-panel">
-          <div>
-            <p class="eyebrow">Let’s collaborate</p>
-            <h2 id="callout-title">Ready to scale your next chapter?</h2>
-            <p>
-              Whether you’re unlocking a new market, hardening mission-critical platforms, or looking for a steady hand to guide a high-performing team, I’d love to help.
-            </p>
-          </div>
-          <a class="button primary" href="mailto:nicolas@pieper.dev">Book a conversation</a>
-        </div>
-      </section>
-    </main>
-
-    <footer class="shell footer" id="contact">
-      <div>
-        <p class="footer-title">Let’s keep in touch</p>
-        <a class="footer-link" href="mailto:nicolas@pieper.dev">nicolas@pieper.dev</a>
-      </div>
-      <div class="footer-meta">
-        <p>Luxembourg · Operating across Europe</p>
-        <p>&copy; <span id="year"></span> Nicolas Pieper. Crafted with curiosity and precision.</p>
-      </div>
-    </footer>
-  </div>
-  <script src="script.js" type="module"></script>
+  <footer class="wa-body-s wa-color-text-quiet" style="text-align: center; padding-bottom: var(--wa-space-3xl);">
+    &copy; 2024 Nicolas Pieper. Crafted with curiosity and precision.
+  </footer>
 </body>
 </html>
