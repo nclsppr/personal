@@ -1,302 +1,445 @@
 <!DOCTYPE html>
-<html lang="en" class="wa-cloak wa-theme-default">
+<html lang="fr" class="wa-cloak wa-theme-default">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nicolas Pieper · Engineering Leader Resume</title>
-  <meta name="description" content="Online resume for Nicolas Pieper, an engineering leader building secure communication platforms and calm, high-performing teams.">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@awesome.me/webawesome@latest/dist-cdn/styles/webawesome.css">
-  <script type="module" src="https://cdn.jsdelivr.net/npm/@awesome.me/webawesome@latest/dist-cdn/webawesome.loader.js"></script>
+  <title>Nicolas Pieper · Ingénierie, leadership et alliances produits</title>
+  <meta
+    name="description"
+    content="Page de présentation WebAwesome de Nicolas Pieper : ingénieur et leader produit qui aide les organisations régulées à livrer avec sérénité."
+  >
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@awesome.me/webawesome@latest/dist-cdn/styles/webawesome.css"
+  >
+  <script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@awesome.me/webawesome@latest/dist-cdn/webawesome.loader.js"
+  ></script>
+  <style>
+    :root {
+      color-scheme: light dark;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(120% 120% at 100% 0%, color-mix(in srgb, var(--wa-color-brand-fill-quiet) 30%, transparent), transparent),
+        linear-gradient(180deg, var(--wa-color-surface-subtle), var(--wa-color-surface-default));
+      color: var(--wa-color-text-strong);
+      font-family: var(--wa-font-sans);
+    }
+
+    main {
+      width: min(1120px, 100%);
+      margin-inline: auto;
+      padding: clamp(var(--wa-space-l), 5vw, var(--wa-space-3xl)) clamp(var(--wa-space-m), 6vw, var(--wa-space-4xl))
+        clamp(var(--wa-space-4xl), 8vw, var(--wa-space-6xl));
+    }
+
+    header,
+    footer {
+      width: min(1120px, 100%);
+      margin-inline: auto;
+      padding-inline: clamp(var(--wa-space-m), 6vw, var(--wa-space-4xl));
+      padding-top: clamp(var(--wa-space-2xl), 7vw, var(--wa-space-4xl));
+    }
+
+    .hero-card {
+      background: color-mix(in srgb, var(--wa-color-surface-elevated) 80%, transparent);
+      border: 1px solid color-mix(in srgb, var(--wa-color-brand-stroke) 35%, transparent);
+      box-shadow: var(--wa-shadow-l);
+    }
+
+    .section-heading {
+      display: flex;
+      flex-direction: column;
+      gap: var(--wa-space-2xs);
+    }
+
+    .section-heading span {
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    wa-tab-panel ::marker {
+      color: var(--wa-color-brand-stroke);
+    }
+
+    .pill-list {
+      flex-wrap: wrap;
+    }
+
+    .logo-chip {
+      inline-size: 92px;
+      aspect-ratio: 1;
+      border-radius: var(--wa-border-radius-l);
+      background: var(--wa-color-surface-default);
+      display: grid;
+      place-items: center;
+      padding: var(--wa-space-s);
+    }
+
+    .logo-chip img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  </style>
 </head>
-<body class="wa-stack wa-gap-3xl" style="margin: 0; background: var(--wa-color-surface-subtle);">
-  <header class="wa-stack" style="margin-inline: auto; margin-top: clamp(var(--wa-space-l), 6vw, var(--wa-space-3xl)); width: min(1100px, 100%);">
-    <wa-card style="border: none; border-radius: var(--wa-border-radius-xl); box-shadow: var(--wa-shadow-m);">
-      <div class="wa-stack wa-gap-xl" style="padding: clamp(var(--wa-space-xl), 6vw, var(--wa-space-2xl));">
-        <div class="wa-flank wa-align-items-center wa-gap-xl" style="flex-wrap: wrap;">
-          <wa-avatar
-            image="images/nicolas_pieper.png"
-            label="Portrait of Nicolas Pieper"
-            shape="rounded"
-            style="--size: 4.25rem;"
-          ></wa-avatar>
-          <div class="wa-stack wa-gap-xs" style="flex: 1 1 240px;">
-            <span class="wa-heading-2xl">Nicolas Pieper</span>
-            <span class="wa-body-m wa-color-text-quiet">Engineering leader for resilient, human-centred platforms</span>
-            <div class="wa-cluster wa-gap-xs" style="flex-wrap: wrap;">
-              <wa-tag variant="brand" appearance="accent" size="small">Secure platform delivery</wa-tag>
-              <wa-tag variant="neutral" appearance="filled" size="small">Team coaching &amp; rituals</wa-tag>
-              <wa-tag variant="success" appearance="outlined" size="small">Calm execution at scale</wa-tag>
+<body class="wa-stack wa-gap-4xl">
+  <header class="wa-stack wa-gap-xl" id="top">
+    <wa-card class="hero-card wa-stack wa-gap-xl" style="padding: clamp(var(--wa-space-xl), 6vw, var(--wa-space-2xl));">
+      <div class="wa-grid" style="--min-column-size: 20rem; align-items: start; gap: clamp(var(--wa-space-xl), 5vw, var(--wa-space-2xl));">
+        <div class="wa-stack wa-gap-m">
+          <div class="wa-cluster wa-gap-xs pill-list">
+            <wa-badge appearance="accent" variant="brand">Leadership produit &amp; tech</wa-badge>
+            <wa-badge appearance="accent" variant="neutral">Luxembourg · Europe</wa-badge>
+          </div>
+          <div class="wa-flank wa-gap-l wa-align-items-start" style="flex-wrap: wrap;">
+            <wa-avatar
+              image="images/nicolas_pieper.png"
+              label="Portrait de Nicolas Pieper"
+              shape="rounded"
+              style="--size: clamp(4rem, 10vw, 6rem);"
+            ></wa-avatar>
+            <div class="wa-stack wa-gap-xs" style="flex: 1 1 220px;">
+              <h1 class="wa-heading-2xl" style="margin: 0;">Nicolas Pieper</h1>
+              <p class="wa-body-l" style="margin: 0;">
+                J'accompagne les organisations régulées pour livrer des plateformes fiables, accessibles et humaines&nbsp;:
+                alignement stratégique, architecture pragmatique et rituels qui rendent les équipes sereines.
+              </p>
             </div>
           </div>
-          <div class="wa-cluster wa-gap-xs" style="flex-wrap: wrap;">
-            <wa-button appearance="plain" size="small" href="#about">About</wa-button>
-            <wa-button appearance="plain" size="small" href="#experience">Experience</wa-button>
-            <wa-button appearance="plain" size="small" href="#skills">Skills</wa-button>
-            <wa-button appearance="plain" size="small" href="#education">Education</wa-button>
-            <wa-button variant="brand" size="small" href="mailto:nicolas@pieper.dev">
+          <div class="wa-stack wa-gap-s wa-body-m">
+            <span class="wa-color-text-quiet">Ce qui revient souvent :</span>
+            <div class="wa-cluster wa-gap-xs pill-list">
+              <wa-tag appearance="filled" variant="brand" size="small">Transformation calmement maîtrisée</wa-tag>
+              <wa-tag appearance="outlined" variant="success" size="small">Alliances produit · delivery</wa-tag>
+              <wa-tag appearance="filled" variant="neutral" size="small">Qualité, risques &amp; conformité</wa-tag>
+            </div>
+          </div>
+        </div>
+        <wa-card appearance="filled" class="wa-stack wa-gap-m" style="padding: var(--wa-space-l); box-shadow: none;">
+          <div class="wa-stack wa-gap-2xs">
+            <span class="wa-caption-s wa-color-text-quiet">Prochaine étape</span>
+            <span class="wa-heading-m">Construisons des parcours utilisateurs sereins</span>
+          </div>
+          <wa-divider></wa-divider>
+          <div class="wa-stack wa-gap-xs">
+            <wa-button variant="brand" href="mailto:nicolas@pieper.dev">
               <wa-icon slot="start" name="envelope"></wa-icon>
-              Connect
+              Ecrire à Nicolas
+            </wa-button>
+            <wa-button appearance="outlined" href="https://cal.com/" target="_blank">
+              <wa-icon slot="start" name="calendar-star"></wa-icon>
+              Réserver un échange découverte
             </wa-button>
           </div>
-        </div>
-        <wa-divider></wa-divider>
-        <div class="wa-stack wa-gap-xl">
-          <div class="wa-stack wa-gap-s wa-longform-m" id="about">
-            <span class="wa-caption-s wa-color-text-quiet">Profile</span>
-            <p>
-              I help regulated organisations deliver trustworthy communication platforms without sacrificing momentum. My teams work
-              with clarity, steady cadence, and just enough guardrails to let curiosity flourish. The result: dependable products,
-              confident stakeholders, and engineers who have the space to do their best work.
-            </p>
+          <wa-divider></wa-divider>
+          <div class="wa-stack wa-gap-2xs wa-body-s wa-color-text-quiet">
+            <div class="wa-flank wa-gap-s wa-align-items-center">
+              <wa-icon name="people-group" label="Organisations partenaires" variant="regular"></wa-icon>
+              <span>Banques, opérateurs d'énergie, services publics.</span>
+            </div>
+            <div class="wa-flank wa-gap-s wa-align-items-center">
+              <wa-icon name="diagram-project" label="Méthodes privilégiées" variant="regular"></wa-icon>
+              <span>Cadres mêlant discovery continue, OKR vivants et gouvernance légère.</span>
+            </div>
           </div>
-          <div class="wa-grid" style="--min-column-size: 22ch;">
-            <wa-card appearance="filled" class="wa-stack wa-gap-xs" style="box-shadow: none;">
-              <div class="wa-flank wa-gap-s wa-align-items-center">
-                <wa-avatar shape="rounded" label="Years of experience" style="--size: 3rem; background: var(--wa-color-brand-fill-quiet); color: var(--wa-color-brand-on-quiet);">
-                  <wa-icon slot="icon" name="calendar-star"></wa-icon>
-                </wa-avatar>
-                <div class="wa-stack wa-gap-2xs">
-                  <span class="wa-caption-s wa-color-text-quiet">Years shaping platforms</span>
-                  <span class="wa-heading-xl">9+</span>
-                </div>
-              </div>
-            </wa-card>
-            <wa-card appearance="filled" class="wa-stack wa-gap-xs" style="box-shadow: none;">
-              <div class="wa-flank wa-gap-s wa-align-items-center">
-                <wa-avatar shape="rounded" label="Teams empowered" style="--size: 3rem; background: var(--wa-color-success-fill-quiet); color: var(--wa-color-success-on-quiet);">
-                  <wa-icon slot="icon" name="people-group"></wa-icon>
-                </wa-avatar>
-                <div class="wa-stack wa-gap-2xs">
-                  <span class="wa-caption-s wa-color-text-quiet">Teams empowered</span>
-                  <span class="wa-heading-xl">8–10 engineers</span>
-                </div>
-              </div>
-            </wa-card>
-            <wa-card appearance="filled" class="wa-stack wa-gap-xs" style="box-shadow: none;">
-              <div class="wa-flank wa-gap-s wa-align-items-center">
-                <wa-avatar shape="rounded" label="Industries" style="--size: 3rem; background: var(--wa-color-indigo-60); color: var(--wa-color-indigo-95);">
-                  <wa-icon slot="icon" name="building-columns"></wa-icon>
-                </wa-avatar>
-                <div class="wa-stack wa-gap-2xs">
-                  <span class="wa-caption-s wa-color-text-quiet">Industries served</span>
-                  <span class="wa-heading-xl">Finance · Gov · IIoT</span>
-                </div>
-              </div>
-            </wa-card>
-          </div>
-        </div>
+        </wa-card>
       </div>
+      <wa-callout>
+        <wa-icon slot="icon" name="sparkles" variant="regular"></wa-icon>
+        <div class="wa-stack wa-gap-2xs">
+          <span class="wa-heading-s">Envie de challenger votre feuille de route&nbsp;?</span>
+          <p class="wa-body-s" style="margin: 0;">
+            Proposez-moi vos idées ou vos interrogations&nbsp;: je serai ravi de co-construire une réponse, ou de vous suggérer des pistes complémentaires.
+          </p>
+        </div>
+      </wa-callout>
     </wa-card>
   </header>
 
-  <main class="wa-stack wa-gap-3xl" style="margin-inline: auto; width: min(1100px, 100%); padding-inline: clamp(var(--wa-space-l), 6vw, var(--wa-space-2xl)); padding-bottom: clamp(var(--wa-space-3xl), 8vw, var(--wa-space-5xl));">
-    <section class="wa-stack wa-gap-l" aria-labelledby="experience-title" id="experience">
-      <div class="wa-stack wa-gap-2xs">
-        <span class="wa-caption-s wa-color-text-quiet">Career journey</span>
-        <h2 class="wa-heading-xl" id="experience-title">Recent experience</h2>
+  <main class="wa-stack wa-gap-4xl">
+    <section class="wa-stack wa-gap-l" aria-labelledby="stats-title">
+      <div class="section-heading" id="stats-title">
+        <span class="wa-caption-s wa-color-text-quiet">Repères</span>
+        <h2 class="wa-heading-xl" style="margin: 0;">Des fondamentaux fiables pour avancer vite</h2>
+      </div>
+      <div class="wa-grid" style="--min-column-size: 18rem; gap: clamp(var(--wa-space-m), 4vw, var(--wa-space-xl));">
+        <wa-card appearance="filled" class="wa-stack wa-gap-s" style="box-shadow: none; padding: var(--wa-space-xl);">
+          <div class="wa-flank wa-gap-s wa-align-items-center">
+            <wa-avatar label="Années d'expérience" shape="rounded" style="--size: 3.25rem; background: var(--wa-color-indigo-60); color: var(--wa-color-indigo-95);">
+              <wa-icon slot="icon" name="hourglass-half"></wa-icon>
+            </wa-avatar>
+            <div class="wa-stack wa-gap-2xs">
+              <span class="wa-caption-s wa-color-text-quiet">Années dans des contextes régulés</span>
+              <span class="wa-heading-l">9&nbsp;ans+</span>
+            </div>
+          </div>
+          <p class="wa-body-s wa-color-text-quiet" style="margin: 0;">
+            Gouvernance bancaire, santé et industrie : des cycles de décision courts malgré des exigences strictes.
+          </p>
+        </wa-card>
+        <wa-card appearance="filled" class="wa-stack wa-gap-s" style="box-shadow: none; padding: var(--wa-space-xl);">
+          <div class="wa-flank wa-gap-s wa-align-items-center">
+            <wa-avatar label="Collectifs accompagnés" shape="rounded" style="--size: 3.25rem; background: var(--wa-color-success-fill-quiet); color: var(--wa-color-success-on-quiet);">
+              <wa-icon slot="icon" name="hands-holding-circle"></wa-icon>
+            </wa-avatar>
+            <div class="wa-stack wa-gap-2xs">
+              <span class="wa-caption-s wa-color-text-quiet">Collectifs alignés autour d'une vision</span>
+              <span class="wa-heading-l">10&nbsp;équipes</span>
+            </div>
+          </div>
+          <p class="wa-body-s wa-color-text-quiet" style="margin: 0;">
+            Coaching produit-tech, facilitation de rituels et partage des responsabilités pour nourrir l'autonomie.
+          </p>
+        </wa-card>
+        <wa-card appearance="filled" class="wa-stack wa-gap-s" style="box-shadow: none; padding: var(--wa-space-xl);">
+          <div class="wa-flank wa-gap-s wa-align-items-center">
+            <wa-avatar label="Livrables clés" shape="rounded" style="--size: 3.25rem; background: var(--wa-color-brand-fill-quiet); color: var(--wa-color-brand-on-quiet);">
+              <wa-icon slot="icon" name="shield-check"></wa-icon>
+            </wa-avatar>
+            <div class="wa-stack wa-gap-2xs">
+              <span class="wa-caption-s wa-color-text-quiet">Confiance &amp; conformité</span>
+              <span class="wa-heading-l">Plateformes auditables</span>
+            </div>
+          </div>
+          <p class="wa-body-s wa-color-text-quiet" style="margin: 0;">
+            Chaînes CI/CD observables, protection des identités, documentation vivante et plans de continuité éprouvés.
+          </p>
+        </wa-card>
+      </div>
+    </section>
+
+    <wa-divider></wa-divider>
+
+    <section class="wa-stack wa-gap-l" aria-labelledby="focus-title">
+      <div class="section-heading" id="focus-title">
+        <span class="wa-caption-s wa-color-text-quiet">Accompagnement</span>
+        <h2 class="wa-heading-xl" style="margin: 0;">Où je crée de la valeur rapidement</h2>
+      </div>
+      <div class="wa-grid" style="--min-column-size: 20rem; gap: clamp(var(--wa-space-m), 4vw, var(--wa-space-xl));">
+        <wa-card appearance="outlined" class="wa-stack wa-gap-m" style="padding: var(--wa-space-xl);">
+          <div class="wa-flank wa-gap-s wa-align-items-center">
+            <wa-icon name="compass-drafting" variant="regular"></wa-icon>
+            <span class="wa-heading-s">Design de parcours à risques maîtrisés</span>
+          </div>
+          <p class="wa-body-m" style="margin: 0;">
+            Clarifier les flux critiques (identité, données, conformité) et orchestrer les itérations pour réduire le time-to-value sans sacrifier la sécurité.
+          </p>
+          <ul class="wa-body-s wa-stack wa-gap-2xs" style="list-style: disc; padding-inline-start: var(--wa-space-xl);">
+            <li>Cartographie des dépendances et accords de service.</li>
+            <li>Kit de priorisation orienté risques + bénéfices.</li>
+            <li>Coaching produit/engineering managers.</li>
+          </ul>
+        </wa-card>
+        <wa-card appearance="outlined" class="wa-stack wa-gap-m" style="padding: var(--wa-space-xl);">
+          <div class="wa-flank wa-gap-s wa-align-items-center">
+            <wa-icon name="chart-line" variant="regular"></wa-icon>
+            <span class="wa-heading-s">Pilotage par la confiance et l'observabilité</span>
+          </div>
+          <p class="wa-body-m" style="margin: 0;">
+            Mettre en place des tableaux de bord lisibles, des rituels productifs et des alertes utiles pour garder le cap dans les environnements changeants.
+          </p>
+          <ul class="wa-body-s wa-stack wa-gap-2xs" style="list-style: disc; padding-inline-start: var(--wa-space-xl);">
+            <li>Rituels partagés produit, tech, compliance.</li>
+            <li>Stratégie de mesure (leading + lagging).</li>
+            <li>Plans de réponse incident et revues calmes.</li>
+          </ul>
+        </wa-card>
+        <wa-card appearance="outlined" class="wa-stack wa-gap-m" style="padding: var(--wa-space-xl);">
+          <div class="wa-flank wa-gap-s wa-align-items-center">
+            <wa-icon name="seedling" variant="regular"></wa-icon>
+            <span class="wa-heading-s">Transition culturelle progressive</span>
+          </div>
+          <p class="wa-body-m" style="margin: 0;">
+            Construire un cadre de progression qui valorise l'apprentissage continu, la documentation vivante et la collaboration inter-équipes.
+          </p>
+          <ul class="wa-body-s wa-stack wa-gap-2xs" style="list-style: disc; padding-inline-start: var(--wa-space-xl);">
+            <li>Guides de montée en compétences &amp; mentoring.</li>
+            <li>Guildes internes, communautés de pratique.</li>
+            <li>Templates de feedbacks et revues alignées.</li>
+          </ul>
+        </wa-card>
+      </div>
+    </section>
+
+    <wa-divider></wa-divider>
+
+    <section class="wa-stack wa-gap-l" aria-labelledby="experience-title">
+      <div class="section-heading" id="experience-title">
+        <span class="wa-caption-s wa-color-text-quiet">Expérience</span>
+        <h2 class="wa-heading-xl" style="margin: 0;">Quelques missions récentes</h2>
       </div>
       <div class="wa-stack wa-gap-l">
-        <wa-card class="wa-stack wa-gap-s" appearance="outlined">
+        <wa-card appearance="outlined" class="wa-stack wa-gap-m" style="padding: var(--wa-space-xl);">
           <div class="wa-flank wa-gap-l wa-align-items-start" style="flex-wrap: wrap;">
-            <div class="wa-frame wa-border-radius-m" style="inline-size: 92px; aspect-ratio: 1; background: var(--wa-color-surface-default);">
-              <img src="images/victor_buck_services_logo.jpg" alt="Victor Buck Services logo" style="object-fit: contain; width: 100%; height: 100%;">
+            <div class="logo-chip">
+              <img src="images/victor_buck_services_logo.jpg" alt="Logo Victor Buck Services">
             </div>
             <div class="wa-stack wa-gap-xs" style="flex: 1 1 240px;">
-              <span class="wa-caption-s wa-color-text-quiet">Jun 2024 — Present</span>
-              <h3 class="wa-heading-l">Engineering Supervisor · Victor Buck Services</h3>
-              <p class="wa-body-m">
-                Guiding a 10-person full-stack group to deliver secure document ecosystems for European financial services and public administrations.
+              <span class="wa-caption-s wa-color-text-quiet">2023 → Aujourd'hui</span>
+              <h3 class="wa-heading-m" style="margin: 0;">Engineering Supervisor · Victor Buck Services</h3>
+              <p class="wa-body-m" style="margin: 0;">
+                Coaching d'une équipe produit-tech de 10 personnes pour refondre l'écosystème d'échanges sécurisés entre banques européennes et leurs clients.
               </p>
-              <ul class="wa-body-s wa-stack wa-gap-2xs" style="list-style: disc; padding-inline-start: var(--wa-space-xl);">
-                <li>Scaled continuous improvement rituals across mission-critical communication workflows.</li>
-                <li>Aligned vendors, compliance, and delivery teams around a single operational narrative.</li>
-              </ul>
             </div>
           </div>
+          <ul class="wa-body-s wa-stack wa-gap-2xs" style="list-style: disc; padding-inline-start: var(--wa-space-xl);">
+            <li>Déploiement de parcours d'identité renforcés (eIDAS, TOTP) avec indicateurs de réassurance clairs.</li>
+            <li>Mise en place d'un train d'initiatives, OKR et governance board partagés.</li>
+          </ul>
         </wa-card>
-
-        <wa-card class="wa-stack wa-gap-s" appearance="outlined">
+        <wa-card appearance="outlined" class="wa-stack wa-gap-m" style="padding: var(--wa-space-xl);">
           <div class="wa-flank wa-gap-l wa-align-items-start" style="flex-wrap: wrap;">
-            <div class="wa-frame wa-border-radius-m" style="inline-size: 92px; aspect-ratio: 1; background: var(--wa-color-surface-default);">
-              <img src="images/victor_buck_services_logo.jpg" alt="Victor Buck Services logo" style="object-fit: contain; width: 100%; height: 100%;">
+            <div class="logo-chip">
+              <img src="images/nicolas_pieper_engineering_logo.jpg" alt="Logo Nicolas Pieper Engineering">
             </div>
             <div class="wa-stack wa-gap-xs" style="flex: 1 1 240px;">
-              <span class="wa-caption-s wa-color-text-quiet">Jan 2023 — Jun 2024</span>
-              <h3 class="wa-heading-l">Senior Full Stack Engineer · Victor Buck Services</h3>
-              <p class="wa-body-m">
-                Modernised the VSafe authentication portal, weaving resilient CI/CD pipelines and contemporary Spring services into regulated delivery chains.
+              <span class="wa-caption-s wa-color-text-quiet">2022 → Présent</span>
+              <h3 class="wa-heading-m" style="margin: 0;">Founder &amp; Consultant · Nicolas Pieper Engineering</h3>
+              <p class="wa-body-m" style="margin: 0;">
+                Advisory sur des programmes de transformation numérique : cadrage, architecture, pilotage produit-tech, harmonisation des partenariats.
               </p>
-              <ul class="wa-body-s wa-stack wa-gap-2xs" style="list-style: disc; padding-inline-start: var(--wa-space-xl);">
-                <li>Introduced strong TOTP-based authentication and self-service identity tooling.</li>
-                <li>Mentored engineers to uplift craftsmanship, observability, and deployment discipline.</li>
-              </ul>
             </div>
           </div>
+          <ul class="wa-body-s wa-stack wa-gap-2xs" style="list-style: disc; padding-inline-start: var(--wa-space-xl);">
+            <li>Création d'un cadre de discovery continue pour un acteur de l'énergie.</li>
+            <li>Coaching d'équipes pluridisciplinaires pour des MVP industriels exportables.</li>
+          </ul>
         </wa-card>
-
-        <wa-card class="wa-stack wa-gap-s" appearance="outlined">
+        <wa-card appearance="outlined" class="wa-stack wa-gap-m" style="padding: var(--wa-space-xl);">
           <div class="wa-flank wa-gap-l wa-align-items-start" style="flex-wrap: wrap;">
-            <div class="wa-frame wa-border-radius-m" style="inline-size: 92px; aspect-ratio: 1; background: var(--wa-color-surface-default);">
-              <img src="images/nicolas_pieper_engineering_logo.jpg" alt="Nicolas Pieper Engineering logo" style="object-fit: contain; width: 100%; height: 100%;">
+            <div class="logo-chip">
+              <img src="images/worldlineglobal_logo.jpg" alt="Logo Worldline">
             </div>
             <div class="wa-stack wa-gap-xs" style="flex: 1 1 240px;">
-              <span class="wa-caption-s wa-color-text-quiet">Jun 2022 — Present</span>
-              <h3 class="wa-heading-l">Founder &amp; Consultant · Nicolas Pieper Engineering</h3>
-              <p class="wa-body-m">
-                Advising leadership teams on high-volume platform design, from ideation to go-live, with delivery practices tailored for longevity.
+              <span class="wa-caption-s wa-color-text-quiet">2016 → 2022</span>
+              <h3 class="wa-heading-m" style="margin: 0;">Lead Developer &amp; Technical Leader · Worldline</h3>
+              <p class="wa-body-m" style="margin: 0;">
+                Modernisation d'un backbone IoT mondial et conception d'une plateforme de reporting bancaire générant plus de 10M de documents mensuels.
               </p>
-              <ul class="wa-body-s wa-stack wa-gap-2xs" style="list-style: disc; padding-inline-start: var(--wa-space-xl);">
-                <li>Architected bespoke solutions spanning secure communications, industrial IoT, and automation.</li>
-                <li>Embedded discovery-to-delivery playbooks that keep transformations low-risk and measurable.</li>
-              </ul>
             </div>
           </div>
-        </wa-card>
-
-        <wa-card class="wa-stack wa-gap-s" appearance="outlined">
-          <div class="wa-flank wa-gap-l wa-align-items-start" style="flex-wrap: wrap;">
-            <div class="wa-frame wa-border-radius-m" style="inline-size: 92px; aspect-ratio: 1; background: var(--wa-color-surface-default);">
-              <img src="images/worldlineglobal_logo.jpg" alt="Worldline logo" style="object-fit: contain; width: 100%; height: 100%;">
-            </div>
-            <div class="wa-stack wa-gap-xs" style="flex: 1 1 240px;">
-              <span class="wa-caption-s wa-color-text-quiet">Oct 2019 — Sep 2022</span>
-              <h3 class="wa-heading-l">Technical Leader · Worldline</h3>
-              <p class="wa-body-m">
-                Crafted a microservice platform generating 10M+ regulated banking reports per month while balancing PCI-DSS compliance and performance.
-              </p>
-              <ul class="wa-body-s wa-stack wa-gap-2xs" style="list-style: disc; padding-inline-start: var(--wa-space-xl);">
-                <li>Orchestrated multi-region Kubernetes workloads and high-availability data processing pipelines.</li>
-                <li>Delivered observability suites and runbooks enabling 24/7 support across global teams.</li>
-              </ul>
-            </div>
-          </div>
-        </wa-card>
-
-        <wa-card class="wa-stack wa-gap-s" appearance="outlined">
-          <div class="wa-flank wa-gap-l wa-align-items-start" style="flex-wrap: wrap;">
-            <div class="wa-frame wa-border-radius-m" style="inline-size: 92px; aspect-ratio: 1; background: var(--wa-color-surface-default);">
-              <img src="images/worldlineglobal_logo.jpg" alt="Worldline logo" style="object-fit: contain; width: 100%; height: 100%;">
-            </div>
-            <div class="wa-stack wa-gap-xs" style="flex: 1 1 240px;">
-              <span class="wa-caption-s wa-color-text-quiet">Jul 2016 — Oct 2019</span>
-              <h3 class="wa-heading-l">Lead Developer · Worldline</h3>
-              <p class="wa-body-m">
-                Reimagined a global IoT backbone connecting over one million devices daily while steering near-shore collaboration and cloud migrations.
-              </p>
-              <ul class="wa-body-s wa-stack wa-gap-2xs" style="list-style: disc; padding-inline-start: var(--wa-space-xl);">
-                <li>Transitioned legacy services to Azure Kubernetes without interrupting regulated operations.</li>
-                <li>Built event-driven notification fabrics covering mobile, web, and MQTT endpoints.</li>
-              </ul>
-            </div>
-          </div>
+          <ul class="wa-body-s wa-stack wa-gap-2xs" style="list-style: disc; padding-inline-start: var(--wa-space-xl);">
+            <li>Migration vers des workloads Kubernetes multi-régions et observabilité "follow-the-sun".</li>
+            <li>Programme qualité pour orchestrer 1M+ de devices connectés quotidiennement.</li>
+          </ul>
         </wa-card>
       </div>
     </section>
 
-    <wa-divider role="presentation"></wa-divider>
+    <wa-divider></wa-divider>
 
-    <section class="wa-stack wa-gap-l" aria-labelledby="skills-title" id="skills">
-      <div class="wa-stack wa-gap-2xs">
-        <span class="wa-caption-s wa-color-text-quiet">Toolbox</span>
-        <h2 class="wa-heading-xl" id="skills-title">Core strengths</h2>
+    <section class="wa-stack wa-gap-l" aria-labelledby="collaboration-title">
+      <div class="section-heading" id="collaboration-title">
+        <span class="wa-caption-s wa-color-text-quiet">Collaboration</span>
+        <h2 class="wa-heading-xl" style="margin: 0;">Ce que vous pouvez attendre en travaillant ensemble</h2>
       </div>
-      <wa-card appearance="filled" class="wa-stack wa-gap-m" style="box-shadow: none;">
-        <div class="wa-stack wa-gap-xs">
-          <span class="wa-caption-s wa-color-text-quiet">Leadership themes</span>
-          <div class="wa-cluster wa-gap-xs" style="flex-wrap: wrap;">
-            <wa-tag variant="brand" appearance="filled">Platform strategy</wa-tag>
-            <wa-tag variant="brand" appearance="outlined">Delivery enablement</wa-tag>
-            <wa-tag variant="brand" appearance="accent">Team rituals</wa-tag>
-            <wa-tag variant="brand" appearance="filled-outlined">Stakeholder alignment</wa-tag>
+      <wa-tab-group class="wa-stack wa-gap-l" style="--indicator-color: var(--wa-color-brand-fill);">
+        <wa-tab panel="cadence">Cadence &amp; priorisation</wa-tab>
+        <wa-tab panel="communication">Communication</wa-tab>
+        <wa-tab panel="impact">Mesure de l'impact</wa-tab>
+
+        <wa-tab-panel name="cadence">
+          <div class="wa-stack wa-gap-s wa-body-m" style="padding: var(--wa-space-l) var(--wa-space-xl);">
+            <p style="margin: 0;">
+              Nous fixons un rythme confortable mais exigeant : planning trimestriel, revues de valeur toutes les 3 à 4 semaines et synthèses accessibles à tous les sponsors.
+            </p>
+            <ul class="wa-body-s wa-stack wa-gap-2xs" style="list-style: disc; padding-inline-start: var(--wa-space-xl);">
+              <li>Cadres de priorisation partagés (RICE ajusté aux risques).</li>
+              <li>Revues produits "show &amp; learn" pour favoriser la transparence.</li>
+            </ul>
           </div>
-        </div>
-        <div class="wa-stack wa-gap-xs">
-          <span class="wa-caption-s wa-color-text-quiet">Engineering depth</span>
-          <div class="wa-cluster wa-gap-xs" style="flex-wrap: wrap;">
-            <wa-tag variant="neutral" appearance="filled">Kubernetes</wa-tag>
-            <wa-tag variant="neutral" appearance="filled">Spring ecosystem</wa-tag>
-            <wa-tag variant="neutral" appearance="filled">CI/CD automation</wa-tag>
-            <wa-tag variant="neutral" appearance="filled">Observability</wa-tag>
-            <wa-tag variant="neutral" appearance="filled">Domain-driven design</wa-tag>
-            <wa-tag variant="neutral" appearance="filled">Secure SDLC</wa-tag>
+        </wa-tab-panel>
+        <wa-tab-panel name="communication">
+          <div class="wa-stack wa-gap-s wa-body-m" style="padding: var(--wa-space-l) var(--wa-space-xl);">
+            <p style="margin: 0;">
+              Chaque décision est tracée et synthétisée dans un hub commun : briefing stratégiques, CR d'incidents, décisions d'architecture et feedbacks des utilisateurs.
+            </p>
+            <ul class="wa-body-s wa-stack wa-gap-2xs" style="list-style: disc; padding-inline-start: var(--wa-space-xl);">
+              <li>Templates de memo et fiches "one-page" pour aligner les directions.</li>
+              <li>Co-animation d'ateliers avec vos experts métier.</li>
+            </ul>
           </div>
-        </div>
-      </wa-card>
+        </wa-tab-panel>
+        <wa-tab-panel name="impact">
+          <div class="wa-stack wa-gap-s wa-body-m" style="padding: var(--wa-space-l) var(--wa-space-xl);">
+            <p style="margin: 0;">
+              On mesure ce qui compte : indicateurs d'adoption, signaux de confiance et niveaux de risque résiduel. Ces données pilotent les arbitrages sans discussion stérile.
+            </p>
+            <ul class="wa-body-s wa-stack wa-gap-2xs" style="list-style: disc; padding-inline-start: var(--wa-space-xl);">
+              <li>Balanced scorecard adaptée à votre secteur.</li>
+              <li>Playbooks d'expérimentation pour apprendre avant d'industrialiser.</li>
+            </ul>
+          </div>
+        </wa-tab-panel>
+      </wa-tab-group>
     </section>
 
-    <wa-divider role="presentation"></wa-divider>
+    <wa-divider></wa-divider>
 
-    <section class="wa-stack wa-gap-l" aria-labelledby="education-title" id="education">
-      <div class="wa-stack wa-gap-2xs">
-        <span class="wa-caption-s wa-color-text-quiet">Education</span>
-        <h2 class="wa-heading-xl" id="education-title">Foundations</h2>
+    <section class="wa-stack wa-gap-l" aria-labelledby="community-title">
+      <div class="section-heading" id="community-title">
+        <span class="wa-caption-s wa-color-text-quiet">Racines</span>
+        <h2 class="wa-heading-xl" style="margin: 0;">Formation &amp; communauté</h2>
       </div>
-      <div class="wa-grid" style="--min-column-size: 28ch;">
-        <wa-card class="wa-stack wa-gap-s" appearance="outlined">
-          <div class="wa-flank wa-gap-l wa-align-items-start">
-            <div class="wa-frame wa-border-radius-m" style="inline-size: 80px; aspect-ratio: 1; background: var(--wa-color-surface-default);">
-              <img src="images/eni_brest_logo.jpg" alt="École Nationale d'Ingénieurs de Brest logo" style="object-fit: contain; width: 100%; height: 100%;">
-            </div>
-            <div class="wa-stack wa-gap-2xs">
-              <span class="wa-caption-s wa-color-text-quiet">2013 — 2016</span>
-              <h3 class="wa-heading-m">Master's in Engineering · ENIB</h3>
-              <p class="wa-body-s">
-                Focus on computer science and electronics with capstone projects in 3D reconstruction, robotics, and secure systems design.
-              </p>
+      <div class="wa-grid" style="--min-column-size: 20rem; gap: clamp(var(--wa-space-l), 5vw, var(--wa-space-2xl));">
+        <wa-details appearance="filled" summary="Master Ingénierie · Université de Sherbrooke">
+          <div class="wa-stack wa-gap-s wa-body-m" style="padding: var(--wa-space-l);">
+            <div class="wa-flank wa-gap-s wa-align-items-center">
+              <div class="logo-chip" style="inline-size: 72px;">
+                <img src="images/universite_de_sherbrooke_logo.jpg" alt="Logo Université de Sherbrooke">
+              </div>
+              <span>Architecture logicielle, systèmes distribués, leadership d'équipes internationales.</span>
             </div>
           </div>
-        </wa-card>
-        <wa-card class="wa-stack wa-gap-s" appearance="outlined">
-          <div class="wa-flank wa-gap-l wa-align-items-start">
-            <div class="wa-frame wa-border-radius-m" style="inline-size: 80px; aspect-ratio: 1; background: var(--wa-color-surface-default);">
-              <img src="images/universite_de_sherbrooke_logo.jpg" alt="Université de Sherbrooke logo" style="object-fit: contain; width: 100%; height: 100%;">
-            </div>
-            <div class="wa-stack wa-gap-2xs">
-              <span class="wa-caption-s wa-color-text-quiet">2015</span>
-              <h3 class="wa-heading-m">Exchange Semester · Université de Sherbrooke</h3>
-              <p class="wa-body-s">
-                Advanced coursework in secure software engineering and applied research collaborations within North American industry labs.
-              </p>
-            </div>
+        </wa-details>
+        <wa-details appearance="filled" summary="Mentorat &amp; partage">
+          <div class="wa-stack wa-gap-s wa-body-m" style="padding: var(--wa-space-l);">
+            <p style="margin: 0;">
+              Mentor pour des programmes d'accélération et communautés tech (Luxembourg, France, Canada). Organisation d'ateliers autour de l'accessibilité et de la donnée.
+            </p>
           </div>
-        </wa-card>
-      </div>
-    </section>
-
-    <wa-divider role="presentation"></wa-divider>
-
-    <section class="wa-stack wa-gap-l" aria-labelledby="contact-title" id="contact">
-      <div class="wa-stack wa-gap-2xs">
-        <span class="wa-caption-s wa-color-text-quiet">Let’s collaborate</span>
-        <h2 class="wa-heading-xl" id="contact-title">Stay in touch</h2>
-      </div>
-      <wa-callout variant="brand" size="large" appearance="filled-outlined">
-        <wa-icon slot="icon" name="comments"></wa-icon>
-        <div class="wa-stack wa-gap-s">
-          <p class="wa-body-m" style="margin: 0;">
-            Whether you’re unlocking a new market, hardening critical infrastructure, or searching for a calm engineering leader, I’d love to connect.
-          </p>
-          <div class="wa-grid" style="--min-column-size: 26ch;">
-            <div class="wa-flank wa-gap-s wa-align-items-center">
-              <wa-icon name="envelope"></wa-icon>
-              <a class="wa-link" href="mailto:nicolas@pieper.dev">nicolas@pieper.dev</a>
-            </div>
-            <div class="wa-flank wa-gap-s wa-align-items-center">
-              <wa-icon name="location-dot"></wa-icon>
-              <span class="wa-body-s">Based in Luxembourg · Collaborating across Europe</span>
-            </div>
-            <div class="wa-flank wa-gap-s wa-align-items-center">
-              <wa-icon name="globe"></wa-icon>
-              <a class="wa-link" href="https://pieper.dev" target="_blank" rel="noreferrer">pieper.dev</a>
-            </div>
+        </wa-details>
+        <wa-details appearance="filled" summary="Veille &amp; contenus">
+          <div class="wa-stack wa-gap-s wa-body-m" style="padding: var(--wa-space-l);">
+            <p style="margin: 0;">
+              Newsletter trimestrielle (design de services régulés) et interventions podcast sur la collaboration produit-tech. Proposez-moi un sujet&nbsp;!
+            </p>
           </div>
-        </div>
-      </wa-callout>
+        </wa-details>
+      </div>
     </section>
   </main>
 
-  <footer class="wa-body-s wa-color-text-quiet" style="text-align: center; padding-bottom: var(--wa-space-3xl);">
-    &copy; 2024 Nicolas Pieper. Crafted with curiosity and precision.
+  <footer class="wa-stack wa-gap-l" style="padding-bottom: clamp(var(--wa-space-3xl), 7vw, var(--wa-space-5xl));">
+    <wa-card appearance="filled" class="wa-stack wa-gap-l" style="padding: clamp(var(--wa-space-l), 5vw, var(--wa-space-2xl)); box-shadow: none;">
+      <div class="wa-stack wa-gap-2xs">
+        <span class="wa-caption-s wa-color-text-quiet">Restons en contact</span>
+        <h2 class="wa-heading-l" style="margin: 0;">Partagez vos idées, vos doutes, vos projets</h2>
+      </div>
+      <p class="wa-body-m" style="margin: 0;">
+        Vous avez un challenge qui mérite une perspective fraîche, ou simplement envie d'échanger sur les pratiques d'équipes sereines&nbsp;?
+        Un message suffit.
+      </p>
+      <div class="wa-cluster wa-gap-s pill-list">
+        <wa-button variant="brand" size="large" href="mailto:nicolas@pieper.dev">
+          <wa-icon slot="start" name="paper-plane"></wa-icon>
+          Envoyer un message
+        </wa-button>
+        <wa-button appearance="outlined" size="large" href="#top">
+          <wa-icon slot="start" name="arrow-up"></wa-icon>
+          Retour en haut
+        </wa-button>
+      </div>
+      <span class="wa-body-s wa-color-text-quiet">
+        Page conçue avec WebAwesome. Inspirons-nous mutuellement&nbsp;: vos suggestions d'amélioration sont bienvenues.
+      </span>
+    </wa-card>
   </footer>
 </body>
 </html>
