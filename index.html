@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicolas Pieper - Engineering Leader &amp; Platform Builder</title>
+    <meta name="description" content="Engineering Leader & Platform Builder. Like good pizza, great platforms take time and the right ingredients.">
+    <meta name="author" content="Nicolas Pieper">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical & hreflang -->
+    <link rel="canonical" href="https://pieper.fr/">
+    <link rel="alternate" hreflang="en" href="https://pieper.fr/">
+    <link rel="alternate" hreflang="fr" href="https://pieper.fr/">
+    <link rel="alternate" hreflang="x-default" href="https://pieper.fr/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Nicolas Pieper - Engineering Leader &amp; Platform Builder">
+    <meta property="og:description" content="Like good pizza, great platforms take time and the right ingredients.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pieper.fr/">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="fr_FR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Nicolas Pieper - Engineering Leader &amp; Platform Builder">
+    <meta name="twitter:description" content="Like good pizza, great platforms take time and the right ingredients.">
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Nicolas Pieper",
+        "jobTitle": "Engineering Leader",
+        "url": "https://pieper.fr",
+        "email": "nicolas@pieper.fr",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Victor Buck Services"
+        },
+        "knowsAbout": ["Platform Engineering", "Kubernetes", "Java", "Spring Boot", "DevOps", "SRE", "Elasticsearch"]
+    }
+    </script>
+
+    <!-- Fonts (preconnect + link instead of CSS @import for performance) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Marquee -->
+    <div class="marquee-container" aria-hidden="true">
+        <div class="marquee-content"
+            data-en="SLOW FERMENTED CODE &bull; NO FROZEN FEATURES &bull; 100% ORGANIC DEVOPS &bull; ENGINEERING LEADERSHIP &bull; SLOW FERMENTED CODE &bull; NO FROZEN FEATURES &bull; 100% ORGANIC DEVOPS &bull; ENGINEERING LEADERSHIP &bull;"
+            data-fr="CODE À FERMENTATION LENTE &bull; ZÉRO FONCTIONNALITÉ SURGELÉE &bull; 100% DEVOPS BIO &bull; LEADERSHIP TECHNIQUE &bull; CODE À FERMENTATION LENTE &bull; ZÉRO FONCTIONNALITÉ SURGELÉE &bull; 100% DEVOPS BIO &bull; LEADERSHIP TECHNIQUE &bull;">
+            SLOW FERMENTED CODE &bull; NO FROZEN FEATURES &bull; 100% ORGANIC DEVOPS &bull; ENGINEERING LEADERSHIP &bull; SLOW FERMENTED CODE &bull; NO FROZEN FEATURES &bull; 100% ORGANIC DEVOPS &bull; ENGINEERING LEADERSHIP &bull;
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">Nicolas Pieper</div>
+
+        <!-- Desktop nav (hidden on mobile via CSS) -->
+        <nav>
+            <a href="#manifesto" data-en="Manifesto" data-fr="Manifeste">Manifesto</a>
+            <a href="#kitchen" data-en="Kitchen" data-fr="Cuisine">Kitchen</a>
+            <a href="#menu">Menu</a>
+            <a href="mailto:nicolas@pieper.fr">Contact</a>
+        </nav>
+
+        <!-- Desktop lang toggle (hidden on mobile via CSS) -->
+        <div class="lang-toggle">
+            <button class="btn-fr" onclick="setLang('fr')">FR</button>
+            <span>|</span>
+            <button class="btn-en active" onclick="setLang('en')">EN</button>
+        </div>
+
+        <!-- Mobile burger (hidden on desktop via CSS) -->
+        <button class="burger" onclick="toggleNav()" aria-label="Open menu">
+            <b></b><b></b><b></b>
+        </button>
+    </header>
+
+    <!-- Mobile full-screen nav overlay -->
+    <div class="mobile-nav" id="mobileNav">
+        <button class="close-nav" onclick="toggleNav()" aria-label="Close menu">&times;</button>
+        <a href="#manifesto" onclick="toggleNav()" data-en="Manifesto" data-fr="Manifeste">Manifesto</a>
+        <a href="#kitchen"   onclick="toggleNav()" data-en="Kitchen"   data-fr="Cuisine">Kitchen</a>
+        <a href="#menu"      onclick="toggleNav()">Menu</a>
+        <a href="mailto:nicolas@pieper.fr" onclick="toggleNav()">Contact</a>
+        <div class="lang-toggle">
+            <button class="btn-fr" onclick="setLang('fr')">FR</button>
+            <span>|</span>
+            <button class="btn-en active" onclick="setLang('en')">EN</button>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <main>
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-text">
+                <h1 data-en="Engineering <br><span class='highlight'>Done Right.</span>"
+                    data-fr="L'Ingénierie<br><span class='highlight'>Bien Faite.</span>">Engineering <br><span class="highlight">Done Right.</span></h1>
+
+                <div class="hero-visual-mobile">
+                    <div class="photo-frame">
+                        <div style="font-size: 3rem;">🍕</div>
+                        <h3 style="font-family: var(--font-head); margin-top: 5px; font-size: 1.2rem;">NICOLAS P.</h3>
+                        <p style="font-family: var(--font-hand); font-size: 0.8rem; color: #666;"
+                            data-en="Head Chef" data-fr="Chef Cuisinier">Head Chef</p>
+                        <div class="sticker top" data-en="SINCE 2010" data-fr="DEPUIS 2010">SINCE 2010</div>
+                        <div class="sticker bottom">NO B.S.</div>
+                    </div>
+                </div>
+
+                <div class="tagline"
+                    data-en="Like a Neapolitan dough, great platforms can't be rushed. I build resilient systems at <span class='underline'>Victor Buck Services</span> with patience and obsession."
+                    data-fr="Comme une pâte napolitaine, les grandes plateformes ne se précipitent pas. Je construis des systèmes résilients chez <span class='underline'>Victor Buck Services</span> avec patience et obsession.">
+                    Like a Neapolitan dough, great platforms can't be rushed. I build resilient systems at <span class="underline">Victor Buck Services</span> with patience and obsession.
+                </div>
+
+                <a href="mailto:nicolas@pieper.fr" class="cta-button"
+                    data-en="Let's Cook Something Up"
+                    data-fr="Passons en Cuisine">Let's Cook Something Up</a>
+            </div>
+        </section>
+
+        <!-- Manifesto & Kitchen -->
+        <section class="grid-section" id="manifesto">
+            <div class="grid-item">
+                <h2 class="section-title" data-en="The Philosophy" data-fr="La Philosophie">The Philosophy</h2>
+                <p data-en="<strong>I don't do &quot;fast food&quot; engineering.</strong>"
+                   data-fr="<strong>Je ne fais pas d'ingénierie &quot;fast food&quot;.</strong>"><strong>I don't do "fast food" engineering.</strong></p>
+                <p style="margin-top: 15px;"
+                    data-en="Building scalable platforms is like maintaining a sourdough starter. It requires daily attention, the right environment, and knowing when to let things rest."
+                    data-fr="Construire des plateformes scalables, c'est comme entretenir un levain. Cela demande une attention quotidienne, le bon environnement, et savoir quand laisser reposer.">
+                    Building scalable platforms is like maintaining a sourdough starter. It requires daily attention, the right environment, and knowing when to let things rest.
+                </p>
+                <p style="margin-top: 15px;"
+                    data-en="My role? Transforming messy, complex ingredients (legacy code, security constraints) into a simple, delightful experience for users and developers."
+                    data-fr="Mon rôle ? Transformer des ingrédients complexes et désordonnés (code legacy, contraintes de sécurité) en une expérience simple et agréable pour les utilisateurs et les développeurs.">
+                    My role? Transforming messy, complex ingredients (legacy code, security constraints) into a simple, delightful experience for users and developers.
+                </p>
+            </div>
+            <div class="grid-item" id="kitchen">
+                <h2 class="section-title" data-en="Current Kitchen" data-fr="Cuisine Actuelle">Current Kitchen</h2>
+                <p style="border-left: 4px solid var(--color-red); padding-left: 15px; font-style: italic; margin-bottom: 20px;"
+                    data-en="Currently shaping platforms at Victor Buck Services / Luxembourg."
+                    data-fr="Actuellement en train de façonner des plateformes chez Victor Buck Services / Luxembourg.">
+                    Currently shaping platforms at Victor Buck Services / Luxembourg.
+                </p>
+                <p data-en="Handling high-volume communication flows. It's hot, it's fast-paced, and if you don't watch the oven, things burn."
+                   data-fr="Gestion de flux de communication à fort volume. C'est chaud, c'est rapide, et si vous ne surveillez pas le four, ça brûle.">Handling high-volume communication flows. It's hot, it's fast-paced, and if you don't watch the oven, things burn.</p>
+                <br>
+                <p data-en="<strong>Specialties:</strong>"
+                   data-fr="<strong>Spécialités :</strong>"><strong>Specialties:</strong></p>
+                <ul style="list-style: square; padding-left: 20px; font-family: var(--font-head); font-size: 1.2rem; margin-top: 10px;">
+                    <li data-en="Reliable Platforms" data-fr="Plateformes Fiables">Reliable Platforms</li>
+                    <li data-en="DevEx &amp; Automations" data-fr="DevEx &amp; Automatisations">DevEx &amp; Automations</li>
+                    <li data-en="SRE Mindset" data-fr="Esprit SRE">SRE Mindset</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section class="stack-section" id="menu">
+            <h2 class="section-title" style="color: white; text-shadow: 3px 3px 0 black;"
+                data-en="San Marzano Ingredients<br><small style='font-size: 1rem; font-family: var(--font-hand); opacity: 0.9;'>(Only the best tech)</small>"
+                data-fr="Ingrédients San Marzano<br><small style='font-size: 1rem; font-family: var(--font-hand); opacity: 0.9;'>(Que le meilleur de la tech)</small>">San Marzano Ingredients<br><small style="font-size: 1rem; font-family: var(--font-hand); opacity: 0.9;">(Only the best tech)</small></h2>
+
+            <div class="stack-grid">
+                <div class="ingredient-card">
+                    <h3>JAVA</h3>
+                    <span data-en="Spring Boot Base" data-fr="Base Spring Boot">Spring Boot Base</span>
+                </div>
+                <div class="ingredient-card">
+                    <h3>K8S</h3>
+                    <span data-en="Container Oven" data-fr="Four à Conteneurs">Container Oven</span>
+                </div>
+                <div class="ingredient-card">
+                    <h3>ELASTIC</h3>
+                    <span data-en="Observability" data-fr="Observabilité">Observability</span>
+                </div>
+                <div class="ingredient-card">
+                    <h3>TEAM</h3>
+                    <span data-en="People First" data-fr="L'Humain d'Abord">People First</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Side Orders & Promise -->
+        <section class="grid-section">
+            <div class="grid-item" style="background: var(--color-white);">
+                <h2 class="section-title" data-en="Side Orders" data-fr="Accompagnements">Side Orders</h2>
+                <p data-en="When I'm not deploying to production, I'm experimenting with <strong>Nicolas Pieper Engineering</strong> brand, designing stickers, or obsessing over my Golden Retriever, Pampelune 🐕."
+                   data-fr="Quand je ne déploie pas en production, j'expérimente avec la marque <strong>Nicolas Pieper Engineering</strong>, je dessine des stickers, ou je suis obsédé par mon Golden Retriever, Pampelune 🐕.">When I'm not deploying to production, I'm experimenting with <strong>Nicolas Pieper Engineering</strong> brand, designing stickers, or obsessing over my Golden Retriever, Pampelune 🐕.</p>
+            </div>
+            <div class="grid-item" style="background: var(--color-black); color: var(--color-bg);">
+                <h2 class="section-title" style="color: var(--color-white);"
+                    data-en="The Promise" data-fr="La Promesse">The Promise</h2>
+                <p data-en="I value clear feedback. If the pizza is burnt, I want to know."
+                   data-fr="Je valorise les retours francs. Si la pizza est brûlée, je veux le savoir.">I value clear feedback. If the pizza is burnt, I want to know.</p>
+                <p style="margin-top: 20px;"
+                    data-en="I work with teams where people can develop their skills (and their dough) while maintaining strong ownership."
+                    data-fr="Je travaille avec des équipes où chacun peut développer ses compétences (et sa pâte) tout en gardant un fort sentiment de responsabilité.">I work with teams where people can develop their skills (and their dough) while maintaining strong ownership.</p>
+                <p style="font-family: var(--font-hand); font-size: 1.2rem; color: var(--color-red); margin-top: 30px; transform: rotate(-1deg);"
+                    data-en="&quot;Crust me, I'm an engineer.&quot;"
+                    data-fr="&quot;Pâte-ience, je suis ingénieur.&quot;">
+                    "Crust me, I'm an engineer."
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p style="font-family: var(--font-hand); margin-bottom: 10px;"
+            data-en="Hungry for success?" data-fr="Faim de réussite ?">Hungry for success?</p>
+        <a href="mailto:nicolas@pieper.fr" class="footer-cta"
+            data-en="Order a Conversation" data-fr="Commander une Conversation">Order a Conversation</a>
+        <p class="small-print"
+            data-en="&copy; Nicolas Pieper. Crafted with extra mozzarella and zero bugs. <br>Design tribute to the legends at Pizza Pilgrims."
+            data-fr="&copy; Nicolas Pieper. Fabriqué avec de la mozzarella en extra et zéro bug. <br>Hommage aux légendes de Pizza Pilgrims.">
+            &copy; Nicolas Pieper. Crafted with extra mozzarella and zero bugs. <br>
+            Design tribute to the legends at Pizza Pilgrims.
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

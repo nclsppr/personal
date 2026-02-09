@@ -1,0 +1,498 @@
+/* ============================================
+   NICOLAS PIEPER — STYLE
+   ============================================ */
+
+/* --- VARIABLES --- */
+:root {
+    --color-bg: #F4F1EA;
+    --color-red: #D9381E;
+    --color-black: #121212;
+    --color-green: #008C45;
+    --color-white: #FFFFFF;
+
+    --font-head: 'Anton', sans-serif;
+    --font-hand: 'Permanent Marker', cursive;
+    --font-body: 'Space Mono', monospace;
+
+    --spacing-unit: clamp(1rem, 5vw, 2.5rem);
+    --border-width: clamp(2px, 0.5vw, 4px);
+}
+
+/* --- RESET & BASE --- */
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+
+html {
+    background-color: var(--color-black);
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-black);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+    font-size: 16px;
+    overscroll-behavior-y: none;
+}
+
+a { text-decoration: none; color: inherit; transition: color 0.2s; }
+img { max-width: 100%; display: block; }
+
+/* --- UTILS --- */
+.highlight { color: var(--color-red); }
+.underline { text-decoration: underline wavy var(--color-green) 2px; text-underline-offset: 4px; }
+
+
+/* ============================================
+   MARQUEE
+   ============================================ */
+.marquee-container {
+    background: var(--color-black);
+    color: var(--color-bg);
+    padding: 10px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: var(--border-width) solid var(--color-black);
+    font-family: var(--font-head);
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 20;
+}
+
+.marquee-content {
+    display: inline-block;
+    animation: marquee 25s linear infinite;
+    will-change: transform;
+}
+
+@keyframes marquee {
+    0%   { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+}
+
+
+/* ============================================
+   HEADER
+   ============================================ */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: var(--border-width) solid var(--color-black);
+    background: var(--color-white);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 70px;
+    gap: 10px;
+}
+
+.logo {
+    font-family: var(--font-head);
+    font-size: 1.5rem;
+    color: var(--color-red);
+    transform: rotate(-2deg);
+    border: 2px solid var(--color-black);
+    padding: 2px 10px;
+    background: var(--color-bg);
+    box-shadow: 3px 3px 0 var(--color-black);
+    flex-shrink: 0;
+}
+
+/* Desktop nav — hidden on mobile */
+header nav {
+    display: none;
+    gap: 15px;
+    align-items: center;
+}
+
+header nav a {
+    font-family: var(--font-head);
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    white-space: nowrap;
+    padding: 8px 4px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+}
+
+header nav a:active,
+header nav a:hover { color: var(--color-red); }
+
+/* Desktop lang toggle — hidden on mobile */
+header .lang-toggle {
+    display: none;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+    margin-left: 5px;
+}
+
+
+/* ============================================
+   LANGUAGE TOGGLE (shared)
+   ============================================ */
+.lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-head);
+    font-size: 0.9rem;
+}
+
+.lang-toggle button {
+    background: none;
+    border: 2px solid var(--color-black);
+    font-family: var(--font-head);
+    font-size: 0.9rem;
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    min-height: 36px;
+    min-width: 36px;
+}
+
+.lang-toggle button.active {
+    background: var(--color-red);
+    color: var(--color-white);
+    border-color: var(--color-red);
+    box-shadow: 2px 2px 0 var(--color-black);
+}
+
+.lang-toggle button:not(.active):hover {
+    background: var(--color-bg);
+}
+
+.lang-toggle span {
+    color: #999;
+    user-select: none;
+}
+
+
+/* ============================================
+   BURGER BUTTON (mobile only)
+   ============================================ */
+.burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 10px;
+    min-height: 44px;
+    min-width: 44px;
+    align-items: center;
+    background: none;
+    border: 2px solid var(--color-black);
+    flex-shrink: 0;
+}
+
+.burger b {
+    display: block;
+    width: 22px;
+    height: 3px;
+    background: var(--color-black);
+    border-radius: 0;
+}
+
+
+/* ============================================
+   MOBILE NAV OVERLAY
+   ============================================ */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--color-black);
+    z-index: 200;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    padding: 40px 20px;
+}
+
+.mobile-nav.open {
+    display: flex;
+}
+
+.mobile-nav a {
+    font-family: var(--font-head);
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: var(--color-bg);
+    transition: color 0.2s;
+    padding: 5px 20px;
+}
+
+.mobile-nav a:hover,
+.mobile-nav a:active {
+    color: var(--color-red);
+}
+
+.mobile-nav .lang-toggle {
+    margin-top: 20px;
+}
+
+.mobile-nav .lang-toggle button {
+    border-color: var(--color-bg);
+    color: var(--color-bg);
+    font-size: 1rem;
+    padding: 8px 16px;
+}
+
+.mobile-nav .lang-toggle button.active {
+    background: var(--color-red);
+    color: var(--color-white);
+    border-color: var(--color-red);
+}
+
+.close-nav {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2.5rem;
+    color: var(--color-bg);
+    background: none;
+    border: none;
+    cursor: pointer;
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.close-nav:hover { color: var(--color-red); }
+
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero {
+    display: flex;
+    flex-direction: column;
+    min-height: 85vh;
+    border-bottom: var(--border-width) solid var(--color-black);
+    position: relative;
+}
+
+.hero-text {
+    padding: var(--spacing-unit);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    background-image: radial-gradient(var(--color-red) 1px, transparent 1px);
+    background-size: 15px 15px;
+}
+
+h1 {
+    font-family: var(--font-head);
+    font-size: clamp(3.2rem, 11vw, 7rem);
+    line-height: 0.95;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: var(--color-black);
+    text-shadow: 2px 2px 0 #fff, 4px 4px 0 var(--color-black);
+}
+
+.tagline {
+    font-size: 1rem;
+    background: var(--color-white);
+    padding: 15px;
+    border: 2px solid var(--color-black);
+    box-shadow: 4px 4px 0 var(--color-green);
+    margin-bottom: 30px;
+    max-width: 600px;
+    font-weight: 700;
+}
+
+.hero-visual-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 40px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.photo-frame {
+    width: 180px;
+    height: 180px;
+    background: #eee;
+    border: 3px solid var(--color-black);
+    transform: rotate(3deg);
+    box-shadow: 6px 6px 0 rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.sticker {
+    position: absolute;
+    font-family: var(--font-hand);
+    padding: 5px 10px;
+    border-radius: 50%;
+    border: 2px solid var(--color-black);
+    font-size: 0.9rem;
+    text-align: center;
+    z-index: 10;
+}
+
+.sticker.top    { top: -10px; right: -15px; background: var(--color-green); color: white; transform: rotate(15deg); }
+.sticker.bottom { bottom: -10px; left: -10px; background: yellow; color: black; transform: rotate(-10deg); }
+
+.cta-button {
+    display: inline-block;
+    background: var(--color-red);
+    color: var(--color-white);
+    font-family: var(--font-head);
+    font-size: 1.5rem;
+    padding: 15px 30px;
+    text-transform: uppercase;
+    border: 3px solid var(--color-black);
+    box-shadow: 5px 5px 0 var(--color-black);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    max-width: 400px;
+}
+
+.cta-button:active,
+.cta-button:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--color-black);
+    background: var(--color-green);
+}
+
+
+/* ============================================
+   GRID SECTIONS
+   ============================================ */
+.section-title {
+    font-family: var(--font-head);
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: var(--color-red);
+    line-height: 1;
+}
+
+.grid-section {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.grid-item {
+    padding: var(--spacing-unit);
+    border-bottom: var(--border-width) solid var(--color-black);
+}
+
+
+/* ============================================
+   STACK / INGREDIENTS SECTION
+   ============================================ */
+.stack-section {
+    background: var(--color-green);
+    color: var(--color-white);
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: var(--border-width) solid var(--color-black);
+    background-image:
+        linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.1) 75%),
+        linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.1) 75%);
+    background-size: 40px 40px;
+    background-position: 0 0, 20px 20px;
+}
+
+.stack-grid {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.ingredient-card {
+    background: var(--color-white);
+    color: var(--color-black);
+    border: 3px solid var(--color-black);
+    padding: 15px;
+    width: 160px;
+    box-shadow: 6px 6px 0 var(--color-black);
+    transform: rotate(-1deg);
+}
+
+.ingredient-card:nth-child(even) { transform: rotate(1deg); }
+.ingredient-card h3 { font-family: var(--font-head); font-size: 1.3rem; margin-bottom: 5px; }
+.ingredient-card span { font-size: 0.8rem; font-weight: bold; color: #666; font-family: var(--font-body); }
+
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+    background: var(--color-black);
+    color: var(--color-bg);
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-cta {
+    font-family: var(--font-head);
+    font-size: 2rem;
+    color: var(--color-red);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.small-print { font-size: 0.75rem; opacity: 0.6; margin-top: 30px; }
+
+
+/* ============================================
+   DESKTOP  (>=768px)
+   ============================================ */
+@media (min-width: 768px) {
+    /* Header: show inline nav & lang, hide burger */
+    header nav          { display: flex; }
+    header .lang-toggle { display: flex; }
+    .burger             { display: none; }
+    .mobile-nav         { display: none !important; }
+    .logo               { font-size: 2rem; padding: 5px 15px; }
+
+    /* Hero: generous padding on wide screens */
+    .hero-text {
+        padding: var(--spacing-unit) clamp(60px, 8vw, 200px);
+    }
+
+    .hero-visual-mobile { display: none; }
+
+    /* Grid: two columns */
+    .grid-section { grid-template-columns: repeat(2, 1fr); }
+    .grid-item    { border-right: var(--border-width) solid var(--color-black); }
+
+    .cta-button { width: auto; }
+}
+
+
+/* ============================================
+   SMALL SCREENS  (<=360px)
+   ============================================ */
+@media (max-width: 360px) {
+    h1 { font-size: clamp(2.5rem, 10vw, 3.2rem); }
+    .ingredient-card { width: 140px; padding: 12px; }
+    .logo { font-size: 1.2rem; padding: 2px 8px; }
+}
