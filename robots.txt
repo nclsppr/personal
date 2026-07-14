@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /v2022/
+Disallow: /infos/
+
+Sitemap: https://nicolaspieper.com/sitemap.xml

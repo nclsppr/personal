@@ -1,1 +1,121 @@
-# personal
+# nicolaspieper.com — Journal de bord
+
+Site personnel de Nicolas Pieper. Ce README sert de journal de bord : chaque intervention
+sur le site y est consignée, la plus récente en premier.
+
+**Production :** [nicolaspieper.com](https://nicolaspieper.com) (canonique) · nicolas.pieper.fr (redirection 301)
+**Hébergement :** GitHub Pages · **Stack :** HTML/CSS/JS statique, zéro framework, zéro CDN externe.
+
+---
+
+## 2026-07-15 — Audit qualité multi-agents et corrections
+
+Passe d'audit adversariale (12 agents : SEO technique, WCAG 2.2 AA, relecture française,
+fidélité au contenu source, intégrité des liens). 29 findings bruts, 7 majeurs confirmés
+après contre-vérification, 22 mineurs — tous corrigés :
+
+- **Accessibilité** : contraste du CTA contact (3.12:1 → 6.21:1), ancres de titres
+  désormais visibles au focus clavier, drawer mobile retiré de l'ordre de tabulation
+  quand il est fermé (`visibility`) + retour du focus au bouton menu, anneau de focus
+  conforme (≥3:1), contrastes du bloc terminal relevés, `::selection` conforme,
+  attributs `lang` sur les liens en langue étrangère.
+- **Contenu** : section « Current focus / Priorités actuelles » (priorité 88 % dans
+  INFOS.md) ajoutée aux deux homepages ; « Site reliability engineering » (non sourcé)
+  remplacé par « Production engineering » dans les JSON-LD ; « Engineering roles »
+  → « Engineering internships » (fidélité aux sources).
+- **Français** : « d'accounting » → « de traçabilité », grammaire (« ne doit pas *nous*
+  éloigner »), harmonisation terminologique entre pages FR (appareils connectés,
+  exigences métier, preuve de concept, titres de postes en anglais), apostrophes
+  typographiques (140 remplacements), espaces insécables dans les métas.
+- **SEO** : titres raccourcis ≤65 caractères avec « Luxembourg » dans les deux langues,
+  meta descriptions ramenées à ~150 caractères, breadcrumbs FR pointant vers /fr/.
+
+## 2026-07-14 — Refonte complète v2026
+
+Refonte totale du site, réalisée avec Claude Code (Opus 4.8 + Fable 5). L'ancienne version
+« pizza » (2024) est remplacée par un design inspiré des documentations Claude AI : sobre,
+ivoire/encre, une seule couleur d'accent (terracotta `#D97757`), typographie serif pour les
+titres (Source Serif 4), Inter pour le corps, JetBrains Mono pour les touches techniques.
+
+### Concept
+
+Le site se présente comme **la documentation de Nicolas Pieper** : sidebar de navigation
+par groupes (Get started / Platforms / Leadership / Reference), scrollspy, ancres sur les
+titres, breadcrumb, sélecteur de version (v2026 · v2022) qui pointe vers l'archive de
+l'ancien site conservée dans [`/v2022/`](v2022/).
+
+### Architecture
+
+| URL | Contenu |
+| --- | --- |
+| `/` | Homepage anglaise (langue par défaut) |
+| `/fr/` | Homepage française |
+| `/cv/` | CV anglais (imprimable → PDF via `window.print()`) |
+| `/fr/cv/` | CV français |
+| `/v2022/` | Archive de la version 2022 (non indexée) |
+| `/infos/` | Source de contenu ([INFOS.md](infos/INFOS.md), non indexée) |
+
+### Décisions techniques
+
+- **Bilinguisme par URLs distinctes** (`/` EN, `/fr/` FR) avec `hreflang` réciproques,
+  au lieu de l'ancien toggle JavaScript invisible pour les moteurs de recherche.
+- **Domaine canonique : nicolaspieper.com** (fichier `CNAME`). GitHub Pages n'accepte
+  qu'un domaine custom par repo → `nicolas.pieper.fr` doit être configuré en
+  redirection 301 chez le registrar (voir TODO).
+- **Polices auto-hébergées** (woff2 variables, sous-ensembles latin + latin-ext,
+  ~270 Ko au total) : performance (pas de requête tierce) et conformité RGPD
+  (pas de transfert d'IP vers Google Fonts).
+- **Thème clair/sombre** : bascule manuelle persistée en `localStorage`, défaut aligné
+  sur `prefers-color-scheme`, script inline anti-flash dans le `<head>`.
+- **Zéro dépendance** : pas de framework, pas de CDN, un seul fichier JS (~2 Ko)
+  pour le thème, la sidebar mobile et le scrollspy.
+- **Images générées localement** : favicon SVG (monogramme NP), PNG dérivés et image
+  OpenGraph 1200×630 rendus via `qlmanage`/`sips` (outils macOS natifs).
+
+### SEO
+
+- Balises canoniques + `hreflang` (en, fr, x-default) sur les 4 pages.
+- JSON-LD `@graph` : `Person` (id stable `#person`), `WebSite`, `ProfilePage`
+  (+ `BreadcrumbList` sur les CV).
+- OpenGraph + Twitter Cards avec image dédiée 1200×630.
+- `sitemap.xml` avec alternates `xhtml:link` par langue ; `robots.txt` excluant
+  `/v2022/` et `/infos/` (archives et sources non destinées à l'index).
+- `404.html` personnalisée (GitHub Pages la sert automatiquement).
+- Contraste AA : l'accent terracotta est décliné en `--accent-ink` plus foncé
+  (`#9A4A26`) pour tout texte, le `#D97757` restant décoratif.
+- Performance : polices préchargées, `font-display: swap`, aucun script bloquant.
+
+### Contenu
+
+- Source unique : [infos/INFOS.md](infos/INFOS.md) (rédigé par Nicolas, priorités par
+  section respectées).
+- CV disponible en **deux langues** (`/cv/` EN, `/fr/cv/` FR), mise en page écran
+  « document » + feuille de style d'impression A4 pour export PDF.
+
+### TODO (actions côté Nicolas)
+
+- [ ] DNS : pointer `nicolaspieper.com` vers GitHub Pages (A/AAAA apex + CNAME www).
+- [ ] DNS : rediriger en 301 `nicolas.pieper.fr` → `https://nicolaspieper.com`.
+- [ ] Activer « Enforce HTTPS » dans les settings GitHub Pages après propagation.
+- [ ] Déclarer le site dans Google Search Console + soumettre `sitemap.xml`.
+- [ ] Mettre à jour l'URL du site sur le profil LinkedIn.
+- [ ] (Optionnel) Fournir une photo récente pour remplacer le monogramme.
+- [ ] Confirmer la section « Langues » des CV (Français natif / Anglais professionnel) —
+      non présente dans INFOS.md ; ajouter allemand/luxembourgeois le cas échéant.
+
+---
+
+## 2026-07-14 — Ajout des archives
+
+- Import de la version 2022 du site dans [`/v2022/`](v2022/) pour l'historique.
+- Ajout de [infos/INFOS.md](infos/INFOS.md), source de contenu de la refonte.
+
+## 2024 — Version « pizza »
+
+Site one-page au thème pizzeria napolitaine (Anton / Permanent Marker / Space Mono,
+marquee, stickers). Remplacée par la v2026 ; le code reste dans l'historique git
+(`git log -- style.css script.js`).
+
+## 2022 — Version Bootstrap
+
+Carte de visite one-page (Bootstrap 5, avatar, liens). Archivée dans [`/v2022/`](v2022/).

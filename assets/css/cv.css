@@ -1,0 +1,243 @@
+/* ==========================================================================
+   nicolaspieper.com — CV page (/cv/ and /fr/cv/)
+   Loaded AFTER site.css. Single centered column, paper-like document,
+   print styles produce the A4 PDF via window.print().
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Layout: no sidebar, one centered column
+   -------------------------------------------------------------------------- */
+.cv-layout {
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: calc(var(--header-h) + 36px) clamp(16px, 4vw, 40px) 40px;
+}
+
+/* Action bar above the document */
+.cv-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 0 0 22px;
+}
+
+/* --------------------------------------------------------------------------
+   The document card
+   -------------------------------------------------------------------------- */
+.cv-doc {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: clamp(26px, 5vw, 56px);
+  box-shadow: var(--shadow-1);
+}
+
+/* Document header */
+.cv-head {
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 20px;
+  margin-bottom: 8px;
+}
+.cv-head h1 {
+  font-size: clamp(1.9rem, 4.5vw, 2.5rem);
+  margin: 0 0 2px;
+}
+.cv-role {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-ink);
+  margin: 0 0 10px;
+}
+.cv-contact {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin: 0;
+}
+.cv-contact a { color: var(--ink-soft); }
+.cv-contact a:hover { color: var(--accent-ink); }
+.cv-contact .dot { margin: 0 6px; opacity: 0.5; }
+
+/* Section kickers */
+.cv-section { margin-top: 2.1rem; }
+.cv-section > h2 {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 600;
+  font-variant-caps: all-small-caps;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent-ink);
+  margin: 0 0 1rem;
+}
+.cv-section > h2::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-strong);
+}
+.cv-section p { font-size: 0.95rem; }
+
+/* Experience entries */
+.cv-entry { margin-bottom: 1.7rem; }
+.cv-entry:last-child { margin-bottom: 0.4rem; }
+.cv-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px 18px;
+  flex-wrap: wrap;
+}
+.cv-entry h3 {
+  margin: 0;
+  font-size: 1.02rem;
+  letter-spacing: -0.005em;
+}
+.cv-org {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin: 1px 0 0;
+}
+.cv-period {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+  white-space: nowrap;
+}
+.cv-entry ul {
+  margin: 0.55rem 0 0;
+  padding-left: 1.25rem;
+}
+.cv-entry li {
+  font-size: 0.92rem;
+  margin: 0.28rem 0;
+}
+
+/* Skills */
+.cv-skills { margin: 0; display: grid; gap: 14px; }
+.cv-skills > div {
+  display: grid;
+  grid-template-columns: minmax(160px, 200px) 1fr;
+  gap: 4px 20px;
+  align-items: baseline;
+}
+.cv-skills dt {
+  font-size: 0.9rem;
+  font-weight: 650;
+  color: var(--ink);
+}
+.cv-skills dd {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+@media (max-width: 560px) {
+  .cv-skills > div { grid-template-columns: 1fr; }
+}
+
+/* Education */
+.cv-edu { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.cv-edu li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 18px;
+  flex-wrap: wrap;
+  margin: 0;
+  font-size: 0.92rem;
+}
+.cv-edu .cv-org { display: inline; }
+
+/* Languages */
+.cv-langs { list-style: none; margin: 0; padding: 0; display: flex; gap: 8px 28px; flex-wrap: wrap; }
+.cv-langs li { margin: 0; font-size: 0.92rem; }
+
+/* --------------------------------------------------------------------------
+   Print — this IS the PDF
+   -------------------------------------------------------------------------- */
+@page {
+  size: A4;
+  margin: 14mm;
+}
+
+@media print {
+  /* Force light, ink-on-paper palette regardless of theme */
+  :root,
+  :root[data-theme="dark"],
+  :root[data-theme="light"] {
+    --bg: #FFFFFF;
+    --bg-raised: #FFFFFF;
+    --bg-inset: #FFFFFF;
+    --ink: #000000;
+    --ink-soft: #1F1F1E;
+    --muted: #4A4943;
+    --border: #D8D6CC;
+    --border-strong: #B9B6A9;
+    --accent: #9A4A26;
+    --accent-ink: #9A4A26;
+    --accent-soft: #FFFFFF;
+    --accent-glow: transparent;
+    color-scheme: light;
+  }
+
+  html { scroll-behavior: auto; }
+  body {
+    background: #FFFFFF;
+    color: #000000;
+    font-size: 10.5pt;
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Chrome only: the document itself */
+  .site-header,
+  .breadcrumb,
+  .cv-actions,
+  .site-footer,
+  .backdrop,
+  .skip-link { display: none !important; }
+
+  .cv-layout {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+  .cv-doc {
+    background: #FFFFFF;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  /* Keep entries whole on a page */
+  .cv-entry,
+  .cv-head,
+  .cv-skills > div,
+  .cv-edu li,
+  .cv-langs {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .cv-section > h2 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  /* Links as plain text, no href expansion */
+  a, a:visited { color: inherit; text-decoration: none; }
+  a[href]::after { content: none !important; }
+
+  .cv-section { margin-top: 1.5rem; }
+  .cv-entry { margin-bottom: 1.1rem; }
+}
