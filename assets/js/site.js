@@ -7,8 +7,28 @@
 
   /* ---------- Theme ---------- */
   function applyThemeColor(theme) {
-    var m = document.querySelector('meta[name="theme-color"]');
-    if (m) m.content = THEME_COLOR[theme] || THEME_COLOR.light;
+    var color = THEME_COLOR[theme] || THEME_COLOR.light;
+
+    // Update the single meta in place. Correct DOM state, sufficient on Android
+    // Chrome / desktop Safari, and keeps the node identity the anti-flash <head>
+    // script relies on.
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', color);
+
+    // iOS Safari (viewport-fit=cover) only re-samples the status-bar / Dynamic
+    // Island tint on a top-of-viewport compositing commit — which is why opening
+    // the menu (fixed backdrop + sidebar) refreshes it but a bare .content write,
+    // changing no layer, does not. Reproduce that commit by nudging the header,
+    // already its own layer via backdrop-filter, with a Z-only transform across
+    // two frames: forces a layer-tree transaction with no 2D movement (no flash).
+    var header = document.querySelector('.site-header');
+    if (header && typeof requestAnimationFrame === 'function') {
+      var prev = header.style.transform;
+      requestAnimationFrame(function () {
+        header.style.transform = 'translateZ(0)';
+        requestAnimationFrame(function () { header.style.transform = prev; });
+      });
+    }
   }
 
   var themeBtn = document.getElementById('themeBtn');

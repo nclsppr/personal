@@ -8,6 +8,25 @@ sur le site y est consignée, la plus récente en premier.
 
 ---
 
+## 2026-07-15 — Dynamic Island : vrai correctif (recomposition, pas mutation du meta)
+
+Le correctif précédent (mettre à jour `<meta name="theme-color">.content` au toggle) ne
+rafraîchissait la Dynamic Island que **quand on ouvrait le menu**. Diagnostic (analyse
+multi-agents adversariale) : muter `.content` **livre bien** la nouvelle couleur à iOS
+Safari — la preuve, le menu affiche la bonne couleur sans jamais toucher au meta. Ce qui
+manque n'est pas la notification mais une **recomposition** de la bande safe-area sous
+l'îlot (exposée par `viewport-fit=cover`) : iOS ne la re-échantillonne que sur une
+transaction de layer-tree en haut du viewport. Ouvrir le menu (backdrop + sidebar fixes)
+en provoque une ; un simple `.content` non.
+
+Correctif (`assets/js/site.js`) : garder la mise à jour `.content` en place (suffisante sur
+Android/desktop, préserve l'identité du nœud dont dépend le script anti-flash) **puis**
+reproduire délibérément cette recomposition en « poussant » le `.site-header` — déjà promu
+en couche via `backdrop-filter` — avec un `transform: translateZ(0)` basculé sur deux
+`requestAnimationFrame`. `translateZ` n'a aucun déplacement 2D → transaction de couche sans
+flash, et le header revient à son état (vérifié : aucun transform résiduel). _Le repaint de
+l'îlot lui-même ne se teste que sur iPhone réel — à confirmer côté Nicolas._
+
 ## 2026-07-15 — Sticker Pampy repensé, Formation dans le menu
 
 - **Sticker Pampy** (`assets/css/site.css`, les 2 pages) : l'illustration est un buste dont
