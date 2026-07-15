@@ -682,17 +682,41 @@ td strong { color: var(--ink); }
   box-shadow: var(--shadow-1);
 }
 
-/* Sticker — small die-cut illustration */
+/* Sticker — Pampy, die-cut sticker slapped on the page.
+   The artwork is a bust (flat-cut chest): the caption card overlaps the
+   bottom of the image so the cut edge is tucked behind it. */
 .sticker {
   float: right;
-  width: clamp(112px, 26%, 148px);
-  margin: 0 0 12px 22px;
+  width: clamp(120px, 27%, 156px);
+  margin: 0 4px 12px 24px;
 }
 .sticker img {
   display: block;
   width: 100%;
   height: auto;
+  transform: rotate(-6deg);
+  transform-origin: 50% 82%;
   filter: drop-shadow(0 6px 14px rgba(23, 23, 22, 0.16));
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.sticker:hover img { transform: rotate(4deg) scale(1.05); }
+.sticker figcaption {
+  position: relative;   /* paints above the image */
+  margin-top: -22%;     /* overlap must stay > the tilt's corner drop */
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 5px 8px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  box-shadow: var(--shadow-1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .sticker img { transition: none; }
+  .sticker:hover img { transform: rotate(-6deg); }
 }
 @media (max-width: 560px) {
   .portrait, .sticker { float: none; width: min(200px, 55%); margin: 4px auto 20px; }

@@ -8,6 +8,20 @@ sur le site y est consignée, la plus récente en premier.
 
 ---
 
+## 2026-07-15 — Sticker Pampy repensé, Formation dans le menu
+
+- **Sticker Pampy** (`assets/css/site.css`, les 2 pages) : l'illustration est un buste dont
+  le poitrail se termine par une coupe droite — flottant dans le vide, il semblait « coupé
+  en bas ». Nouveau traitement façon sticker réellement collé : légère inclinaison (-6°),
+  micro-animation ressort au survol (retour à plat + zoom léger, désactivée sous
+  `prefers-reduced-motion`), et une **carte-légende** « Pampy — Chief Pizza Officer »
+  (fond `--bg-raised`, mono) qui chevauche le bas du sticker : la coupe disparaît derrière,
+  Pampy sort de sa carte. Vérifié en clair et en sombre.
+- **Formation trouvable dans le menu** : la sous-partie `<h3>` Education/Formation (nichée
+  dans « Au-delà de l'ingénierie ») devient une vraie section `doc-section` avec titre ancré,
+  et gagne son entrée dans la sidebar (groupe Référence) sur les deux langues. L'ancre
+  `#education` est conservée ; le scrollspy la prend en charge automatiquement.
+
 ## 2026-07-15 — Parité FR/EN, corrections UX (thème iOS, scrollspy, deep-link langue)
 
 Signalements de Nicolas + mise en place d'une règle de parité entre les deux langues.
