@@ -192,31 +192,26 @@
       setLangHash(id);
     }
 
-    var visible = {};
     function atPageBottom() {
       return window.innerHeight + window.scrollY >=
         document.documentElement.scrollHeight - 2;
     }
     function update() {
-      /* The last section (Contact) can be too short to ever reach the
-         detection band, so pin it whenever the page is scrolled to the end. */
+      /* Pick the last section whose start crossed the reading marker.
+         Unlike an intersection band, this also handles very short sections. */
       if (sections.length && atPageBottom()) {
         activate(sections[sections.length - 1].id);
         return;
       }
+      var marker = Math.max(84, Math.min(window.innerHeight * 0.32, 240));
+      var next = sections.length ? sections[0].id : null;
       for (var i = 0; i < sections.length; i++) {
-        if (visible[sections[i].id]) { activate(sections[i].id); return; }
+        if (sections[i].getBoundingClientRect().top <= marker) next = sections[i].id;
+        else break;
       }
+      if (next) activate(next);
     }
-
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        visible[en.target.id] = en.isIntersecting;
-      });
-      update();
-    }, { rootMargin: '-72px 0px -60% 0px', threshold: 0 });
-
-    sections.forEach(function (s) { io.observe(s); });
+    update();
 
     var ticking = false;
     window.addEventListener('scroll', function () {
@@ -224,5 +219,6 @@
       ticking = true;
       requestAnimationFrame(function () { ticking = false; update(); });
     }, { passive: true });
+    window.addEventListener('resize', update);
   }
 })();

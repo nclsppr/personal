@@ -5,6 +5,14 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-15 — Scrollspy fiable sur les sections courtes
+
+- La section « Beyond engineering / Au-delà de l’ingénierie » active désormais correctement
+  son entrée de sidebar lorsqu’elle franchit le repère de lecture.
+- Le scrollspy suit la dernière section dont le début a franchi ce repère, au lieu de dépendre
+  d’une bande d’intersection qui pouvait manquer les blocs courts.
+- Les sept destinations ont été contrôlées en anglais et en français, sur mobile et desktop.
+
 ## 2026-07-15 — Finition design, prose et navigation mobile
 
 - **Direction visuelle** : rayons resserrés sur le logo, les boutons et les composants pour
