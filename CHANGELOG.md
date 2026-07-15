@@ -5,6 +5,32 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-15 — Restructuration de la homepage (audit Phase 1)
+
+Homepage raccourcie (~30 %) sans perdre les preuves, le détail restant dans le CV.
+Aucun fait ni chiffre modifié ; l'impact chiffré reste en TODO (voir mémoire).
+
+- **Nav sidebar réduite** : de 4 groupes / 13 liens à 4 groupes / 11 liens. « Platforms »
+  renommé « Selected impact / Expériences sélectionnées ». Retirés de la nav : Current focus,
+  Career journey, Technical background, Education (les sections et leurs ancres restent en place).
+- **Terminal → principes** : le terminal du hero ne répète plus les 3 métriques (déjà dans
+  « Key numbers ») ; il affiche `principles.txt` (Give context / Make ownership explicit /
+  Stay close to production / Build teams, not heroes). `aria-label` mis à jour.
+- **Listes condensées** (3-5 items) : « What I bring » 8 → 4 piliers ; « How I lead » 6 → 4
+  (les principes « challenge complexity » et « create room » intégrés dans les descriptions) ;
+  « Current focus » 10 → 5 ; puces des études de cas IoT et usine documentaire 7 → 5.
+- **Parcours homepage allégé** : stages 2015-16 et technicien 2011 retirés de la homepage
+  (conservés dans le CV).
+- **Activité indépendante clarifiée** : « Independent Software Engineer · Selected projects »
+  / « Ingénieur logiciel indépendant · Projets sélectionnés » (homepage + CV) — n'apparaît
+  plus comme une activité pleinement active en parallèle de l'emploi.
+- **Beyond engineering condensé** : liste de 6 puces → un paragraphe + 3 tags (Home automation /
+  Hiking / Neapolitan pizza). La ligne sur le « proxy d'entreprise » (critique implicite de
+  l'employeur) est retirée.
+
+Parité FR/EN vérifiée (15 sections identiques, 11 liens nav, comptes de listes égaux) ;
+rendu et absence d'erreur console contrôlés dans le panneau.
+
 ## 2026-07-15 — Passe d'audit : prose « dé-IA », accessibilité, titre, hygiène repo
 
 Application d'une partie du plan d'audit, en priorisant les items ne nécessitant
