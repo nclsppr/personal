@@ -21,6 +21,7 @@ Voir [`README.md`](README.md) pour l'architecture et [`CHANGELOG.md`](CHANGELOG.
   mêmes sections et ancres, et des textes équivalents (aucun texte source oublié, aucun
   placeholder).
 - Un hook `git commit` vérifie la parité *structurelle* ; la parité *sémantique* se relit.
+  (Les hooks vivent dans [`.claude/hooks/`](.claude/hooks/), enregistrés via `.claude/settings.json`.)
 
 ## CV PDF
 
