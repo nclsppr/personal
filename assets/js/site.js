@@ -32,11 +32,25 @@
   }
 
   var themeBtn = document.getElementById('themeBtn');
+  var isFR = (document.documentElement.lang || '').toLowerCase().indexOf('fr') === 0;
+  var THEME_LABEL = isFR
+    ? { toDark: 'Activer le mode sombre', toLight: 'Activer le mode clair' }
+    : { toDark: 'Switch to dark mode', toLight: 'Switch to light mode' };
+
+  function syncThemeButton(theme) {
+    if (!themeBtn) return;
+    var dark = theme === 'dark';
+    themeBtn.setAttribute('aria-label', dark ? THEME_LABEL.toLight : THEME_LABEL.toDark);
+    themeBtn.setAttribute('aria-pressed', String(dark));
+  }
+  syncThemeButton(document.documentElement.dataset.theme);
+
   if (themeBtn) {
     themeBtn.addEventListener('click', function () {
       var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
       document.documentElement.dataset.theme = next;
       applyThemeColor(next);
+      syncThemeButton(next);
       try { localStorage.setItem('theme', next); } catch (e) { /* private mode */ }
     });
   }
@@ -45,6 +59,7 @@
   var menuBtn = document.getElementById('menuBtn');
   var sidebar = document.getElementById('sidebar');
   var backdrop = document.getElementById('backdrop');
+  var mainEl = document.getElementById('main');
 
   function setSidebar(open) {
     if (!sidebar) return;
@@ -52,6 +67,13 @@
     sidebar.classList.toggle('open', open);
     if (backdrop) backdrop.classList.toggle('show', open);
     if (menuBtn) menuBtn.setAttribute('aria-expanded', String(open));
+    // Treat the open drawer as modal: lock background scroll and take the main
+    // content out of the tab order / accessibility tree behind it.
+    document.body.classList.toggle('nav-open', open);
+    if (mainEl) {
+      if (open) mainEl.setAttribute('inert', '');
+      else mainEl.removeAttribute('inert');
+    }
   }
 
   if (menuBtn && sidebar) {
@@ -100,8 +122,8 @@
     function activate(id) {
       if (current === id) return;
       current = id;
-      links.forEach(function (a) { a.classList.remove('active'); });
-      if (map[id]) map[id].classList.add('active');
+      links.forEach(function (a) { a.classList.remove('active'); a.removeAttribute('aria-current'); });
+      if (map[id]) { map[id].classList.add('active'); map[id].setAttribute('aria-current', 'location'); }
       setLangHash(id);
     }
 

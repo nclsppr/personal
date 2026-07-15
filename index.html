@@ -149,13 +149,6 @@
 
     <div class="layout">
         <aside class="sidebar" id="sidebar" aria-label="Section navigation">
-            <div class="version-pick">
-                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 2v8m0 0l3-3m-3 3L5 7" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 13h10" stroke-linecap="round"/></svg>
-                <span class="v-current">v2026</span>
-                <span class="v-sep">·</span>
-                <a href="/v2022/" rel="nofollow">v2022</a>
-            </div>
-
             <nav aria-label="On this page">
                 <div class="side-group">
                     <h2>Get started</h2>
@@ -196,7 +189,7 @@
         </aside>
 
         <main class="content" id="main">
-            <nav class="breadcrumb" aria-label="Breadcrumb">
+            <nav class="breadcrumb breadcrumb--home" aria-label="Breadcrumb">
                 <a href="/">nicolaspieper.com</a>
                 <span class="sep">/</span>
                 <span aria-current="page">overview</span>
@@ -208,7 +201,7 @@
                 <h1 id="overview-title">Building secure platforms<br>that scale.</h1>
                 <figure class="portrait">
                     <img src="/assets/img/nicolas-sticker.png" width="439" height="549"
-                         alt="Illustrated portrait of Nicolas Pieper" loading="lazy" decoding="async">
+                         alt="Illustrated portrait of Nicolas Pieper" loading="eager" fetchpriority="high" decoding="async">
                 </figure>
                 <p class="lead">
                     I lead engineering teams and build high-volume platforms for secure communications,

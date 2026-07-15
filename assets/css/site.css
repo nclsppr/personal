@@ -887,6 +887,9 @@ td strong { color: var(--ink); }
   }
   .backdrop.show { opacity: 1; pointer-events: auto; }
 
+  /* Lock the page behind the open drawer (modal behaviour) */
+  body.nav-open { overflow: hidden; }
+
   .header-nav { display: none; }
 }
 
@@ -902,6 +905,8 @@ td strong { color: var(--ink); }
   .brand span { display: none; }
   .content { padding-top: 28px; }
   h2 { font-size: 1.45rem; }
+  /* On the homepage the breadcrumb only restates where you already are */
+  .breadcrumb--home { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
