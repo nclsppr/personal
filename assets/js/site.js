@@ -3,6 +3,24 @@
 (function () {
   'use strict';
 
+  /* ---------- Legacy section links ----------
+     Detailed homepage sections moved to Work or CV. Keep old bookmarks useful
+     while leaving the static content fully readable when JavaScript is absent. */
+  var legacyHash = window.location.hash.slice(1);
+  var legacyPages = {
+    'how-i-lead': ['/work/#engineering-principles', '/fr/work/#engineering-principles'],
+    'stack': ['/work/#technical-background', '/fr/work/#technical-background'],
+    'career': ['/cv/#cv-exp-title', '/fr/cv/#cv-exp-title'],
+    'education': ['/cv/#cv-edu-title', '/fr/cv/#cv-edu-title'],
+    'how-i-work': ['/work/#engineering-principles', '/fr/work/#engineering-principles'],
+    'current-focus': ['/work/', '/fr/work/']
+  };
+  if ((location.pathname === '/' || location.pathname === '/fr/') && legacyPages[legacyHash]) {
+    var legacyTarget = legacyPages[legacyHash][location.pathname === '/fr/' ? 1 : 0];
+    location.replace(legacyTarget);
+    return;
+  }
+
   var THEME_COLOR = { light: '#FAF9F5', dark: '#262624' };
 
   /* ---------- Theme ---------- */
@@ -93,11 +111,18 @@
      Section ids are identical across /en and /fr, so carry the current
      section as a hash on the language-switch links: switching language
      keeps you where you were on the page (even after manual scrolling). */
+  var routePairs = {
+    '/': ['/', '/fr/'],
+    '/fr/': ['/', '/fr/'],
+    '/work/': ['/work/', '/fr/work/'],
+    '/fr/work/': ['/work/', '/fr/work/']
+  };
+  var languagePair = routePairs[location.pathname] || [];
   var langLinks = Array.prototype.slice
     .call(document.querySelectorAll('a[hreflang]'))
     .filter(function (a) {
       var h = (a.getAttribute('href') || '').split('#')[0];
-      return h === '/' || h === '/fr/';
+      return languagePair.indexOf(h) !== -1;
     });
 
   function setLangHash(id) {

@@ -473,6 +473,29 @@ hr {
   color: var(--ink-soft);
 }
 
+.page-intro { margin-bottom: 3rem; }
+.page-intro h1 { max-width: 820px; }
+
+.work-list {
+  border-top: 1px solid var(--border);
+  margin: 1.5rem 0;
+}
+.work-summary {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.8fr) minmax(180px, 0.9fr) minmax(240px, 1.5fr);
+  gap: 10px 24px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+  scroll-margin-top: calc(var(--header-offset) + 24px);
+}
+.work-summary .eyebrow,
+.work-summary h3,
+.work-summary p { margin: 0; }
+.work-summary h3 { font-size: 1rem; }
+.work-summary .text-link { grid-column: 3; }
+.text-link { font-weight: 650; }
+.case-study > h3 { margin-top: 1.8rem; }
+
 /* --------------------------------------------------------------------------
    Components
    -------------------------------------------------------------------------- */
@@ -714,6 +737,8 @@ td strong { color: var(--ink); }
   .sticker:hover img { transform: rotate(-6deg); }
 }
 @media (max-width: 560px) {
+  .work-summary { grid-template-columns: 1fr; }
+  .work-summary .text-link { grid-column: 1; }
   .portrait, .sticker { float: none; width: min(200px, 55%); margin: 4px auto 20px; }
 }
 

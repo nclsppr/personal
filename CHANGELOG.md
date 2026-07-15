@@ -5,6 +5,19 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-15 — Architecture Overview / Work / CV
+
+- **Nouvelle page bilingue** : ajout de `/work/` et `/fr/work/` pour les trois études de cas,
+  le leadership détaillé, les principes d’ingénierie et le socle technique.
+- **Homepage executive summary** : réduction à sept destinations exhaustives dans la sidebar ;
+  études de cas remplacées par trois résumés et leadership ramené à trois exemples.
+- **CV comme référence** : parcours et formation retirés de la homepage, sans modification de
+  leur contenu dans les CV.
+- **Navigation et compatibilité** : header Overview / Work / CV / Contact sur les pages
+  professionnelles, deep-link bilingue étendu à Work et redirections des anciennes ancres.
+- **SEO et documentation** : canonical, hreflang, métadonnées sociales, JSON-LD, sitemap et
+  README mis à jour. Aucun chiffre ni fait professionnel ajouté.
+
 ## 2026-07-15 — Restructuration de la homepage (audit Phase 1)
 
 Homepage raccourcie (~30 %) sans perdre les preuves, le détail restant dans le CV.

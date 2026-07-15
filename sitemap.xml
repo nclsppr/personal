@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://nicolaspieper.com/</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/"/>
@@ -12,7 +12,7 @@
   </url>
   <url>
     <loc>https://nicolaspieper.com/fr/</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/"/>
@@ -20,8 +20,26 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/"/>
   </url>
   <url>
+    <loc>https://nicolaspieper.com/work/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/work/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/work/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/work/"/>
+  </url>
+  <url>
+    <loc>https://nicolaspieper.com/fr/work/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/work/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/work/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/work/"/>
+  </url>
+  <url>
     <loc>https://nicolaspieper.com/cv/</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/cv/"/>
@@ -30,7 +48,7 @@
   </url>
   <url>
     <loc>https://nicolaspieper.com/fr/cv/</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/cv/"/>

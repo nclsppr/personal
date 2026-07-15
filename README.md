@@ -21,8 +21,8 @@ CV imprimable. Statique, sans framework ni dépendance runtime.
   breadcrumb.
 - **Accessibilité** : navigation clavier, focus visible, contrastes AA, cibles tactiles
   ≥44 px, tiroir mobile modal, ARIA mis à jour dynamiquement (thème, scrollspy).
-- **Zéro dépendance runtime** : un seul fichier JS (~3 Ko) pour le thème, le tiroir mobile,
-  le scrollspy et le deep-link de langue. Polices woff2 auto-hébergées.
+- **Zéro dépendance runtime** : un seul fichier JS pour le thème, le tiroir mobile, le
+  scrollspy, les redirections d’ancres et le deep-link de langue. Polices woff2 auto-hébergées.
 
 ## Architecture
 
@@ -30,6 +30,8 @@ CV imprimable. Statique, sans framework ni dépendance runtime.
 | --- | --- | --- |
 | `/` | `index.html` | Homepage anglaise (langue par défaut) |
 | `/fr/` | `fr/index.html` | Homepage française |
+| `/work/` | `work/index.html` | Études de cas et leadership en anglais |
+| `/fr/work/` | `fr/work/index.html` | Études de cas et leadership en français |
 | `/cv/` | `cv/index.html` | CV anglais (imprimable → PDF via `window.print()`) |
 | `/fr/cv/` | `fr/cv/index.html` | CV français |
 | `/v2022/` | `v2022/` | Archive de la version 2022 (non indexée) |
