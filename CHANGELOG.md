@@ -5,6 +5,17 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-15 — Stickers des études de cas sur la page Work
+
+- Trois stickers die-cut (IoT, usine documentaire, plateformes sécurisées) accrochés près
+  des repères 01/02/03 des études de cas, EN + FR, dans la langue graphique des stickers
+  existants (gravure vintage, ivoire, International Orange, inclinaison, ombre portée).
+- Desktop : position absolue à droite du titre (tailles 118/156/132 px, le Document Factory
+  domine) ; mobile ≤ 720 px : dans le flux sous le titre, ~84 px.
+- Optimisation lourde des sources : détourage du fond noir du Document Factory (flood fill),
+  recadrage alpha, redimensionnement 400 px et quantization palette — 6,5 Mo → 145 Ko au total.
+- Chargement paresseux, `alt` descriptifs bilingues, `prefers-reduced-motion` respecté.
+
 ## 2026-07-15 — Surlignage « marqueur » des faits clés
 
 - Nouveau style `mark.hl` : un surlignage discret teinté `--accent-soft` (calibré thèmes

@@ -817,9 +817,35 @@ td strong { color: var(--ink); }
   color: var(--muted);
   box-shadow: var(--shadow-1);
 }
+/* Stickers d'étude de cas — un par système, posé près du repère 01/02/03.
+   Même langage que Pampy (die-cut, inclinaison, ombre) ; taille et angle
+   varient par sticker via --sticker-w / --sticker-tilt pour un accrochage
+   organique. Desktop : absolu en haut à droite, la réserve de padding sur
+   h2 + eyebrow évite le chevauchement. ≤720px : dans le flux, sous le titre. */
+.page-work .case-study { position: relative; }
+.case-sticker {
+  position: absolute;
+  top: 2.9rem;
+  right: 0;
+  width: var(--sticker-w, 120px);
+  margin: 0;
+}
+.case-sticker img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: rotate(var(--sticker-tilt, -5deg));
+  filter: drop-shadow(0 6px 14px rgba(23, 23, 22, 0.16));
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.case-sticker:hover img { transform: rotate(2deg) scale(1.06); }
+.page-work .case-study > h2,
+.page-work .case-study > .eyebrow { padding-right: 185px; }
+
 @media (prefers-reduced-motion: reduce) {
-  .sticker img { transition: none; }
+  .sticker img, .case-sticker img { transition: none; }
   .sticker:hover img { transform: rotate(-6deg); }
+  .case-sticker:hover img { transform: rotate(var(--sticker-tilt, -5deg)); }
 }
 @media (max-width: 560px) {
   .work-summary { grid-template-columns: 1fr; }
@@ -830,6 +856,9 @@ td strong { color: var(--ink); }
 @media (max-width: 720px) {
   .page-work .case-study { display: block; }
   .page-work .case-study::before { display: block; }
+  .case-sticker { position: static; width: min(84px, 24vw); margin: 0.9rem 0 0.2rem; }
+  .page-work .case-study > h2,
+  .page-work .case-study > .eyebrow { padding-right: 0; }
   .page-work .case-study > h3 { margin-top: 1.8rem; }
   .page-work .case-study > h3 + p,
   .page-work .case-study > h3 + ul { margin-top: 0.65rem; }
