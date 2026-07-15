@@ -5,6 +5,14 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-15 — Favicon aligné sur le monogramme NP
+
+- Le favicon SVG typographique est remplacé par une version vectorielle simplifiée du
+  monogramme de `logo_nicolaspieper.png`, lisible aux tailles 16 et 32 px.
+- Le fallback PNG 96 px est régénéré directement depuis le logo maître ; l’icône Apple,
+  déjà cohérente avec ce monogramme, reste inchangée.
+- Les URLs de favicon sont versionnées pour invalider le cache des navigateurs.
+
 ## 2026-07-15 — Stickers des études de cas sur la page Work
 
 - Trois stickers die-cut (IoT, usine documentaire, plateformes sécurisées) accrochés près
