@@ -6,8 +6,9 @@
     <title>404 — Page not found · Nicolas Pieper</title>
     <meta name="robots" content="noindex">
     <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+    <meta name="theme-color" content="#FAF9F5">
     <link rel="stylesheet" href="/assets/css/site.css">
-    <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t}catch(e){}})()</script>
+    <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
     <style>
         .err-wrap { min-height: 100vh; min-height: 100dvh; display: grid; place-items: center; padding: max(24px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left)); }
         .err { text-align: center; max-width: 34rem; }

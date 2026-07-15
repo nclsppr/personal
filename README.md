@@ -8,6 +8,37 @@ sur le site y est consignée, la plus récente en premier.
 
 ---
 
+## 2026-07-15 — Parité FR/EN, corrections UX (thème iOS, scrollspy, deep-link langue)
+
+Signalements de Nicolas + mise en place d'une règle de parité entre les deux langues.
+
+- **Fil d'Ariane FR corrigé** : `fr/index.html` affichait `nicolaspieper.com / fr` au lieu
+  de `nicolaspieper.com / aperçu` (le libellé EN équivalent est « overview »). Un placeholder
+  `fr` restait à la place du libellé traduit.
+- **Deep-link au changement de langue** (`assets/js/site.js`) : les liens EN⇄FR (en-tête et
+  pied de page) reçoivent désormais l'ancre de la section courante suivie par le scrollspy.
+  Changer de langue conserve l'endroit où on était dans la page (les `id` de section sont
+  identiques dans les deux langues). Fonctionne même après un défilement manuel.
+- **Barre d'état iOS synchronisée au thème** : les deux `<meta name="theme-color">` en
+  `media=(prefers-color-scheme)` ne suivaient que la préférence système, pas le bouton
+  jour/nuit du site — la Dynamic Island gardait donc l'ancienne couleur au changement manuel.
+  Remplacés par un seul `<meta name="theme-color">` piloté en JS (script anti-flash de `<head>`
+  + toggle) : `#FAF9F5` en clair, `#262624` en sombre. Appliqué aux 5 pages (dont `404.html`).
+- **Scrollspy — section Contact** : la dernière section, trop courte, n'entrait jamais dans
+  la bande de détection de l'`IntersectionObserver` → son entrée de menu ne s'allumait jamais.
+  Ajout d'une détection de bas de page (throttlée en `requestAnimationFrame`) qui épingle le
+  dernier lien du menu quand la page est défilée jusqu'en bas.
+
+**Règle de parité FR/EN (imposée par Nicolas) :** avant chaque commit touchant le site,
+vérifier que `/` et `/fr/` restent équivalents (même structure, mêmes sections, et chaque
+texte est la traduction équivalente — aucun texte source oublié, aucun placeholder). Un hook
+`git commit` (`~/Developer/.claude/hooks/check-i18n-parity.py`) bloque désormais le commit si
+la parité *structurelle* diverge (sections/ancres désynchronisées, fil d'Ariane FR = code
+langue). La parité *sémantique* reste vérifiée par relecture.
+
+_Vérifié dans le panneau navigateur : fil d'Ariane, bascule theme-color et deep-link langue OK.
+Le scrollspy dépend de `innerHeight` (rapporté à 0 par le panneau) → à confirmer sur iPhone réel._
+
 ## 2026-07-15 — Responsivité iPhone (safe areas, notch, tap targets)
 
 Passe dédiée au rendu sur iPhone (testé/pensé pour iPhone 15, 393×852). Le layout de base
