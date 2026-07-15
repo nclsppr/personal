@@ -5,6 +5,18 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-16 — Stickers Work agrandis et « claqués » sur la page
+
+- Les stickers des études de cas gagnent en présence : 170–210 px sur desktop
+  (au lieu de 118–156), ~148 px sur mobile (au lieu de 84), sources régénérées
+  en 512 px depuis les originaux pour rester nets en retina.
+- Placement moins scolaire : chaque sticker chevauche le filet séparateur de
+  section et déborde dans la marge droite sur grand écran ; sur mobile il est
+  flotté à droite avec habillage du texte. Taille et angle par sticker portés
+  par le CSS (plus de styles inline), la réserve du titre suit la largeur réelle.
+- Navigation de fin de page ajoutée aux CV (« Retour à l'Aperçu / explorer les
+  réalisations »), masquée à l'impression, PDF régénérés.
+
 ## 2026-07-15 — Page Work recentrée sur le rôle actuel
 
 - L'étude de cas « Plateformes sécurisées » est remplacée par deux sections : « Diriger
