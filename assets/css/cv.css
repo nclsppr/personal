@@ -10,7 +10,10 @@
 .cv-layout {
   max-width: 50rem;
   margin: 0 auto;
-  padding: calc(var(--header-h) + 36px) clamp(16px, 4vw, 40px) 40px;
+  padding: calc(var(--header-offset) + 36px) clamp(16px, 4vw, 40px) 40px;
+  padding-left: max(clamp(16px, 4vw, 40px), var(--safe-left));
+  padding-right: max(clamp(16px, 4vw, 40px), var(--safe-right));
+  padding-bottom: max(40px, var(--safe-bottom));
 }
 
 /* Action bar above the document */

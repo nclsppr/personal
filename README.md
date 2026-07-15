@@ -8,6 +8,34 @@ sur le site y est consignée, la plus récente en premier.
 
 ---
 
+## 2026-07-15 — Responsivité iPhone (safe areas, notch, tap targets)
+
+Passe dédiée au rendu sur iPhone (testé/pensé pour iPhone 15, 393×852). Le layout de base
+était fluide mais ne respectait pas les règles de navigation iOS. Corrections dans
+`assets/css/site.css`, `assets/css/cv.css`, `404.html` et le `<meta viewport>` des 5 pages :
+
+- **Zones de sécurité (encoche / Dynamic Island / indicateur d'accueil)** : ajout de
+  `viewport-fit=cover` + tokens `env(safe-area-inset-*)`. L'en-tête fixe réserve désormais
+  la hauteur de la barre d'état (`--header-offset`), le contenu et le tiroir mobile
+  dégagent l'indicateur d'accueil en bas, et le contenu respecte les encoches latérales
+  en paysage.
+- **Bug `100vh` iOS Safari** : sidebar et pages passées en `100dvh` (la barre d'outils
+  Safari ne tronque plus le bas).
+- **Cibles tactiles** : boutons d'icône 34 → 40 px, portés à 44 px (min. Apple HIG) sur
+  `@media (pointer: coarse)` ; zones tap agrandies pour le sélecteur de langue et la nav.
+- **Confort iOS** : `overflow-x: clip` (garde anti-défilement horizontal),
+  `-webkit-tap-highlight-color: transparent` (pas de flash gris au tap),
+  `overscroll-behavior: contain` sur le tiroir.
+
+Sur un appareil sans encoche, tous les `env()` valent 0 → rendu identique à avant (aucune
+régression desktop). Vérifié via simulation d'encoche + valeurs calculées ; le test
+définitif se fera sur l'iPhone réel une fois le DNS en place.
+
+**Décision i18n :** on conserve **deux fichiers HTML** distincts (`/` et `/fr/`) plutôt
+qu'une traduction JavaScript runtime — choix dicté par la priorité SEO (aperçus de partage
+et `hreflang` nécessitent des pages pré-rendues par URL). Les deux versions sont maintenues
+à la main et gardées synchronisées.
+
 ## 2026-07-15 — Audit qualité multi-agents et corrections
 
 Passe d'audit adversariale (12 agents : SEO technique, WCAG 2.2 AA, relecture française,

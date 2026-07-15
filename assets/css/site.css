@@ -89,6 +89,15 @@
   --radius: 10px;
   --radius-sm: 6px;
 
+  /* iOS safe areas (0 on devices without a notch / home indicator) */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  /* total height occupied by the fixed header, incl. the status-bar / Dynamic Island */
+  --header-offset: calc(var(--header-h) + var(--safe-top));
+  --gutter: clamp(16px, 3vw, 32px);
+
   --shadow-1: 0 1px 2px rgba(23, 23, 22, 0.05), 0 2px 8px rgba(23, 23, 22, 0.04);
   --shadow-2: 0 2px 4px rgba(23, 23, 22, 0.06), 0 12px 32px rgba(23, 23, 22, 0.10);
 
@@ -127,7 +136,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--header-h) + 24px);
+  scroll-padding-top: calc(var(--header-offset) + 24px);
   -webkit-text-size-adjust: 100%;
 }
 
@@ -140,6 +149,8 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: clip;                        /* guard against accidental sideways scroll on mobile */
+  -webkit-tap-highlight-color: transparent; /* no grey flash on tap (iOS) */
 }
 
 ::selection { background: #9A4A26; color: #FFF; }
@@ -172,11 +183,13 @@ img { max-width: 100%; height: auto; }
 .site-header {
   position: fixed;
   inset: 0 0 auto 0;
-  height: var(--header-h);
+  height: var(--header-offset);
+  padding-top: var(--safe-top);        /* push the bar below the status bar / Dynamic Island */
+  padding-left: max(var(--gutter), var(--safe-left));
+  padding-right: max(var(--gutter), var(--safe-right));
   display: flex;
   align-items: center;
   gap: 20px;
-  padding: 0 clamp(16px, 3vw, 32px);
   background: color-mix(in srgb, var(--bg) 88%, transparent);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
@@ -261,8 +274,8 @@ img { max-width: 100%; height: auto; }
   border: 1px solid var(--border);
   background: transparent;
   color: var(--muted);
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   border-radius: 999px;
   display: grid;
   place-items: center;
@@ -286,14 +299,16 @@ img { max-width: 100%; height: auto; }
   grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
   max-width: 1280px;
   margin: 0 auto;
-  padding-top: var(--header-h);
+  padding-top: var(--header-offset);
 }
 
 .sidebar {
   position: sticky;
-  top: var(--header-h);
-  height: calc(100vh - var(--header-h));
+  top: var(--header-offset);
+  height: calc(100vh - var(--header-offset));
+  height: calc(100dvh - var(--header-offset)); /* dvh: avoids iOS Safari toolbar cut-off */
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 28px 20px 40px clamp(16px, 2vw, 24px);
   border-right: 1px solid var(--border);
   scrollbar-width: thin;
@@ -356,6 +371,9 @@ img { max-width: 100%; height: auto; }
    -------------------------------------------------------------------------- */
 .content {
   padding: 40px clamp(20px, 4vw, 56px) 80px;
+  padding-left: max(clamp(20px, 4vw, 56px), var(--safe-left));
+  padding-right: max(clamp(20px, 4vw, 56px), var(--safe-right));
+  padding-bottom: max(80px, calc(48px + var(--safe-bottom)));
   max-width: calc(var(--content-w) + 2 * clamp(20px, 4vw, 56px));
 }
 
@@ -738,6 +756,9 @@ td strong { color: var(--ink); }
 .site-footer {
   border-top: 1px solid var(--border);
   padding: 28px clamp(20px, 4vw, 56px);
+  padding-left: max(clamp(20px, 4vw, 56px), var(--safe-left));
+  padding-right: max(clamp(20px, 4vw, 56px), var(--safe-right));
+  padding-bottom: max(28px, var(--safe-bottom));
   font-size: 0.82rem;
   color: var(--muted);
   display: flex;
@@ -760,15 +781,18 @@ td strong { color: var(--ink); }
 
   .sidebar {
     position: fixed;
-    inset: var(--header-h) auto 0 0;
+    inset: var(--header-offset) auto 0 0;
     width: min(320px, 85vw);
     background: var(--bg);
     border-right: 1px solid var(--border);
+    /* clear the home indicator + notch in landscape */
+    padding: 24px max(20px, var(--safe-left)) max(40px, calc(24px + var(--safe-bottom)));
     transform: translateX(-102%);
     visibility: hidden; /* keeps off-screen links out of the tab order */
     transition: transform 0.22s ease, visibility 0s 0.22s;
     z-index: 40;
     box-shadow: none;
+    overscroll-behavior: contain;
   }
   .sidebar.open {
     transform: translateX(0);
@@ -779,7 +803,7 @@ td strong { color: var(--ink); }
 
   .backdrop {
     position: fixed;
-    inset: var(--header-h) 0 0 0;
+    inset: var(--header-offset) 0 0 0;
     background: rgba(23, 23, 22, 0.35);
     z-index: 39;
     opacity: 0;
@@ -789,6 +813,14 @@ td strong { color: var(--ink); }
   .backdrop.show { opacity: 1; pointer-events: auto; }
 
   .header-nav { display: none; }
+}
+
+/* Bigger touch targets on touch devices (Apple HIG: 44px) */
+@media (pointer: coarse) {
+  .icon-btn { width: 44px; height: 44px; }
+  .lang-switch a, .lang-switch span { padding: 7px 12px; }
+  .header-nav a { padding: 10px 12px; }
+  .side-group a { padding: 10px; }
 }
 
 @media (max-width: 560px) {
