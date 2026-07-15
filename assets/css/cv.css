@@ -1,7 +1,7 @@
 /* ==========================================================================
    nicolaspieper.com — CV page (/cv/ and /fr/cv/)
    Loaded AFTER site.css. Single centered column, paper-like document,
-   print styles produce the A4 PDF via window.print().
+   Print styles are also used to generate the versioned A4 PDF files.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -183,7 +183,7 @@
    -------------------------------------------------------------------------- */
 @page {
   size: A4;
-  margin: 14mm;
+  margin: 11mm;
 }
 
 @media print {
@@ -210,8 +210,8 @@
   body {
     background: #FFFFFF;
     color: #000000;
-    font-size: 10pt;
-    line-height: 1.45;
+    font-size: 9.5pt;
+    line-height: 1.4;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -237,7 +237,8 @@
     padding: 0;
   }
 
-  /* Keep compact blocks together while allowing long roles to flow naturally. */
+  /* Keep roles and compact blocks together. */
+  .cv-entry,
   .cv-head,
   .cv-skills > div,
   .cv-edu li,
@@ -268,6 +269,19 @@
   a, a:visited { color: inherit; text-decoration: none; }
   a[href]::after { content: none !important; }
 
-  .cv-section { margin-top: 1.5rem; }
-  .cv-entry { margin-bottom: 1.1rem; }
+  .cv-section { margin-top: 1.2rem; }
+  .cv-section > h2 { margin-bottom: 0.75rem; }
+  .cv-section p { font-size: 9.5pt; }
+  .cv-entry { margin-bottom: 0.85rem; }
+  .cv-entry h3 { font-size: 10.5pt; }
+  .cv-entry ul { margin-top: 0.35rem; }
+  .cv-entry li,
+  .cv-skills dt,
+  .cv-skills dd,
+  .cv-edu li,
+  .cv-langs li { font-size: 9.25pt; }
+  .cv-entry li { margin: 0.15rem 0; }
+  .cv-org { font-size: 9pt; }
+  .cv-skills { gap: 10px; }
+  .cv-edu { gap: 7px; }
 }

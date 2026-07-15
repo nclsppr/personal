@@ -2,7 +2,7 @@
 
 Site personnel de Nicolas Pieper — présenté comme sa **documentation** : sobre,
 ivoire/encre, un seul accent (International Orange `#FF4F00`), bilingue FR/EN,
-CV imprimable. Statique, sans framework ni dépendance runtime.
+CV HTML avec PDF téléchargeables. Statique, sans framework ni dépendance runtime.
 
 **Production :** [nicolaspieper.com](https://nicolaspieper.com) (canonique) ·
 `nicolas.pieper.fr` (redirection 301)
@@ -32,8 +32,8 @@ CV imprimable. Statique, sans framework ni dépendance runtime.
 | `/fr/` | `fr/index.html` | Homepage française |
 | `/work/` | `work/index.html` | Études de cas et leadership en anglais |
 | `/fr/work/` | `fr/work/index.html` | Études de cas et leadership en français |
-| `/cv/` | `cv/index.html` | CV anglais (imprimable → PDF via `window.print()`) |
-| `/fr/cv/` | `fr/cv/index.html` | CV français |
+| `/cv/` | `cv/index.html` | CV anglais avec PDF pré-généré téléchargeable |
+| `/fr/cv/` | `fr/cv/index.html` | CV français avec PDF pré-généré téléchargeable |
 | `/v2022/` | `v2022/` | Archive de la version 2022 (non indexée) |
 | `/infos/` | `infos/INFOS.md` | Source de contenu (non indexée) |
 
@@ -43,6 +43,7 @@ assets/
   js/    site.js            (thème · sidebar · scrollspy · deep-link langue)
   fonts/ woff2 variables (Inter · Source Serif 4 · JetBrains Mono, subsets latin/-ext)
   img/   logo, favicons, portraits, image OpenGraph
+  docs/  CV PDF pré-générés en anglais et en français
 ```
 
 ## Lancement local
@@ -57,9 +58,22 @@ python3 -m http.server 4173 --directory .
 
 La config `.claude/launch.json` (`personal-site`) fait la même chose pour l'aperçu intégré.
 
-## Build
+## Build et PDF
 
-Aucune étape de build. Ce qui est dans le repo est déployé tel quel.
+Aucune étape de build pour le déploiement. Ce qui est dans le repo est servi tel quel.
+Après une modification des CV HTML, régénérer les deux PDF depuis le serveur local :
+
+```sh
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+  --headless --disable-gpu --no-pdf-header-footer \
+  --print-to-pdf="$PWD/assets/docs/nicolas-pieper-cv-en.pdf" \
+  http://127.0.0.1:4173/cv/
+
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+  --headless --disable-gpu --no-pdf-header-footer \
+  --print-to-pdf="$PWD/assets/docs/nicolas-pieper-cv-fr.pdf" \
+  http://127.0.0.1:4173/fr/cv/
+```
 
 Assets images/favicons régénérés à la main via les outils macOS natifs (`sips`, `qlmanage`) ;
 voir le `CHANGELOG.md` pour les commandes utilisées.

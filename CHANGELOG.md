@@ -5,6 +5,16 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-15 — CV recentré et PDF pré-générés
+
+- Les expériences de stage de 2015–2016 et le poste de technicien de 2011 sont retirés des CV
+  anglais et français ; le parcours professionnel présenté commence au poste de Lead Developer
+  en 2016. La formation reste inchangée.
+- Les boutons d’impression sont remplacés par le téléchargement direct de deux PDF statiques,
+  un par langue, générés à partir des pages CV et versionnés dans `assets/docs/`.
+- La mise en page d’impression tient sur deux pages lisibles dans chaque langue, avec chaque
+  poste conservé d’un seul bloc. Les pages HTML restent accessibles et imprimables sans JavaScript.
+
 ## 2026-07-15 — Terminal d’accueil plus personnel
 
 - Le terminal ne répète plus les principes détaillés sur la page Work.
