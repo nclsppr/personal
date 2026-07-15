@@ -370,6 +370,7 @@ img { max-width: 100%; height: auto; }
    Content
    -------------------------------------------------------------------------- */
 .content {
+  min-width: 0; /* let the grid track shrink below the content's intrinsic width */
   padding: 40px clamp(20px, 4vw, 56px) 80px;
   padding-left: max(clamp(20px, 4vw, 56px), var(--safe-left));
   padding-right: max(clamp(20px, 4vw, 56px), var(--safe-right));
@@ -828,7 +829,9 @@ td strong { color: var(--ink); }
    Responsive
    -------------------------------------------------------------------------- */
 @media (max-width: 980px) {
-  .layout { grid-template-columns: 1fr; }
+  /* minmax(0, 1fr) — a bare 1fr cannot shrink below the track's min-content
+     (the terminal <pre> is ~625px wide), which forced a 665px layout on phones */
+  .layout { grid-template-columns: minmax(0, 1fr); }
 
   .menu-btn { display: grid; }
 
