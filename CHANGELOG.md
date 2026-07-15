@@ -5,6 +5,14 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-15 — Terminal d’accueil plus personnel
+
+- Le terminal ne répète plus les principes détaillés sur la page Work.
+- La commande fictive `nicolas highlights` rappelle les trois faits déjà publiés : plus d’un
+  million d’appareils connectés, 10 millions de rapports par mois et une équipe de dix ingénieurs.
+- `ls interests/` ajoute une touche personnelle avec la domotique, la randonnée et la pizza
+  napolitaine. Le libellé accessible est équivalent en anglais et en français.
+
 ## 2026-07-15 — Scrollspy fiable sur les sections courtes
 
 - La section « Beyond engineering / Au-delà de l’ingénierie » active désormais correctement
