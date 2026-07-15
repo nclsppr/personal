@@ -21,6 +21,13 @@
     return;
   }
 
+  /* Sections supprimées dont le contenu vit désormais sous une autre ancre de
+     la même page (ex. « Leadership in practice » fusionné dans la section 01). */
+  var legacyAliases = { 'leadership-in-practice': 'solutions-team' };
+  if (legacyAliases[legacyHash] && !document.getElementById(legacyHash) && document.getElementById(legacyAliases[legacyHash])) {
+    location.replace('#' + legacyAliases[legacyHash]);
+  }
+
   var THEME_COLOR = { light: '#FAF9F5', dark: '#262624' };
 
   /* ---------- Theme ---------- */

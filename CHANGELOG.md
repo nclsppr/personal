@@ -5,6 +5,22 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-15 — Page Work recentrée sur le rôle actuel
+
+- L'étude de cas « Plateformes sécurisées » est remplacée par deux sections : « Diriger
+  l'équipe d'ingénierie Solutions » (01, management, nouveau sticker die-cut optimisé
+  2,5 Mo → 53 Ko) puis « Plateformes sécurisées de documents & de communication »
+  (02, direction produit et plateforme), EN + FR. L'IoT et l'usine documentaire passent
+  en 03 et 04.
+- « Leadership in practice », redondant avec la nouvelle section 01, est supprimé ;
+  l'ancre `#leadership-in-practice` est redirigée vers `#solutions-team` (alias legacy
+  dans site.js) et le lien homepage « Découvrir le leadership en pratique » pointe
+  désormais vers la section 01.
+- La homepage liste les quatre études de cas dans le même ordre, avec un nouveau
+  résumé « 10 ingénieurs, un portefeuille » pour l'équipe Solutions.
+- Sidebar, intro, meta et JSON-LD alignés ; la grille des études de cas accepte
+  plusieurs paragraphes par libellé (placement colonne 2 généralisé).
+
 ## 2026-07-15 — Favicon aligné sur le monogramme NP
 
 - Le favicon SVG typographique est remplacé par une version vectorielle simplifiée du

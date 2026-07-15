@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Nicolas Pieper — Work · Engineering Manager</title>
-    <meta name="description" content="Case studies covering an industrial IoT platform, a banking document factory and secure platforms, plus how I lead the Solutions engineering team.">
+    <meta name="description" content="How I lead the Solutions engineering team and a portfolio of secure platforms, plus case studies on an industrial IoT platform and a banking document factory.">
     <meta name="author" content="Nicolas Pieper">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://nicolaspieper.com/work/">
@@ -14,7 +14,7 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Nicolas Pieper">
     <meta property="og:title" content="Nicolas Pieper — Work · Engineering Manager">
-    <meta property="og:description" content="Case studies covering an industrial IoT platform, a banking document factory and secure platforms, plus how I lead the Solutions engineering team.">
+    <meta property="og:description" content="How I lead the Solutions engineering team and a portfolio of secure platforms, plus case studies on an industrial IoT platform and a banking document factory.">
     <meta property="og:url" content="https://nicolaspieper.com/work/">
     <meta property="og:image" content="https://nicolaspieper.com/assets/img/og-home.png">
     <meta property="og:image:width" content="1200">
@@ -24,7 +24,7 @@
     <meta property="og:locale:alternate" content="fr_FR">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Nicolas Pieper — Work · Engineering Manager">
-    <meta name="twitter:description" content="Case studies covering an industrial IoT platform, a banking document factory and secure platforms, plus how I lead the Solutions engineering team.">
+    <meta name="twitter:description" content="How I lead the Solutions engineering team and a portfolio of secure platforms, plus case studies on an industrial IoT platform and a banking document factory.">
     <meta name="twitter:image" content="https://nicolaspieper.com/assets/img/og-home.png">
     <link rel="icon" type="image/svg+xml" sizes="any" href="/assets/img/favicon.svg?v=2">
     <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon-96.png?v=2">
@@ -38,7 +38,7 @@
     {
         "@context":"https://schema.org",
         "@graph":[
-            {"@type":"WebPage","@id":"https://nicolaspieper.com/work/#page","url":"https://nicolaspieper.com/work/","name":"Nicolas Pieper — Work · Engineering Manager","description":"Case studies covering an industrial IoT platform, a banking document factory and secure platforms, plus how I lead the Solutions engineering team.","inLanguage":"en","about":{"@id":"https://nicolaspieper.com/#person"}},
+            {"@type":"WebPage","@id":"https://nicolaspieper.com/work/#page","url":"https://nicolaspieper.com/work/","name":"Nicolas Pieper — Work · Engineering Manager","description":"How I lead the Solutions engineering team and a portfolio of secure platforms, plus case studies on an industrial IoT platform and a banking document factory.","inLanguage":"en","about":{"@id":"https://nicolaspieper.com/#person"}},
             {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Overview","item":"https://nicolaspieper.com/"},{"@type":"ListItem","position":2,"name":"Work","item":"https://nicolaspieper.com/work/"}]}
         ]
     }
@@ -66,13 +66,12 @@
         <aside class="sidebar" id="sidebar" aria-label="Section navigation">
             <nav aria-label="On this page">
                 <div class="side-group"><h2>Selected work</h2><ul>
-                    <li><a href="#iot-platform">Connected Home platform</a></li>
-                    <li><a href="#document-factory">Banking document factory</a></li>
                     <li><a href="#solutions-team">Solutions engineering team</a></li>
                     <li><a href="#secure-platforms">Secure platforms</a></li>
+                    <li><a href="#iot-platform">Connected Home platform</a></li>
+                    <li><a href="#document-factory">Banking document factory</a></li>
                 </ul></div>
                 <div class="side-group"><h2>Leadership</h2><ul>
-                    <li><a href="#leadership-in-practice">Leadership in practice</a></li>
                     <li><a href="#engineering-principles">Engineering principles</a></li>
                 </ul></div>
                 <div class="side-group"><h2>Background</h2><ul>
@@ -82,36 +81,8 @@
         </aside>
         <main class="content" id="main">
             <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">nicolaspieper.com</a><span class="sep">/</span><span aria-current="page">work</span></nav>
-            <header class="page-intro"><p class="eyebrow">Work</p><h1>Inside the platforms.</h1><p class="lead">This page covers three systems I know first-hand: an industrial IoT platform, a banking document factory and a portfolio of secure services. It also describes how I lead the Solutions engineering team. It focuses on the decisions, constraints and responsibilities I can discuss publicly.</p></header>
-            <section class="doc-section case-study" id="iot-platform" aria-labelledby="iot-title" data-case="01">
-                <h2 class="anchor-heading" id="iot-title">Industrial Connected Home platform<a class="anchor" href="#iot-platform" aria-label="Link to this section">#</a></h2>
-                <p class="eyebrow">1M+ connected devices · Worldline</p>
-                <figure class="case-sticker" style="--sticker-w: 118px; --sticker-tilt: -5deg">
-                    <img src="/assets/img/iot-sticker.png" width="400" height="397"
-                         alt="Die-cut sticker: connected home appliances wired to a small hub, with orange signals travelling to a cloud node"
-                         loading="lazy" decoding="async">
-                </figure>
-                <h3>The system</h3><p>A platform used by major European home-appliance manufacturers, including <strong>Gorenje</strong> and <strong>Bosch/Siemens</strong>, connected appliances, cloud services and mobile applications.</p>
-                <h3>The problem</h3><p>It had to manage more than <strong>one million devices simultaneously</strong>, handle real-time communication and remain available to customers across several European countries.</p>
-                <h3>My contribution</h3><p>I contributed to the platform’s design and evolution, rebuilt backend services, led its cloud migration and coordinated a Romanian nearshore team and customers in Slovenia, Austria, Germany and Spain.</p>
-                <h3>Decisions</h3><ul><li>Designed the notification system around MQTT and mobile push notifications</li><li>Rebuilt the backend with Spring Cloud microservices</li><li>Led the migration to Azure PaaS, Kubernetes and Docker</li></ul>
-                <h3>Results</h3><p>The platform managed more than one million connected devices. The work also improved its scalability, observability and maintainability.</p>
-            </section>
-            <section class="doc-section case-study" id="document-factory" aria-labelledby="factory-title" data-case="02">
-                <h2 class="anchor-heading" id="factory-title">High-volume banking document factory<a class="anchor" href="#document-factory" aria-label="Link to this section">#</a></h2>
-                <p class="eyebrow">10M reports / month · Worldline</p>
-                <figure class="case-sticker" style="--sticker-w: 156px; --sticker-tilt: 3deg">
-                    <img src="/assets/img/documentfactory-sticker.png" width="400" height="354"
-                         alt="Die-cut sticker: a compact printing machine turning data blocks into clean paper sheets, one orange sheet in the rollers"
-                         loading="lazy" decoding="async">
-                </figure>
-                <h3>The system</h3><p>A document-generation platform produced PDF, AFP and PostScript communications from databases, XML files and reusable templates in a <strong>PCI-DSS-compliant</strong> environment.</p>
-                <h3>The problem</h3><p>Banking communications required high-volume processing, consistent document rendering and enough operational control to run the platform in production.</p>
-                <h3>My contribution</h3><p>As Technical Leader, I designed and built the platform, covering architecture, technology benchmarking, CI/CD, monitoring and production reliability.</p>
-                <h3>Decisions</h3><ul><li>Designed the Java and microservices architecture</li><li>Benchmarked rendering technologies for performance, quality and maintainability</li><li>Built an Angular dashboard for monitoring and operational control</li><li>Created an OpenAPI integration model reused by other Worldline teams</li></ul>
-                <h3>Results</h3><p>The platform reached <strong>10 million banking reports processed per month</strong>. Continuous integration and deployment pipelines supported its delivery and operation.</p>
-            </section>
-            <section class="doc-section case-study" id="solutions-team" aria-labelledby="solutions-title" data-case="03">
+            <header class="page-intro"><p class="eyebrow">Work</p><h1>Inside the platforms.</h1><p class="lead">This page covers how I lead the Solutions engineering team, a portfolio of secure document and communication platforms, and two systems I know first-hand: an industrial IoT platform and a banking document factory. It focuses on the decisions, constraints and responsibilities I can discuss publicly.</p></header>
+            <section class="doc-section case-study" id="solutions-team" aria-labelledby="solutions-title" data-case="01">
                 <h2 class="anchor-heading" id="solutions-title">Leading the Solutions engineering team<a class="anchor" href="#solutions-team" aria-label="Link to this section">#</a></h2>
                 <p class="eyebrow">Engineering management · Victor Buck Services</p>
                 <figure class="case-sticker" style="--sticker-w: 136px; --sticker-tilt: -4deg">
@@ -130,7 +101,7 @@
                 <h3>Visible impact</h3><p>The results include clearer responsibilities, better-distributed product knowledge, stronger cross-team coordination and greater autonomy within the engineering team.</p>
                 <p>The objective is not only to deliver projects, but to build a team capable of owning and evolving critical platforms over the long term.</p>
             </section>
-            <section class="doc-section case-study" id="secure-platforms" aria-labelledby="secure-title" data-case="04">
+            <section class="doc-section case-study" id="secure-platforms" aria-labelledby="secure-title" data-case="02">
                 <h2 class="anchor-heading" id="secure-title">Secure document &amp; communication platforms<a class="anchor" href="#secure-platforms" aria-label="Link to this section">#</a></h2>
                 <p class="eyebrow">Product and platform leadership · Victor Buck Services</p>
                 <figure class="case-sticker" style="--sticker-w: 132px; --sticker-tilt: 4deg">
@@ -147,12 +118,33 @@
                 <h3>Current direction</h3><ul><li>Modernizing established Java applications and moving selected services towards contemporary frameworks and architectures</li><li>Developing shared capabilities for identity, access management and secure service delivery</li><li>Building central platforms for document management, processing and multichannel distribution</li><li>Reducing fragmentation between products and progressively replacing overlapping or ageing components</li><li>Designing new services with security, operability and long-term maintainability built in from the start</li></ul>
                 <h3>Public outcomes</h3><p>The outcomes I can describe publicly include modernized application foundations, new shared platform capabilities and continued progress towards a more integrated ecosystem for secure document and communication services.</p>
             </section>
-            <section class="doc-section" id="leadership-in-practice" aria-labelledby="leadership-title">
-                <h2 class="anchor-heading" id="leadership-title">Leadership in practice<a class="anchor" href="#leadership-in-practice" aria-label="Link to this section">#</a></h2>
-                <p>I lead a team of <strong>ten full-stack developers</strong> responsible for several business-critical products and shared technical platforms.</p>
-                <h3>Clarifying ownership</h3><p>I introduced clearer ownership and backup responsibilities. Identified engineers understand each major product’s direction, operational responsibilities and priorities, improving knowledge sharing, continuity and resilience.</p>
-                <h3>Structuring portfolio priorities</h3><p>I maintain priorities across new development, legacy modernization, technical debt, security, production support and infrastructure dependencies. I work with product owners, infrastructure, architects, security, operations and management to expose dependencies and trade-offs.</p>
-                <h3>Growing engineering autonomy</h3><p>Engineers own products, technical decisions and stakeholder communication. I provide context and question assumptions instead of centralizing every decision. The same approach guides our evaluation of AI-assisted development within security, confidentiality and governance requirements.</p>
+            <section class="doc-section case-study" id="iot-platform" aria-labelledby="iot-title" data-case="03">
+                <h2 class="anchor-heading" id="iot-title">Industrial Connected Home platform<a class="anchor" href="#iot-platform" aria-label="Link to this section">#</a></h2>
+                <p class="eyebrow">1M+ connected devices · Worldline</p>
+                <figure class="case-sticker" style="--sticker-w: 118px; --sticker-tilt: -5deg">
+                    <img src="/assets/img/iot-sticker.png" width="400" height="397"
+                         alt="Die-cut sticker: connected home appliances wired to a small hub, with orange signals travelling to a cloud node"
+                         loading="lazy" decoding="async">
+                </figure>
+                <h3>The system</h3><p>A platform used by major European home-appliance manufacturers, including <strong>Gorenje</strong> and <strong>Bosch/Siemens</strong>, connected appliances, cloud services and mobile applications.</p>
+                <h3>The problem</h3><p>It had to manage more than <strong>one million devices simultaneously</strong>, handle real-time communication and remain available to customers across several European countries.</p>
+                <h3>My contribution</h3><p>I contributed to the platform’s design and evolution, rebuilt backend services, led its cloud migration and coordinated a Romanian nearshore team and customers in Slovenia, Austria, Germany and Spain.</p>
+                <h3>Decisions</h3><ul><li>Designed the notification system around MQTT and mobile push notifications</li><li>Rebuilt the backend with Spring Cloud microservices</li><li>Led the migration to Azure PaaS, Kubernetes and Docker</li></ul>
+                <h3>Results</h3><p>The platform managed more than one million connected devices. The work also improved its scalability, observability and maintainability.</p>
+            </section>
+            <section class="doc-section case-study" id="document-factory" aria-labelledby="factory-title" data-case="04">
+                <h2 class="anchor-heading" id="factory-title">High-volume banking document factory<a class="anchor" href="#document-factory" aria-label="Link to this section">#</a></h2>
+                <p class="eyebrow">10M reports / month · Worldline</p>
+                <figure class="case-sticker" style="--sticker-w: 156px; --sticker-tilt: 3deg">
+                    <img src="/assets/img/documentfactory-sticker.png" width="400" height="354"
+                         alt="Die-cut sticker: a compact printing machine turning data blocks into clean paper sheets, one orange sheet in the rollers"
+                         loading="lazy" decoding="async">
+                </figure>
+                <h3>The system</h3><p>A document-generation platform produced PDF, AFP and PostScript communications from databases, XML files and reusable templates in a <strong>PCI-DSS-compliant</strong> environment.</p>
+                <h3>The problem</h3><p>Banking communications required high-volume processing, consistent document rendering and enough operational control to run the platform in production.</p>
+                <h3>My contribution</h3><p>As Technical Leader, I designed and built the platform, covering architecture, technology benchmarking, CI/CD, monitoring and production reliability.</p>
+                <h3>Decisions</h3><ul><li>Designed the Java and microservices architecture</li><li>Benchmarked rendering technologies for performance, quality and maintainability</li><li>Built an Angular dashboard for monitoring and operational control</li><li>Created an OpenAPI integration model reused by other Worldline teams</li></ul>
+                <h3>Results</h3><p>The platform reached <strong>10 million banking reports processed per month</strong>. Continuous integration and deployment pipelines supported its delivery and operation.</p>
             </section>
             <section class="doc-section" id="engineering-principles" aria-labelledby="principles-title">
                 <h2 class="anchor-heading" id="principles-title">Engineering principles<a class="anchor" href="#engineering-principles" aria-label="Link to this section">#</a></h2>
