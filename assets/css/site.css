@@ -644,6 +644,59 @@ th {
 td { color: var(--ink-soft); }
 td strong { color: var(--ink); }
 
+/* Education — plain list, no redundant column labels */
+.edu-list { list-style: none; margin: 1.4rem 0; padding: 0; display: grid; gap: 2px; }
+.edu-list li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: 4px 18px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--border);
+}
+.edu-list li:last-child { border-bottom: 0; }
+.edu-list .edu-title { color: var(--ink); font-weight: 600; }
+.edu-list .edu-org { color: var(--muted); font-size: 0.94rem; }
+.edu-list .edu-years {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+  white-space: nowrap;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+
+/* Portrait — floated headshot in the overview */
+.portrait {
+  float: right;
+  width: clamp(128px, 30%, 168px);
+  margin: 4px 0 18px 26px;
+}
+.portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-1);
+}
+
+/* Sticker — small die-cut illustration */
+.sticker {
+  float: right;
+  width: clamp(112px, 26%, 148px);
+  margin: 0 0 12px 22px;
+}
+.sticker img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 6px 14px rgba(23, 23, 22, 0.16));
+}
+@media (max-width: 560px) {
+  .portrait, .sticker { float: none; width: min(200px, 55%); margin: 4px auto 20px; }
+}
+
 /* Badges / chips */
 .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 1rem 0 1.4rem; }
 .chip {
