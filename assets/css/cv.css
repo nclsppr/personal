@@ -210,8 +210,8 @@
   body {
     background: #FFFFFF;
     color: #000000;
-    font-size: 10.5pt;
-    line-height: 1.5;
+    font-size: 10pt;
+    line-height: 1.45;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -237,8 +237,7 @@
     padding: 0;
   }
 
-  /* Keep entries whole on a page */
-  .cv-entry,
+  /* Keep compact blocks together while allowing long roles to flow naturally. */
   .cv-head,
   .cv-skills > div,
   .cv-edu li,
@@ -247,6 +246,20 @@
     page-break-inside: avoid;
   }
   .cv-section > h2 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  .cv-entry-head {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  .cv-entry li {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .cv-entry li:nth-last-child(2) {
     break-after: avoid;
     page-break-after: avoid;
   }

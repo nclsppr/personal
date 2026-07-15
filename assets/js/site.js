@@ -78,19 +78,41 @@
   var sidebar = document.getElementById('sidebar');
   var backdrop = document.getElementById('backdrop');
   var mainEl = document.getElementById('main');
+  var headerBrand = document.querySelector('.site-header .brand');
+  var headerNav = document.querySelector('.site-header .header-nav');
+  var headerActions = document.querySelector('.site-header .header-actions');
+  var MENU_LABEL = isFR
+    ? { open: 'Ouvrir la navigation', close: 'Fermer la navigation' }
+    : { open: 'Open navigation', close: 'Close navigation' };
+
+  function setInert(element, inert) {
+    if (!element) return;
+    if (inert) element.setAttribute('inert', '');
+    else element.removeAttribute('inert');
+  }
 
   function setSidebar(open) {
     if (!sidebar) return;
-    if (!open && sidebar.contains(document.activeElement) && menuBtn) menuBtn.focus();
+    var wasOpen = sidebar.classList.contains('open');
     sidebar.classList.toggle('open', open);
     if (backdrop) backdrop.classList.toggle('show', open);
-    if (menuBtn) menuBtn.setAttribute('aria-expanded', String(open));
-    // Treat the open drawer as modal: lock background scroll and take the main
-    // content out of the tab order / accessibility tree behind it.
+    if (menuBtn) {
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.setAttribute('aria-label', open ? MENU_LABEL.close : MENU_LABEL.open);
+    }
+    // Treat the open drawer as modal: lock the page, hide everything behind it
+    // from assistive technology, then keep keyboard focus inside the drawer.
     document.body.classList.toggle('nav-open', open);
-    if (mainEl) {
-      if (open) mainEl.setAttribute('inert', '');
-      else mainEl.removeAttribute('inert');
+    [mainEl, headerBrand, headerNav, headerActions].forEach(function (element) {
+      setInert(element, open);
+    });
+    if (open) {
+      requestAnimationFrame(function () {
+        var firstLink = sidebar.querySelector('a[href]');
+        if (firstLink) firstLink.focus();
+      });
+    } else if (wasOpen && menuBtn && window.innerWidth <= 980) {
+      menuBtn.focus();
     }
   }
 
@@ -103,7 +125,25 @@
       if (e.target.closest('a')) setSidebar(false);
     });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') setSidebar(false);
+      if (!sidebar.classList.contains('open')) return;
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        setSidebar(false);
+        return;
+      }
+      if (e.key === 'Tab') {
+        var focusable = [menuBtn].concat(Array.prototype.slice.call(sidebar.querySelectorAll('a[href]')));
+        var current = focusable.indexOf(document.activeElement);
+        if (current === -1) current = 0;
+        var next = e.shiftKey
+          ? (current - 1 + focusable.length) % focusable.length
+          : (current + 1) % focusable.length;
+        e.preventDefault();
+        focusable[next].focus();
+      }
+    });
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 980 && sidebar.classList.contains('open')) setSidebar(false);
     });
   }
 

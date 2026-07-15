@@ -5,6 +5,22 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-15 — Finition design, prose et navigation mobile
+
+- **Direction visuelle** : rayons resserrés sur le logo, les boutons et les composants pour
+  renforcer l’esprit « documentation premium » ; orange international utilisé comme repère
+  éditorial dans le header et les études de cas, sans surcharger les pages.
+- **Page Work** : composition éditoriale en deux colonnes sur desktop, repères numérotés,
+  libellés de lecture et navigation de fin de page ; retour en une colonne sur mobile.
+- **Interactions utiles** : transformation du bouton menu en fermeture, libellé dynamique,
+  piège de focus, restitution du focus et fond réellement inerte lorsque le tiroir est ouvert.
+- **Prose FR/EN** : formulations génériques ou répétitives remplacées par des phrases plus
+  directes, sans modifier les faits ni les chiffres ; principes du terminal et de Work alignés.
+- **CV imprimé** : pagination affinée pour conserver des blocs lisibles et produire trois pages
+  propres dans les deux langues, sans titre isolé en bas de page.
+- **Contrôles** : rendu desktop et mobile, thèmes clair et sombre, structure FR/EN,
+  navigation, débordements horizontaux et PDF des deux CV vérifiés.
+
 ## 2026-07-15 — Architecture Overview / Work / CV
 
 - **Nouvelle page bilingue** : ajout de `/work/` et `/fr/work/` pour les trois études de cas,
