@@ -5,6 +5,15 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-15 — Surlignage « marqueur » des faits clés
+
+- Nouveau style `mark.hl` : un surlignage discret teinté `--accent-soft` (calibré thèmes
+  clair et sombre), réservé aux un ou deux faits qu'un visiteur doit retenir d'une page.
+- Appliqué aux deux métriques du hero de la homepage (EN + FR) : « un million d'appareils
+  connectés » et « 10 millions de rapports par mois ». « 10 ans » reste en gras simple.
+- Parti pris : pas d'International Orange pur en fond de texte (contraste), élément `<mark>`
+  sémantique, et pages CV volontairement exclues (sobriété du PDF).
+
 ## 2026-07-15 — Régénération automatisée des PDF du CV
 
 - Ajout de `scripts/generate-cv-pdf.sh` qui régénère les deux PDF téléchargeables

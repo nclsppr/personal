@@ -444,6 +444,20 @@ p { margin: 0 0 1rem; }
 p, li { color: var(--ink-soft); }
 strong { color: var(--ink); font-weight: 650; }
 
+/* Surlignage « marqueur » — réservé aux un ou deux faits qu'un visiteur doit
+   retenir de la page. <mark class="hl"> enveloppe l'emphase existante ; la
+   teinte vient du design system (--accent-soft, calibrée clair + sombre).
+   Si tout est surligné, rien ne l'est : deux occurrences max par page. */
+mark.hl {
+  background: var(--accent-soft);
+  color: inherit;
+  padding: 0.08em 0.2em;
+  margin: 0 -0.12em;
+  border-radius: 0.25em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
 ul, ol { padding-left: 1.35rem; margin: 0 0 1.1rem; }
 li { margin: 0.3rem 0; }
 li::marker { color: var(--accent); }
