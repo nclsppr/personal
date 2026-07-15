@@ -561,11 +561,10 @@ hr {
   text-transform: uppercase;
   color: var(--accent-ink);
 }
+.page-work .case-study > p,
+.page-work .case-study > ul { grid-column: 2; }
 .page-work .case-study > h3 + p,
-.page-work .case-study > h3 + ul {
-  grid-column: 2;
-  margin-top: 1.65rem;
-}
+.page-work .case-study > h3 + ul { margin-top: 1.65rem; }
 .page-next {
   display: flex;
   align-items: center;
