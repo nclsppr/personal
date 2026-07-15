@@ -1,259 +1,89 @@
-# nicolaspieper.com — Journal de bord
+# nicolaspieper.com
 
-Site personnel de Nicolas Pieper. Ce README sert de journal de bord : chaque intervention
-sur le site y est consignée, la plus récente en premier.
+Site personnel de Nicolas Pieper — présenté comme sa **documentation** : sobre,
+ivoire/encre, un seul accent (International Orange `#FF4F00`), bilingue FR/EN,
+CV imprimable. Statique, sans framework ni dépendance runtime.
 
-**Production :** [nicolaspieper.com](https://nicolaspieper.com) (canonique) · nicolas.pieper.fr (redirection 301)
-**Hébergement :** GitHub Pages · **Stack :** HTML/CSS/JS statique, zéro framework, zéro CDN externe.
+**Production :** [nicolaspieper.com](https://nicolaspieper.com) (canonique) ·
+`nicolas.pieper.fr` (redirection 301)
+**Hébergement :** GitHub Pages · **Stack :** HTML / CSS / JS statique, zéro framework, zéro CDN.
 
----
+> L'historique détaillé des interventions est dans [`CHANGELOG.md`](CHANGELOG.md).
+> Les règles pour les interventions automatisées sont dans [`AGENTS.md`](AGENTS.md).
 
-## 2026-07-15 — Portrait sticker sur l'accueil, photo sur les CV, favicon orange
+## Aperçu
 
-- **Favicon en International Orange** : `favicon.svg` passe de terracotta à #FF4F00 (carré NP
-  crème). `favicon-96.png` régénéré depuis le SVG via qlmanage.
-- **Accueil (`/` et `/fr/`)** : la photo `nicolas-pieper.jpg` est remplacée par le portrait
-  illustré `nicolas-sticker.png`. Le `.portrait` perd sa carte (bordure/rayon/ombre) au profit
-  d'un `drop-shadow` qui épouse la découpe.
-  ⚠️ **Détourage nécessaire** : le PNG fourni (généré par IA) n'avait **pas** de transparence
-  — un fond **blanc opaque** était intégré (colortype 2, sans alpha), invisible sur fond blanc
-  mais formant un rectangle blanc sur l'ivoire/sombre du site. Corrigé par un flood-fill depuis
-  les bords (script Python maison, sans dépendance) : le fond blanc **neutre** (R=G=B) est rendu
-  transparent, en s'arrêtant au contour **crème chaud** du die-cut (R>G>B) ; le blanc intérieur
-  (chemise) est enclavé donc préservé. Downscale premultiplié → RGBA 460 px (~420 Ko). Vérifié
-  clair + sombre : plus de rectangle, découpe nette.
-- **CV (`/cv/` et `/fr/cv/`)** : la photo `nicolas-pieper.jpg` est ajoutée dans l'en-tête, qui
-  devient un flex (texte + `.cv-photo` à droite, ~84–112 px, coins arrondis). S'imprime avec le CV.
+- **Bilingue par URLs distinctes** (`/` EN, `/fr/` FR) avec `hreflang` réciproques — pages
+  pré-rendues pour le SEO, pas de traduction JavaScript côté client.
+- **Thème clair/sombre** : bascule manuelle persistée en `localStorage`, défaut aligné sur
+  `prefers-color-scheme`, script inline anti-flash dans le `<head>`.
+- **Navigation « documentation »** : sidebar par groupes, scrollspy, ancres sur les titres,
+  breadcrumb.
+- **Accessibilité** : navigation clavier, focus visible, contrastes AA, cibles tactiles
+  ≥44 px, tiroir mobile modal, ARIA mis à jour dynamiquement (thème, scrollspy).
+- **Zéro dépendance runtime** : un seul fichier JS (~3 Ko) pour le thème, le tiroir mobile,
+  le scrollspy et le deep-link de langue. Polices woff2 auto-hébergées.
 
-## 2026-07-15 — Identité de marque : logo + International Orange (#FF4F00)
+## Architecture
 
-Nouveau logo `assets/img/logo_nicolaspieper.png` (carré orange, monogramme NP crème,
-traits noirs). Deux volets : le logo comme marque, et l'orange dans le design system.
+| URL | Fichier | Contenu |
+| --- | --- | --- |
+| `/` | `index.html` | Homepage anglaise (langue par défaut) |
+| `/fr/` | `fr/index.html` | Homepage française |
+| `/cv/` | `cv/index.html` | CV anglais (imprimable → PDF via `window.print()`) |
+| `/fr/cv/` | `fr/cv/index.html` | CV français |
+| `/v2022/` | `v2022/` | Archive de la version 2022 (non indexée) |
+| `/infos/` | `infos/INFOS.md` | Source de contenu (non indexée) |
 
-**Logo dans le header** — le carré « NP » textuel (`.brand-mark`) est remplacé par une
-image du logo (`assets/img/logo-mark.png`, 128 px, ~16 Ko, généré via sips) sur les 4 pages.
-Toujours visible dans le header fixe, y compris en mobile (où le texte « Nicolas Pieper » se
-masque, le mark devient l'identité). Un `aria-label="Nicolas Pieper"` est ajouté au lien
-`.brand` : le nom accessible reste stable même quand le texte visible disparaît (mobile).
-`apple-touch-icon.png` régénéré depuis le logo (180 px). Master optimisé 994 Ko → 242 Ko
-(512 px). Le `favicon.svg` (mark vectoriel dédié, lisible à 16 px) est conservé tel quel.
+```
+assets/
+  css/   site.css · cv.css
+  js/    site.js            (thème · sidebar · scrollspy · deep-link langue)
+  fonts/ woff2 variables (Inter · Source Serif 4 · JetBrains Mono, subsets latin/-ext)
+  img/   logo, favicons, portraits, image OpenGraph
+```
 
-**Design system passé à l'International Orange** — l'accent terracotta (#D97757) devient
-l'orange du logo. Choix : l'orange vif est réservé aux **petites zones à fort impact**
-(logo, puces `::marker`, bordures/pastilles, état actif du menu, focus, CTA de contact),
-tandis que le **texte** utilise une déclinaison plus sombre pour rester lisible (WCAG AA) —
-la surface calme « documentation » est préservée (les boutons primaires restent neutres).
-Tout passe par les tokens `--accent*` (2 hex en dur mis à jour : `::selection`, CTA contact).
+## Lancement local
 
-Palette (contrastes vérifiés) :
-- `--accent` / `--brand` = **#FF4F00** — marks, bordures, focus (clair 3,1:1 · sombre 4,6:1, ≥3:1 UI).
-- `--accent-ink` = **#C23C00** clair (5,1:1 sur ivoire) / **#FF8551** sombre (6,3:1) — liens & texte, AA.
-- CTA de contact « nicolas@pieper.fr » = fond **#FF4F00**, texte foncé #201203 (5,5:1 AA) — le
-  moment de marque le plus fort, sur le panneau sombre.
-- `::selection` #C23C00, `--accent-soft`/`--accent-glow` re-teintés orange.
+Aucun build : ce sont des fichiers statiques. Un serveur local suffit (chemins absolus
+`/assets/...`, donc servir depuis la racine du repo) :
 
-_Vérifié en clair et sombre dans le panneau ; logo net à 30 px, CTA orange lisible._
+```sh
+python3 -m http.server 4173 --directory .
+# → http://localhost:4173
+```
 
-## 2026-07-15 — Dynamic Island : vrai correctif (recomposition, pas mutation du meta)
+La config `.claude/launch.json` (`personal-site`) fait la même chose pour l'aperçu intégré.
 
-Le correctif précédent (mettre à jour `<meta name="theme-color">.content` au toggle) ne
-rafraîchissait la Dynamic Island que **quand on ouvrait le menu**. Diagnostic (analyse
-multi-agents adversariale) : muter `.content` **livre bien** la nouvelle couleur à iOS
-Safari — la preuve, le menu affiche la bonne couleur sans jamais toucher au meta. Ce qui
-manque n'est pas la notification mais une **recomposition** de la bande safe-area sous
-l'îlot (exposée par `viewport-fit=cover`) : iOS ne la re-échantillonne que sur une
-transaction de layer-tree en haut du viewport. Ouvrir le menu (backdrop + sidebar fixes)
-en provoque une ; un simple `.content` non.
+## Build
 
-Correctif (`assets/js/site.js`) : garder la mise à jour `.content` en place (suffisante sur
-Android/desktop, préserve l'identité du nœud dont dépend le script anti-flash) **puis**
-reproduire délibérément cette recomposition en « poussant » le `.site-header` — déjà promu
-en couche via `backdrop-filter` — avec un `transform: translateZ(0)` basculé sur deux
-`requestAnimationFrame`. `translateZ` n'a aucun déplacement 2D → transaction de couche sans
-flash, et le header revient à son état (vérifié : aucun transform résiduel). _Le repaint de
-l'îlot lui-même ne se teste que sur iPhone réel — à confirmer côté Nicolas._
+Aucune étape de build. Ce qui est dans le repo est déployé tel quel.
 
-## 2026-07-15 — Sticker Pampy repensé, Formation dans le menu
+Assets images/favicons régénérés à la main via les outils macOS natifs (`sips`, `qlmanage`) ;
+voir le `CHANGELOG.md` pour les commandes utilisées.
 
-- **Sticker Pampy** (`assets/css/site.css`, les 2 pages) : l'illustration est un buste dont
-  le poitrail se termine par une coupe droite — flottant dans le vide, il semblait « coupé
-  en bas ». Nouveau traitement façon sticker réellement collé : légère inclinaison (-6°),
-  micro-animation ressort au survol (retour à plat + zoom léger, désactivée sous
-  `prefers-reduced-motion`), et une **carte-légende** « Pampy — Chief Pizza Officer »
-  (fond `--bg-raised`, mono) qui chevauche le bas du sticker : la coupe disparaît derrière,
-  Pampy sort de sa carte. Vérifié en clair et en sombre.
-- **Formation trouvable dans le menu** : la sous-partie `<h3>` Education/Formation (nichée
-  dans « Au-delà de l'ingénierie ») devient une vraie section `doc-section` avec titre ancré,
-  et gagne son entrée dans la sidebar (groupe Référence) sur les deux langues. L'ancre
-  `#education` est conservée ; le scrollspy la prend en charge automatiquement.
+## Validation
 
-## 2026-07-15 — Parité FR/EN, corrections UX (thème iOS, scrollspy, deep-link langue)
+Avant chaque commit touchant le site, la **parité FR/EN** doit être vérifiée : `/` et `/fr/`
+gardent la même structure, les mêmes sections/ancres, et chaque texte est la traduction
+équivalente (aucun texte source oublié, aucun placeholder).
 
-Signalements de Nicolas + mise en place d'une règle de parité entre les deux langues.
+Un hook `git commit` (`~/Developer/.claude/hooks/check-i18n-parity.py`) bloque le commit si
+la parité *structurelle* diverge. La parité *sémantique* reste vérifiée par relecture.
 
-- **Fil d'Ariane FR corrigé** : `fr/index.html` affichait `nicolaspieper.com / fr` au lieu
-  de `nicolaspieper.com / aperçu` (le libellé EN équivalent est « overview »). Un placeholder
-  `fr` restait à la place du libellé traduit.
-- **Deep-link au changement de langue** (`assets/js/site.js`) : les liens EN⇄FR (en-tête et
-  pied de page) reçoivent désormais l'ancre de la section courante suivie par le scrollspy.
-  Changer de langue conserve l'endroit où on était dans la page (les `id` de section sont
-  identiques dans les deux langues). Fonctionne même après un défilement manuel.
-- **Barre d'état iOS synchronisée au thème** : les deux `<meta name="theme-color">` en
-  `media=(prefers-color-scheme)` ne suivaient que la préférence système, pas le bouton
-  jour/nuit du site — la Dynamic Island gardait donc l'ancienne couleur au changement manuel.
-  Remplacés par un seul `<meta name="theme-color">` piloté en JS (script anti-flash de `<head>`
-  + toggle) : `#FAF9F5` en clair, `#262624` en sombre. Appliqué aux 5 pages (dont `404.html`).
-- **Scrollspy — section Contact** : la dernière section, trop courte, n'entrait jamais dans
-  la bande de détection de l'`IntersectionObserver` → son entrée de menu ne s'allumait jamais.
-  Ajout d'une détection de bas de page (throttlée en `requestAnimationFrame`) qui épingle le
-  dernier lien du menu quand la page est défilée jusqu'en bas.
+Tester systématiquement : **mobile + desktop**, **clair + sombre**, et l'**impression** du CV.
 
-**Règle de parité FR/EN (imposée par Nicolas) :** avant chaque commit touchant le site,
-vérifier que `/` et `/fr/` restent équivalents (même structure, mêmes sections, et chaque
-texte est la traduction équivalente — aucun texte source oublié, aucun placeholder). Un hook
-`git commit` (`~/Developer/.claude/hooks/check-i18n-parity.py`) bloque désormais le commit si
-la parité *structurelle* diverge (sections/ancres désynchronisées, fil d'Ariane FR = code
-langue). La parité *sémantique* reste vérifiée par relecture.
+## Déploiement
 
-_Vérifié dans le panneau navigateur : fil d'Ariane, bascule theme-color et deep-link langue OK.
-Le scrollspy dépend de `innerHeight` (rapporté à 0 par le panneau) → à confirmer sur iPhone réel._
+Push sur `main` → GitHub Pages sert le repo tel quel. Le domaine custom est fixé par `CNAME`.
 
-## 2026-07-15 — Responsivité iPhone (safe areas, notch, tap targets)
+## Principes de conception
 
-Passe dédiée au rendu sur iPhone (testé/pensé pour iPhone 15, 393×852). Le layout de base
-était fluide mais ne respectait pas les règles de navigation iOS. Corrections dans
-`assets/css/site.css`, `assets/css/cv.css`, `404.html` et le `<meta viewport>` des 5 pages :
-
-- **Zones de sécurité (encoche / Dynamic Island / indicateur d'accueil)** : ajout de
-  `viewport-fit=cover` + tokens `env(safe-area-inset-*)`. L'en-tête fixe réserve désormais
-  la hauteur de la barre d'état (`--header-offset`), le contenu et le tiroir mobile
-  dégagent l'indicateur d'accueil en bas, et le contenu respecte les encoches latérales
-  en paysage.
-- **Bug `100vh` iOS Safari** : sidebar et pages passées en `100dvh` (la barre d'outils
-  Safari ne tronque plus le bas).
-- **Cibles tactiles** : boutons d'icône 34 → 40 px, portés à 44 px (min. Apple HIG) sur
-  `@media (pointer: coarse)` ; zones tap agrandies pour le sélecteur de langue et la nav.
-- **Confort iOS** : `overflow-x: clip` (garde anti-défilement horizontal),
-  `-webkit-tap-highlight-color: transparent` (pas de flash gris au tap),
-  `overscroll-behavior: contain` sur le tiroir.
-
-Sur un appareil sans encoche, tous les `env()` valent 0 → rendu identique à avant (aucune
-régression desktop). Vérifié via simulation d'encoche + valeurs calculées ; le test
-définitif se fera sur l'iPhone réel une fois le DNS en place.
-
-**Décision i18n :** on conserve **deux fichiers HTML** distincts (`/` et `/fr/`) plutôt
-qu'une traduction JavaScript runtime — choix dicté par la priorité SEO (aperçus de partage
-et `hreflang` nécessitent des pages pré-rendues par URL). Les deux versions sont maintenues
-à la main et gardées synchronisées.
-
-## 2026-07-15 — Audit qualité multi-agents et corrections
-
-Passe d'audit adversariale (12 agents : SEO technique, WCAG 2.2 AA, relecture française,
-fidélité au contenu source, intégrité des liens). 29 findings bruts, 7 majeurs confirmés
-après contre-vérification, 22 mineurs — tous corrigés :
-
-- **Accessibilité** : contraste du CTA contact (3.12:1 → 6.21:1), ancres de titres
-  désormais visibles au focus clavier, drawer mobile retiré de l'ordre de tabulation
-  quand il est fermé (`visibility`) + retour du focus au bouton menu, anneau de focus
-  conforme (≥3:1), contrastes du bloc terminal relevés, `::selection` conforme,
-  attributs `lang` sur les liens en langue étrangère.
-- **Contenu** : section « Current focus / Priorités actuelles » (priorité 88 % dans
-  INFOS.md) ajoutée aux deux homepages ; « Site reliability engineering » (non sourcé)
-  remplacé par « Production engineering » dans les JSON-LD ; « Engineering roles »
-  → « Engineering internships » (fidélité aux sources).
-- **Français** : « d'accounting » → « de traçabilité », grammaire (« ne doit pas *nous*
-  éloigner »), harmonisation terminologique entre pages FR (appareils connectés,
-  exigences métier, preuve de concept, titres de postes en anglais), apostrophes
-  typographiques (140 remplacements), espaces insécables dans les métas.
-- **SEO** : titres raccourcis ≤65 caractères avec « Luxembourg » dans les deux langues,
-  meta descriptions ramenées à ~150 caractères, breadcrumbs FR pointant vers /fr/.
-
-## 2026-07-14 — Refonte complète v2026
-
-Refonte totale du site, réalisée avec Claude Code (Opus 4.8 + Fable 5). L'ancienne version
-« pizza » (2024) est remplacée par un design inspiré des documentations Claude AI : sobre,
-ivoire/encre, une seule couleur d'accent (terracotta `#D97757`), typographie serif pour les
-titres (Source Serif 4), Inter pour le corps, JetBrains Mono pour les touches techniques.
-
-### Concept
-
-Le site se présente comme **la documentation de Nicolas Pieper** : sidebar de navigation
-par groupes (Get started / Platforms / Leadership / Reference), scrollspy, ancres sur les
-titres, breadcrumb, sélecteur de version (v2026 · v2022) qui pointe vers l'archive de
-l'ancien site conservée dans [`/v2022/`](v2022/).
-
-### Architecture
-
-| URL | Contenu |
-| --- | --- |
-| `/` | Homepage anglaise (langue par défaut) |
-| `/fr/` | Homepage française |
-| `/cv/` | CV anglais (imprimable → PDF via `window.print()`) |
-| `/fr/cv/` | CV français |
-| `/v2022/` | Archive de la version 2022 (non indexée) |
-| `/infos/` | Source de contenu ([INFOS.md](infos/INFOS.md), non indexée) |
-
-### Décisions techniques
-
-- **Bilinguisme par URLs distinctes** (`/` EN, `/fr/` FR) avec `hreflang` réciproques,
-  au lieu de l'ancien toggle JavaScript invisible pour les moteurs de recherche.
-- **Domaine canonique : nicolaspieper.com** (fichier `CNAME`). GitHub Pages n'accepte
-  qu'un domaine custom par repo → `nicolas.pieper.fr` doit être configuré en
-  redirection 301 chez le registrar (voir TODO).
-- **Polices auto-hébergées** (woff2 variables, sous-ensembles latin + latin-ext,
-  ~270 Ko au total) : performance (pas de requête tierce) et conformité RGPD
-  (pas de transfert d'IP vers Google Fonts).
-- **Thème clair/sombre** : bascule manuelle persistée en `localStorage`, défaut aligné
-  sur `prefers-color-scheme`, script inline anti-flash dans le `<head>`.
-- **Zéro dépendance** : pas de framework, pas de CDN, un seul fichier JS (~2 Ko)
-  pour le thème, la sidebar mobile et le scrollspy.
-- **Images générées localement** : favicon SVG (monogramme NP), PNG dérivés et image
-  OpenGraph 1200×630 rendus via `qlmanage`/`sips` (outils macOS natifs).
-
-### SEO
-
-- Balises canoniques + `hreflang` (en, fr, x-default) sur les 4 pages.
-- JSON-LD `@graph` : `Person` (id stable `#person`), `WebSite`, `ProfilePage`
-  (+ `BreadcrumbList` sur les CV).
-- OpenGraph + Twitter Cards avec image dédiée 1200×630.
-- `sitemap.xml` avec alternates `xhtml:link` par langue ; `robots.txt` excluant
-  `/v2022/` et `/infos/` (archives et sources non destinées à l'index).
-- `404.html` personnalisée (GitHub Pages la sert automatiquement).
-- Contraste AA : l'accent terracotta est décliné en `--accent-ink` plus foncé
-  (`#9A4A26`) pour tout texte, le `#D97757` restant décoratif.
-- Performance : polices préchargées, `font-display: swap`, aucun script bloquant.
-
-### Contenu
-
-- Source unique : [infos/INFOS.md](infos/INFOS.md) (rédigé par Nicolas, priorités par
-  section respectées).
-- CV disponible en **deux langues** (`/cv/` EN, `/fr/cv/` FR), mise en page écran
-  « document » + feuille de style d'impression A4 pour export PDF.
-
-### TODO (actions côté Nicolas)
-
-- [ ] DNS : pointer `nicolaspieper.com` vers GitHub Pages (A/AAAA apex + CNAME www).
-- [ ] DNS : rediriger en 301 `nicolas.pieper.fr` → `https://nicolaspieper.com`.
-- [ ] Activer « Enforce HTTPS » dans les settings GitHub Pages après propagation.
-- [ ] Déclarer le site dans Google Search Console + soumettre `sitemap.xml`.
-- [ ] Mettre à jour l'URL du site sur le profil LinkedIn.
-- [ ] (Optionnel) Fournir une photo récente pour remplacer le monogramme.
-- [ ] Confirmer la section « Langues » des CV (Français natif / Anglais professionnel) —
-      non présente dans INFOS.md ; ajouter allemand/luxembourgeois le cas échéant.
-
----
-
-## 2026-07-14 — Ajout des archives
-
-- Import de la version 2022 du site dans [`/v2022/`](v2022/) pour l'historique.
-- Ajout de [infos/INFOS.md](infos/INFOS.md), source de contenu de la refonte.
-
-## 2024 — Version « pizza »
-
-Site one-page au thème pizzeria napolitaine (Anton / Permanent Marker / Space Mono,
-marquee, stickers). Remplacée par la v2026 ; le code reste dans l'historique git
-(`git log -- style.css script.js`).
-
-## 2022 — Version Bootstrap
-
-Carte de visite one-page (Bootstrap 5, avatar, liens). Archivée dans [`/v2022/`](v2022/).
+- **Statique et sobre** : pas de framework, pas de CDN, pas de tracker. Le contenu reste
+  lisible sans JavaScript.
+- **Un seul accent** : International Orange `#FF4F00` réservé aux petites zones à fort impact ;
+  le texte utilise une déclinaison plus sombre pour rester lisible (AA).
+- **Esthétique « documentation »** : ivoire/encre, serif pour les titres, monospace pour les
+  touches techniques. Pas d'animation gratuite ; `prefers-reduced-motion` respecté.
+- **Vérité du contenu** : aucune métrique, responsabilité ou technologie inventée ; toute
+  ambiguïté est signalée plutôt que tranchée arbitrairement.
