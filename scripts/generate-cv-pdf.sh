@@ -22,7 +22,7 @@ PORT="${PORT:-8123}"
 BASE="http://localhost:$PORT"
 
 # Serveur statique éphémère (les pages référencent /assets/... en absolu, donc
-# file:// ne suffit pas — il faut un vrai serveur HTTP à la racine du dépôt).
+# file:// ne suffit pas - il faut un vrai serveur HTTP à la racine du dépôt).
 python3 -m http.server "$PORT" --directory "$ROOT" --bind 127.0.0.1 >/dev/null 2>&1 &
 SERVER_PID=$!
 cleanup() { kill "$SERVER_PID" 2>/dev/null || true; }

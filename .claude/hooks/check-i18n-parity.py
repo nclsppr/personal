@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""PreToolUse(Bash) hook — bloque `git commit` sur le site perso bilingue
+"""PreToolUse(Bash) hook - bloque `git commit` sur le site perso bilingue
 tant que /index.html (EN) et /fr/index.html (FR) ne sont pas structurellement
 synchronisés. Garantit la « règle de parité FR/EN » avant chaque commit.
 
 Ne se déclenche que dans le dépôt qui contient index.html + fr/index.html ;
 inerte partout ailleurs. La parité *sémantique* (chaque texte bien traduit)
-reste à la charge de l'IA — ce script en émet le rappel."""
+reste à la charge de l'IA - ce script en émet le rappel."""
 import sys, json, os, re, subprocess
 
 
@@ -60,13 +60,13 @@ def main():
 
     en_ids, fr_ids = section_ids(en), section_ids(fr)
     if en_ids != fr_ids:
-        errors.append("Sections désynchronisées — EN seulement: {} | FR seulement: {}".format(
-            sorted(en_ids - fr_ids) or "—", sorted(fr_ids - en_ids) or "—"))
+        errors.append("Sections désynchronisées - EN seulement: {} | FR seulement: {}".format(
+            sorted(en_ids - fr_ids) or "-", sorted(fr_ids - en_ids) or "-"))
 
     en_nav, fr_nav = nav_anchors(en), nav_anchors(fr)
     if en_nav != fr_nav:
-        errors.append("Ancres de nav désynchronisées — EN seulement: {} | FR seulement: {}".format(
-            sorted(en_nav - fr_nav) or "—", sorted(fr_nav - en_nav) or "—"))
+        errors.append("Ancres de nav désynchronisées - EN seulement: {} | FR seulement: {}".format(
+            sorted(en_nav - fr_nav) or "-", sorted(fr_nav - en_nav) or "-"))
 
     def crumb(h):
         mm = re.search(r'<nav class="breadcrumb[^"]*".*?<span aria-current="page">([^<]*)</span>', h, re.S)
@@ -80,7 +80,7 @@ def main():
         errors.append('fr/index.html: attribut lang="fr" manquant sur <html>.')
 
     if errors:
-        sys.stderr.write("⛔ Parité FR/EN — commit bloqué. Corrige puis recommite :\n")
+        sys.stderr.write("⛔ Parité FR/EN - commit bloqué. Corrige puis recommite :\n")
         for e in errors:
             sys.stderr.write("  • " + e + "\n")
         sys.stderr.write("\nEt vérifie la parité sémantique : chaque texte de fr/ = la traduction "

@@ -1,4 +1,4 @@
-/* nicolaspieper.com — v2026
+/* nicolaspieper.com - v2026
    Theme toggle · mobile sidebar · scrollspy · language deep-linking. No dependencies. */
 (function () {
   'use strict';
@@ -41,7 +41,7 @@
     if (meta) meta.setAttribute('content', color);
 
     // iOS Safari (viewport-fit=cover) only re-samples the status-bar / Dynamic
-    // Island tint on a top-of-viewport compositing commit — which is why opening
+    // Island tint on a top-of-viewport compositing commit - which is why opening
     // the menu (fixed backdrop + sidebar) refreshes it but a bare .content write,
     // changing no layer, does not. Reproduce that commit by nudging the header,
     // already its own layer via backdrop-filter, with a Z-only transform across

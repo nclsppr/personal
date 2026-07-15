@@ -1,5 +1,5 @@
 /* ==========================================================================
-   nicolaspieper.com — CV page (/cv/ and /fr/cv/)
+   nicolaspieper.com - CV page (/cv/ and /fr/cv/)
    Loaded AFTER site.css. Single centered column, paper-like document,
    Print styles are also used to generate the versioned A4 PDF files.
    ========================================================================== */
@@ -179,7 +179,7 @@
 .cv-langs li { margin: 0; font-size: 0.92rem; }
 
 /* --------------------------------------------------------------------------
-   Print — this IS the PDF
+   Print - this IS the PDF
    -------------------------------------------------------------------------- */
 @page {
   size: A4;

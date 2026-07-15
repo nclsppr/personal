@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""PreToolUse(Bash) hook — bloque `git commit` quand une page CV est modifiée
+"""PreToolUse(Bash) hook - bloque `git commit` quand une page CV est modifiée
 sans que le PDF téléchargeable correspondant ne soit régénéré dans le même commit.
 
 Les PDF liés depuis /cv/ et /fr/cv/ sont un rendu d'impression de ces pages.
 Si on touche cv/index.html ou fr/cv/index.html mais qu'on ne (re)stage pas le
-PDF associé, le PDF téléchargé devient obsolète par rapport à la page HTML —
+PDF associé, le PDF téléchargé devient obsolète par rapport à la page HTML -
 d'où le blocage, avec la commande pour régénérer.
 
 Ne s'active que dans le dépôt qui contient index.html + fr/index.html ; inerte
@@ -67,7 +67,7 @@ def main():
             errors.append("{} modifié mais {} non régénéré/stagé.".format(page, pdf))
 
     if errors:
-        sys.stderr.write("⛔ CV PDF obsolète — commit bloqué :\n")
+        sys.stderr.write("⛔ CV PDF obsolète - commit bloqué :\n")
         for e in errors:
             sys.stderr.write("  • " + e + "\n")
         sys.stderr.write(

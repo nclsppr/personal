@@ -1,5 +1,5 @@
 /* ==========================================================================
-   nicolaspieper.com — design system v2026
+   nicolaspieper.com - design system v2026
    Docs-inspired: sober, ivory, one International Orange accent.
    ========================================================================== */
 
@@ -59,7 +59,7 @@
    Tokens
    -------------------------------------------------------------------------- */
 :root {
-  /* Light (default) — ivory & ink */
+  /* Light (default) - ivory & ink */
   --bg: #FAF9F5;
   --bg-raised: #F2F0E9;
   --bg-inset: #EDEBE2;
@@ -69,8 +69,8 @@
   --border: #E3E1D7;
   --border-strong: #CFCCC0;
 
-  /* Brand accent — International Orange, from the logo (#FF4F00) */
-  --brand: #FF4F00;           /* the pure brand orange — logo, boldest moments */
+  /* Brand accent - International Orange, from the logo (#FF4F00) */
+  --brand: #FF4F00;           /* the pure brand orange - logo, boldest moments */
   --accent: #FF4F00;          /* decorative: marks, borders, bullets, active, focus */
   --accent-ink: #C23C00;      /* deep orange, text-safe on ivory (5.1:1 AA) */
   --accent-soft: #FFE7DC;     /* tinted surfaces */
@@ -444,7 +444,7 @@ p { margin: 0 0 1rem; }
 p, li { color: var(--ink-soft); }
 strong { color: var(--ink); font-weight: 650; }
 
-/* Surlignage « marqueur » — réservé aux un ou deux faits qu'un visiteur doit
+/* Surlignage « marqueur » - réservé aux un ou deux faits qu'un visiteur doit
    retenir de la page. <mark class="hl"> enveloppe l'emphase existante ; la
    teinte vient du design system (--accent-soft, calibrée clair + sombre).
    Si tout est surligné, rien ne l'est : deux occurrences max par page. */
@@ -748,7 +748,7 @@ th {
 td { color: var(--ink-soft); }
 td strong { color: var(--ink); }
 
-/* Education — plain list, no redundant column labels */
+/* Education - plain list, no redundant column labels */
 .edu-list { list-style: none; margin: 1.4rem 0; padding: 0; display: grid; gap: 2px; }
 .edu-list li {
   display: grid;
@@ -770,7 +770,7 @@ td strong { color: var(--ink); }
   grid-row: 1 / span 2;
 }
 
-/* Portrait — floated headshot in the overview */
+/* Portrait - floated headshot in the overview */
 .portrait {
   float: right;
   width: clamp(140px, 32%, 184px);
@@ -780,11 +780,11 @@ td strong { color: var(--ink); }
   display: block;
   width: 100%;
   height: auto;
-  /* die-cut sticker: keeps its own white outline — no card border/radius */
+  /* die-cut sticker: keeps its own white outline - no card border/radius */
   filter: drop-shadow(0 7px 18px rgba(23, 23, 22, 0.20));
 }
 
-/* Sticker — Pampy, die-cut sticker slapped on the page.
+/* Sticker - Pampy, die-cut sticker slapped on the page.
    The artwork is a bust (flat-cut chest): the caption card overlaps the
    bottom of the image so the cut edge is tucked behind it. */
 .sticker {
@@ -816,7 +816,7 @@ td strong { color: var(--ink); }
   color: var(--muted);
   box-shadow: var(--shadow-1);
 }
-/* Stickers d'étude de cas — claqués sur le document plutôt que rangés à côté
+/* Stickers d'étude de cas - claqués sur le document plutôt que rangés à côté
    du titre : chaque sticker chevauche le filet séparateur de section (top
    négatif) et déborde dans la marge droite sur grand écran. Taille et angle
    par sticker, portés par la section (#id) pour que la réserve de padding du
@@ -1009,7 +1009,7 @@ td strong { color: var(--ink); }
    Responsive
    -------------------------------------------------------------------------- */
 @media (max-width: 980px) {
-  /* minmax(0, 1fr) — a bare 1fr cannot shrink below the track's min-content
+  /* minmax(0, 1fr) - a bare 1fr cannot shrink below the track's min-content
      (the terminal <pre> is ~625px wide), which forced a 665px layout on phones */
   .layout { grid-template-columns: minmax(0, 1fr); }
 

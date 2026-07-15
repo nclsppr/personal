@@ -1,6 +1,6 @@
 # Nicolas Pieper
 
-> **Section priority: 100% — Essential**
+> **Section priority: 100% - Essential**
 
 ## Engineering Manager building secure platforms that scale
 
@@ -18,7 +18,7 @@ I remain close to architecture, delivery and production, and I still jump into c
 
 # What I bring
 
-> **Section priority: 98% — Essential**
+> **Section priority: 98% - Essential**
 
 I combine hands-on engineering experience with team leadership, product ownership and stakeholder management.
 
@@ -41,7 +41,7 @@ My strongest area is the space where **technical complexity, business criticalit
 
 # Selected platforms and products
 
-> **Section priority: 100% — Essential**
+> **Section priority: 100% - Essential**
 
 ## Industrial Connected Home Platform
 
@@ -119,7 +119,7 @@ Because these products operate in sensitive environments, their public descripti
 
 # Leadership impact
 
-> **Section priority: 100% — Essential**
+> **Section priority: 100% - Essential**
 
 As an Engineering Supervisor, I lead a team of **ten full-stack developers** responsible for several business-critical products and shared technical platforms.
 
@@ -210,7 +210,7 @@ My approach is pragmatic: encourage innovation while respecting security, confid
 
 # A few numbers
 
-> **Section priority: 95% — Very important**
+> **Section priority: 95% - Very important**
 
 | Impact                            |                                            Scale |
 | --------------------------------- | -----------------------------------------------: |
@@ -227,7 +227,7 @@ Numbers do not tell the full story, but they provide useful context about the sc
 
 # How I lead
 
-> **Section priority: 92% — Very important**
+> **Section priority: 92% - Very important**
 
 ## Give people context, not just tasks
 
@@ -269,7 +269,7 @@ Without deliberate attention, urgent work will always replace important work.
 
 # Current focus
 
-> **Section priority: 88% — Strongly recommended**
+> **Section priority: 88% - Strongly recommended**
 
 My current areas of focus include:
 
@@ -290,13 +290,13 @@ I am particularly interested in environments where software needs to be secure, 
 
 # Career journey
 
-> **Section priority: 85% — Strongly recommended**
+> **Section priority: 85% - Strongly recommended**
 
 ## Victor Buck Services
 
 ### Engineering Supervisor
 
-**2024 — Present · Luxembourg**
+**2024 - Present · Luxembourg**
 
 I lead and coordinate a team of ten full-stack developers working on secure document and communication products.
 
@@ -312,7 +312,7 @@ My responsibilities include:
 
 ### Senior Full-Stack Engineer
 
-**2023 — 2024 · Luxembourg**
+**2023 - 2024 · Luxembourg**
 
 I contributed to the development and modernization of platforms used to create, manage and securely distribute confidential documents.
 
@@ -331,7 +331,7 @@ Selected achievements:
 
 ### Independent Software Engineer
 
-**2022 — Present · Remote**
+**2022 - Present · Remote**
 
 I help organizations design and deliver scalable digital platforms, from architecture and implementation to production.
 
@@ -350,7 +350,7 @@ My preferred assignments involve:
 
 ### Technical Leader
 
-**2019 — 2022 · Luxembourg**
+**2019 - 2022 · Luxembourg**
 
 I designed and helped deliver a high-volume banking document-generation platform processing up to 10 million reports per month.
 
@@ -358,7 +358,7 @@ My work covered architecture, technology benchmarking, development, CI/CD, monit
 
 ### Lead Developer
 
-**2016 — 2019 · Lyon**
+**2016 - 2019 · Lyon**
 
 I worked on an industrial IoT platform connecting more than one million devices simultaneously.
 
@@ -376,7 +376,7 @@ The platform was showcased at major technology events including IFA and Mobile W
 
 ## Atos
 
-### Research and Development Intern — IoT
+### Research and Development Intern - IoT
 
 **2015 · Lyon**
 
@@ -400,7 +400,7 @@ It was an early experience in industrial systems, automation and environments wh
 
 # Technical background
 
-> **Section priority: 75% — Recommended but secondary**
+> **Section priority: 75% - Recommended but secondary**
 
 I have a strong background in Java platform engineering, distributed systems and production operations.
 
@@ -432,7 +432,7 @@ The technology matters, but the ability to choose, combine and operate it effect
 
 # How I work
 
-> **Section priority: 78% — Recommended**
+> **Section priority: 78% - Recommended**
 
 ## Understand the real problem
 
@@ -466,7 +466,7 @@ It comes from many deliberate improvements made consistently over time.
 
 # Beyond engineering
 
-> **Section priority: 65% — Useful for personality and differentiation**
+> **Section priority: 65% - Useful for personality and differentiation**
 
 When I am not discussing architecture, product ownership or authentication flows, I am probably:
 
@@ -483,33 +483,33 @@ I enjoy technology, but I am mostly interested in what people and teams can buil
 
 # Education
 
-> **Section priority: 55% — Optional but reassuring**
+> **Section priority: 55% - Optional but reassuring**
 
 ## École Nationale d’Ingénieurs de Brest
 
 Master’s Degree in Engineering
-**2013 — 2016**
+**2013 - 2016**
 
 ## Université de Sherbrooke
 
 Computer Science, Faculty of Engineering
-**2015 — 2016**
+**2015 - 2016**
 
 ## Université de Lorraine
 
 Bachelor’s Degree in Microelectronics, Electronics and Automation
-**2012 — 2013**
+**2012 - 2013**
 
 ## Lycée Condorcet de Schoeneck
 
 Higher Technician Certificate in Electronic Systems
-**2010 — 2012**
+**2010 - 2012**
 
 ---
 
 # Let’s talk
 
-> **Section priority: 100% — Essential**
+> **Section priority: 100% - Essential**
 
 I am always interested in discussing:
 

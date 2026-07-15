@@ -1,14 +1,26 @@
-# Journal de bord — nicolaspieper.com
+# Journal de bord - nicolaspieper.com
 
 Historique des interventions sur le site, la plus récente en premier.
 (Tenu dans le README jusqu'au 2026-07-15, puis déplacé ici.)
 
 ---
 
-## 2026-07-16 — Stickers Work agrandis et « claqués » sur la page
+## 2026-07-16 - Bannissement des tirets longs
 
-- Les stickers des études de cas gagnent en présence : 170–210 px sur desktop
-  (au lieu de 118–156), ~148 px sur mobile (au lieu de 84), sources régénérées
+- Passe complète sur le dépôt (pages HTML, titres, meta, JSON-LD, CV, 404, docs,
+  commentaires de code) : plus aucun tiret cadratin, demi-cadratin ni barre
+  horizontale. Remplacés par « · » (séparateurs du site : titres de pages, footer,
+  organisations, langues), « - » (plages de dates, docs) ou une reformulation
+  (incises de prose).
+- Règle AGENTS.md durcie : interdiction totale, sans exception (l'ancienne règle
+  tolérait les usages « légitimes »).
+- Nouveau hook `git commit` (`check-no-emdash.py`) qui bloque toute occurrence
+  dans les fichiers texte stagés, archive `v2022/` exclue. PDF des CV régénérés.
+
+## 2026-07-16 - Stickers Work agrandis et « claqués » sur la page
+
+- Les stickers des études de cas gagnent en présence : 170-210 px sur desktop
+  (au lieu de 118-156), ~148 px sur mobile (au lieu de 84), sources régénérées
   en 512 px depuis les originaux pour rester nets en retina.
 - Placement moins scolaire : chaque sticker chevauche le filet séparateur de
   section et déborde dans la marge droite sur grand écran ; sur mobile il est
@@ -17,7 +29,7 @@ Historique des interventions sur le site, la plus récente en premier.
 - Navigation de fin de page ajoutée aux CV (« Retour à l'Aperçu / explorer les
   réalisations »), masquée à l'impression, PDF régénérés.
 
-## 2026-07-15 — Page Work recentrée sur le rôle actuel
+## 2026-07-15 - Page Work recentrée sur le rôle actuel
 
 - L'étude de cas « Plateformes sécurisées » est remplacée par deux sections : « Diriger
   l'équipe d'ingénierie Solutions » (01, management, nouveau sticker die-cut optimisé
@@ -33,7 +45,7 @@ Historique des interventions sur le site, la plus récente en premier.
 - Sidebar, intro, meta et JSON-LD alignés ; la grille des études de cas accepte
   plusieurs paragraphes par libellé (placement colonne 2 généralisé).
 
-## 2026-07-15 — Favicon aligné sur le monogramme NP
+## 2026-07-15 - Favicon aligné sur le monogramme NP
 
 - Le favicon SVG typographique est remplacé par une version vectorielle simplifiée du
   monogramme de `logo_nicolaspieper.png`, lisible aux tailles 16 et 32 px.
@@ -41,7 +53,7 @@ Historique des interventions sur le site, la plus récente en premier.
   déjà cohérente avec ce monogramme, reste inchangée.
 - Les URLs de favicon sont versionnées pour invalider le cache des navigateurs.
 
-## 2026-07-15 — Stickers des études de cas sur la page Work
+## 2026-07-15 - Stickers des études de cas sur la page Work
 
 - Trois stickers die-cut (IoT, usine documentaire, plateformes sécurisées) accrochés près
   des repères 01/02/03 des études de cas, EN + FR, dans la langue graphique des stickers
@@ -49,10 +61,10 @@ Historique des interventions sur le site, la plus récente en premier.
 - Desktop : position absolue à droite du titre (tailles 118/156/132 px, le Document Factory
   domine) ; mobile ≤ 720 px : dans le flux sous le titre, ~84 px.
 - Optimisation lourde des sources : détourage du fond noir du Document Factory (flood fill),
-  recadrage alpha, redimensionnement 400 px et quantization palette — 6,5 Mo → 145 Ko au total.
+  recadrage alpha, redimensionnement 400 px et quantization palette - 6,5 Mo → 145 Ko au total.
 - Chargement paresseux, `alt` descriptifs bilingues, `prefers-reduced-motion` respecté.
 
-## 2026-07-15 — Surlignage « marqueur » des faits clés
+## 2026-07-15 - Surlignage « marqueur » des faits clés
 
 - Nouveau style `mark.hl` : un surlignage discret teinté `--accent-soft` (calibré thèmes
   clair et sombre), réservé aux un ou deux faits qu'un visiteur doit retenir d'une page.
@@ -61,7 +73,7 @@ Historique des interventions sur le site, la plus récente en premier.
 - Parti pris : pas d'International Orange pur en fond de texte (contraste), élément `<mark>`
   sémantique, et pages CV volontairement exclues (sobriété du PDF).
 
-## 2026-07-15 — Régénération automatisée des PDF du CV
+## 2026-07-15 - Régénération automatisée des PDF du CV
 
 - Ajout de `scripts/generate-cv-pdf.sh` qui régénère les deux PDF téléchargeables
   (`assets/docs/nicolas-pieper-cv-{en,fr}.pdf`) à partir des pages `/cv/` et `/fr/cv/`
@@ -73,9 +85,9 @@ Historique des interventions sur le site, la plus récente en premier.
 - Parité FR/EN vérifiée : les deux pages téléchargent bien un vrai PDF (le bouton
   « imprimer » anglais avait déjà été remplacé le même jour).
 
-## 2026-07-15 — CV recentré et PDF pré-générés
+## 2026-07-15 - CV recentré et PDF pré-générés
 
-- Les expériences de stage de 2015–2016 et le poste de technicien de 2011 sont retirés des CV
+- Les expériences de stage de 2015-2016 et le poste de technicien de 2011 sont retirés des CV
   anglais et français ; le parcours professionnel présenté commence au poste de Lead Developer
   en 2016. La formation reste inchangée.
 - Les boutons d’impression sont remplacés par le téléchargement direct de deux PDF statiques,
@@ -83,7 +95,7 @@ Historique des interventions sur le site, la plus récente en premier.
 - La mise en page d’impression tient sur deux pages lisibles dans chaque langue, avec chaque
   poste conservé d’un seul bloc. Les pages HTML restent accessibles et imprimables sans JavaScript.
 
-## 2026-07-15 — Terminal d’accueil plus personnel
+## 2026-07-15 - Terminal d’accueil plus personnel
 
 - Le terminal ne répète plus les principes détaillés sur la page Work.
 - La commande fictive `nicolas highlights` rappelle les trois faits déjà publiés : plus d’un
@@ -91,7 +103,7 @@ Historique des interventions sur le site, la plus récente en premier.
 - `ls interests/` ajoute une touche personnelle avec la domotique, la randonnée et la pizza
   napolitaine. Le libellé accessible est équivalent en anglais et en français.
 
-## 2026-07-15 — Scrollspy fiable sur les sections courtes
+## 2026-07-15 - Scrollspy fiable sur les sections courtes
 
 - La section « Beyond engineering / Au-delà de l’ingénierie » active désormais correctement
   son entrée de sidebar lorsqu’elle franchit le repère de lecture.
@@ -99,7 +111,7 @@ Historique des interventions sur le site, la plus récente en premier.
   d’une bande d’intersection qui pouvait manquer les blocs courts.
 - Les sept destinations ont été contrôlées en anglais et en français, sur mobile et desktop.
 
-## 2026-07-15 — Finition design, prose et navigation mobile
+## 2026-07-15 - Finition design, prose et navigation mobile
 
 - **Direction visuelle** : rayons resserrés sur le logo, les boutons et les composants pour
   renforcer l’esprit « documentation premium » ; orange international utilisé comme repère
@@ -115,7 +127,7 @@ Historique des interventions sur le site, la plus récente en premier.
 - **Contrôles** : rendu desktop et mobile, thèmes clair et sombre, structure FR/EN,
   navigation, débordements horizontaux et PDF des deux CV vérifiés.
 
-## 2026-07-15 — Architecture Overview / Work / CV
+## 2026-07-15 - Architecture Overview / Work / CV
 
 - **Nouvelle page bilingue** : ajout de `/work/` et `/fr/work/` pour les trois études de cas,
   le leadership détaillé, les principes d’ingénierie et le socle technique.
@@ -128,7 +140,7 @@ Historique des interventions sur le site, la plus récente en premier.
 - **SEO et documentation** : canonical, hreflang, métadonnées sociales, JSON-LD, sitemap et
   README mis à jour. Aucun chiffre ni fait professionnel ajouté.
 
-## 2026-07-15 — Restructuration de la homepage (audit Phase 1)
+## 2026-07-15 - Restructuration de la homepage (audit Phase 1)
 
 Homepage raccourcie (~30 %) sans perdre les preuves, le détail restant dans le CV.
 Aucun fait ni chiffre modifié ; l'impact chiffré reste en TODO (voir mémoire).
@@ -145,7 +157,7 @@ Aucun fait ni chiffre modifié ; l'impact chiffré reste en TODO (voir mémoire)
 - **Parcours homepage allégé** : stages 2015-16 et technicien 2011 retirés de la homepage
   (conservés dans le CV).
 - **Activité indépendante clarifiée** : « Independent Software Engineer · Selected projects »
-  / « Ingénieur logiciel indépendant · Projets sélectionnés » (homepage + CV) — n'apparaît
+  / « Ingénieur logiciel indépendant · Projets sélectionnés » (homepage + CV) - n'apparaît
   plus comme une activité pleinement active en parallèle de l'emploi.
 - **Beyond engineering condensé** : liste de 6 puces → un paragraphe + 3 tags (Home automation /
   Hiking / Neapolitan pizza). La ligne sur le « proxy d'entreprise » (critique implicite de
@@ -154,7 +166,7 @@ Aucun fait ni chiffre modifié ; l'impact chiffré reste en TODO (voir mémoire)
 Parité FR/EN vérifiée (15 sections identiques, 11 liens nav, comptes de listes égaux) ;
 rendu et absence d'erreur console contrôlés dans le panneau.
 
-## 2026-07-15 — Passe d'audit : prose « dé-IA », accessibilité, titre, hygiène repo
+## 2026-07-15 - Passe d'audit : prose « dé-IA », accessibilité, titre, hygiène repo
 
 Application d'une partie du plan d'audit, en priorisant les items ne nécessitant
 aucune validation de contenu.
@@ -178,7 +190,7 @@ aucune validation de contenu.
 - **Docs** : README recentré sur la documentation projet, ce journal déplacé dans
   `CHANGELOG.md`, ajout d'un `AGENTS.md` (règles pour les interventions automatisées).
 
-## 2026-07-15 — Portrait sticker sur l'accueil, photo sur les CV, favicon orange
+## 2026-07-15 - Portrait sticker sur l'accueil, photo sur les CV, favicon orange
 
 - **Favicon en International Orange** : `favicon.svg` passe de terracotta à #FF4F00 (carré NP
   crème). `favicon-96.png` régénéré depuis le SVG via qlmanage.
@@ -186,21 +198,21 @@ aucune validation de contenu.
   illustré `nicolas-sticker.png`. Le `.portrait` perd sa carte (bordure/rayon/ombre) au profit
   d'un `drop-shadow` qui épouse la découpe.
   ⚠️ **Détourage nécessaire** : le PNG fourni (généré par IA) n'avait **pas** de transparence
-  — un fond **blanc opaque** était intégré (colortype 2, sans alpha), invisible sur fond blanc
+  - un fond **blanc opaque** était intégré (colortype 2, sans alpha), invisible sur fond blanc
   mais formant un rectangle blanc sur l'ivoire/sombre du site. Corrigé par un flood-fill depuis
   les bords (script Python maison, sans dépendance) : le fond blanc **neutre** (R=G=B) est rendu
   transparent, en s'arrêtant au contour **crème chaud** du die-cut (R>G>B) ; le blanc intérieur
   (chemise) est enclavé donc préservé. Downscale premultiplié → RGBA 460 px (~420 Ko). Vérifié
   clair + sombre : plus de rectangle, découpe nette.
 - **CV (`/cv/` et `/fr/cv/`)** : la photo `nicolas-pieper.jpg` est ajoutée dans l'en-tête, qui
-  devient un flex (texte + `.cv-photo` à droite, ~84–112 px, coins arrondis). S'imprime avec le CV.
+  devient un flex (texte + `.cv-photo` à droite, ~84-112 px, coins arrondis). S'imprime avec le CV.
 
-## 2026-07-15 — Identité de marque : logo + International Orange (#FF4F00)
+## 2026-07-15 - Identité de marque : logo + International Orange (#FF4F00)
 
 Nouveau logo `assets/img/logo_nicolaspieper.png` (carré orange, monogramme NP crème,
 traits noirs). Deux volets : le logo comme marque, et l'orange dans le design system.
 
-**Logo dans le header** — le carré « NP » textuel (`.brand-mark`) est remplacé par une
+**Logo dans le header** - le carré « NP » textuel (`.brand-mark`) est remplacé par une
 image du logo (`assets/img/logo-mark.png`, 128 px, ~16 Ko, généré via sips) sur les 4 pages.
 Toujours visible dans le header fixe, y compris en mobile (où le texte « Nicolas Pieper » se
 masque, le mark devient l'identité). Un `aria-label="Nicolas Pieper"` est ajouté au lien
@@ -208,28 +220,28 @@ masque, le mark devient l'identité). Un `aria-label="Nicolas Pieper"` est ajout
 `apple-touch-icon.png` régénéré depuis le logo (180 px). Master optimisé 994 Ko → 242 Ko
 (512 px). Le `favicon.svg` (mark vectoriel dédié, lisible à 16 px) est conservé tel quel.
 
-**Design system passé à l'International Orange** — l'accent terracotta (#D97757) devient
+**Design system passé à l'International Orange** - l'accent terracotta (#D97757) devient
 l'orange du logo. Choix : l'orange vif est réservé aux **petites zones à fort impact**
 (logo, puces `::marker`, bordures/pastilles, état actif du menu, focus, CTA de contact),
-tandis que le **texte** utilise une déclinaison plus sombre pour rester lisible (WCAG AA) —
+tandis que le **texte** utilise une déclinaison plus sombre pour rester lisible (WCAG AA) -
 la surface calme « documentation » est préservée (les boutons primaires restent neutres).
 Tout passe par les tokens `--accent*` (2 hex en dur mis à jour : `::selection`, CTA contact).
 
 Palette (contrastes vérifiés) :
-- `--accent` / `--brand` = **#FF4F00** — marks, bordures, focus (clair 3,1:1 · sombre 4,6:1, ≥3:1 UI).
-- `--accent-ink` = **#C23C00** clair (5,1:1 sur ivoire) / **#FF8551** sombre (6,3:1) — liens & texte, AA.
-- CTA de contact « nicolas@pieper.fr » = fond **#FF4F00**, texte foncé #201203 (5,5:1 AA) — le
+- `--accent` / `--brand` = **#FF4F00** - marks, bordures, focus (clair 3,1:1 · sombre 4,6:1, ≥3:1 UI).
+- `--accent-ink` = **#C23C00** clair (5,1:1 sur ivoire) / **#FF8551** sombre (6,3:1) - liens & texte, AA.
+- CTA de contact « nicolas@pieper.fr » = fond **#FF4F00**, texte foncé #201203 (5,5:1 AA) - le
   moment de marque le plus fort, sur le panneau sombre.
 - `::selection` #C23C00, `--accent-soft`/`--accent-glow` re-teintés orange.
 
 _Vérifié en clair et sombre dans le panneau ; logo net à 30 px, CTA orange lisible._
 
-## 2026-07-15 — Dynamic Island : vrai correctif (recomposition, pas mutation du meta)
+## 2026-07-15 - Dynamic Island : vrai correctif (recomposition, pas mutation du meta)
 
 Le correctif précédent (mettre à jour `<meta name="theme-color">.content` au toggle) ne
 rafraîchissait la Dynamic Island que **quand on ouvrait le menu**. Diagnostic (analyse
 multi-agents adversariale) : muter `.content` **livre bien** la nouvelle couleur à iOS
-Safari — la preuve, le menu affiche la bonne couleur sans jamais toucher au meta. Ce qui
+Safari - la preuve, le menu affiche la bonne couleur sans jamais toucher au meta. Ce qui
 manque n'est pas la notification mais une **recomposition** de la bande safe-area sous
 l'îlot (exposée par `viewport-fit=cover`) : iOS ne la re-échantillonne que sur une
 transaction de layer-tree en haut du viewport. Ouvrir le menu (backdrop + sidebar fixes)
@@ -237,19 +249,19 @@ en provoque une ; un simple `.content` non.
 
 Correctif (`assets/js/site.js`) : garder la mise à jour `.content` en place (suffisante sur
 Android/desktop, préserve l'identité du nœud dont dépend le script anti-flash) **puis**
-reproduire délibérément cette recomposition en « poussant » le `.site-header` — déjà promu
-en couche via `backdrop-filter` — avec un `transform: translateZ(0)` basculé sur deux
+reproduire délibérément cette recomposition en « poussant » le `.site-header` - déjà promu
+en couche via `backdrop-filter` - avec un `transform: translateZ(0)` basculé sur deux
 `requestAnimationFrame`. `translateZ` n'a aucun déplacement 2D → transaction de couche sans
 flash, et le header revient à son état (vérifié : aucun transform résiduel). _Le repaint de
-l'îlot lui-même ne se teste que sur iPhone réel — à confirmer côté Nicolas._
+l'îlot lui-même ne se teste que sur iPhone réel - à confirmer côté Nicolas._
 
-## 2026-07-15 — Sticker Pampy repensé, Formation dans le menu
+## 2026-07-15 - Sticker Pampy repensé, Formation dans le menu
 
 - **Sticker Pampy** (`assets/css/site.css`, les 2 pages) : l'illustration est un buste dont
-  le poitrail se termine par une coupe droite — flottant dans le vide, il semblait « coupé
+  le poitrail se termine par une coupe droite - flottant dans le vide, il semblait « coupé
   en bas ». Nouveau traitement façon sticker réellement collé : légère inclinaison (-6°),
   micro-animation ressort au survol (retour à plat + zoom léger, désactivée sous
-  `prefers-reduced-motion`), et une **carte-légende** « Pampy — Chief Pizza Officer »
+  `prefers-reduced-motion`), et une **carte-légende** « Pampy - Chief Pizza Officer »
   (fond `--bg-raised`, mono) qui chevauche le bas du sticker : la coupe disparaît derrière,
   Pampy sort de sa carte. Vérifié en clair et en sombre.
 - **Formation trouvable dans le menu** : la sous-partie `<h3>` Education/Formation (nichée
@@ -257,7 +269,7 @@ l'îlot lui-même ne se teste que sur iPhone réel — à confirmer côté Nicol
   et gagne son entrée dans la sidebar (groupe Référence) sur les deux langues. L'ancre
   `#education` est conservée ; le scrollspy la prend en charge automatiquement.
 
-## 2026-07-15 — Parité FR/EN, corrections UX (thème iOS, scrollspy, deep-link langue)
+## 2026-07-15 - Parité FR/EN, corrections UX (thème iOS, scrollspy, deep-link langue)
 
 Signalements de Nicolas + mise en place d'une règle de parité entre les deux langues.
 
@@ -270,17 +282,17 @@ Signalements de Nicolas + mise en place d'une règle de parité entre les deux l
   identiques dans les deux langues). Fonctionne même après un défilement manuel.
 - **Barre d'état iOS synchronisée au thème** : les deux `<meta name="theme-color">` en
   `media=(prefers-color-scheme)` ne suivaient que la préférence système, pas le bouton
-  jour/nuit du site — la Dynamic Island gardait donc l'ancienne couleur au changement manuel.
+  jour/nuit du site - la Dynamic Island gardait donc l'ancienne couleur au changement manuel.
   Remplacés par un seul `<meta name="theme-color">` piloté en JS (script anti-flash de `<head>`
   + toggle) : `#FAF9F5` en clair, `#262624` en sombre. Appliqué aux 5 pages (dont `404.html`).
-- **Scrollspy — section Contact** : la dernière section, trop courte, n'entrait jamais dans
+- **Scrollspy - section Contact** : la dernière section, trop courte, n'entrait jamais dans
   la bande de détection de l'`IntersectionObserver` → son entrée de menu ne s'allumait jamais.
   Ajout d'une détection de bas de page (throttlée en `requestAnimationFrame`) qui épingle le
   dernier lien du menu quand la page est défilée jusqu'en bas.
 
 **Règle de parité FR/EN (imposée par Nicolas) :** avant chaque commit touchant le site,
 vérifier que `/` et `/fr/` restent équivalents (même structure, mêmes sections, et chaque
-texte est la traduction équivalente — aucun texte source oublié, aucun placeholder). Un hook
+texte est la traduction équivalente - aucun texte source oublié, aucun placeholder). Un hook
 `git commit` (`~/Developer/.claude/hooks/check-i18n-parity.py`) bloque désormais le commit si
 la parité *structurelle* diverge (sections/ancres désynchronisées, fil d'Ariane FR = code
 langue). La parité *sémantique* reste vérifiée par relecture.
@@ -288,7 +300,7 @@ langue). La parité *sémantique* reste vérifiée par relecture.
 _Vérifié dans le panneau navigateur : fil d'Ariane, bascule theme-color et deep-link langue OK.
 Le scrollspy dépend de `innerHeight` (rapporté à 0 par le panneau) → à confirmer sur iPhone réel._
 
-## 2026-07-15 — Responsivité iPhone (safe areas, notch, tap targets)
+## 2026-07-15 - Responsivité iPhone (safe areas, notch, tap targets)
 
 Passe dédiée au rendu sur iPhone (testé/pensé pour iPhone 15, 393×852). Le layout de base
 était fluide mais ne respectait pas les règles de navigation iOS. Corrections dans
@@ -312,15 +324,15 @@ régression desktop). Vérifié via simulation d'encoche + valeurs calculées ; 
 définitif se fera sur l'iPhone réel une fois le DNS en place.
 
 **Décision i18n :** on conserve **deux fichiers HTML** distincts (`/` et `/fr/`) plutôt
-qu'une traduction JavaScript runtime — choix dicté par la priorité SEO (aperçus de partage
+qu'une traduction JavaScript runtime - choix dicté par la priorité SEO (aperçus de partage
 et `hreflang` nécessitent des pages pré-rendues par URL). Les deux versions sont maintenues
 à la main et gardées synchronisées.
 
-## 2026-07-15 — Audit qualité multi-agents et corrections
+## 2026-07-15 - Audit qualité multi-agents et corrections
 
 Passe d'audit adversariale (12 agents : SEO technique, WCAG 2.2 AA, relecture française,
 fidélité au contenu source, intégrité des liens). 29 findings bruts, 7 majeurs confirmés
-après contre-vérification, 22 mineurs — tous corrigés :
+après contre-vérification, 22 mineurs - tous corrigés :
 
 - **Accessibilité** : contraste du CTA contact (3.12:1 → 6.21:1), ancres de titres
   désormais visibles au focus clavier, drawer mobile retiré de l'ordre de tabulation
@@ -338,7 +350,7 @@ après contre-vérification, 22 mineurs — tous corrigés :
 - **SEO** : titres raccourcis ≤65 caractères avec « Luxembourg » dans les deux langues,
   meta descriptions ramenées à ~150 caractères, breadcrumbs FR pointant vers /fr/.
 
-## 2026-07-14 — Refonte complète v2026
+## 2026-07-14 - Refonte complète v2026
 
 Refonte totale du site, réalisée avec Claude Code (Opus 4.8 + Fable 5). L'ancienne version
 « pizza » (2024) est remplacée par un design inspiré des documentations Claude AI : sobre,
@@ -408,22 +420,22 @@ l'ancien site conservée dans [`/v2022/`](v2022/).
 - [ ] Déclarer le site dans Google Search Console + soumettre `sitemap.xml`.
 - [ ] Mettre à jour l'URL du site sur le profil LinkedIn.
 - [ ] (Optionnel) Fournir une photo récente pour remplacer le monogramme.
-- [ ] Confirmer la section « Langues » des CV (Français natif / Anglais professionnel) —
+- [ ] Confirmer la section « Langues » des CV (Français natif / Anglais professionnel) -
       non présente dans INFOS.md ; ajouter allemand/luxembourgeois le cas échéant.
 
 ---
 
-## 2026-07-14 — Ajout des archives
+## 2026-07-14 - Ajout des archives
 
 - Import de la version 2022 du site dans [`/v2022/`](v2022/) pour l'historique.
 - Ajout de [infos/INFOS.md](infos/INFOS.md), source de contenu de la refonte.
 
-## 2024 — Version « pizza »
+## 2024 - Version « pizza »
 
 Site one-page au thème pizzeria napolitaine (Anton / Permanent Marker / Space Mono,
 marquee, stickers). Remplacée par la v2026 ; le code reste dans l'historique git
 (`git log -- style.css script.js`).
 
-## 2022 — Version Bootstrap
+## 2022 - Version Bootstrap
 
 Carte de visite one-page (Bootstrap 5, avatar, liens). Archivée dans [`/v2022/`](v2022/).

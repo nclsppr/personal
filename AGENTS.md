@@ -10,9 +10,13 @@ Voir [`README.md`](README.md) pour l'architecture et [`CHANGELOG.md`](CHANGELOG.
 - Ne pas transformer une contribution collective en réalisation individuelle.
 - Ne publier aucune information interne ou confidentielle.
 - Signaler toute ambiguïté (titre, période, périmètre) plutôt que de la trancher seul.
-- **Pas de tics d'écriture IA** dans la prose : éviter les tirets cadratins d'incise
-  (« … — … » en plein milieu d'une phrase). Les tirets typographiques légitimes restent
-  autorisés (titres, plages de dates, séparateurs organisation/langue, terminal, footer).
+- **Tirets longs interdits, partout et sans exception.** Aucun tiret cadratin (U+2014),
+  demi-cadratin (U+2013) ni barre horizontale (U+2015) dans le dépôt : ni prose, ni titres,
+  ni dates, ni séparateurs, ni commentaires de code, ni documentation. Remplacements :
+  tiret simple « - » (plages de dates, séparateurs de docs), point médian « · »
+  (séparateurs du site : titres de pages, footer, organisations), ou reformulation
+  (virgule, deux-points, parenthèses) pour les incises. Un hook `git commit`
+  (`check-no-emdash.py`) bloque toute occurrence, archive `v2022/` exclue.
 
 ## Parité FR/EN
 

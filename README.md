@@ -1,6 +1,6 @@
 # nicolaspieper.com
 
-Site personnel de Nicolas Pieper — présenté comme sa **documentation** : sobre,
+Site personnel de Nicolas Pieper - présenté comme sa **documentation** : sobre,
 ivoire/encre, un seul accent (International Orange `#FF4F00`), bilingue FR/EN,
 CV HTML avec PDF téléchargeables. Statique, sans framework ni dépendance runtime.
 
@@ -13,7 +13,7 @@ CV HTML avec PDF téléchargeables. Statique, sans framework ni dépendance runt
 
 ## Aperçu
 
-- **Bilingue par URLs distinctes** (`/` EN, `/fr/` FR) avec `hreflang` réciproques — pages
+- **Bilingue par URLs distinctes** (`/` EN, `/fr/` FR) avec `hreflang` réciproques - pages
   pré-rendues pour le SEO, pas de traduction JavaScript côté client.
 - **Thème clair/sombre** : bascule manuelle persistée en `localStorage`, défaut aligné sur
   `prefers-color-scheme`, script inline anti-flash dans le `<head>`.
