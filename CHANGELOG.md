@@ -5,6 +5,23 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-16 - Footer colophon, portrait mobile et fil d'Ariane restauré
+
+- Nouveau footer identique sur les six pages, en forme de colophon : identité
+  (monogramme, rôle, clin d'œil terminal « $ exit 0 »), trois colonnes de liens
+  dans la langue mono de la sidebar (Pages / Ailleurs / Site, page courante en
+  orange), et une ligne de base typographique (« Composé en Inter, Source
+  Serif 4 & JetBrains Mono. Site statique, sans tracking. »).
+- Corrige la hauteur aléatoire de l'ancien footer sur Chrome mobile : la règle
+  tactile de 44 px s'appliquait à des liens en ligne qui wrappaient différemment
+  selon le navigateur ; chaque lien est désormais un bloc à hauteur voulue.
+- Le fil d'Ariane des pages d'accueil, masqué sur mobile par un audit précédent,
+  est restauré pour rester cohérent avec Work et CV.
+- Le portrait du hero, bloc centré qui coupait la page en deux sur mobile, est
+  flotté à droite avec habillage du texte, comme les stickers de la page Work.
+- Gras et marqueurs sur la page Work : une phrase-clé par bloc dans les sections
+  01/02, marqueur orange sur les deux métriques phares (1 M+, 10 M), EN + FR.
+
 ## 2026-07-16 - Bannissement des tirets longs
 
 - Passe complète sur le dépôt (pages HTML, titres, meta, JSON-LD, CV, 404, docs,

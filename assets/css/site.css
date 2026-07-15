@@ -861,7 +861,11 @@ td strong { color: var(--ink); }
 @media (max-width: 560px) {
   .work-summary { grid-template-columns: 1fr; }
   .work-summary .text-link { grid-column: 1; }
-  .portrait, .sticker { float: none; width: min(200px, 55%); margin: 4px auto 20px; }
+  /* Portrait : flotté à droite du lead, comme les stickers de la page Work,
+     plutôt qu'un bloc centré qui coupe le hero en deux. Pampy garde son
+     traitement centré à carte-légende, qui fonctionne bien. */
+  .portrait { width: min(140px, 38vw); margin: 0.3rem -4px 10px 16px; }
+  .sticker { float: none; width: min(200px, 55%); margin: 4px auto 20px; }
 }
 
 @media (max-width: 720px) {
@@ -987,23 +991,61 @@ td strong { color: var(--ink); }
 .contact-panel .btn-ghost:hover { border-color: var(--accent); color: var(--accent); background: transparent; }
 
 /* Footer */
+/* Footer - colophon du site : identité, trois groupes de liens dans la langue
+   mono de la sidebar, clin d'œil terminal et ligne de base typographique.
+   Chaque lien est un bloc à hauteur voulue : l'ancien footer à une ligne
+   gonflait au hasard des retours à la ligne selon le navigateur. */
 .site-footer {
+  margin-top: 4.5rem;
   border-top: 1px solid var(--border);
-  padding: 28px clamp(20px, 4vw, 56px);
-  padding-left: max(clamp(20px, 4vw, 56px), var(--safe-left));
-  padding-right: max(clamp(20px, 4vw, 56px), var(--safe-right));
-  padding-bottom: max(28px, var(--safe-bottom));
-  font-size: 0.82rem;
+  padding: 32px 0 max(22px, var(--safe-bottom));
   color: var(--muted);
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: calc(var(--content-w) + 2 * clamp(20px, 4vw, 56px));
 }
-.site-footer a { color: var(--muted); }
-.site-footer a:hover { color: var(--accent-ink); }
-.footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+.footer-grid {
+  display: grid;
+  grid-template-columns: minmax(200px, 1.5fr) repeat(3, minmax(110px, 1fr));
+  gap: 28px 20px;
+}
+.footer-id { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.footer-tag { margin: 0; font-size: 0.82rem; }
+.footer-exit {
+  margin: 4px 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+.footer-exit .fx-prompt { color: var(--accent); }
+.footer-col h2 {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin: 0 0 6px;
+}
+.footer-col a {
+  display: block;
+  padding: 5px 0;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+}
+.footer-col a:hover { color: var(--accent-ink); }
+.footer-col a[aria-current="page"] { color: var(--accent-ink); }
+.footer-base {
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 24px;
+  font-size: 0.78rem;
+}
+.footer-base p { margin: 0; }
+@media (max-width: 640px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-id { grid-column: 1 / -1; }
+}
 
 /* --------------------------------------------------------------------------
    Responsive
@@ -1060,15 +1102,14 @@ td strong { color: var(--ink); }
   .lang-switch a, .lang-switch span { padding: 7px 12px; }
   .header-nav a { padding: 10px 12px; }
   .side-group a { padding: 10px; }
-  .footer-links a { display: inline-flex; align-items: center; min-height: 44px; }
+  /* Hauteur tactile délibérée et identique dans tous les navigateurs */
+  .footer-col a { display: flex; align-items: center; min-height: 44px; padding: 0; }
 }
 
 @media (max-width: 560px) {
-  .brand span { display: none; }
+  .site-header .brand span { display: none; }
   .content { padding-top: 28px; }
   h2 { font-size: 1.45rem; }
-  /* On the homepage the breadcrumb only restates where you already are */
-  .breadcrumb--home { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
