@@ -8,6 +8,23 @@ sur le site y est consignée, la plus récente en premier.
 
 ---
 
+## 2026-07-15 — Portrait sticker sur l'accueil, photo sur les CV, favicon orange
+
+- **Favicon en International Orange** : `favicon.svg` passe de terracotta à #FF4F00 (carré NP
+  crème). `favicon-96.png` régénéré depuis le SVG via qlmanage.
+- **Accueil (`/` et `/fr/`)** : la photo `nicolas-pieper.jpg` est remplacée par le portrait
+  illustré `nicolas-sticker.png`. Le `.portrait` perd sa carte (bordure/rayon/ombre) au profit
+  d'un `drop-shadow` qui épouse la découpe.
+  ⚠️ **Détourage nécessaire** : le PNG fourni (généré par IA) n'avait **pas** de transparence
+  — un fond **blanc opaque** était intégré (colortype 2, sans alpha), invisible sur fond blanc
+  mais formant un rectangle blanc sur l'ivoire/sombre du site. Corrigé par un flood-fill depuis
+  les bords (script Python maison, sans dépendance) : le fond blanc **neutre** (R=G=B) est rendu
+  transparent, en s'arrêtant au contour **crème chaud** du die-cut (R>G>B) ; le blanc intérieur
+  (chemise) est enclavé donc préservé. Downscale premultiplié → RGBA 460 px (~420 Ko). Vérifié
+  clair + sombre : plus de rectangle, découpe nette.
+- **CV (`/cv/` et `/fr/cv/`)** : la photo `nicolas-pieper.jpg` est ajoutée dans l'en-tête, qui
+  devient un flex (texte + `.cv-photo` à droite, ~84–112 px, coins arrondis). S'imprime avec le CV.
+
 ## 2026-07-15 — Identité de marque : logo + International Orange (#FF4F00)
 
 Nouveau logo `assets/img/logo_nicolaspieper.png` (carré orange, monogramme NP crème,

@@ -38,9 +38,23 @@
 
 /* Document header */
 .cv-head {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(16px, 3vw, 28px);
   border-bottom: 2px solid var(--accent);
   padding-bottom: 20px;
   margin-bottom: 8px;
+}
+.cv-head-text { flex: 1 1 auto; min-width: 0; }
+.cv-photo {
+  flex: none;
+  width: clamp(84px, 16vw, 112px);
+  height: auto;
+  aspect-ratio: 585 / 700;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-1);
 }
 .cv-head h1 {
   font-size: clamp(1.9rem, 4.5vw, 2.5rem);
