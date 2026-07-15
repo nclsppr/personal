@@ -22,6 +22,17 @@ Voir [`README.md`](README.md) pour l'architecture et [`CHANGELOG.md`](CHANGELOG.
   placeholder).
 - Un hook `git commit` vérifie la parité *structurelle* ; la parité *sémantique* se relit.
 
+## CV PDF
+
+- Les PDF téléchargeables (`/assets/docs/nicolas-pieper-cv-en.pdf` et `…-fr.pdf`) sont le
+  **rendu d'impression** des pages `/cv/` et `/fr/cv/` (Chrome headless applique
+  `@media print` / `@page` de [`assets/css/cv.css`](assets/css/cv.css)).
+- **Dès qu'on modifie `cv/index.html` ou `fr/cv/index.html`** (contenu, structure ou styles
+  d'impression), **régénérer les deux PDF** et les inclure dans le *même commit* que les pages,
+  pour que le fichier téléchargé reste fidèle à la page HTML.
+- Commande unique : `./scripts/generate-cv-pdf.sh` puis `git add assets/docs/nicolas-pieper-cv-*.pdf`.
+- Un hook `git commit` bloque le commit si une page CV est stagée sans son PDF régénéré.
+
 ## Accessibilité (à préserver)
 
 - Navigation complète au clavier, focus toujours visible, contrastes ≥ existant (AA).
@@ -44,5 +55,6 @@ Voir [`README.md`](README.md) pour l'architecture et [`CHANGELOG.md`](CHANGELOG.
 ## Avant de committer
 
 Tester la modification sur : **mobile + desktop**, **clair + sombre**, et l'**impression**
-du CV le cas échéant. Mettre à jour le [`CHANGELOG.md`](CHANGELOG.md) pour toute intervention
-notable.
+du CV le cas échéant. Si une page CV a changé, **régénérer les PDF** (voir § « CV PDF »)
+et les committer avec la page. Mettre à jour le [`CHANGELOG.md`](CHANGELOG.md) pour toute
+intervention notable.

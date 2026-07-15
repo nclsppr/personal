@@ -5,6 +5,18 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-15 — Régénération automatisée des PDF du CV
+
+- Ajout de `scripts/generate-cv-pdf.sh` qui régénère les deux PDF téléchargeables
+  (`assets/docs/nicolas-pieper-cv-{en,fr}.pdf`) à partir des pages `/cv/` et `/fr/cv/`
+  via Chrome headless, en appliquant les styles d’impression de `assets/css/cv.css`.
+- Nouvelle règle dans `AGENTS.md` (§ « CV PDF ») : toute modification d’une page CV impose
+  de régénérer les PDF et de les committer avec la page.
+- Un hook `git commit` (`check-cv-pdf.py`) bloque le commit si une page CV est stagée sans
+  son PDF régénéré, au même titre que le hook de parité FR/EN.
+- Parité FR/EN vérifiée : les deux pages téléchargent bien un vrai PDF (le bouton
+  « imprimer » anglais avait déjà été remplacé le même jour).
+
 ## 2026-07-15 — CV recentré et PDF pré-générés
 
 - Les expériences de stage de 2015–2016 et le poste de technicien de 2011 sont retirés des CV
