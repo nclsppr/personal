@@ -69,12 +69,13 @@
   --border: #E3E1D7;
   --border-strong: #CFCCC0;
 
-  /* The one accent — terracotta */
-  --accent: #D97757;          /* decorative: borders, marks, large type */
-  --accent-ink: #9A4A26;      /* text-safe on ivory (AA) */
-  --accent-soft: #F6E3DA;     /* tinted surfaces */
-  --accent-glow: rgba(217, 119, 87, 0.14);
-  --focus-ring: #9A4A26;      /* ≥3:1 against bg surfaces */
+  /* Brand accent — International Orange, from the logo (#FF4F00) */
+  --brand: #FF4F00;           /* the pure brand orange — logo, boldest moments */
+  --accent: #FF4F00;          /* decorative: marks, borders, bullets, active, focus */
+  --accent-ink: #C23C00;      /* deep orange, text-safe on ivory (5.1:1 AA) */
+  --accent-soft: #FFE7DC;     /* tinted surfaces */
+  --accent-glow: rgba(255, 79, 0, 0.12);
+  --focus-ring: #C23C00;      /* deep orange, ≥4.5:1 → clears the 3:1 UI minimum everywhere */
 
   --code-bg: #21201C;
   --code-ink: #EDEBE2;
@@ -114,11 +115,12 @@
   --border: #3B3A36;
   --border-strong: #4C4B45;
 
-  --accent: #D97757;
-  --accent-ink: #E9967A;      /* text-safe on dark */
-  --accent-soft: #3E2E26;
-  --accent-glow: rgba(217, 119, 87, 0.18);
-  --focus-ring: #D97757;      /* 4.98:1 on #262624 */
+  --brand: #FF4F00;
+  --accent: #FF4F00;
+  --accent-ink: #FF8551;      /* light orange, text-safe on dark (6.3:1 AA) */
+  --accent-soft: #3A2318;
+  --accent-glow: rgba(255, 79, 0, 0.20);
+  --focus-ring: #FF4F00;      /* 4.6:1 on #262624 */
 
   --code-bg: #1B1B19;
   --code-ink: #E6E4DB;
@@ -153,7 +155,7 @@ body {
   -webkit-tap-highlight-color: transparent; /* no grey flash on tap (iOS) */
 }
 
-::selection { background: #9A4A26; color: #FFF; }
+::selection { background: #C23C00; color: #FFF; }
 
 a { color: var(--accent-ink); text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 3px; }
@@ -213,14 +215,8 @@ img { max-width: 100%; height: auto; }
   width: 30px;
   height: 30px;
   border-radius: 8px;
-  background: var(--accent);
-  color: #FFF;
-  display: grid;
-  place-items: center;
-  font-family: var(--font-serif);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
+  display: block;
+  object-fit: cover;
   flex: none;
 }
 
@@ -825,8 +821,8 @@ td strong { color: var(--ink); }
   margin: 0 0 10px;
 }
 .contact-panel p { color: rgba(255, 255, 255, 0.72); }
-.contact-panel .btn-primary { background: #9A4A26; color: #FFF; }
-.contact-panel .btn-primary:hover { background: #AD5530; }
+.contact-panel .btn-primary { background: var(--brand); color: #201203; }
+.contact-panel .btn-primary:hover { background: #FF6A2B; color: #201203; }
 .contact-panel .btn-ghost { border-color: rgba(255, 255, 255, 0.25); color: #FFF; }
 .contact-panel .btn-ghost:hover { border-color: var(--accent); color: var(--accent); background: transparent; }
 

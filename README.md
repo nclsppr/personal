@@ -8,6 +8,35 @@ sur le site y est consignée, la plus récente en premier.
 
 ---
 
+## 2026-07-15 — Identité de marque : logo + International Orange (#FF4F00)
+
+Nouveau logo `assets/img/logo_nicolaspieper.png` (carré orange, monogramme NP crème,
+traits noirs). Deux volets : le logo comme marque, et l'orange dans le design system.
+
+**Logo dans le header** — le carré « NP » textuel (`.brand-mark`) est remplacé par une
+image du logo (`assets/img/logo-mark.png`, 128 px, ~16 Ko, généré via sips) sur les 4 pages.
+Toujours visible dans le header fixe, y compris en mobile (où le texte « Nicolas Pieper » se
+masque, le mark devient l'identité). Un `aria-label="Nicolas Pieper"` est ajouté au lien
+`.brand` : le nom accessible reste stable même quand le texte visible disparaît (mobile).
+`apple-touch-icon.png` régénéré depuis le logo (180 px). Master optimisé 994 Ko → 242 Ko
+(512 px). Le `favicon.svg` (mark vectoriel dédié, lisible à 16 px) est conservé tel quel.
+
+**Design system passé à l'International Orange** — l'accent terracotta (#D97757) devient
+l'orange du logo. Choix : l'orange vif est réservé aux **petites zones à fort impact**
+(logo, puces `::marker`, bordures/pastilles, état actif du menu, focus, CTA de contact),
+tandis que le **texte** utilise une déclinaison plus sombre pour rester lisible (WCAG AA) —
+la surface calme « documentation » est préservée (les boutons primaires restent neutres).
+Tout passe par les tokens `--accent*` (2 hex en dur mis à jour : `::selection`, CTA contact).
+
+Palette (contrastes vérifiés) :
+- `--accent` / `--brand` = **#FF4F00** — marks, bordures, focus (clair 3,1:1 · sombre 4,6:1, ≥3:1 UI).
+- `--accent-ink` = **#C23C00** clair (5,1:1 sur ivoire) / **#FF8551** sombre (6,3:1) — liens & texte, AA.
+- CTA de contact « nicolas@pieper.fr » = fond **#FF4F00**, texte foncé #201203 (5,5:1 AA) — le
+  moment de marque le plus fort, sur le panneau sombre.
+- `::selection` #C23C00, `--accent-soft`/`--accent-glow` re-teintés orange.
+
+_Vérifié en clair et sombre dans le panneau ; logo net à 30 px, CTA orange lisible._
+
 ## 2026-07-15 — Dynamic Island : vrai correctif (recomposition, pas mutation du meta)
 
 Le correctif précédent (mettre à jour `<meta name="theme-color">.content` au toggle) ne
