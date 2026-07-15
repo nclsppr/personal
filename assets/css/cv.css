@@ -220,6 +220,7 @@
   .site-header,
   .breadcrumb,
   .cv-actions,
+  .page-next,
   .site-footer,
   .backdrop,
   .skip-link { display: none !important; }
