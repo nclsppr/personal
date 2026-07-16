@@ -5,6 +5,31 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-17 - Lisibilité : habillage mobile, mesure et cibles tactiles
+
+Premier lot d'une revue de design complète (37 agents + inspection navigateur,
+constats vérifiés sur pièces ; score Nielsen 32/40).
+
+- Le portrait du hero écrasait l'accroche à 2-3 mots par ligne sur mobile
+  (EN + FR) : cap réduit à 112 px / 30 vw, accroche à 1.05 rem sous 560 px,
+  césure automatique du français (hyphens: auto). Même motif sur les stickers
+  des études de cas : 118 px / 33 vw sous 720 px pour garder une colonne de
+  texte d'au moins ~200 px.
+- La mesure du texte courant plafonne à 60ch (~77 caractères réels) : les
+  paragraphes pleine largeur montaient à ~96 caractères par ligne, au-delà de
+  la zone de confort. Les composants (terminal, grilles, filets) gardent la
+  pleine largeur.
+- Retours à la ligne : text-wrap balance sur h1/h2, pretty sur les paragraphes ;
+  le saut de ligne volontaire du h1 est neutralisé sous 560 px (espace ajoutée
+  avant le <br> pour que les mots ne se collent pas).
+- Cibles tactiles complétées (pointer: coarse) : liens texte « Lire l'étude de
+  cas », fil d'Ariane, pagination et pilules de langue atteignent ~44 px, les
+  boutons passent à min-height 44 px.
+- La légende du sticker Pampy est épinglée au bas de la figure (position
+  absolute) : l'ancien recouvrement en marge négative relative à la largeur
+  échouait entre 500 et 560 px. Taille relevée à 0.72 rem, plancher de
+  lisibilité du mono.
+
 ## 2026-07-16 - Footer colophon, portrait mobile et fil d'Ariane restauré
 
 - Nouveau footer identique sur les six pages, en forme de colophon : identité

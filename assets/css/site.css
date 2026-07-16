@@ -444,6 +444,19 @@ p { margin: 0 0 1rem; }
 p, li { color: var(--ink-soft); }
 strong { color: var(--ink); font-weight: 650; }
 
+/* Retours à la ligne : titres équilibrés, paragraphes sans orphelines. */
+h1, h2 { text-wrap: balance; }
+p, li { text-wrap: pretty; }
+
+/* Le français rague vite dans les colonnes étroites (habillage des stickers). */
+:lang(fr) p, :lang(fr) li { hyphens: auto; }
+
+/* Mesure du texte courant : la colonne de 47rem laisse monter les paragraphes
+   pleine largeur à ~96 caractères par ligne (le ch du « 0 » surestime la
+   largeur réelle d'Inter d'environ 25 %). 60ch ≈ 77 caractères réels ; les
+   composants (terminal, grilles, filets) gardent la pleine largeur. */
+.content p, .content ul, .content ol { max-width: 60ch; }
+
 /* Surlignage « marqueur » - réservé aux un ou deux faits qu'un visiteur doit
    retenir de la page. <mark class="hl"> enveloppe l'emphase existante ; la
    teinte vient du design system (--accent-soft, calibrée clair + sombre).
@@ -785,12 +798,16 @@ td strong { color: var(--ink); }
 }
 
 /* Sticker - Pampy, die-cut sticker slapped on the page.
-   The artwork is a bust (flat-cut chest): the caption card overlaps the
-   bottom of the image so the cut edge is tucked behind it. */
+   The artwork is a bust (flat-cut chest): the caption card is pinned to the
+   bottom edge of the figure so the cut edge is tucked behind it at every
+   width (a width-relative negative margin failed between 500 and 560px:
+   the offset scaled with the figure while the caption height is font-fixed). */
 .sticker {
   float: right;
   width: clamp(120px, 27%, 156px);
   margin: 0 4px 12px 24px;
+  position: relative;
+  padding-bottom: 10px;
 }
 .sticker img {
   display: block;
@@ -803,15 +820,17 @@ td strong { color: var(--ink); }
 }
 .sticker:hover img { transform: rotate(4deg) scale(1.05); }
 .sticker figcaption {
-  position: relative;   /* paints above the image */
-  margin-top: -22%;     /* overlap must stay > the tilt's corner drop */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;            /* pinned to the cut edge : coverage independent of width */
   background: var(--bg-raised);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   padding: 5px 8px;
   text-align: center;
   font-family: var(--font-mono);
-  font-size: 0.66rem;
+  font-size: 0.72rem;   /* plancher de lisibilité du mono en mixte */
   letter-spacing: 0.04em;
   color: var(--muted);
   box-shadow: var(--shadow-1);
@@ -862,9 +881,14 @@ td strong { color: var(--ink); }
   .work-summary { grid-template-columns: 1fr; }
   .work-summary .text-link { grid-column: 1; }
   /* Portrait : flotté à droite du lead, comme les stickers de la page Work,
-     plutôt qu'un bloc centré qui coupe le hero en deux. Pampy garde son
-     traitement centré à carte-légende, qui fonctionne bien. */
-  .portrait { width: min(140px, 38vw); margin: 0.3rem -4px 10px 16px; }
+     plutôt qu'un bloc centré qui coupe le hero en deux. Cap réduit pour que
+     la colonne d'habillage garde ~25 caractères par ligne (à 140px elle
+     tombait à 2-3 mots par ligne). Pampy garde son traitement centré à
+     carte-légende, qui fonctionne bien. */
+  .portrait { width: min(112px, 30vw); margin: 0.2rem -4px 8px 14px; }
+  .lead { font-size: 1.05rem; }
+  /* Le <br> volontaire du h1 impose des lignes bancales sous 560px. */
+  h1 br { display: none; }
   .sticker { float: none; width: min(200px, 55%); margin: 4px auto 20px; }
 }
 
@@ -872,8 +896,10 @@ td strong { color: var(--ink); }
   .page-work .case-study { display: block; }
   .page-work .case-study::before { display: block; }
   /* Dans le flux, flotté à droite : le texte l'habille comme un sticker
-     posé sur la page, et il gagne en taille par rapport à l'absolu. */
-  .case-sticker { position: static; float: right; width: min(148px, 42vw); margin: 0.4rem -4px 0.6rem 16px; }
+     posé sur la page. Cap choisi pour laisser une colonne de texte d'au
+     moins ~200px sur un écran de 375px (à 148px elle tombait à 3-4 mots
+     par ligne sur les quatre études de cas). */
+  .case-sticker { position: static; float: right; width: min(118px, 33vw); margin: 0.4rem -4px 0.6rem 14px; }
   .page-work .case-study > h2,
   .page-work .case-study > .eyebrow { padding-right: 0; }
   .page-work .case-study > h3 { margin-top: 1.8rem; }
@@ -1101,7 +1127,16 @@ td strong { color: var(--ink); }
   .icon-btn { width: 44px; height: 44px; }
   .lang-switch a, .lang-switch span { padding: 7px 12px; }
   .header-nav a { padding: 10px 12px; }
-  .side-group a { padding: 10px; }
+  .side-group a { padding: 12px 10px; }
+  .btn { min-height: 44px; }
+  /* Liens texte autonomes (étude de cas, fil d'Ariane, pagination) : la boîte
+     de tap grandit par padding + marge négative, sans bouger la mise en page. */
+  .text-link,
+  .breadcrumb a,
+  .page-next a { display: inline-block; padding: 12px 6px; margin: -12px -6px; }
+  /* Pilule de langue : zone de tap invisible étendue à ~44px. */
+  .lang-switch a { position: relative; }
+  .lang-switch a::before { content: ''; position: absolute; inset: -8px -4px; }
   /* Hauteur tactile délibérée et identique dans tous les navigateurs */
   .footer-col a { display: flex; align-items: center; min-height: 44px; padding: 0; }
 }
