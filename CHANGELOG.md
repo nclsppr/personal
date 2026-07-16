@@ -5,6 +5,27 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-17 - CV : navigation mobile, petites capitales et liens de contact
+
+Deuxième lot de la revue de design.
+
+- Les pages CV étaient les seules sans hamburger : sous 980 px, un lecteur
+  arrivant directement sur /cv/ (le cas type : lien envoyé à un recruteur)
+  ne pouvait quitter la page que par le logo ou le footer. Elles reçoivent
+  le tiroir mobile des autres pages (bouton menu, backdrop, panneau avec
+  groupes « Pages » et « Sur cette page », scrollspy actif), masqué sur
+  desktop où la colonne unique reste inchangée.
+- Les titres de sections du CV (PROFILE, EXPERIENCE...) rendaient à ~70 % de
+  leur taille déclarée : JetBrains Mono n'a pas de vraies petites capitales
+  et le navigateur les synthétisait. font-variant-caps retiré, l'uppercase et
+  l'interlettrage suffisent ; les kickers retrouvent la taille du reste du
+  système, à l'écran comme dans le PDF.
+- Les liens de contact de l'en-tête (mail, LinkedIn, site) étaient
+  indistinguables du texte voisin : souligné discret couleur filet, retiré
+  à l'impression.
+- Le bouton de téléchargement annonce le poids du fichier : « Download PDF
+  (0.3 MB) » / « Télécharger le PDF (0,3 Mo) ». PDF régénérés.
+
 ## 2026-07-17 - Lisibilité : habillage mobile, mesure et cibles tactiles
 
 Premier lot d'une revue de design complète (37 agents + inspection navigateur,

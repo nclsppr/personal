@@ -7,6 +7,12 @@
 /* --------------------------------------------------------------------------
    Layout: no sidebar, one centered column
    -------------------------------------------------------------------------- */
+/* Le tiroir (aside.sidebar) n'existe que pour la navigation mobile : sur
+   desktop la nav du header suffit et le CV garde sa colonne unique. */
+@media (min-width: 981px) {
+  .page-cv .sidebar { display: none; }
+}
+
 .cv-layout {
   max-width: 50rem;
   margin: 0 auto;
@@ -74,7 +80,14 @@
   color: var(--muted);
   margin: 0;
 }
-.cv-contact a { color: var(--ink-soft); }
+/* Souligné discret : sans lui, rien ne distingue ces liens du texte voisin
+   (le @media print les remet en texte simple pour le PDF). */
+.cv-contact a {
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-decoration-color: var(--border-strong);
+  text-underline-offset: 3px;
+}
 .cv-contact a:hover { color: var(--accent-ink); }
 .cv-contact .dot { margin: 0 6px; opacity: 0.5; }
 
@@ -87,7 +100,8 @@
   font-family: var(--font-mono);
   font-size: 0.76rem;
   font-weight: 600;
-  font-variant-caps: all-small-caps;
+  /* Pas de font-variant-caps ici : JetBrains Mono n'a pas de vraies petites
+     capitales, le navigateur les synthétisait à ~70 % de la taille déclarée. */
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--accent-ink);
@@ -218,6 +232,7 @@
 
   /* Chrome only: the document itself */
   .site-header,
+  .sidebar,
   .breadcrumb,
   .cv-actions,
   .page-next,

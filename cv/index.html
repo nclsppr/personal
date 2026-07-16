@@ -113,10 +113,14 @@
     }
     </script>
 </head>
-<body>
+<body class="page-cv">
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header">
+        <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path class="menu-line menu-line--top" d="M2 4h12"/><path class="menu-line menu-line--middle" d="M2 8h12"/><path class="menu-line menu-line--bottom" d="M2 12h12"/></svg>
+        </button>
+
         <a class="brand" href="/" aria-label="Nicolas Pieper">
             <img class="brand-mark" src="/assets/img/logo-mark.png" width="30" height="30" alt="" aria-hidden="true">
             <span>Nicolas&nbsp;Pieper</span>
@@ -144,6 +148,34 @@
         </div>
     </header>
 
+    <div class="backdrop" id="backdrop"></div>
+
+    <!-- Tiroir mobile uniquement : le CV garde sa colonne unique sur desktop
+         (cv.css masque la sidebar au-dessus de 980px). -->
+    <aside class="sidebar" id="sidebar" aria-label="Site navigation">
+        <nav aria-label="Pages">
+            <div class="side-group">
+                <h2>Pages</h2>
+                <ul>
+                    <li><a href="/">Overview</a></li>
+                    <li><a href="/work/">Work</a></li>
+                    <li><a href="/cv/" aria-current="page">CV</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="side-group">
+                <h2>On this page</h2>
+                <ul>
+                    <li><a href="#cv-profile-title">Profile</a></li>
+                    <li><a href="#cv-exp-title">Experience</a></li>
+                    <li><a href="#cv-skills-title">Skills</a></li>
+                    <li><a href="#cv-edu-title">Education</a></li>
+                    <li><a href="#cv-lang-title">Languages</a></li>
+                </ul>
+            </div>
+        </nav>
+    </aside>
+
     <main class="cv-layout" id="main">
         <nav class="breadcrumb" aria-label="Breadcrumb">
             <a href="/">nicolaspieper.com</a>
@@ -153,9 +185,9 @@
 
         <div class="cv-actions">
             <a class="btn btn-primary" href="/assets/docs/nicolas-pieper-cv-en.pdf" download
-               aria-label="Download the English CV as a PDF">
+               aria-label="Download the English CV as a PDF, 0.3 MB">
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v8m0 0l3-3m-3 3L5 7"/><path d="M3 13h10"/></svg>
-                Download PDF
+                Download PDF (0.3&nbsp;MB)
             </a>
             <a class="btn btn-ghost" href="/fr/cv/" hreflang="fr" lang="fr">
                 Version française
