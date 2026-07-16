@@ -1,1 +1,7 @@
 .DS_Store
+
+# Skills d'agents installées via `npx skills add` (tierces, reproductibles
+# depuis skills-lock.json ; leur prose contient des tirets longs, interdits
+# dans le dépôt par check-no-emdash.py).
+.agents/
+.claude/skills/
