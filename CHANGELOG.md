@@ -5,6 +5,34 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-17 - Hygiène : contrastes, impression, CSS mort et signaux externes
+
+Quatrième et dernier lot de la revue de design.
+
+- Le lien d'évitement (« Aller au contenu ») passait à 2,4:1 en thème sombre
+  (blanc codé en dur sur orange clair) : il reprend l'inversion des boutons
+  (color: var(--bg)), 5,1:1 en clair et 6,2:1 en sombre.
+- Les ombres des stickers deviennent un jeton thémé (--sticker-shadow-ink)
+  avec une variante sombre plus marquée, comme --shadow-1/2.
+- Impression des pages hors CV : palette encre sur papier et chrome masqué ;
+  le terminal et le panneau contact imprimaient blanc sur blanc.
+- Le CTA du hero pointe vers le panneau contact au lieu d'un mailto direct
+  qui échouait sans retour sur les postes sans client mail ; le panneau
+  montre l'adresse copiable.
+- Liens externes (LinkedIn, GitHub, Source, panneau contact) : flèche « ↗ »
+  et mention « (opens in a new tab) » / « (s'ouvre dans un nouvel onglet) »
+  pour lecteurs d'écran ; libellés des boutons d'icône complétés.
+- Les étiquettes de groupes de la sidebar passent de <h2> à <p class="side-title"> :
+  elles précédaient le h1 dans le plan des titres au clavier/lecteur d'écran.
+- JetBrains Mono est préchargée (elle rend l'eyebrow et le fil d'Ariane dès le
+  premier écran) ; le premier sticker de la page Work passe en loading eager
+  (il est au-dessus du pli) et la première étude de cas retrouve son filet,
+  que son sticker doit chevaucher.
+- Nettoyage : ~95 lignes de CSS mort supprimées (.version-pick, .timeline,
+  .edu-list, styles de tables) ; les variables de taille/inclinaison des
+  stickers sont cantonnées à .page-work (elles fuyaient sur les ids homonymes
+  de la page d'accueil). PDF du CV régénérés (préchargement et footer).
+
 ## 2026-07-17 - Micro-interactions : transitions du chrome et stickers apaisés
 
 Troisième lot de la revue de design. Aucun changement de mise en page,
