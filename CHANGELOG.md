@@ -5,6 +5,22 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-17 - Micro-animations : bascule de thème et entrée de la 404
+
+Les deux seules opportunités retenues par une passe « find-animation-
+opportunities » (skill d'Emil Kowalski, posture de retenue : 5 pistes
+rejetées, dont les transitions de pages et tout effet au chargement).
+
+- La bascule de thème échangeait ses icônes soleil/lune par display:none,
+  seul changement d'état interactif encore instantané : fondu croisé
+  opacité + échelle + flou (0,2 s), les deux icônes superposées dans la
+  grille du bouton. Instantané sous prefers-reduced-motion (bloc global).
+- La page 404, seul « budget delight » du site (vue rarement), entre en
+  fondu décalé : chaque bloc monte de 10 px en 0,35 s (ease-out appuyé),
+  décalage de 60 ms, via @starting-style (navigateurs anciens : affichage
+  instantané). Opacité et transform uniquement, boutons cliquables pendant
+  le fondu.
+
 ## 2026-07-17 - SEO : miniature de partage refaite et terminal recentré
 
 - La miniature Open Graph (og-home.png) datait d'avant le rebranding du

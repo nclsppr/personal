@@ -318,10 +318,19 @@ img { max-width: 100%; height: auto; }
 .brand span { transition: color 0.15s ease; }
 .brand:hover span { color: var(--accent-ink); }
 
-/* theme toggle shows one icon at a time */
-.theme-toggle .icon-moon { display: none; }
-:root[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
-:root[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
+/* Bascule de thème : fondu croisé des icônes (opacité, échelle, flou) au
+   lieu d'un échange display qui téléportait l'état. Les deux icônes occupent
+   la même cellule de la grille du bouton ; prefers-reduced-motion (bloc
+   global) rend l'échange instantané. Aucune transition au premier rendu :
+   les transitions ne se déclenchent qu'au changement d'état. */
+.theme-toggle .icon-sun,
+.theme-toggle .icon-moon {
+  grid-area: 1 / 1;
+  transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.2, 0, 0, 1), filter 0.2s ease;
+}
+.theme-toggle .icon-moon { opacity: 0; transform: scale(0.25); filter: blur(2px); }
+:root[data-theme="dark"] .theme-toggle .icon-moon { opacity: 1; transform: scale(1); filter: blur(0); }
+:root[data-theme="dark"] .theme-toggle .icon-sun { opacity: 0; transform: scale(0.25); filter: blur(2px); }
 
 .menu-btn { display: none; }
 .menu-btn .menu-line {
