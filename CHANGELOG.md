@@ -5,6 +5,26 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-17 - Micro-interactions : transitions du chrome et stickers apaisés
+
+Troisième lot de la revue de design. Aucun changement de mise en page,
+uniquement la qualité du mouvement et la sincérité des affordances.
+
+- Le chrome interactif (boutons d'icône, nav du header, sidebar, pilules de
+  langue, liens du footer, fil d'Ariane, marque) fond désormais ses survols
+  en 0.15 s comme les .btn ; avant, ces états claquaient instantanément à
+  côté d'éléments qui fondent. Le passage d'état du scrollspy en profite.
+- Les boutons d'icône gagnent un retour d'appui (scale 0.96 au :active) et
+  la marque un survol discret couleur accent.
+- Stickers : l'entrée en survol garde sa courbe à ressort, la sortie se pose
+  en 0.25 s ease-out au lieu de rejouer le rebond. Les survols sont réservés
+  aux vrais pointeurs (hover: hover + pointer: fine) : au tap, Pampy restait
+  collé en rotation.
+- Les ancres de titres (#) apparaissent en fondu, restent visibles à 45 %
+  d'opacité sur écrans tactiles et y gagnent une zone de tap honnête.
+- Les cartes Leadership et les principes, non cliquables, perdent leur survol
+  qui promettait un clic ; l'élévation est réservée aux cartes-liens.
+
 ## 2026-07-17 - CV : navigation mobile, petites capitales et liens de contact
 
 Deuxième lot de la revue de design.

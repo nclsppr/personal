@@ -286,9 +286,23 @@ img { max-width: 100%; height: auto; }
   display: grid;
   place-items: center;
   cursor: pointer;
+  transition: color 0.15s ease, background-color 0.15s ease, transform 0.12s ease;
 }
 .icon-btn:hover { color: var(--ink); background: var(--bg-raised); }
+.icon-btn:active { transform: scale(0.96); }
 .icon-btn svg { width: 16px; height: 16px; }
+
+/* Le chrome interactif fond ses changements d'état comme les .btn : sans ces
+   transitions, survols et scrollspy claquaient à côté d'éléments qui fondent. */
+.header-nav a,
+.lang-switch a,
+.side-group a,
+.footer-col a,
+.breadcrumb a {
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+.brand span { transition: color 0.15s ease; }
+.brand:hover span { color: var(--accent-ink); }
 
 /* theme toggle shows one icon at a time */
 .theme-toggle .icon-moon { display: none; }
@@ -489,6 +503,7 @@ hr {
 .anchor-heading { position: relative; }
 .anchor-heading .anchor {
   opacity: 0;
+  transition: opacity 0.12s ease;
   margin-left: 8px;
   color: var(--muted);
   font-family: var(--font-mono);
@@ -695,7 +710,7 @@ hr {
   position: relative;
   transition: border-color 0.15s, box-shadow 0.15s;
 }
-.card:hover { border-color: var(--border-strong); box-shadow: var(--shadow-1); }
+/* Pas de survol sur les cartes inertes : un état hover promet un clic. */
 .card h3, .card h4 { margin: 0 0 6px; font-size: 0.98rem; }
 .card p { margin: 0; font-size: 0.88rem; color: var(--muted); }
 .card .card-kicker {
@@ -708,7 +723,7 @@ hr {
   margin-bottom: 8px;
 }
 a.card { display: block; color: inherit; }
-a.card:hover { text-decoration: none; border-color: var(--accent); }
+a.card:hover { text-decoration: none; border-color: var(--accent); box-shadow: var(--shadow-1); }
 
 /* Stat tiles */
 .stat-grid {
@@ -816,9 +831,8 @@ td strong { color: var(--ink); }
   transform: rotate(-6deg);
   transform-origin: 50% 82%;
   filter: drop-shadow(0 6px 14px rgba(23, 23, 22, 0.16));
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.25s ease-out; /* sortie : le sticker se repose sans rebond */
 }
-.sticker:hover img { transform: rotate(4deg) scale(1.05); }
 .sticker figcaption {
   position: absolute;
   left: 0;
@@ -859,9 +873,21 @@ td strong { color: var(--ink); }
   height: auto;
   transform: rotate(var(--sticker-tilt, -5deg));
   filter: drop-shadow(0 8px 18px rgba(23, 23, 22, 0.18));
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.25s ease-out; /* sortie : se repose sans rebond */
 }
-.case-sticker:hover img { transform: rotate(1deg) scale(1.04); }
+/* Survol réservé aux vrais pointeurs : au tap, l'état :hover restait collé
+   (sticker figé en rotation). L'entrée garde la courbe à ressort, la sortie
+   se pose avec l'ease-out court déclaré sur l'état de repos. */
+@media (hover: hover) and (pointer: fine) {
+  .sticker:hover img {
+    transform: rotate(4deg) scale(1.05);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .case-sticker:hover img {
+    transform: rotate(1deg) scale(1.04);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+}
 .page-work .case-study > h2,
 .page-work .case-study > .eyebrow { padding-right: calc(var(--sticker-w, 180px) + 20px); }
 @media (min-width: 1280px) {
@@ -970,7 +996,6 @@ td strong { color: var(--ink); }
   padding: 14px 12px;
   border-radius: var(--radius);
 }
-.principle:hover { background: var(--bg-raised); }
 .principle .p-n {
   font-family: var(--font-mono);
   font-size: 0.78rem;
@@ -1137,6 +1162,9 @@ td strong { color: var(--ink); }
   /* Pilule de langue : zone de tap invisible étendue à ~44px. */
   .lang-switch a { position: relative; }
   .lang-switch a::before { content: ''; position: absolute; inset: -8px -4px; }
+  /* Ancres de titres : invisibles au survol qui n'existe pas au tactile,
+     elles restent repérables et gagnent une zone de tap honnête. */
+  .anchor-heading .anchor { opacity: 0.45; padding: 8px 10px; margin-left: 2px; }
   /* Hauteur tactile délibérée et identique dans tous les navigateurs */
   .footer-col a { display: flex; align-items: center; min-height: 44px; padding: 0; }
 }
