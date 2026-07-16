@@ -169,7 +169,7 @@ img { max-width: 100%; height: auto; }
   left: -9999px;
   z-index: 100;
   background: var(--accent-ink);
-  /* clair : ivoire sur #C23C00 (5.1:1) · sombre : #262624 sur #FF8551 (6.2:1).
+  /* clair : ivoire sur #C23C00 (5.1:1) · sombre : #262624 sur #FF8551 (6.3:1).
      Un #FFF codé en dur tombait à 2.4:1 sur l'orange clair du thème sombre. */
   color: var(--bg);
   padding: 10px 18px;
@@ -387,6 +387,11 @@ img { max-width: 100%; height: auto; }
   background: var(--accent-glow);
   border-left-color: var(--accent);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+/* Page courante dans le tiroir du CV (liens de pages, sans scrollspy). */
+.side-group a[aria-current="page"] {
+  color: var(--accent-ink);
+  font-weight: 600;
 }
 
 /* --------------------------------------------------------------------------
@@ -888,7 +893,9 @@ a.card:hover { text-decoration: none; border-color: var(--accent); box-shadow: v
   .page-work .case-study > h3 { margin-top: 1.8rem; }
   .page-work .case-study > h3 + p,
   .page-work .case-study > h3 + ul { margin-top: 0.65rem; }
-  .page-next { align-items: flex-start; flex-direction: column; }
+  /* gap 28px : les halos de tap de 12px des deux liens empilés se
+     chevauchaient de 4px avec le gap de 20px. */
+  .page-next { align-items: flex-start; flex-direction: column; gap: 28px; }
 }
 
 /* Badges / chips */
@@ -986,7 +993,7 @@ a.card:hover { text-decoration: none; border-color: var(--accent); box-shadow: v
   font-size: 0.78rem;
 }
 .footer-exit .fx-prompt { color: var(--accent); }
-.footer-col h2 {
+.footer-col .side-title {
   font-family: var(--font-mono);
   font-size: 0.68rem;
   font-weight: 600;
@@ -1084,10 +1091,14 @@ a.card:hover { text-decoration: none; border-color: var(--accent); box-shadow: v
   .lang-switch a { position: relative; }
   .lang-switch a::before { content: ''; position: absolute; inset: -8px -4px; }
   /* Ancres de titres : invisibles au survol qui n'existe pas au tactile,
-     elles restent repérables et gagnent une zone de tap honnête. */
-  .anchor-heading .anchor { opacity: 0.45; padding: 8px 10px; margin-left: 2px; }
-  /* Hauteur tactile délibérée et identique dans tous les navigateurs */
-  .footer-col a { display: flex; align-items: center; min-height: 44px; padding: 0; }
+     elles restent repérables et gagnent une zone de tap honnête.
+     0.75 : --muted à 45 % tombait sous 3:1 (repère UI illisible). */
+  .anchor-heading .anchor { opacity: 0.75; padding: 8px 10px; margin-left: 2px; }
+  /* Hauteur tactile délibérée et identique dans tous les navigateurs.
+     column-gap : en flex, l'espace devant la flèche « ↗ » est rogné par le
+     moteur (espace en tête d'item) ; le gap le remplace, sans effet sur les
+     liens à nœud texte unique. */
+  .footer-col a { display: flex; align-items: center; min-height: 44px; padding: 0; column-gap: 0.35em; }
 }
 
 @media (max-width: 560px) {
@@ -1107,6 +1118,28 @@ a.card:hover { text-decoration: none; border-color: var(--accent); box-shadow: v
    les fonds sombres sautent par défaut à l'impression.
    -------------------------------------------------------------------------- */
 @media print {
+  /* Palette encre sur papier quel que soit le thème : l'attribut
+     data-theme="dark" continue de s'appliquer à l'impression, et ses jetons
+     (--ink ivoire...) rendraient le texte quasi invisible sur papier.
+     Même motif que le bloc print de cv.css. */
+  :root,
+  :root[data-theme="dark"],
+  :root[data-theme="light"] {
+    --bg: #FFFFFF;
+    --bg-raised: #FFFFFF;
+    --bg-inset: #FFFFFF;
+    --ink: #000000;
+    --ink-soft: #1F1F1E;
+    --muted: #4A4943;
+    --border: #D8D6CC;
+    --border-strong: #B9B6A9;
+    --accent: #9A4A26;
+    --accent-ink: #9A4A26;
+    --accent-soft: #FFFFFF;
+    --accent-glow: transparent;
+    color-scheme: light;
+  }
+
   .site-header,
   .sidebar,
   .backdrop,

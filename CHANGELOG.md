@@ -5,13 +5,44 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-17 - Contre-revue : onze correctifs sur les quatre lots
+
+Une contre-revue adversariale du diff complet (quatre lentilles : couverture
+des constats, régressions CSS, règles du dépôt, accessibilité) a confirmé
+onze points, tous corrigés ici.
+
+- Impression : le nouveau bloc print de site.css ne réinitialisait pas les
+  jetons du thème sombre ; un lecteur en mode sombre imprimait la page
+  d'accueil quasi blanche. Reprise du motif de cv.css (palette encre sur
+  papier quel que soit le thème).
+- Ancres de titres au tactile : 45 % d'opacité sur --muted tombait à ~2:1 ;
+  relevé à 75 % (au-dessus de 3:1 dans les deux thèmes).
+- Les titres de groupes du footer (Pages, Ailleurs, Site) sont demotés en
+  <p class="side-title"> comme ceux de la sidebar : dix-huit <h2> de légende
+  polluaient encore le plan des titres.
+- Footer tactile : l'espace devant la flèche « ↗ » était rogné par le mode
+  flex des liens (LinkedIn↗ collé) ; un column-gap le remplace.
+- Tiroir du CV : la page courante (aria-current) est maintenant marquée
+  visuellement ; le panneau est scindé en deux <nav> (« Pages » et « Sur
+  cette page ») au lieu d'un seul landmark mal étiqueté.
+- Le lien LinkedIn de l'en-tête du CV annonce l'ouverture d'un nouvel
+  onglet (aria-label, pour ne pas polluer le texte du PDF).
+- Boutons de téléchargement : le nom accessible commence par le libellé
+  visible (WCAG 2.5.3 Label in Name).
+- Pagination empilée sous 720 px : les halos de tap se chevauchaient de
+  4 px ; l'écart passe à 28 px.
+- Journal : le contraste du lien d'évitement en sombre est 6,3:1 (et non
+  6,2:1) et la description de l'impasse mobile du CV surestimait le
+  problème (fil d'Ariane et pagination existaient déjà) ; corrigés.
+- PDF du CV régénérés (libellés accessibles modifiés sur les pages CV).
+
 ## 2026-07-17 - Hygiène : contrastes, impression, CSS mort et signaux externes
 
 Quatrième et dernier lot de la revue de design.
 
 - Le lien d'évitement (« Aller au contenu ») passait à 2,4:1 en thème sombre
   (blanc codé en dur sur orange clair) : il reprend l'inversion des boutons
-  (color: var(--bg)), 5,1:1 en clair et 6,2:1 en sombre.
+  (color: var(--bg)), 5,1:1 en clair et 6,3:1 en sombre.
 - Les ombres des stickers deviennent un jeton thémé (--sticker-shadow-ink)
   avec une variante sombre plus marquée, comme --shadow-1/2.
 - Impression des pages hors CV : palette encre sur papier et chrome masqué ;
@@ -57,9 +88,11 @@ uniquement la qualité du mouvement et la sincérité des affordances.
 
 Deuxième lot de la revue de design.
 
-- Les pages CV étaient les seules sans hamburger : sous 980 px, un lecteur
-  arrivant directement sur /cv/ (le cas type : lien envoyé à un recruteur)
-  ne pouvait quitter la page que par le logo ou le footer. Elles reçoivent
+- Les pages CV étaient les seules sans hamburger : sous 980 px, elles
+  n'offraient aucune navigation de site dans le header (seuls le logo, le
+  fil d'Ariane, la pagination de bas de page et le footer permettaient d'en
+  sortir), alors qu'un recruteur arrive souvent directement sur /cv/ par un
+  lien. Elles reçoivent
   le tiroir mobile des autres pages (bouton menu, backdrop, panneau avec
   groupes « Pages » et « Sur cette page », scrollspy actif), masqué sur
   desktop où la colonne unique reste inchangée.
