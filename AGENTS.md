@@ -38,6 +38,19 @@ Voir [`README.md`](README.md) pour l'architecture et [`CHANGELOG.md`](CHANGELOG.
 - Commande unique : `./scripts/generate-cv-pdf.sh` puis `git add assets/docs/nicolas-pieper-cv-*.pdf`.
 - Un hook `git commit` bloque le commit si une page CV est stagée sans son PDF régénéré.
 
+## Miniature de partage (og-home.png)
+
+- La miniature Open Graph / Twitter (`assets/img/og-home.png`, 1200×630) est le
+  rendu du gabarit [`scripts/og-template.html`](scripts/og-template.html)
+  (Chrome headless, capture d'écran). Elle reprend l'identité du site : logo,
+  International Orange, polices auto-hébergées, portrait sticker, métriques.
+- **Dès que l'identité visible change** (logo, accent, titre, rôle, tagline,
+  métriques phares), mettre à jour le gabarit puis régénérer :
+  `./scripts/generate-og-image.sh`, et committer l'image avec le changement.
+- Les URLs `og:image` / `twitter:image` portent un paramètre de version
+  (`?v=N`) : l'incrémenter à chaque régénération pour invalider le cache des
+  scrapers sociaux (LinkedIn, X).
+
 ## Accessibilité (à préserver)
 
 - Navigation complète au clavier, focus toujours visible, contrastes ≥ existant (AA).

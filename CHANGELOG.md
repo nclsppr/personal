@@ -5,6 +5,23 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-17 - SEO : miniature de partage refaite et terminal recentré
+
+- La miniature Open Graph (og-home.png) datait d'avant le rebranding du
+  2026-07-15 : ancien carré terracotta « NP » en texte et « 10M docs/month ».
+  Refaite aux couleurs actuelles (logo-mark, International Orange, portrait
+  sticker, « 10M reports/month »), via un gabarit versionné
+  (scripts/og-template.html) et un script de régénération
+  (scripts/generate-og-image.sh), documentés dans AGENTS.md. Les URLs
+  og:image / twitter:image passent en ?v=2 pour invalider le cache des
+  scrapers sociaux.
+- sitemap.xml : lastmod aligné sur les dernières modifications (2026-07-17).
+- Terminal de l'accueil : la commande « nicolas highlights » et ses trois
+  métriques doublonnaient la section Chiffres clés juste en dessous ;
+  supprimées (EN + FR, aria-label mis à jour). Le terminal se recentre sur
+  whoami et les centres d'intérêt.
+- PDF du CV régénérés (meta og:image des pages CV).
+
 ## 2026-07-17 - Contre-revue : onze correctifs sur les quatre lots
 
 Une contre-revue adversariale du diff complet (quatre lentilles : couverture
