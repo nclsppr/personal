@@ -5,6 +5,25 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-17 - Blog : dates étalées sur 2026 et passe typo/UI
+
+- Dates de publication réparties sur l'année (choix éditorial de
+  Nicolas) : Claude en entreprise au 10 février, équipe Solutions au
+  21 avril, Claude assisté par un humain au 2 juin, SDLC au 17 juillet
+  (postérieur à la vidéo du 22 juin qu'il commente). Meta, JSON-LD et
+  post-meta synchronisés, index réordonnés en antichronologique
+  (cartes, sidebars, tableaux blogPost).
+- Cartes d'index : la meta une-ligne (date · lecture · catégorie) se
+  repliait en escalier dans sa colonne étroite ; elle s'empile
+  désormais volontairement (date / temps de lecture / catégorie).
+- Typographie EN : apostrophes droites converties en apostrophes
+  typographiques (15 occurrences, prose et metas) et six paires de
+  guillemets droits passées en guillemets anglais courbes, alignant
+  les articles sur le reste du site.
+- Stickers d'articles : posés avec une inclinaison de -1,2 degré comme
+  les stickers du reste du site, redressement au survol (pointeurs
+  fins), largeur portée à 660 px ; neutralisé par prefers-reduced-motion.
+
 ## 2026-07-17 - Article SDLC : illustration d'en-tête et section repensée
 
 - Sticker « deux chaînes de montage » généré par Nicolas (fond déjà

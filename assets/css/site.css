@@ -1045,17 +1045,28 @@ a.card:hover { text-decoration: none; border-color: var(--accent); box-shadow: v
   letter-spacing: 0.02em;
   margin: -16px 0 26px;
 }
-.work-summary .post-meta { margin: 0 0 6px; }
+/* Dans les cartes d'index, la meta s'empile volontairement (date, temps
+   de lecture, catégorie) : la colonne est trop étroite pour une ligne
+   avec séparateurs, qui se repliait en escalier. */
+.work-summary .post-meta { margin: 0 0 6px; display: grid; gap: 3px; justify-items: start; }
 .post-meta .post-cat { color: var(--accent-ink); font-weight: 600; }
 
 /* Illustration d'en-tête d'article : sticker large centré sous l'intro,
-   WebP à fond transparent (le bord die-cut blanc porte les deux thèmes). */
+   WebP à fond transparent (le bord die-cut blanc porte les deux thèmes).
+   Posé avec une très légère inclinaison, comme les stickers du reste du
+   site ; il se redresse au survol (pointeurs fins uniquement). Le bloc
+   global prefers-reduced-motion neutralise la transition. */
 .post-hero { margin: 4px 0 36px; }
 .post-hero img {
   display: block;
-  width: min(100%, 620px);
+  width: min(100%, 660px);
   height: auto;
   margin-inline: auto;
+  transform: rotate(-1.2deg);
+  transition: transform 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+}
+@media (hover: hover) and (pointer: fine) {
+  .post-hero:hover img { transform: rotate(0deg) scale(1.015); }
 }
 
 /* Façade vidéo : aucune requête tierce avant le clic (fidèle au « sans

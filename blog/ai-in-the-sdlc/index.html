@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Faster coding is not faster delivery · Nicolas Pieper</title>
-    <meta name="description" content="Notes on IBM Technology's video AI in the SDLC: why coding gains get absorbed by the delivery lifecycle, the over- and under-delegation traps, and what redesigning around AI changes.">
+    <meta name="description" content="Notes on IBM Technology’s video AI in the SDLC: why coding gains get absorbed by the delivery lifecycle, the over- and under-delegation traps, and what redesigning around AI changes.">
     <meta name="author" content="Nicolas Pieper">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://nicolaspieper.com/blog/ai-in-the-sdlc/">
@@ -14,7 +14,7 @@
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Nicolas Pieper">
     <meta property="og:title" content="Faster coding is not faster delivery">
-    <meta property="og:description" content="Notes on IBM Technology's video AI in the SDLC: why coding gains get absorbed by the delivery lifecycle, the over- and under-delegation traps, and what redesigning around AI changes.">
+    <meta property="og:description" content="Notes on IBM Technology’s video AI in the SDLC: why coding gains get absorbed by the delivery lifecycle, the over- and under-delegation traps, and what redesigning around AI changes.">
     <meta property="og:url" content="https://nicolaspieper.com/blog/ai-in-the-sdlc/">
     <meta property="og:image" content="https://nicolaspieper.com/assets/img/blog/ai-in-the-sdlc-og.jpg">
     <meta property="og:image:width" content="1200">
@@ -26,7 +26,7 @@
     <meta property="article:author" content="Nicolas Pieper">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Faster coding is not faster delivery">
-    <meta name="twitter:description" content="Notes on IBM Technology's video AI in the SDLC: why coding gains get absorbed by the delivery lifecycle, the over- and under-delegation traps, and what redesigning around AI changes.">
+    <meta name="twitter:description" content="Notes on IBM Technology’s video AI in the SDLC: why coding gains get absorbed by the delivery lifecycle, the over- and under-delegation traps, and what redesigning around AI changes.">
     <meta name="twitter:image" content="https://nicolaspieper.com/assets/img/blog/ai-in-the-sdlc-og.jpg">
     <link rel="icon" type="image/svg+xml" sizes="any" href="/assets/img/favicon.svg?v=2">
     <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon-96.png?v=2">
@@ -46,7 +46,7 @@
                 "@id": "https://nicolaspieper.com/blog/ai-in-the-sdlc/#post",
                 "mainEntityOfPage": "https://nicolaspieper.com/blog/ai-in-the-sdlc/",
                 "headline": "Faster coding is not faster delivery",
-                "description": "Notes on IBM Technology's video AI in the SDLC: why coding gains get absorbed by the delivery lifecycle, the over- and under-delegation traps, and what redesigning around AI changes.",
+                "description": "Notes on IBM Technology’s video AI in the SDLC: why coding gains get absorbed by the delivery lifecycle, the over- and under-delegation traps, and what redesigning around AI changes.",
                 "inLanguage": "en",
                 "datePublished": "2026-07-17",
                 "dateModified": "2026-07-17",
@@ -141,7 +141,7 @@
             <section class="doc-section" id="two-traps" aria-labelledby="two-traps-title">
                 <h2 class="anchor-heading" id="two-traps-title">Two ways to fail<a class="anchor" href="#two-traps" aria-label="Link to this section">#</a></h2>
                 <p>The video describes AI adoption as a spectrum with a trap at each end, and I have watched teams, mine included, step into both.</p>
-                <p><strong>Over-delegation</strong>: hand a frontier model a big ambiguous problem, "build me an e-commerce platform", and let it run. Every unstated decision about payments, authentication and shipping gets made silently by the model, which returns thousands of lines nobody has read. Review becomes the bottleneck, and the back-and-forth burns everything the generation saved.</p>
+                <p><strong>Over-delegation</strong>: hand a frontier model a big ambiguous problem, “build me an e-commerce platform”, and let it run. Every unstated decision about payments, authentication and shipping gets made silently by the model, which returns thousands of lines nobody has read. Review becomes the bottleneck, and the back-and-forth burns everything the generation saved.</p>
                 <p><strong>Under-delegation</strong>: the senior engineer keeps all the planning and hands the model crumbs, write this function, scan this file for SQL injection. The code that comes back is good, but the intellectual heavy lifting stays entirely human, so the lifecycle barely accelerates. This is the trap disciplined teams fall into, precisely because their discipline protects them from the first one. Our own <a href="/blog/claude-in-the-enterprise/">guardrails</a> keep us safe from over-delegation; the honest question is whether they sometimes keep us too far on the timid side.</p>
             </section>
             <section class="doc-section" id="redesign" aria-labelledby="redesign-title">
@@ -222,10 +222,10 @@
             </section>
             <section class="doc-section" id="outcomes" aria-labelledby="outcomes-title">
                 <h2 class="anchor-heading" id="outcomes-title">Outcomes, not lines<a class="anchor" href="#outcomes" aria-label="Link to this section">#</a></h2>
-                <p>The conclusion is the part I would frame: the productivity gain does not come from a better model or a better tool, it comes from "redesigning the software delivery lifecycle around the model", as Clyburn puts it. The human role moves from typing to validating, which is exactly the flip I described in <a href="/blog/claude-assisted-by-a-human/">Claude assisted by a human</a>, arrived at from the org-chart side instead of the keyboard side.</p>
+                <p>The conclusion is the part I would frame: the productivity gain does not come from a better model or a better tool, it comes from “redesigning the software delivery lifecycle around the model”, as Clyburn puts it. The human role moves from typing to validating, which is exactly the flip I described in <a href="/blog/claude-assisted-by-a-human/">Claude assisted by a human</a>, arrived at from the org-chart side instead of the keyboard side.</p>
                 <div class="callout">
                     <span class="co-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M8 7.5v3.5M8 5.2v.1" stroke-linecap="round"/></svg></span>
-                    <p>Amdahl's law applies to organizations too: <strong>speeding up one stage mostly reveals the cost of all the others</strong>.</p>
+                    <p>Amdahl’s law applies to organizations too: <strong>speeding up one stage mostly reveals the cost of all the others</strong>.</p>
                 </div>
                 <p>And the measurement follows: not lines of code generated, but system health, maintainability, and how long a change takes to reach production. Those are the numbers I already answer for in front of my stakeholders, which is probably why this video felt less like a lesson and more like a colleague agreeing with unusual production values. Worth twelve minutes of your lifecycle.</p>
             </section>
@@ -267,7 +267,7 @@
     </div>
     <script src="/assets/js/site.js" defer></script>
     <script>
-    /* Façade vidéo : l'iframe youtube-nocookie n'est créée qu'au clic.
+    /* Façade vidéo : l’iframe youtube-nocookie n’est créée qu’au clic.
        Sans JavaScript, la façade reste un lien vers YouTube. */
     (function () {
         var f = document.getElementById('videoFacade');
