@@ -5,6 +5,19 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-17 - Article SDLC : illustration d'en-tête et section repensée
+
+- Sticker « deux chaînes de montage » généré par Nicolas (fond déjà
+  détouré) intégré en tête de l'article SDLC : héros WebP 1200 px
+  (181 Ko) + OG 1200×630 sur ivoire (103 Ko), og/twitter/JSON-LD
+  basculés dessus (EN + FR, alt bilingues).
+- La liste « phase par phase » de la section Repenser le cycle rendait
+  mal : la checklist du site est taillée pour des items d'une ligne,
+  pas pour cinq paragraphes (pavés denses derrière les flèches).
+  Remplacée par le composant .principles de la page Réalisations
+  (entrées numérotées 01-05, titre + paragraphe) : même contenu,
+  hiérarchie lisible, cohérence avec le reste du site.
+
 ## 2026-07-17 - La 404 adopte Pampy (sticker « fetch failed »)
 
 - Sticker généré par Nicolas (Pampy casquette pizza, bandana « Pizza

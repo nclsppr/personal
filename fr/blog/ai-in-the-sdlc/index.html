@@ -16,10 +16,10 @@
     <meta property="og:title" content="Coder plus vite n’est pas livrer plus vite">
     <meta property="og:description" content="Notes sur la vidéo AI in the SDLC d’IBM Technology : pourquoi les gains du codage sont absorbés par le cycle de livraison, les pièges de sur- et sous-délégation, et ce que change une refonte du cycle autour de l’IA.">
     <meta property="og:url" content="https://nicolaspieper.com/fr/blog/ai-in-the-sdlc/">
-    <meta property="og:image" content="https://nicolaspieper.com/assets/img/og-home.png?v=2">
+    <meta property="og:image" content="https://nicolaspieper.com/assets/img/blog/ai-in-the-sdlc-og.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Nicolas Pieper · Engineering Manager, Luxembourg">
+    <meta property="og:image:alt" content="Illustration sticker : deux chaînes de montage, un seul poste orange rapide qui crée un embouteillage, contre des robots aidant à chaque poste avec des blocs filant jusqu’au drapeau">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="article:published_time" content="2026-07-17">
@@ -27,7 +27,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Coder plus vite n’est pas livrer plus vite">
     <meta name="twitter:description" content="Notes sur la vidéo AI in the SDLC d’IBM Technology : pourquoi les gains du codage sont absorbés par le cycle de livraison, les pièges de sur- et sous-délégation, et ce que change une refonte du cycle autour de l’IA.">
-    <meta name="twitter:image" content="https://nicolaspieper.com/assets/img/og-home.png?v=2">
+    <meta name="twitter:image" content="https://nicolaspieper.com/assets/img/blog/ai-in-the-sdlc-og.jpg">
     <link rel="icon" type="image/svg+xml" sizes="any" href="/assets/img/favicon.svg?v=2">
     <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon-96.png?v=2">
     <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
@@ -52,7 +52,7 @@
                 "dateModified": "2026-07-17",
                 "author": { "@id": "https://nicolaspieper.com/#person" },
                 "publisher": { "@id": "https://nicolaspieper.com/#person" },
-                "image": "https://nicolaspieper.com/assets/img/og-home.png",
+                "image": "https://nicolaspieper.com/assets/img/blog/ai-in-the-sdlc-og.jpg",
                 "isPartOf": { "@id": "https://nicolaspieper.com/fr/blog/#blog" },
                 "keywords": ["IA dans le SDLC", "cycle de vie logiciel", "outils de codage IA", "agents IA", "développement piloté par les specs", "productivité des développeurs", "leadership d’ingénierie"]
             },
@@ -114,6 +114,11 @@
                 <p class="post-meta"><time datetime="2026-07-17">17 juillet 2026</time> · 5 min de lecture · Nicolas Pieper</p>
                 <p class="lead">Une vidéo est arrivée dans mon fil qui dit tout haut ce que je dessine sans cesse sur des tableaux blancs : l’IA a rendu le codage spectaculairement plus rapide, et la livraison logicielle s’en est à peine aperçue. Cedric Clyburn, d’IBM Technology, explique pourquoi en douze minutes, et sa réponse résonne avec tout ce que je vois au travail.</p>
             </header>
+            <figure class="post-hero">
+                <img src="/assets/img/blog/ai-in-the-sdlc-hero.webp" width="1200" height="800"
+                     alt="Sticker détouré : deux chaînes de montage ; sur celle du haut, un seul poste orange travaille vite pendant que les blocs s’empilent et que les ouvriers attendent ; sur celle du bas, un petit robot aide à chaque poste et les blocs orange filent régulièrement jusqu’au drapeau d’arrivée"
+                     loading="eager" decoding="async">
+            </figure>
             <section class="doc-section" id="the-video" aria-labelledby="the-video-title">
                 <h2 class="anchor-heading" id="the-video-title">La vidéo<a class="anchor" href="#the-video" aria-label="Lien vers cette section">#</a></h2>
                 <a class="video-facade" id="videoFacade" href="https://www.youtube.com/watch?v=4wMRXmLpdA8" target="_blank" rel="noopener"
@@ -142,13 +147,13 @@
             <section class="doc-section" id="redesign" aria-labelledby="redesign-title">
                 <h2 class="anchor-heading" id="redesign-title">Repenser le cycle autour de l’IA<a class="anchor" href="#redesign" aria-label="Lien vers cette section">#</a></h2>
                 <p>Le cœur de la vidéo est un recadrage : cesser de coller l’IA sur le cycle existant et repenser le cycle autour d’elle. Phase par phase, cela ressemble à ceci :</p>
-                <ul class="checklist">
-                    <li><strong>Besoins et conception</strong> : synthétiser la masse non structurée d’enquêtes, de retours utilisateurs et d’emails en user stories, et laisser des agents fouiller les logs de production et les rapports de bugs pour que l’itération suivante parte de ce qui échoue réellement</li>
-                    <li><strong>Code</strong> : des tâches petites et bien définies plutôt que des systèmes vibe-codés ; une spécification que le modèle peut lire et suivre ; des sous-agents pour la recherche, pour puiser des données via des serveurs MCP, pour l’édition ; des fichiers de contexte partagés pour des sorties cohérentes d’une équipe à l’autre</li>
-                    <li><strong>Test</strong> : générer les données de test directement depuis la user story, et laisser le modèle lire la stack trace de 3 h du matin sans la panique de 3 h du matin</li>
-                    <li><strong>Livraison et exploitation</strong> : les modèles parlent déjà couramment l’infrastructure as code, d’Ansible aux manifestes Kubernetes</li>
-                    <li><strong>Legacy</strong> : expliquer et rétro-concevoir les systèmes que plus personne ne comprend vraiment, ce qui est une assez bonne description de mon quotidien</li>
-                </ul>
+                <div class="principles">
+                    <div class="principle"><span class="p-n">01</span><div><h3>Besoins et conception</h3><p>Synthétiser la masse non structurée d’enquêtes, de retours utilisateurs et d’emails en user stories, et laisser des agents fouiller les logs de production et les rapports de bugs pour que l’itération suivante parte de ce qui échoue réellement.</p></div></div>
+                    <div class="principle"><span class="p-n">02</span><div><h3>Code</h3><p>Des tâches petites et bien définies plutôt que des systèmes vibe-codés : une spécification que le modèle peut lire et suivre, des sous-agents pour la recherche, pour puiser des données via des serveurs MCP et pour l’édition, et des fichiers de contexte partagés pour des sorties cohérentes d’une équipe à l’autre.</p></div></div>
+                    <div class="principle"><span class="p-n">03</span><div><h3>Test</h3><p>Générer les données de test directement depuis la user story, et laisser le modèle lire la stack trace de 3 h du matin sans la panique de 3 h du matin.</p></div></div>
+                    <div class="principle"><span class="p-n">04</span><div><h3>Livraison et exploitation</h3><p>Les modèles parlent déjà couramment l’infrastructure as code, des playbooks Ansible aux manifestes Kubernetes.</p></div></div>
+                    <div class="principle"><span class="p-n">05</span><div><h3>Legacy</h3><p>Expliquer et rétro-concevoir les systèmes que plus personne ne comprend vraiment, ce qui est une assez bonne description de mon quotidien.</p></div></div>
+                </div>
             </section>
             <section class="doc-section" id="one-picture" aria-labelledby="one-picture-title">
                 <h2 class="anchor-heading" id="one-picture-title">Toute l’idée en une image<a class="anchor" href="#one-picture" aria-label="Lien vers cette section">#</a></h2>
