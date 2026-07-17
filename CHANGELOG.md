@@ -9,6 +9,10 @@ Historique des interventions sur le site, la plus récente en premier.
 
 - BingSiteAuth.xml ajouté à la racine pour prouver la propriété du domaine
   auprès de Bing (indexation via Bing Webmaster Tools).
+- Balise meta msvalidate.01 ajoutée au head des deux accueils (EN + FR),
+  à conserver même après validation. La troisième méthode proposée par
+  Bing (CNAME 746abb7e... vers verify.bing.com) n'est pas nécessaire,
+  une seule méthode suffit ; elle se ferait dans la zone DNS chez OVH.
 
 ## 2026-07-17 - Pages d'erreur : le terminal rejoue l'erreur
 
