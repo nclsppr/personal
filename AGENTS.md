@@ -81,6 +81,8 @@ Voir [`README.md`](README.md) pour l'architecture et [`CHANGELOG.md`](CHANGELOG.
 - Design : conserver l'International Orange `#FF4F00`, l'esprit « documentation premium »,
   les thèmes clair/sombre, les polices auto-hébergées. Pas de dégradé décoratif générique,
   pas de multiplication de cartes, pas d'animation sans utilité, `prefers-reduced-motion` respecté.
+  **Le système de design complet (couleurs, typo, mesures, mouvement, familles d'images
+  Swiss vs sticker et blocs de prompt) est dans [`DESIGN.md`](DESIGN.md).**
 
 ## Avant de committer
 

@@ -64,14 +64,24 @@ contenu, tirets longs interdits, parité FR/EN) restent définies dans
 | Vidéo externe | Façade `.video-facade` : miniature auto-hébergée, zéro requête tierce avant le clic, iframe youtube-nocookie au clic, lien YouTube sans JS (modèle : ai-in-the-sdlc) |
 | Diagramme | SVG inline aux tokens du site dans `figure.post-diagram`, source mermaid en commentaire |
 
+La fibre « engineering » du site passe par deux composants à privilégier
+dès qu'ils sont pertinents : le **terminal** (rejouer une idée en session
+shell, une commande et sa sortie valent souvent un paragraphe) et le
+**diagramme SVG inline** (résumer la thèse de l'article en une image aux
+tokens du site, source mermaid en commentaire). Un article technique
+gagne presque toujours à avoir l'un des deux ; ne pas les forcer sur un
+article qui n'en a pas besoin.
+
 Aucune lib externe, aucun CDN, pas de CSS ad hoc : si un besoin ne rentre
 dans aucun composant, l'ajouter proprement à `site.css` (section Blog).
+Les règles visuelles détaillées (couleurs, mesures, familles d'images et
+blocs de prompt) vivent dans [DESIGN.md](../../../DESIGN.md).
 
-Règle de mesure : dans le flux d'un article, les blocs porteurs de texte
-(terminal, callout) partagent la mesure de la prose (60ch, déjà géré par
-`.content article ...` dans site.css). Seules les figures visuelles
-(post-hero, post-diagram, video-facade) débordent volontairement de la
-colonne de texte.
+Règle de mesure (gérée par site.css, rien à faire dans l'article) : le
+flux textuel (prose, titres, listes, principes, callout, terminal) est
+plafonné à 38rem ; les figures visuelles (post-hero, post-diagram,
+video-facade) s'étendent à 45rem, même bord gauche. Deux largeurs
+franches, jamais un dégradé de largeurs au fil de la page.
 
 ## 5. Contenu
 

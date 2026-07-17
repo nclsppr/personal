@@ -5,6 +5,26 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-17 - DESIGN.md et grille d'article à deux largeurs
+
+- Retour de Nicolas : le premier alignement en 60ch donnait des largeurs
+  différentes par composant (ch varie avec le corps : le terminal en
+  0.84rem obtenait un 60ch plus étroit que le callout). Refonte : dans
+  les articles, tout le flux textuel partage une mesure FIXE de 38rem
+  (l'équivalent des 60ch effectifs de la prose, mesurés à 604,7 px au
+  Chrome headless) et les figures (héros, diagramme, façade vidéo)
+  s'étendent à 45rem sur le même bord gauche. Deux largeurs franches au
+  lieu d'un dégradé accidentel de cinq. Vérifié par capture headless.
+- **DESIGN.md créé** : système de design consolidé (esprit, tokens,
+  typo, mesures, composants, mouvement, thèmes) avec la doctrine
+  d'images en deux familles : **Swiss/géométrique quand l'image porte
+  une information** (logo, favicons, OG, diagrammes, sparklines) et
+  **sticker/illustré quand elle raconte** (portraits, études de cas,
+  héros d'articles, Pampy), blocs de prompt canoniques pour chacune,
+  pipeline technique commun. Référencé depuis AGENTS.md.
+- Template d'article : terminal et diagramme SVG promus composants
+  signature de la fibre engineering, à privilégier quand pertinents.
+
 ## 2026-07-17 - Articles : terminaux et callouts alignés sur la prose
 
 - Constat de Nicolas : dans les articles, terminaux et callouts

@@ -1039,14 +1039,20 @@ a.card:hover { text-decoration: none; border-color: var(--accent); box-shadow: v
    tout le reste réutilise les composants existants (page-intro,
    doc-section, work-summary, callout, terminal). */
 
-/* Dans le flux d'un article, les blocs porteurs de texte s'alignent sur
-   la mesure de la prose (60ch, cf. .content p) : une boîte plus large
-   que le texte qu'elle interrompt casse le rythme de lecture. Les
-   figures visuelles (post-hero, post-diagram, video-facade) débordent
-   volontairement, façon respiration éditoriale. Scope `article` : ne
-   touche ni le terminal-vitrine de l'accueil ni les pages d'erreur. */
-.content article .terminal,
-.content article .callout { max-width: 60ch; }
+/* Deux largeurs, une seule grille dans les articles (décision Nicolas) :
+   tout le flux textuel (prose, titres, listes, principes, callout,
+   terminal) partage une mesure FIXE de 38rem, l'équivalent des 60ch
+   effectifs de la prose figé en rem, car ch varie avec le corps de
+   chaque bloc (le terminal en 0.84rem obtenait un 60ch plus étroit que
+   le callout). Les figures visuelles (héros, diagramme, façade vidéo)
+   s'étendent à 45rem, alignées sur le même bord gauche : débord franc
+   et systématique plutôt qu'un dégradé accidentel de largeurs. Scope
+   `article` : accueil, réalisations et pages d'erreur inchangés. */
+.content article .doc-section > *,
+.content article .page-intro .lead { max-width: 38rem; }
+.content article .post-hero,
+.content article .post-diagram,
+.content article .video-facade { max-width: 45rem; }
 .post-meta {
   font-family: var(--font-mono);
   font-size: 0.78rem;
@@ -1068,9 +1074,8 @@ a.card:hover { text-decoration: none; border-color: var(--accent); box-shadow: v
 .post-hero { margin: 4px 0 36px; }
 .post-hero img {
   display: block;
-  width: min(100%, 660px);
+  width: 100%;
   height: auto;
-  margin-inline: auto;
   transform: rotate(-1.2deg);
   transition: transform 0.25s cubic-bezier(0.23, 1, 0.32, 1);
 }
