@@ -5,6 +5,27 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-17 - Pages d'erreur : le terminal rejoue l'erreur
+
+- La 404 gagne la marque du site et un terminal qui rejoue l'erreur en
+  session zsh (« echo $? » renvoie 404). Elle garde son entrée en fondu
+  décalé, ses textes bilingues et ses boutons ; les styles partagés
+  migrent de l'inline vers site.css (sous-section « Pages d'erreur »).
+- Neuf pages sœurs au même gabarit : 400, 401, 403, 410, 429, 500, 502,
+  503 et 504, chacune avec sa propre scène (curl malformé, ssh refusé,
+  cat interdit, git log d'une page retirée exprès, boucle curl limitée,
+  segfault du renderer, passerelle muette, service en maintenance,
+  upstream trop lent). Toutes en noindex.
+- GitHub Pages ne sert nativement que 404.html : les autres pages sont
+  prêtes pour un hébergement capable de mapper error_page (nginx, CDN)
+  et restent consultables en accès direct d'ici là.
+- Emplacement commenté dans 404.html pour un futur sticker « fetch
+  failed » (Pampy rapporte fièrement un bout de page déchiré) ; le fondu
+  d'entrée couvre déjà l'enfant supplémentaire.
+- Correctif de grille : piste minmax(0, 1fr) sur .err-wrap, sinon une
+  piste auto se cale sur le min-content du <pre> du terminal et déborde
+  du padding sur mobile (même parade que .layout).
+
 ## 2026-07-17 - Dédoublonnage : une idée, une place
 
 Passe anti-répétition sur les pages de contenu (EN + FR), dans la lignée

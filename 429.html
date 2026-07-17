@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>404 - Page not found · Nicolas Pieper</title>
+    <title>429 - Too many requests · Nicolas Pieper</title>
     <meta name="robots" content="noindex">
     <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
     <meta name="theme-color" content="#FAF9F5">
@@ -17,25 +17,17 @@
                 <img class="brand-mark" src="/assets/img/logo-mark.png" width="30" height="30" alt="" aria-hidden="true">
                 <span>Nicolas&nbsp;Pieper</span>
             </a>
-            <p class="code">HTTP 404 - NOT_FOUND</p>
-            <h1>Page not found.</h1>
-            <p>This page does not exist, or has been moved during the 2026 redesign.</p>
-            <p lang="fr">Cette page n’existe pas, ou a été déplacée lors de la refonte 2026.</p>
-            <!-- Sticker 404 à venir (concept retenu : « fetch failed », Pampy
-                 rapporte fièrement un bout de page déchiré). Une fois l'image
-                 créée, décommenter ; le décalage d'entrée couvre déjà 8 enfants.
-            <figure class="err-sticker">
-                <img src="/assets/img/404-sticker.png" width="360" height="360"
-                     alt="Pampy, un golden retriever, rapporte fièrement un morceau de page web déchiré"
-                     loading="eager" decoding="async">
-            </figure>
-            -->
-            <div class="terminal" role="img" aria-label="Terminal showing: the requested page does not exist; echo status returns 404">
+            <p class="code">HTTP 429 - TOO_MANY_REQUESTS</p>
+            <h1>Too many requests.</h1>
+            <p>Too many requests in a short time. Give it a moment, then try again.</p>
+            <p lang="fr">Trop de requêtes en peu de temps. Patientez un instant, puis réessayez.</p>
+            <div class="terminal" role="img" aria-label="Terminal showing: a curl loop is rate limited and interrupted; echo status returns 429">
                 <div class="terminal-bar"><i></i><i></i><i></i><span class="terminal-title">nicolas@pieper.fr - zsh</span></div>
-                <pre><span class="t-prompt">$</span> <span class="t-cmd">cat /this/page</span>
-<span class="t-dim">cat: /this/page: No such file or directory</span>
+                <pre><span class="t-prompt">$</span> <span class="t-cmd">while true; do curl -s nicolaspieper.com; done</span>
+<span class="t-dim">curl: (22) The requested URL returned error: 429</span>
+<span class="t-dim">^C</span>
 <span class="t-prompt">$</span> <span class="t-cmd">echo $?</span>
-<span class="t-key">404</span></pre>
+<span class="t-key">429</span></pre>
             </div>
             <div class="btn-row">
                 <a class="btn btn-primary" href="/">Home / Accueil</a>
