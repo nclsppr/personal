@@ -5,6 +5,20 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-17 - Passe UI sur le blog et le dashboard : deux retenues
+
+Passe « find-animation-opportunities » sur les nouvelles surfaces,
+posture de retenue habituelle. Rejetés : entrées de page et stagger des
+panneaux (déjà écartés pour tout le site), animation des sparklines et
+compteurs (données qu'on lit), hover des cartes (l'accueil n'en a pas).
+Le nudge de flèche des .text-link existait déjà et couvre le blog.
+
+- Dashboard : curseur clignotant en fin de tail -f ~/life.log (idiome
+  terminal, opacité en steps(), figé visible sous prefers-reduced-motion).
+- Index du blog : catégorie accentuée dans la meta des cartes
+  (Ingénierie IA / Management / Futur du travail, EN + FR), scannabilité
+  sans toucher au budget couleur mono-accent.
+
 ## 2026-07-17 - Déploiement : .nojekyll pour fiabiliser GitHub Pages
 
 - Les échecs de « pages build and deployment » (4 d'affilée le 16 au

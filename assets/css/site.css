@@ -1046,6 +1046,7 @@ a.card:hover { text-decoration: none; border-color: var(--accent); box-shadow: v
   margin: -16px 0 26px;
 }
 .work-summary .post-meta { margin: 0 0 6px; }
+.post-meta .post-cat { color: var(--accent-ink); font-weight: 600; }
 
 /* Pages d'erreur (404.html et 4xx/5xx à la racine). Mise en page centrée,
    sans header ni footer : le lien brand ramène à l'accueil. Le terminal
