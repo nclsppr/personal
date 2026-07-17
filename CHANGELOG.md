@@ -5,6 +5,19 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-17 - Revue globale du site
+
+- Revue complète des 16 pages publiques, du dashboard et des pages
+  d'erreur (inspection du code, vérifications statiques, captures
+  headless clair/sombre, desktop/mobile), consignée dans
+  infos/REVUE-GLOBALE-2026-07-17.md : synthèse, revue par page,
+  cohérence transversale et 10 propositions priorisées (P1 : cartes
+  Leadership tronquées à 390 px ; P2 : mesures de la page Réalisations,
+  OG des index du blog, flux RSS, premier vrai flux du dashboard,
+  mini-stickers de l'accueil ; P3 : apostrophes résiduelles et
+  polissage), plus les actions côté Nicolas (sitemap Bing, chiffres
+  IMPACT, DNS 301).
+
 ## 2026-07-17 - Réalisations : stickers en notes de marge, blog sur l'accueil
 
 - Constat de Nicolas : sur écran très large, les stickers d'études de
