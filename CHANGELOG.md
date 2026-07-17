@@ -5,6 +5,16 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-17 - Déploiement : .nojekyll pour fiabiliser GitHub Pages
+
+- Les échecs de « pages build and deployment » (4 d'affilée le 16 au
+  soir) venaient d'un 503 de l'API GitHub appelée par
+  jekyll-github-metadata : Pages construisait le site avec Jekyll par
+  défaut alors qu'il est 100 % statique. .nojekyll ajouté : déploiement
+  des fichiers tels quels, plus d'appel API au build (le mode de panne
+  disparaît), builds plus rapides, et AGENTS.md / README.md ne sont plus
+  publiés en pages HTML par le thème Jekyll.
+
 ## 2026-07-17 - Publication du blog : lien ajouté partout
 
 - Le blog sort de l'ombre : lien « Blog » ajouté à la nav d'en-tête, au
