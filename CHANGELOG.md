@@ -5,6 +5,11 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-17 - SEO : vérification Bing Webmaster Tools
+
+- BingSiteAuth.xml ajouté à la racine pour prouver la propriété du domaine
+  auprès de Bing (indexation via Bing Webmaster Tools).
+
 ## 2026-07-17 - Pages d'erreur : le terminal rejoue l'erreur
 
 - La 404 gagne la marque du site et un terminal qui rejoue l'erreur en
