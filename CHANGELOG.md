@@ -24,6 +24,11 @@ Historique des interventions sur le site, la plus récente en premier.
 - Index du blog, sidebars des trois articles, chaîne de lecture,
   JSON-LD et sitemap mis à jour ; styles .video-facade et .post-diagram
   ajoutés à site.css.
+- Correctif d'affichage juste après publication : les flèches --> de la
+  source mermaid en commentaire HTML fermaient le commentaire à la
+  première occurrence et déversaient le reste en texte dans la page
+  (flèches notées -> désormais) ; attributs width/height ajoutés au SVG
+  du diagramme en repli de height:auto.
 
 ## 2026-07-17 - Illustrations d'en-tête des trois articles du blog
 
