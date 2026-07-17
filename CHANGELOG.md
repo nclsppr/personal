@@ -5,6 +5,23 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-17 - Réalisations : stickers en notes de marge, blog sur l'accueil
+
+- Constat de Nicolas : sur écran très large, les stickers d'études de
+  cas (positionnés en absolu, top négatif) chevauchaient le filet
+  séparateur des sections. Refonte « carnet de bord » : chaque sticker
+  vit désormais DANS le flux de la grille, dans la colonne d'étiquettes,
+  inséré dans le markup à hauteur du passage qui le concerne (position
+  variable d'une section à l'autre : How I lead, The challenge, My
+  contribution, The system). Plus d'absolu, plus de chevauchement
+  possible ; réserves de padding des titres supprimées ; tailles
+  recalibrées 155-175 px ; le flottant mobile existant est conservé.
+- Découvrabilité du blog sur mobile (le header n'y montre pas la nav et
+  l'accueil ne pointait jamais vers le blog) : nouvelle section
+  « From the blog / Sur le blog » sur l'accueil, entre Leadership et
+  Beyond, avec les deux derniers articles et un lien Tous les articles ;
+  entrée ajoutée aux sidebars. EN + FR.
+
 ## 2026-07-17 - DESIGN.md et grille d'article à deux largeurs
 
 - Retour de Nicolas : le premier alignement en 60ch donnait des largeurs
