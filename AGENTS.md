@@ -27,6 +27,18 @@ Voir [`README.md`](README.md) pour l'architecture et [`CHANGELOG.md`](CHANGELOG.
 - Un hook `git commit` vérifie la parité *structurelle* ; la parité *sémantique* se relit.
   (Les hooks vivent dans [`.claude/hooks/`](.claude/hooks/), enregistrés via `.claude/settings.json`.)
 
+## Blog
+
+- Tout nouvel article suit **strictement** le template maison :
+  [`.claude/skills/add-article/TEMPLATE.md`](.claude/skills/add-article/TEMPLATE.md)
+  (structure des pages EN + FR, SEO, sticker de la série, plomberie
+  d'index et de sitemap, vérifications avant commit).
+- La skill `/add-article` (même dossier) automatise le processus ; elle est
+  versionnée, contrairement aux skills tierces (voir `.gitignore`).
+- Le sticker d'en-tête est soit une TODO pour Nicolas (prompt fourni),
+  soit généré via ChatGPT avec son accord explicite ; jamais d'image
+  référencée avant d'exister.
+
 ## CV PDF
 
 - Les PDF téléchargeables (`/assets/docs/nicolas-pieper-cv-en.pdf` et `…-fr.pdf`) sont le

@@ -2,6 +2,8 @@
 
 # Skills d'agents installées via `npx skills add` (tierces, reproductibles
 # depuis skills-lock.json ; leur prose contient des tirets longs, interdits
-# dans le dépôt par check-no-emdash.py).
+# dans le dépôt par check-no-emdash.py). Les skills MAISON, elles, sont
+# versionnées : chaque exception est réincluse explicitement ci-dessous.
 .agents/
-.claude/skills/
+.claude/skills/*
+!.claude/skills/add-article/
