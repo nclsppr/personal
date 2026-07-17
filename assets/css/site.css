@@ -1048,6 +1048,16 @@ a.card:hover { text-decoration: none; border-color: var(--accent); box-shadow: v
 .work-summary .post-meta { margin: 0 0 6px; }
 .post-meta .post-cat { color: var(--accent-ink); font-weight: 600; }
 
+/* Illustration d'en-tête d'article : sticker large centré sous l'intro,
+   WebP à fond transparent (le bord die-cut blanc porte les deux thèmes). */
+.post-hero { margin: 4px 0 36px; }
+.post-hero img {
+  display: block;
+  width: min(100%, 620px);
+  height: auto;
+  margin-inline: auto;
+}
+
 /* Pages d'erreur (404.html et 4xx/5xx à la racine). Mise en page centrée,
    sans header ni footer : le lien brand ramène à l'accueil. Le terminal
    rejoue l'erreur HTTP en session shell (echo $? renvoie le code). Entrée

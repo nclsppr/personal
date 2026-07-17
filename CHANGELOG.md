@@ -5,6 +5,18 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-17 - Illustrations d'en-tête des trois articles du blog
+
+- Trois stickers générés par Nicolas (même langage visuel que ceux des
+  études de cas : dessin encré, ivoire, orange International, bord
+  die-cut) intégrés en tête des articles EN + FR avec alt bilingues.
+- Optimisation locale (Pillow) : héros WebP 1200 px à fond transparent
+  (176 à 280 Ko, le bord blanc porte les deux thèmes) et variantes
+  OG/Twitter 1200×630 aplaties sur ivoire en JPEG (115 à 145 Ko), car
+  les scrapers sociaux gèrent mal la transparence. og:image,
+  twitter:image et image du JSON-LD passés sur ces variantes par
+  article ; les index du blog gardent la miniature générale du site.
+
 ## 2026-07-17 - Passe UI sur le blog et le dashboard : deux retenues
 
 Passe « find-animation-opportunities » sur les nouvelles surfaces,
