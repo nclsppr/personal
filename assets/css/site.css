@@ -574,15 +574,19 @@ hr {
 .case-study > h3 { margin-top: 1.8rem; }
 
 .page-work .content { max-width: calc(53rem + 2 * clamp(20px, 4vw, 56px)); }
-.page-work .case-study {
-  display: grid;
-  grid-template-columns: 8.5rem minmax(0, 1fr);
-  column-gap: 2rem;
-  align-items: start;
-}
+/* Études de cas en flux unique : les étiquettes h3 coiffent leur bloc et
+   le texte habille les stickers flottés, à toutes les largeurs (le
+   traitement mobile, adoré, généralisé ; l'ancienne grille à étiquettes
+   latérales rendait le flottement impossible sur desktop). flow-root :
+   chaque section contient ses flottants, aucun sticker ne peut déborder
+   sur le filet de la section suivante. */
+/* max-width 38rem : la même mesure que le flux des articles de blog.
+   Sans elle, le flottant se pose à droite de la section, hors de la
+   colonne de texte (60ch), et le texte ne l'habille jamais. */
+.page-work .case-study { display: flow-root; max-width: 38rem; }
 .page-work .case-study::before {
   content: attr(data-case);
-  grid-column: 1 / -1;
+  display: block;
   margin-top: 3rem;
   font-family: var(--font-mono);
   font-size: 0.72rem;
@@ -590,12 +594,8 @@ hr {
   letter-spacing: 0.12em;
   color: var(--accent-ink);
 }
-.page-work .case-study > h2,
-.page-work .case-study > .eyebrow,
-.page-work .case-study > .callout { grid-column: 1 / -1; }
 .page-work .case-study > h2 { margin-top: 0.55rem; }
 .page-work .case-study > h3 {
-  grid-column: 1;
   margin: 1.85rem 0 0;
   font-family: var(--font-mono);
   font-size: 0.72rem;
@@ -605,10 +605,10 @@ hr {
   text-transform: uppercase;
   color: var(--accent-ink);
 }
-.page-work .case-study > p,
-.page-work .case-study > ul { grid-column: 2; }
 .page-work .case-study > h3 + p,
-.page-work .case-study > h3 + ul { margin-top: 1.65rem; }
+.page-work .case-study > h3 + ul,
+.page-work .case-study > h3 + .case-sticker + p,
+.page-work .case-study > h3 + .case-sticker + ul { margin-top: 0.65rem; }
 .page-next {
   display: flex;
   align-items: center;
@@ -820,34 +820,27 @@ a.card:hover { text-decoration: none; border-color: var(--accent); box-shadow: v
   color: var(--muted);
   box-shadow: var(--shadow-1);
 }
-/* Stickers d'étude de cas - notes de marge du carnet : chaque sticker vit
-   DANS le flux de la grille, dans la colonne d'étiquettes, à hauteur du
-   passage qui le concerne (la position du <figure> dans le markup varie
-   d'une section à l'autre : c'est ce décalage qui fait carnet de bord).
-   L'ancien positionnement absolu chevauchait le filet de section sur
-   écran large. Taille et angle par sticker via la section (#id) ; marge
-   négative centrée pour déborder légèrement de la colonne. */
-.page-work #solutions-team { --sticker-w: 170px; --sticker-tilt: -4deg; }
-.page-work #secure-platforms { --sticker-w: 160px; --sticker-tilt: 4deg; }
-.page-work #iot-platform { --sticker-w: 155px; --sticker-tilt: -5deg; }
-.page-work #document-factory { --sticker-w: 175px; --sticker-tilt: 3deg; }
+/* Stickers d'étude de cas - le traitement mobile généralisé : flottés à
+   droite DANS le texte, qui les habille comme un sticker posé sur la
+   page. La position du <figure> dans le markup varie d'une section à
+   l'autre (à hauteur du passage qui le concerne) : c'est ce décalage qui
+   fait carnet de bord. Taille et angle par sticker via la section. */
+.page-work #solutions-team { --sticker-w: 190px; --sticker-tilt: -4deg; }
+.page-work #secure-platforms { --sticker-w: 180px; --sticker-tilt: 4deg; }
+.page-work #iot-platform { --sticker-w: 170px; --sticker-tilt: -5deg; }
+.page-work #document-factory { --sticker-w: 200px; --sticker-tilt: 3deg; }
 .case-sticker {
-  grid-column: 1;
-  grid-row: span 3;
-  align-self: start;
-  width: var(--sticker-w, 170px);
-  margin: 1.65rem 0 0 calc((8.5rem - var(--sticker-w, 170px)) / 2);
+  float: right;
+  width: min(var(--sticker-w, 180px), 32%);
+  margin: 0.5rem -10px 0.8rem 22px;
 }
-/* Le sticker s'intercale entre l'étiquette h3 et son paragraphe : la
-   marge du paragraphe suiveur doit survivre à l'insertion. */
-.page-work .case-study > h3 + .case-sticker + p,
-.page-work .case-study > h3 + .case-sticker + ul { margin-top: 1.65rem; }
 .case-sticker img {
   display: block;
   width: 100%;
   height: auto;
   transform: rotate(var(--sticker-tilt, -5deg));
-  filter: drop-shadow(0 8px 18px var(--sticker-shadow-ink));
+  /* Ombre discrète : le grand halo (8px/18px) alourdissait le sticker. */
+  filter: drop-shadow(0 3px 7px var(--sticker-shadow-ink));
   transition: transform 0.25s ease-out; /* sortie : se repose sans rebond */
 }
 /* Survol réservé aux vrais pointeurs : au tap, l'état :hover restait collé
@@ -884,18 +877,10 @@ a.card:hover { text-decoration: none; border-color: var(--accent); box-shadow: v
 }
 
 @media (max-width: 720px) {
-  .page-work .case-study { display: block; }
-  .page-work .case-study::before { display: block; }
-  /* Dans le flux, flotté à droite : le texte l'habille comme un sticker
-     posé sur la page. Cap choisi pour laisser une colonne de texte d'au
-     moins ~200px sur un écran de 375px (à 148px elle tombait à 3-4 mots
-     par ligne sur les quatre études de cas). */
-  .case-sticker { position: static; float: right; width: min(118px, 33vw); margin: 0.4rem -4px 0.6rem 14px; }
-  .page-work .case-study > h2,
-  .page-work .case-study > .eyebrow { padding-right: 0; }
-  .page-work .case-study > h3 { margin-top: 1.8rem; }
-  .page-work .case-study > h3 + p,
-  .page-work .case-study > h3 + ul { margin-top: 0.65rem; }
+  /* Cap réduit pour laisser une colonne de texte d'au moins ~200px sur
+     un écran de 375px (à 148px elle tombait à 3-4 mots par ligne sur
+     les quatre études de cas). */
+  .case-sticker { width: min(118px, 33vw); margin: 0.4rem -4px 0.6rem 14px; }
   /* gap 28px : les halos de tap de 12px des deux liens empilés se
      chevauchaient de 4px avec le gap de 20px. */
   .page-next { align-items: flex-start; flex-direction: column; gap: 28px; }

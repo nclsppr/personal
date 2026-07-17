@@ -16,6 +16,15 @@ Historique des interventions sur le site, la plus récente en premier.
   contribution, The system). Plus d'absolu, plus de chevauchement
   possible ; réserves de padding des titres supprimées ; tailles
   recalibrées 155-175 px ; le flottant mobile existant est conservé.
+- Itération immédiate sur retour de Nicolas (les notes de marge
+  faisaient bizarre, le traitement mobile est celui qu'il adore) : le
+  flottant mobile est généralisé à TOUTES les largeurs. Les études de
+  cas passent en flux unique (flow-root, l'ancienne grille à étiquettes
+  latérales rendait l'habillage impossible), capées à 38rem comme le
+  flux des articles de blog ; les stickers flottent à droite dans le
+  texte qui les habille, aux positions variées du markup. Ombre portée
+  allégée (3px/7px au lieu de 8px/18px), scopée aux stickers de la page
+  Réalisations uniquement. Vérifié en headless à 1680 px.
 - Découvrabilité du blog sur mobile (le header n'y montre pas la nav et
   l'accueil ne pointait jamais vers le blog) : nouvelle section
   « From the blog / Sur le blog » sur l'accueil, entre Leadership et
