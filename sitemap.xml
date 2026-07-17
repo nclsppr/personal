@@ -55,4 +55,76 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/cv/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/cv/"/>
   </url>
+  <url>
+    <loc>https://nicolaspieper.com/blog/</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/"/>
+  </url>
+  <url>
+    <loc>https://nicolaspieper.com/fr/blog/</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/"/>
+  </url>
+  <url>
+    <loc>https://nicolaspieper.com/blog/claude-in-the-enterprise/</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/claude-in-the-enterprise/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/claude-in-the-enterprise/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/claude-in-the-enterprise/"/>
+  </url>
+  <url>
+    <loc>https://nicolaspieper.com/fr/blog/claude-in-the-enterprise/</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/claude-in-the-enterprise/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/claude-in-the-enterprise/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/claude-in-the-enterprise/"/>
+  </url>
+  <url>
+    <loc>https://nicolaspieper.com/blog/organizing-the-solutions-team/</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/organizing-the-solutions-team/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/organizing-the-solutions-team/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/organizing-the-solutions-team/"/>
+  </url>
+  <url>
+    <loc>https://nicolaspieper.com/fr/blog/organizing-the-solutions-team/</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/organizing-the-solutions-team/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/organizing-the-solutions-team/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/organizing-the-solutions-team/"/>
+  </url>
+  <url>
+    <loc>https://nicolaspieper.com/blog/claude-assisted-by-a-human/</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/claude-assisted-by-a-human/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/claude-assisted-by-a-human/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/claude-assisted-by-a-human/"/>
+  </url>
+  <url>
+    <loc>https://nicolaspieper.com/fr/blog/claude-assisted-by-a-human/</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/claude-assisted-by-a-human/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/claude-assisted-by-a-human/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/claude-assisted-by-a-human/"/>
+  </url>
 </urlset>

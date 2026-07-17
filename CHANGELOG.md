@@ -5,6 +5,28 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-17 - Blog (8 pages) et dashboard personnel, non liés
+
+Deux nouvelles surfaces calquées sur le design docs existant, volontairement
+absentes de la navigation des pages actuelles (à lier plus tard).
+
+- Blog : /blog/ et /fr/blog/ + trois articles bilingues aux slugs partagés
+  (claude-in-the-enterprise, organizing-the-solutions-team,
+  claude-assisted-by-a-human). Composants réutilisés (page-intro,
+  doc-section, work-summary, callout, terminal) ; seule addition CSS :
+  .post-meta. SEO complet : meta + OG + Twitter, JSON-LD Blog/BlogPosting/
+  BreadcrumbList, hreflang croisés, entrées sitemap (le blog y figure,
+  c'est le canal de découverte tant qu'aucune page ne le lie).
+  Contenu fidèle aux faits publics du site, aucune métrique inventée.
+- Dashboard : /dashboard/, page personnelle unique (noindex + Disallow
+  robots.txt, hors sitemap). Panneaux au thème du site : focus du jour,
+  usage Claude (stats + sparkline), signaux Solutions, veille, likes X à
+  relire, vie (pizza 72 h, capteurs, km de rando), terminal tail -f
+  life.log. Données d'exemple annoncées comme telles ; valeurs marquées
+  data-metric / data-feed pour qu'un script les régénère plus tard sans
+  rien changer à l'architecture statique. CSS dédié dashboard.css,
+  statuts toujours doublés d'un libellé (jamais couleur seule).
+
 ## 2026-07-17 - SEO : vérification Bing Webmaster Tools
 
 - BingSiteAuth.xml ajouté à la racine pour prouver la propriété du domaine

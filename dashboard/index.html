@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Dashboard · Nicolas Pieper</title>
+    <meta name="description" content="Personal dashboard: focus of the day, Claude usage, work signals, watchlist and life metrics.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/assets/img/favicon.svg?v=2">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon-96.png?v=2">
+    <meta name="theme-color" content="#FAF9F5">
+    <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/sourceserif4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/jetbrainsmono-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/css/site.css">
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
+    <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
+</head>
+<body class="page-dash">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <a class="brand" href="/" aria-label="Nicolas Pieper"><img class="brand-mark" src="/assets/img/logo-mark.png" width="30" height="30" alt="" aria-hidden="true"><span>Nicolas&nbsp;Pieper</span></a>
+        <nav class="header-nav" aria-label="Main">
+            <a href="/">Overview</a>
+            <a href="/work/">Work</a>
+            <a href="/cv/">CV</a>
+            <a href="/blog/">Blog</a>
+        </nav>
+        <div class="header-actions">
+            <button class="icon-btn theme-toggle" id="themeBtn" aria-label="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="3.2"/><path d="M8 1.2v1.6M8 13.2v1.6M1.2 8h1.6M13.2 8h1.6M3.2 3.2l1.1 1.1M11.7 11.7l1.1 1.1M3.2 12.8l1.1-1.1M11.7 4.3l1.1-1.1"/></svg><svg class="icon-moon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 9.5A6 6 0 0 1 6.5 2.5a6 6 0 1 0 7 7z"/></svg></button>
+        </div>
+    </header>
+
+    <main class="dash-layout" id="main">
+        <!-- Données d'exemple, en dur. Contrat pour brancher de vrais flux
+             plus tard sans rien changer à l'architecture statique : un script
+             (cron local ou CI) régénère les valeurs marquées data-metric="…"
+             et le contenu des listes marquées data-feed="…", puis committe.
+             Sources envisagées : stats Claude Code (~/.claude), API GitHub,
+             flux RSS de veille, exports X, Home Assistant, HealthKit. -->
+        <header class="dash-hello">
+            <p class="eyebrow">Dashboard · <span aria-hidden="true">$</span> morning brief</p>
+            <h1 id="dashGreeting">Good morning, Nicolas.</h1>
+            <p class="dash-date"><time id="dashDate" datetime="2026-07-17">Friday, July 17, 2026</time> · Luxembourg</p>
+            <p class="dash-note">Sample data while the real feeds get wired in. Everything below is the shape of the day, not yet the day itself.</p>
+        </header>
+
+        <div class="dash-grid">
+            <!-- ===================== FOCUS DU JOUR ===================== -->
+            <section class="dash-panel span-5" aria-labelledby="dash-today">
+                <div class="dash-head"><h2 class="dash-title" id="dash-today">Today</h2><span class="dash-badge">3 items</span></div>
+                <ul class="dash-list" data-feed="agenda">
+                    <li><span class="t">Architecture review · document platform</span><span class="m">10:00 · meeting room B</span></li>
+                    <li><span class="t">1:1 · ownership rotation</span><span class="m">14:30</span></li>
+                    <li><span class="t">Reread the postmortem draft</span><span class="m">before 17:00</span></li>
+                </ul>
+            </section>
+
+            <!-- ===================== CLAUDE ===================== -->
+            <section class="dash-panel span-7" aria-labelledby="dash-claude">
+                <div class="dash-head"><h2 class="dash-title" id="dash-claude">Claude usage</h2><span class="dash-badge">7 days</span></div>
+                <div class="stat-grid">
+                    <div class="stat"><div class="stat-n" data-metric="claude.sessions">23</div><div class="stat-l">sessions this week</div></div>
+                    <div class="stat"><div class="stat-n" data-metric="claude.commits">41</div><div class="stat-l">commits co-authored</div></div>
+                    <div class="stat"><div class="stat-n" data-metric="claude.top">personal</div><div class="stat-l">most active project</div></div>
+                </div>
+                <svg class="spark" viewBox="0 0 200 56" preserveAspectRatio="none" role="img" aria-label="Tokens per day over the last 7 days: 3.1, 4.8, 2.2, 6.4, 5.1, 7.9 and 6.2 million">
+                    <path class="area" d="M4,52 L4,34.7 L36,25.3 L68,39.7 L100,16.4 L132,23.6 L164,8 L196,17.5 L196,52 Z"/>
+                    <polyline class="line" points="4,34.7 36,25.3 68,39.7 100,16.4 132,23.6 164,8 196,17.5"/>
+                    <circle class="end" cx="196" cy="17.5" r="3"/>
+                </svg>
+                <p class="spark-label">tokens / day · peak 7.9M on Wednesday</p>
+            </section>
+
+            <!-- ===================== TRAVAIL ===================== -->
+            <section class="dash-panel span-6" aria-labelledby="dash-work">
+                <div class="dash-head"><h2 class="dash-title" id="dash-work">Work · Solutions</h2><span class="dash-badge">week 29</span></div>
+                <dl class="dash-kv" data-feed="work">
+                    <div><dt>Pull requests waiting for review</dt><dd data-metric="work.prs">4</dd></div>
+                    <div><dt>Deploys this week</dt><dd data-metric="work.deploys">6</dd></div>
+                    <div><dt>Open incidents</dt><dd data-metric="work.incidents"><span class="dot dot--ok" aria-hidden="true"></span>0 · all clear</dd></div>
+                    <div><dt>Focus of the week</dt><dd>IAM modernization</dd></div>
+                </dl>
+            </section>
+
+            <!-- ===================== VEILLE ===================== -->
+            <section class="dash-panel span-6" aria-labelledby="dash-watch">
+                <div class="dash-head"><h2 class="dash-title" id="dash-watch">Watchlist</h2><span class="dash-badge">4 unread</span></div>
+                <ul class="dash-list" data-feed="news">
+                    <li><span class="t">Release notes to skim: Kubernetes minor bump</span><span class="m">veille · infra</span></li>
+                    <li><span class="t">Java LTS migration guide, annotated</span><span class="m">veille · platform</span></li>
+                    <li><span class="t">Claude Code: new workflow patterns worth stealing</span><span class="m">veille · AI</span></li>
+                    <li><span class="t">PostgreSQL performance post everyone is quoting</span><span class="m">veille · data</span></li>
+                </ul>
+            </section>
+
+            <!-- ===================== X · À RELIRE ===================== -->
+            <section class="dash-panel span-6" aria-labelledby="dash-x">
+                <div class="dash-head"><h2 class="dash-title" id="dash-x">Liked on X · to revisit</h2><span class="dash-badge">3 saved</span></div>
+                <ul class="dash-list" data-feed="x-likes">
+                    <li><span class="t">Thread on running Claude Code across a whole team</span><span class="m">saved 2 d ago</span></li>
+                    <li><span class="t">Pizza dough hydration chart, 65 to 80 percent compared</span><span class="m">saved 4 d ago</span></li>
+                    <li><span class="t">Teardown of a Zigbee presence sensor</span><span class="m">saved 6 d ago</span></li>
+                </ul>
+            </section>
+
+            <!-- ===================== VIE ===================== -->
+            <section class="dash-panel span-6" aria-labelledby="dash-life">
+                <div class="dash-head"><h2 class="dash-title" id="dash-life">Life</h2><span class="dash-badge">July</span></div>
+                <dl class="dash-kv" data-feed="life">
+                    <div><dt>Next pizza · cold ferment</dt><dd data-metric="life.pizza">48 h / 72 h</dd></div>
+                </dl>
+                <div class="dash-bar" role="img" aria-label="Cold ferment progress: 48 hours out of 72"><i style="width: 66%;"></i></div>
+                <dl class="dash-kv">
+                    <div><dt>Home sensors</dt><dd data-metric="life.sensors"><span class="dot dot--ok" aria-hidden="true"></span>12 online · <span class="dot dot--warn" aria-hidden="true"></span>1 offline</dd></div>
+                    <div><dt>Walks with Pampy this week</dt><dd data-metric="life.walks">9</dd></div>
+                </dl>
+                <svg class="spark" viewBox="0 0 200 56" preserveAspectRatio="none" role="img" aria-label="Hiking kilometers per month since February: 42, 55, 38, 61, 74 and 58">
+                    <path class="area" d="M4,52 L4,27 L42.4,19.3 L80.8,29.4 L119.2,15.7 L157.6,8 L196,17.5 L196,52 Z"/>
+                    <polyline class="line" points="4,27 42.4,19.3 80.8,29.4 119.2,15.7 157.6,8 196,17.5"/>
+                    <circle class="end" cx="196" cy="17.5" r="3"/>
+                </svg>
+                <p class="spark-label">hiking km / month · peak 74 km in June</p>
+            </section>
+
+            <!-- ===================== LIFE.LOG ===================== -->
+            <section class="dash-panel dash-panel--bare span-12" aria-labelledby="dash-log">
+                <h2 class="sr-only" id="dash-log">Live log</h2>
+                <div class="terminal" role="img" aria-label="Terminal tailing life.log: deploy green, dough folded, walk with Pampy, Claude session closed with exit 0">
+                    <div class="terminal-bar"><i></i><i></i><i></i><span class="terminal-title">nicolas@pieper.fr - zsh</span></div>
+                    <pre><span class="t-prompt">$</span> <span class="t-cmd">tail -f ~/life.log</span>
+<span class="t-dim">09:12</span> <span class="t-key">deploy</span>  platform green, nothing to see
+<span class="t-dim">12:30</span> <span class="t-key">pizza</span>   dough folded, 48h of 72h done
+<span class="t-dim">17:45</span> <span class="t-key">pampy</span>   walk #2, 4.2 km, one heron spotted
+<span class="t-dim">22:00</span> <span class="t-key">claude</span>  session closed. exit 0</pre>
+                </div>
+            </section>
+        </div>
+
+        <footer class="dash-foot">
+            <p>Personal page · not linked, not indexed.</p>
+            <p><span class="fx-prompt">$</span> exit 0</p>
+        </footer>
+    </main>
+
+    <script src="/assets/js/site.js" defer></script>
+    <script>
+    /* Amélioration progressive : date et salutation du moment. Sans JS, la
+       page reste lisible avec la date du dernier build. */
+    (function () {
+        try {
+            var now = new Date();
+            var dateEl = document.getElementById('dashDate');
+            if (dateEl) {
+                dateEl.dateTime = now.toISOString().slice(0, 10);
+                dateEl.textContent = now.toLocaleDateString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            }
+            var h = now.getHours();
+            var word = h < 5 ? 'Good night' : h < 12 ? 'Good morning' : h < 18 ? 'Good afternoon' : 'Good evening';
+            var greet = document.getElementById('dashGreeting');
+            if (greet) greet.textContent = word + ', Nicolas.';
+        } catch (e) {}
+    })();
+    </script>
+</body>
+</html>

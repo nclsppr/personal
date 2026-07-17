@@ -1035,6 +1035,18 @@ a.card:hover { text-decoration: none; border-color: var(--accent); box-shadow: v
   .footer-id { grid-column: 1 / -1; }
 }
 
+/* Blog : la meta d'article (date, temps de lecture) sous le titre ;
+   tout le reste réutilise les composants existants (page-intro,
+   doc-section, work-summary, callout, terminal). */
+.post-meta {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  margin: -16px 0 26px;
+}
+.work-summary .post-meta { margin: 0 0 6px; }
+
 /* Pages d'erreur (404.html et 4xx/5xx à la racine). Mise en page centrée,
    sans header ni footer : le lien brand ramène à l'accueil. Le terminal
    rejoue l'erreur HTTP en session shell (echo $? renvoie le code). Entrée

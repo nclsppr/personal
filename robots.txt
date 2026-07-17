@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /v2022/
 Disallow: /infos/
+Disallow: /dashboard/
 
 Sitemap: https://nicolaspieper.com/sitemap.xml

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Comment j’organise l’équipe d’ingénierie Solutions · Nicolas Pieper</title>
+    <meta name="description" content="Le modèle de fonctionnement d’une équipe plateforme de dix ingénieurs : responsables nommés avec suppléants, une seule liste de priorités, autonomie nourrie de contexte et progression par délégation.">
+    <meta name="author" content="Nicolas Pieper">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://nicolaspieper.com/fr/blog/organizing-the-solutions-team/">
+    <link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/organizing-the-solutions-team/">
+    <link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/organizing-the-solutions-team/">
+    <link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/organizing-the-solutions-team/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Nicolas Pieper">
+    <meta property="og:title" content="Comment j’organise l’équipe d’ingénierie Solutions">
+    <meta property="og:description" content="Le modèle de fonctionnement d’une équipe plateforme de dix ingénieurs : responsables nommés avec suppléants, une seule liste de priorités, autonomie nourrie de contexte et progression par délégation.">
+    <meta property="og:url" content="https://nicolaspieper.com/fr/blog/organizing-the-solutions-team/">
+    <meta property="og:image" content="https://nicolaspieper.com/assets/img/og-home.png?v=2">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Nicolas Pieper · Engineering Manager, Luxembourg">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="article:published_time" content="2026-07-17">
+    <meta property="article:author" content="Nicolas Pieper">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Comment j’organise l’équipe d’ingénierie Solutions">
+    <meta name="twitter:description" content="Le modèle de fonctionnement d’une équipe plateforme de dix ingénieurs : responsables nommés avec suppléants, une seule liste de priorités, autonomie nourrie de contexte et progression par délégation.">
+    <meta name="twitter:image" content="https://nicolaspieper.com/assets/img/og-home.png?v=2">
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/assets/img/favicon.svg?v=2">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon-96.png?v=2">
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+    <meta name="theme-color" content="#FAF9F5">
+    <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/sourceserif4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/jetbrainsmono-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/css/site.css">
+    <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "@id": "https://nicolaspieper.com/fr/blog/organizing-the-solutions-team/#post",
+                "mainEntityOfPage": "https://nicolaspieper.com/fr/blog/organizing-the-solutions-team/",
+                "headline": "Comment j’organise l’équipe d’ingénierie Solutions",
+                "description": "Le modèle de fonctionnement d’une équipe plateforme de dix ingénieurs : responsables nommés avec suppléants, une seule liste de priorités, autonomie nourrie de contexte et progression par délégation.",
+                "inLanguage": "fr",
+                "datePublished": "2026-07-17",
+                "dateModified": "2026-07-17",
+                "author": { "@id": "https://nicolaspieper.com/#person" },
+                "publisher": { "@id": "https://nicolaspieper.com/#person" },
+                "image": "https://nicolaspieper.com/assets/img/og-home.png",
+                "isPartOf": { "@id": "https://nicolaspieper.com/fr/blog/#blog" },
+                "keywords": ["management d’ingénierie", "organisation d’équipe", "ownership produit", "équipes plateforme", "priorisation", "délégation", "leadership d’ingénierie"]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Aperçu", "item": "https://nicolaspieper.com/fr/" },
+                    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://nicolaspieper.com/fr/blog/" },
+                    { "@type": "ListItem", "position": 3, "name": "Organiser l’équipe Solutions", "item": "https://nicolaspieper.com/fr/blog/organizing-the-solutions-team/" }
+                ]
+            }
+        ]
+    }
+    </script>
+</head>
+<body class="page-work">
+    <a class="skip-link" href="#main">Aller au contenu</a>
+    <header class="site-header">
+        <button class="icon-btn menu-btn" id="menuBtn" aria-label="Ouvrir la navigation" aria-expanded="false" aria-controls="sidebar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path class="menu-line menu-line--top" d="M2 4h12"/><path class="menu-line menu-line--middle" d="M2 8h12"/><path class="menu-line menu-line--bottom" d="M2 12h12"/></svg></button>
+        <a class="brand" href="/fr/" aria-label="Nicolas Pieper"><img class="brand-mark" src="/assets/img/logo-mark.png" width="30" height="30" alt="" aria-hidden="true"><span>Nicolas&nbsp;Pieper</span></a>
+        <nav class="header-nav" aria-label="Navigation principale">
+            <a href="/fr/">Aperçu</a>
+            <a href="/fr/work/">Réalisations</a>
+            <a href="/fr/cv/">CV</a>
+            <a href="/fr/#contact">Contact</a>
+        </nav>
+        <div class="header-actions">
+            <nav class="lang-switch" aria-label="Langue"><a href="/blog/organizing-the-solutions-team/" lang="en" hreflang="en">EN</a><span aria-current="true" lang="fr">FR</span></nav>
+            <a class="icon-btn" href="https://www.linkedin.com/in/nicolaspieper" rel="me noopener" target="_blank" aria-label="Profil LinkedIn (s’ouvre dans un nouvel onglet)"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1.4 1.4 0 1 1 0 2.8 1.4 1.4 0 0 1 0-2.8zM2.4 6h2.4v7.8H2.4zM6.4 6h2.3v1.1h.1c.3-.6 1.1-1.3 2.3-1.3 2.4 0 2.9 1.6 2.9 3.7v4.3h-2.4V9.9c0-.9 0-2.1-1.3-2.1s-1.5 1-1.5 2v4H6.4z"/></svg></a>
+            <button class="icon-btn theme-toggle" id="themeBtn" aria-label="Basculer le mode sombre"><svg class="icon-sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="3.2"/><path d="M8 1.2v1.6M8 13.2v1.6M1.2 8h1.6M13.2 8h1.6M3.2 3.2l1.1 1.1M11.7 11.7l1.1 1.1M3.2 12.8l1.1-1.1M11.7 4.3l1.1-1.1"/></svg><svg class="icon-moon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 9.5A6 6 0 0 1 6.5 2.5a6 6 0 1 0 7 7z"/></svg></button>
+        </div>
+    </header>
+    <div class="backdrop" id="backdrop"></div>
+    <div class="layout">
+        <aside class="sidebar" id="sidebar" aria-label="Navigation des sections">
+            <nav aria-label="Sur cette page">
+                <div class="side-group"><p class="side-title">Sur cette page</p><ul>
+                    <li><a href="#one-portfolio">Un portefeuille</a></li>
+                    <li><a href="#owners-and-backups">Responsables et suppléants</a></li>
+                    <li><a href="#priorities">Une seule liste de priorités</a></li>
+                    <li><a href="#context">L’autonomie carbure au contexte</a></li>
+                    <li><a href="#growth">Grandir par délégation</a></li>
+                    <li><a href="#refusals">Ce que je refuse</a></li>
+                </ul></div>
+                <div class="side-group"><p class="side-title">Autres articles</p><ul>
+                    <li><a href="/fr/blog/">Tous les articles</a></li>
+                    <li><a href="/fr/blog/claude-in-the-enterprise/">Claude en entreprise</a></li>
+                    <li><a href="/fr/blog/claude-assisted-by-a-human/">Claude assisté par un humain</a></li>
+                </ul></div>
+            </nav>
+        </aside>
+        <main class="content" id="main">
+            <nav class="breadcrumb" aria-label="Fil d’Ariane"><a href="/fr/">nicolaspieper.com</a><span class="sep">/</span><a href="/fr/blog/">blog</a><span class="sep">/</span><span aria-current="page">organiser-l-equipe-solutions</span></nav>
+            <article>
+            <header class="page-intro">
+                <p class="eyebrow">Blog · Management d’ingénierie</p>
+                <h1>Comment j’organise l’équipe d’ingénierie Solutions.</h1>
+                <p class="post-meta"><time datetime="2026-07-17">17 juillet 2026</time> · 5 min de lecture · Nicolas Pieper</p>
+                <p class="lead">Dix ingénieurs, un portefeuille de plateformes qui n’ont pas le droit de tomber, et un manager bien décidé à ne pas devenir le goulot d’étranglement. Voici le modèle de fonctionnement vers lequel nous avons convergé, et le raisonnement derrière chacune de ses pièces.</p>
+            </header>
+            <section class="doc-section" id="one-portfolio" aria-labelledby="one-portfolio-title">
+                <h2 class="anchor-heading" id="one-portfolio-title">Partir du portefeuille, pas de l’organigramme<a class="anchor" href="#one-portfolio" aria-label="Lien vers cette section">#</a></h2>
+                <p>L’équipe Solutions ne fait pas tourner un produit. Elle fait tourner un portefeuille : des plateformes établies avec des années d’histoire, des services plus récents qui cherchent encore leur forme, et tout ce qu’il y a entre les deux. La façon naïve de s’organiser, c’est de répartir les gens par projet et de croiser les doigts. Le problème, c’est que les projets se terminent ; les plateformes, non. Il faut que quelqu’un se soucie de chaque système le jour où rien n’est prévu pour lui.</p>
+                <p>L’unité d’organisation n’est donc pas le projet, c’est le <strong>domaine produit</strong>. Chaque plateforme du portefeuille appartient à un domaine, et chaque ingénieur sait quelles parties de la carte sont les siennes.</p>
+            </section>
+            <section class="doc-section" id="owners-and-backups" aria-labelledby="owners-title">
+                <h2 class="anchor-heading" id="owners-title">Un responsable nommé, un suppléant nommé<a class="anchor" href="#owners-and-backups" aria-label="Lien vers cette section">#</a></h2>
+                <p>La responsabilité ne fonctionne que lorsqu’elle est explicite. « L’équipe en est responsable » sonne généreux et signifie que personne ne l’est. Pour chaque domaine produit, il y a un ingénieur dont le nom est dessus, et un second capable de prendre le relais demain matin.</p>
+                <p>Le responsable est l’interlocuteur des parties prenantes, celui qui sait pourquoi le système est ce qu’il est, et le premier appelé quand il se comporte mal. Le suppléant n’est pas une roue de secours : le rôle force la connaissance à circuler. Les revues passent par défaut entre responsable et suppléant, et le suppléant prend la main assez souvent pour que l’arrangement soit réel plutôt que cérémoniel. Les vacances cessent d’être des événements à risque. Les départs cessent d’être des crises.</p>
+            </section>
+            <section class="doc-section" id="priorities" aria-labelledby="priorities-title">
+                <h2 class="anchor-heading" id="priorities-title">Une seule liste de priorités, arbitrée au grand jour<a class="anchor" href="#priorities" aria-label="Lien vers cette section">#</a></h2>
+                <p>Les fonctionnalités de la roadmap, la modernisation, la dette technique, les exigences de sécurité et le support de production se disputent les mêmes dix personnes. La dysfonction que je veux éviter, ce sont cinq listes parallèles, chacune pilotée par celui qui a crié le plus récemment.</p>
+                <p>Il existe une seule vue de ce qui compte, et quand deux demandes se percutent, l’arbitrage se fait en public. Parfois la dette gagne contre une fonctionnalité ; parfois c’est l’inverse. L’essentiel est que l’équipe voie le raisonnement : des ingénieurs qui regardent les priorités s’arbitrer honnêtement acceptent des décisions qu’ils auraient vécues comme des décrets.</p>
+            </section>
+            <section class="doc-section" id="context" aria-labelledby="context-title">
+                <h2 class="anchor-heading" id="context-title">L’autonomie carbure au contexte<a class="anchor" href="#context" aria-label="Lien vers cette section">#</a></h2>
+                <p>Les responsables parlent directement avec les parties prenantes produit, métier et opérationnelles. Je ne m’assois pas au milieu de ces conversations : un manager qui relaie tout devient une file d’attente, et une file d’attente ajoute de la latence sans ajouter de jugement.</p>
+                <p>Ce que je dois à l’équipe, c’est du contexte : pourquoi ce client compte ce trimestre, quelle contrainte pèse réellement sur le métier, quel risque empêche le comité d’architecture de dormir. Mes interventions sont des exceptions avec une forme précise : une décision que personne ne veut porter, une escalade, un désaccord entre domaines, ou le moment où je demande simplement « qu’est-ce que cela suppose, et est-ce vrai ? »</p>
+            </section>
+            <section class="doc-section" id="growth" aria-labelledby="growth-title">
+                <h2 class="anchor-heading" id="growth-title">La délégation est le plan de développement<a class="anchor" href="#growth" aria-label="Lien vers cette section">#</a></h2>
+                <p>On grandit en portant un peu plus que le trimestre précédent, avec quelqu’un qui surveille la charge. La progression est concrète : suppléant d’un domaine, puis responsable d’un petit, puis d’un domaine exposé aux clients, puis voix technique dans les décisions qui traversent les domaines. Le feedback est régulier et précis, et la marche suivante toujours visible.</p>
+                <p>C’est aussi la réponse honnête à « comment retenez-vous les ingénieurs » : en faisant de rester l’option la plus intéressante de la pièce.</p>
+            </section>
+            <section class="doc-section" id="refusals" aria-labelledby="refusals-title">
+                <h2 class="anchor-heading" id="refusals-title">Ce que je refuse de faire<a class="anchor" href="#refusals" aria-label="Lien vers cette section">#</a></h2>
+                <ul class="checklist">
+                    <li>Pas de héros : un système qui ne survit que grâce à un ingénieur héroïque est un système défaillant avec de bons attachés de presse</li>
+                    <li>Pas de coffres-forts de connaissances : ce qui vit dans une seule tête ou une commande non documentée est un passif, pas un actif</li>
+                    <li>Pas de manager-proxy : je refuse d’être l’étape obligatoire entre les ingénieurs et les gens pour qui ils construisent</li>
+                    <li>Pas d’arbitrage invisible : une priorité qu’on ne peut pas expliquer est une priorité qu’on ne peut pas défendre</li>
+                </ul>
+                <div class="callout">
+                    <span class="co-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M8 7.5v3.5M8 5.2v.1" stroke-linecap="round"/></svg></span>
+                    <p>Le test du modèle est simple : <strong>pourrais-je disparaître trois semaines sans que rien d’important ne m’attende ?</strong> Chaque trimestre, la réponse doit se rapprocher du oui.</p>
+                </div>
+                <p>La version condensée de ce modèle vit dans l’<a href="/fr/work/#solutions-team">étude de cas de l’équipe Solutions</a>. Cet article, c’est le raisonnement qui la sous-tend.</p>
+            </section>
+            </article>
+            <nav class="page-next" aria-label="Continuer"><a href="/fr/blog/">← Tous les articles</a><a class="next-primary" href="/fr/blog/claude-assisted-by-a-human/">Suite : Claude assisté par un humain →</a></nav>
+            <footer class="site-footer">
+            <div class="footer-grid">
+                <div class="footer-id">
+                    <a class="brand" href="/fr/"><img class="brand-mark" src="/assets/img/logo-mark.png" width="30" height="30" alt="" aria-hidden="true"><span>Nicolas&nbsp;Pieper</span></a>
+                    <p class="footer-tag">Engineering Manager · Luxembourg</p>
+                    <p class="footer-exit" aria-hidden="true"><span class="fx-prompt">$</span> exit 0</p>
+                </div>
+                <nav class="footer-col" aria-label="Pages">
+                    <p class="side-title">Pages</p>
+                    <a href="/fr/">Aperçu</a>
+                    <a href="/fr/work/">Réalisations</a>
+                    <a href="/fr/cv/">CV</a>
+                </nav>
+                <nav class="footer-col" aria-label="Ailleurs">
+                    <p class="side-title">Ailleurs</p>
+                    <a href="https://www.linkedin.com/in/nicolaspieper" rel="me noopener" target="_blank">LinkedIn<span aria-hidden="true"> ↗</span><span class="sr-only"> (s’ouvre dans un nouvel onglet)</span></a>
+                    <a href="https://github.com/nclsppr" rel="me noopener" target="_blank">GitHub<span aria-hidden="true"> ↗</span><span class="sr-only"> (s’ouvre dans un nouvel onglet)</span></a>
+                    <a href="mailto:nicolas@pieper.fr">nicolas@pieper.fr</a>
+                </nav>
+                <nav class="footer-col" aria-label="Site">
+                    <p class="side-title">Site</p>
+                    <a href="/blog/organizing-the-solutions-team/" hreflang="en" lang="en">English version</a>
+                    <a href="/v2022/" rel="nofollow">Archive v2022</a>
+                    <a href="https://github.com/nclsppr/personal" rel="me noopener" target="_blank">Source<span aria-hidden="true"> ↗</span><span class="sr-only"> (s’ouvre dans un nouvel onglet)</span></a>
+                </nav>
+            </div>
+            <div class="footer-base">
+                <p>© 2026 Nicolas Pieper · Luxembourg</p>
+                <p>Composé en Inter, Source Serif 4 &amp; JetBrains Mono. Site statique, sans tracking.</p>
+            </div>
+        </footer>
+        </main>
+    </div>
+    <script src="/assets/js/site.js" defer></script>
+</body>
+</html>

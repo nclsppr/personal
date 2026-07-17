@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Claude in the enterprise, from architecture to production · Nicolas Pieper</title>
+    <meta name="description" content="How an engineering team uses Claude across architecture, legacy modernization, code review, delivery and production, inside real security and confidentiality constraints.">
+    <meta name="author" content="Nicolas Pieper">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://nicolaspieper.com/blog/claude-in-the-enterprise/">
+    <link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/claude-in-the-enterprise/">
+    <link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/claude-in-the-enterprise/">
+    <link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/claude-in-the-enterprise/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Nicolas Pieper">
+    <meta property="og:title" content="Claude in the enterprise, from architecture to production">
+    <meta property="og:description" content="How an engineering team uses Claude across architecture, legacy modernization, code review, delivery and production, inside real security and confidentiality constraints.">
+    <meta property="og:url" content="https://nicolaspieper.com/blog/claude-in-the-enterprise/">
+    <meta property="og:image" content="https://nicolaspieper.com/assets/img/og-home.png?v=2">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Nicolas Pieper · Engineering Manager, Luxembourg">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="fr_FR">
+    <meta property="article:published_time" content="2026-07-17">
+    <meta property="article:author" content="Nicolas Pieper">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Claude in the enterprise, from architecture to production">
+    <meta name="twitter:description" content="How an engineering team uses Claude across architecture, legacy modernization, code review, delivery and production, inside real security and confidentiality constraints.">
+    <meta name="twitter:image" content="https://nicolaspieper.com/assets/img/og-home.png?v=2">
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/assets/img/favicon.svg?v=2">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon-96.png?v=2">
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+    <meta name="theme-color" content="#FAF9F5">
+    <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/sourceserif4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/jetbrainsmono-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/css/site.css">
+    <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "@id": "https://nicolaspieper.com/blog/claude-in-the-enterprise/#post",
+                "mainEntityOfPage": "https://nicolaspieper.com/blog/claude-in-the-enterprise/",
+                "headline": "Claude in the enterprise, from architecture to production",
+                "description": "How an engineering team uses Claude across architecture, legacy modernization, code review, delivery and production, inside real security and confidentiality constraints.",
+                "inLanguage": "en",
+                "datePublished": "2026-07-17",
+                "dateModified": "2026-07-17",
+                "author": { "@id": "https://nicolaspieper.com/#person" },
+                "publisher": { "@id": "https://nicolaspieper.com/#person" },
+                "image": "https://nicolaspieper.com/assets/img/og-home.png",
+                "isPartOf": { "@id": "https://nicolaspieper.com/blog/#blog" },
+                "keywords": ["Claude", "AI-assisted development", "enterprise software", "engineering leadership", "legacy modernization", "code review", "regulated environments"]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Overview", "item": "https://nicolaspieper.com/" },
+                    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://nicolaspieper.com/blog/" },
+                    { "@type": "ListItem", "position": 3, "name": "Claude in the enterprise", "item": "https://nicolaspieper.com/blog/claude-in-the-enterprise/" }
+                ]
+            }
+        ]
+    }
+    </script>
+</head>
+<body class="page-work">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path class="menu-line menu-line--top" d="M2 4h12"/><path class="menu-line menu-line--middle" d="M2 8h12"/><path class="menu-line menu-line--bottom" d="M2 12h12"/></svg></button>
+        <a class="brand" href="/" aria-label="Nicolas Pieper"><img class="brand-mark" src="/assets/img/logo-mark.png" width="30" height="30" alt="" aria-hidden="true"><span>Nicolas&nbsp;Pieper</span></a>
+        <nav class="header-nav" aria-label="Main">
+            <a href="/">Overview</a>
+            <a href="/work/">Work</a>
+            <a href="/cv/">CV</a>
+            <a href="/#contact">Contact</a>
+        </nav>
+        <div class="header-actions">
+            <nav class="lang-switch" aria-label="Language"><span aria-current="true" lang="en">EN</span><a href="/fr/blog/claude-in-the-enterprise/" lang="fr" hreflang="fr">FR</a></nav>
+            <a class="icon-btn" href="https://www.linkedin.com/in/nicolaspieper" rel="me noopener" target="_blank" aria-label="LinkedIn profile (opens in a new tab)"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1.4 1.4 0 1 1 0 2.8 1.4 1.4 0 0 1 0-2.8zM2.4 6h2.4v7.8H2.4zM6.4 6h2.3v1.1h.1c.3-.6 1.1-1.3 2.3-1.3 2.4 0 2.9 1.6 2.9 3.7v4.3h-2.4V9.9c0-.9 0-2.1-1.3-2.1s-1.5 1-1.5 2v4H6.4z"/></svg></a>
+            <button class="icon-btn theme-toggle" id="themeBtn" aria-label="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="3.2"/><path d="M8 1.2v1.6M8 13.2v1.6M1.2 8h1.6M13.2 8h1.6M3.2 3.2l1.1 1.1M11.7 11.7l1.1 1.1M3.2 12.8l1.1-1.1M11.7 4.3l1.1-1.1"/></svg><svg class="icon-moon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 9.5A6 6 0 0 1 6.5 2.5a6 6 0 1 0 7 7z"/></svg></button>
+        </div>
+    </header>
+    <div class="backdrop" id="backdrop"></div>
+    <div class="layout">
+        <aside class="sidebar" id="sidebar" aria-label="Section navigation">
+            <nav aria-label="On this page">
+                <div class="side-group"><p class="side-title">On this page</p><ul>
+                    <li><a href="#why-claude">Why Claude</a></li>
+                    <li><a href="#architecture">Architecture</a></li>
+                    <li><a href="#code">Code and legacy</a></li>
+                    <li><a href="#delivery">Review and delivery</a></li>
+                    <li><a href="#production">Production</a></li>
+                    <li><a href="#guardrails">Guardrails</a></li>
+                    <li><a href="#adoption">Adoption</a></li>
+                </ul></div>
+                <div class="side-group"><p class="side-title">More articles</p><ul>
+                    <li><a href="/blog/">All articles</a></li>
+                    <li><a href="/blog/organizing-the-solutions-team/">Organizing the Solutions team</a></li>
+                    <li><a href="/blog/claude-assisted-by-a-human/">Claude assisted by a human</a></li>
+                </ul></div>
+            </nav>
+        </aside>
+        <main class="content" id="main">
+            <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">nicolaspieper.com</a><span class="sep">/</span><a href="/blog/">blog</a><span class="sep">/</span><span aria-current="page">claude-in-the-enterprise</span></nav>
+            <article>
+            <header class="page-intro">
+                <p class="eyebrow">Blog · AI-assisted engineering</p>
+                <h1>Claude in the enterprise, from architecture to production.</h1>
+                <p class="post-meta"><time datetime="2026-07-17">July 17, 2026</time> · 6 min read · Nicolas Pieper</p>
+                <p class="lead">I have spent ten years building platforms where a mistake shows up in a bank statement or in somebody's kitchen. I am not easily impressed by tools. Claude impressed me, and it keeps impressing me where it matters most: in the unglamorous middle of enterprise software.</p>
+            </header>
+            <section class="doc-section" id="why-claude" aria-labelledby="why-claude-title">
+                <h2 class="anchor-heading" id="why-claude-title">Why Claude, and why now<a class="anchor" href="#why-claude" aria-label="Link to this section">#</a></h2>
+                <p>My attachment to Claude is not about magic. It is about range. The same assistant that debates an architecture trade-off in the morning reviews a Java migration before lunch, drafts a runbook in the afternoon and reads a stack trace at the end of the day. Work that used to wait for four different specialists to find a spare hour now starts with one good question.</p>
+                <p>I also like its temperament. Claude reads before it writes. It asks what the constraint is instead of assuming there is none. And it accepts being told it is wrong, which is more than can be said for some tools and for some engineers, myself included on a bad day.</p>
+            </section>
+            <section class="doc-section" id="architecture" aria-labelledby="architecture-title">
+                <h2 class="anchor-heading" id="architecture-title">Architecture: a sparring partner that reads everything<a class="anchor" href="#architecture" aria-label="Link to this section">#</a></h2>
+                <p>Enterprise architecture is mostly archaeology. Before you draw the target picture, you have to understand years of accumulated business logic, half-documented decisions and dependencies nobody remembers creating. Claude is the first tool I have used that can actually read all of it, the code and the documents, and hold it in one conversation.</p>
+                <p>The way we use it is deliberately adversarial: propose three options, then attack each one. Where does it break under load? What does it cost to operate? What does it assume about the legacy system that is not true? A model that argues fluently for the wrong option is dangerous, so <strong>the decision always stays with us</strong>. What Claude removes is the blank page and the blind spots, not the responsibility.</p>
+            </section>
+            <section class="doc-section" id="code" aria-labelledby="code-title">
+                <h2 class="anchor-heading" id="code-title">Code: legacy first, greenfield second<a class="anchor" href="#code" aria-label="Link to this section">#</a></h2>
+                <p>The public conversation about AI coding is obsessed with greenfield projects. Most enterprise value sits in the opposite place: established applications that must keep running while they are modernized. That is where Claude has surprised me the most.</p>
+                <p>Upgrading a framework across an application, untangling a class that three generations of developers extended, writing the tests a module never had before touching it: this is patient, careful work, and it is exactly what a tireless assistant is good at. The engineer sets the direction and the invariants; Claude does the long march through the files; the diff gets reviewed like any other diff.</p>
+            </section>
+            <section class="doc-section" id="delivery" aria-labelledby="delivery-title">
+                <h2 class="anchor-heading" id="delivery-title">Review, tests and delivery<a class="anchor" href="#delivery" aria-label="Link to this section">#</a></h2>
+                <p>A second pair of eyes that never gets tired changes the economics of quality. Our habit is simple: Claude reviews first, humans review with the findings in hand. The human reviewer stops burning attention on the mechanical layer, naming, obvious bugs, missed edge cases, and spends it on what actually requires them: does this change do the right thing for the product?</p>
+                <ul class="checklist">
+                    <li>Ask for a review before opening the pull request, not after</li>
+                    <li>Have the tests written or challenged by the assistant, then judged by the author</li>
+                    <li>Let it read the pipeline: flaky jobs and slow stages are patterns, and it is good at patterns</li>
+                </ul>
+            </section>
+            <section class="doc-section" id="production" aria-labelledby="production-title">
+                <h2 class="anchor-heading" id="production-title">Production: incidents and runbooks<a class="anchor" href="#production" aria-label="Link to this section">#</a></h2>
+                <p>Production is where the affection became serious. During an incident, the scarcest resource is a calm reader. Claude reads the stack trace, the recent changes and the logs without panic, and proposes hypotheses in order of likelihood. Afterwards, it drafts the postmortem while the details are still warm, and writes the runbook that everyone agreed should exist and nobody had time to write.</p>
+                <div class="terminal" role="img" aria-label="Terminal showing a claude command asking to read a stack trace and the last deploys, and to rank hypotheses">
+                    <div class="terminal-bar"><i></i><i></i><i></i><span class="terminal-title">nicolas@pieper.fr - zsh</span></div>
+                    <pre><span class="t-prompt">$</span> <span class="t-cmd">claude "read this stack trace and the last three</span>
+<span class="t-cmd">deploys. rank the likely causes."</span></pre>
+                </div>
+            </section>
+            <section class="doc-section" id="guardrails" aria-labelledby="guardrails-title">
+                <h2 class="anchor-heading" id="guardrails-title">Guardrails: what a regulated environment demands<a class="anchor" href="#guardrails" aria-label="Link to this section">#</a></h2>
+                <p>We build platforms for financial institutions and public-sector organizations. Confidentiality is not a preference here, it is the product. Using Claude in that context is entirely possible, on the condition that the rules exist before the enthusiasm does.</p>
+                <ul class="checklist">
+                    <li>Confidential and client data stay out of prompts, without exception</li>
+                    <li>One approved tool and account setup, so there is no shadow AI to discover later</li>
+                    <li>The same review bar for every change, whether it was typed or generated</li>
+                    <li>A human owns everything that ships, with their name on it</li>
+                </ul>
+                <div class="callout">
+                    <span class="co-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M8 7.5v3.5M8 5.2v.1" stroke-linecap="round"/></svg></span>
+                    <p>Governance is not the tax you pay to use AI. It is the thing that makes the productivity <strong>durable</strong>: a team that trusts its guardrails uses the tool more, not less.</p>
+                </div>
+            </section>
+            <section class="doc-section" id="adoption" aria-labelledby="adoption-title">
+                <h2 class="anchor-heading" id="adoption-title">Adoption is a management job<a class="anchor" href="#adoption" aria-label="Link to this section">#</a></h2>
+                <p>Tools do not adopt themselves. What worked for us was unspectacular: start with the engineers who are curious, let them show real sessions to the others, and be honest about the failures as well as the wins. The moment a skeptic watches a colleague untangle in an afternoon something that would have taken a week, the conversation changes on its own.</p>
+                <p>My conclusion after living with Claude across the whole lifecycle is simple. The point is not that it writes code. The point is that <strong>every stage of the lifecycle gains a second brain</strong>, and the team decides, deliberately, where that brain is welcome. That decision is engineering leadership now.</p>
+            </section>
+            </article>
+            <nav class="page-next" aria-label="Continue"><a href="/blog/">← All articles</a><a class="next-primary" href="/blog/organizing-the-solutions-team/">Next: Organizing the Solutions team →</a></nav>
+            <footer class="site-footer">
+            <div class="footer-grid">
+                <div class="footer-id">
+                    <a class="brand" href="/"><img class="brand-mark" src="/assets/img/logo-mark.png" width="30" height="30" alt="" aria-hidden="true"><span>Nicolas&nbsp;Pieper</span></a>
+                    <p class="footer-tag">Engineering Manager · Luxembourg</p>
+                    <p class="footer-exit" aria-hidden="true"><span class="fx-prompt">$</span> exit 0</p>
+                </div>
+                <nav class="footer-col" aria-label="Pages">
+                    <p class="side-title">Pages</p>
+                    <a href="/">Overview</a>
+                    <a href="/work/">Work</a>
+                    <a href="/cv/">CV</a>
+                </nav>
+                <nav class="footer-col" aria-label="Elsewhere">
+                    <p class="side-title">Elsewhere</p>
+                    <a href="https://www.linkedin.com/in/nicolaspieper" rel="me noopener" target="_blank">LinkedIn<span aria-hidden="true"> ↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+                    <a href="https://github.com/nclsppr" rel="me noopener" target="_blank">GitHub<span aria-hidden="true"> ↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+                    <a href="mailto:nicolas@pieper.fr">nicolas@pieper.fr</a>
+                </nav>
+                <nav class="footer-col" aria-label="Site">
+                    <p class="side-title">Site</p>
+                    <a href="/fr/blog/claude-in-the-enterprise/" hreflang="fr" lang="fr">Version française</a>
+                    <a href="/v2022/" rel="nofollow">v2022 archive</a>
+                    <a href="https://github.com/nclsppr/personal" rel="me noopener" target="_blank">Source<span aria-hidden="true"> ↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+                </nav>
+            </div>
+            <div class="footer-base">
+                <p>© 2026 Nicolas Pieper · Luxembourg</p>
+                <p>Set in Inter, Source Serif 4 &amp; JetBrains Mono. Static site, no tracking.</p>
+            </div>
+        </footer>
+        </main>
+    </div>
+    <script src="/assets/js/site.js" defer></script>
+</body>
+</html>

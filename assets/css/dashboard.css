@@ -1,0 +1,198 @@
+/* ==========================================================================
+   nicolaspieper.com - dashboard.css
+   Page personnelle /dashboard/ (noindex, hors sitemap). Tout est bâti sur
+   les tokens de site.css : les deux thèmes fonctionnent sans surcharge.
+   Données d'exemple en dur ; un script pourra plus tard régénérer les
+   valeurs (spans data-metric / listes data-feed) en gardant le site statique.
+   ========================================================================== */
+
+:root {
+  /* Statuts (toujours accompagnés d'un libellé texte, jamais couleur seule) */
+  --dash-ok: #3E7B27;
+  --dash-warn: #A85B00;
+}
+:root[data-theme="dark"] {
+  --dash-ok: #8FB573;
+  --dash-warn: #E5A45C;
+}
+
+.dash-layout {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: calc(var(--header-offset) + 30px) var(--gutter) 48px;
+}
+
+/* ---------- En-tête de page ---------- */
+.dash-hello .eyebrow { margin-bottom: 6px; }
+.dash-hello h1 { margin: 0 0 6px; }
+.dash-date {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+.dash-note {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0 0 30px;
+}
+
+/* ---------- Grille de panneaux ---------- */
+.dash-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 18px;
+}
+.dash-panel {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-1);
+  padding: 18px 20px 20px;
+  min-width: 0;
+}
+.dash-panel--bare {
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+}
+.span-5 { grid-column: span 5; }
+.span-6 { grid-column: span 6; }
+.span-7 { grid-column: span 7; }
+.span-12 { grid-column: span 12; }
+
+.dash-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.dash-title {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin: 0;
+}
+.dash-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-ink);
+  white-space: nowrap;
+}
+
+/* ---------- Tuiles de stats (complète .stat-grid de site.css) ---------- */
+.dash-panel .stat-grid { margin: 0 0 14px; }
+
+/* ---------- Listes de flux (veille, X, focus du jour) ---------- */
+.dash-list { list-style: none; margin: 0; padding: 0; }
+.dash-list li {
+  padding: 10px 0;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.dash-list li:first-child { border-top: 0; padding-top: 2px; }
+.dash-list .t { font-weight: 500; color: var(--ink); }
+.dash-list a.t { text-decoration: none; }
+.dash-list a.t:hover { color: var(--accent-ink); }
+.dash-list .m {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+/* ---------- Paires clé / valeur (métriques boulot & vie) ---------- */
+.dash-kv { margin: 0; }
+.dash-kv > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 0;
+  border-top: 1px solid var(--border);
+}
+.dash-kv > div:first-child { border-top: 0; padding-top: 2px; }
+.dash-kv dt { color: var(--ink-soft); font-size: 0.9rem; }
+.dash-kv dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+/* ---------- Sparklines (une série, encre accent, libellé en texte) ---------- */
+.spark { display: block; width: 100%; height: 56px; margin-top: 4px; }
+.spark .area { fill: var(--accent-glow); }
+.spark .line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.spark .end { fill: var(--accent); }
+.spark-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin: 2px 0 0;
+}
+
+/* ---------- Barre de progression (maturation pizza, avancement) ---------- */
+.dash-bar {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--bg-inset);
+  overflow: hidden;
+  margin: 6px 0 2px;
+}
+.dash-bar i {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+}
+
+/* ---------- Pastilles de statut (toujours doublées d'un libellé) ---------- */
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 4px;
+  vertical-align: baseline;
+}
+.dot--ok { background: var(--dash-ok); }
+.dot--warn { background: var(--dash-warn); }
+
+/* ---------- Terminal pleine largeur en pied ---------- */
+.dash-grid .terminal { margin: 0; }
+
+/* ---------- Pied de page ---------- */
+.dash-foot {
+  margin-top: 30px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 24px;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.dash-foot p { margin: 0; }
+.dash-foot .fx-prompt { color: var(--accent); font-family: var(--font-mono); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .span-5, .span-6, .span-7 { grid-column: span 12; }
+}
