@@ -5,6 +5,27 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-17 - Dédoublonnage : une idée, une place
+
+Passe anti-répétition sur les pages de contenu (EN + FR), dans la lignée
+du terminal recentré du 2026-07-17. Le CV, document autonome, garde ses
+recoupements avec la page Réalisations.
+
+- Réalisations, équipe Solutions : l'idée « responsable + suppléant pour que
+  rien ne dépende d'une personne » apparaissait trois fois sur la page.
+  Les deux premiers axes de management fusionnent, le principe 02 (« Nommer
+  le responsable ») se recentre sur la décision, le principe 04 garde le
+  partage des connaissances.
+- La puce « Équilibrer livraison, opérationnel, dette, modernisation »
+  répétait le paragraphe « défi managérial » de la même section : supprimée.
+- Études de cas : les Résultats IoT répétaient l'énoncé du Problème (le
+  million d'appareils) ; ils disent désormais ce que la refonte a changé.
+  Résultats de l'usine documentaire resserrés (le chiffre reste, une fois).
+- Accueil : les intitulés des cartes IoT et usine documentaire répétaient
+  les chiffres déjà présents dans le lead et les Chiffres clés ; remplacés
+  par ce que les chiffres ne disent pas. Rangée de chips des centres
+  d'intérêt supprimée (troisième occurrence après le terminal et la prose).
+
 ## 2026-07-17 - Micro-animations : bascule de thème et entrée de la 404
 
 Les deux seules opportunités retenues par une passe « find-animation-
