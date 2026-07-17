@@ -152,17 +152,21 @@
             </section>
             <section class="doc-section" id="one-picture" aria-labelledby="one-picture-title">
                 <h2 class="anchor-heading" id="one-picture-title">The whole idea in one picture<a class="anchor" href="#one-picture" aria-label="Link to this section">#</a></h2>
-                <!-- Source mermaid (rendu en SVG statique, pas de lib côté client) :
+                <!-- Source mermaid (rendue en SVG statique, pas de lib côté
+                     client). Flèches notées "->" car "- - >" fermerait ce
+                     commentaire HTML ; rétablir les doubles tirets pour mermaid.
                      flowchart LR
                        subgraph A[AI bolted onto one phase]
-                         R1[REQUIREMENTS] --> D1[DESIGN] --> B1[BUILD x3]:::ai --> T1[TEST] --> L1[RELEASE] --> O1[OPERATE] --> X1[delivery: barely moves]
+                         R1[REQUIREMENTS] -> D1[DESIGN] -> B1[BUILD x3]:::ai -> T1[TEST] -> L1[RELEASE] -> O1[OPERATE] -> X1[delivery: barely moves]
                        end
                        subgraph B[Lifecycle redesigned around AI]
-                         R2[synthesize] --> D2[spec first] --> B2[small tasks] --> T2[test data] --> L2[IaC] --> O2[diagnose] --> X2[outcomes improve]
+                         R2[synthesize] -> D2[spec first] -> B2[small tasks] -> T2[test data] -> L2[IaC] -> O2[diagnose] -> X2[outcomes improve]
                        end
-                       classDef ai fill:#FFE7DC,stroke:#FF4F00 -->
+                       classDef ai fill:#FFE7DC,stroke:#FF4F00
+                -->
+
                 <figure class="post-diagram">
-                    <svg viewBox="0 0 720 206" role="img" aria-labelledby="diagram-title">
+                    <svg viewBox="0 0 720 206" width="720" height="206" role="img" aria-labelledby="diagram-title">
                         <title id="diagram-title">Two versions of the software delivery lifecycle. First row: AI accelerates only the build phase and delivery barely moves. Second row: every phase is redesigned around AI, synthesize requirements, spec first, small tasks, generated test data, infrastructure as code, diagnosis, and outcomes improve.</title>
                         <text x="4" y="14" font-size="10" class="d-dim">AI BOLTED ONTO ONE PHASE</text>
                         <g font-size="9.5" text-anchor="middle">

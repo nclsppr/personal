@@ -152,17 +152,21 @@
             </section>
             <section class="doc-section" id="one-picture" aria-labelledby="one-picture-title">
                 <h2 class="anchor-heading" id="one-picture-title">Toute l’idée en une image<a class="anchor" href="#one-picture" aria-label="Lien vers cette section">#</a></h2>
-                <!-- Source mermaid (rendue en SVG statique, pas de lib côté client) :
+                <!-- Source mermaid (rendue en SVG statique, pas de lib côté
+                     client). Flèches notées "->" car "- - >" fermerait ce
+                     commentaire HTML ; rétablir les doubles tirets pour mermaid.
                      flowchart LR
                        subgraph A[IA collée sur une seule phase]
-                         R1[BESOINS] --> D1[CONCEPTION] --> B1[CODE x3]:::ai --> T1[TEST] --> L1[LIVRAISON] --> O1[EXPLOITATION] --> X1[livraison : bouge à peine]
+                         R1[BESOINS] -> D1[CONCEPTION] -> B1[CODE x3]:::ai -> T1[TEST] -> L1[LIVRAISON] -> O1[EXPLOITATION] -> X1[livraison : bouge à peine]
                        end
                        subgraph B[Cycle repensé autour de l'IA]
-                         R2[synthèse] --> D2[spec d'abord] --> B2[petites tâches] --> T2[données de test] --> L2[IaC] --> O2[diagnostic] --> X2[résultats en hausse]
+                         R2[synthèse] -> D2[spec d'abord] -> B2[petites tâches] -> T2[données de test] -> L2[IaC] -> O2[diagnostic] -> X2[résultats en hausse]
                        end
-                       classDef ai fill:#FFE7DC,stroke:#FF4F00 -->
+                       classDef ai fill:#FFE7DC,stroke:#FF4F00
+                -->
+
                 <figure class="post-diagram">
-                    <svg viewBox="0 0 720 206" role="img" aria-labelledby="diagram-title">
+                    <svg viewBox="0 0 720 206" width="720" height="206" role="img" aria-labelledby="diagram-title">
                         <title id="diagram-title">Deux versions du cycle de livraison logicielle. Première ligne : l’IA n’accélère que la phase de code et la livraison bouge à peine. Seconde ligne : chaque phase est repensée autour de l’IA, synthèse des besoins, spec d’abord, petites tâches, données de test générées, infrastructure as code, diagnostic, et les résultats s’améliorent.</title>
                         <text x="4" y="14" font-size="10" class="d-dim">IA COLLÉE SUR UNE SEULE PHASE</text>
                         <g font-size="9.5" text-anchor="middle">
