@@ -127,4 +127,22 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/claude-assisted-by-a-human/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/claude-assisted-by-a-human/"/>
   </url>
+  <url>
+    <loc>https://nicolaspieper.com/blog/ai-in-the-sdlc/</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/ai-in-the-sdlc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/ai-in-the-sdlc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/ai-in-the-sdlc/"/>
+  </url>
+  <url>
+    <loc>https://nicolaspieper.com/fr/blog/ai-in-the-sdlc/</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/ai-in-the-sdlc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/ai-in-the-sdlc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/ai-in-the-sdlc/"/>
+  </url>
 </urlset>

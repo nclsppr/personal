@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Coder plus vite n’est pas livrer plus vite · Nicolas Pieper</title>
+    <meta name="description" content="Notes sur la vidéo AI in the SDLC d’IBM Technology : pourquoi les gains du codage sont absorbés par le cycle de livraison, les pièges de sur- et sous-délégation, et ce que change une refonte du cycle autour de l’IA.">
+    <meta name="author" content="Nicolas Pieper">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://nicolaspieper.com/fr/blog/ai-in-the-sdlc/">
+    <link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/ai-in-the-sdlc/">
+    <link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/ai-in-the-sdlc/">
+    <link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/ai-in-the-sdlc/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Nicolas Pieper">
+    <meta property="og:title" content="Coder plus vite n’est pas livrer plus vite">
+    <meta property="og:description" content="Notes sur la vidéo AI in the SDLC d’IBM Technology : pourquoi les gains du codage sont absorbés par le cycle de livraison, les pièges de sur- et sous-délégation, et ce que change une refonte du cycle autour de l’IA.">
+    <meta property="og:url" content="https://nicolaspieper.com/fr/blog/ai-in-the-sdlc/">
+    <meta property="og:image" content="https://nicolaspieper.com/assets/img/og-home.png?v=2">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Nicolas Pieper · Engineering Manager, Luxembourg">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="article:published_time" content="2026-07-17">
+    <meta property="article:author" content="Nicolas Pieper">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Coder plus vite n’est pas livrer plus vite">
+    <meta name="twitter:description" content="Notes sur la vidéo AI in the SDLC d’IBM Technology : pourquoi les gains du codage sont absorbés par le cycle de livraison, les pièges de sur- et sous-délégation, et ce que change une refonte du cycle autour de l’IA.">
+    <meta name="twitter:image" content="https://nicolaspieper.com/assets/img/og-home.png?v=2">
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/assets/img/favicon.svg?v=2">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon-96.png?v=2">
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+    <meta name="theme-color" content="#FAF9F5">
+    <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/sourceserif4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/jetbrainsmono-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/css/site.css">
+    <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "@id": "https://nicolaspieper.com/fr/blog/ai-in-the-sdlc/#post",
+                "mainEntityOfPage": "https://nicolaspieper.com/fr/blog/ai-in-the-sdlc/",
+                "headline": "Coder plus vite n’est pas livrer plus vite",
+                "description": "Notes sur la vidéo AI in the SDLC d’IBM Technology : pourquoi les gains du codage sont absorbés par le cycle de livraison, les pièges de sur- et sous-délégation, et ce que change une refonte du cycle autour de l’IA.",
+                "inLanguage": "fr",
+                "datePublished": "2026-07-17",
+                "dateModified": "2026-07-17",
+                "author": { "@id": "https://nicolaspieper.com/#person" },
+                "publisher": { "@id": "https://nicolaspieper.com/#person" },
+                "image": "https://nicolaspieper.com/assets/img/og-home.png",
+                "isPartOf": { "@id": "https://nicolaspieper.com/fr/blog/#blog" },
+                "keywords": ["IA dans le SDLC", "cycle de vie logiciel", "outils de codage IA", "agents IA", "développement piloté par les specs", "productivité des développeurs", "leadership d’ingénierie"]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Aperçu", "item": "https://nicolaspieper.com/fr/" },
+                    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://nicolaspieper.com/fr/blog/" },
+                    { "@type": "ListItem", "position": 3, "name": "L’IA dans le SDLC", "item": "https://nicolaspieper.com/fr/blog/ai-in-the-sdlc/" }
+                ]
+            }
+        ]
+    }
+    </script>
+</head>
+<body class="page-work">
+    <a class="skip-link" href="#main">Aller au contenu</a>
+    <header class="site-header">
+        <button class="icon-btn menu-btn" id="menuBtn" aria-label="Ouvrir la navigation" aria-expanded="false" aria-controls="sidebar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path class="menu-line menu-line--top" d="M2 4h12"/><path class="menu-line menu-line--middle" d="M2 8h12"/><path class="menu-line menu-line--bottom" d="M2 12h12"/></svg></button>
+        <a class="brand" href="/fr/" aria-label="Nicolas Pieper"><img class="brand-mark" src="/assets/img/logo-mark.png" width="30" height="30" alt="" aria-hidden="true"><span>Nicolas&nbsp;Pieper</span></a>
+        <nav class="header-nav" aria-label="Navigation principale">
+            <a href="/fr/">Aperçu</a>
+            <a href="/fr/work/">Réalisations</a>
+            <a href="/fr/blog/">Blog</a>
+            <a href="/fr/cv/">CV</a>
+            <a href="/fr/#contact">Contact</a>
+        </nav>
+        <div class="header-actions">
+            <nav class="lang-switch" aria-label="Langue"><a href="/blog/ai-in-the-sdlc/" lang="en" hreflang="en">EN</a><span aria-current="true" lang="fr">FR</span></nav>
+            <a class="icon-btn" href="https://www.linkedin.com/in/nicolaspieper" rel="me noopener" target="_blank" aria-label="Profil LinkedIn (s’ouvre dans un nouvel onglet)"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1.4 1.4 0 1 1 0 2.8 1.4 1.4 0 0 1 0-2.8zM2.4 6h2.4v7.8H2.4zM6.4 6h2.3v1.1h.1c.3-.6 1.1-1.3 2.3-1.3 2.4 0 2.9 1.6 2.9 3.7v4.3h-2.4V9.9c0-.9 0-2.1-1.3-2.1s-1.5 1-1.5 2v4H6.4z"/></svg></a>
+            <button class="icon-btn theme-toggle" id="themeBtn" aria-label="Basculer le mode sombre"><svg class="icon-sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="3.2"/><path d="M8 1.2v1.6M8 13.2v1.6M1.2 8h1.6M13.2 8h1.6M3.2 3.2l1.1 1.1M11.7 11.7l1.1 1.1M3.2 12.8l1.1-1.1M11.7 4.3l1.1-1.1"/></svg><svg class="icon-moon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 9.5A6 6 0 0 1 6.5 2.5a6 6 0 1 0 7 7z"/></svg></button>
+        </div>
+    </header>
+    <div class="backdrop" id="backdrop"></div>
+    <div class="layout">
+        <aside class="sidebar" id="sidebar" aria-label="Navigation des sections">
+            <nav aria-label="Sur cette page">
+                <div class="side-group"><p class="side-title">Sur cette page</p><ul>
+                    <li><a href="#the-video">La vidéo</a></li>
+                    <li><a href="#mostly-waiting">Un cycle fait d’attente</a></li>
+                    <li><a href="#two-traps">Deux façons d’échouer</a></li>
+                    <li><a href="#redesign">Repenser autour de l’IA</a></li>
+                    <li><a href="#one-picture">Une seule image</a></li>
+                    <li><a href="#outcomes">Des résultats, pas des lignes</a></li>
+                </ul></div>
+                <div class="side-group"><p class="side-title">Autres articles</p><ul>
+                    <li><a href="/fr/blog/">Tous les articles</a></li>
+                    <li><a href="/fr/blog/claude-in-the-enterprise/">Claude en entreprise</a></li>
+                    <li><a href="/fr/blog/claude-assisted-by-a-human/">Claude assisté par un humain</a></li>
+                </ul></div>
+            </nav>
+        </aside>
+        <main class="content" id="main">
+            <nav class="breadcrumb" aria-label="Fil d’Ariane"><a href="/fr/">nicolaspieper.com</a><span class="sep">/</span><a href="/fr/blog/">blog</a><span class="sep">/</span><span aria-current="page">l-ia-dans-le-sdlc</span></nav>
+            <article>
+            <header class="page-intro">
+                <p class="eyebrow">Blog · Ingénierie IA</p>
+                <h1>Coder plus vite n’est pas livrer plus vite.</h1>
+                <p class="post-meta"><time datetime="2026-07-17">17 juillet 2026</time> · 5 min de lecture · Nicolas Pieper</p>
+                <p class="lead">Une vidéo est arrivée dans mon fil qui dit tout haut ce que je dessine sans cesse sur des tableaux blancs : l’IA a rendu le codage spectaculairement plus rapide, et la livraison logicielle s’en est à peine aperçue. Cedric Clyburn, d’IBM Technology, explique pourquoi en douze minutes, et sa réponse résonne avec tout ce que je vois au travail.</p>
+            </header>
+            <section class="doc-section" id="the-video" aria-labelledby="the-video-title">
+                <h2 class="anchor-heading" id="the-video-title">La vidéo<a class="anchor" href="#the-video" aria-label="Lien vers cette section">#</a></h2>
+                <a class="video-facade" id="videoFacade" href="https://www.youtube.com/watch?v=4wMRXmLpdA8" target="_blank" rel="noopener"
+                   data-embed="https://www.youtube-nocookie.com/embed/4wMRXmLpdA8?autoplay=1"
+                   data-title="AI in the SDLC: Rethinking AI Coding Tools and AI Agents (IBM Technology)">
+                    <img src="/assets/img/blog/ai-in-the-sdlc-video.jpg" width="1200" height="675"
+                         alt="Miniature de la vidéo : Cedric Clyburn devant un tableau blanc montrant les six phases du cycle de livraison logicielle"
+                         loading="lazy" decoding="async">
+                    <span class="vf-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+                    <span class="sr-only">Lire la vidéo (charge le lecteur YouTube)</span>
+                </a>
+                <p class="vf-note">AI in the SDLC · IBM Technology, juin 2026. Rien n’est chargé depuis YouTube avant que vous lanciez la lecture.</p>
+                <p>Elle s’ouvre sur un chiffre inconfortable : une étude contrôlée sur des développeurs open source expérimentés qui se croyaient environ 20 % plus rapides grâce aux outils d’IA, alors que les mesures les montraient à peu près 20 % plus lents. Se sentir plus rapide n’est pas être plus rapide. Ce seul constat mériterait d’être épinglé au-dessus de chaque tableau de bord d’ingénierie, juste à côté de la question honnête qu’il impose : si le modèle code si bien, pourquoi la livraison ne bouge-t-elle pas ?</p>
+            </section>
+            <section class="doc-section" id="mostly-waiting" aria-labelledby="mostly-waiting-title">
+                <h2 class="anchor-heading" id="mostly-waiting-title">Un cycle fait d’attente<a class="anchor" href="#mostly-waiting" aria-label="Lien vers cette section">#</a></h2>
+                <p>Clyburn dessine le pipeline classique : besoins, conception, code, test, livraison, exploitation. Puis il livre le secret que tout manager d’ingénierie apprend à ses dépens : l’essentiel du temps écoulé dans ce pipeline n’est pas passé à écrire du code. Il est passé à attendre. Les développeurs attendent que l’équipe produit clarifie une story. Les ops attendent la release. La QA attend un build, dans un environnement qui ne ressemble jamais tout à fait à la production, à travers un empilement d’outils fragmentés.</p>
+                <p>Alors quand l’IA accélère une case, les files d’attente autour absorbent le gain sans bruit. Codez trois fois plus vite : la pull request attend toujours ses relecteurs, le contrôle de conformité, l’environnement de test partagé. <a href="/fr/work/">En pilotant un portefeuille de plateformes réglementées</a>, je peux confirmer : la phase de code est rarement ma contrainte. La coordination, si.</p>
+            </section>
+            <section class="doc-section" id="two-traps" aria-labelledby="two-traps-title">
+                <h2 class="anchor-heading" id="two-traps-title">Deux façons d’échouer<a class="anchor" href="#two-traps" aria-label="Lien vers cette section">#</a></h2>
+                <p>La vidéo décrit l’adoption de l’IA comme un spectre avec un piège à chaque extrémité, et j’ai vu des équipes, la mienne comprise, marcher dans les deux.</p>
+                <p><strong>La sur-délégation</strong> : confier à un modèle frontière un gros problème ambigu, « construis-moi une plateforme e-commerce », et le laisser courir. Chaque décision non formulée sur les paiements, l’authentification ou la livraison est prise en silence par le modèle, qui rend des milliers de lignes que personne n’a lues. La revue devient le goulot d’étranglement, et les allers-retours brûlent tout ce que la génération avait fait gagner.</p>
+                <p><strong>La sous-délégation</strong> : l’ingénieur senior garde toute la planification et tend des miettes au modèle, écris cette fonction, scanne ce fichier pour les injections SQL. Le code rendu est bon, mais tout le travail intellectuel reste humain, et le cycle n’accélère presque pas. C’est le piège des équipes disciplinées, précisément parce que leur discipline les protège du premier. Nos propres <a href="/fr/blog/claude-in-the-enterprise/">garde-fous</a> nous préservent de la sur-délégation ; la question honnête est de savoir s’ils ne nous gardent pas parfois trop du côté timide.</p>
+            </section>
+            <section class="doc-section" id="redesign" aria-labelledby="redesign-title">
+                <h2 class="anchor-heading" id="redesign-title">Repenser le cycle autour de l’IA<a class="anchor" href="#redesign" aria-label="Lien vers cette section">#</a></h2>
+                <p>Le cœur de la vidéo est un recadrage : cesser de coller l’IA sur le cycle existant et repenser le cycle autour d’elle. Phase par phase, cela ressemble à ceci :</p>
+                <ul class="checklist">
+                    <li><strong>Besoins et conception</strong> : synthétiser la masse non structurée d’enquêtes, de retours utilisateurs et d’emails en user stories, et laisser des agents fouiller les logs de production et les rapports de bugs pour que l’itération suivante parte de ce qui échoue réellement</li>
+                    <li><strong>Code</strong> : des tâches petites et bien définies plutôt que des systèmes vibe-codés ; une spécification que le modèle peut lire et suivre ; des sous-agents pour la recherche, pour puiser des données via des serveurs MCP, pour l’édition ; des fichiers de contexte partagés pour des sorties cohérentes d’une équipe à l’autre</li>
+                    <li><strong>Test</strong> : générer les données de test directement depuis la user story, et laisser le modèle lire la stack trace de 3 h du matin sans la panique de 3 h du matin</li>
+                    <li><strong>Livraison et exploitation</strong> : les modèles parlent déjà couramment l’infrastructure as code, d’Ansible aux manifestes Kubernetes</li>
+                    <li><strong>Legacy</strong> : expliquer et rétro-concevoir les systèmes que plus personne ne comprend vraiment, ce qui est une assez bonne description de mon quotidien</li>
+                </ul>
+            </section>
+            <section class="doc-section" id="one-picture" aria-labelledby="one-picture-title">
+                <h2 class="anchor-heading" id="one-picture-title">Toute l’idée en une image<a class="anchor" href="#one-picture" aria-label="Lien vers cette section">#</a></h2>
+                <!-- Source mermaid (rendue en SVG statique, pas de lib côté client) :
+                     flowchart LR
+                       subgraph A[IA collée sur une seule phase]
+                         R1[BESOINS] --> D1[CONCEPTION] --> B1[CODE x3]:::ai --> T1[TEST] --> L1[LIVRAISON] --> O1[EXPLOITATION] --> X1[livraison : bouge à peine]
+                       end
+                       subgraph B[Cycle repensé autour de l'IA]
+                         R2[synthèse] --> D2[spec d'abord] --> B2[petites tâches] --> T2[données de test] --> L2[IaC] --> O2[diagnostic] --> X2[résultats en hausse]
+                       end
+                       classDef ai fill:#FFE7DC,stroke:#FF4F00 -->
+                <figure class="post-diagram">
+                    <svg viewBox="0 0 720 206" role="img" aria-labelledby="diagram-title">
+                        <title id="diagram-title">Deux versions du cycle de livraison logicielle. Première ligne : l’IA n’accélère que la phase de code et la livraison bouge à peine. Seconde ligne : chaque phase est repensée autour de l’IA, synthèse des besoins, spec d’abord, petites tâches, données de test générées, infrastructure as code, diagnostic, et les résultats s’améliorent.</title>
+                        <text x="4" y="14" font-size="10" class="d-dim">IA COLLÉE SUR UNE SEULE PHASE</text>
+                        <g font-size="9.5" text-anchor="middle">
+                            <rect class="d-box" x="4" y="24" width="88" height="30"/><text x="48" y="43">BESOINS</text>
+                            <rect class="d-box" x="110" y="24" width="88" height="30"/><text x="154" y="43">CONCEPTION</text>
+                            <rect class="d-box d-box--ai" x="216" y="24" width="88" height="30"/><text x="260" y="43" class="d-accent">CODE ×3</text>
+                            <rect class="d-box" x="322" y="24" width="88" height="30"/><text x="366" y="43">TEST</text>
+                            <rect class="d-box" x="428" y="24" width="88" height="30"/><text x="472" y="43">LIVRAISON</text>
+                            <rect class="d-box" x="534" y="24" width="88" height="30"/><text x="578" y="43">EXPLOITATION</text>
+                        </g>
+                        <g class="d-arrow">
+                            <line x1="93" y1="39" x2="103" y2="39"/><line x1="199" y1="39" x2="209" y2="39"/><line x1="305" y1="39" x2="315" y2="39"/><line x1="411" y1="39" x2="421" y2="39"/><line x1="517" y1="39" x2="527" y2="39"/><line x1="623" y1="39" x2="633" y2="39"/>
+                        </g>
+                        <g class="d-head">
+                            <polygon points="103,35.5 109,39 103,42.5"/><polygon points="209,35.5 215,39 209,42.5"/><polygon points="315,35.5 321,39 315,42.5"/><polygon points="421,35.5 427,39 421,42.5"/><polygon points="527,35.5 533,39 527,42.5"/><polygon points="633,35.5 639,39 633,42.5"/>
+                        </g>
+                        <text x="644" y="36" font-size="9.5" class="d-dim">livraison :</text>
+                        <text x="644" y="48" font-size="9.5" class="d-dim">bouge à peine</text>
+
+                        <text x="4" y="126" font-size="10" class="d-dim">CYCLE REPENSÉ AUTOUR DE L’IA</text>
+                        <g font-size="9.5" text-anchor="middle">
+                            <rect class="d-box d-box--ai" x="4" y="136" width="88" height="30"/><text x="48" y="155">BESOINS</text>
+                            <rect class="d-box d-box--ai" x="110" y="136" width="88" height="30"/><text x="154" y="155">CONCEPTION</text>
+                            <rect class="d-box d-box--ai" x="216" y="136" width="88" height="30"/><text x="260" y="155">CODE</text>
+                            <rect class="d-box d-box--ai" x="322" y="136" width="88" height="30"/><text x="366" y="155">TEST</text>
+                            <rect class="d-box d-box--ai" x="428" y="136" width="88" height="30"/><text x="472" y="155">LIVRAISON</text>
+                            <rect class="d-box d-box--ai" x="534" y="136" width="88" height="30"/><text x="578" y="155">EXPLOITATION</text>
+                        </g>
+                        <g font-size="9" text-anchor="middle" class="d-accent">
+                            <text x="48" y="184">synthèse</text>
+                            <text x="154" y="184">spec d’abord</text>
+                            <text x="260" y="184">petites tâches</text>
+                            <text x="366" y="184">données de test</text>
+                            <text x="472" y="184">IaC</text>
+                            <text x="578" y="184">diagnostic</text>
+                        </g>
+                        <g class="d-arrow">
+                            <line x1="93" y1="151" x2="103" y2="151"/><line x1="199" y1="151" x2="209" y2="151"/><line x1="305" y1="151" x2="315" y2="151"/><line x1="411" y1="151" x2="421" y2="151"/><line x1="517" y1="151" x2="527" y2="151"/><line x1="623" y1="151" x2="633" y2="151"/>
+                        </g>
+                        <g class="d-head">
+                            <polygon points="103,147.5 109,151 103,154.5"/><polygon points="209,147.5 215,151 209,154.5"/><polygon points="315,147.5 321,151 315,154.5"/><polygon points="421,147.5 427,151 421,154.5"/><polygon points="527,147.5 533,151 527,154.5"/><polygon points="633,147.5 639,151 633,154.5"/>
+                        </g>
+                        <text x="644" y="148" font-size="9.5" class="d-accent">résultats</text>
+                        <text x="644" y="160" font-size="9.5" class="d-accent">en hausse</text>
+                    </svg>
+                    <figcaption>Accélérer une case nourrit les files d’attente autour. Repenser chaque case déplace le résultat.</figcaption>
+                </figure>
+            </section>
+            <section class="doc-section" id="outcomes" aria-labelledby="outcomes-title">
+                <h2 class="anchor-heading" id="outcomes-title">Des résultats, pas des lignes<a class="anchor" href="#outcomes" aria-label="Lien vers cette section">#</a></h2>
+                <p>La conclusion est la partie que j’encadrerais : le gain de productivité ne vient pas d’un meilleur modèle ni d’un meilleur outil, il vient, comme le dit Clyburn, du fait de « redessiner le cycle de livraison logicielle autour du modèle ». Le rôle humain passe de la frappe à la validation, exactement l’inversion que je décrivais dans <a href="/fr/blog/claude-assisted-by-a-human/">Claude assisté par un humain</a>, abordée ici par le côté organisation plutôt que par le côté clavier.</p>
+                <div class="callout">
+                    <span class="co-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M8 7.5v3.5M8 5.2v.1" stroke-linecap="round"/></svg></span>
+                    <p>La loi d’Amdahl s’applique aussi aux organisations : <strong>accélérer une étape révèle surtout le coût de toutes les autres</strong>.</p>
+                </div>
+                <p>Et la mesure suit : pas les lignes de code générées, mais la santé des systèmes, la maintenabilité, et le temps qu’un changement met à atteindre la production. Ce sont déjà les chiffres dont je réponds devant mes parties prenantes, ce qui explique sans doute pourquoi cette vidéo m’a moins fait l’effet d’une leçon que d’un collègue d’accord avec moi, avec de bien meilleurs moyens de production. Elle vaut douze minutes de votre cycle de vie.</p>
+            </section>
+            </article>
+            <nav class="page-next" aria-label="Continuer"><a href="/fr/blog/">← Tous les articles</a><a class="next-primary" href="/fr/blog/claude-in-the-enterprise/">Lire : Claude en entreprise →</a></nav>
+            <footer class="site-footer">
+            <div class="footer-grid">
+                <div class="footer-id">
+                    <a class="brand" href="/fr/"><img class="brand-mark" src="/assets/img/logo-mark.png" width="30" height="30" alt="" aria-hidden="true"><span>Nicolas&nbsp;Pieper</span></a>
+                    <p class="footer-tag">Engineering Manager · Luxembourg</p>
+                    <p class="footer-exit" aria-hidden="true"><span class="fx-prompt">$</span> exit 0</p>
+                </div>
+                <nav class="footer-col" aria-label="Pages">
+                    <p class="side-title">Pages</p>
+                    <a href="/fr/">Aperçu</a>
+                    <a href="/fr/work/">Réalisations</a>
+                    <a href="/fr/blog/">Blog</a>
+                    <a href="/fr/cv/">CV</a>
+                </nav>
+                <nav class="footer-col" aria-label="Ailleurs">
+                    <p class="side-title">Ailleurs</p>
+                    <a href="https://www.linkedin.com/in/nicolaspieper" rel="me noopener" target="_blank">LinkedIn<span aria-hidden="true"> ↗</span><span class="sr-only"> (s’ouvre dans un nouvel onglet)</span></a>
+                    <a href="https://github.com/nclsppr" rel="me noopener" target="_blank">GitHub<span aria-hidden="true"> ↗</span><span class="sr-only"> (s’ouvre dans un nouvel onglet)</span></a>
+                    <a href="mailto:nicolas@pieper.fr">nicolas@pieper.fr</a>
+                </nav>
+                <nav class="footer-col" aria-label="Site">
+                    <p class="side-title">Site</p>
+                    <a href="/blog/ai-in-the-sdlc/" hreflang="en" lang="en">English version</a>
+                    <a href="/v2022/" rel="nofollow">Archive v2022</a>
+                    <a href="https://github.com/nclsppr/personal" rel="me noopener" target="_blank">Source<span aria-hidden="true"> ↗</span><span class="sr-only"> (s’ouvre dans un nouvel onglet)</span></a>
+                </nav>
+            </div>
+            <div class="footer-base">
+                <p>© 2026 Nicolas Pieper · Luxembourg</p>
+                <p>Composé en Inter, Source Serif 4 &amp; JetBrains Mono. Site statique, sans tracking.</p>
+            </div>
+        </footer>
+        </main>
+    </div>
+    <script src="/assets/js/site.js" defer></script>
+    <script>
+    /* Façade vidéo : l'iframe youtube-nocookie n'est créée qu'au clic.
+       Sans JavaScript, la façade reste un lien vers YouTube. */
+    (function () {
+        var f = document.getElementById('videoFacade');
+        if (!f) return;
+        f.addEventListener('click', function (e) {
+            e.preventDefault();
+            var wrap = document.createElement('div');
+            wrap.className = 'video-embed';
+            var i = document.createElement('iframe');
+            i.src = f.getAttribute('data-embed');
+            i.title = f.getAttribute('data-title');
+            i.setAttribute('allow', 'autoplay; encrypted-media; picture-in-picture; web-share');
+            i.setAttribute('allowfullscreen', '');
+            wrap.appendChild(i);
+            f.replaceWith(wrap);
+        });
+    })();
+    </script>
+</body>
+</html>

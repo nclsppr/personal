@@ -5,6 +5,26 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-17 - Quatrième article : l'IA dans le SDLC (vidéo IBM)
+
+- Nouvel article bilingue « Coder plus vite n'est pas livrer plus vite »
+  (/blog/ai-in-the-sdlc/), réaction à la vidéo AI in the SDLC de Cedric
+  Clyburn (IBM Technology, juin 2026), transcription lue en entier :
+  gains de codage absorbés par le cycle, pièges de sur/sous-délégation,
+  refonte du cycle autour de l'IA, mesurer des résultats plutôt que des
+  lignes. Liens croisés avec les articles Claude en entreprise et
+  Claude assisté par un humain.
+- Vidéo intégrée via une façade sans requête tierce avant le clic
+  (miniature auto-hébergée 72 Ko + bouton lecture ; au clic, iframe
+  youtube-nocookie ; sans JavaScript, lien vers YouTube). Fidèle au
+  « site sans tracking » du footer.
+- Diagramme « cycle collé vs cycle repensé » en SVG inline aux tokens du
+  site (deux chaînes de six phases, résultat comparé) ; source mermaid
+  conservée en commentaire dans la page ; pas de lib côté client.
+- Index du blog, sidebars des trois articles, chaîne de lecture,
+  JSON-LD et sitemap mis à jour ; styles .video-facade et .post-diagram
+  ajoutés à site.css.
+
 ## 2026-07-17 - Illustrations d'en-tête des trois articles du blog
 
 - Trois stickers générés par Nicolas (même langage visuel que ceux des

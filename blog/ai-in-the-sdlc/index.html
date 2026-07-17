@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Faster coding is not faster delivery · Nicolas Pieper</title>
+    <meta name="description" content="Notes on IBM Technology's video AI in the SDLC: why coding gains get absorbed by the delivery lifecycle, the over- and under-delegation traps, and what redesigning around AI changes.">
+    <meta name="author" content="Nicolas Pieper">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://nicolaspieper.com/blog/ai-in-the-sdlc/">
+    <link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/ai-in-the-sdlc/">
+    <link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/ai-in-the-sdlc/">
+    <link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/ai-in-the-sdlc/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Nicolas Pieper">
+    <meta property="og:title" content="Faster coding is not faster delivery">
+    <meta property="og:description" content="Notes on IBM Technology's video AI in the SDLC: why coding gains get absorbed by the delivery lifecycle, the over- and under-delegation traps, and what redesigning around AI changes.">
+    <meta property="og:url" content="https://nicolaspieper.com/blog/ai-in-the-sdlc/">
+    <meta property="og:image" content="https://nicolaspieper.com/assets/img/og-home.png?v=2">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Nicolas Pieper · Engineering Manager, Luxembourg">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="fr_FR">
+    <meta property="article:published_time" content="2026-07-17">
+    <meta property="article:author" content="Nicolas Pieper">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Faster coding is not faster delivery">
+    <meta name="twitter:description" content="Notes on IBM Technology's video AI in the SDLC: why coding gains get absorbed by the delivery lifecycle, the over- and under-delegation traps, and what redesigning around AI changes.">
+    <meta name="twitter:image" content="https://nicolaspieper.com/assets/img/og-home.png?v=2">
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/assets/img/favicon.svg?v=2">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon-96.png?v=2">
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+    <meta name="theme-color" content="#FAF9F5">
+    <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/sourceserif4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/jetbrainsmono-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/css/site.css">
+    <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "@id": "https://nicolaspieper.com/blog/ai-in-the-sdlc/#post",
+                "mainEntityOfPage": "https://nicolaspieper.com/blog/ai-in-the-sdlc/",
+                "headline": "Faster coding is not faster delivery",
+                "description": "Notes on IBM Technology's video AI in the SDLC: why coding gains get absorbed by the delivery lifecycle, the over- and under-delegation traps, and what redesigning around AI changes.",
+                "inLanguage": "en",
+                "datePublished": "2026-07-17",
+                "dateModified": "2026-07-17",
+                "author": { "@id": "https://nicolaspieper.com/#person" },
+                "publisher": { "@id": "https://nicolaspieper.com/#person" },
+                "image": "https://nicolaspieper.com/assets/img/og-home.png",
+                "isPartOf": { "@id": "https://nicolaspieper.com/blog/#blog" },
+                "keywords": ["AI in the SDLC", "software delivery lifecycle", "AI coding tools", "AI agents", "spec-driven development", "developer productivity", "engineering leadership"]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Overview", "item": "https://nicolaspieper.com/" },
+                    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://nicolaspieper.com/blog/" },
+                    { "@type": "ListItem", "position": 3, "name": "AI in the SDLC", "item": "https://nicolaspieper.com/blog/ai-in-the-sdlc/" }
+                ]
+            }
+        ]
+    }
+    </script>
+</head>
+<body class="page-work">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path class="menu-line menu-line--top" d="M2 4h12"/><path class="menu-line menu-line--middle" d="M2 8h12"/><path class="menu-line menu-line--bottom" d="M2 12h12"/></svg></button>
+        <a class="brand" href="/" aria-label="Nicolas Pieper"><img class="brand-mark" src="/assets/img/logo-mark.png" width="30" height="30" alt="" aria-hidden="true"><span>Nicolas&nbsp;Pieper</span></a>
+        <nav class="header-nav" aria-label="Main">
+            <a href="/">Overview</a>
+            <a href="/work/">Work</a>
+            <a href="/blog/">Blog</a>
+            <a href="/cv/">CV</a>
+            <a href="/#contact">Contact</a>
+        </nav>
+        <div class="header-actions">
+            <nav class="lang-switch" aria-label="Language"><span aria-current="true" lang="en">EN</span><a href="/fr/blog/ai-in-the-sdlc/" lang="fr" hreflang="fr">FR</a></nav>
+            <a class="icon-btn" href="https://www.linkedin.com/in/nicolaspieper" rel="me noopener" target="_blank" aria-label="LinkedIn profile (opens in a new tab)"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1.4 1.4 0 1 1 0 2.8 1.4 1.4 0 0 1 0-2.8zM2.4 6h2.4v7.8H2.4zM6.4 6h2.3v1.1h.1c.3-.6 1.1-1.3 2.3-1.3 2.4 0 2.9 1.6 2.9 3.7v4.3h-2.4V9.9c0-.9 0-2.1-1.3-2.1s-1.5 1-1.5 2v4H6.4z"/></svg></a>
+            <button class="icon-btn theme-toggle" id="themeBtn" aria-label="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="3.2"/><path d="M8 1.2v1.6M8 13.2v1.6M1.2 8h1.6M13.2 8h1.6M3.2 3.2l1.1 1.1M11.7 11.7l1.1 1.1M3.2 12.8l1.1-1.1M11.7 4.3l1.1-1.1"/></svg><svg class="icon-moon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 9.5A6 6 0 0 1 6.5 2.5a6 6 0 1 0 7 7z"/></svg></button>
+        </div>
+    </header>
+    <div class="backdrop" id="backdrop"></div>
+    <div class="layout">
+        <aside class="sidebar" id="sidebar" aria-label="Section navigation">
+            <nav aria-label="On this page">
+                <div class="side-group"><p class="side-title">On this page</p><ul>
+                    <li><a href="#the-video">The video</a></li>
+                    <li><a href="#mostly-waiting">A lifecycle of waiting</a></li>
+                    <li><a href="#two-traps">Two ways to fail</a></li>
+                    <li><a href="#redesign">Redesigning around AI</a></li>
+                    <li><a href="#one-picture">One picture</a></li>
+                    <li><a href="#outcomes">Outcomes, not lines</a></li>
+                </ul></div>
+                <div class="side-group"><p class="side-title">More articles</p><ul>
+                    <li><a href="/blog/">All articles</a></li>
+                    <li><a href="/blog/claude-in-the-enterprise/">Claude in the enterprise</a></li>
+                    <li><a href="/blog/claude-assisted-by-a-human/">Claude assisted by a human</a></li>
+                </ul></div>
+            </nav>
+        </aside>
+        <main class="content" id="main">
+            <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">nicolaspieper.com</a><span class="sep">/</span><a href="/blog/">blog</a><span class="sep">/</span><span aria-current="page">ai-in-the-sdlc</span></nav>
+            <article>
+            <header class="page-intro">
+                <p class="eyebrow">Blog · AI engineering</p>
+                <h1>Faster coding is not faster delivery.</h1>
+                <p class="post-meta"><time datetime="2026-07-17">July 17, 2026</time> · 5 min read · Nicolas Pieper</p>
+                <p class="lead">A video landed in my feed that says out loud what I keep drawing on whiteboards: AI has made coding dramatically faster, and software delivery barely noticed. Cedric Clyburn of IBM Technology explains why in twelve minutes, and his answer resonates with everything I see at work.</p>
+            </header>
+            <section class="doc-section" id="the-video" aria-labelledby="the-video-title">
+                <h2 class="anchor-heading" id="the-video-title">The video<a class="anchor" href="#the-video" aria-label="Link to this section">#</a></h2>
+                <a class="video-facade" id="videoFacade" href="https://www.youtube.com/watch?v=4wMRXmLpdA8" target="_blank" rel="noopener"
+                   data-embed="https://www.youtube-nocookie.com/embed/4wMRXmLpdA8?autoplay=1"
+                   data-title="AI in the SDLC: Rethinking AI Coding Tools and AI Agents (IBM Technology)">
+                    <img src="/assets/img/blog/ai-in-the-sdlc-video.jpg" width="1200" height="675"
+                         alt="Video thumbnail: Cedric Clyburn in front of a whiteboard showing the six phases of the software delivery lifecycle"
+                         loading="lazy" decoding="async">
+                    <span class="vf-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+                    <span class="sr-only">Play the video (loads the YouTube player)</span>
+                </a>
+                <p class="vf-note">AI in the SDLC · IBM Technology, June 2026. Nothing loads from YouTube until you press play.</p>
+                <p>It opens with an uncomfortable number: a controlled study of experienced open-source developers who believed AI tools made them about 20 percent faster, while the measurements showed them roughly 20 percent slower. Feeling faster is not being faster. That single finding deserves to be pinned above every engineering dashboard, right next to the honest question it forces: if the model writes code this well, why is delivery not moving?</p>
+            </section>
+            <section class="doc-section" id="mostly-waiting" aria-labelledby="mostly-waiting-title">
+                <h2 class="anchor-heading" id="mostly-waiting-title">A lifecycle of waiting<a class="anchor" href="#mostly-waiting" aria-label="Link to this section">#</a></h2>
+                <p>Clyburn draws the classic pipeline: requirements, design, build, test, release, operate. Then he gives away the secret that every engineering manager learns the hard way: most of the elapsed time in that pipeline is not spent writing code. It is spent waiting. Developers wait for the product team to clarify a story. Operations waits for the release. QA waits for a build, in an environment that never quite matches production, across a pile of fragmented tools.</p>
+                <p>So when AI makes one box faster, the queues around it quietly absorb the gain. Code three times faster, and the pull request still waits for reviewers, the compliance check, the shared test environment. <a href="/work/">Running a portfolio of regulated platforms</a>, I can confirm: the build phase is rarely my constraint. Coordination is.</p>
+            </section>
+            <section class="doc-section" id="two-traps" aria-labelledby="two-traps-title">
+                <h2 class="anchor-heading" id="two-traps-title">Two ways to fail<a class="anchor" href="#two-traps" aria-label="Link to this section">#</a></h2>
+                <p>The video describes AI adoption as a spectrum with a trap at each end, and I have watched teams, mine included, step into both.</p>
+                <p><strong>Over-delegation</strong>: hand a frontier model a big ambiguous problem, "build me an e-commerce platform", and let it run. Every unstated decision about payments, authentication and shipping gets made silently by the model, which returns thousands of lines nobody has read. Review becomes the bottleneck, and the back-and-forth burns everything the generation saved.</p>
+                <p><strong>Under-delegation</strong>: the senior engineer keeps all the planning and hands the model crumbs, write this function, scan this file for SQL injection. The code that comes back is good, but the intellectual heavy lifting stays entirely human, so the lifecycle barely accelerates. This is the trap disciplined teams fall into, precisely because their discipline protects them from the first one. Our own <a href="/blog/claude-in-the-enterprise/">guardrails</a> keep us safe from over-delegation; the honest question is whether they sometimes keep us too far on the timid side.</p>
+            </section>
+            <section class="doc-section" id="redesign" aria-labelledby="redesign-title">
+                <h2 class="anchor-heading" id="redesign-title">Redesigning around AI<a class="anchor" href="#redesign" aria-label="Link to this section">#</a></h2>
+                <p>The heart of the video is a reframe: stop bolting AI onto the existing lifecycle and redesign the lifecycle around it. Phase by phase, that looks like:</p>
+                <ul class="checklist">
+                    <li><strong>Requirements and design</strong>: synthesize the unstructured mass of surveys, user reports and stakeholder emails into user stories, and let agents mine production logs and bug reports so the next iteration starts from what actually fails</li>
+                    <li><strong>Build</strong>: small, well-defined tasks instead of vibe-coded systems; a specification the model can read and follow; subagents for research, for pulling data through MCP servers, for editing; shared context files so every team gets consistent output</li>
+                    <li><strong>Test</strong>: generate test data straight from the user story, and let the model read the 3 a.m. stack trace without the 3 a.m. panic</li>
+                    <li><strong>Release and operate</strong>: models are already fluent in infrastructure as code, from Ansible to Kubernetes manifests</li>
+                    <li><strong>Legacy</strong>: explain and reverse-engineer the systems nobody fully understands anymore, which happens to be a fair description of my day job</li>
+                </ul>
+            </section>
+            <section class="doc-section" id="one-picture" aria-labelledby="one-picture-title">
+                <h2 class="anchor-heading" id="one-picture-title">The whole idea in one picture<a class="anchor" href="#one-picture" aria-label="Link to this section">#</a></h2>
+                <!-- Source mermaid (rendu en SVG statique, pas de lib côté client) :
+                     flowchart LR
+                       subgraph A[AI bolted onto one phase]
+                         R1[REQUIREMENTS] --> D1[DESIGN] --> B1[BUILD x3]:::ai --> T1[TEST] --> L1[RELEASE] --> O1[OPERATE] --> X1[delivery: barely moves]
+                       end
+                       subgraph B[Lifecycle redesigned around AI]
+                         R2[synthesize] --> D2[spec first] --> B2[small tasks] --> T2[test data] --> L2[IaC] --> O2[diagnose] --> X2[outcomes improve]
+                       end
+                       classDef ai fill:#FFE7DC,stroke:#FF4F00 -->
+                <figure class="post-diagram">
+                    <svg viewBox="0 0 720 206" role="img" aria-labelledby="diagram-title">
+                        <title id="diagram-title">Two versions of the software delivery lifecycle. First row: AI accelerates only the build phase and delivery barely moves. Second row: every phase is redesigned around AI, synthesize requirements, spec first, small tasks, generated test data, infrastructure as code, diagnosis, and outcomes improve.</title>
+                        <text x="4" y="14" font-size="10" class="d-dim">AI BOLTED ONTO ONE PHASE</text>
+                        <g font-size="9.5" text-anchor="middle">
+                            <rect class="d-box" x="4" y="24" width="88" height="30"/><text x="48" y="43">REQUIREMENTS</text>
+                            <rect class="d-box" x="110" y="24" width="88" height="30"/><text x="154" y="43">DESIGN</text>
+                            <rect class="d-box d-box--ai" x="216" y="24" width="88" height="30"/><text x="260" y="43" class="d-accent">BUILD ×3</text>
+                            <rect class="d-box" x="322" y="24" width="88" height="30"/><text x="366" y="43">TEST</text>
+                            <rect class="d-box" x="428" y="24" width="88" height="30"/><text x="472" y="43">RELEASE</text>
+                            <rect class="d-box" x="534" y="24" width="88" height="30"/><text x="578" y="43">OPERATE</text>
+                        </g>
+                        <g class="d-arrow">
+                            <line x1="93" y1="39" x2="103" y2="39"/><line x1="199" y1="39" x2="209" y2="39"/><line x1="305" y1="39" x2="315" y2="39"/><line x1="411" y1="39" x2="421" y2="39"/><line x1="517" y1="39" x2="527" y2="39"/><line x1="623" y1="39" x2="633" y2="39"/>
+                        </g>
+                        <g class="d-head">
+                            <polygon points="103,35.5 109,39 103,42.5"/><polygon points="209,35.5 215,39 209,42.5"/><polygon points="315,35.5 321,39 315,42.5"/><polygon points="421,35.5 427,39 421,42.5"/><polygon points="527,35.5 533,39 527,42.5"/><polygon points="633,35.5 639,39 633,42.5"/>
+                        </g>
+                        <text x="644" y="36" font-size="9.5" class="d-dim">delivery:</text>
+                        <text x="644" y="48" font-size="9.5" class="d-dim">barely moves</text>
+
+                        <text x="4" y="126" font-size="10" class="d-dim">LIFECYCLE REDESIGNED AROUND AI</text>
+                        <g font-size="9.5" text-anchor="middle">
+                            <rect class="d-box d-box--ai" x="4" y="136" width="88" height="30"/><text x="48" y="155">REQUIREMENTS</text>
+                            <rect class="d-box d-box--ai" x="110" y="136" width="88" height="30"/><text x="154" y="155">DESIGN</text>
+                            <rect class="d-box d-box--ai" x="216" y="136" width="88" height="30"/><text x="260" y="155">BUILD</text>
+                            <rect class="d-box d-box--ai" x="322" y="136" width="88" height="30"/><text x="366" y="155">TEST</text>
+                            <rect class="d-box d-box--ai" x="428" y="136" width="88" height="30"/><text x="472" y="155">RELEASE</text>
+                            <rect class="d-box d-box--ai" x="534" y="136" width="88" height="30"/><text x="578" y="155">OPERATE</text>
+                        </g>
+                        <g font-size="9" text-anchor="middle" class="d-accent">
+                            <text x="48" y="184">synthesize</text>
+                            <text x="154" y="184">spec first</text>
+                            <text x="260" y="184">small tasks</text>
+                            <text x="366" y="184">test data</text>
+                            <text x="472" y="184">IaC</text>
+                            <text x="578" y="184">diagnose</text>
+                        </g>
+                        <g class="d-arrow">
+                            <line x1="93" y1="151" x2="103" y2="151"/><line x1="199" y1="151" x2="209" y2="151"/><line x1="305" y1="151" x2="315" y2="151"/><line x1="411" y1="151" x2="421" y2="151"/><line x1="517" y1="151" x2="527" y2="151"/><line x1="623" y1="151" x2="633" y2="151"/>
+                        </g>
+                        <g class="d-head">
+                            <polygon points="103,147.5 109,151 103,154.5"/><polygon points="209,147.5 215,151 209,154.5"/><polygon points="315,147.5 321,151 315,154.5"/><polygon points="421,147.5 427,151 421,154.5"/><polygon points="527,147.5 533,151 527,154.5"/><polygon points="633,147.5 639,151 633,154.5"/>
+                        </g>
+                        <text x="644" y="148" font-size="9.5" class="d-accent">outcomes</text>
+                        <text x="644" y="160" font-size="9.5" class="d-accent">improve</text>
+                    </svg>
+                    <figcaption>Accelerating one box feeds the queues around it. Redesigning every box moves the outcome.</figcaption>
+                </figure>
+            </section>
+            <section class="doc-section" id="outcomes" aria-labelledby="outcomes-title">
+                <h2 class="anchor-heading" id="outcomes-title">Outcomes, not lines<a class="anchor" href="#outcomes" aria-label="Link to this section">#</a></h2>
+                <p>The conclusion is the part I would frame: the productivity gain does not come from a better model or a better tool, it comes from "redesigning the software delivery lifecycle around the model", as Clyburn puts it. The human role moves from typing to validating, which is exactly the flip I described in <a href="/blog/claude-assisted-by-a-human/">Claude assisted by a human</a>, arrived at from the org-chart side instead of the keyboard side.</p>
+                <div class="callout">
+                    <span class="co-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M8 7.5v3.5M8 5.2v.1" stroke-linecap="round"/></svg></span>
+                    <p>Amdahl's law applies to organizations too: <strong>speeding up one stage mostly reveals the cost of all the others</strong>.</p>
+                </div>
+                <p>And the measurement follows: not lines of code generated, but system health, maintainability, and how long a change takes to reach production. Those are the numbers I already answer for in front of my stakeholders, which is probably why this video felt less like a lesson and more like a colleague agreeing with unusual production values. Worth twelve minutes of your lifecycle.</p>
+            </section>
+            </article>
+            <nav class="page-next" aria-label="Continue"><a href="/blog/">← All articles</a><a class="next-primary" href="/blog/claude-in-the-enterprise/">Read: Claude in the enterprise →</a></nav>
+            <footer class="site-footer">
+            <div class="footer-grid">
+                <div class="footer-id">
+                    <a class="brand" href="/"><img class="brand-mark" src="/assets/img/logo-mark.png" width="30" height="30" alt="" aria-hidden="true"><span>Nicolas&nbsp;Pieper</span></a>
+                    <p class="footer-tag">Engineering Manager · Luxembourg</p>
+                    <p class="footer-exit" aria-hidden="true"><span class="fx-prompt">$</span> exit 0</p>
+                </div>
+                <nav class="footer-col" aria-label="Pages">
+                    <p class="side-title">Pages</p>
+                    <a href="/">Overview</a>
+                    <a href="/work/">Work</a>
+                    <a href="/blog/">Blog</a>
+                    <a href="/cv/">CV</a>
+                </nav>
+                <nav class="footer-col" aria-label="Elsewhere">
+                    <p class="side-title">Elsewhere</p>
+                    <a href="https://www.linkedin.com/in/nicolaspieper" rel="me noopener" target="_blank">LinkedIn<span aria-hidden="true"> ↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+                    <a href="https://github.com/nclsppr" rel="me noopener" target="_blank">GitHub<span aria-hidden="true"> ↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+                    <a href="mailto:nicolas@pieper.fr">nicolas@pieper.fr</a>
+                </nav>
+                <nav class="footer-col" aria-label="Site">
+                    <p class="side-title">Site</p>
+                    <a href="/fr/blog/ai-in-the-sdlc/" hreflang="fr" lang="fr">Version française</a>
+                    <a href="/v2022/" rel="nofollow">v2022 archive</a>
+                    <a href="https://github.com/nclsppr/personal" rel="me noopener" target="_blank">Source<span aria-hidden="true"> ↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+                </nav>
+            </div>
+            <div class="footer-base">
+                <p>© 2026 Nicolas Pieper · Luxembourg</p>
+                <p>Set in Inter, Source Serif 4 &amp; JetBrains Mono. Static site, no tracking.</p>
+            </div>
+        </footer>
+        </main>
+    </div>
+    <script src="/assets/js/site.js" defer></script>
+    <script>
+    /* Façade vidéo : l'iframe youtube-nocookie n'est créée qu'au clic.
+       Sans JavaScript, la façade reste un lien vers YouTube. */
+    (function () {
+        var f = document.getElementById('videoFacade');
+        if (!f) return;
+        f.addEventListener('click', function (e) {
+            e.preventDefault();
+            var wrap = document.createElement('div');
+            wrap.className = 'video-embed';
+            var i = document.createElement('iframe');
+            i.src = f.getAttribute('data-embed');
+            i.title = f.getAttribute('data-title');
+            i.setAttribute('allow', 'autoplay; encrypted-media; picture-in-picture; web-share');
+            i.setAttribute('allowfullscreen', '');
+            wrap.appendChild(i);
+            f.replaceWith(wrap);
+        });
+    })();
+    </script>
+</body>
+</html>

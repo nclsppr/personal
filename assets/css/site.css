@@ -1058,6 +1058,66 @@ a.card:hover { text-decoration: none; border-color: var(--accent); box-shadow: v
   margin-inline: auto;
 }
 
+/* Façade vidéo : aucune requête tierce avant le clic (fidèle au « sans
+   tracking » du site). Sans JavaScript, la façade est un lien YouTube ;
+   au clic, un petit script la remplace par l'iframe youtube-nocookie. */
+.video-facade {
+  position: relative;
+  display: block;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-2);
+  margin: 26px 0 8px;
+}
+.video-facade img { display: block; width: 100%; height: auto; }
+.video-facade .vf-play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 72px;
+  height: 50px;
+  border-radius: 12px;
+  background: rgba(23, 23, 22, 0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+.video-facade .vf-play svg { width: 26px; height: 26px; fill: #FFF; margin-left: 3px; }
+.video-facade:hover .vf-play { background: var(--brand); transform: scale(1.06); }
+.video-embed { margin: 26px 0 8px; }
+.video-embed iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-2);
+}
+.vf-note {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin: 0 0 26px;
+}
+
+/* Diagramme d'article : SVG inline aux tokens du site (pas de lib). */
+.post-diagram { margin: 26px 0; }
+.post-diagram svg { display: block; width: 100%; height: auto; }
+.post-diagram .d-box { fill: var(--bg-raised); stroke: var(--border-strong); rx: 4px; }
+.post-diagram .d-box--ai { fill: var(--accent-soft); stroke: var(--accent); }
+.post-diagram text { font-family: var(--font-mono); fill: var(--ink); }
+.post-diagram .d-dim { fill: var(--muted); }
+.post-diagram .d-accent { fill: var(--accent-ink); font-weight: 600; }
+.post-diagram .d-arrow { stroke: var(--border-strong); stroke-width: 1.4; fill: none; }
+.post-diagram .d-head { fill: var(--border-strong); }
+.post-diagram figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
 /* Pages d'erreur (404.html et 4xx/5xx à la racine). Mise en page centrée,
    sans header ni footer : le lien brand ramène à l'accueil. Le terminal
    rejoue l'erreur HTTP en session shell (echo $? renvoie le code). Entrée
