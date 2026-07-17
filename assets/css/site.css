@@ -1156,6 +1156,32 @@ a.card:hover { text-decoration: none; border-color: var(--accent); box-shadow: v
   .err > * { opacity: 0; transform: translateY(10px); }
 }
 
+/* Sticker 404 : Pampy rapporte un bout de page (« fetch failed »).
+   Entrée avec un léger pop incliné (la 404 est le seul budget delight
+   du site), puis ébrouement de chien au survol ou au toucher.
+   prefers-reduced-motion (bloc global) fige tout instantanément. */
+.err .err-sticker { margin: 10px 0 0; }
+.err .err-sticker img {
+  width: min(52vw, 220px);
+  height: auto;
+  transform-origin: 50% 88%;
+}
+@starting-style {
+  .err > .err-sticker { transform: translateY(12px) scale(0.9) rotate(-5deg); }
+}
+@media (hover: hover) and (pointer: fine) {
+  .err-sticker img:hover { animation: pampy-shake 0.6s ease-in-out; }
+}
+.err-sticker img:active { animation: pampy-shake 0.6s ease-in-out; }
+@keyframes pampy-shake {
+  0%   { transform: rotate(0); }
+  20%  { transform: rotate(-6deg) scale(1.04); }
+  40%  { transform: rotate(5deg)  scale(1.04); }
+  60%  { transform: rotate(-3deg) scale(1.02); }
+  80%  { transform: rotate(2deg)  scale(1.01); }
+  100% { transform: rotate(0)     scale(1); }
+}
+
 /* --------------------------------------------------------------------------
    Responsive
    -------------------------------------------------------------------------- */

@@ -5,6 +5,20 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-17 - La 404 adopte Pampy (sticker « fetch failed »)
+
+- Sticker généré par Nicolas (Pampy casquette pizza, bandana « Pizza
+  Pieper », bout de page déchiré dans la gueule) intégré à la 404.
+  Le fond gris du générateur a été détouré localement (flood-fill
+  Pillow depuis les bords, le bord die-cut blanc servant de frontière,
+  plus nettoyage de résidus) ; export WebP 460 px, 73 Ko, le bord blanc
+  porte les deux thèmes.
+- Animations dans le budget delight de la 404 : entrée en pop incliné
+  (scale + rotation via @starting-style, dans le fondu décalé existant)
+  et ébrouement de chien au survol ou au toucher (keyframes
+  pampy-shake, pivot aux pattes, hover gated pointer fine, :active pour
+  le tactile). prefers-reduced-motion fige tout via le bloc global.
+
 ## 2026-07-17 - Quatrième article : l'IA dans le SDLC (vidéo IBM)
 
 - Nouvel article bilingue « Coder plus vite n'est pas livrer plus vite »
