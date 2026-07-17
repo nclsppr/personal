@@ -5,6 +5,20 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-17 - Articles : terminaux et callouts alignés sur la prose
+
+- Constat de Nicolas : dans les articles, terminaux et callouts
+  paraissaient surdimensionnés. Cause : la prose est plafonnée à 60ch
+  (lisibilité) mais ces blocs s'étiraient sur toute la colonne de
+  53rem, soit ~40 % plus larges que le texte qu'ils interrompent.
+- Correctif : dans le flux d'un article (scope `article`, qui ne touche
+  ni le terminal-vitrine de l'accueil ni les pages d'erreur), .terminal
+  et .callout partagent la mesure 60ch de la prose. Les figures
+  visuelles (héros, diagramme, façade vidéo) conservent leur débord
+  volontaire, façon respiration éditoriale. Règle consignée dans le
+  template d'article : blocs de texte = mesure de la prose, seules les
+  figures visuelles débordent.
+
 ## 2026-07-17 - Blog : dates étalées sur 2026 et passe typo/UI
 
 - Dates de publication réparties sur l'année (choix éditorial de

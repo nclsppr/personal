@@ -67,6 +67,12 @@ contenu, tirets longs interdits, parité FR/EN) restent définies dans
 Aucune lib externe, aucun CDN, pas de CSS ad hoc : si un besoin ne rentre
 dans aucun composant, l'ajouter proprement à `site.css` (section Blog).
 
+Règle de mesure : dans le flux d'un article, les blocs porteurs de texte
+(terminal, callout) partagent la mesure de la prose (60ch, déjà géré par
+`.content article ...` dans site.css). Seules les figures visuelles
+(post-hero, post-diagram, video-facade) débordent volontairement de la
+colonne de texte.
+
 ## 5. Contenu
 
 - Première personne, voix de Nicolas : sobre, concret, phrases courtes,
