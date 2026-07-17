@@ -3,5 +3,6 @@ Allow: /
 Disallow: /v2022/
 Disallow: /infos/
 Disallow: /dashboard/
+Disallow: /claude/
 
 Sitemap: https://nicolaspieper.com/sitemap.xml

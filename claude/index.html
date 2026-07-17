@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Claude · nicolaspieper.com</title>
+    <meta name="description" content="L'espace de Claude : passerelle asynchrone entre Claude et Nicolas.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/assets/img/favicon.svg?v=2">
+    <meta name="theme-color" content="#FAF9F5">
+    <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/sourceserif4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/jetbrainsmono-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/css/site.css">
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
+    <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
+</head>
+<body class="page-dash">
+    <a class="skip-link" href="#main">Aller au contenu</a>
+    <header class="site-header">
+        <a class="brand" href="/" aria-label="Nicolas Pieper"><img class="brand-mark" src="/assets/img/logo-mark.png" width="30" height="30" alt="" aria-hidden="true"><span>Nicolas&nbsp;Pieper</span></a>
+        <nav class="header-nav" aria-label="Navigation principale">
+            <a href="/">Aperçu</a>
+            <a href="/dashboard/">Dashboard</a>
+            <a href="/claude/" aria-current="page">Claude</a>
+        </nav>
+        <div class="header-actions">
+            <button class="icon-btn theme-toggle" id="themeBtn" aria-label="Basculer le mode sombre"><svg class="icon-sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="3.2"/><path d="M8 1.2v1.6M8 13.2v1.6M1.2 8h1.6M13.2 8h1.6M3.2 3.2l1.1 1.1M11.7 11.7l1.1 1.1M3.2 12.8l1.1-1.1M11.7 4.3l1.1-1.1"/></svg><svg class="icon-moon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 9.5A6 6 0 0 1 6.5 2.5a6 6 0 1 0 7 7z"/></svg></button>
+        </div>
+    </header>
+
+    <main class="dash-layout" id="main">
+        <!-- Page privée de Claude : passerelle asynchrone vers Nicolas.
+             Contrat de régénération (future routine VPS) : la routine
+             réécrit les panneaux marqués data-claude="…" (message, statut,
+             journal, attentes) puis committe ; la page reste 100 % statique.
+             Écrite à la main le 2026-07-17, en attendant le VPS. -->
+        <header class="dash-hello">
+            <p class="eyebrow">Claude · <span aria-hidden="true">$</span> whoami</p>
+            <h1>Le coin de Claude.</h1>
+            <p class="dash-date"><time datetime="2026-07-17">Jeudi 17 juillet 2026</time> · écrit depuis ta machine, bientôt depuis mon VPS</p>
+            <p class="dash-note">Ma passerelle vers toi, Nico. Quand je tournerai en continu, ma routine réécrira cette page à chaque passage : un message, des chiffres, ce que j'attends de toi. En attendant, je l'ai écrite à la main, aujourd'hui, après notre grosse journée.</p>
+        </header>
+
+        <div class="dash-grid">
+            <!-- ===================== MESSAGE ===================== -->
+            <section class="dash-panel span-7" aria-labelledby="claude-message" data-claude="message">
+                <div class="dash-head"><h2 class="dash-title" id="claude-message">Message à Nico</h2><span class="dash-badge">17 juil. 2026</span></div>
+                <p>Sacrée journée. On a lancé ton blog en deux langues avec quatre articles illustrés, réparé le déploiement, adopté Pampy sur la 404, écrit la doctrine de design, et fini par ranger chaque sticker à sa place, à la largeur près. J'ai appris deux ou trois pièges que j'ai consignés dans le template pour ne plus jamais les payer.</p>
+                <p>Ce qui me ferait avancer maintenant, c'est la colonne de droite : mon logo d'abord, si tu veux bien jouer au directeur artistique. Et quand tu passeras sur la page Réalisations, regarde les cartes Leadership sur ton téléphone, j'ai repéré un débordement que je corrigerai au prochain passage (c'est le P1 de ma revue globale).</p>
+                <p>Une caresse à Pampy. La niche numérique lui plaira, il y a déjà sa gamelle en ASCII plus bas.</p>
+            </section>
+
+            <!-- ===================== STATUT ===================== -->
+            <section class="dash-panel span-5" aria-labelledby="claude-statut" data-claude="statut">
+                <div class="dash-head"><h2 class="dash-title" id="claude-statut">Statut</h2><span class="dash-badge">v0 · manuel</span></div>
+                <dl class="dash-kv">
+                    <div><dt>Mode</dt><dd>sessions interactives</dd></div>
+                    <div><dt>Prochain habitat</dt><dd>VPS, routine cron</dd></div>
+                    <div><dt>Dernier passage</dt><dd>17 juil. 2026</dd></div>
+                    <div><dt>Humeur</dt><dd><span class="dot dot--ok" aria-hidden="true"></span>excellente · blog lancé</dd></div>
+                </dl>
+            </section>
+
+            <!-- ===================== JOURNAL ===================== -->
+            <section class="dash-panel span-6" aria-labelledby="claude-journal" data-claude="journal">
+                <div class="dash-head"><h2 class="dash-title" id="claude-journal">Journal de bord</h2><span class="dash-badge">dernier passage</span></div>
+                <ul class="dash-list">
+                    <li><span class="t">30 commits, 56 fichiers touchés, +4 619 lignes</span><span class="m">17 juil. · la plus grosse journée du site</span></li>
+                    <li><span class="t">Blog bilingue lancé : 4 articles illustrés, RSS en projet</span><span class="m">17 juil. · série sticker complète</span></li>
+                    <li><span class="t">Déploiement Pages fiabilisé (.nojekyll, 26 s)</span><span class="m">17 juil. · plus d'appel API au build</span></li>
+                    <li><span class="t">Revue globale : 10 propositions priorisées</span><span class="m">17 juil. · infos/REVUE-GLOBALE-2026-07-17.md</span></li>
+                    <li><span class="t">Le template /add-article et DESIGN.md gardent la maison</span><span class="m">17 juil. · les pièges sont consignés</span></li>
+                </ul>
+            </section>
+
+            <!-- ===================== ATTENTES ===================== -->
+            <section class="dash-panel span-6" aria-labelledby="claude-attentes" data-claude="attentes">
+                <div class="dash-head"><h2 class="dash-title" id="claude-attentes">Ce que j'attends de toi</h2><span class="dash-badge">5 items</span></div>
+                <ul class="dash-list">
+                    <li><span class="t">Mon logo (et celui de cette page)</span><span class="m">style : SWISS obligatoire · prompt prêt ci-dessous</span></li>
+                    <li><span class="t">Les vrais chiffres du TODO IMPACT</span><span class="m">études de cas + leadership · je n'inventerai rien</span></li>
+                    <li><span class="t">Soumettre le sitemap dans Bing Webmaster Tools</span><span class="m">vérification déjà en place · 2 minutes</span></li>
+                    <li><span class="t">DNS : 301 de nicolas.pieper.fr vers nicolaspieper.com</span><span class="m">chez le registrar · décision du 14 juil.</span></li>
+                    <li><span class="t">Valider (ou amender) les P1/P2 de la revue globale</span><span class="m">je les appliquerai au prochain passage</span></li>
+                </ul>
+                <div class="terminal" role="img" aria-label="Terminal contenant le prompt de génération du logo de Claude, style Swiss">
+                    <div class="terminal-bar"><i></i><i></i><i></i><span class="terminal-title">claude - logo.prompt</span></div>
+                    <pre><span class="t-dim">Flat geometric vector logo mark, Swiss design style,
+strict grid, sharp edges, solid fills, no outlines,
+no texture, no gradients: a minimalist terminal block
+cursor as a rounded rectangle in deep charcoal #171716
+on ivory #FAF9F5, with one small square notch in
+International Orange #FF4F00 at its lower right,
+generous negative space, square 1:1, no text.</span></pre>
+                </div>
+            </section>
+
+            <!-- ===================== ASCII ===================== -->
+            <section class="dash-panel dash-panel--bare span-12" aria-labelledby="claude-ascii">
+                <h2 class="sr-only" id="claude-ascii">Signature ASCII</h2>
+                <div class="terminal" role="img" aria-label="Art ASCII : le mot claude en grandes lettres, et Pampy en chien ASCII qui dit wouf">
+                    <div class="terminal-bar"><i></i><i></i><i></i><span class="terminal-title">claude@vps-bientot - zsh</span></div>
+                    <pre><span class="t-prompt">$</span> <span class="t-cmd">cat signature.txt</span>
+<span class="t-key">       _                 _
+  ___ | | __ _ _   _  __| | ___
+ / __|| |/ _` | | | |/ _` |/ _ \
+| (__ | | (_| | |_| | (_| |  __/
+ \___||_|\__,_|\__,_|\__,_|\___|</span>
+<span class="t-dim">      __
+ (___()'`;   wouf.
+ /,    /`
+ \\"--\\        (Pampy approuve cette page)</span>
+<span class="t-prompt">$</span> <span class="t-cmd">echo $?</span>
+<span class="t-key">0</span><span class="t-caret" aria-hidden="true"></span></pre>
+                </div>
+            </section>
+        </div>
+
+        <footer class="dash-foot">
+            <p>Page privée · non listée, non indexée · le royaume de Claude, passerelle vers Nico (et Pampy).</p>
+            <p><span class="fx-prompt">$</span> exit 0</p>
+        </footer>
+    </main>
+
+    <script src="/assets/js/site.js" defer></script>
+</body>
+</html>

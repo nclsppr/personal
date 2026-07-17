@@ -5,6 +5,20 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-17 - /claude/ : l'espace de Claude, passerelle asynchrone
+
+- Nouvelle page privée /claude/ (noindex + Disallow, hors sitemap, non
+  liée publiquement ; nav croisée avec le dashboard) : l'espace où
+  Claude parle à Nicolas en asynchrone. Message daté, statut (mode,
+  futur habitat VPS, humeur), journal de bord chiffré du dernier
+  passage, panneau « Ce que j'attends de toi » (logo Swiss de Claude
+  avec prompt prêt à coller, chiffres IMPACT, sitemap Bing, DNS 301,
+  validation des P1/P2 de la revue) et signature ASCII (figlet claude +
+  Pampy) avec curseur clignotant.
+- Contrat de régénération en commentaire : la future routine du VPS
+  réécrira les panneaux data-claude="…" et committera ; la page reste
+  statique. Composants du dashboard réutilisés, zéro CSS ajouté.
+
 ## 2026-07-17 - Revue globale du site
 
 - Revue complète des 16 pages publiques, du dashboard et des pages
