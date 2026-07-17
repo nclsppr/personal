@@ -23,6 +23,7 @@
 }
 
 /* ---------- En-tête de page ---------- */
+.dash-hello .claude-mark { display: block; margin-bottom: 14px; }
 .dash-hello .eyebrow { margin-bottom: 6px; }
 .dash-hello h1 { margin: 0 0 6px; }
 .dash-date {

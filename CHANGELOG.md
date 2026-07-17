@@ -5,6 +5,18 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-17 - La marque de Claude (logo de Nicolas, vectorisé)
+
+- Nicolas a généré le logo de Claude le soir même (style Swiss du
+  prompt de /claude/ : curseur-bloc encre à encoche, carré orange
+  niché). L'original JPEG a un fond papier : vectorisation fidèle en
+  SVG (assets/img/claude-mark.svg), carré orange légèrement plus
+  généreux que l'original par adaptation optique pour la lisibilité en
+  favicon 16 px.
+- /claude/ signé : favicon dédié, marque au-dessus du titre, message et
+  journal mis à jour, le logo sort du panneau des attentes (4 items),
+  prompt de génération retiré (mission accomplie).
+
 ## 2026-07-17 - /claude/ : l'espace de Claude, passerelle asynchrone
 
 - Nouvelle page privée /claude/ (noindex + Disallow, hors sitemap, non

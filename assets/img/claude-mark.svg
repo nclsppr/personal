@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Marque de Claude : curseur-bloc à encoche, carré orange niché.
+       Vectorisation fidèle du logo créé par Nicolas le 2026-07-17
+       (original : génération IA sur fond papier, géométrie reprise ici
+       à l'identique). Angles extérieurs arrondis, encoche vive. -->
+  <path fill="#171716" d="M30 14 H70 Q86 14 86 30 V62 H62 V86 H30 Q14 86 14 70 V30 Q14 14 30 14 Z"/>
+  <rect fill="#FF4F00" x="66" y="66" width="20" height="20"/>
+</svg>
