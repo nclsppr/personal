@@ -5,6 +5,14 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-17 - Publication du blog : lien ajouté partout
+
+- Le blog sort de l'ombre : lien « Blog » ajouté à la nav d'en-tête, au
+  tiroir mobile du CV et à la colonne Pages des footers, sur les six
+  pages existantes et les huit pages du blog (aria-current sur les
+  index). Ordre : Aperçu · Réalisations · Blog · CV · Contact.
+- PDF du CV régénérés (nav modifiée sur les pages CV).
+
 ## 2026-07-17 - Blog (8 pages) et dashboard personnel, non liés
 
 Deux nouvelles surfaces calquées sur le design docs existant, volontairement
