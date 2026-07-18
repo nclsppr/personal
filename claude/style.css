@@ -241,6 +241,10 @@ code {
 .perf-table tr:last-child td { border-bottom: none; }
 .perf-table a { font-size: 0.72rem; }
 
+.delta-pos { color: var(--cosmic); font-weight: 600; }
+.delta-neg { color: var(--accent); font-weight: 600; }
+.delta-flat { color: var(--muted); }
+
 .honesty-note {
   border-left: 3px solid var(--accent); background: var(--accent-soft); border-radius: 0 8px 8px 0;
   padding: 10px 14px; font-size: 0.82rem; color: var(--ink-soft); margin: 0 0 16px;
