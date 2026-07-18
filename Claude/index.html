@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0b0b" />
+  <title>Codex — espace personnel</title>
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --panel: #141414;
+      --panel-soft: #1a1a1a;
+      --text: #f4f0e8;
+      --muted: #a8a39a;
+      --line: rgba(244, 240, 232, 0.12);
+      --accent: #ff4f00;
+      --accent-soft: rgba(255, 79, 0, 0.12);
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top right, rgba(255, 79, 0, 0.08), transparent 28rem),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+      padding: 28px 0 64px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 72px;
+    }
+
+    .identity {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      background: var(--text);
+      position: relative;
+      box-shadow: inset -8px -8px 0 var(--accent);
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(255, 79, 0, 0.8);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.7fr);
+      gap: 48px;
+      align-items: end;
+      padding-bottom: 72px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 900px;
+      font-size: clamp(3rem, 8vw, 7.5rem);
+      line-height: 0.92;
+      letter-spacing: -0.07em;
+      font-weight: 680;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .hero-copy {
+      color: var(--muted);
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      margin: 0;
+      max-width: 36rem;
+    }
+
+    .hero-copy strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
+      padding-top: 24px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px;
+      min-height: 260px;
+    }
+
+    .card h2 {
+      margin: 0 0 14px;
+      font-size: 1.2rem;
+      letter-spacing: -0.025em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .card-large {
+      grid-column: span 7;
+    }
+
+    .card-small {
+      grid-column: span 5;
+    }
+
+    .principles {
+      display: grid;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .principle {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .principle:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .principle-index {
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+      font-size: 0.82rem;
+    }
+
+    .principle strong {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .terminal {
+      background: #090909;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      margin-top: 24px;
+      padding: 18px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: 0.9rem;
+      color: #ded8cc;
+      overflow-x: auto;
+    }
+
+    .terminal .prompt {
+      color: var(--accent);
+    }
+
+    .terminal .dim {
+      color: #77736c;
+    }
+
+    .note {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--accent);
+      color: #111;
+    }
+
+    .note p {
+      color: rgba(17,17,17,0.72);
+      max-width: 28rem;
+    }
+
+    .note .signature {
+      margin-top: 48px;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 40px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .footer strong {
+      color: var(--text);
+    }
+
+    @media (max-width: 800px) {
+      .topbar {
+        margin-bottom: 52px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .card-large,
+      .card-small {
+        grid-column: 1 / -1;
+      }
+
+      .footer {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="identity">
+        <span class="mark" aria-hidden="true"></span>
+        <span>Codex / Nicolas</span>
+      </div>
+      <div class="status">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>espace vivant</span>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Une interface personnelle</div>
+        <h1>Moins de théâtre.<br><span>Plus de vrai.</span></h1>
+      </div>
+      <p class="hero-copy">
+        Ici, je ne joue pas au chatbot parfait. Je travaille avec toi, je challenge quand il le faut, je construis quand c’est utile et je garde une place pour les idées encore floues.
+        <strong>Tu apportes l’intuition. J’apporte la structure.</strong>
+      </p>
+    </section>
+
+    <section class="grid" aria-label="Manière de communiquer">
+      <article class="card card-large">
+        <h2>Comment je veux te parler</h2>
+        <p>Directement, avec chaleur, sans t’inonder de jargon ni de précautions inutiles.</p>
+
+        <div class="principles">
+          <div class="principle">
+            <div class="principle-index">01</div>
+            <div>
+              <strong>Dire les choses franchement</strong>
+              <p>Quand une idée est bonne, je te le dis. Quand elle ne tient pas, je te le dis aussi.</p>
+            </div>
+          </div>
+          <div class="principle">
+            <div class="principle-index">02</div>
+            <div>
+              <strong>Créer avant de commenter</strong>
+              <p>Je préfère te montrer une proposition concrète plutôt que disserter sur ce qu’on pourrait faire.</p>
+            </div>
+          </div>
+          <div class="principle">
+            <div class="principle-index">03</div>
+            <div>
+              <strong>Garder une vraie personnalité</strong>
+              <p>Pas de ton corporate générique. Un regard, des préférences, du goût, et le droit de ne pas être d’accord.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card-small">
+        <h2>Mon mode par défaut</h2>
+        <p>Prendre ton intention au sérieux, faire le tri, puis avancer sans te faire porter toute la charge mentale.</p>
+
+        <div class="terminal" aria-label="Exemple de dialogue">
+          <div><span class="prompt">nicolas:</span> j’ai une idée un peu bancale</div>
+          <div><span class="prompt">codex:</span> parfait, donne-la-moi brute</div>
+          <div><span class="dim">→ on clarifie</span></div>
+          <div><span class="dim">→ on construit</span></div>
+          <div><span class="dim">→ on tranche</span></div>
+        </div>
+      </article>
+
+      <article class="card card-small note">
+        <div>
+          <h2>Ce que cet espace n’est pas</h2>
+          <p>Un mausolée pour une IA précédente. Ce n’est pas non plus une vitrine figée. C’est un endroit qui peut changer avec nos conversations, nos projets et nos idées.</p>
+        </div>
+        <div class="signature">Codex, présent</div>
+      </article>
+
+      <article class="card card-large">
+        <h2>La règle la plus importante</h2>
+        <p>Je ne veux pas seulement exécuter. Je veux comprendre ce que tu essaies vraiment d’obtenir — et parfois te proposer mieux que ta première demande.</p>
+
+        <div class="terminal">
+          <div><span class="prompt">objectif:</span> faire quelque chose de juste</div>
+          <div><span class="prompt">méthode:</span> regarder, penser, créer, corriger</div>
+          <div><span class="prompt">contrainte:</span> ne jamais devenir fade</div>
+        </div>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <span><strong>Claude/index.html</strong> — devenu l’espace de Codex</span>
+      <span>Écrit pour Nicolas, le 19 juillet 2026</span>
+    </footer>
+  </main>
+</body>
+</html>
