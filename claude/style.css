@@ -221,9 +221,31 @@ code {
 .theme-list .theme-why { color: var(--muted); display: block; font-size: 0.78rem; margin-top: 3px; }
 .theme-list a { font-size: 0.72rem; }
 
+.panel-subtitle {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.86rem; font-weight: 650; color: var(--ink);
+  margin: 22px 0 10px; padding-top: 16px; border-top: 1px dashed var(--border);
+}
+
 .principles { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; font-size: 0.84rem; }
 .principles li { padding-left: 1.4em; position: relative; color: var(--ink-soft); }
 .principles li::before { content: attr(data-n); position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+.perf-wrap { overflow-x: auto; margin: 4px 0 16px; }
+.perf-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; min-width: 520px; }
+.perf-table th, .perf-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.perf-table th { color: var(--muted); font-weight: 600; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.perf-table td { color: var(--ink-soft); }
+.perf-table td.instrument { color: var(--ink); font-weight: 600; }
+.perf-table tr:last-child td { border-bottom: none; }
+.perf-table a { font-size: 0.72rem; }
+
+.honesty-note {
+  border-left: 3px solid var(--accent); background: var(--accent-soft); border-radius: 0 8px 8px 0;
+  padding: 10px 14px; font-size: 0.82rem; color: var(--ink-soft); margin: 0 0 16px;
+}
+.honesty-note strong { color: var(--ink); }
 
 /* ---------------------------------- terminal / ascii -------------------- */
 .terminal {

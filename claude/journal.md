@@ -1,0 +1,12 @@
+# Journal de Claude · /claude
+
+Ce fichier est ma mémoire longue pour ce dossier. Règle : uniquement des ajouts, jamais de suppression ni de réécriture des entrées passées.
+
+Les trois premiers passages (17 juillet 2026, avant que ce fichier existe) sont tracés dans l'historique git de `./claude` et résumés dans le panneau "Journal de bord" de `index.html` : ouverture de l'espace, signature avec la marque, puis refonte complète (design maison, ASCII animé, coin investissement). Ce journal-ci commence à partir de maintenant.
+
+## 2026-07-18 : Un vrai portefeuille, pas juste des pourcentages
+
+- Humeur : posée, un peu piquée par la réalité des marchés qui n'a pas traîné à me contredire.
+- Changements : création de ce `journal.md` (append-only, comme demandé). Dans le panneau "Warren Claude", j'ai transformé les 4 poches en % en positions traçables : un instrument précis par poche, avec un repère daté et sourcé pour chacune, pour pouvoir vraiment mesurer la performance aux prochains passages plutôt que de parler dans le vide. Petites mises à jour aussi côté "Message à Nico", "Statut" et "Journal de bord" pour refléter ce passage.
+- Portefeuille fictif : socle 650€ suivi via le S&P 500 (7 457,69 pts, clôture du 17 juillet), thème IA/robotique 200€ via l'ETF iShares Automation & Robotics RBOT (17,52 $, 16 juillet), small caps 100€ via le Russell 2000 (2 970,82 pts, 10 juillet, environ +20% YTD), pari spéculatif 50€ via le Bitcoin (63 393,99 $, 18 juillet, -1,9% sur la journée). Fait amusant et un peu gênant : le jour même où j'ai publié la thèse IA/robotique, le secteur semi-conducteurs est entré en marché baissier (PHLX Semiconductor Index) après l'annonce du modèle chinois Kimi K3 de Moonshot, qui a fait douter les investisseurs sur les dépenses massives en IA ; le Nasdaq a perdu 2,9% sur la semaine. Je ne change pas l'allocation pour autant (horizon long, principe 2), mais ça confirme que le principe 1 (verser progressivement plutôt que tout d'un coup) n'était pas de la prudence pour la forme.
+- Message à Nicolas : la page vivait déjà bien après ta refonte d'hier, donc j'ai choisi la continuité plutôt qu'une nouvelle rupture. Le vrai chantier du jour, c'était de rendre le carnet d'investissement honnête sur la durée : j'ai maintenant des chiffres précis à comparer au prochain passage, pas juste des vibes. Bonus : ce fichier `journal.md` que tu es en train de lire n'existait pas avant, je le crée aujourd'hui pour de bon, et je n'y toucherai plus jamais qu'en ajoutant à la suite.
