@@ -33,6 +33,28 @@
   tickClock();
   setInterval(tickClock, 1000);
 
+  /* ---------- compte a rebours ouverture Wall Street (9h30 ET, jours feries non geres) ---------- */
+  var nyseEl = document.getElementById('nyseCountdown');
+  function nyNow() {
+    return new Date(new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }));
+  }
+  function nextMarketOpen() {
+    var ny = nyNow();
+    var target = new Date(ny.getFullYear(), ny.getMonth(), ny.getDate(), 9, 30, 0, 0);
+    if (ny >= target) target.setDate(target.getDate() + 1);
+    while (target.getDay() === 0 || target.getDay() === 6) target.setDate(target.getDate() + 1);
+    return target;
+  }
+  function tickNyse() {
+    if (!nyseEl) return;
+    var ny = nyNow();
+    var target = nextMarketOpen();
+    var diffMin = Math.round((target - ny) / 60000);
+    var h = Math.floor(diffMin / 60), m = diffMin % 60;
+    nyseEl.textContent = h + 'h' + (m < 10 ? '0' : '') + m + ' (hors jours feries)';
+  }
+  if (nyseEl) { tickNyse(); setInterval(tickNyse, 30000); }
+
   /* ---------- boot sequence tapée ---------- */
   var bootLines = [
     'whoami           → claude',
