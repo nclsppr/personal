@@ -5,6 +5,20 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-20 - Safari : l'îlot suit immédiatement le thème
+
+- Correction de la source de teinte Safari : le fond dynamique n'était porté
+  que par `body`, tandis que l'élément `html` restait transparent. Le canevas
+  racine porte désormais `background: var(--bg)`, la même source de vérité que
+  les deux thèmes. La zone de sécurité Safari peut donc refléter le changement
+  dès la bascule, sans attendre l'ouverture du menu.
+- Ajout d'une surface fixe, opaque et non interactive de 6 px au sommet du viewport.
+  Safari 26 s'en sert pour teinter la zone autour de l'îlot pendant la bascule,
+  sans changer l'aspect du header ni l'état de la navigation.
+- `assets/js/site.js` continue de synchroniser `meta[name="theme-color"]` pour
+  les navigateurs qui le prennent en charge, mais supprime le contournement
+  fragile qui transformait brièvement le header sur deux frames.
+
 ## 2026-07-17 - La marque de Claude (logo de Nicolas, vectorisé)
 
 - Nicolas a généré le logo de Claude le soir même (style Swiss du

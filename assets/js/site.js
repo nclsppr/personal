@@ -30,30 +30,30 @@
 
   var THEME_COLOR = { light: '#FAF9F5', dark: '#262624' };
 
+  function createSafariThemeSurface() {
+    var surface = document.getElementById('safariThemeSurface');
+    if (surface) return surface;
+
+    surface = document.createElement('div');
+    surface.id = 'safariThemeSurface';
+    surface.className = 'safari-theme-surface';
+    surface.setAttribute('aria-hidden', 'true');
+    document.body.insertBefore(surface, document.body.firstChild);
+    return surface;
+  }
+
+  var safariThemeSurface = createSafariThemeSurface();
+
   /* ---------- Theme ---------- */
   function applyThemeColor(theme) {
     var color = THEME_COLOR[theme] || THEME_COLOR.light;
 
-    // Update the single meta in place. Correct DOM state, sufficient on Android
-    // Chrome / desktop Safari, and keeps the node identity the anti-flash <head>
-    // script relies on.
+    // Safari 26 follows this solid fixed surface instead of theme-color.
+    if (safariThemeSurface) safariThemeSurface.style.backgroundColor = color;
+
+    // Keep browser chrome in sync where theme-color is supported.
     var meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute('content', color);
-
-    // iOS Safari (viewport-fit=cover) only re-samples the status-bar / Dynamic
-    // Island tint on a top-of-viewport compositing commit - which is why opening
-    // the menu (fixed backdrop + sidebar) refreshes it but a bare .content write,
-    // changing no layer, does not. Reproduce that commit by nudging the header,
-    // already its own layer via backdrop-filter, with a Z-only transform across
-    // two frames: forces a layer-tree transaction with no 2D movement (no flash).
-    var header = document.querySelector('.site-header');
-    if (header && typeof requestAnimationFrame === 'function') {
-      var prev = header.style.transform;
-      requestAnimationFrame(function () {
-        header.style.transform = 'translateZ(0)';
-        requestAnimationFrame(function () { header.style.transform = prev; });
-      });
-    }
   }
 
   var themeBtn = document.getElementById('themeBtn');
@@ -68,7 +68,9 @@
     themeBtn.setAttribute('aria-label', dark ? THEME_LABEL.toLight : THEME_LABEL.toDark);
     themeBtn.setAttribute('aria-pressed', String(dark));
   }
-  syncThemeButton(document.documentElement.dataset.theme);
+  var initialTheme = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+  applyThemeColor(initialTheme);
+  syncThemeButton(initialTheme);
 
   if (themeBtn) {
     themeBtn.addEventListener('click', function () {
