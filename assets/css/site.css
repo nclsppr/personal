@@ -209,9 +209,11 @@ img { max-width: 100%; height: auto; }
   display: flex;
   align-items: center;
   gap: 20px;
-  background: color-mix(in srgb, var(--bg) 88%, transparent);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
+  /* Safari needs one solid color on the fixed element touching the viewport.
+     A backdrop filter can leave its browser tint cached on the previous theme. */
+  background: var(--bg);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
   border-bottom: 1px solid var(--border);
   z-index: 50;
 }

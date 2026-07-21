@@ -5,16 +5,23 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-22 - Safari iPhone : teinte synchronisée sans rechargement
+
+- Identification de la cause du rafraîchissement tardif : le header fixe
+  utilisait un `backdrop-filter`. WebKit le considérait comme une surface sans
+  couleur unique et pouvait conserver la teinte du thème précédent jusqu'au
+  rechargement de la page ou à l'ouverture du menu mobile.
+- Le header porte désormais un fond `var(--bg)` entièrement opaque, sans filtre
+  d'arrière-plan. Les fonds de `html` et `body`, ainsi que la balise
+  `theme-color`, restent synchronisés avec le thème actif.
+
 ## 2026-07-21 - Safari : suppression de la surface qui figeait la teinte
 
-- Suppression de la bande fixe de 6 px ajoutée au précédent correctif. WebKit
-  ignore les surfaces de 10 px ou moins lors de l'échantillonnage du bord
-  supérieur, puis peut conserver leur ancienne couleur après une interaction.
-  Cela expliquait le thème clair avec une interface Safari encore sombre,
-  jusqu'à l'ouverture du menu mobile.
-- Safari reprend désormais directement les fonds opaques et synchronisés de
-  `html` et `body`. La balise `theme-color` reste mise à jour pour les versions
-  et navigateurs qui l'utilisent.
+- Suppression de la bande fixe de 6 px ajoutée au précédent correctif. Cette
+  surface artificielle n'était pas une source de teinte fiable pour Safari.
+- Les fonds opaques et synchronisés de `html` et `body` restent disponibles
+  comme couleur de page. La balise `theme-color` reste mise à jour pour les
+  versions et navigateurs qui l'utilisent.
 
 ## 2026-07-20 - Safari : l'îlot suit immédiatement le thème
 
