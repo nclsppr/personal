@@ -30,28 +30,12 @@
 
   var THEME_COLOR = { light: '#FAF9F5', dark: '#262624' };
 
-  function createSafariThemeSurface() {
-    var surface = document.getElementById('safariThemeSurface');
-    if (surface) return surface;
-
-    surface = document.createElement('div');
-    surface.id = 'safariThemeSurface';
-    surface.className = 'safari-theme-surface';
-    surface.setAttribute('aria-hidden', 'true');
-    document.body.insertBefore(surface, document.body.firstChild);
-    return surface;
-  }
-
-  var safariThemeSurface = createSafariThemeSurface();
-
   /* ---------- Theme ---------- */
   function applyThemeColor(theme) {
     var color = THEME_COLOR[theme] || THEME_COLOR.light;
 
-    // Safari 26 follows this solid fixed surface instead of theme-color.
-    if (safariThemeSurface) safariThemeSurface.style.backgroundColor = color;
-
-    // Keep browser chrome in sync where theme-color is supported.
+    // Keep browser chrome in sync where theme-color is supported. Recent
+    // Safari versions also sample the opaque html/body canvas from the CSS.
     var meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute('content', color);
   }

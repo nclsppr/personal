@@ -5,6 +5,17 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-21 - Safari : suppression de la surface qui figeait la teinte
+
+- Suppression de la bande fixe de 6 px ajoutée au précédent correctif. WebKit
+  ignore les surfaces de 10 px ou moins lors de l'échantillonnage du bord
+  supérieur, puis peut conserver leur ancienne couleur après une interaction.
+  Cela expliquait le thème clair avec une interface Safari encore sombre,
+  jusqu'à l'ouverture du menu mobile.
+- Safari reprend désormais directement les fonds opaques et synchronisés de
+  `html` et `body`. La balise `theme-color` reste mise à jour pour les versions
+  et navigateurs qui l'utilisent.
+
 ## 2026-07-20 - Safari : l'îlot suit immédiatement le thème
 
 - Correction de la source de teinte Safari : le fond dynamique n'était porté
