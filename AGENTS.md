@@ -90,3 +90,10 @@ Tester la modification sur : **mobile + desktop**, **clair + sombre**, et l'**im
 du CV le cas échéant. Si une page CV a changé, **régénérer les PDF** (voir § « CV PDF »)
 et les committer avec la page. Mettre à jour le [`CHANGELOG.md`](CHANGELOG.md) pour toute
 intervention notable.
+
+## Publication obligatoire
+
+- **Toute intervention terminée et validée sur le site doit être commitée puis poussée.**
+  Ne jamais laisser un travail terminé uniquement en local.
+- Sur `main`, pousser vers `origin main` afin de déclencher la publication GitHub Pages.
+  Si Nicolas demande explicitement une autre branche, pousser cette branche à la place.
