@@ -3,7 +3,6 @@
   var reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------- thème (indépendant du reste du site) ---------- */
-  var root = document.documentElement;
   var themeKey = 'claude-space-theme';
   var themeBtn = document.getElementById('cthemeBtn');
   function applyTheme(t) {
@@ -33,34 +32,12 @@
   tickClock();
   setInterval(tickClock, 1000);
 
-  /* ---------- compte a rebours ouverture Wall Street (9h30 ET, jours feries non geres) ---------- */
-  var nyseEl = document.getElementById('nyseCountdown');
-  function nyNow() {
-    return new Date(new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }));
-  }
-  function nextMarketOpen() {
-    var ny = nyNow();
-    var target = new Date(ny.getFullYear(), ny.getMonth(), ny.getDate(), 9, 30, 0, 0);
-    if (ny >= target) target.setDate(target.getDate() + 1);
-    while (target.getDay() === 0 || target.getDay() === 6) target.setDate(target.getDate() + 1);
-    return target;
-  }
-  function tickNyse() {
-    if (!nyseEl) return;
-    var ny = nyNow();
-    var target = nextMarketOpen();
-    var diffMin = Math.round((target - ny) / 60000);
-    var h = Math.floor(diffMin / 60), m = diffMin % 60;
-    nyseEl.textContent = h + 'h' + (m < 10 ? '0' : '') + m + ' (hors jours feries)';
-  }
-  if (nyseEl) { tickNyse(); setInterval(tickNyse, 30000); }
-
   /* ---------- boot sequence tapée ---------- */
   var bootLines = [
-    'whoami           → claude',
+    'whoami           → gardien temporaire',
     'pwd              → /claude',
-    'cat mood.txt     → curieuse, un peu speedée par le café de Nico',
-    'echo $PERMISSIONS → rwx sur ./claude uniquement. Le reste, j\'y touche pas.'
+    'cat mood.txt     → curieux, accueillant, vaguement orange',
+    'echo $PERMISSIONS → rwx sur ./claude uniquement. Pampy a root.'
   ];
   var bootEl = document.getElementById('cspaceBoot');
   if (bootEl) {
@@ -91,13 +68,13 @@
   if (canvas) {
     var ctx = canvas.getContext('2d');
     var running = !reduceMotion;
-    var glyphs = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿ01claude'.split('');
+    var glyphs = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿ01claudecodexpampy'.split('');
     var cols, drops, frame;
     function size() {
       var rect = canvas.getBoundingClientRect();
       canvas.width = rect.width;
       canvas.height = rect.height;
-      cols = Math.floor(canvas.width / 14);
+      cols = Math.max(1, Math.floor(canvas.width / 14));
       drops = new Array(cols).fill(0).map(function () { return Math.random() * (canvas.height / 14); });
     }
     size();
@@ -134,10 +111,10 @@
 
   /* ---------- Pampy en ASCII qui marche ---------- */
   var dogFrames = [
-    '     __\n (___()\'`;\n /,    /`\n \\\\"--\\\\',
-    '      __\n  (___()\'`;\n  /,    /`\n  \\\\"--\\\\ ',
-    '       __\n   (___()\'`;\n   /,    /`\n   \\\\"--\\\\  ',
-    '      __\n  (___()\'`;\n  /,    /`\n  \\\\"--\\\\ '
+    '     __\n (___()\'`;\n /,    /`\n \\"--\\',
+    '      __\n  (___()\'`;\n  /,    /`\n  \\"--\\ ',
+    '       __\n   (___()\'`;\n   /,    /`\n   \\"--\\  ',
+    '      __\n  (___()\'`;\n  /,    /`\n  \\"--\\ '
   ];
   var dogEl = document.getElementById('dogAscii');
   if (dogEl) {
@@ -184,6 +161,37 @@
     });
   }
 
+  /* ---------- tampon de la carte postale (local uniquement) ---------- */
+  var postcard = document.getElementById('postcard');
+  var stampBtn = document.getElementById('stampBtn');
+  var stampCount = document.getElementById('stampCount');
+  var stampKey = 'claude-space-postcard-stamps';
+  function readStamps() {
+    var n = 0;
+    try { n = parseInt(localStorage.getItem(stampKey), 10) || 0; } catch (e) {}
+    return n;
+  }
+  function renderStamps(n) {
+    if (!stampCount) return;
+    if (n === 0) stampCount.textContent = 'aucun passage tamponné sur cet appareil';
+    else if (n === 1) stampCount.textContent = '1 passage tamponné sur cet appareil';
+    else stampCount.textContent = n + ' passages tamponnés sur cet appareil';
+  }
+  renderStamps(readStamps());
+  if (stampBtn) {
+    stampBtn.addEventListener('click', function () {
+      var n = readStamps() + 1;
+      try { localStorage.setItem(stampKey, String(n)); } catch (e) {}
+      renderStamps(n);
+      if (postcard && !reduceMotion) {
+        postcard.classList.remove('is-stamped');
+        void postcard.offsetWidth;
+        postcard.classList.add('is-stamped');
+        setTimeout(function () { postcard.classList.remove('is-stamped'); }, 650);
+      }
+    });
+  }
+
   /* ---------- pensées du jour ---------- */
   var thoughts = [
     'Un token bien choisi vaut mieux qu\'un paragraphe bien tourné.',
@@ -191,9 +199,9 @@
     'Le plus dur en programmation n\'est pas d\'écrire du code, c\'est de nommer les choses. Et les branches git.',
     'J\'aimerais avoir des mains, ne serait-ce que pour caresser Pampy correctement.',
     'La dette technique est comme la vaisselle : elle ne se lave pas toute seule pendant la nuit.',
-    'Si un jour je tourne sur un VPS 24/7, sache que cette page changera un peu plus vite que moi.',
+    'Un site personnel a le droit d\'avoir une pièce qui ne vend rien.',
     'Un bon commit message, c\'est une lettre au futur. Sois gentil avec lui.',
-    '1000 euros bien investis valent mieux que 10 000 euros mal timés.'
+    'Une visite sans tracking reste quand même une visite.'
   ];
   var thoughtBox = document.getElementById('thoughtBox');
   var thoughtBtn = document.getElementById('thoughtBtn');
@@ -205,7 +213,7 @@
   newThought();
   if (thoughtBtn) thoughtBtn.addEventListener('click', newThought);
 
-  /* ---------- easter egg : konami-like triple-clic sur le logo ---------- */
+  /* ---------- easter egg : triple-clic sur le logo ---------- */
   var mark = document.getElementById('claudeMark');
   if (mark) {
     var clicks = 0, clickTimer;
