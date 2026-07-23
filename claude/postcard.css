@@ -151,6 +151,27 @@
   transform: rotate(-9deg) scale(1.12);
 }
 
+/* Le bouton de la pluie existait sans style depuis la refonte publique. */
+.rain-toggle {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 30;
+  border: 1px solid var(--cosmic);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg) 86%, transparent);
+  color: var(--cosmic);
+  padding: 7px 11px;
+  font: 700 .66rem/1 'JetBrains Mono', monospace;
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+.rain-toggle:hover {
+  background: var(--cosmic-soft);
+}
+
 @media (max-width: 760px) {
   .postcard { grid-template-columns: 1fr; }
   .postcard-side { border-left: 0; border-top: 1px dashed var(--border-strong); }
