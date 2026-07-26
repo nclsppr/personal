@@ -7,8 +7,12 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ## 2026-07-26 - Évolution design réversible
 
-- Accueil distillé autour du positionnement, d'un terminal signature
-  plus court, d'une bande de chiffres et d'une hiérarchie claire entre
+- Hero d'accueil enrichi avec la formation d'ingénieur généraliste et la
+  culture grande école. Le terminal signature présente désormais le socle
+  Java et Spring, les principes de leadership et l'usage pragmatique de
+  Codex, Cursor et Claude avec revue humaine.
+- Accueil distillé autour du positionnement, d'un terminal signature,
+  d'une bande de chiffres et d'une hiérarchie claire entre
   réalisation principale et réalisations secondaires.
 - Index de lecture ajouté aux pages Réalisations EN et FR. Les
   sous-titres des études de cas sont apaisés et les stickers reprennent
