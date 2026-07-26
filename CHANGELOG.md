@@ -7,9 +7,9 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ## 2026-07-26 - Hero et terminal d'accueil finalisés
 
-- Le hero précise la manière dont Nicolas intervient dans les décisions
-  complexes, relie les choix techniques aux besoins du produit et associe
-  explicitement autonomie et responsabilité des équipes.
+- Le hero rétablit la présentation par preuves : plus de 10 ans d’expérience,
+  plus d’un million d’appareils connectés et 10 millions de rapports traités
+  chaque mois, puis le rôle actuel auprès d’une équipe full-stack au Luxembourg.
 - Le terminal signature des accueils EN et FR se concentre sur trois preuves :
   le rôle d'Engineering Manager qui continue à livrer, le socle Java et Spring,
   puis un leadership fondé sur la clarté, la responsabilité et l'autonomie.
