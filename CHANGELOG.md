@@ -5,6 +5,13 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-26 - Terminal d'accueil finalisé
+
+- Le terminal signature des accueils EN et FR adopte les commandes `whoami`,
+  `grep`, `git config`, `ai --strategy` et `echo $MISSION`. Le texte affirme
+  plus directement le rôle, le socle Java et Spring, le leadership, la
+  discipline de test avec supervision humaine et la mission de Nicolas.
+
 ## 2026-07-26 - SEO et accès des agents d'IA
 
 - `robots.txt` ouvre toutes les pages publiques canoniques aux robots conformes,
