@@ -5,12 +5,14 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
-## 2026-07-26 - Terminal d'accueil finalisé
+## 2026-07-26 - Hero et terminal d'accueil finalisés
 
-- Le terminal signature des accueils EN et FR adopte les commandes `whoami`,
-  `grep`, `git config`, `ai --strategy` et `echo $MISSION`. Le texte affirme
-  plus directement le rôle, le socle Java et Spring, le leadership, la
-  discipline de test avec supervision humaine et la mission de Nicolas.
+- Le hero précise la manière dont Nicolas intervient dans les décisions
+  complexes, relie les choix techniques aux besoins du produit et associe
+  explicitement autonomie et responsabilité des équipes.
+- Le terminal signature des accueils EN et FR se concentre sur trois preuves :
+  le rôle d'Engineering Manager qui continue à livrer, le socle Java et Spring,
+  puis un leadership fondé sur la clarté, la responsabilité et l'autonomie.
 
 ## 2026-07-26 - SEO et accès des agents d'IA
 
