@@ -90,8 +90,9 @@ L'essentiel :
   de sortie shell. Leurs actions sont contextuelles : revenir à une
   destination utile ou réessayer quand cela a un sens.
 - Le dashboard privilégie la lecture opérationnelle et ses statuts
-  textuels. `/claude/` reste une surface cachée et publique, autonome,
-  accessible et volontairement plus expérimentale que le site canonique.
+  textuels. `/claude/` reste une surface publique hors navigation
+  principale, autonome, accessible et volontairement plus expérimentale
+  que le site canonique.
 - Aucune lib externe, aucun CDN, jamais.
 
 ## 6. Mouvement

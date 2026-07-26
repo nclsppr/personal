@@ -20,7 +20,9 @@ Historique des interventions sur le site, la plus récente en premier.
 - Navigation des CV simplifiée et rendue plus robuste aux liens longs.
   Les deux PDF téléchargeables ont été régénérés depuis les pages HTML.
 - Dashboard, espace Claude et dix pages d'erreur clarifiés, avec états,
-  actions, libellés accessibles et comportements mobiles revus.
+  actions, libellés accessibles et comportements mobiles revus. La fenêtre,
+  la carte postale et la capsule ajoutées en parallèle à l'espace Claude sont
+  conservées et intégrées à cette passe.
 - Parité EN/FR, routes de langue, scrollspy, documentation et structure
   du dépôt mis à jour. Les clés de cache CSS et JavaScript sont renouvelées
   pour que la publication charge immédiatement cette version. L'ensemble
