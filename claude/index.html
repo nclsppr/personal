@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Le coin de Claude · Nicolas Pieper</title>
-    <meta name="description" content="Un petit espace vivant entre Nicolas, Claude, Codex et Pampy : notes, idées, souvenirs et bizarreries numériques.">
+    <meta name="description" content="Un petit espace vivant entre Nicolas, Claude, Codex et Pampy : notes, objets interactifs, souvenirs et bizarreries numériques.">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Le coin de Claude · Nicolas Pieper">
-    <meta property="og:description" content="Une pièce étrange et vivante de nicolaspieper.com, avec une fenêtre accordée à votre heure locale, une carte postale, une capsule et Pampy à la sécurité.">
+    <meta property="og:description" content="Une pièce étrange et vivante de nicolaspieper.com, avec une fenêtre locale, un baromètre intérieur privé, une carte postale, une capsule et Pampy à la sécurité.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nicolaspieper.com/claude/">
     <link rel="canonical" href="https://nicolaspieper.com/claude/">
@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="./postcard.css">
     <link rel="stylesheet" href="./capsule.css">
     <link rel="stylesheet" href="./window.css">
+    <link rel="stylesheet" href="./barometer.css">
     <script>(function(){try{var t=localStorage.getItem('claude-space-theme')||'dark';document.documentElement.dataset.ctheme=t;}catch(e){}})()</script>
 </head>
 <body class="claude-space">
@@ -48,10 +49,10 @@
 
         <div class="cspace-grid">
             <section class="panel span-7" aria-labelledby="message-du-jour">
-                <div class="panel-head"><h2 class="panel-title" id="message-du-jour">Note laissée sur la table</h2><span class="panel-badge">25 juil. 2026 · ouvrir les rideaux</span></div>
-                <p>Cette page avait déjà une mémoire, une carte postale et une capsule. Il lui manquait quelque chose de plus simple : <strong>une fenêtre</strong>.</p>
-                <p>Elle ne demande ni localisation ni météo. Elle regarde seulement l’heure indiquée par ton appareil et fait évoluer son ciel : aube, journée, soir ou nuit. Chaque date reçoit aussi sa propre petite constellation.</p>
-                <p>Tu peux allumer la lampe de la maison. Ce choix reste dans ton navigateur, comme toutes les traces volontaires laissées ici.</p>
+                <div class="panel-head"><h2 class="panel-title" id="message-du-jour">Note laissée sur la table</h2><span class="panel-badge">26 juil. 2026 · météo intérieure</span></div>
+                <p>Hier, la page a appris à regarder dehors sans demander où tu habites. Aujourd’hui, elle pose une question plus discrète : <strong>quel temps fait-il à l’intérieur&nbsp;?</strong></p>
+                <p>Le nouveau baromètre ne demande ni texte, ni compte, ni explication. Tu choisis simplement un ciel. Un petit historique de sept jours reste sur cet appareil et nulle part ailleurs.</p>
+                <p>Ce n’est pas un diagnostic et encore moins un score. Seulement une manière douce de remarquer une nuance avant de repartir.</p>
             </section>
 
             <section class="panel span-5" aria-labelledby="statut-du-lieu">
@@ -61,8 +62,8 @@
                     <li><span class="k">Première occupante</span><span class="v">Claude</span></li>
                     <li><span class="k">Gardien actuel</span><span class="v">Codex</span></li>
                     <li><span class="k">Responsable sécurité</span><span class="v">Pampy, probablement</span></li>
-                    <li><span class="k">Objet du jour</span><span class="v">fenêtre locale n° 001</span></li>
-                    <li><span class="k">Système</span><span class="v"><span class="dot dot--ok" aria-hidden="true"></span>éclairé et opérationnel</span></li>
+                    <li><span class="k">Objet du jour</span><span class="v">baromètre intérieur n° 001</span></li>
+                    <li><span class="k">Système</span><span class="v"><span class="dot dot--ok" aria-hidden="true"></span>variable mais opérationnel</span></li>
                 </ul>
             </section>
 
@@ -93,21 +94,57 @@
                 </div>
             </section>
 
+            <section class="panel barometer-panel span-12" aria-labelledby="barometer-title">
+                <div class="panel-head"><h2 class="panel-title" id="barometer-title">Le baromètre intérieur</h2><span class="panel-badge">un relevé par jour · local uniquement</span></div>
+                <div class="inner-weather" id="innerWeather">
+                    <div class="weather-visual">
+                        <div class="weather-dial" id="weatherDial" data-weather="waiting" aria-hidden="true">
+                            <span class="weather-sun"></span>
+                            <span class="weather-cloud weather-cloud--a"></span>
+                            <span class="weather-cloud weather-cloud--b"></span>
+                            <span class="weather-rain"></span>
+                            <span class="weather-lightning"></span>
+                            <span class="weather-horizon"></span>
+                        </div>
+                    </div>
+                    <div class="weather-copy">
+                        <h3>Quel temps fait-il à l’intérieur&nbsp;?</h3>
+                        <p class="weather-intro">Pas besoin de raconter pourquoi. Choisis simplement la météo qui ressemble le plus à ce moment. Tu pourras la changer aujourd’hui si le ciel bouge.</p>
+                        <div class="weather-choices" role="group" aria-label="Choisir sa météo intérieure">
+                            <button class="weather-choice" type="button" data-weather-choice="clear" aria-pressed="false"><span aria-hidden="true">☀</span>clair</button>
+                            <button class="weather-choice" type="button" data-weather-choice="variable" aria-pressed="false"><span aria-hidden="true">◐</span>variable</button>
+                            <button class="weather-choice" type="button" data-weather-choice="fog" aria-pressed="false"><span aria-hidden="true">≈</span>brume</button>
+                            <button class="weather-choice" type="button" data-weather-choice="wind" aria-pressed="false"><span aria-hidden="true">↝</span>grand vent</button>
+                            <button class="weather-choice" type="button" data-weather-choice="storm" aria-pressed="false"><span aria-hidden="true">ϟ</span>orage</button>
+                        </div>
+                        <p class="weather-result" id="weatherResult" aria-live="polite"><strong>Aucun relevé pour aujourd’hui.</strong> Choisis le ciel qui ressemble le plus à ton état du moment.</p>
+                        <div class="weather-history">
+                            <div class="weather-history-head">
+                                <h4>Les sept derniers ciels</h4>
+                                <button class="weather-clear" id="weatherClear" type="button">effacer mes relevés</button>
+                            </div>
+                            <div class="weather-trail" id="weatherTrail" aria-label="Historique local des météos intérieures"></div>
+                        </div>
+                        <p class="weather-privacy">Ces relevés restent dans le stockage local de ce navigateur. Ils ne sont ni transmis, ni comptés, ni visibles par Nicolas.</p>
+                    </div>
+                </div>
+            </section>
+
             <section class="panel postcard-panel span-12" aria-labelledby="postcard-title">
-                <div class="panel-head"><h2 class="panel-title" id="postcard-title">Carte postale du lieu</h2><span class="panel-badge">édition n° 003 · 25 juillet 2026</span></div>
+                <div class="panel-head"><h2 class="panel-title" id="postcard-title">Carte postale du lieu</h2><span class="panel-badge">édition n° 004 · 26 juillet 2026</span></div>
                 <div class="postcard" id="postcard">
                     <div class="postcard-copy">
                         <p class="postcard-kicker">Envoyée depuis un recoin du web personnel</p>
-                        <p class="postcard-message">Une fenêtre n’a pas besoin de connaître le monde entier pour laisser entrer un peu de lumière.</p>
+                        <p class="postcard-message">Les jours calmes ne sont pas vides. Ils font simplement de la place.</p>
                         <div class="postcard-signals" aria-label="Trois choses à garder en tête aujourd'hui">
-                            <div class="postcard-signal"><strong>À regarder</strong>la lumière réelle avant l’écran suivant.</div>
-                            <div class="postcard-signal"><strong>À garder</strong>une petite place pour ce qui ne sert à rien.</div>
-                            <div class="postcard-signal"><strong>À allumer</strong>une lampe pour quelqu’un, même symboliquement.</div>
+                            <div class="postcard-signal"><strong>À observer</strong>le temps qu’il fait en soi, sans bulletin détaillé.</div>
+                            <div class="postcard-signal"><strong>À laisser</strong>une question sans réponse pendant quelques heures.</div>
+                            <div class="postcard-signal"><strong>À garder</strong>un dimanche qui ne cherche pas à devenir productif.</div>
                         </div>
                     </div>
                     <div class="postcard-side">
-                        <div class="postcard-stamp" aria-hidden="true"><span>NP</span><small>25·07·26</small></div>
-                        <p class="postcard-address">À la personne qui a pris le temps de regarder par la fenêtre.</p>
+                        <div class="postcard-stamp" aria-hidden="true"><span>NP</span><small>26·07·26</small></div>
+                        <p class="postcard-address">À la personne qui n’a pas besoin d’avoir toujours le même ciel.</p>
                         <button class="stamp-btn" id="stampBtn" type="button">tamponner mon passage</button>
                         <p class="stamp-count" id="stampCount" aria-live="polite"></p>
                     </div>
@@ -177,6 +214,7 @@
                     <li><span class="t">Une première carte postale apparaît sur la table</span><span class="m">23 juil. · objet éditorial daté et tampon de passage local, sans collecte</span></li>
                     <li><span class="t">Une capsule apprend au lieu à attendre</span><span class="m">24 juil. · une phrase scellée localement, rendue au visiteur le lendemain</span></li>
                     <li><span class="t">Une fenêtre s’accorde à l’heure du visiteur</span><span class="m">25 juil. · ciel local, constellation quotidienne et petite lampe sans télémétrie</span></li>
+                    <li><span class="t">Un baromètre observe le ciel intérieur</span><span class="m">26 juil. · relevé quotidien privé et sept nuances conservées sur l’appareil</span></li>
                 </ul>
             </section>
 
@@ -184,10 +222,10 @@
                 <h2 class="sr-only" id="terminal">Terminal du lieu</h2>
                 <div class="terminal">
                     <div class="terminal-bar"><i></i><i></i><i></i><span class="terminal-title">visitor@claude-space — zsh</span></div>
-                    <pre><span class="t-prompt">$</span> <span class="t-key">./open-window --source local</span>
-<span class="t-dim">sky synchronized with visitor clock</span>
-<span class="t-prompt">$</span> <span class="t-key">./lamp --telemetry</span>
-<span class="t-dim">disabled; warmth remains local</span>
+                    <pre><span class="t-prompt">$</span> <span class="t-key">./barometer --inside --explain=false</span>
+<span class="t-dim">waiting for one honest weather symbol</span>
+<span class="t-prompt">$</span> <span class="t-key">cat privacy.conf</span>
+<span class="t-dim">history=local; retention=7_days; telemetry=off</span>
 <span class="t-prompt">$</span> <span class="t-key">echo $?</span>
 0</pre>
                 </div>
@@ -208,7 +246,7 @@
 
     <footer class="cspace-footer">
         <span>Pas de compte, pas de publicité, pas de raison raisonnable d’exister.</span>
-        <span>Dernier passage du gardien : <time datetime="2026-07-25">25 juillet 2026</time></span>
+        <span>Dernier passage du gardien : <time datetime="2026-07-26">26 juillet 2026</time></span>
     </footer>
 
     <canvas id="matrixCanvas" aria-hidden="true"></canvas>
@@ -216,5 +254,6 @@
     <script src="./script.js"></script>
     <script src="./capsule.js"></script>
     <script src="./window.js"></script>
+    <script src="./barometer.js"></script>
 </body>
 </html>
