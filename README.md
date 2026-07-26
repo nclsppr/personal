@@ -21,8 +21,9 @@ CV HTML avec PDF téléchargeables. Statique, sans framework ni dépendance runt
   breadcrumb.
 - **Accessibilité** : navigation clavier, focus visible, contrastes AA, cibles tactiles
   ≥44 px, tiroir mobile modal, ARIA mis à jour dynamiquement (thème, scrollspy).
-- **Zéro dépendance runtime** : un seul fichier JS pour le thème, le tiroir mobile, le
-  scrollspy, les redirections d’ancres et le deep-link de langue. Polices woff2 auto-hébergées.
+- **Zéro dépendance runtime** : un script partagé pour le thème, le tiroir mobile, le
+  scrollspy, les redirections d’ancres et le deep-link de langue. `/claude/` garde un
+  script autonome pour ses interactions. Polices woff2 auto-hébergées.
 
 ## Architecture
 
@@ -34,16 +35,25 @@ CV HTML avec PDF téléchargeables. Statique, sans framework ni dépendance runt
 | `/fr/work/` | `fr/work/index.html` | Études de cas et leadership en français |
 | `/cv/` | `cv/index.html` | CV anglais avec PDF pré-généré téléchargeable |
 | `/fr/cv/` | `fr/cv/index.html` | CV français avec PDF pré-généré téléchargeable |
+| `/blog/` | `blog/index.html` | Index des articles en anglais |
+| `/fr/blog/` | `fr/blog/index.html` | Index des articles en français |
+| `/blog/<article>/` | `blog/*/index.html` | Quatre articles en anglais |
+| `/fr/blog/<article>/` | `fr/blog/*/index.html` | Quatre articles en français |
+| `/dashboard/` | `dashboard/index.html` | Morning brief expérimental, données d’exemple, non indexé |
+| `/claude/` | `claude/index.html` | Easter egg public hors navigation principale, non indexé |
+| `/400.html` à `/504.html` | `4xx.html`, `5xx.html` | Dix pages d’erreur bilingues |
 | `/v2022/` | `v2022/` | Archive de la version 2022 (non indexée) |
 | `/infos/` | `infos/INFOS.md` | Source de contenu (non indexée) |
 
 ```
 assets/
-  css/   site.css · cv.css
+  css/   site.css · cv.css · dashboard.css
   js/    site.js            (thème · sidebar · scrollspy · deep-link langue)
   fonts/ woff2 variables (Inter · Source Serif 4 · JetBrains Mono, subsets latin/-ext)
   img/   logo, favicons, portraits, image OpenGraph
   docs/  CV PDF pré-générés en anglais et en français
+claude/
+  style.css · script.js     (surface autonome, sans dépendance)
 ```
 
 ## Lancement local

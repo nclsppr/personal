@@ -5,6 +5,28 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-26 - Évolution design réversible
+
+- Accueil distillé autour du positionnement, d'un terminal signature
+  plus court, d'une bande de chiffres et d'une hiérarchie claire entre
+  réalisation principale et réalisations secondaires.
+- Index de lecture ajouté aux pages Réalisations EN et FR. Les
+  sous-titres des études de cas sont apaisés et les stickers reprennent
+  le flux sur mobile.
+- Index du blog restructuré autour du dernier article illustré. Trois
+  articles plus compacts complètent la liste. Des modèles fonctionnels
+  renforcent deux articles et le diagramme SDLC devient consultable sur
+  petit écran.
+- Navigation des CV simplifiée et rendue plus robuste aux liens longs.
+  Les deux PDF téléchargeables ont été régénérés depuis les pages HTML.
+- Dashboard, espace Claude et dix pages d'erreur clarifiés, avec états,
+  actions, libellés accessibles et comportements mobiles revus.
+- Parité EN/FR, routes de langue, scrollspy, documentation et structure
+  du dépôt mis à jour. Les clés de cache CSS et JavaScript sont renouvelées
+  pour que la publication charge immédiatement cette version. L'ensemble
+  est livré sur une branche dédiée afin de permettre une comparaison ou un
+  retour arrière sans toucher à `main`.
+
 ## 2026-07-22 - Safari iPhone : teinte synchronisée sans rechargement
 
 - Identification de la cause du rafraîchissement tardif : le header fixe
