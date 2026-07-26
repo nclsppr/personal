@@ -41,6 +41,7 @@ CV HTML avec PDF téléchargeables. Statique, sans framework ni dépendance runt
 | `/fr/blog/<article>/` | `fr/blog/*/index.html` | Quatre articles en français |
 | `/dashboard/` | `dashboard/index.html` | Morning brief expérimental, données d’exemple, non indexé |
 | `/claude/` | `claude/index.html` | Easter egg public, indexé et hors navigation principale |
+| `/llms.txt` | `llms.txt` | Index éditorial concis pour les agents et outils d'IA |
 | `/400.html` à `/504.html` | `4xx.html`, `5xx.html` | Dix pages d’erreur bilingues |
 | `/v2022/` | `v2022/` | Archive de la version 2022 (non indexée) |
 | `/infos/` | `infos/INFOS.md` | Source de contenu (non indexée) |
@@ -116,3 +117,6 @@ Push sur `main` → GitHub Pages sert le repo tel quel. Le domaine custom est fi
   touches techniques. Pas d'animation gratuite ; `prefers-reduced-motion` respecté.
 - **Vérité du contenu** : aucune métrique, responsabilité ou technologie inventée ; toute
   ambiguïté est signalée plutôt que tranchée arbitrairement.
+- **Sources canoniques** : les pages HTML publiques restent la référence indexable. Le
+  fichier `llms.txt` les signale aux agents sans dupliquer les contenus ni exposer les
+  documents internes du dépôt comme sources de profil.

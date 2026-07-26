@@ -5,6 +5,17 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-26 - SEO et accès des agents d'IA
+
+- `robots.txt` ouvre toutes les pages publiques canoniques aux robots conformes,
+  dont les agents de recherche, de consultation et d'entraînement d'OpenAI et
+  d'Anthropic. L'ancien blocage de `/claude/` est retiré.
+- Les archives, expérimentations privées et fichiers de fabrication restent hors
+  crawl afin d'éviter des sources concurrentes ou obsolètes dans les résultats.
+- Le sitemap est actualisé et inclut désormais l'espace Claude public. Un
+  `llms.txt` bilingue fournit aux agents un index concis vers les seules sources
+  humaines et canoniques, sans générer de copies Markdown de chaque page.
+
 ## 2026-07-26 - Évolution design réversible
 
 - Hero d'accueil enrichi avec la formation d'ingénieur généraliste et la
