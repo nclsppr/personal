@@ -7,7 +7,7 @@
     <meta name="robots" content="noindex">
     <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
     <meta name="theme-color" content="#FAF9F5">
-    <link rel="stylesheet" href="/assets/css/site.css?v=20260722-safari">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20260726-design">
     <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
 </head>
 <body>
@@ -21,17 +21,16 @@
             <h1>Too many requests.</h1>
             <p>Too many requests in a short time. Give it a moment, then try again.</p>
             <p lang="fr">Trop de requêtes en peu de temps. Patientez un instant, puis réessayez.</p>
-            <div class="terminal" role="img" aria-label="Terminal showing: a curl loop is rate limited and interrupted; echo status returns 429">
+            <div class="terminal" role="img" aria-label="Terminal showing curl receiving HTTP 429 and returning shell exit status 22">
                 <div class="terminal-bar"><i></i><i></i><i></i><span class="terminal-title">nicolas@pieper.fr - zsh</span></div>
-                <pre><span class="t-prompt">$</span> <span class="t-cmd">while true; do curl -s nicolaspieper.com; done</span>
+                <pre><span class="t-prompt">$</span> <span class="t-cmd">curl --fail https://nicolaspieper.com/</span>
 <span class="t-dim">curl: (22) The requested URL returned error: 429</span>
-<span class="t-dim">^C</span>
 <span class="t-prompt">$</span> <span class="t-cmd">echo $?</span>
-<span class="t-key">429</span></pre>
+<span class="t-key">22</span></pre>
             </div>
             <div class="btn-row">
-                <a class="btn btn-primary" href="/">Home / Accueil</a>
-                <a class="btn btn-ghost" href="/cv/">CV</a>
+                <a class="btn btn-primary" href="">Retry / Réessayer</a>
+                <a class="btn btn-ghost" href="/">Home / Accueil</a>
             </div>
         </main>
     </div>

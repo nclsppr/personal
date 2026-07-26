@@ -7,7 +7,7 @@
     <meta name="robots" content="noindex">
     <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
     <meta name="theme-color" content="#FAF9F5">
-    <link rel="stylesheet" href="/assets/css/site.css?v=20260722-safari">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20260726-design">
     <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
 </head>
 <body>
@@ -21,18 +21,16 @@
             <h1>Gone for good.</h1>
             <p>This page existed once. It was retired on purpose, and it is not coming back.</p>
             <p lang="fr">Cette page a existé. Elle a été retirée volontairement, et elle ne reviendra pas.</p>
-            <div class="terminal" role="img" aria-label="Terminal showing: the page no longer exists and git history records its deliberate removal; echo status returns 410">
+            <div class="terminal" role="img" aria-label="Terminal showing curl receiving HTTP 410 and returning shell exit status 22">
                 <div class="terminal-bar"><i></i><i></i><i></i><span class="terminal-title">nicolas@pieper.fr - zsh</span></div>
-                <pre><span class="t-prompt">$</span> <span class="t-cmd">cat /this/page</span>
-<span class="t-dim">cat: /this/page: No such file or directory</span>
-<span class="t-prompt">$</span> <span class="t-cmd">git log --oneline -- this/page</span>
-<span class="t-dim">9f2c1a3 Retire this page for good</span>
+                <pre><span class="t-prompt">$</span> <span class="t-cmd">curl --fail https://nicolaspieper.com/retired-page</span>
+<span class="t-dim">curl: (22) The requested URL returned error: 410</span>
 <span class="t-prompt">$</span> <span class="t-cmd">echo $?</span>
-<span class="t-key">410</span></pre>
+<span class="t-key">22</span></pre>
             </div>
             <div class="btn-row">
                 <a class="btn btn-primary" href="/">Home / Accueil</a>
-                <a class="btn btn-ghost" href="/cv/">CV</a>
+                <a class="btn btn-ghost" href="/work/">Work / Réalisations</a>
             </div>
         </main>
     </div>

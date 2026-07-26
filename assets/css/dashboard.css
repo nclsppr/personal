@@ -22,6 +22,18 @@
   padding: calc(var(--header-offset) + 30px) var(--gutter) 48px;
 }
 
+/* ---------- Navigation compacte propre au brief ---------- */
+.dash-header { gap: 14px; }
+.dash-header-title {
+  padding-left: 14px;
+  border-left: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.dash-header .header-nav { margin-left: 0; }
+
 /* ---------- En-tête de page ---------- */
 .dash-hello .claude-mark { display: block; margin-bottom: 14px; }
 .dash-hello .eyebrow { margin-bottom: 6px; }
@@ -37,6 +49,7 @@
   color: var(--muted);
   margin: 0 0 30px;
 }
+.dash-note strong { color: var(--ink); }
 
 /* ---------- Grille de panneaux ---------- */
 .dash-grid {
@@ -45,12 +58,21 @@
   gap: 18px;
 }
 .dash-panel {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-1);
-  padding: 18px 20px 20px;
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--border);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 18px 4px 20px;
   min-width: 0;
+}
+.dash-panel--lead {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--accent);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-2);
+  padding: 20px 22px 22px;
 }
 .dash-panel--bare {
   padding: 0;
@@ -85,9 +107,38 @@
   color: var(--accent-ink);
   white-space: nowrap;
 }
+.dash-panel--lead .dash-title {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 650;
+  text-transform: none;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.dash-panel--lead .dash-badge { color: var(--accent-ink); }
 
-/* ---------- Tuiles de stats (complète .stat-grid de site.css) ---------- */
+/* ---------- Stats compactes, toujours sur une rangée intentionnelle ---------- */
 .dash-panel .stat-grid { margin: 0 0 14px; }
+.dash-panel--metrics .stat-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.dash-panel--metrics .stat {
+  min-width: 0;
+  padding: 12px 10px;
+  border: 0;
+  border-left: 1px solid var(--border);
+  border-radius: 0;
+  background: transparent;
+}
+.dash-panel--metrics .stat:first-child { border-left: 0; }
+.dash-panel--metrics .stat-n {
+  font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+  overflow-wrap: anywhere;
+}
+.dash-panel--metrics .stat-l { font-size: 0.7rem; }
 
 /* ---------- Listes de flux (veille, X, focus du jour) ---------- */
 .dash-list { list-style: none; margin: 0; padding: 0; }
@@ -212,4 +263,42 @@
 /* ---------- Responsive ---------- */
 @media (max-width: 860px) {
   .span-5, .span-6, .span-7 { grid-column: span 12; }
+}
+
+@media (max-width: 980px) {
+  .page-dash {
+    --header-h: 112px;
+    --header-offset: calc(var(--header-h) + var(--safe-top));
+  }
+  .page-dash .dash-header {
+    height: var(--header-offset);
+    flex-wrap: wrap;
+    align-content: center;
+    row-gap: 2px;
+    padding-bottom: 8px;
+  }
+  .page-dash .dash-header .brand { order: 1; }
+  .page-dash .dash-header-title { order: 1; }
+  .page-dash .dash-header .header-actions { order: 2; }
+  .page-dash .dash-header .header-nav {
+    order: 3;
+    display: flex;
+    flex: 1 0 100%;
+    gap: 2px;
+    margin: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .page-dash .dash-header .header-nav::-webkit-scrollbar { display: none; }
+  .page-dash .dash-header .header-nav a { flex: 0 0 auto; white-space: nowrap; }
+}
+
+@media (max-width: 560px) {
+  .dash-layout { padding-bottom: 36px; }
+  .dash-grid { gap: 10px; }
+  .dash-panel { padding-right: 0; padding-left: 0; }
+  .dash-panel--lead { padding-right: 18px; padding-left: 18px; }
+  .dash-panel--metrics .stat { padding-right: 6px; padding-left: 6px; }
+  .dash-panel--metrics .stat-n { font-size: 1.15rem; }
+  .dash-kv dd { white-space: normal; text-align: right; }
 }

@@ -7,7 +7,7 @@
     <meta name="robots" content="noindex">
     <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
     <meta name="theme-color" content="#FAF9F5">
-    <link rel="stylesheet" href="/assets/css/site.css?v=20260722-safari">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20260726-design">
     <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
 </head>
 <body>
@@ -21,16 +21,16 @@
             <h1>Service unavailable.</h1>
             <p>The service is catching its breath, most likely for maintenance. Try again shortly.</p>
             <p lang="fr">Le service reprend son souffle, probablement une maintenance. Réessayez dans un instant.</p>
-            <div class="terminal" role="img" aria-label="Terminal showing: the website service is inactive for maintenance; echo status returns 503">
+            <div class="terminal" role="img" aria-label="Terminal showing an inactive website service with shell exit status 3">
                 <div class="terminal-bar"><i></i><i></i><i></i><span class="terminal-title">nicolas@pieper.fr - zsh</span></div>
-                <pre><span class="t-prompt">$</span> <span class="t-cmd">systemctl status website</span>
-<span class="t-dim">● website.service: inactive (maintenance)</span>
+                <pre><span class="t-prompt">$</span> <span class="t-cmd">systemctl is-active website</span>
+<span class="t-dim">inactive</span>
 <span class="t-prompt">$</span> <span class="t-cmd">echo $?</span>
-<span class="t-key">503</span></pre>
+<span class="t-key">3</span></pre>
             </div>
             <div class="btn-row">
-                <a class="btn btn-primary" href="/">Home / Accueil</a>
-                <a class="btn btn-ghost" href="/cv/">CV</a>
+                <a class="btn btn-primary" href="">Retry / Réessayer</a>
+                <a class="btn btn-ghost" href="/">Home / Accueil</a>
             </div>
         </main>
     </div>

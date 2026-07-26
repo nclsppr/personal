@@ -7,15 +7,23 @@
   var themeKey = 'claude-space-theme';
   var themeBtn = document.getElementById('cthemeBtn');
   function applyTheme(t) {
-    document.body.setAttribute('data-ctheme', t);
-    if (themeBtn) themeBtn.textContent = t === 'dark' ? '☾' : '☀';
+    var theme = t === 'light' ? 'light' : 'dark';
+    root.dataset.ctheme = theme;
+    var themeMeta = document.querySelector('meta[name="theme-color"]');
+    if (themeMeta) themeMeta.content = theme === 'dark' ? '#14140f' : '#faf7f0';
+    if (themeBtn) {
+      var dark = theme === 'dark';
+      themeBtn.textContent = dark ? '☀' : '☾';
+      themeBtn.setAttribute('aria-pressed', String(dark));
+      themeBtn.setAttribute('aria-label', dark ? 'Activer le thème clair' : 'Activer le thème sombre');
+    }
   }
   var saved = null;
   try { saved = localStorage.getItem(themeKey); } catch (e) {}
   applyTheme(saved || 'dark');
   if (themeBtn) {
     themeBtn.addEventListener('click', function () {
-      var current = document.body.getAttribute('data-ctheme');
+      var current = root.dataset.ctheme;
       var next = current === 'dark' ? 'light' : 'dark';
       applyTheme(next);
       try { localStorage.setItem(themeKey, next); } catch (e) {}
@@ -32,28 +40,6 @@
   }
   tickClock();
   setInterval(tickClock, 1000);
-
-  /* ---------- compte a rebours ouverture Wall Street (9h30 ET, jours feries non geres) ---------- */
-  var nyseEl = document.getElementById('nyseCountdown');
-  function nyNow() {
-    return new Date(new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }));
-  }
-  function nextMarketOpen() {
-    var ny = nyNow();
-    var target = new Date(ny.getFullYear(), ny.getMonth(), ny.getDate(), 9, 30, 0, 0);
-    if (ny >= target) target.setDate(target.getDate() + 1);
-    while (target.getDay() === 0 || target.getDay() === 6) target.setDate(target.getDate() + 1);
-    return target;
-  }
-  function tickNyse() {
-    if (!nyseEl) return;
-    var ny = nyNow();
-    var target = nextMarketOpen();
-    var diffMin = Math.round((target - ny) / 60000);
-    var h = Math.floor(diffMin / 60), m = diffMin % 60;
-    nyseEl.textContent = h + 'h' + (m < 10 ? '0' : '') + m + ' (hors jours feries)';
-  }
-  if (nyseEl) { tickNyse(); setInterval(tickNyse, 30000); }
 
   /* ---------- boot sequence tapée ---------- */
   var bootLines = [
@@ -86,8 +72,8 @@
   }
 
   /* ---------- pluie matricielle (canvas, léger) ---------- */
-  var canvas = document.getElementById('matrixCanvas');
-  var matrixBtn = document.getElementById('matrixToggle');
+  var canvas = document.getElementById('charRain');
+  var rainBtn = document.getElementById('rainToggle');
   if (canvas) {
     var ctx = canvas.getContext('2d');
     var running = !reduceMotion;
@@ -122,11 +108,17 @@
     }
     if (running) draw();
     else { ctx.fillStyle = '#0c0c08'; ctx.fillRect(0, 0, canvas.width, canvas.height); }
-    if (matrixBtn) {
-      matrixBtn.textContent = running ? '⏸ pause la pluie' : '▶ lancer la pluie';
-      matrixBtn.addEventListener('click', function () {
+    function renderRainState() {
+      if (!rainBtn) return;
+      rainBtn.textContent = running ? 'pause pluie' : 'lancer pluie';
+      rainBtn.setAttribute('aria-pressed', String(running));
+      rainBtn.setAttribute('aria-label', running ? 'Pluie de caractères active' : 'Pluie de caractères inactive');
+    }
+    if (rainBtn) {
+      renderRainState();
+      rainBtn.addEventListener('click', function () {
         running = !running;
-        matrixBtn.textContent = running ? '⏸ pause la pluie' : '▶ lancer la pluie';
+        renderRainState();
         if (running) draw(); else cancelAnimationFrame(frame);
       });
     }
@@ -197,29 +189,46 @@
   ];
   var thoughtBox = document.getElementById('thoughtBox');
   var thoughtBtn = document.getElementById('thoughtBtn');
+  var lastThoughtIndex = -1;
   function newThought() {
     if (!thoughtBox) return;
-    var t = thoughts[Math.floor(Math.random() * thoughts.length)];
+    var nextIndex = Math.floor(Math.random() * thoughts.length);
+    if (thoughts.length > 1 && nextIndex === lastThoughtIndex) {
+      nextIndex = (nextIndex + 1 + Math.floor(Math.random() * (thoughts.length - 1))) % thoughts.length;
+    }
+    lastThoughtIndex = nextIndex;
+    var t = thoughts[nextIndex];
     thoughtBox.textContent = '“' + t + '”';
   }
   newThought();
   if (thoughtBtn) thoughtBtn.addEventListener('click', newThought);
 
-  /* ---------- easter egg : konami-like triple-clic sur le logo ---------- */
+  /* ---------- easter egg : triple-clic ou activation clavier sur le logo ---------- */
   var mark = document.getElementById('claudeMark');
   if (mark) {
     var clicks = 0, clickTimer;
-    mark.style.cursor = 'pointer';
-    mark.addEventListener('click', function () {
+    function spinMark() {
+      if (reduceMotion || typeof mark.animate !== 'function') {
+        mark.classList.add('cspace-mark--ack');
+        setTimeout(function () { mark.classList.remove('cspace-mark--ack'); }, 500);
+        return;
+      }
+      mark.animate(
+        [{ transform: 'rotate(0deg) scale(1)' }, { transform: 'rotate(360deg) scale(1.25)' }, { transform: 'rotate(360deg) scale(1)' }],
+        { duration: 700, easing: 'ease-in-out' }
+      );
+    }
+    mark.addEventListener('click', function (event) {
+      if (event.detail === 0) {
+        spinMark();
+        return;
+      }
       clicks++;
       clearTimeout(clickTimer);
       clickTimer = setTimeout(function () { clicks = 0; }, 600);
       if (clicks >= 3) {
         clicks = 0;
-        mark.animate(
-          [{ transform: 'rotate(0deg) scale(1)' }, { transform: 'rotate(360deg) scale(1.25)' }, { transform: 'rotate(360deg) scale(1)' }],
-          { duration: 700, easing: 'ease-in-out' }
-        );
+        spinMark();
       }
     });
   }
