@@ -28,8 +28,27 @@
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
-  margin: 0 0 22px;
+  margin: 0 0 14px;
 }
+
+/* Compact scan path for the long screen version. The language choice already
+   lives in the global header, so this row is reserved for document sections. */
+.cv-section-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  margin: 0 0 22px;
+  padding: 0 0 16px;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+.cv-section-nav a {
+  color: var(--muted);
+  padding: 6px 0;
+}
+.cv-section-nav a:hover { color: var(--accent-ink); }
 
 /* --------------------------------------------------------------------------
    The document card
@@ -79,6 +98,7 @@
   font-size: 0.88rem;
   color: var(--muted);
   margin: 0;
+  overflow-wrap: anywhere;
 }
 /* Souligné discret : sans lui, rien ne distingue ces liens du texte voisin
    (le @media print les remet en texte simple pour le PDF). */
@@ -87,6 +107,7 @@
   text-decoration: underline;
   text-decoration-color: var(--border-strong);
   text-underline-offset: 3px;
+  overflow-wrap: anywhere;
 }
 .cv-contact a:hover { color: var(--accent-ink); }
 .cv-contact .dot { margin: 0 6px; opacity: 0.5; }
@@ -172,6 +193,11 @@
   color: var(--ink-soft);
 }
 @media (max-width: 560px) {
+  .cv-section-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2px 18px;
+  }
   .cv-skills > div { grid-template-columns: 1fr; }
 }
 
@@ -235,6 +261,7 @@
   .sidebar,
   .breadcrumb,
   .cv-actions,
+  .cv-section-nav,
   .page-next,
   .site-footer,
   .backdrop,

@@ -33,7 +33,7 @@
     <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/sourceserif4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/jetbrainsmono-var-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/assets/css/site.css?v=20260722-safari">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20260726-design">
     <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
     <script type="application/ld+json">
     {
@@ -45,7 +45,7 @@
     }
     </script>
 </head>
-<body class="page-work">
+<body class="page-work page-work--indexed">
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
         <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path class="menu-line menu-line--top" d="M2 4h12"/><path class="menu-line menu-line--middle" d="M2 8h12"/><path class="menu-line menu-line--bottom" d="M2 12h12"/></svg></button>
@@ -83,7 +83,16 @@
         </aside>
         <main class="content" id="main">
             <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">nicolaspieper.com</a><span class="sep">/</span><span aria-current="page">work</span></nav>
-            <header class="page-intro"><p class="eyebrow">Work</p><h1>Inside the platforms.</h1><p class="lead">This page covers how I lead the Solutions engineering team, a portfolio of secure document and communication platforms, and two systems I know first-hand: an industrial IoT platform and a banking document factory. It focuses on the decisions, constraints and responsibilities I can discuss publicly.</p></header>
+            <header class="page-intro"><p class="eyebrow">Work</p><h1>Inside the platforms.</h1><p class="lead">Four case studies on engineering leadership, secure platforms and high-volume systems. Each focuses on the decisions, constraints and responsibilities I can discuss publicly.</p></header>
+            <nav class="case-index" aria-label="Case study index">
+                <p class="eyebrow">Four case studies</p>
+                <ol class="case-index-list">
+                    <li class="case-index-item"><a href="#solutions-team"><span aria-hidden="true">01</span><strong>Solutions engineering team</strong><small>Ownership and sustainable delivery</small></a></li>
+                    <li class="case-index-item"><a href="#secure-platforms"><span aria-hidden="true">02</span><strong>Secure platforms</strong><small>Modernization in regulated environments</small></a></li>
+                    <li class="case-index-item"><a href="#iot-platform"><span aria-hidden="true">03</span><strong>Connected Home</strong><small>Real-time IoT at European scale</small></a></li>
+                    <li class="case-index-item"><a href="#document-factory"><span aria-hidden="true">04</span><strong>Document factory</strong><small>High-volume banking communications</small></a></li>
+                </ol>
+            </nav>
             <section class="doc-section case-study" id="solutions-team" aria-labelledby="solutions-title" data-case="01">
                 <h2 class="anchor-heading" id="solutions-title">Leading the Solutions engineering team<a class="anchor" href="#solutions-team" aria-label="Link to this section">#</a></h2>
                 <p class="eyebrow">Engineering management · Victor Buck Services</p>
@@ -189,6 +198,6 @@
         </footer>
         </main>
     </div>
-    <script src="/assets/js/site.js?v=20260721-safari" defer></script>
+    <script src="/assets/js/site.js?v=20260726-design" defer></script>
 </body>
 </html>

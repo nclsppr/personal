@@ -148,7 +148,19 @@
     '/': ['/', '/fr/'],
     '/fr/': ['/', '/fr/'],
     '/work/': ['/work/', '/fr/work/'],
-    '/fr/work/': ['/work/', '/fr/work/']
+    '/fr/work/': ['/work/', '/fr/work/'],
+    '/cv/': ['/cv/', '/fr/cv/'],
+    '/fr/cv/': ['/cv/', '/fr/cv/'],
+    '/blog/': ['/blog/', '/fr/blog/'],
+    '/fr/blog/': ['/blog/', '/fr/blog/'],
+    '/blog/ai-in-the-sdlc/': ['/blog/ai-in-the-sdlc/', '/fr/blog/ai-in-the-sdlc/'],
+    '/fr/blog/ai-in-the-sdlc/': ['/blog/ai-in-the-sdlc/', '/fr/blog/ai-in-the-sdlc/'],
+    '/blog/claude-assisted-by-a-human/': ['/blog/claude-assisted-by-a-human/', '/fr/blog/claude-assisted-by-a-human/'],
+    '/fr/blog/claude-assisted-by-a-human/': ['/blog/claude-assisted-by-a-human/', '/fr/blog/claude-assisted-by-a-human/'],
+    '/blog/claude-in-the-enterprise/': ['/blog/claude-in-the-enterprise/', '/fr/blog/claude-in-the-enterprise/'],
+    '/fr/blog/claude-in-the-enterprise/': ['/blog/claude-in-the-enterprise/', '/fr/blog/claude-in-the-enterprise/'],
+    '/blog/organizing-the-solutions-team/': ['/blog/organizing-the-solutions-team/', '/fr/blog/organizing-the-solutions-team/'],
+    '/fr/blog/organizing-the-solutions-team/': ['/blog/organizing-the-solutions-team/', '/fr/blog/organizing-the-solutions-team/']
   };
   var languagePair = routePairs[location.pathname] || [];
   var langLinks = Array.prototype.slice
@@ -197,21 +209,35 @@
         return;
       }
       var marker = Math.max(84, Math.min(window.innerHeight * 0.32, 240));
-      var next = sections.length ? sections[0].id : null;
+      var next = null;
       for (var i = 0; i < sections.length; i++) {
         if (sections[i].getBoundingClientRect().top <= marker) next = sections[i].id;
         else break;
       }
-      if (next) activate(next);
+      activate(next);
     }
-    update();
 
-    var ticking = false;
-    window.addEventListener('scroll', function () {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(function () { ticking = false; update(); });
-    }, { passive: true });
-    window.addEventListener('resize', update);
+    /* A one-pixel observation band follows the reading marker. This keeps the
+       scrollspy event-driven and, unlike the previous default-to-first logic,
+       leaves article and Work introductions unselected until their first
+       section actually reaches the reading position. */
+    var observer = null;
+    var resizeTimer = null;
+    function observeReadingLine() {
+      if (observer) observer.disconnect();
+      var marker = Math.max(84, Math.min(window.innerHeight * 0.32, 240));
+      var lowerInset = Math.max(0, window.innerHeight - marker - 1);
+      observer = new IntersectionObserver(update, {
+        rootMargin: '-' + marker + 'px 0px -' + lowerInset + 'px 0px',
+        threshold: 0
+      });
+      sections.forEach(function (section) { observer.observe(section); });
+      update();
+    }
+    observeReadingLine();
+    window.addEventListener('resize', function () {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(observeReadingLine, 120);
+    });
   }
 })();

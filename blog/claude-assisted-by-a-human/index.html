@@ -35,7 +35,7 @@
     <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/sourceserif4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/jetbrainsmono-var-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/assets/css/site.css?v=20260722-safari">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20260726-design">
     <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
     <script type="application/ld+json">
     {
@@ -133,6 +133,28 @@
             <section class="doc-section" id="what-stays-human" aria-labelledby="what-stays-human-title">
                 <h2 class="anchor-heading" id="what-stays-human-title">What stays human<a class="anchor" href="#what-stays-human" aria-label="Link to this section">#</a></h2>
                 <p>Four things, and I do not see them moving. <strong>Intent</strong>: deciding what is worth building at all, which no amount of capability supplies. <strong>Context</strong>: knowing what the organization actually needs, including the parts written nowhere. <strong>Taste</strong>: recognizing the difference between code that works and code the team can live with for five years. <strong>Accountability</strong>: a change that reaches production has a human name on it, and that name is not Claude.</p>
+                <figure class="post-model responsibility-map" aria-labelledby="responsibility-map-caption">
+                    <div class="responsibility-map__lane">
+                        <p class="post-model__label">Claude carries</p>
+                        <ul>
+                            <li>Long reading and breadth</li>
+                            <li>First drafts and repetition</li>
+                            <li>Mechanical implementation</li>
+                        </ul>
+                    </div>
+                    <div class="responsibility-map__hinge" aria-hidden="true">
+                        <span>direct</span><span>verify</span><span>own</span>
+                    </div>
+                    <div class="responsibility-map__lane responsibility-map__lane--human">
+                        <p class="post-model__label">The human holds</p>
+                        <ul>
+                            <li>Intent and context</li>
+                            <li>Taste and verification</li>
+                            <li>Final accountability</li>
+                        </ul>
+                    </div>
+                    <figcaption id="responsibility-map-caption">The model expands what can be produced. The human decides what should exist and answers for it.</figcaption>
+                </figure>
                 <div class="callout">
                     <span class="co-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M8 7.5v3.5M8 5.2v.1" stroke-linecap="round"/></svg></span>
                     <p>Claude can produce nearly anything except <strong>the reason to produce it</strong>. Intent, context, taste and accountability are the job now.</p>
@@ -189,6 +211,6 @@
         </footer>
         </main>
     </div>
-    <script src="/assets/js/site.js?v=20260721-safari" defer></script>
+    <script src="/assets/js/site.js?v=20260726-design" defer></script>
 </body>
 </html>
