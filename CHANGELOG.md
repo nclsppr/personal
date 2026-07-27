@@ -5,6 +5,54 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-26 - Hero et terminal d'accueil finalisés
+
+- Le hero rétablit la présentation par preuves : plus de 10 ans d’expérience,
+  plus d’un million d’appareils connectés et 10 millions de rapports traités
+  chaque mois, puis le rôle actuel auprès d’une équipe full-stack au Luxembourg.
+- Le terminal signature des accueils EN et FR se concentre sur trois preuves :
+  le rôle d'Engineering Manager qui continue à livrer, le socle Java et Spring,
+  puis un leadership fondé sur la clarté, la responsabilité et l'autonomie.
+
+## 2026-07-26 - SEO et accès des agents d'IA
+
+- `robots.txt` ouvre toutes les pages publiques canoniques aux robots conformes,
+  dont les agents de recherche, de consultation et d'entraînement d'OpenAI et
+  d'Anthropic. L'ancien blocage de `/claude/` est retiré.
+- Les archives, expérimentations privées et fichiers de fabrication restent hors
+  crawl afin d'éviter des sources concurrentes ou obsolètes dans les résultats.
+- Le sitemap est actualisé et inclut désormais l'espace Claude public. Un
+  `llms.txt` bilingue fournit aux agents un index concis vers les seules sources
+  humaines et canoniques, sans générer de copies Markdown de chaque page.
+
+## 2026-07-26 - Évolution design réversible
+
+- Hero d'accueil enrichi avec la formation d'ingénieur généraliste et la
+  culture grande école. Le terminal signature présente désormais le socle
+  Java et Spring, les principes de leadership et l'usage pragmatique de
+  Codex, Cursor et Claude avec revue humaine.
+- Accueil distillé autour du positionnement, d'un terminal signature,
+  d'une bande de chiffres et d'une hiérarchie claire entre
+  réalisation principale et réalisations secondaires.
+- Index de lecture ajouté aux pages Réalisations EN et FR. Les
+  sous-titres des études de cas sont apaisés et les stickers reprennent
+  le flux sur mobile.
+- Index du blog restructuré autour du dernier article illustré. Trois
+  articles plus compacts complètent la liste. Des modèles fonctionnels
+  renforcent deux articles et le diagramme SDLC devient consultable sur
+  petit écran.
+- Navigation des CV simplifiée et rendue plus robuste aux liens longs.
+  Les deux PDF téléchargeables ont été régénérés depuis les pages HTML.
+- Dashboard, espace Claude et dix pages d'erreur clarifiés, avec états,
+  actions, libellés accessibles et comportements mobiles revus. La fenêtre,
+  la carte postale et la capsule ajoutées en parallèle à l'espace Claude sont
+  conservées et intégrées à cette passe.
+- Parité EN/FR, routes de langue, scrollspy, documentation et structure
+  du dépôt mis à jour. Les clés de cache CSS et JavaScript sont renouvelées
+  pour que la publication charge immédiatement cette version. L'ensemble
+  est livré sur une branche dédiée afin de permettre une comparaison ou un
+  retour arrière sans toucher à `main`.
+
 ## 2026-07-22 - Safari iPhone : teinte synchronisée sans rechargement
 
 - Identification de la cause du rafraîchissement tardif : le header fixe

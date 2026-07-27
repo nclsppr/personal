@@ -1,8 +1,19 @@
+# All public, canonical pages are open to every standards-compliant crawler.
+# OpenAI: OAI-SearchBot, ChatGPT-User and GPTBot.
+# Anthropic: Claude-SearchBot, Claude-User and ClaudeBot.
 User-agent: *
-Allow: /
+# Keep non-canonical sources, tooling and experiments out of the crawl surface.
 Disallow: /v2022/
 Disallow: /infos/
 Disallow: /dashboard/
-Disallow: /claude/
+Disallow: /.claude/
+Disallow: /scripts/
+Disallow: /AGENTS.md
+Disallow: /CHANGELOG.md
+Disallow: /DESIGN.md
+Disallow: /README.md
+Disallow: /skills-lock.json
+Disallow: /claude/journal.md
+Allow: /
 
 Sitemap: https://nicolaspieper.com/sitemap.xml

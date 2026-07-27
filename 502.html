@@ -7,7 +7,7 @@
     <meta name="robots" content="noindex">
     <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
     <meta name="theme-color" content="#FAF9F5">
-    <link rel="stylesheet" href="/assets/css/site.css?v=20260722-safari">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20260726-design">
     <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
 </head>
 <body>
@@ -21,16 +21,16 @@
             <h1>Bad gateway.</h1>
             <p>The upstream server answered with something the gateway could not pass along.</p>
             <p lang="fr">Le serveur en amont a renvoyé une réponse que la passerelle n’a pas pu transmettre.</p>
-            <div class="terminal" role="img" aria-label="Terminal showing: the upstream server sends an empty reply; echo status returns 502">
+            <div class="terminal" role="img" aria-label="Terminal showing curl receiving an empty reply with shell exit status 52">
                 <div class="terminal-bar"><i></i><i></i><i></i><span class="terminal-title">nicolas@pieper.fr - zsh</span></div>
                 <pre><span class="t-prompt">$</span> <span class="t-cmd">curl http://upstream:8080/</span>
 <span class="t-dim">curl: (52) Empty reply from server</span>
 <span class="t-prompt">$</span> <span class="t-cmd">echo $?</span>
-<span class="t-key">502</span></pre>
+<span class="t-key">52</span></pre>
             </div>
             <div class="btn-row">
-                <a class="btn btn-primary" href="/">Home / Accueil</a>
-                <a class="btn btn-ghost" href="/cv/">CV</a>
+                <a class="btn btn-primary" href="">Retry / Réessayer</a>
+                <a class="btn btn-ghost" href="/">Home / Accueil</a>
             </div>
         </main>
     </div>

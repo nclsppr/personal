@@ -7,7 +7,7 @@
     <meta name="robots" content="noindex">
     <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
     <meta name="theme-color" content="#FAF9F5">
-    <link rel="stylesheet" href="/assets/css/site.css?v=20260722-safari">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20260726-design">
     <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
 </head>
 <body>
@@ -21,16 +21,16 @@
             <h1>Bad request.</h1>
             <p>The request was malformed, and the server could not make sense of it.</p>
             <p lang="fr">La requête était malformée, le serveur n’a pas pu l’interpréter.</p>
-            <div class="terminal" role="img" aria-label="Terminal showing: curl rejects a malformed URL; echo status returns 400">
+            <div class="terminal" role="img" aria-label="Terminal showing curl rejecting a malformed URL with shell exit status 3">
                 <div class="terminal-bar"><i></i><i></i><i></i><span class="terminal-title">nicolas@pieper.fr - zsh</span></div>
-                <pre><span class="t-prompt">$</span> <span class="t-cmd">curl 'https://nicolaspieper.com/%zz'</span>
-<span class="t-dim">curl: (3) URL rejected: malformed input</span>
+                <pre><span class="t-prompt">$</span> <span class="t-cmd">curl 'https://nicolaspieper.com/['</span>
+<span class="t-dim">curl: (3) bad range specification in URL position 28</span>
 <span class="t-prompt">$</span> <span class="t-cmd">echo $?</span>
-<span class="t-key">400</span></pre>
+<span class="t-key">3</span></pre>
             </div>
             <div class="btn-row">
                 <a class="btn btn-primary" href="/">Home / Accueil</a>
-                <a class="btn btn-ghost" href="/cv/">CV</a>
+                <a class="btn btn-ghost" href="/#contact">Contact</a>
             </div>
         </main>
     </div>

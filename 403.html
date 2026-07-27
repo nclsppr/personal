@@ -7,7 +7,7 @@
     <meta name="robots" content="noindex">
     <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
     <meta name="theme-color" content="#FAF9F5">
-    <link rel="stylesheet" href="/assets/css/site.css?v=20260722-safari">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20260726-design">
     <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
 </head>
 <body>
@@ -21,16 +21,16 @@
             <h1>Forbidden.</h1>
             <p>This area is off limits, even with the best intentions.</p>
             <p lang="fr">Cette zone n’est pas accessible, même avec les meilleures intentions.</p>
-            <div class="terminal" role="img" aria-label="Terminal showing: reading a private file is denied; echo status returns 403">
+            <div class="terminal" role="img" aria-label="Terminal showing a file permission error with shell exit status 1">
                 <div class="terminal-bar"><i></i><i></i><i></i><span class="terminal-title">nicolas@pieper.fr - zsh</span></div>
                 <pre><span class="t-prompt">$</span> <span class="t-cmd">cat /private/roadmap.md</span>
 <span class="t-dim">cat: /private/roadmap.md: Permission denied</span>
 <span class="t-prompt">$</span> <span class="t-cmd">echo $?</span>
-<span class="t-key">403</span></pre>
+<span class="t-key">1</span></pre>
             </div>
             <div class="btn-row">
                 <a class="btn btn-primary" href="/">Home / Accueil</a>
-                <a class="btn btn-ghost" href="/cv/">CV</a>
+                <a class="btn btn-ghost" href="/#contact">Contact</a>
             </div>
         </main>
     </div>

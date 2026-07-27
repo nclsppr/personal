@@ -35,7 +35,7 @@
     <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/sourceserif4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/jetbrainsmono-var-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/assets/css/site.css?v=20260722-safari">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20260726-design">
     <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
     <script type="application/ld+json">
     {
@@ -171,6 +171,8 @@
                 -->
 
                 <figure class="post-diagram">
+                    <p class="post-diagram__hint" id="diagram-hint">Swipe horizontally to read the full lifecycle.</p>
+                    <div class="post-diagram__viewport" tabindex="0" role="group" aria-labelledby="diagram-title diagram-hint">
                     <svg viewBox="0 0 720 206" width="720" height="206" role="img" aria-labelledby="diagram-title">
                         <title id="diagram-title">Two versions of the software delivery lifecycle. First row: AI accelerates only the build phase and delivery barely moves. Second row: every phase is redesigned around AI, synthesize requirements, spec first, small tasks, generated test data, infrastructure as code, diagnosis, and outcomes improve.</title>
                         <text x="4" y="14" font-size="10" class="d-dim">AI BOLTED ONTO ONE PHASE</text>
@@ -217,6 +219,7 @@
                         <text x="644" y="148" font-size="9.5" class="d-accent">outcomes</text>
                         <text x="644" y="160" font-size="9.5" class="d-accent">improve</text>
                     </svg>
+                    </div>
                     <figcaption>Accelerating one box feeds the queues around it. Redesigning every box moves the outcome.</figcaption>
                 </figure>
             </section>
@@ -265,7 +268,7 @@
         </footer>
         </main>
     </div>
-    <script src="/assets/js/site.js?v=20260721-safari" defer></script>
+    <script src="/assets/js/site.js?v=20260726-design" defer></script>
     <script>
     /* Façade vidéo : l’iframe youtube-nocookie n’est créée qu’au clic.
        Sans JavaScript, la façade reste un lien vers YouTube. */

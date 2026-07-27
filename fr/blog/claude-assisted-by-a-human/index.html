@@ -35,7 +35,7 @@
     <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/sourceserif4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/jetbrainsmono-var-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/assets/css/site.css?v=20260722-safari">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20260726-design">
     <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
     <script type="application/ld+json">
     {
@@ -133,6 +133,28 @@
             <section class="doc-section" id="what-stays-human" aria-labelledby="what-stays-human-title">
                 <h2 class="anchor-heading" id="what-stays-human-title">Ce qui reste humain<a class="anchor" href="#what-stays-human" aria-label="Lien vers cette section">#</a></h2>
                 <p>Quatre choses, et je ne les vois pas bouger. <strong>L’intention</strong> : décider ce qui mérite d’être construit, ce qu’aucune capacité ne fournit. <strong>Le contexte</strong> : savoir ce dont l’organisation a réellement besoin, y compris ce qui n’est écrit nulle part. <strong>Le goût</strong> : reconnaître la différence entre du code qui fonctionne et du code avec lequel l’équipe peut vivre cinq ans. <strong>La responsabilité</strong> : un changement qui atteint la production porte un nom humain, et ce nom n’est pas Claude.</p>
+                <figure class="post-model responsibility-map" aria-labelledby="responsibility-map-caption">
+                    <div class="responsibility-map__lane">
+                        <p class="post-model__label">Claude porte</p>
+                        <ul>
+                            <li>La lecture longue et l’amplitude</li>
+                            <li>Les premiers jets et la répétition</li>
+                            <li>L’implémentation mécanique</li>
+                        </ul>
+                    </div>
+                    <div class="responsibility-map__hinge" aria-hidden="true">
+                        <span>diriger</span><span>vérifier</span><span>assumer</span>
+                    </div>
+                    <div class="responsibility-map__lane responsibility-map__lane--human">
+                        <p class="post-model__label">L’humain conserve</p>
+                        <ul>
+                            <li>L’intention et le contexte</li>
+                            <li>Le goût et la vérification</li>
+                            <li>La responsabilité finale</li>
+                        </ul>
+                    </div>
+                    <figcaption id="responsibility-map-caption">Le modèle élargit ce qui peut être produit. L’humain décide ce qui doit exister et en répond.</figcaption>
+                </figure>
                 <div class="callout">
                     <span class="co-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M8 7.5v3.5M8 5.2v.1" stroke-linecap="round"/></svg></span>
                     <p>Claude peut produire presque tout, sauf <strong>la raison de le produire</strong>. L’intention, le contexte, le goût et la responsabilité : voilà le métier désormais.</p>
@@ -189,6 +211,6 @@
         </footer>
         </main>
     </div>
-    <script src="/assets/js/site.js?v=20260721-safari" defer></script>
+    <script src="/assets/js/site.js?v=20260726-design" defer></script>
 </body>
 </html>

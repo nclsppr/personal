@@ -12,6 +12,10 @@ teinte d'accent, des composants réutilisés partout, aucun effet sans
 utilité. La personnalité passe par les détails (terminal, stickers,
 micro-animations rares), jamais par le volume.
 
+Réglage courant pour les évolutions du site : variance visuelle 5/10,
+mouvement 3/10, densité 5/10. La hiérarchie peut être franche, mais la
+lecture reste prioritaire et les surfaces fonctionnelles restent calmes.
+
 ## 2. Couleurs
 
 Tout passe par les tokens de `site.css`, jamais de couleur en dur.
@@ -40,6 +44,9 @@ libellé texte, jamais couleur seule.
 - Apostrophes typographiques (’) et guillemets courbes (“ ” en EN,
   « » en FR) dans toute la prose. **Aucun tiret cadratin ni
   demi-cadratin, nulle part** (hook bloquant, voir AGENTS.md).
+- Pas de césure automatique dans la prose française. Les identifiants,
+  URLs et autres chaînes longues se traitent localement avec un retour
+  à la ligne sûr.
 - Titres d'articles avec point final ; titres de pages sans.
 
 ## 4. Mesures et mise en page
@@ -54,6 +61,12 @@ libellé texte, jamais couleur seule.
   corps de chaque bloc.)
 - Cartes d'index du blog : meta empilée (date / temps de lecture /
   catégorie), pas de ligne à séparateurs qui se replie.
+- Accueil : les chiffres forment une bande structurée par des filets,
+  sans tuiles individuelles. Une réalisation principale ouvre la
+  section, les suivantes composent un répertoire compact.
+- Page Réalisations : un index de lecture précède le flux éditorial.
+  Sur mobile, les stickers reviennent dans le flux pour préserver une
+  mesure de texte confortable.
 
 ## 5. Composants
 
@@ -69,6 +82,17 @@ L'essentiel :
   thèse). Le diagramme se construit à la main aux tokens du site
   (`.post-diagram`, source mermaid en commentaire, `width`/`height`
   obligatoires sur le svg).
+- `post-model` = modèle fonctionnel qui rend une responsabilité, une
+  séquence ou une règle plus vite lisible que la prose. Sur mobile, il
+  se replie verticalement. Un diagramme large conserve sa géométrie et
+  devient défilable horizontalement avec une consigne visible.
+- Les pages d'erreur distinguent toujours le statut HTTP du vrai code
+  de sortie shell. Leurs actions sont contextuelles : revenir à une
+  destination utile ou réessayer quand cela a un sens.
+- Le dashboard privilégie la lecture opérationnelle et ses statuts
+  textuels. `/claude/` reste une surface publique hors navigation
+  principale, autonome, accessible et volontairement plus expérimentale
+  que le site canonique.
 - Aucune lib externe, aucun CDN, jamais.
 
 ## 6. Mouvement

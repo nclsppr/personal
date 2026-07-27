@@ -1,4 +1,4 @@
-/* Capsule pour demain — un petit rituel local, sans serveur ni collecte. */
+/* Capsule pour demain, un petit rituel local, sans serveur ni collecte. */
 .capsule-panel {
   border-color: color-mix(in srgb, var(--cosmic) 42%, var(--border));
   background:

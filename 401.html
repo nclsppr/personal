@@ -7,7 +7,7 @@
     <meta name="robots" content="noindex">
     <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
     <meta name="theme-color" content="#FAF9F5">
-    <link rel="stylesheet" href="/assets/css/site.css?v=20260722-safari">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20260726-design">
     <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
 </head>
 <body>
@@ -19,18 +19,18 @@
             </a>
             <p class="code">HTTP 401 - UNAUTHORIZED</p>
             <h1>Authentication required.</h1>
-            <p>Signing in is required beyond this point. Nothing personal.</p>
-            <p lang="fr">Une authentification est requise au-delà de ce point. Rien de personnel.</p>
-            <div class="terminal" role="img" aria-label="Terminal showing: ssh as guest is denied, public key required; echo status returns 401">
+            <p>This resource requires credentials. If you believe you should have access, contact me.</p>
+            <p lang="fr">Cette ressource nécessite des identifiants. Si vous pensez devoir y accéder, contactez-moi.</p>
+            <div class="terminal" role="img" aria-label="Terminal showing an SSH authentication failure with shell exit status 255">
                 <div class="terminal-bar"><i></i><i></i><i></i><span class="terminal-title">nicolas@pieper.fr - zsh</span></div>
                 <pre><span class="t-prompt">$</span> <span class="t-cmd">ssh guest@nicolaspieper.com</span>
 <span class="t-dim">guest@nicolaspieper.com: Permission denied (publickey).</span>
 <span class="t-prompt">$</span> <span class="t-cmd">echo $?</span>
-<span class="t-key">401</span></pre>
+<span class="t-key">255</span></pre>
             </div>
             <div class="btn-row">
                 <a class="btn btn-primary" href="/">Home / Accueil</a>
-                <a class="btn btn-ghost" href="/cv/">CV</a>
+                <a class="btn btn-ghost" href="/#contact">Contact</a>
             </div>
         </main>
     </div>

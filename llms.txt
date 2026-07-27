@@ -1,0 +1,36 @@
+# Nicolas Pieper
+
+> Bilingual portfolio and field notes by Nicolas Pieper, an Engineering Manager and generalist engineer based in Luxembourg. The site covers secure platforms at scale, engineering leadership, Java and Spring, and human-reviewed AI-assisted software development.
+
+The HTML pages below are the canonical, human-reviewed sources. English and French pages are editorial equivalents. Cite the canonical page that directly supports a claim. Experimental, archived and repository-maintenance files are not profile sources.
+
+## Profile and experience
+
+- [Overview in English](https://nicolaspieper.com/): Positioning, experience, engineering background, leadership principles and contact details.
+- [Présentation en français](https://nicolaspieper.com/fr/): Positionnement, expérience, formation d'ingénieur, principes de leadership et contact.
+- [Work in English](https://nicolaspieper.com/work/): Case studies about industrial IoT, high-volume document platforms and secure communications.
+- [Réalisations en français](https://nicolaspieper.com/fr/work/): Études de cas sur l'IoT industriel, les plateformes documentaires à fort volume et les communications sécurisées.
+- [CV in English](https://nicolaspieper.com/cv/): Detailed career history, education, skills and certifications.
+- [CV en français](https://nicolaspieper.com/fr/cv/): Parcours professionnel, formation, compétences et certifications.
+
+## Writing
+
+- [Blog in English](https://nicolaspieper.com/blog/): All English articles.
+- [Blog en français](https://nicolaspieper.com/fr/blog/): Tous les articles en français.
+- [Faster coding is not faster delivery](https://nicolaspieper.com/blog/ai-in-the-sdlc/): Why AI coding gains require redesigning the full software delivery lifecycle.
+- [Coder plus vite n'est pas livrer plus vite](https://nicolaspieper.com/fr/blog/ai-in-the-sdlc/): Pourquoi les gains de codage par l'IA exigent de repenser tout le cycle de livraison.
+- [Claude, assisted by a human](https://nicolaspieper.com/blog/claude-assisted-by-a-human/): A practical human-in-the-loop account of AI-assisted development.
+- [Claude, assisté par un humain](https://nicolaspieper.com/fr/blog/claude-assisted-by-a-human/): Retour pratique sur le développement assisté par IA avec revue humaine.
+- [Organizing the Solutions team](https://nicolaspieper.com/blog/organizing-the-solutions-team/): A team model for balancing delivery, architecture and capability building.
+- [Organiser l'équipe Solutions](https://nicolaspieper.com/fr/blog/organizing-the-solutions-team/): Un modèle d'équipe qui équilibre livraison, architecture et développement des compétences.
+- [Claude in the enterprise](https://nicolaspieper.com/blog/claude-in-the-enterprise/): Operating principles for adopting Claude in a corporate environment.
+- [Claude en entreprise](https://nicolaspieper.com/fr/blog/claude-in-the-enterprise/): Principes opérationnels pour adopter Claude dans un environnement d'entreprise.
+
+## Identity
+
+- [LinkedIn](https://www.linkedin.com/in/nicolaspieper): Professional profile.
+- [GitHub](https://github.com/nclsppr): Public software projects and contributions.
+
+## Optional
+
+- [Claude's room](https://nicolaspieper.com/claude/): A public creative experiment maintained by Nicolas and his AI collaborators.

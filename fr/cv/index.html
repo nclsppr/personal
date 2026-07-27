@@ -44,8 +44,8 @@
     <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/sourceserif4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/jetbrainsmono-var-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/assets/css/site.css?v=20260722-safari">
-    <link rel="stylesheet" href="/assets/css/cv.css">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20260726-design">
+    <link rel="stylesheet" href="/assets/css/cv.css?v=20260726-design">
 
     <!-- Prevent theme flash -->
     <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
@@ -196,11 +196,15 @@
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v8m0 0l3-3m-3 3L5 7"/><path d="M3 13h10"/></svg>
                 Télécharger le PDF (0,3&nbsp;Mo)
             </a>
-            <a class="btn btn-ghost" href="/cv/" hreflang="en" lang="en">
-                English version
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-            </a>
         </div>
+
+        <nav class="cv-section-nav" aria-label="Sections du CV">
+            <a href="#cv-profile-title">Profil</a>
+            <a href="#cv-exp-title">Expérience</a>
+            <a href="#cv-skills-title">Compétences</a>
+            <a href="#cv-edu-title">Formation</a>
+            <a href="#cv-lang-title">Langues</a>
+        </nav>
 
         <article class="cv-doc" aria-labelledby="cv-name">
             <header class="cv-head">
@@ -415,6 +419,6 @@
         </footer>
     </main>
 
-    <script src="/assets/js/site.js?v=20260721-safari" defer></script>
+    <script src="/assets/js/site.js?v=20260726-design" defer></script>
 </body>
 </html>
