@@ -1,0 +1,241 @@
+/* ========================================================================== 
+   La pièce indécise : tirer au sort, puis écouter sa propre réaction.
+   ========================================================================== */
+
+.decision-panel {
+  overflow: hidden;
+  border-color: color-mix(in srgb, var(--violet) 58%, var(--border));
+}
+
+.decision-room {
+  display: grid;
+  grid-template-columns: minmax(250px, .82fr) minmax(0, 1.18fr);
+  gap: clamp(20px, 4vw, 46px);
+  align-items: center;
+}
+
+.decision-stage {
+  position: relative;
+  min-height: 330px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 50% 42%, color-mix(in srgb, var(--violet) 24%, transparent) 0 10%, transparent 31%),
+    linear-gradient(145deg, color-mix(in srgb, var(--bg-inset) 88%, var(--violet)), var(--bg-inset));
+  isolation: isolate;
+}
+
+.decision-stage::before,
+.decision-stage::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--violet) 30%, transparent);
+  pointer-events: none;
+}
+
+.decision-stage::before { width: 250px; height: 250px; }
+.decision-stage::after { width: 185px; height: 185px; border-style: dashed; opacity: .66; }
+
+.decision-coin {
+  position: relative;
+  z-index: 2;
+  width: 118px;
+  height: 118px;
+  border: 1px solid color-mix(in srgb, var(--accent) 68%, var(--border));
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 34% 28%, color-mix(in srgb, var(--ink) 30%, transparent), transparent 28%),
+    linear-gradient(145deg, color-mix(in srgb, var(--accent) 82%, #fff), var(--brand));
+  color: #14140f;
+  box-shadow: 0 16px 40px rgba(0,0,0,.28), inset 0 0 0 8px rgba(20,20,15,.12);
+  transform-style: preserve-3d;
+  font: 750 1.5rem/1 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.decision-coin::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px dashed rgba(20,20,15,.34);
+  border-radius: inherit;
+}
+
+.decision-coin.is-flipping { animation: decision-flip 1.05s cubic-bezier(.2,.7,.2,1); }
+
+@keyframes decision-flip {
+  0% { transform: translateY(0) rotateY(0) rotateX(0); }
+  38% { transform: translateY(-72px) rotateY(540deg) rotateX(120deg) scale(1.08); }
+  72% { transform: translateY(-16px) rotateY(900deg) rotateX(210deg); }
+  100% { transform: translateY(0) rotateY(1080deg) rotateX(360deg); }
+}
+
+.decision-shadow {
+  position: absolute;
+  z-index: 1;
+  width: 102px;
+  height: 18px;
+  top: calc(50% + 76px);
+  border-radius: 50%;
+  background: rgba(0,0,0,.26);
+  filter: blur(8px);
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+.decision-stage.is-flipping .decision-shadow { transform: scale(.55); opacity: .35; }
+
+.decision-caption {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 16px;
+  margin: 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: .72rem;
+}
+
+.decision-copy h3 {
+  margin: 0 0 8px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.2rem, 2.6vw, 1.65rem);
+  line-height: 1.18;
+}
+
+.decision-intro,
+.decision-privacy,
+.decision-reading {
+  color: var(--muted);
+  font-size: .82rem;
+}
+
+.decision-intro { margin: 0 0 18px; }
+
+.decision-form {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 10px;
+  align-items: end;
+}
+
+.decision-field { min-width: 0; }
+
+.decision-field label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--ink-soft);
+  font-size: .75rem;
+}
+
+.decision-input {
+  width: 100%;
+  min-width: 0;
+  padding: 11px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  background: var(--bg-inset);
+  color: var(--ink);
+  font: inherit;
+  font-size: .82rem;
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.decision-input:focus {
+  border-color: var(--violet);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--violet) 18%, transparent);
+}
+
+.decision-or {
+  align-self: center;
+  padding-top: 20px;
+  color: var(--muted);
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.decision-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 13px;
+}
+
+.decision-btn,
+.decision-feeling,
+.decision-reset {
+  border: 1px solid color-mix(in srgb, var(--violet) 58%, var(--border));
+  border-radius: 8px;
+  padding: 9px 12px;
+  background: color-mix(in srgb, var(--violet) 13%, var(--bg-inset));
+  color: var(--ink);
+  font: inherit;
+  font-size: .76rem;
+  cursor: pointer;
+  transition: transform .15s ease, border-color .15s ease, background .15s ease, opacity .15s ease;
+}
+
+.decision-btn:hover:not(:disabled),
+.decision-feeling:hover,
+.decision-reset:hover {
+  transform: translateY(-1px);
+  border-color: var(--violet);
+  background: color-mix(in srgb, var(--violet) 22%, var(--bg-inset));
+}
+
+.decision-btn:disabled { opacity: .43; cursor: not-allowed; }
+.decision-reset { color: var(--muted); background: transparent; }
+
+.decision-result {
+  margin-top: 17px;
+  padding: 14px;
+  border: 1px dashed var(--border-strong);
+  border-radius: 9px;
+  background: var(--bg-inset);
+}
+
+.decision-result[hidden] { display: none; }
+
+.decision-result-line {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: .84rem;
+}
+
+.decision-result-line strong { color: var(--accent); }
+
+.decision-question {
+  margin: 13px 0 8px;
+  color: var(--ink);
+  font-size: .8rem;
+}
+
+.decision-feelings { display: flex; gap: 8px; flex-wrap: wrap; }
+.decision-reading { min-height: 1.5em; margin: 12px 0 0; color: var(--cosmic); }
+.decision-privacy { margin: 18px 0 0; padding-top: 15px; border-top: 1px dashed var(--border); }
+
+@media (max-width: 780px) {
+  .decision-room { grid-template-columns: 1fr; }
+  .decision-stage { min-height: 260px; }
+}
+
+@media (max-width: 560px) {
+  .decision-form { grid-template-columns: 1fr; }
+  .decision-or { padding: 0; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .decision-coin.is-flipping { animation: decision-flip-calm .35s ease-out; }
+}
+
+@keyframes decision-flip-calm {
+  from { transform: scale(.88); opacity: .55; }
+  to { transform: scale(1); opacity: 1; }
+}
