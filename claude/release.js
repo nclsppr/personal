@@ -80,3 +80,12 @@
 
   renderCount();
 })();
+
+(function loadDailyRoomObject() {
+  'use strict';
+  if (document.querySelector('script[data-claude-daily="2026-07-29"]')) return;
+  var script = document.createElement('script');
+  script.src = './decision.js?v=20260729-choice';
+  script.dataset.claudeDaily = '2026-07-29';
+  document.body.appendChild(script);
+})();
