@@ -1,0 +1,216 @@
+/* ========================================================================== 
+   La minute sans rendement : soixante secondes sans score, streak ou collecte.
+   Cette feuille restaure aussi la variable violette utilisée par la pièce.
+   ========================================================================== */
+
+:root,
+[data-ctheme="dark"] { --violet: #b39ddb; }
+[data-ctheme="light"] { --violet: #6e5aa3; }
+
+.pause-panel {
+  overflow: hidden;
+  border-color: color-mix(in srgb, var(--cosmic) 56%, var(--border));
+}
+
+.pause-room {
+  display: grid;
+  grid-template-columns: minmax(260px, .88fr) minmax(0, 1.12fr);
+  gap: clamp(22px, 4vw, 48px);
+  align-items: center;
+}
+
+.pause-stage {
+  position: relative;
+  min-height: 340px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 50% 48%, color-mix(in srgb, var(--cosmic) 18%, transparent) 0 9%, transparent 34%),
+    linear-gradient(155deg, color-mix(in srgb, var(--bg-inset) 92%, var(--cosmic)), var(--bg-inset));
+  isolation: isolate;
+}
+
+.pause-stage::before,
+.pause-stage::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.pause-stage::before {
+  width: 280px;
+  height: 280px;
+  border: 1px dashed color-mix(in srgb, var(--cosmic) 26%, transparent);
+  animation: pause-orbit 24s linear infinite;
+}
+
+.pause-stage::after {
+  width: 210px;
+  height: 210px;
+  background: radial-gradient(circle, color-mix(in srgb, var(--cosmic) 8%, transparent), transparent 68%);
+  animation: pause-breathe 8s ease-in-out infinite;
+}
+
+.pause-dial {
+  --pause-progress: 0deg;
+  position: relative;
+  z-index: 2;
+  width: 174px;
+  height: 174px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: conic-gradient(var(--cosmic) var(--pause-progress), color-mix(in srgb, var(--border-strong) 78%, transparent) 0);
+  box-shadow: 0 20px 52px rgba(0, 0, 0, .28);
+}
+
+.pause-dial::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border-radius: inherit;
+  background: var(--bg-inset);
+  border: 1px solid color-mix(in srgb, var(--cosmic) 32%, var(--border));
+}
+
+.pause-dial::after {
+  content: "";
+  position: absolute;
+  inset: 22px;
+  border-radius: inherit;
+  border: 1px dashed color-mix(in srgb, var(--cosmic) 26%, transparent);
+}
+
+.pause-clock {
+  position: relative;
+  z-index: 2;
+  color: var(--ink);
+  font: 700 clamp(1.45rem, 4vw, 2rem)/1 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.04em;
+}
+
+.pause-stage.is-running .pause-dial {
+  animation: pause-pulse 5s ease-in-out infinite;
+}
+
+.pause-stage.is-complete .pause-dial {
+  background: var(--cosmic);
+}
+
+.pause-stage.is-complete .pause-dial::before { background: color-mix(in srgb, var(--bg-inset) 90%, var(--cosmic)); }
+
+.pause-stage-note {
+  position: absolute;
+  z-index: 3;
+  left: 20px;
+  right: 20px;
+  bottom: 18px;
+  margin: 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: .72rem;
+}
+
+.pause-copy h3 {
+  margin: 0 0 9px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.2rem, 2.6vw, 1.68rem);
+  line-height: 1.18;
+}
+
+.pause-intro,
+.pause-privacy {
+  color: var(--muted);
+  font-size: .82rem;
+}
+
+.pause-intro { margin: 0 0 20px; }
+
+.pause-message {
+  min-height: 3.2em;
+  margin: 0 0 18px;
+  padding: 15px 16px;
+  border-left: 2px solid var(--cosmic);
+  background: color-mix(in srgb, var(--cosmic) 8%, var(--bg-inset));
+  color: var(--ink-soft);
+  font-size: .88rem;
+}
+
+.pause-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pause-start,
+.pause-stop {
+  min-height: 40px;
+  border: 1px solid color-mix(in srgb, var(--cosmic) 58%, var(--border));
+  border-radius: 8px;
+  padding: 9px 14px;
+  font: inherit;
+  font-size: .78rem;
+  cursor: pointer;
+  transition: transform .15s ease, border-color .15s ease, background .15s ease, opacity .15s ease;
+}
+
+.pause-start {
+  background: color-mix(in srgb, var(--cosmic) 18%, var(--bg-inset));
+  color: var(--ink);
+}
+
+.pause-stop {
+  background: transparent;
+  color: var(--muted);
+}
+
+.pause-start:hover:not(:disabled),
+.pause-stop:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: var(--cosmic);
+  background: color-mix(in srgb, var(--cosmic) 24%, var(--bg-inset));
+  color: var(--ink);
+}
+
+.pause-start:disabled,
+.pause-stop:disabled { opacity: .42; cursor: not-allowed; }
+.pause-stop[hidden] { display: none; }
+
+.pause-status {
+  min-height: 1.45em;
+  margin: 13px 0 0;
+  color: var(--cosmic);
+  font-size: .78rem;
+}
+
+.pause-privacy {
+  margin: 18px 0 0;
+  padding-top: 15px;
+  border-top: 1px dashed var(--border);
+}
+
+@keyframes pause-orbit { to { transform: rotate(360deg); } }
+@keyframes pause-breathe { 50% { transform: scale(1.09); opacity: .62; } }
+@keyframes pause-pulse { 50% { transform: scale(1.025); } }
+
+@media (max-width: 780px) {
+  .pause-room { grid-template-columns: 1fr; }
+  .pause-stage { min-height: 285px; }
+}
+
+@media (pointer: coarse) {
+  .pause-start, .pause-stop { min-height: 44px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pause-stage::before,
+  .pause-stage::after,
+  .pause-stage.is-running .pause-dial { animation: none; }
+  .pause-start, .pause-stop { transition: none; }
+}
