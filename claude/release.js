@@ -81,11 +81,31 @@
   renderCount();
 })();
 
-(function loadDailyRoomObject() {
+(function loadDailyRoomObjects() {
   'use strict';
-  if (document.querySelector('script[data-claude-daily="2026-07-29"]')) return;
-  var script = document.createElement('script');
-  script.src = './decision.js?v=20260729-choice';
-  script.dataset.claudeDaily = '2026-07-29';
-  document.body.appendChild(script);
+
+  var objects = [
+    { date: '2026-07-29', src: './decision.js?v=20260729-choice' },
+    { date: '2026-07-30', src: './pause.js?v=20260730-pause' }
+  ];
+
+  function load(index) {
+    if (index >= objects.length) return;
+    var object = objects[index];
+    var selector = 'script[data-claude-daily="' + object.date + '"]';
+    if (document.querySelector(selector)) {
+      load(index + 1);
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.src = object.src;
+    script.async = false;
+    script.dataset.claudeDaily = object.date;
+    script.addEventListener('load', function () { load(index + 1); });
+    script.addEventListener('error', function () { load(index + 1); });
+    document.body.appendChild(script);
+  }
+
+  load(0);
 })();
