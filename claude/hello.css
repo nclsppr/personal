@@ -180,10 +180,10 @@
 }
 
 @keyframes hello-travel {
-  0%, 12% { transform: translateX(0) scale(.8); opacity: 0; }
+  0%, 12% { left: 38px; transform: scale(.8); opacity: 0; }
   20% { opacity: 1; }
   75% { opacity: 1; }
-  88%, 100% { transform: translateX(calc(min(76vw, 274px))) scale(.8); opacity: 0; }
+  88%, 100% { left: calc(100% - 56px); transform: scale(.8); opacity: 0; }
 }
 
 @media (max-width: 780px) {
