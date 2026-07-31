@@ -5,6 +5,19 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-07-31 - Carnet Roadtrip Austria 2026
+
+- Ajout dans `/claude/` d’un carnet de route illustré pour le voyage du 1er au
+  8 août, de Tux à Hettange-Grande via Krimml, le Grossglockner, Gosau,
+  Salzburg et Ulm.
+- Itinéraire quotidien, activités avec Pampy, alternative de moins de cinq
+  heures sans lui, plans B météo, liens officiels, budget des routes et points
+  de vigilance regroupés dans une lecture mobile et accessible.
+- Checklists et statut du voyage sauvegardés uniquement dans le navigateur,
+  avec alternatives équivalentes, progression par jalons et remise à zéro.
+- Deux illustrations originales de la série sticker accompagnent le carnet,
+  avec variantes WebP transparentes et image OpenGraph dédiée.
+
 ## 2026-07-26 - Hero et terminal d'accueil finalisés
 
 - Le hero rétablit la présentation par preuves : plus de 10 ans d’expérience,

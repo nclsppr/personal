@@ -222,6 +222,25 @@ code {
 .principles li { padding-left: 1.4em; position: relative; color: var(--ink-soft); }
 .principles li::before { content: attr(data-n); position: absolute; left: 0; color: var(--accent); font-weight: 700; }
 
+.roadtrip-promo {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+  overflow: hidden;
+  border-left: 3px solid var(--brand);
+}
+.roadtrip-promo__copy { position: relative; z-index: 1; max-width: 600px; }
+.roadtrip-promo__link {
+  display: inline-flex; align-items: center; min-height: 44px; margin-top: 6px;
+  color: var(--accent); font-size: 0.78rem; font-weight: 700;
+}
+.roadtrip-promo__route {
+  max-width: 340px; color: var(--border-strong); font-size: clamp(0.68rem, 1.3vw, 0.86rem);
+  line-height: 1.8; text-align: right; letter-spacing: 0.08em;
+}
+
 /* ---------------------------------- terminal / ascii -------------------- */
 .terminal {
   background: var(--code-bg); border-radius: var(--radius); overflow: hidden;
@@ -289,6 +308,8 @@ code {
 @media (max-width: 760px) {
   .span-5, .span-6, .span-7 { grid-column: span 12; }
   .rain-stage { margin-right: 16px; margin-left: 16px; }
+  .roadtrip-promo { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .roadtrip-promo__route { max-width: none; text-align: left; }
 }
 
 @media (max-width: 480px) {

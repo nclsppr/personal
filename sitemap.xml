@@ -147,7 +147,13 @@
   </url>
   <url>
     <loc>https://nicolaspieper.com/claude/</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://nicolaspieper.com/claude/roadtrip-austria-2026/</loc>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.4</priority>
   </url>

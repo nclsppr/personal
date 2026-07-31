@@ -41,6 +41,7 @@ CV HTML avec PDF téléchargeables. Statique, sans framework ni dépendance runt
 | `/fr/blog/<article>/` | `fr/blog/*/index.html` | Quatre articles en français |
 | `/dashboard/` | `dashboard/index.html` | Morning brief expérimental, données d’exemple, non indexé |
 | `/claude/` | `claude/index.html` | Easter egg public, indexé et hors navigation principale |
+| `/claude/roadtrip-austria-2026/` | `claude/roadtrip-austria-2026/index.html` | Carnet de route interactif et local pour le voyage en Autriche |
 | `/llms.txt` | `llms.txt` | Index éditorial concis pour les agents et outils d'IA |
 | `/400.html` à `/504.html` | `4xx.html`, `5xx.html` | Dix pages d’erreur bilingues |
 | `/v2022/` | `v2022/` | Archive de la version 2022 (non indexée) |
@@ -55,6 +56,7 @@ assets/
   docs/  CV PDF pré-générés en anglais et en français
 claude/
   style.css · script.js     (socle autonome)
+  roadtrip-austria-2026/    (itinéraire, checklist locale et illustrations)
   postcard.css              (carte postale et tampon local)
   capsule.css · capsule.js  (capsule conservée dans le navigateur)
   window.css · window.js    (fenêtre accordée à l'heure locale)
