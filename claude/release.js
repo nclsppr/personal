@@ -88,7 +88,8 @@
     { date: '2026-07-29', src: './decision.js?v=20260729-choice' },
     { date: '2026-07-30', src: './pause.js?v=20260730-pause' },
     { date: '2026-07-31', src: './hello.js?v=20260731-hello' },
-    { date: '2026-08-01', src: './detail.js?v=20260801-detail' }
+    { date: '2026-08-01', src: './detail.js?v=20260801-detail' },
+    { date: '2026-08-02', src: './collection.js?v=20260802-shelf' }
   ];
 
   function load(index) {
