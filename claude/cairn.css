@@ -1,0 +1,287 @@
+/* Le cairn de passage · 3 août 2026 */
+.cairn-panel {
+  overflow: hidden;
+}
+
+.cairn-room {
+  display: grid;
+  grid-template-columns: minmax(270px, .9fr) minmax(0, 1.1fr);
+  gap: clamp(24px, 5vw, 58px);
+  align-items: center;
+}
+
+.cairn-scene {
+  position: relative;
+  min-height: 390px;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  border-radius: calc(var(--radius) + 4px);
+  background:
+    radial-gradient(circle at 72% 20%, color-mix(in srgb, var(--accent) 26%, transparent) 0 7%, transparent 7.5%),
+    linear-gradient(165deg, color-mix(in srgb, var(--cosmic) 22%, var(--bg-inset)) 0 52%, var(--bg-inset) 53% 100%);
+  box-shadow: inset 0 0 0 8px color-mix(in srgb, var(--bg) 68%, transparent);
+  isolation: isolate;
+}
+
+.cairn-sun {
+  position: absolute;
+  top: 17%;
+  right: 17%;
+  width: 58px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 14px color-mix(in srgb, var(--accent) 12%, transparent);
+  opacity: .9;
+}
+
+.cairn-ridge {
+  position: absolute;
+  left: -8%;
+  right: -8%;
+  bottom: -18%;
+  height: 58%;
+  border-radius: 52% 48% 0 0;
+  transform-origin: center bottom;
+}
+
+.cairn-ridge--far {
+  bottom: 12%;
+  height: 42%;
+  background: color-mix(in srgb, var(--cosmic) 26%, var(--bg-raised));
+  clip-path: polygon(0 72%, 15% 42%, 29% 67%, 46% 23%, 64% 66%, 80% 36%, 100% 70%, 100% 100%, 0 100%);
+  opacity: .72;
+}
+
+.cairn-ridge--near {
+  background: color-mix(in srgb, var(--ink) 12%, var(--bg-raised));
+  transform: rotate(-2deg);
+}
+
+.cairn-path {
+  position: absolute;
+  left: 47%;
+  bottom: -7%;
+  width: 24%;
+  height: 58%;
+  background: color-mix(in srgb, var(--accent) 18%, var(--bg-inset));
+  clip-path: polygon(44% 0, 56% 0, 100% 100%, 0 100%);
+  opacity: .78;
+}
+
+.cairn-stack {
+  position: absolute;
+  left: 50%;
+  bottom: 17%;
+  z-index: 3;
+  width: 210px;
+  height: 230px;
+  transform: translateX(-50%);
+}
+
+.cairn-stone {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  display: block;
+  border: 1px solid color-mix(in srgb, var(--ink) 38%, var(--border-strong));
+  background:
+    radial-gradient(circle at 30% 24%, color-mix(in srgb, white 12%, transparent), transparent 34%),
+    color-mix(in srgb, var(--ink) 22%, var(--bg-raised));
+  box-shadow: 0 9px 18px color-mix(in srgb, black 24%, transparent);
+  opacity: 0;
+  transform: translate(-50%, 48px) rotate(var(--stone-rotation)) scale(.82);
+  transition: opacity .34s ease, transform .48s cubic-bezier(.2, .8, .2, 1);
+}
+
+.cairn-stone.is-placed {
+  opacity: 1;
+  transform: translate(-50%, 0) rotate(var(--stone-rotation)) scale(1);
+}
+
+.cairn-stone--1 {
+  --stone-rotation: -2deg;
+  width: 150px;
+  height: 48px;
+  border-radius: 48% 44% 38% 42%;
+}
+
+.cairn-stone--2 {
+  --stone-rotation: 2deg;
+  bottom: 42px;
+  width: 128px;
+  height: 44px;
+  border-radius: 41% 50% 44% 37%;
+}
+
+.cairn-stone--3 {
+  --stone-rotation: -3deg;
+  bottom: 80px;
+  width: 105px;
+  height: 39px;
+  border-radius: 52% 38% 47% 39%;
+}
+
+.cairn-stone--4 {
+  --stone-rotation: 3deg;
+  bottom: 114px;
+  width: 82px;
+  height: 34px;
+  border-radius: 39% 51% 42% 48%;
+}
+
+.cairn-stone--5 {
+  --stone-rotation: -1deg;
+  bottom: 144px;
+  width: 56px;
+  height: 30px;
+  border-radius: 50% 43% 48% 38%;
+  background: color-mix(in srgb, var(--accent) 20%, var(--bg-raised));
+}
+
+.cairn-scene[data-count='5'] .cairn-stack {
+  animation: cairn-breathe 3.8s ease-in-out infinite;
+}
+
+.cairn-copy h3 {
+  max-width: 18ch;
+  margin: 0 0 12px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+  line-height: 1.04;
+  letter-spacing: -.04em;
+}
+
+.cairn-kicker {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: .76rem;
+  font-weight: 800;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.cairn-intro {
+  max-width: 66ch;
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.cairn-message {
+  min-height: 6.7rem;
+  display: flex;
+  align-items: center;
+  margin: 22px 0 0;
+  padding: clamp(18px, 4vw, 28px);
+  border: 0;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: color-mix(in srgb, var(--accent) 8%, var(--bg-inset));
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(1rem, 2.1vw, 1.3rem);
+  line-height: 1.45;
+}
+
+.cairn-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px;
+  margin-top: 16px;
+}
+
+.cairn-button,
+.cairn-reset {
+  appearance: none;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-inset);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+  transition: transform .16s ease, border-color .16s ease, background-color .16s ease, opacity .16s ease;
+}
+
+.cairn-button {
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: .83rem;
+}
+
+.cairn-button--primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 800;
+}
+
+.cairn-reset {
+  padding: 8px 2px;
+  border-color: transparent;
+  background: transparent;
+  color: var(--muted);
+  font-size: .78rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cairn-button:hover:not(:disabled),
+.cairn-reset:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: var(--cosmic);
+}
+
+.cairn-button:disabled,
+.cairn-reset:disabled {
+  opacity: .42;
+  cursor: not-allowed;
+}
+
+.cairn-status,
+.cairn-privacy {
+  color: var(--muted);
+  font-size: .78rem;
+}
+
+.cairn-status {
+  margin: 13px 0 0;
+}
+
+.cairn-privacy {
+  margin: 7px 0 0;
+}
+
+@keyframes cairn-breathe {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-2px); }
+}
+
+@media (max-width: 760px) {
+  .cairn-room {
+    grid-template-columns: 1fr;
+  }
+
+  .cairn-scene {
+    min-height: 320px;
+  }
+
+  .cairn-copy h3 {
+    max-width: none;
+  }
+
+  .cairn-message {
+    min-height: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cairn-stone,
+  .cairn-button,
+  .cairn-reset {
+    transition: none;
+  }
+
+  .cairn-scene[data-count='5'] .cairn-stack {
+    animation: none;
+  }
+}
