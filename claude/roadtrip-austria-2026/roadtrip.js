@@ -16,6 +16,7 @@
   var nextMilestoneLink = document.getElementById('nextMilestoneLink');
   var saveState = document.getElementById('saveState');
   var resetButton = document.getElementById('resetTrip');
+  var photoCarousels = Array.from(document.querySelectorAll('[data-photo-carousel]'));
   var immediatePrepGroups = ['prep-vignette', 'prep-dog-docs', 'prep-dog-kit', 'prep-offline-maps'];
   var storageAvailable = canUseStorage();
 
@@ -279,8 +280,119 @@
     resetButton.focus();
   }
 
+  function setupPhotoCarousel(carousel) {
+    var viewport = carousel.querySelector('[data-carousel-viewport]');
+    var track = carousel.querySelector('[data-carousel-track]');
+    var controls = carousel.querySelector('[data-carousel-controls]');
+    var previousButton = carousel.querySelector('[data-carousel-prev]');
+    var nextButton = carousel.querySelector('[data-carousel-next]');
+    var currentNode = carousel.querySelector('[data-carousel-current]');
+    var totalNode = carousel.querySelector('[data-carousel-total]');
+    var announcement = carousel.querySelector('[data-carousel-announcement]');
+    var slides = track ? Array.from(track.querySelectorAll('.trip-photo')) : [];
+
+    if (!viewport || !track || !controls || !previousButton || !nextButton || slides.length < 2) return;
+
+    var currentIndex = 0;
+    var scheduledFrame = null;
+    var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var requestFrame = window.requestAnimationFrame || function (callback) { return window.setTimeout(callback, 16); };
+
+    function setCurrent(index, shouldAnnounce) {
+      currentIndex = Math.max(0, Math.min(index, slides.length - 1));
+
+      if (currentNode) currentNode.textContent = String(currentIndex + 1);
+      if (totalNode) totalNode.textContent = String(slides.length);
+      if (announcement && shouldAnnounce) announcement.textContent = 'Photo ' + (currentIndex + 1) + ' sur ' + slides.length;
+
+      previousButton.disabled = currentIndex === 0;
+      nextButton.disabled = currentIndex === slides.length - 1;
+
+      slides.forEach(function (slide, slideIndex) {
+        var link = slide.querySelector('a');
+        if (!link) return;
+        if (slideIndex === currentIndex) link.removeAttribute('tabindex');
+        else link.setAttribute('tabindex', '-1');
+      });
+    }
+
+    function closestSlideIndex() {
+      var bestIndex = 0;
+      var bestDistance = Number.MAX_SAFE_INTEGER;
+
+      slides.forEach(function (slide, index) {
+        var distance = Math.abs(slide.offsetLeft - viewport.scrollLeft);
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          bestIndex = index;
+        }
+      });
+
+      return bestIndex;
+    }
+
+    function updateAfterScroll() {
+      if (scheduledFrame !== null) return;
+      scheduledFrame = requestFrame(function () {
+        scheduledFrame = null;
+        var nextIndex = closestSlideIndex();
+        if (nextIndex !== currentIndex) setCurrent(nextIndex, true);
+      });
+    }
+
+    function moveTo(index, shouldAnnounce, instant) {
+      var nextIndex = Math.max(0, Math.min(index, slides.length - 1));
+      var left = slides[nextIndex].offsetLeft;
+
+      if (typeof viewport.scrollTo === 'function') {
+        viewport.scrollTo({ left: left, behavior: reducedMotion || instant ? 'auto' : 'smooth' });
+      } else {
+        viewport.scrollLeft = left;
+      }
+
+      setCurrent(nextIndex, shouldAnnounce);
+    }
+
+    slides.forEach(function (slide, index) {
+      slide.setAttribute('role', 'group');
+      slide.setAttribute('aria-roledescription', 'diapositive');
+      slide.setAttribute('aria-label', (index + 1) + ' sur ' + slides.length);
+    });
+
+    viewport.setAttribute('tabindex', '0');
+    viewport.setAttribute('role', 'region');
+    viewport.setAttribute('aria-roledescription', 'carrousel');
+    if (carousel.getAttribute('aria-labelledby')) viewport.setAttribute('aria-labelledby', carousel.getAttribute('aria-labelledby'));
+    else viewport.setAttribute('aria-label', 'Photos réelles du voyage');
+    carousel.dataset.carouselReady = 'true';
+    controls.hidden = false;
+    setCurrent(0, false);
+
+    previousButton.addEventListener('click', function () { moveTo(currentIndex - 1, true); });
+    nextButton.addEventListener('click', function () { moveTo(currentIndex + 1, true); });
+    viewport.addEventListener('scroll', updateAfterScroll, { passive: true });
+    viewport.addEventListener('keydown', function (event) {
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        moveTo(currentIndex - 1, true);
+      } else if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        moveTo(currentIndex + 1, true);
+      } else if (event.key === 'Home') {
+        event.preventDefault();
+        moveTo(0, true);
+      } else if (event.key === 'End') {
+        event.preventDefault();
+        moveTo(slides.length - 1, true);
+      }
+    });
+
+    window.addEventListener('resize', function () { moveTo(currentIndex, false, true); });
+  }
+
   loadTheme();
   applyState(readState());
+  photoCarousels.forEach(setupPhotoCarousel);
 
   if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
   checkboxes.forEach(function (input) { input.addEventListener('change', save); });

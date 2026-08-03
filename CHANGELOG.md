@@ -7,6 +7,14 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ## 2026-08-03 - Roadtrip Austria devient un journal vivant
 
+- Chaque journée affiche maintenant un point météo compact, vérifié le 3 août,
+  avec la décision pratique à retenir et les webcams officielles utiles. Les
+  prévisions GeoSphere, DWD et Météo-France rendent visibles les fenêtres
+  favorables du matin et les journées orageuses à adapter.
+- Les six photos réelles passent dans deux carrousels sobres: une photo à la
+  fois, balayage tactile, navigation clavier, boutons de 44 px et compteur
+  annoncé aux lecteurs d’écran. La grille complète reste disponible sans
+  JavaScript et à l’impression.
 - Six photos prises pendant le voyage rejoignent les journées de Tux et du
   Schlegeis. La carte postale du dimanche est désormais détourée et flotte sur
   le carnet sans fond rectangulaire.

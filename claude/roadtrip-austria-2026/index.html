@@ -21,7 +21,7 @@
     <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="./assets/stage-03-hintertux.webp" as="image" type="image/webp">
     <link rel="stylesheet" href="../style.css?v=20260803-triplog">
-    <link rel="stylesheet" href="./roadtrip.css?v=20260803-photojournal">
+    <link rel="stylesheet" href="./roadtrip.css?v=20260803-weather-carousel">
     <script>(function(){try{var t=localStorage.getItem('claude-space-theme')||'dark';document.documentElement.dataset.ctheme=t;}catch(e){}})()</script>
 </head>
 <body class="claude-space roadtrip-page">
@@ -133,7 +133,7 @@
             <div class="section-heading section-heading--wide">
                 <p class="eyebrow">J1 à J8</p>
                 <h2 id="itinerary-title">Le carnet de route</h2>
-                <p>Chaque journée a un plan principal et une variante réaliste. « Adapté » est un bon statut: en montagne, changer de plan à temps fait partie du plan.</p>
+                <p>Chaque journée a un plan principal et une variante réaliste. Point météo vérifié le 3 août à 10h40 CEST: les températures sont celles des vallées ou des lieux indiqués, et la montagne peut être nettement plus froide. Refaire le point chaque matin.</p>
             </div>
 
             <ol class="day-list">
@@ -155,6 +155,10 @@
                         <div class="day-body">
                             <div class="day-plan">
                                 <p class="day-meta"><span>Route longue</span><span class="dog-badge">Avec Pampy</span><span>Tesla Model 3 Quicksilver</span><span>Nuit 1/3 à Tux</span></p>
+                                <aside class="day-weather day-weather--observed" aria-label="Conditions observées et webcam du samedi 1 août">
+                                    <div class="day-weather__forecast"><span>Observé</span><strong>Tux · ciel clair et sec</strong><small>Une belle fenêtre pour la balade du soir.</small></div>
+                                    <div class="day-weather__links"><span>Webcam</span><a href="https://www.tux.at/en/webcams/">Tux-Finkenberg ↗</a></div>
+                                </aside>
                                 <p>La longue route en Tesla, l’installation au Tirolerhof et la première pause de Pampy se sont déroulées comme prévu. Une arrivée tranquille qui a gardé de l’énergie pour la montagne.</p>
                                 <div class="day-fallback"><strong>Ce qu’on retient</strong> Après la route, marcher, boire, manger et dormir comptaient davantage qu’une activité de plus.</div>
                             </div>
@@ -165,24 +169,31 @@
                                 <div class="check-row"><input id="d1-micro-walk" type="checkbox" data-check data-optional="true"><label for="d1-micro-walk"><strong>Micro-balade si le ciel le permet</strong><span>Bonus, jamais une obligation.</span></label></div>
                             </fieldset>
                         </div>
-                        <section class="trip-gallery trip-gallery--tux" aria-labelledby="tux-gallery-title">
+                        <section class="trip-gallery trip-gallery--tux trip-carousel" data-photo-carousel aria-labelledby="tux-gallery-title">
                             <div class="trip-gallery__heading">
                                 <p class="eyebrow">Photos du samedi</p>
                                 <h4 id="tux-gallery-title">Juste à côté du Tirolerhof</h4>
                             </div>
-                            <div class="trip-gallery__grid">
-                                <figure class="trip-photo">
-                                    <a href="./assets/tux-tirolerhof-walk-real.webp" aria-label="Agrandir la promenade près du Tirolerhof">
-                                        <img src="./assets/tux-tirolerhof-walk-real.webp" width="1536" height="1152" loading="lazy" alt="Pampy marche le long du Tuxbach dans la vallée verte, juste à côté du Tirolerhof à Tux">
-                                    </a>
-                                    <figcaption>La promenade de Pampy le long du Tuxbach.</figcaption>
-                                </figure>
-                                <figure class="trip-photo">
-                                    <a href="./assets/tux-tirolerhof-stream-real.webp" aria-label="Agrandir la vue du Tuxbach">
-                                        <img src="./assets/tux-tirolerhof-stream-real.webp" width="1152" height="1536" loading="lazy" alt="Le Tuxbach traverse les prés et les montagnes près du Tirolerhof à Tux">
-                                    </a>
-                                    <figcaption>Le torrent et les prés au pied de l’hôtel.</figcaption>
-                                </figure>
+                            <div class="trip-carousel__viewport" data-carousel-viewport>
+                                <div class="trip-gallery__grid trip-carousel__track" id="tux-photo-track" data-carousel-track>
+                                    <figure class="trip-photo">
+                                        <a href="./assets/tux-tirolerhof-walk-real.webp" aria-label="Agrandir la promenade près du Tirolerhof">
+                                            <img src="./assets/tux-tirolerhof-walk-real.webp" width="1536" height="1152" loading="lazy" alt="Pampy marche le long du Tuxbach dans la vallée verte, juste à côté du Tirolerhof à Tux">
+                                        </a>
+                                        <figcaption>La promenade de Pampy le long du Tuxbach.</figcaption>
+                                    </figure>
+                                    <figure class="trip-photo">
+                                        <a href="./assets/tux-tirolerhof-stream-real.webp" aria-label="Agrandir la vue du Tuxbach">
+                                            <img src="./assets/tux-tirolerhof-stream-real.webp" width="1152" height="1536" loading="lazy" alt="Le Tuxbach traverse les prés et les montagnes près du Tirolerhof à Tux">
+                                        </a>
+                                        <figcaption>Le torrent et les prés au pied de l’hôtel.</figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="trip-carousel__controls" data-carousel-controls hidden>
+                                <button type="button" data-carousel-prev aria-controls="tux-photo-track"><span aria-hidden="true">←</span><span class="sr-only">Photo précédente</span></button>
+                                <span class="trip-carousel__counter" role="status" aria-live="polite" aria-atomic="true"><span aria-hidden="true"><span data-carousel-current>1</span> / <span data-carousel-total>2</span></span><span class="sr-only" data-carousel-announcement>Photo 1 sur 2</span></span>
+                                <button type="button" data-carousel-next aria-controls="tux-photo-track"><span class="sr-only">Photo suivante</span><span aria-hidden="true">→</span></button>
                             </div>
                         </section>
                     </article>
@@ -201,6 +212,10 @@
                         <div class="day-body">
                             <div class="day-plan">
                                 <p class="day-meta"><span>Réalisé dimanche</span><span class="dog-badge">Avec Pampy</span><span>Altitude atteinte: 2 100 m</span></p>
+                                <aside class="day-weather day-weather--observed" aria-label="Conditions observées et webcam du dimanche 2 août">
+                                    <div class="day-weather__forecast"><span>Observé</span><strong>Schlegeis · soleil et beaux cumulus</strong><small>Bonne visibilité pendant la grande randonnée.</small></div>
+                                    <div class="day-weather__links"><span>Webcam</span><a href="https://visit.verbund.com/en/schlegeis">Schlegeis ↗</a></div>
+                                </aside>
                                 <p>Schlegeis est fait. Nous sommes montés à pied jusqu’à 2 100 m au-dessus du réservoir; Pampy a adoré la grosse randonnée et a largement gagné son titre de copilote alpin.</p>
                                 <div class="day-fallback"><strong>Le souvenir du jour</strong> Beaucoup de dénivelé, un lac turquoise en contrebas et un golden roux fauve parfaitement heureux sur le sentier.</div>
                             </div>
@@ -212,36 +227,43 @@
                                 <div class="check-row"><input id="d2-pampy-care" type="checkbox" data-check data-optional="true" checked><label for="d2-pampy-care"><strong>Pampy a adoré la randonnée</strong><span>Pattes, eau et récupération après l’effort.</span></label></div>
                             </fieldset>
                         </div>
-                        <section class="trip-gallery trip-gallery--schlegeis" aria-labelledby="schlegeis-gallery-title">
+                        <section class="trip-gallery trip-gallery--schlegeis trip-carousel" data-photo-carousel aria-labelledby="schlegeis-gallery-title">
                             <div class="trip-gallery__heading">
                                 <p class="eyebrow">Photos du dimanche</p>
                                 <h4 id="schlegeis-gallery-title">Le Schlegeis, pour de vrai</h4>
                             </div>
-                            <div class="trip-gallery__grid">
-                                <figure class="trip-photo trip-photo--panorama">
-                                    <a href="./assets/schlegeis-panorama-real.webp" aria-label="Agrandir le panorama du Schlegeis">
-                                        <img src="./assets/schlegeis-panorama-real.webp" width="1536" height="1152" loading="lazy" alt="Panorama du lac turquoise de Schlegeis entouré de sommets et de glaciers sous de grands nuages blancs">
-                                    </a>
-                                    <figcaption>Le lac turquoise, les glaciers et le sentier qui prend de la hauteur.</figcaption>
-                                </figure>
-                                <figure class="trip-photo">
-                                    <a href="./assets/schlegeis-pampy-overlook-real.webp" aria-label="Agrandir Pampy au-dessus du Schlegeis">
-                                        <img src="./assets/schlegeis-pampy-overlook-real.webp" width="1152" height="1536" loading="lazy" alt="Pampy, golden retriever roux fauve, contemple le lac de Schlegeis depuis les rochers en altitude">
-                                    </a>
-                                    <figcaption>Pampy prend la mesure du paysage.</figcaption>
-                                </figure>
-                                <figure class="trip-photo">
-                                    <a href="./assets/schlegeis-pampy-trough-real.webp" aria-label="Agrandir Pampy dans l’abreuvoir">
-                                        <img src="./assets/schlegeis-pampy-trough-real.webp" width="1152" height="1536" loading="lazy" alt="Pampy se rafraîchit avec bonheur dans un abreuvoir en bois pendant la randonnée au Schlegeis">
-                                    </a>
-                                    <figcaption>Pause fraîcheur quatre étoiles.</figcaption>
-                                </figure>
-                                <figure class="trip-photo">
-                                    <a href="./assets/schlegeis-nicolas-pampy-real.webp" aria-label="Agrandir Nicolas et Pampy face au lac">
-                                        <img src="./assets/schlegeis-nicolas-pampy-real.webp" width="1152" height="1536" loading="lazy" alt="Nicolas enlace Pampy debout devant le lac et les montagnes de Schlegeis">
-                                    </a>
-                                    <figcaption>Le duo devant le réservoir, avant la montée.</figcaption>
-                                </figure>
+                            <div class="trip-carousel__viewport" data-carousel-viewport>
+                                <div class="trip-gallery__grid trip-carousel__track" id="schlegeis-photo-track" data-carousel-track>
+                                    <figure class="trip-photo trip-photo--panorama">
+                                        <a href="./assets/schlegeis-panorama-real.webp" aria-label="Agrandir le panorama du Schlegeis">
+                                            <img src="./assets/schlegeis-panorama-real.webp" width="1536" height="1152" loading="lazy" alt="Panorama du lac turquoise de Schlegeis entouré de sommets et de glaciers sous de grands nuages blancs">
+                                        </a>
+                                        <figcaption>Le lac turquoise, les glaciers et le sentier qui prend de la hauteur.</figcaption>
+                                    </figure>
+                                    <figure class="trip-photo">
+                                        <a href="./assets/schlegeis-pampy-overlook-real.webp" aria-label="Agrandir Pampy au-dessus du Schlegeis">
+                                            <img src="./assets/schlegeis-pampy-overlook-real.webp" width="1152" height="1536" loading="lazy" alt="Pampy, golden retriever roux fauve, contemple le lac de Schlegeis depuis les rochers en altitude">
+                                        </a>
+                                        <figcaption>Pampy prend la mesure du paysage.</figcaption>
+                                    </figure>
+                                    <figure class="trip-photo">
+                                        <a href="./assets/schlegeis-pampy-trough-real.webp" aria-label="Agrandir Pampy dans l’abreuvoir">
+                                            <img src="./assets/schlegeis-pampy-trough-real.webp" width="1152" height="1536" loading="lazy" alt="Pampy se rafraîchit avec bonheur dans un abreuvoir en bois pendant la randonnée au Schlegeis">
+                                        </a>
+                                        <figcaption>Pause fraîcheur quatre étoiles.</figcaption>
+                                    </figure>
+                                    <figure class="trip-photo">
+                                        <a href="./assets/schlegeis-nicolas-pampy-real.webp" aria-label="Agrandir Nicolas et Pampy face au lac">
+                                            <img src="./assets/schlegeis-nicolas-pampy-real.webp" width="1152" height="1536" loading="lazy" alt="Nicolas enlace Pampy debout devant le lac et les montagnes de Schlegeis">
+                                        </a>
+                                        <figcaption>Le duo devant le réservoir, avant la montée.</figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="trip-carousel__controls" data-carousel-controls hidden>
+                                <button type="button" data-carousel-prev aria-controls="schlegeis-photo-track"><span aria-hidden="true">←</span><span class="sr-only">Photo précédente</span></button>
+                                <span class="trip-carousel__counter" role="status" aria-live="polite" aria-atomic="true"><span aria-hidden="true"><span data-carousel-current>1</span> / <span data-carousel-total>4</span></span><span class="sr-only" data-carousel-announcement>Photo 1 sur 4</span></span>
+                                <button type="button" data-carousel-next aria-controls="schlegeis-photo-track"><span class="sr-only">Photo suivante</span><span aria-hidden="true">→</span></button>
                             </div>
                         </section>
                         <figure class="trip-memory">
@@ -264,6 +286,10 @@
                         <div class="day-body">
                             <div class="day-plan">
                                 <p class="day-meta"><span>Première montée 8h15</span><span class="dog-badge">Pampy vient</span><span>Objectif conseillé: 2 660 m</span></p>
+                                <aside class="day-weather" aria-label="Prévision et webcams du lundi 3 août">
+                                    <div class="day-weather__forecast"><span>15 à 27 °C</span><strong>Soleil tôt, orage local possible plus tard</strong><small>Retour vers 14h ou 15h; descendre au premier grondement.</small></div>
+                                    <div class="day-weather__links"><span>Webcams</span><a href="https://www.tux.at/en/webcams/">Tux ↗</a><a href="https://www.hintertuxergletscher.at/en/skiing/skiing-region-current-information/webcams/">Glacier ↗</a></div>
+                                </aside>
                                 <p>Après la grosse randonnée d’hier, privilégier les remontées: pause à Sommerbergalm à 2 100 m pour contrôler les coussinets, puis Tuxer Fernerhaus à 2 660 m. Si Pampy reste parfaitement à l’aise et que la visibilité tient, la terrasse à 3 250 m peut être un bref bonus de 10 à 20 minutes.</p>
                                 <div class="day-fallback"><strong>Limites simples</strong> Pas d’Ice Palace avec Pampy, pas de marche sur le glacier sans guide, et descente immédiate s’il ralentit anormalement, halète sans récupérer, titube, vomit ou refuse d’avancer. Revenir sous 2 100 m avant le risque d’orage de l’après-midi.</div>
                             </div>
@@ -292,6 +318,10 @@
                         <div class="day-body">
                             <div class="day-plan">
                                 <p class="day-meta"><span>Gerlos + Felbertauern</span><span class="dog-badge">Avec Pampy</span><span>Nuit à Heiligenblut</span></p>
+                                <aside class="day-weather" aria-label="Prévision et webcams du mardi 4 août">
+                                    <div class="day-weather__forecast"><span>15 à 33 °C selon la vallée</span><strong>Très chaud, orage de chaleur possible</strong><small>Faire Krimml tôt et viser Heiligenblut avant la fin d’après-midi.</small></div>
+                                    <div class="day-weather__links"><span>Webcams</span><a href="https://www.krimmler-wasserwelten.at/en/for-your-visit/webcam-weather">Krimml ↗</a><a href="https://heiligenblut.at/webcams/">Heiligenblut ↗</a></div>
+                                </aside>
                                 <p>Route panoramique de Gerlos, puis 1h30 à 2h aux parties basse et médiane des chutes de Krimml. Continuer par le tunnel du Felbertauern pour arriver à Heiligenblut vers 16h ou 17h.</p>
                                 <div class="day-fallback"><strong>Plan B pluie</strong> Vue courte sur les chutes, puis transfert. Péages indicatifs: Gerlos 13 € et Felbertauern 13,50 €.</div>
                             </div>
@@ -319,6 +349,10 @@
                         <div class="day-body">
                             <div class="day-plan">
                                 <p class="day-meta"><span>Départ 6h30</span><span class="dog-badge">Avec Pampy</span><span>Péage indicatif 46,50 €</span></p>
+                                <aside class="day-weather day-weather--warning" aria-label="Prévision et webcams du mercredi 5 août">
+                                    <div class="day-weather__forecast"><span>10 à 18 °C sur la route alpine</span><strong>Belle fenêtre tôt, averses ou orage dès 14h</strong><small>Passer les points hauts avant midi, puis descendre vers Gosau, 16 à 28 °C.</small></div>
+                                    <div class="day-weather__links"><span>Webcams</span><a href="https://www.grossglockner.at/en/for-your-visit/webcam-weather">Grossglockner ↗</a><a href="https://www.hallstatt.net/webcams/">Gosau ↗</a></div>
+                                </aside>
                                 <p>Kaiser-Franz-Josefs-Höhe et vue sur la Pasterze, petite boucle du Kaiserstein, Hochtor, Fuscher Törl et Edelweissspitze. Descendre côté nord, puis rejoindre Gosau.</p>
                                 <div class="day-fallback"><strong>Règle de sécurité</strong> Vérifier webcams et ouverture avant de partir. Pampy reste en laisse, n’entre pas au visitor center et ne descend pas vers la langue glaciaire.</div>
                             </div>
@@ -347,6 +381,10 @@
                         <div class="day-body">
                             <div class="day-plan">
                                 <p class="day-meta"><span>Hallstatt 6h45 à 9h00</span><span class="dog-badge">Avec Pampy</span><span>Nuit à Salzburg</span></p>
+                                <aside class="day-weather day-weather--warning" aria-label="Prévision et webcams du jeudi 6 août">
+                                    <div class="day-weather__forecast"><span>18 à 27 °C</span><strong>Journée la plus instable, pluie et orages probables</strong><small>Webcams à 7h: bonus lac très tôt ou départ direct pour un programme couvert à Salzburg.</small></div>
+                                    <div class="day-weather__links"><span>Webcams</span><a href="https://www.hallstatt.net/webcams/">Lacs ↗</a><a href="https://www.salzburg.info/en/travel-info/webcam">Salzburg ↗</a></div>
+                                </aside>
                                 <p>Hallstatt avant les bus, puis tour du Vorderer Gosausee: 4,2 km, plat, environ 1 heure. Si l’énergie est là, prolonger vers le Hinterer Gosausee, sinon rejoindre Salzburg en une heure environ.</p>
                                 <div class="day-fallback"><strong>À savoir</strong> La mine de sel et le Skywalk de Hallstatt sont annoncés fermés jusqu’au 1er septembre 2026. Pour une baignade canine, viser la zone Landbettler à Obertraun.</div>
                             </div>
@@ -374,6 +412,10 @@
                         <div class="day-body">
                             <div class="day-plan">
                                 <p class="day-meta"><span>Départ avant midi</span><span class="dog-badge">Avec Pampy</span><span>Nuit à Ulm</span></p>
+                                <aside class="day-weather" aria-label="Prévision et webcams du vendredi 7 août">
+                                    <div class="day-weather__forecast"><span>Salzburg 18 à 23 °C · Ulm 16 à 23 °C</span><strong>Pluie au départ, amélioration nette vers l’ouest</strong><small>Chaussée humide autour de Salzburg; Ulm devrait rester sec.</small></div>
+                                    <div class="day-weather__links"><span>Webcams</span><a href="https://www.salzburg.info/en/travel-info/webcam">Salzburg ↗</a><a href="https://www.bayerninfo.de/en/traffic-cameras">A8 ↗</a><a href="https://www.ulm.de/sonderseiten/webcams">Ulm ↗</a></div>
+                                </aside>
                                 <p>Quais de la Salzach, vieille ville et, si tout s’aligne, ascenseur du Mönchsberg. Les chiens y sont admis avec laisse et muselière. Reprendre la route avant midi pour garder une vraie marge jusqu’à Ulm.</p>
                                 <div class="day-fallback"><strong>Plan B chaleur</strong> Promenade courte le long de l’eau, café à l’ombre, puis départ avancé.</div>
                             </div>
@@ -401,6 +443,10 @@
                         <div class="day-body">
                             <div class="day-plan">
                                 <p class="day-meta"><span>4h30 de route nominale</span><span class="dog-badge">Avec Pampy</span><span>Objectif 15h à 17h</span></p>
+                                <aside class="day-weather day-weather--clear" aria-label="Prévision et webcam du samedi 8 août">
+                                    <div class="day-weather__forecast"><span>Ulm 14 à 24 °C · Hettange 12 à 29 °C</span><strong>Sec, de plus en plus ensoleillé et chaud</strong><small>Très bonnes conditions météo; prévoir eau, pauses et zones fraîches pour Pampy.</small></div>
+                                    <div class="day-weather__links"><span>Webcam départ</span><a href="https://www.ulm.de/sonderseiten/webcams">Ulm ↗</a></div>
+                                </aside>
                                 <p>Petit-déjeuner, départ sans traîner, puis pauses régulières pour Pampy. L’arrivée visée laisse plusieurs heures de sécurité avant le samedi soir.</p>
                                 <div class="day-fallback"><strong>La règle finale</strong> Une arrivée à 18h vaut mieux qu’une conduite pressée. Le carnet suit le voyage, pas l’inverse.</div>
                             </div>
@@ -494,6 +540,8 @@
                         <li><a href="https://www.felbertauernstrasse.at/en/">Felbertauern ↗</a></li>
                         <li><a href="https://www.grossglockner.at/en/for-your-visit/webcam-weather">Grossglockner, webcams et météo ↗</a></li>
                         <li><a href="https://www.geosphere.at/en/maps/weather-forecast">Prévisions GeoSphere Austria ↗</a></li>
+                        <li><a href="https://www.dwd.de/EN/ourservices/met_application_mosmix/met_application_mosmix.html">Prévisions longue échéance DWD MOSMIX ↗</a></li>
+                        <li><a href="https://previ.meteofrance.com/previsions-meteo-france/hettange-grande/57330">Météo-France à Hettange-Grande ↗</a></li>
                     </ul>
                 </div>
                 <div>
@@ -516,6 +564,6 @@
         <button type="button" class="reset-btn" id="resetTrip">Revenir au journal connu</button>
     </footer>
 
-    <script src="./roadtrip.js?v=20260803-triplog"></script>
+    <script src="./roadtrip.js?v=20260803-weather-carousel"></script>
 </body>
 </html>

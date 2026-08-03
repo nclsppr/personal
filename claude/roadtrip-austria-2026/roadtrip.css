@@ -684,6 +684,85 @@ body.roadtrip-page {
   border-style: dashed;
 }
 
+.day-weather {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px 22px;
+  align-items: center;
+  max-width: 58ch;
+  margin-bottom: 18px;
+  padding: 12px 0;
+  border-top: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--border);
+}
+
+.day-weather--warning {
+  border-top-color: var(--brand);
+}
+
+.day-weather__forecast {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.day-weather__forecast > span,
+.day-weather__links > span {
+  color: var(--accent);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.61rem;
+  font-weight: 650;
+  letter-spacing: 0.045em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.day-weather--observed .day-weather__forecast > span {
+  color: var(--muted);
+}
+
+.day-weather__forecast strong {
+  color: var(--ink);
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+.day-weather__forecast small {
+  color: var(--muted);
+  font-size: 0.68rem;
+  line-height: 1.45;
+}
+
+.day-weather__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0 8px;
+  max-width: 210px;
+}
+
+.day-weather__links > span {
+  flex-basis: 100%;
+  text-align: right;
+}
+
+.day-weather__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ink-soft);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.65rem;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.day-weather__links a:focus-visible {
+  border-radius: 4px;
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 .day-plan .day-fallback {
   max-width: 58ch;
   padding: 15px 18px;
@@ -773,6 +852,87 @@ body.roadtrip-page {
   color: var(--muted);
   font-size: 0.72rem;
   line-height: 1.45;
+}
+
+.trip-carousel[data-carousel-ready="true"] .trip-carousel__viewport {
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.trip-carousel[data-carousel-ready="true"] .trip-carousel__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.trip-carousel[data-carousel-ready="true"] .trip-carousel__track {
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+}
+
+.trip-carousel[data-carousel-ready="true"] .trip-photo {
+  flex: 0 0 100%;
+  grid-column: auto;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.trip-carousel[data-carousel-ready="true"] .trip-photo a {
+  display: grid;
+  height: clamp(260px, 42vw, 480px);
+  place-items: center;
+}
+
+.trip-carousel[data-carousel-ready="true"] .trip-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.trip-carousel__controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.trip-carousel__controls[hidden] {
+  display: none;
+}
+
+.trip-carousel__controls button {
+  display: inline-grid;
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  place-items: center;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  font: 1rem 'JetBrains Mono', ui-monospace, monospace;
+}
+
+.trip-carousel__controls button:disabled {
+  cursor: default;
+  opacity: 0.32;
+}
+
+.trip-carousel__controls button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.trip-carousel__counter {
+  min-width: 54px;
+  color: var(--muted);
+  font: 0.68rem 'JetBrains Mono', ui-monospace, monospace;
+  text-align: center;
 }
 
 .trip-memory {
@@ -976,7 +1136,8 @@ body.roadtrip-page {
 
 @media (hover: hover) and (pointer: fine) {
   .text-link,
-  .source-groups a {
+  .source-groups a,
+  .day-weather__links a {
     transition: color 160ms ease, transform 160ms ease;
   }
 
@@ -985,8 +1146,14 @@ body.roadtrip-page {
   }
 
   .text-link:hover,
-  .source-groups a:hover {
+  .source-groups a:hover,
+  .day-weather__links a:hover {
     transform: translateX(2px);
+  }
+
+  .trip-carousel__controls button:not(:disabled):hover {
+    border-color: var(--accent);
+    color: var(--accent);
   }
 }
 
@@ -1155,6 +1322,20 @@ body.roadtrip-page {
     padding-left: 0;
   }
 
+  .day-weather {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .day-weather__links {
+    justify-content: flex-start;
+    max-width: none;
+  }
+
+  .day-weather__links > span {
+    text-align: left;
+  }
+
   .trip-memory {
     grid-template-columns: 1fr;
     margin-left: 0;
@@ -1185,6 +1366,14 @@ body.roadtrip-page {
   .trip-gallery--tux .trip-photo:first-child,
   .trip-photo--panorama {
     grid-column: 1;
+  }
+
+  .trip-carousel[data-carousel-ready="true"] .trip-photo a {
+    height: clamp(260px, 76vw, 420px);
+  }
+
+  .trip-carousel__controls {
+    justify-content: space-between;
   }
 
   .trip-memory figcaption {
@@ -1283,6 +1472,33 @@ body.roadtrip-page {
   .field-notes {
     break-inside: avoid;
   }
+
+  .trip-carousel__controls {
+    display: none;
+  }
+
+  .trip-carousel[data-carousel-ready="true"] .trip-carousel__viewport {
+    overflow: visible;
+  }
+
+  .trip-carousel[data-carousel-ready="true"] .trip-carousel__track {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .trip-carousel[data-carousel-ready="true"] .trip-photo {
+    display: block;
+    grid-column: auto;
+  }
+
+  .trip-carousel[data-carousel-ready="true"] .trip-photo a {
+    height: auto;
+  }
+
+  .trip-carousel[data-carousel-ready="true"] .trip-photo img {
+    height: auto;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1292,7 +1508,12 @@ body.roadtrip-page {
 
   .text-link,
   .source-groups a,
+  .day-weather__links a,
   .trip-photo img {
     transition: none;
+  }
+
+  .trip-carousel[data-carousel-ready="true"] .trip-carousel__viewport {
+    scroll-behavior: auto;
   }
 }
