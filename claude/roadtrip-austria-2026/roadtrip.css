@@ -156,6 +156,42 @@ body.roadtrip-page {
   filter: drop-shadow(0 22px 34px color-mix(in srgb, var(--bg-inset) 52%, transparent));
 }
 
+.hero-stickers {
+  position: relative;
+  min-height: 470px;
+  aspect-ratio: 1.12;
+  isolation: isolate;
+}
+
+.trip-hero__visual .hero-stickers img {
+  position: absolute;
+  height: auto;
+  transform-origin: 50% 70%;
+}
+
+.hero-stickers img:nth-child(1) {
+  bottom: 1%;
+  left: -2%;
+  z-index: 1;
+  width: 56%;
+  transform: rotate(-7deg);
+}
+
+.hero-stickers img:nth-child(2) {
+  top: -2%;
+  left: 18%;
+  z-index: 3;
+  width: 65%;
+}
+
+.hero-stickers img:nth-child(3) {
+  right: -1%;
+  bottom: 0;
+  z-index: 2;
+  width: 51%;
+  transform: rotate(7deg);
+}
+
 .trip-hero__visual figcaption {
   margin-top: 8px;
   color: var(--muted);
@@ -515,6 +551,10 @@ body.roadtrip-page {
   border-top-color: var(--brand);
 }
 
+.day[data-status="on-track"] .day-date > span::after {
+  content: " · réalisé";
+}
+
 .day[data-status="adapted"] .day-date > span::after {
   content: " · adapté";
 }
@@ -525,10 +565,24 @@ body.roadtrip-page {
 
 .day-head {
   display: grid;
-  grid-template-columns: 145px minmax(0, 1fr) auto;
+  grid-template-columns: 145px minmax(0, 1fr) 132px auto;
   gap: 24px;
   align-items: start;
   margin-bottom: 28px;
+}
+
+.day-sticker {
+  grid-column: 3;
+  align-self: center;
+  width: 132px;
+  margin: -28px 0 -18px;
+}
+
+.day-sticker img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 14px color-mix(in srgb, var(--bg-inset) 38%, transparent));
 }
 
 .day-date span,
@@ -643,6 +697,46 @@ body.roadtrip-page {
   display: block;
   margin-bottom: 3px;
   color: var(--ink);
+}
+
+.trip-memory {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(210px, 0.55fr);
+  gap: 0;
+  align-items: stretch;
+  margin: 34px 0 0 169px;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+}
+
+.trip-memory img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trip-memory figcaption {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding: clamp(20px, 3vw, 34px);
+  border-left: 1px solid var(--border);
+}
+
+.trip-memory figcaption strong {
+  color: var(--ink);
+  font-family: var(--trip-serif);
+  font-size: 1.35rem;
+  line-height: 1.15;
+}
+
+.trip-memory figcaption span {
+  color: var(--muted);
+  font-size: 0.78rem;
 }
 
 .pampy-section {
@@ -834,6 +928,10 @@ body.roadtrip-page {
     margin-inline: auto;
   }
 
+  .hero-stickers {
+    min-height: 510px;
+  }
+
   .trip-dashboard {
     position: relative;
     top: auto;
@@ -847,7 +945,7 @@ body.roadtrip-page {
   }
 
   .day-head {
-    grid-template-columns: 116px minmax(0, 1fr);
+    grid-template-columns: 116px minmax(0, 1fr) 126px;
   }
 
   .day-status-label {
@@ -855,10 +953,20 @@ body.roadtrip-page {
     width: max-content;
   }
 
+  .day-sticker {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    width: 126px;
+  }
+
   .day-body {
     grid-template-columns: 1fr 1fr;
     gap: 38px;
     padding-left: 140px;
+  }
+
+  .trip-memory {
+    margin-left: 140px;
   }
 
   .source-groups {
@@ -885,6 +993,18 @@ body.roadtrip-page {
   .trip-hero {
     gap: 22px;
     padding-block: 52px 50px;
+  }
+
+  .hero-stickers {
+    min-height: 0;
+  }
+
+  .hero-stickers img:nth-child(1) {
+    left: 0;
+  }
+
+  .hero-stickers img:nth-child(3) {
+    right: 0;
   }
 
   .trip-hero h1 {
@@ -917,12 +1037,30 @@ body.roadtrip-page {
   }
 
   .day-head {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) 112px;
     gap: 12px;
   }
 
+  .day-date {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .day-title {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .day-sticker {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    width: 112px;
+    margin: -18px 0 -8px;
+  }
+
   .day-status-label {
-    grid-column: auto;
+    grid-column: 1 / -1;
+    grid-row: 3;
     width: 100%;
   }
 
@@ -933,6 +1071,16 @@ body.roadtrip-page {
   .day-body {
     gap: 30px;
     padding-left: 0;
+  }
+
+  .trip-memory {
+    grid-template-columns: 1fr;
+    margin-left: 0;
+  }
+
+  .trip-memory figcaption {
+    border-top: 1px solid var(--border);
+    border-left: 0;
   }
 
   .pampy-section {
@@ -975,6 +1123,14 @@ body.roadtrip-page {
 }
 
 @media (max-width: 440px) {
+  .day-head {
+    grid-template-columns: minmax(0, 1fr) 92px;
+  }
+
+  .day-sticker {
+    width: 92px;
+  }
+
   .trip-facts {
     grid-template-columns: 1fr;
   }

@@ -3,7 +3,8 @@
 
   var root = document.documentElement;
   var themeKey = 'claude-space-theme';
-  var storageKey = 'roadtrip-austria-2026:v1';
+  var storageKey = 'roadtrip-austria-2026:v2';
+  var legacyStorageKey = 'roadtrip-austria-2026:v1';
   var themeBtn = document.getElementById('cthemeBtn');
   var checkboxes = Array.from(document.querySelectorAll('[data-check]'));
   var dayStatusFields = Array.from(document.querySelectorAll('[data-day-status]'));
@@ -56,24 +57,63 @@
     try { localStorage.setItem(themeKey, next); } catch (error) {}
   }
 
-  function emptyState() {
-    return { version: 1, checks: {}, dayStatus: {}, updatedAt: null };
+  function baselineState() {
+    return {
+      version: 2,
+      checks: {
+        'prep-vignette': true,
+        'prep-dog-docs': true,
+        'prep-dog-kit': true,
+        'prep-offline-maps': true,
+        'd1-arrive-tux': true,
+        'd1-pampy-walk': true,
+        'd2-weather-check': true,
+        'd2-schlegeis-hike': true,
+        'd2-pampy-care': true,
+        'd3-dog-arrangement': true
+      },
+      dayStatus: {
+        d1: 'on-track',
+        d2: 'on-track',
+        d3: 'adapted'
+      },
+      updatedAt: null
+    };
   }
 
   function readState() {
-    if (!storageAvailable) return emptyState();
+    var baseline = baselineState();
+    if (!storageAvailable) return baseline;
 
     try {
-      var parsed = JSON.parse(localStorage.getItem(storageKey));
-      if (!parsed || parsed.version !== 1) return emptyState();
+      var currentRaw = localStorage.getItem(storageKey);
+      var current = currentRaw ? JSON.parse(currentRaw) : null;
+
+      if (current && current.version === 2) {
+        return {
+          version: 2,
+          checks: Object.assign({}, baseline.checks, current.checks && typeof current.checks === 'object' ? current.checks : {}),
+          dayStatus: Object.assign({}, baseline.dayStatus, current.dayStatus && typeof current.dayStatus === 'object' ? current.dayStatus : {}),
+          updatedAt: typeof current.updatedAt === 'string' ? current.updatedAt : null
+        };
+      }
+
+      var legacyRaw = localStorage.getItem(legacyStorageKey);
+      var legacy = legacyRaw ? JSON.parse(legacyRaw) : null;
+      if (!legacy || legacy.version !== 1) return baseline;
+
+      var legacyChecks = legacy.checks && typeof legacy.checks === 'object' ? legacy.checks : {};
+      var migratedChecks = Object.assign({}, baseline.checks, legacyChecks);
+      if (legacyChecks['d2-olpererhuette'] === true) migratedChecks['d2-schlegeis-hike'] = true;
+
       return {
-        version: 1,
-        checks: parsed.checks && typeof parsed.checks === 'object' ? parsed.checks : {},
-        dayStatus: parsed.dayStatus && typeof parsed.dayStatus === 'object' ? parsed.dayStatus : {},
-        updatedAt: typeof parsed.updatedAt === 'string' ? parsed.updatedAt : null
+        version: 2,
+        checks: migratedChecks,
+        dayStatus: Object.assign({}, legacy.dayStatus && typeof legacy.dayStatus === 'object' ? legacy.dayStatus : {}, baseline.dayStatus),
+        updatedAt: typeof legacy.updatedAt === 'string' ? legacy.updatedAt : null
       };
     } catch (error) {
-      return emptyState();
+      return baseline;
     }
   }
 
@@ -82,15 +122,15 @@
     var statuses = {};
 
     checkboxes.forEach(function (input) {
-      if (input.checked) checks[input.id] = true;
+      checks[input.id] = input.checked;
     });
 
     dayStatusFields.forEach(function (field) {
-      if (field.value !== 'planned') statuses[field.dataset.dayStatus] = field.value;
+      statuses[field.dataset.dayStatus] = field.value;
     });
 
     return {
-      version: 1,
+      version: 2,
       checks: checks,
       dayStatus: statuses,
       updatedAt: new Date().toISOString()
@@ -227,14 +267,15 @@
   }
 
   function resetTrip() {
-    var accepted = window.confirm('Remettre toutes les coches et tous les statuts à zéro sur cet appareil ?');
+    var accepted = window.confirm('Effacer tes nouvelles coches et revenir au journal déjà connu: samedi à Tux, dimanche à Schlegeis et lundi adapté avec Pampy ?');
     if (!accepted) return;
 
     if (storageAvailable) {
       try { localStorage.removeItem(storageKey); } catch (error) {}
+      try { localStorage.removeItem(legacyStorageKey); } catch (error) {}
     }
 
-    applyState(emptyState());
+    applyState(baselineState());
     resetButton.focus();
   }
 
@@ -252,7 +293,7 @@
   if (resetButton) resetButton.addEventListener('click', resetTrip);
 
   window.addEventListener('storage', function (event) {
-    if (event.key === storageKey) applyState(readState());
+    if (event.key === storageKey || event.key === legacyStorageKey) applyState(readState());
     if (event.key === themeKey) applyTheme(event.newValue || 'dark');
   });
 })();

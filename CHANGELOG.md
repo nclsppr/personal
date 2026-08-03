@@ -5,6 +5,20 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-08-03 - Roadtrip Austria devient un journal vivant
+
+- Samedi à Tux et la grande randonnée de dimanche au Schlegeis, jusqu’à
+  2 100 m avec Pampy, sont désormais consignés comme réalisés. La carte
+  postale du Schlegeis rejoint le carnet.
+- Le lundi à Hintertux est adapté pour emmener Pampy: montée progressive par
+  les télécabines, pause à 2 100 m, objectif conseillé à 2 660 m et terrasse
+  à 3 250 m seulement en bref bonus selon sa forme et la météo.
+- Huit nouveaux stickers illustrent chaque journée. Pampy y est roux fauve,
+  les contours blancs sont continus et les transparences ont été vérifiées
+  séparément sur fonds clair et sombre.
+- Le suivi local passe en version 2 avec migration des anciennes coches. Les
+  faits déjà confirmés constituent le nouveau point de départ du carnet.
+
 ## 2026-07-31 - Carnet Roadtrip Austria 2026
 
 - Ajout dans `/claude/` d’un carnet de route illustré pour le voyage du 1er au
