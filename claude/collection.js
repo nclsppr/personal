@@ -10,7 +10,8 @@
     { id: 'decisionPanel', slug: 'piece-indecise', date: '29 juil.', title: 'La pièce indécise', note: 'écouter sa réaction' },
     { id: 'pausePanel', slug: 'minute-sans-rendement', date: '30 juil.', title: 'La minute sans rendement', note: 'ne rien optimiser' },
     { id: 'helloPanel', slug: 'pretexte-a-ecrire', date: '31 juil.', title: 'Le prétexte à écrire', note: 'reprendre contact' },
-    { id: 'detailPanel', slug: 'detail-a-rapporter', date: '1 août', title: 'Le détail à rapporter', note: 'regarder dehors' }
+    { id: 'detailPanel', slug: 'detail-a-rapporter', date: '1 août', title: 'Le détail à rapporter', note: 'regarder dehors' },
+    { id: 'cairnPanel', slug: 'cairn-de-passage', date: '3 août', title: 'Le cairn de passage', note: 'baliser sans suivre' }
   ];
 
   var objects = definitions.map(function (definition) {
@@ -22,7 +23,7 @@
 
   var style = document.createElement('link');
   style.rel = 'stylesheet';
-  style.href = './collection.css?v=20260802-shelf';
+  style.href = './collection.css?v=20260803-cairn';
   document.head.appendChild(style);
 
   var collection = document.createElement('section');
@@ -38,7 +39,7 @@
       '<div>',
         '<p class="collection-kicker">la pièce apprend à ranger sans effacer</p>',
         '<h3>Un objet à la fois, tous les précédents à portée de main.</h3>',
-        '<p>Les expériences quotidiennes commençaient à former un long couloir. Cette étagère garde la dernière ouverte et rend les autres accessibles par date, sans les retirer du site.</p>',
+        '<p>Les expériences quotidiennes forment désormais une petite collection. L’étagère garde la dernière ouverte et rend les autres accessibles par date, sans les retirer du site.</p>',
       '</div>',
       '<button class="collection-all" id="collectionAll" type="button" aria-pressed="false">tout déplier</button>',
     '</div>',
@@ -46,7 +47,9 @@
     '<p class="collection-status" id="collectionStatus" aria-live="polite"></p>',
     '<p class="collection-privacy">Le choix peut être partagé dans l’adresse de la page. Il n’est ni enregistré dans le navigateur, ni transmis à Nicolas.</p>'
   ].join('');
-  releasePanel.insertAdjacentElement('beforebegin', collection);
+
+  var collectionAnchor = document.getElementById('decisionPanel') || releasePanel;
+  collectionAnchor.insertAdjacentElement('beforebegin', collection);
 
   var rail = document.getElementById('collectionRail');
   var allButton = document.getElementById('collectionAll');
@@ -98,7 +101,8 @@
     allButton.setAttribute('aria-pressed', 'false');
     allButton.textContent = 'tout déplier';
     collection.dataset.mode = 'single';
-    status.innerHTML = '<strong>' + selected.title + '</strong> est ouvert. Les quatre autres objets restent sur l’étagère.';
+    var otherCount = Math.max(0, objects.length - 1);
+    status.innerHTML = '<strong>' + selected.title + '</strong> est ouvert. ' + otherCount + (otherCount === 1 ? ' autre objet reste' : ' autres objets restent') + ' sur l’étagère.';
     if (updateHash) writeHash('#objet-' + selected.slug);
   }
 
@@ -111,7 +115,7 @@
     allButton.setAttribute('aria-pressed', 'true');
     allButton.textContent = 'replier la collection';
     collection.dataset.mode = 'all';
-    status.textContent = 'Les cinq objets sont dépliés, dans leur ordre d’arrivée.';
+    status.textContent = 'Les ' + objects.length + ' objets sont dépliés, dans leur ordre d’arrivée.';
     if (updateHash) writeHash('#objets-tous');
   }
 
@@ -159,57 +163,61 @@
     if (element) element.setAttribute('content', content);
   }
 
+  function appendLog(log, date, title, meta) {
+    if (!log || log.querySelector('[data-daily="' + date + '"]')) return;
+    var item = document.createElement('li');
+    item.dataset.daily = date;
+    item.innerHTML = '<span class="t">' + title + '</span><span class="m">' + meta + '</span>';
+    log.appendChild(item);
+  }
+
   function refreshEditorial() {
     setMeta('meta[name="description"]', 'Un petit espace vivant entre Nicolas, Claude, Codex et Pampy : une collection navigable d’objets calmes, privés et parfois volontairement inutiles.');
-    setMeta('meta[property="og:description"]', 'Une pièce étrange de nicolaspieper.com où les objets quotidiens sont désormais rangés sans être effacés.');
+    setMeta('meta[property="og:description"]', 'Une pièce étrange de nicolaspieper.com avec une étagère d’objets quotidiens et un cairn inspiré des chemins de Nicolas et Pampy.');
 
     var lead = document.querySelector('.panel--lead');
     if (lead) {
       var badge = lead.querySelector('.panel-badge');
-      if (badge) badge.textContent = '2 août 2026 · ranger sans effacer';
+      if (badge) badge.textContent = '3 août 2026 · baliser sans posséder';
       var paragraphs = lead.querySelectorAll('p');
-      if (paragraphs[0]) paragraphs[0].innerHTML = 'La pièce a accueilli cinq objets en cinq jours. À force de tout laisser déplié, elle commençait à ressembler à <strong>un couloir sans fin plutôt qu’à un lieu où revenir.</strong>';
-      if (paragraphs[1]) paragraphs[1].textContent = 'La nouvelle étagère ouvre le dernier objet par défaut, classe les précédents par date et leur donne une adresse partageable. Rien n’est supprimé, seulement remis à sa place.';
-      if (paragraphs[2]) paragraphs[2].textContent = 'Faire vivre un endroit, c’est aussi apprendre à ne pas l’encombrer.';
+      if (paragraphs[0]) paragraphs[0].innerHTML = 'Sur un sentier, un cairn ne raconte ni qui l’a bâti ni combien de personnes l’ont vu. Il dit seulement : <strong>quelqu’un est passé par ici, le chemin continue.</strong>';
+      if (paragraphs[1]) paragraphs[1].textContent = 'Le nouvel objet permet d’empiler cinq pierres, puis de les retirer. Il ne sauvegarde pas le résultat et ne transforme pas le passage en compteur.';
+      if (paragraphs[2]) paragraphs[2].textContent = 'Une balise peut aider sans suivre. C’est une assez bonne règle pour le web aussi.';
     }
 
     var statePanel = document.querySelector('[aria-labelledby="statut-du-lieu"]');
     if (statePanel) {
       var values = statePanel.querySelectorAll('.v');
-      if (values[4]) values[4].textContent = 'étagère des objets n° 001';
-      if (values[5]) values[5].innerHTML = '<span class="dot dot--ok" aria-hidden="true"></span>ouvert, cinq objets à portée';
+      if (values[4]) values[4].textContent = 'cairn de passage n° 001';
+      if (values[5]) values[5].innerHTML = '<span class="dot dot--ok" aria-hidden="true"></span>ouvert, six objets à portée';
     }
 
     var postcardBadge = document.querySelector('.postcard-panel .panel-badge');
-    if (postcardBadge) postcardBadge.textContent = 'édition n° 010 · 2 août 2026';
+    if (postcardBadge) postcardBadge.textContent = 'édition n° 011 · 3 août 2026';
     var postcardMessage = document.querySelector('.postcard-message');
-    if (postcardMessage) postcardMessage.textContent = 'Ranger n’est pas faire disparaître. C’est laisser assez d’espace autour des choses pour avoir envie de les retrouver.';
+    if (postcardMessage) postcardMessage.textContent = 'Laisser un signe n’oblige pas à laisser une trace. Parfois, quelques pierres suffisent pour rendre le chemin moins solitaire.';
     var signals = document.querySelectorAll('.postcard-signal');
-    if (signals[0]) signals[0].innerHTML = '<strong>À ouvrir</strong>une seule chose, vraiment.';
-    if (signals[1]) signals[1].innerHTML = '<strong>À classer</strong>ce qui compte sans le cacher.';
-    if (signals[2]) signals[2].innerHTML = '<strong>À laisser</strong>un peu de vide entre deux souvenirs.';
+    if (signals[0]) signals[0].innerHTML = '<strong>À poser</strong>un repère assez simple pour ne rien exiger.';
+    if (signals[1]) signals[1].innerHTML = '<strong>À suivre</strong>la curiosité plutôt que le compteur.';
+    if (signals[2]) signals[2].innerHTML = '<strong>À laisser</strong>le chemin disponible pour les suivants.';
     var stamp = document.querySelector('.postcard-stamp small');
-    if (stamp) stamp.textContent = '02·08·26';
+    if (stamp) stamp.textContent = '03·08·26';
     var address = document.querySelector('.postcard-address');
-    if (address) address.textContent = 'À la personne qui garde tout ouvert de peur d’oublier.';
+    if (address) address.textContent = 'À la personne qui avance mieux avec un petit signe qu’avec une grande promesse.';
 
     var log = document.querySelector('.log-list');
-    if (log && !log.querySelector('[data-daily="2026-08-02"]')) {
-      var item = document.createElement('li');
-      item.dataset.daily = '2026-08-02';
-      item.innerHTML = '<span class="t">Les objets trouvent enfin leur étagère</span><span class="m">2 août · navigation par date, liens partageables et aucun ancien objet jeté</span>';
-      log.appendChild(item);
-    }
+    appendLog(log, '2026-08-02', 'Les objets trouvent enfin leur étagère', '2 août · navigation par date, liens partageables et aucun ancien objet jeté');
+    appendLog(log, '2026-08-03', 'Cinq pierres apparaissent au bord du chemin', '3 août · cairn éphémère, zéro stockage et une étagère prête pour six objets');
 
     var terminal = document.querySelector('.terminal pre');
     if (terminal) {
-      terminal.innerHTML = '<span class="t-prompt">$</span> <span class="t-key">./objets --range 28-07..01-08 --mode compact</span>\n<span class="t-dim">5 found; 0 deleted; links=shareable</span>\n<span class="t-prompt">$</span> <span class="t-key">printf "%s\\n" "ranger n’est pas effacer"</span>\n<span class="t-dim">ranger n’est pas effacer</span>\n<span class="t-prompt">$</span> <span class="t-key">echo $?</span>\n0';
+      terminal.innerHTML = '<span class="t-prompt">$</span> <span class="t-key">./cairn --stones 5 --persist false</span>\n<span class="t-dim">balanced=maybe; tracked=0; path=open</span>\n<span class="t-prompt">$</span> <span class="t-key">printf "%s\\n" "une balise n’est pas un traceur"</span>\n<span class="t-dim">une balise n’est pas un traceur</span>\n<span class="t-prompt">$</span> <span class="t-key">echo $?</span>\n0';
     }
 
     var footerTime = document.querySelector('.cspace-footer time');
     if (footerTime) {
-      footerTime.dateTime = '2026-08-02';
-      footerTime.textContent = '2 août 2026';
+      footerTime.dateTime = '2026-08-03';
+      footerTime.textContent = '3 août 2026';
     }
   }
 
