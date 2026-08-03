@@ -1,4 +1,4 @@
-/* L’étagère des objets · 2 août 2026 */
+/* L’étagère des objets · 3 août 2026 */
 .collection-panel {
   overflow: hidden;
 }
@@ -63,7 +63,7 @@
 
 .collection-rail {
   display: grid;
-  grid-template-columns: repeat(5, minmax(150px, 1fr));
+  grid-template-columns: repeat(6, minmax(150px, 1fr));
   gap: 10px;
   overflow-x: auto;
   padding: 2px 2px 10px;
@@ -181,7 +181,7 @@
   }
 
   .collection-rail {
-    grid-template-columns: repeat(5, minmax(176px, 62vw));
+    grid-template-columns: repeat(6, minmax(176px, 62vw));
   }
 }
 
