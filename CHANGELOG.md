@@ -7,6 +7,12 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ## 2026-08-03 - Roadtrip Austria devient un journal vivant
 
+- Six photos prises pendant le voyage rejoignent les journées de Tux et du
+  Schlegeis. La carte postale du dimanche est désormais détourée et flotte sur
+  le carnet sans fond rectangulaire.
+- La voiture illustrée devient la véritable Tesla Model 3 Highland Quicksilver
+  du voyage, sans modifier les photos réelles. Pampy conserve partout son
+  pelage roux fauve profond.
 - Samedi à Tux et la grande randonnée de dimanche au Schlegeis, jusqu’à
   2 100 m avec Pampy, sont désormais consignés comme réalisés. La carte
   postale du Schlegeis rejoint le carnet.

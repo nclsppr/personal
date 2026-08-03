@@ -699,23 +699,97 @@ body.roadtrip-page {
   color: var(--ink);
 }
 
-.trip-memory {
+.trip-gallery {
+  margin: 40px 0 0 169px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.trip-gallery__heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.trip-gallery__heading .eyebrow {
+  margin-bottom: 0;
+}
+
+.trip-gallery__heading h4 {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--trip-serif);
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  font-weight: 600;
+  line-height: 1.1;
+  text-align: right;
+}
+
+.trip-gallery__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(210px, 0.55fr);
-  gap: 0;
-  align-items: stretch;
-  margin: 34px 0 0 169px;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+
+.trip-photo {
+  grid-column: span 4;
+  min-width: 0;
+  margin: 0;
+}
+
+.trip-gallery--tux .trip-photo:first-child {
+  grid-column: span 8;
+}
+
+.trip-photo--panorama {
+  grid-column: 1 / -1;
+}
+
+.trip-photo a {
+  display: block;
   overflow: hidden;
   border: 1px solid var(--border-strong);
   border-radius: var(--radius);
-  background: var(--bg-raised);
+  background: var(--bg-inset);
+}
+
+.trip-photo a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.trip-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 280ms ease;
+}
+
+.trip-photo figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.trip-memory {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(210px, 0.55fr);
+  gap: clamp(22px, 4vw, 52px);
+  align-items: center;
+  margin: 52px 0 0 169px;
+  padding-top: 16px;
 }
 
 .trip-memory img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  filter: drop-shadow(0 20px 22px color-mix(in srgb, var(--bg-inset) 58%, transparent));
+  transform: rotate(-1.2deg);
 }
 
 .trip-memory figcaption {
@@ -724,7 +798,7 @@ body.roadtrip-page {
   justify-content: center;
   gap: 8px;
   padding: clamp(20px, 3vw, 34px);
-  border-left: 1px solid var(--border);
+  border-left: 2px solid var(--brand);
 }
 
 .trip-memory figcaption strong {
@@ -906,6 +980,10 @@ body.roadtrip-page {
     transition: color 160ms ease, transform 160ms ease;
   }
 
+  .trip-photo a:hover img {
+    transform: scale(1.018);
+  }
+
   .text-link:hover,
   .source-groups a:hover {
     transform: translateX(2px);
@@ -966,6 +1044,10 @@ body.roadtrip-page {
   }
 
   .trip-memory {
+    margin-left: 140px;
+  }
+
+  .trip-gallery {
     margin-left: 140px;
   }
 
@@ -1078,6 +1160,33 @@ body.roadtrip-page {
     margin-left: 0;
   }
 
+  .trip-gallery {
+    margin-left: 0;
+  }
+
+  .trip-gallery__heading {
+    display: block;
+  }
+
+  .trip-gallery__heading .eyebrow {
+    margin-bottom: 7px;
+  }
+
+  .trip-gallery__heading h4 {
+    text-align: left;
+  }
+
+  .trip-gallery__grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .trip-photo,
+  .trip-gallery--tux .trip-photo:first-child,
+  .trip-photo--panorama {
+    grid-column: 1;
+  }
+
   .trip-memory figcaption {
     border-top: 1px solid var(--border);
     border-left: 0;
@@ -1182,7 +1291,8 @@ body.roadtrip-page {
   }
 
   .text-link,
-  .source-groups a {
+  .source-groups a,
+  .trip-photo img {
     transition: none;
   }
 }
