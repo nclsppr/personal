@@ -854,12 +854,31 @@ body.roadtrip-page {
   line-height: 1.45;
 }
 
+.trip-carousel {
+  --carousel-stage-height: clamp(400px, 50vw, 620px);
+}
+
+.trip-carousel__hint {
+  margin: -5px 0 16px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.trip-carousel__hint strong {
+  color: var(--ink);
+}
+
+.trip-carousel__stage {
+  position: relative;
+}
+
 .trip-carousel[data-carousel-ready="true"] .trip-carousel__viewport {
   overflow-x: auto;
   overscroll-behavior-inline: contain;
-  scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
+  touch-action: pan-y pinch-zoom;
 }
 
 .trip-carousel[data-carousel-ready="true"] .trip-carousel__viewport::-webkit-scrollbar {
@@ -880,23 +899,29 @@ body.roadtrip-page {
 }
 
 .trip-carousel[data-carousel-ready="true"] .trip-photo a {
-  display: grid;
-  height: clamp(260px, 42vw, 480px);
-  place-items: center;
+  position: relative;
+  display: block;
+  height: var(--carousel-stage-height);
 }
 
 .trip-carousel[data-carousel-ready="true"] .trip-photo img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
+  object-position: center;
+  transform: none;
 }
 
 .trip-carousel__controls {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 8px;
-  margin-top: 12px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: var(--carousel-stage-height);
+  pointer-events: none;
 }
 
 .trip-carousel__controls[hidden] {
@@ -904,18 +929,31 @@ body.roadtrip-page {
 }
 
 .trip-carousel__controls button {
-  display: inline-grid;
-  width: 44px;
-  min-width: 44px;
-  height: 44px;
+  position: absolute;
+  top: 50%;
+  display: grid;
+  width: 48px;
+  min-width: 48px;
+  height: 48px;
   padding: 0;
   border: 1px solid var(--border-strong);
   border-radius: 999px;
   place-items: center;
-  background: transparent;
+  background: var(--bg-raised);
   color: var(--ink);
   cursor: pointer;
   font: 1rem 'JetBrains Mono', ui-monospace, monospace;
+  pointer-events: auto;
+  transform: translateY(-50%);
+  transition: border-color 160ms ease, color 160ms ease, opacity 160ms ease;
+}
+
+.trip-carousel__controls button[data-carousel-prev] {
+  left: 12px;
+}
+
+.trip-carousel__controls button[data-carousel-next] {
+  right: 12px;
 }
 
 .trip-carousel__controls button:disabled {
@@ -929,10 +967,77 @@ body.roadtrip-page {
 }
 
 .trip-carousel__counter {
-  min-width: 54px;
-  color: var(--muted);
-  font: 0.68rem 'JetBrains Mono', ui-monospace, monospace;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  min-width: 80px;
+  padding: 7px 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--bg-raised);
+  color: var(--ink-soft);
+  font: 0.64rem 'JetBrains Mono', ui-monospace, monospace;
   text-align: center;
+}
+
+.trip-carousel__thumbnails {
+  display: flex;
+  gap: 9px;
+  margin-top: 12px;
+  padding: 3px 2px 6px;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+}
+
+.trip-carousel__thumbnails[hidden] {
+  display: none;
+}
+
+.trip-carousel__thumbnail {
+  position: relative;
+  flex: 0 0 78px;
+  width: 78px;
+  height: 60px;
+  padding: 4px;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  border-radius: 7px;
+  background: var(--bg-inset);
+  cursor: pointer;
+}
+
+.trip-carousel__thumbnail img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.trip-carousel__thumbnail span {
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  display: grid;
+  min-width: 21px;
+  height: 21px;
+  padding-inline: 4px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  place-items: center;
+  background: var(--bg-raised);
+  color: var(--ink);
+  font: 0.58rem 'JetBrains Mono', ui-monospace, monospace;
+}
+
+.trip-carousel__thumbnail[aria-current="true"] {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.trip-carousel__thumbnail:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .trip-memory {
@@ -1141,8 +1246,9 @@ body.roadtrip-page {
     transition: color 160ms ease, transform 160ms ease;
   }
 
-  .trip-photo a:hover img {
-    transform: scale(1.018);
+  .trip-photo a:hover,
+  .trip-carousel__thumbnail:hover {
+    border-color: var(--accent);
   }
 
   .text-link:hover,
@@ -1368,12 +1474,33 @@ body.roadtrip-page {
     grid-column: 1;
   }
 
-  .trip-carousel[data-carousel-ready="true"] .trip-photo a {
-    height: clamp(260px, 76vw, 420px);
+  .trip-carousel {
+    --carousel-stage-height: clamp(340px, 112vw, 500px);
   }
 
-  .trip-carousel__controls {
-    justify-content: space-between;
+  .trip-carousel__controls button {
+    width: 46px;
+    min-width: 46px;
+    height: 46px;
+  }
+
+  .trip-carousel__controls button[data-carousel-prev] {
+    left: 8px;
+  }
+
+  .trip-carousel__controls button[data-carousel-next],
+  .trip-carousel__counter {
+    right: 8px;
+  }
+
+  .trip-carousel__counter {
+    top: 8px;
+  }
+
+  .trip-carousel__thumbnail {
+    flex-basis: 72px;
+    width: 72px;
+    height: 56px;
   }
 
   .trip-memory figcaption {
@@ -1473,7 +1600,9 @@ body.roadtrip-page {
     break-inside: avoid;
   }
 
-  .trip-carousel__controls {
+  .trip-carousel__controls,
+  .trip-carousel__thumbnails,
+  .trip-carousel__hint {
     display: none;
   }
 
@@ -1493,10 +1622,13 @@ body.roadtrip-page {
   }
 
   .trip-carousel[data-carousel-ready="true"] .trip-photo a {
+    position: static;
     height: auto;
   }
 
   .trip-carousel[data-carousel-ready="true"] .trip-photo img {
+    position: static;
+    width: 100%;
     height: auto;
   }
 }
@@ -1509,7 +1641,9 @@ body.roadtrip-page {
   .text-link,
   .source-groups a,
   .day-weather__links a,
-  .trip-photo img {
+  .trip-photo img,
+  .trip-carousel__controls button,
+  .trip-carousel__thumbnail {
     transition: none;
   }
 

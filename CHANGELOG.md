@@ -7,6 +7,10 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ## 2026-08-03 - Roadtrip Austria devient un journal vivant
 
+- Les carrousels documentaires affichent désormais chaque photo intégralement,
+  dans un passe-partout adapté aux formats paysage et portrait. Des flèches
+  superposées, un compteur explicite, un rail de miniatures et l’ouverture en
+  grand rendent la navigation immédiatement compréhensible, sans recadrage.
 - Chaque journée affiche maintenant un point météo compact, vérifié le 3 août,
   avec la décision pratique à retenir et les webcams officielles utiles. Les
   prévisions GeoSphere, DWD et Météo-France rendent visibles les fenêtres

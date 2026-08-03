@@ -21,7 +21,7 @@
     <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="./assets/stage-03-hintertux.webp" as="image" type="image/webp">
     <link rel="stylesheet" href="../style.css?v=20260803-triplog">
-    <link rel="stylesheet" href="./roadtrip.css?v=20260803-weather-carousel">
+    <link rel="stylesheet" href="./roadtrip.css?v=20260803-gallery-v2">
     <script>(function(){try{var t=localStorage.getItem('claude-space-theme')||'dark';document.documentElement.dataset.ctheme=t;}catch(e){}})()</script>
 </head>
 <body class="claude-space roadtrip-page">
@@ -174,16 +174,18 @@
                                 <p class="eyebrow">Photos du samedi</p>
                                 <h4 id="tux-gallery-title">Juste à côté du Tirolerhof</h4>
                             </div>
-                            <div class="trip-carousel__viewport" data-carousel-viewport>
+                            <p class="trip-carousel__hint" id="tux-carousel-help"><strong>Photos entières, sans recadrage.</strong> Balaye, utilise les miniatures ou touche une photo pour l’ouvrir en grand.</p>
+                            <div class="trip-carousel__stage">
+                            <div class="trip-carousel__viewport" data-carousel-viewport aria-describedby="tux-carousel-help">
                                 <div class="trip-gallery__grid trip-carousel__track" id="tux-photo-track" data-carousel-track>
                                     <figure class="trip-photo">
-                                        <a href="./assets/tux-tirolerhof-walk-real.webp" aria-label="Agrandir la promenade près du Tirolerhof">
+                                        <a href="./assets/tux-tirolerhof-walk-real.webp" target="_blank" rel="noopener" aria-label="Ouvrir en grand la promenade près du Tirolerhof dans un nouvel onglet">
                                             <img src="./assets/tux-tirolerhof-walk-real.webp" width="1536" height="1152" loading="lazy" alt="Pampy marche le long du Tuxbach dans la vallée verte, juste à côté du Tirolerhof à Tux">
                                         </a>
                                         <figcaption>La promenade de Pampy le long du Tuxbach.</figcaption>
                                     </figure>
                                     <figure class="trip-photo">
-                                        <a href="./assets/tux-tirolerhof-stream-real.webp" aria-label="Agrandir la vue du Tuxbach">
+                                        <a href="./assets/tux-tirolerhof-stream-real.webp" target="_blank" rel="noopener" aria-label="Ouvrir en grand la vue du Tuxbach dans un nouvel onglet">
                                             <img src="./assets/tux-tirolerhof-stream-real.webp" width="1152" height="1536" loading="lazy" alt="Le Tuxbach traverse les prés et les montagnes près du Tirolerhof à Tux">
                                         </a>
                                         <figcaption>Le torrent et les prés au pied de l’hôtel.</figcaption>
@@ -192,9 +194,11 @@
                             </div>
                             <div class="trip-carousel__controls" data-carousel-controls hidden>
                                 <button type="button" data-carousel-prev aria-controls="tux-photo-track"><span aria-hidden="true">←</span><span class="sr-only">Photo précédente</span></button>
-                                <span class="trip-carousel__counter" role="status" aria-live="polite" aria-atomic="true"><span aria-hidden="true"><span data-carousel-current>1</span> / <span data-carousel-total>2</span></span><span class="sr-only" data-carousel-announcement>Photo 1 sur 2</span></span>
+                                <span class="trip-carousel__counter" role="status" aria-live="polite" aria-atomic="true"><span aria-hidden="true">Photo <span data-carousel-current>1</span> / <span data-carousel-total>2</span></span><span class="sr-only" data-carousel-announcement>Photo 1 sur 2</span></span>
                                 <button type="button" data-carousel-next aria-controls="tux-photo-track"><span class="sr-only">Photo suivante</span><span aria-hidden="true">→</span></button>
                             </div>
+                            </div>
+                            <div class="trip-carousel__thumbnails" data-carousel-thumbnails role="group" aria-label="Choisir une photo de Tux" hidden></div>
                         </section>
                     </article>
                 </li>
@@ -232,28 +236,30 @@
                                 <p class="eyebrow">Photos du dimanche</p>
                                 <h4 id="schlegeis-gallery-title">Le Schlegeis, pour de vrai</h4>
                             </div>
-                            <div class="trip-carousel__viewport" data-carousel-viewport>
+                            <p class="trip-carousel__hint" id="schlegeis-carousel-help"><strong>Photos entières, sans recadrage.</strong> Balaye, utilise les miniatures ou touche une photo pour l’ouvrir en grand.</p>
+                            <div class="trip-carousel__stage">
+                            <div class="trip-carousel__viewport" data-carousel-viewport aria-describedby="schlegeis-carousel-help">
                                 <div class="trip-gallery__grid trip-carousel__track" id="schlegeis-photo-track" data-carousel-track>
                                     <figure class="trip-photo trip-photo--panorama">
-                                        <a href="./assets/schlegeis-panorama-real.webp" aria-label="Agrandir le panorama du Schlegeis">
+                                        <a href="./assets/schlegeis-panorama-real.webp" target="_blank" rel="noopener" aria-label="Ouvrir en grand le panorama du Schlegeis dans un nouvel onglet">
                                             <img src="./assets/schlegeis-panorama-real.webp" width="1536" height="1152" loading="lazy" alt="Panorama du lac turquoise de Schlegeis entouré de sommets et de glaciers sous de grands nuages blancs">
                                         </a>
                                         <figcaption>Le lac turquoise, les glaciers et le sentier qui prend de la hauteur.</figcaption>
                                     </figure>
                                     <figure class="trip-photo">
-                                        <a href="./assets/schlegeis-pampy-overlook-real.webp" aria-label="Agrandir Pampy au-dessus du Schlegeis">
+                                        <a href="./assets/schlegeis-pampy-overlook-real.webp" target="_blank" rel="noopener" aria-label="Ouvrir en grand Pampy au-dessus du Schlegeis dans un nouvel onglet">
                                             <img src="./assets/schlegeis-pampy-overlook-real.webp" width="1152" height="1536" loading="lazy" alt="Pampy, golden retriever roux fauve, contemple le lac de Schlegeis depuis les rochers en altitude">
                                         </a>
                                         <figcaption>Pampy prend la mesure du paysage.</figcaption>
                                     </figure>
                                     <figure class="trip-photo">
-                                        <a href="./assets/schlegeis-pampy-trough-real.webp" aria-label="Agrandir Pampy dans l’abreuvoir">
+                                        <a href="./assets/schlegeis-pampy-trough-real.webp" target="_blank" rel="noopener" aria-label="Ouvrir en grand Pampy dans l’abreuvoir dans un nouvel onglet">
                                             <img src="./assets/schlegeis-pampy-trough-real.webp" width="1152" height="1536" loading="lazy" alt="Pampy se rafraîchit avec bonheur dans un abreuvoir en bois pendant la randonnée au Schlegeis">
                                         </a>
                                         <figcaption>Pause fraîcheur quatre étoiles.</figcaption>
                                     </figure>
                                     <figure class="trip-photo">
-                                        <a href="./assets/schlegeis-nicolas-pampy-real.webp" aria-label="Agrandir Nicolas et Pampy face au lac">
+                                        <a href="./assets/schlegeis-nicolas-pampy-real.webp" target="_blank" rel="noopener" aria-label="Ouvrir en grand Nicolas et Pampy face au lac dans un nouvel onglet">
                                             <img src="./assets/schlegeis-nicolas-pampy-real.webp" width="1152" height="1536" loading="lazy" alt="Nicolas enlace Pampy debout devant le lac et les montagnes de Schlegeis">
                                         </a>
                                         <figcaption>Le duo devant le réservoir, avant la montée.</figcaption>
@@ -262,9 +268,11 @@
                             </div>
                             <div class="trip-carousel__controls" data-carousel-controls hidden>
                                 <button type="button" data-carousel-prev aria-controls="schlegeis-photo-track"><span aria-hidden="true">←</span><span class="sr-only">Photo précédente</span></button>
-                                <span class="trip-carousel__counter" role="status" aria-live="polite" aria-atomic="true"><span aria-hidden="true"><span data-carousel-current>1</span> / <span data-carousel-total>4</span></span><span class="sr-only" data-carousel-announcement>Photo 1 sur 4</span></span>
+                                <span class="trip-carousel__counter" role="status" aria-live="polite" aria-atomic="true"><span aria-hidden="true">Photo <span data-carousel-current>1</span> / <span data-carousel-total>4</span></span><span class="sr-only" data-carousel-announcement>Photo 1 sur 4</span></span>
                                 <button type="button" data-carousel-next aria-controls="schlegeis-photo-track"><span class="sr-only">Photo suivante</span><span aria-hidden="true">→</span></button>
                             </div>
+                            </div>
+                            <div class="trip-carousel__thumbnails" data-carousel-thumbnails role="group" aria-label="Choisir une photo du Schlegeis" hidden></div>
                         </section>
                         <figure class="trip-memory">
                             <img src="./assets/schlegeis-postcard-cutout.webp" width="1536" height="1024" loading="lazy" alt="Carte postale vintage détourée du Schlegeis montrant Nicolas et Pampy roux fauve face au lac de barrage">
@@ -564,6 +572,6 @@
         <button type="button" class="reset-btn" id="resetTrip">Revenir au journal connu</button>
     </footer>
 
-    <script src="./roadtrip.js?v=20260803-weather-carousel"></script>
+    <script src="./roadtrip.js?v=20260803-gallery-v2"></script>
 </body>
 </html>

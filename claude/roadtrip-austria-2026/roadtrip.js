@@ -284,6 +284,7 @@
     var viewport = carousel.querySelector('[data-carousel-viewport]');
     var track = carousel.querySelector('[data-carousel-track]');
     var controls = carousel.querySelector('[data-carousel-controls]');
+    var thumbnails = carousel.querySelector('[data-carousel-thumbnails]');
     var previousButton = carousel.querySelector('[data-carousel-prev]');
     var nextButton = carousel.querySelector('[data-carousel-next]');
     var currentNode = carousel.querySelector('[data-carousel-current]');
@@ -291,11 +292,11 @@
     var announcement = carousel.querySelector('[data-carousel-announcement]');
     var slides = track ? Array.from(track.querySelectorAll('.trip-photo')) : [];
 
-    if (!viewport || !track || !controls || !previousButton || !nextButton || slides.length < 2) return;
+    if (!viewport || !track || !controls || !thumbnails || !previousButton || !nextButton || slides.length < 2) return;
 
     var currentIndex = 0;
     var scheduledFrame = null;
-    var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var thumbnailButtons = [];
     var requestFrame = window.requestAnimationFrame || function (callback) { return window.setTimeout(callback, 16); };
 
     function setCurrent(index, shouldAnnounce) {
@@ -314,14 +315,21 @@
         if (slideIndex === currentIndex) link.removeAttribute('tabindex');
         else link.setAttribute('tabindex', '-1');
       });
+
+      thumbnailButtons.forEach(function (button, buttonIndex) {
+        if (buttonIndex === currentIndex) button.setAttribute('aria-current', 'true');
+        else button.removeAttribute('aria-current');
+      });
     }
 
     function closestSlideIndex() {
       var bestIndex = 0;
       var bestDistance = Number.MAX_SAFE_INTEGER;
 
+      var firstOffset = slides[0].offsetLeft;
+
       slides.forEach(function (slide, index) {
-        var distance = Math.abs(slide.offsetLeft - viewport.scrollLeft);
+        var distance = Math.abs((slide.offsetLeft - firstOffset) - viewport.scrollLeft);
         if (distance < bestDistance) {
           bestDistance = distance;
           bestIndex = index;
@@ -340,23 +348,45 @@
       });
     }
 
-    function moveTo(index, shouldAnnounce, instant) {
+    function moveTo(index, shouldAnnounce) {
       var nextIndex = Math.max(0, Math.min(index, slides.length - 1));
-      var left = slides[nextIndex].offsetLeft;
+      var left = slides[nextIndex].offsetLeft - slides[0].offsetLeft;
 
-      if (typeof viewport.scrollTo === 'function') {
-        viewport.scrollTo({ left: left, behavior: reducedMotion || instant ? 'auto' : 'smooth' });
-      } else {
-        viewport.scrollLeft = left;
-      }
-
+      viewport.scrollLeft = left;
       setCurrent(nextIndex, shouldAnnounce);
     }
 
     slides.forEach(function (slide, index) {
+      var sourceImage = slide.querySelector('img');
+      var caption = slide.querySelector('figcaption');
+      var thumbnail = document.createElement('button');
+      var thumbnailImage = document.createElement('img');
+      var thumbnailNumber = document.createElement('span');
+
       slide.setAttribute('role', 'group');
       slide.setAttribute('aria-roledescription', 'diapositive');
       slide.setAttribute('aria-label', (index + 1) + ' sur ' + slides.length);
+
+      thumbnail.type = 'button';
+      thumbnail.className = 'trip-carousel__thumbnail';
+      thumbnail.setAttribute('aria-label', 'Afficher la photo ' + (index + 1) + ' sur ' + slides.length + (caption ? ': ' + caption.textContent : ''));
+      thumbnail.setAttribute('aria-controls', track.id);
+      thumbnail.addEventListener('click', function () { moveTo(index, true); });
+
+      if (sourceImage) {
+        thumbnailImage.src = sourceImage.getAttribute('src');
+        thumbnailImage.alt = '';
+        thumbnailImage.width = 96;
+        thumbnailImage.height = 72;
+        thumbnailImage.loading = 'lazy';
+        thumbnail.appendChild(thumbnailImage);
+      }
+
+      thumbnailNumber.textContent = String(index + 1);
+      thumbnailNumber.setAttribute('aria-hidden', 'true');
+      thumbnail.appendChild(thumbnailNumber);
+      thumbnailButtons.push(thumbnail);
+      thumbnails.appendChild(thumbnail);
     });
 
     viewport.setAttribute('tabindex', '0');
@@ -366,6 +396,7 @@
     else viewport.setAttribute('aria-label', 'Photos réelles du voyage');
     carousel.dataset.carouselReady = 'true';
     controls.hidden = false;
+    thumbnails.hidden = false;
     setCurrent(0, false);
 
     previousButton.addEventListener('click', function () { moveTo(currentIndex - 1, true); });
@@ -387,7 +418,21 @@
       }
     });
 
-    window.addEventListener('resize', function () { moveTo(currentIndex, false, true); });
+    thumbnails.addEventListener('keydown', function (event) {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight' && event.key !== 'Home' && event.key !== 'End') return;
+      event.preventDefault();
+
+      var nextIndex = currentIndex;
+      if (event.key === 'ArrowLeft') nextIndex = Math.max(0, currentIndex - 1);
+      else if (event.key === 'ArrowRight') nextIndex = Math.min(slides.length - 1, currentIndex + 1);
+      else if (event.key === 'Home') nextIndex = 0;
+      else if (event.key === 'End') nextIndex = slides.length - 1;
+
+      moveTo(nextIndex, true);
+      thumbnailButtons[nextIndex].focus();
+    });
+
+    window.addEventListener('resize', function () { moveTo(currentIndex, false); });
   }
 
   loadTheme();
