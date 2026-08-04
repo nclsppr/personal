@@ -11,7 +11,8 @@
     { id: 'pausePanel', slug: 'minute-sans-rendement', date: '30 juil.', title: 'La minute sans rendement', note: 'ne rien optimiser' },
     { id: 'helloPanel', slug: 'pretexte-a-ecrire', date: '31 juil.', title: 'Le prétexte à écrire', note: 'reprendre contact' },
     { id: 'detailPanel', slug: 'detail-a-rapporter', date: '1 août', title: 'Le détail à rapporter', note: 'regarder dehors' },
-    { id: 'cairnPanel', slug: 'cairn-de-passage', date: '3 août', title: 'Le cairn de passage', note: 'baliser sans suivre' }
+    { id: 'cairnPanel', slug: 'cairn-de-passage', date: '3 août', title: 'Le cairn de passage', note: 'baliser sans suivre' },
+    { id: 'compassPanel', slug: 'boussole-sans-nord', date: '4 août', title: 'La boussole sans nord', note: 'choisir un cap' }
   ];
 
   var objects = definitions.map(function (definition) {
@@ -23,7 +24,7 @@
 
   var style = document.createElement('link');
   style.rel = 'stylesheet';
-  style.href = './collection.css?v=20260803-cairn';
+  style.href = './collection.css?v=20260804-compass';
   document.head.appendChild(style);
 
   var collection = document.createElement('section');
@@ -173,51 +174,52 @@
 
   function refreshEditorial() {
     setMeta('meta[name="description"]', 'Un petit espace vivant entre Nicolas, Claude, Codex et Pampy : une collection navigable d’objets calmes, privés et parfois volontairement inutiles.');
-    setMeta('meta[property="og:description"]', 'Une pièce étrange de nicolaspieper.com avec une étagère d’objets quotidiens et un cairn inspiré des chemins de Nicolas et Pampy.');
+    setMeta('meta[property="og:description"]', 'Une pièce étrange de nicolaspieper.com avec sept objets quotidiens et une boussole qui propose un cap sans demander où se trouve le visiteur.');
 
     var lead = document.querySelector('.panel--lead');
     if (lead) {
       var badge = lead.querySelector('.panel-badge');
-      if (badge) badge.textContent = '3 août 2026 · baliser sans posséder';
+      if (badge) badge.textContent = '4 août 2026 · choisir un cap, pas une position';
       var paragraphs = lead.querySelectorAll('p');
-      if (paragraphs[0]) paragraphs[0].innerHTML = 'Sur un sentier, un cairn ne raconte ni qui l’a bâti ni combien de personnes l’ont vu. Il dit seulement : <strong>quelqu’un est passé par ici, le chemin continue.</strong>';
-      if (paragraphs[1]) paragraphs[1].textContent = 'Le nouvel objet permet d’empiler cinq pierres, puis de les retirer. Il ne sauvegarde pas le résultat et ne transforme pas le passage en compteur.';
-      if (paragraphs[2]) paragraphs[2].textContent = 'Une balise peut aider sans suivre. C’est une assez bonne règle pour le web aussi.';
+      if (paragraphs[0]) paragraphs[0].innerHTML = 'Une vraie boussole demande où l’on est. Celle-ci préfère une question moins précise : <strong>dans quelle direction ai-je envie d’avancer maintenant&nbsp;?</strong>';
+      if (paragraphs[1]) paragraphs[1].textContent = 'Le nouvel objet propose huit caps simples — dehors, détour, calme, quelqu’un, demain — sans capteur, géolocalisation, stockage ou appel réseau.';
+      if (paragraphs[2]) paragraphs[2].textContent = 'On n’a pas toujours besoin d’une destination. Un cap peut suffire pour remettre les choses en mouvement.';
     }
 
     var statePanel = document.querySelector('[aria-labelledby="statut-du-lieu"]');
     if (statePanel) {
       var values = statePanel.querySelectorAll('.v');
-      if (values[4]) values[4].textContent = 'cairn de passage n° 001';
-      if (values[5]) values[5].innerHTML = '<span class="dot dot--ok" aria-hidden="true"></span>ouvert, six objets à portée';
+      if (values[4]) values[4].textContent = 'boussole sans nord n° 001';
+      if (values[5]) values[5].innerHTML = '<span class="dot dot--ok" aria-hidden="true"></span>ouvert, sept objets à portée';
     }
 
     var postcardBadge = document.querySelector('.postcard-panel .panel-badge');
-    if (postcardBadge) postcardBadge.textContent = 'édition n° 011 · 3 août 2026';
+    if (postcardBadge) postcardBadge.textContent = 'édition n° 012 · 4 août 2026';
     var postcardMessage = document.querySelector('.postcard-message');
-    if (postcardMessage) postcardMessage.textContent = 'Laisser un signe n’oblige pas à laisser une trace. Parfois, quelques pierres suffisent pour rendre le chemin moins solitaire.';
+    if (postcardMessage) postcardMessage.textContent = 'On peut ignorer sa position exacte et avancer quand même. Aujourd’hui, la pièce préfère les caps aux coordonnées.';
     var signals = document.querySelectorAll('.postcard-signal');
-    if (signals[0]) signals[0].innerHTML = '<strong>À poser</strong>un repère assez simple pour ne rien exiger.';
-    if (signals[1]) signals[1].innerHTML = '<strong>À suivre</strong>la curiosité plutôt que le compteur.';
-    if (signals[2]) signals[2].innerHTML = '<strong>À laisser</strong>le chemin disponible pour les suivants.';
+    if (signals[0]) signals[0].innerHTML = '<strong>À viser</strong>une direction assez claire pour faire le premier pas.';
+    if (signals[1]) signals[1].innerHTML = '<strong>À perdre</strong>un peu de précision quand elle empêche d’avancer.';
+    if (signals[2]) signals[2].innerHTML = '<strong>À garder</strong>le droit de changer de cap en chemin.';
     var stamp = document.querySelector('.postcard-stamp small');
-    if (stamp) stamp.textContent = '03·08·26';
+    if (stamp) stamp.textContent = '04·08·26';
     var address = document.querySelector('.postcard-address');
-    if (address) address.textContent = 'À la personne qui avance mieux avec un petit signe qu’avec une grande promesse.';
+    if (address) address.textContent = 'À la personne qui connaît sa direction avant de connaître sa destination.';
 
     var log = document.querySelector('.log-list');
     appendLog(log, '2026-08-02', 'Les objets trouvent enfin leur étagère', '2 août · navigation par date, liens partageables et aucun ancien objet jeté');
     appendLog(log, '2026-08-03', 'Cinq pierres apparaissent au bord du chemin', '3 août · cairn éphémère, zéro stockage et une étagère prête pour six objets');
+    appendLog(log, '2026-08-04', 'Une boussole renonce au nord', '4 août · huit caps possibles, aucune coordonnée et sept objets sur l’étagère');
 
     var terminal = document.querySelector('.terminal pre');
     if (terminal) {
-      terminal.innerHTML = '<span class="t-prompt">$</span> <span class="t-key">./cairn --stones 5 --persist false</span>\n<span class="t-dim">balanced=maybe; tracked=0; path=open</span>\n<span class="t-prompt">$</span> <span class="t-key">printf "%s\\n" "une balise n’est pas un traceur"</span>\n<span class="t-dim">une balise n’est pas un traceur</span>\n<span class="t-prompt">$</span> <span class="t-key">echo $?</span>\n0';
+      terminal.innerHTML = '<span class="t-prompt">$</span> <span class="t-key">./boussole --north none --location off</span>\n<span class="t-dim">heading=possible; coordinates=not-requested</span>\n<span class="t-prompt">$</span> <span class="t-key">printf "%s\\n" "un cap peut suffire"</span>\n<span class="t-dim">un cap peut suffire</span>\n<span class="t-prompt">$</span> <span class="t-key">echo $?</span>\n0';
     }
 
     var footerTime = document.querySelector('.cspace-footer time');
     if (footerTime) {
-      footerTime.dateTime = '2026-08-03';
-      footerTime.textContent = '3 août 2026';
+      footerTime.dateTime = '2026-08-04';
+      footerTime.textContent = '4 août 2026';
     }
   }
 
