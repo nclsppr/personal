@@ -1,0 +1,274 @@
+/* Le lac sans photo · 5 août 2026 */
+.lake-panel {
+  overflow: hidden;
+}
+
+.lake-room {
+  display: grid;
+  grid-template-columns: minmax(300px, 1.02fr) minmax(0, .98fr);
+  gap: clamp(26px, 5vw, 64px);
+  align-items: center;
+}
+
+.lake-scene {
+  position: relative;
+  min-height: 430px;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  border-radius: calc(var(--radius) + 4px);
+  background:
+    linear-gradient(to bottom, color-mix(in srgb, var(--cosmic) 26%, var(--bg-raised)) 0 42%, color-mix(in srgb, var(--accent) 10%, var(--bg-inset)) 42% 100%);
+  box-shadow: inset 0 0 0 8px color-mix(in srgb, var(--bg) 66%, transparent);
+  isolation: isolate;
+}
+
+.lake-scene::before {
+  content: '';
+  position: absolute;
+  inset: 42% 0 0;
+  z-index: 0;
+  background:
+    repeating-linear-gradient(to bottom, color-mix(in srgb, var(--ink) 9%, transparent) 0 1px, transparent 1px 16px),
+    linear-gradient(110deg, transparent 0 28%, color-mix(in srgb, var(--accent) 11%, transparent) 42% 52%, transparent 70%);
+  opacity: .78;
+}
+
+.lake-sun {
+  position: absolute;
+  top: 12%;
+  right: 16%;
+  width: 54px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 82%, white);
+  box-shadow: 0 0 44px color-mix(in srgb, var(--accent) 34%, transparent);
+}
+
+.lake-mountain {
+  position: absolute;
+  left: -7%;
+  bottom: 49%;
+  width: 78%;
+  height: 46%;
+  clip-path: polygon(0 100%, 12% 67%, 25% 78%, 42% 25%, 55% 63%, 69% 45%, 82% 73%, 100% 52%, 100% 100%);
+  background: color-mix(in srgb, var(--ink) 28%, var(--bg-raised));
+}
+
+.lake-mountain--back {
+  left: 28%;
+  width: 84%;
+  height: 38%;
+  bottom: 51%;
+  opacity: .55;
+  filter: blur(.3px);
+  transform: scaleX(-1);
+}
+
+.lake-mountain--front::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--bg-raised) 80%, transparent);
+  clip-path: polygon(39% 35%, 42% 25%, 46% 42%, 50% 53%, 55% 63%, 49% 58%, 44% 48%);
+}
+
+.lake-shore {
+  position: absolute;
+  z-index: 3;
+  left: -6%;
+  right: -4%;
+  top: 40.8%;
+  height: 4%;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--ink) 34%, var(--bg-inset));
+  transform: rotate(-1.4deg);
+}
+
+.lake-reflection {
+  position: absolute;
+  z-index: 1;
+  top: 45%;
+  width: 70%;
+  height: 37%;
+  clip-path: polygon(0 0, 100% 0, 86% 24%, 72% 18%, 55% 66%, 42% 25%, 26% 80%, 12% 33%);
+  background: color-mix(in srgb, var(--ink) 14%, transparent);
+  filter: blur(3px);
+  opacity: .56;
+  transform: scaleY(-1);
+}
+
+.lake-reflection--one { left: -2%; }
+.lake-reflection--two { right: -4%; transform: scale(-1, -1); opacity: .34; }
+
+.lake-ripple {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: 68%;
+  width: 38%;
+  height: 10%;
+  border: 1px solid color-mix(in srgb, var(--accent) 48%, transparent);
+  border-radius: 50%;
+  opacity: .45;
+  transform: translate(-50%, -50%) scale(.72);
+}
+
+.lake-ripple--two { width: 54%; height: 15%; opacity: .26; }
+.lake-ripple--three { width: 72%; height: 20%; opacity: .14; }
+
+.lake-caption {
+  position: absolute;
+  z-index: 7;
+  left: 50%;
+  bottom: 12%;
+  transform: translateX(-50%);
+  color: color-mix(in srgb, var(--ink) 74%, transparent);
+  font-size: clamp(.72rem, 1.5vw, .88rem);
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-shadow: 0 1px 18px var(--bg);
+}
+
+.lake-scene[data-shore="1"] .lake-sun { transform: translate(-48px, 18px); }
+.lake-scene[data-shore="2"]::before { opacity: .42; }
+.lake-scene[data-shore="3"] .lake-reflection { transform: scaleY(-1) skewX(-7deg); }
+.lake-scene[data-shore="4"] .lake-ripple { left: 42%; }
+.lake-scene[data-shore="5"] .lake-sun { opacity: .58; }
+
+.lake-scene.is-rippling .lake-ripple--one { animation: lake-ripple 1.35s ease-out both; }
+.lake-scene.is-rippling .lake-ripple--two { animation: lake-ripple 1.5s .08s ease-out both; }
+.lake-scene.is-rippling .lake-ripple--three { animation: lake-ripple 1.65s .16s ease-out both; }
+.lake-scene.is-rippling .lake-reflection { animation: lake-reflection 1.55s ease-in-out both; }
+.lake-scene.is-rippling .lake-caption { animation: lake-caption 1.45s ease-in-out both; }
+
+@keyframes lake-ripple {
+  0% { transform: translate(-50%, -50%) scale(.55); opacity: .62; }
+  65% { opacity: .2; }
+  100% { transform: translate(-50%, -50%) scale(1.26); opacity: .02; }
+}
+
+@keyframes lake-reflection {
+  0%, 100% { filter: blur(3px); opacity: .56; }
+  45% { filter: blur(10px); opacity: .2; transform: scaleY(-1) skewX(9deg); }
+}
+
+@keyframes lake-caption {
+  0%, 100% { opacity: 1; letter-spacing: .18em; }
+  48% { opacity: .22; letter-spacing: .28em; }
+}
+
+.lake-copy h3 {
+  max-width: 15ch;
+  margin: 0 0 12px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(1.7rem, 3.3vw, 2.6rem);
+  line-height: 1.03;
+  letter-spacing: -.045em;
+}
+
+.lake-kicker {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: .76rem;
+  font-weight: 800;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.lake-intro {
+  max-width: 67ch;
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.lake-prompt {
+  margin-top: 22px;
+  padding: clamp(18px, 4vw, 28px);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--accent) 7%, var(--bg-inset));
+}
+
+.lake-prompt-label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--muted);
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.lake-prompt strong {
+  display: block;
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+}
+
+.lake-prompt p {
+  margin: 8px 0 0;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+.lake-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 16px;
+}
+
+.lake-button {
+  appearance: none;
+  padding: 10px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--bg-inset);
+  color: var(--ink);
+  font: inherit;
+  font-size: .83rem;
+  cursor: pointer;
+  transition: transform .16s ease, border-color .16s ease, background-color .16s ease, opacity .16s ease;
+}
+
+.lake-button--primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 800;
+}
+
+.lake-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: var(--cosmic);
+}
+
+.lake-button:disabled {
+  opacity: .44;
+  cursor: wait;
+}
+
+.lake-status,
+.lake-privacy {
+  color: var(--muted);
+  font-size: .78rem;
+}
+
+.lake-status { margin: 13px 0 0; }
+.lake-privacy { margin: 7px 0 0; }
+
+@media (max-width: 760px) {
+  .lake-room { grid-template-columns: 1fr; }
+  .lake-scene { min-height: 340px; }
+  .lake-copy h3 { max-width: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lake-button { transition: none; }
+  .lake-scene.is-rippling .lake-ripple,
+  .lake-scene.is-rippling .lake-reflection,
+  .lake-scene.is-rippling .lake-caption { animation: none; }
+}
