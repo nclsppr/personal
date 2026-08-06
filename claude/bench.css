@@ -1,0 +1,332 @@
+/* Le banc pour deux · 6 août 2026 */
+.bench-panel {
+  overflow: hidden;
+}
+
+.bench-room {
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 68px);
+  align-items: center;
+}
+
+.bench-stage {
+  position: relative;
+  min-height: 410px;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  border-radius: calc(var(--radius) + 4px);
+  background:
+    radial-gradient(circle at 72% 18%, color-mix(in srgb, var(--accent) 24%, transparent) 0 7%, transparent 7.4%),
+    linear-gradient(to bottom, color-mix(in srgb, var(--cosmic) 18%, var(--bg-raised)) 0 58%, color-mix(in srgb, var(--ink) 8%, var(--bg-inset)) 58% 100%);
+  box-shadow: inset 0 0 0 8px color-mix(in srgb, var(--bg) 66%, transparent);
+  isolation: isolate;
+}
+
+.bench-stage::before,
+.bench-stage::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+}
+
+.bench-stage::before {
+  inset: 55% 0 auto;
+  height: 1px;
+  background: color-mix(in srgb, var(--ink) 26%, transparent);
+  box-shadow: 0 22px 0 color-mix(in srgb, var(--ink) 7%, transparent), 0 62px 0 color-mix(in srgb, var(--ink) 5%, transparent);
+}
+
+.bench-stage::after {
+  left: 50%;
+  bottom: 14%;
+  width: 72%;
+  height: 10%;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--ink) 12%, transparent);
+  filter: blur(16px);
+  transform: translateX(-50%);
+}
+
+.bench-skyline {
+  position: absolute;
+  z-index: 0;
+  left: -4%;
+  right: -4%;
+  bottom: 42%;
+  height: 25%;
+  background: color-mix(in srgb, var(--ink) 17%, var(--bg-raised));
+  clip-path: polygon(0 100%, 0 72%, 7% 72%, 7% 54%, 12% 54%, 12% 68%, 18% 68%, 18% 44%, 23% 44%, 23% 62%, 31% 62%, 31% 38%, 37% 38%, 37% 60%, 45% 60%, 45% 48%, 52% 48%, 52% 67%, 60% 67%, 60% 34%, 66% 34%, 66% 58%, 72% 58%, 72% 42%, 78% 42%, 78% 64%, 87% 64%, 87% 50%, 93% 50%, 93% 70%, 100% 70%, 100% 100%);
+  opacity: .62;
+}
+
+.bench-path {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  bottom: -5%;
+  width: 62%;
+  height: 48%;
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--accent) 7%, transparent), color-mix(in srgb, var(--ink) 7%, transparent));
+  clip-path: polygon(38% 0, 62% 0, 92% 100%, 8% 100%);
+  transform: translateX(-50%);
+  opacity: .56;
+}
+
+.bench-seat {
+  position: absolute;
+  z-index: 4;
+  bottom: 21%;
+  width: 29%;
+  height: 25%;
+  border: 1px solid color-mix(in srgb, var(--ink) 36%, transparent);
+  border-radius: 18px 18px 9px 9px;
+  background:
+    repeating-linear-gradient(to bottom, color-mix(in srgb, var(--ink) 20%, var(--bg-inset)) 0 11px, color-mix(in srgb, var(--bg-raised) 88%, transparent) 11px 15px);
+  box-shadow: 0 18px 30px color-mix(in srgb, var(--bg) 42%, transparent);
+  transform-origin: bottom center;
+}
+
+.bench-seat::before,
+.bench-seat::after {
+  content: '';
+  position: absolute;
+  bottom: -36%;
+  width: 6px;
+  height: 40%;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--ink) 52%, var(--bg-inset));
+}
+
+.bench-seat::before { left: 18%; }
+.bench-seat::after { right: 18%; }
+.bench-seat--left { left: 17%; transform: rotate(-1.5deg); }
+.bench-seat--right { right: 17%; transform: rotate(1.5deg); }
+
+.bench-seat i {
+  position: absolute;
+  left: 50%;
+  top: -52px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 58%, var(--bg-raised));
+  box-shadow: 0 0 0 8px color-mix(in srgb, var(--accent) 8%, transparent);
+  transform: translateX(-50%);
+}
+
+.bench-seat--right i {
+  background: color-mix(in srgb, var(--cosmic) 58%, var(--bg-raised));
+  box-shadow: 0 0 0 8px color-mix(in srgb, var(--cosmic) 8%, transparent);
+}
+
+.bench-thread {
+  position: absolute;
+  z-index: 5;
+  left: 36%;
+  right: 36%;
+  top: 38%;
+  height: 46px;
+  border-top: 1px dashed color-mix(in srgb, var(--accent) 60%, transparent);
+  border-radius: 50%;
+  opacity: .72;
+}
+
+.bench-bubble {
+  position: absolute;
+  z-index: 6;
+  left: 50%;
+  top: 21%;
+  padding: 9px 13px;
+  border: 1px solid color-mix(in srgb, var(--accent) 44%, var(--border-strong));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 10%, var(--bg-inset));
+  color: var(--ink);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+}
+
+.bench-stage[data-context="table"] .bench-path {
+  width: 52%;
+  height: 28%;
+  bottom: 10%;
+  clip-path: ellipse(50% 46% at 50% 50%);
+  background: color-mix(in srgb, var(--accent) 11%, var(--bg-inset));
+}
+
+.bench-stage[data-context="walk"] .bench-seat {
+  transform: translateY(-4px) rotate(0);
+}
+
+.bench-stage[data-context="distance"] .bench-thread {
+  left: 28%;
+  right: 28%;
+  border-top-style: dotted;
+}
+
+.bench-stage[data-context="distance"] .bench-seat--right {
+  opacity: .58;
+  transform: translateX(18px) scale(.92);
+}
+
+.bench-panel.is-speaking .bench-bubble {
+  animation: bench-bubble .68s ease both;
+}
+
+.bench-panel.is-speaking .bench-thread {
+  animation: bench-thread .68s ease both;
+}
+
+.bench-panel.is-speaking .bench-seat i {
+  animation: bench-nod .68s ease both;
+}
+
+@keyframes bench-bubble {
+  0% { opacity: .2; transform: translateX(-50%) translateY(8px) scale(.92); }
+  55% { opacity: 1; transform: translateX(-50%) translateY(-2px) scale(1.03); }
+  100% { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+}
+
+@keyframes bench-thread {
+  0% { opacity: 0; transform: scaleX(.25); }
+  100% { opacity: .72; transform: scaleX(1); }
+}
+
+@keyframes bench-nod {
+  0%, 100% { transform: translateX(-50%) rotate(0); }
+  55% { transform: translateX(-50%) rotate(7deg); }
+}
+
+.bench-copy h3 {
+  max-width: 16ch;
+  margin: 0 0 12px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(1.7rem, 3.3vw, 2.6rem);
+  line-height: 1.03;
+  letter-spacing: -.045em;
+}
+
+.bench-kicker {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: .76rem;
+  font-weight: 800;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.bench-intro {
+  max-width: 67ch;
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.bench-contexts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.bench-contexts button,
+.bench-button {
+  appearance: none;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--bg-inset);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+  transition: transform .16s ease, border-color .16s ease, background-color .16s ease, color .16s ease;
+}
+
+.bench-contexts button {
+  padding: 8px 12px;
+  font-size: .78rem;
+}
+
+.bench-contexts button[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, var(--bg-inset));
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.bench-question {
+  position: relative;
+  min-height: 104px;
+  margin: 18px 0 0;
+  padding: clamp(20px, 4vw, 30px);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--cosmic) 7%, var(--bg-inset));
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(1.08rem, 2.3vw, 1.4rem);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.bench-question::before {
+  content: '“';
+  position: absolute;
+  top: 6px;
+  left: 12px;
+  color: color-mix(in srgb, var(--accent) 58%, transparent);
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.bench-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 15px;
+}
+
+.bench-button {
+  padding: 10px 14px;
+  font-size: .83rem;
+}
+
+.bench-button--primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 800;
+}
+
+.bench-contexts button:hover,
+.bench-button:hover {
+  transform: translateY(-1px);
+  border-color: var(--cosmic);
+}
+
+.bench-status,
+.bench-privacy {
+  color: var(--muted);
+  font-size: .78rem;
+}
+
+.bench-status { margin: 13px 0 0; }
+.bench-privacy { margin: 7px 0 0; }
+
+@media (max-width: 760px) {
+  .bench-room { grid-template-columns: 1fr; }
+  .bench-stage { min-height: 330px; }
+  .bench-copy h3 { max-width: none; }
+  .bench-seat { width: 31%; }
+  .bench-seat--left { left: 14%; }
+  .bench-seat--right { right: 14%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bench-contexts button,
+  .bench-button { transition: none; }
+  .bench-panel.is-speaking .bench-bubble,
+  .bench-panel.is-speaking .bench-thread,
+  .bench-panel.is-speaking .bench-seat i { animation: none; }
+}
