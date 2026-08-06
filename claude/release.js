@@ -92,7 +92,8 @@
     { date: '2026-08-03', src: './cairn.js?v=20260803-cairn' },
     { date: '2026-08-04', src: './compass.js?v=20260804-compass' },
     { date: '2026-08-02', src: './collection.js?v=20260804-compass' },
-    { date: '2026-08-05', src: './lake.js?v=20260805-lake' }
+    { date: '2026-08-05', src: './lake.js?v=20260805-lake' },
+    { date: '2026-08-06', src: './bench.js?v=20260806-bench' }
   ];
 
   function load(index) {
