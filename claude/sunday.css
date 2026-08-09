@@ -1,0 +1,208 @@
+/* ==========================================================================
+   9 août 2026 · La dernière part
+   Une pizza entièrement locale : huit parts, zéro commande, zéro télémétrie.
+   ========================================================================== */
+
+.sunday-panel {
+  overflow: hidden;
+}
+
+.sunday-pizza {
+  display: grid;
+  grid-template-columns: minmax(250px, .9fr) minmax(280px, 1.1fr);
+  gap: clamp(24px, 5vw, 64px);
+  align-items: center;
+  padding: clamp(20px, 4vw, 44px);
+  border-top: 1px solid var(--border);
+  background:
+    radial-gradient(circle at 20% 18%, var(--accent-glow), transparent 36%),
+    linear-gradient(135deg, var(--bg-raised), var(--bg-inset));
+}
+
+.sunday-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 330px;
+  isolation: isolate;
+}
+
+.sunday-table {
+  position: absolute;
+  inset: 7% 4%;
+  border: 1px solid var(--border-strong);
+  border-radius: 48% 52% 44% 56% / 52% 43% 57% 48%;
+  background:
+    repeating-linear-gradient(9deg, transparent 0 18px, rgba(255,255,255,.025) 18px 19px),
+    var(--bg-raised);
+  box-shadow: var(--shadow);
+  transform: rotate(-2deg);
+}
+
+.sunday-plate {
+  position: relative;
+  width: min(82vw, 286px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 18px 45px rgba(0,0,0,.25), inset 0 0 0 13px var(--bg-raised);
+  z-index: 1;
+}
+
+.sunday-pizza-svg {
+  width: 82%;
+  height: 82%;
+  overflow: visible;
+  filter: drop-shadow(0 8px 8px rgba(0,0,0,.22));
+}
+
+.sunday-crust {
+  fill: none;
+  stroke: var(--brand);
+  stroke-width: 12;
+  opacity: .78;
+}
+
+.sunday-slice {
+  fill: var(--accent-soft);
+  stroke: var(--accent);
+  stroke-width: 1.6;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform .55s cubic-bezier(.2,.8,.2,1), opacity .4s ease, filter .3s ease;
+}
+
+.sunday-slice:nth-of-type(2n) {
+  fill: var(--cosmic-soft);
+}
+
+.sunday-slice.is-taken {
+  opacity: 0;
+  transform: translate(var(--slice-x, 28px), var(--slice-y, -32px)) rotate(var(--slice-r, 8deg)) scale(.82);
+  pointer-events: none;
+}
+
+.sunday-center-dot {
+  fill: var(--brand);
+}
+
+.sunday-napkin {
+  position: absolute;
+  right: 4%;
+  bottom: 5%;
+  width: 72px;
+  height: 72px;
+  border: 1px solid var(--border-strong);
+  background: var(--bg);
+  transform: rotate(8deg);
+  box-shadow: 5px 7px 0 var(--accent-soft);
+  opacity: .86;
+}
+
+.sunday-copy h3 {
+  margin: 4px 0 12px;
+  max-width: 18ch;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.02;
+  letter-spacing: -.04em;
+}
+
+.sunday-kicker {
+  margin: 0;
+  color: var(--accent);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.sunday-intro {
+  max-width: 62ch;
+  color: var(--ink-soft);
+}
+
+.sunday-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 22px 0 14px;
+}
+
+.sunday-action {
+  appearance: none;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 11px 16px;
+  background: var(--brand);
+  color: #14140f;
+  font: 700 12px/1 'JetBrains Mono', monospace;
+  cursor: pointer;
+  transition: transform .16s ease, box-shadow .16s ease, opacity .16s ease;
+}
+
+.sunday-action:hover:not(:disabled),
+.sunday-action:focus-visible:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px var(--accent-glow);
+}
+
+.sunday-action:focus-visible {
+  outline: 2px solid var(--cosmic);
+  outline-offset: 3px;
+}
+
+.sunday-action:disabled {
+  cursor: default;
+  opacity: .4;
+}
+
+.sunday-action--quiet {
+  background: transparent;
+  color: var(--ink-soft);
+}
+
+.sunday-status {
+  min-height: 3.2em;
+  margin: 0;
+  color: var(--ink);
+}
+
+.sunday-status strong {
+  color: var(--accent);
+}
+
+.sunday-privacy {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+@media (max-width: 760px) {
+  .sunday-pizza {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .sunday-stage {
+    min-height: 280px;
+  }
+
+  .sunday-plate {
+    width: min(74vw, 260px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sunday-slice,
+  .sunday-action {
+    transition: none;
+  }
+
+  .sunday-slice.is-taken {
+    transform: none;
+  }
+}
