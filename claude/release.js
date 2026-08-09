@@ -95,7 +95,8 @@
     { date: '2026-08-05', src: './lake.js?v=20260805-lake' },
     { date: '2026-08-06', src: './bench.js?v=20260806-bench' },
     { date: '2026-08-07', src: './homeward.js?v=20260807-homeward' },
-    { date: '2026-08-08', src: './threshold.js?v=20260808-threshold' }
+    { date: '2026-08-08', src: './threshold.js?v=20260808-threshold' },
+    { date: '2026-08-09', src: './sunday.js?v=20260809-last-slice' }
   ];
 
   function load(index) {
