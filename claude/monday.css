@@ -1,0 +1,371 @@
+/* 10 août 2026 · Le bureau avant le bruit */
+.monday-panel {
+  overflow: hidden;
+  position: relative;
+}
+
+.monday-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--brand), transparent);
+  opacity: .65;
+}
+
+.monday-desk {
+  display: grid;
+  grid-template-columns: minmax(260px, .78fr) minmax(0, 1.22fr);
+  gap: clamp(24px, 5vw, 64px);
+  align-items: center;
+  padding: clamp(8px, 1vw, 14px) 0 4px;
+}
+
+.monday-scene {
+  position: relative;
+  min-height: 330px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--bg-raised) 90%, var(--cosmic) 10%) 0 66%, var(--bg-inset) 66% 100%);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 3%, transparent);
+}
+
+.monday-wall-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 66%;
+  height: 1px;
+  background: var(--border-strong);
+}
+
+.monday-lamp {
+  position: absolute;
+  left: 18%;
+  top: 23%;
+  width: 9px;
+  height: 122px;
+  border-radius: 8px;
+  background: var(--ink-soft);
+  transform: rotate(-8deg);
+  transform-origin: 50% 100%;
+}
+
+.monday-lamp::before {
+  content: '';
+  position: absolute;
+  left: -38px;
+  top: -17px;
+  width: 72px;
+  height: 42px;
+  border-radius: 48px 48px 12px 12px;
+  border: 2px solid var(--brand);
+  background: color-mix(in srgb, var(--brand) 16%, var(--bg-raised));
+  transform: rotate(-10deg);
+  box-shadow: 0 18px 38px color-mix(in srgb, var(--brand) 17%, transparent);
+}
+
+.monday-lamp::after {
+  content: '';
+  position: absolute;
+  left: -28px;
+  bottom: -7px;
+  width: 62px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--ink-soft);
+  transform: rotate(8deg);
+}
+
+.monday-lamp i {
+  position: absolute;
+  left: -56px;
+  top: 28px;
+  width: 110px;
+  height: 112px;
+  clip-path: polygon(28% 0, 70% 0, 100% 100%, 0 100%);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--brand) 14%, transparent), transparent 78%);
+  opacity: .8;
+}
+
+.monday-mug {
+  position: absolute;
+  right: 15%;
+  bottom: 61px;
+  width: 58px;
+  height: 64px;
+  border: 2px solid var(--cosmic);
+  border-radius: 6px 6px 16px 16px;
+  background: color-mix(in srgb, var(--cosmic) 7%, var(--bg-raised));
+}
+
+.monday-mug::before {
+  content: '';
+  position: absolute;
+  right: -21px;
+  top: 14px;
+  width: 22px;
+  height: 30px;
+  border: 2px solid var(--cosmic);
+  border-left: 0;
+  border-radius: 0 18px 18px 0;
+}
+
+.monday-mug::after {
+  content: '≈';
+  position: absolute;
+  top: -34px;
+  left: 15px;
+  font: 22px/1 'JetBrains Mono', monospace;
+  color: var(--muted);
+  opacity: .7;
+}
+
+.monday-notebook {
+  position: absolute;
+  left: 32%;
+  bottom: 49px;
+  width: 128px;
+  height: 92px;
+  border: 1px solid var(--border-strong);
+  border-radius: 5px 9px 9px 5px;
+  background: color-mix(in srgb, var(--bg-raised) 84%, var(--ink) 6%);
+  transform: rotate(-2deg);
+  box-shadow: 8px 9px 0 color-mix(in srgb, var(--bg) 62%, transparent);
+}
+
+.monday-notebook::before {
+  content: '';
+  position: absolute;
+  top: 13px;
+  bottom: 13px;
+  left: 18px;
+  width: 1px;
+  background: var(--brand);
+  opacity: .6;
+}
+
+.monday-notebook i,
+.monday-notebook i::before,
+.monday-notebook i::after {
+  position: absolute;
+  content: '';
+  height: 1px;
+  background: var(--border-strong);
+  left: 34px;
+  right: 14px;
+}
+
+.monday-notebook i { top: 26px; }
+.monday-notebook i::before { left: 0; right: 8px; top: 19px; }
+.monday-notebook i::after { left: 0; right: 22px; top: 38px; }
+
+.monday-pencil {
+  position: absolute;
+  left: calc(32% + 101px);
+  bottom: 145px;
+  width: 82px;
+  height: 6px;
+  border-radius: 8px;
+  background: var(--brand);
+  transform: rotate(23deg);
+}
+
+.monday-pencil::after {
+  content: '';
+  position: absolute;
+  right: -9px;
+  top: 0;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-left: 10px solid var(--ink-soft);
+}
+
+.monday-shadow {
+  position: absolute;
+  left: 20%;
+  right: 12%;
+  bottom: 28px;
+  height: 20px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--bg) 56%, transparent);
+  filter: blur(8px);
+}
+
+.monday-kicker,
+.monday-card__label {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--muted);
+  font-size: .72rem;
+}
+
+.monday-copy h3 {
+  margin: 0;
+  max-width: 710px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(1.45rem, 2.8vw, 2.25rem);
+  line-height: 1.08;
+  letter-spacing: -.035em;
+}
+
+.monday-intro {
+  max-width: 780px;
+  margin: 16px 0 22px;
+  color: var(--ink-soft);
+}
+
+.monday-drawers {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.monday-drawer {
+  position: relative;
+  min-height: 126px;
+  padding: 15px 14px 13px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-inset);
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+.monday-drawer:hover,
+.monday-drawer:focus-visible {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+
+.monday-drawer:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+.monday-drawer.is-open {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--accent-soft) 58%, var(--bg-inset));
+  box-shadow: inset 0 -4px 0 color-mix(in srgb, var(--brand) 42%, transparent);
+  transform: translateY(4px);
+}
+
+.monday-drawer__code {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--brand);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+
+.monday-drawer strong,
+.monday-drawer small {
+  display: block;
+}
+
+.monday-drawer strong {
+  font-size: .82rem;
+  line-height: 1.3;
+}
+
+.monday-drawer small {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: .66rem;
+  line-height: 1.35;
+}
+
+.monday-card {
+  margin-top: 14px;
+  min-height: 128px;
+  padding: 18px 20px;
+  border: 1px dashed var(--border-strong);
+  border-radius: 10px;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--brand) 8%, transparent), transparent 32%),
+    var(--bg-raised);
+  transition: border-color .2s ease, background .2s ease;
+}
+
+.monday-card[data-state="shown"] {
+  border-style: solid;
+  border-color: color-mix(in srgb, var(--brand) 52%, var(--border));
+}
+
+.monday-card__text {
+  margin: 0;
+  max-width: 760px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(1rem, 1.7vw, 1.18rem);
+  line-height: 1.5;
+}
+
+.monday-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.monday-action {
+  border: 1px solid var(--brand);
+  border-radius: 999px;
+  padding: 9px 14px;
+  background: var(--brand);
+  color: #14140f;
+  font: 700 .75rem/1 'JetBrains Mono', monospace;
+  cursor: pointer;
+}
+
+.monday-action--quiet {
+  background: transparent;
+  color: var(--ink-soft);
+  border-color: var(--border-strong);
+}
+
+.monday-action:disabled {
+  cursor: default;
+  opacity: .36;
+}
+
+.monday-action:not(:disabled):hover,
+.monday-action:not(:disabled):focus-visible {
+  transform: translateY(-1px);
+}
+
+.monday-action:focus-visible {
+  outline: 2px solid var(--cosmic);
+  outline-offset: 2px;
+}
+
+.monday-privacy {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: .68rem;
+}
+
+@media (max-width: 860px) {
+  .monday-desk { grid-template-columns: 1fr; }
+  .monday-scene { min-height: 260px; }
+}
+
+@media (max-width: 620px) {
+  .monday-drawers { grid-template-columns: 1fr; }
+  .monday-drawer { min-height: auto; padding: 12px 13px; }
+  .monday-drawer__code { margin-bottom: 7px; }
+  .monday-scene { min-height: 230px; }
+  .monday-notebook { left: 31%; transform: scale(.88) rotate(-2deg); transform-origin: 50% 100%; }
+  .monday-pencil { left: calc(31% + 88px); bottom: 133px; transform: scale(.88) rotate(23deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .monday-drawer,
+  .monday-action { transition: none; }
+}
