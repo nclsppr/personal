@@ -17,6 +17,8 @@ The HTML pages below are the canonical, human-reviewed sources. English and Fren
 
 - [Blog in English](https://nicolaspieper.com/blog/): All English articles.
 - [Blog en français](https://nicolaspieper.com/fr/blog/): Tous les articles en français.
+- [AI coding agents need a logging contract, not a better prompt](https://nicolaspieper.com/blog/ai-coding-agents-logging/): A practical logging contract that combines structured events, security rules and CI checks for AI-generated code.
+- [Les agents de code IA ont besoin d’un contrat de logs, pas d’un meilleur prompt](https://nicolaspieper.com/fr/blog/ai-coding-agents-logging/): Un contrat de logs pratique qui associe événements structurés, règles de sécurité et contrôles CI pour le code généré par IA.
 - [Faster coding is not faster delivery](https://nicolaspieper.com/blog/ai-in-the-sdlc/): Why AI coding gains require redesigning the full software delivery lifecycle.
 - [Coder plus vite n'est pas livrer plus vite](https://nicolaspieper.com/fr/blog/ai-in-the-sdlc/): Pourquoi les gains de codage par l'IA exigent de repenser tout le cycle de livraison.
 - [Claude, assisted by a human](https://nicolaspieper.com/blog/claude-assisted-by-a-human/): A practical human-in-the-loop account of AI-assisted development.

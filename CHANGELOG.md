@@ -5,6 +5,21 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-08-11 - Cinquième article : un contrat de logs pour les agents de code IA
+
+- Nouvel article bilingue « AI coding agents need a logging contract, not a
+  better prompt » (`/blog/ai-coding-agents-logging/`). Il définit un contrat
+  concret pour produire des événements structurés, protéger les données et
+  contrôler les règles de logs dans la CI, y compris quand un agent génère le
+  code.
+- Sticker de la série éditoriale intégré en WebP transparent pour l’article et
+  en JPEG 1200x630 sur fond ivoire pour les aperçus de partage.
+- Index du blog et extraits de l’accueil remis en ordre antichronologique dans
+  les deux langues. Sidebars, chaîne de lecture, JSON-LD, sitemap et `llms.txt`
+  intègrent le nouvel article.
+- L’article SDLC retrouve le lien manquant vers l’article sur l’équipe
+  Solutions dans sa liste « Autres articles ».
+
 ## 2026-08-03 - Roadtrip Austria devient un journal vivant
 
 - Les carrousels documentaires affichent désormais chaque photo intégralement,

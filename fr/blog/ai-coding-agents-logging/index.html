@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Les agents de code IA ont besoin d’un contrat de logs, pas d’un meilleur prompt · Nicolas Pieper</title>
+    <meta name="description" content="Une étude de 2026 relève un écart de logs dans les contributions d’agents de code IA. Ce contrat associe OpenTelemetry, OWASP et des contrôles CI.">
+    <meta name="author" content="Nicolas Pieper">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://nicolaspieper.com/fr/blog/ai-coding-agents-logging/">
+    <link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/ai-coding-agents-logging/">
+    <link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/ai-coding-agents-logging/">
+    <link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/ai-coding-agents-logging/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Nicolas Pieper">
+    <meta property="og:title" content="Les agents de code IA ont besoin d’un contrat de logs, pas d’un meilleur prompt">
+    <meta property="og:description" content="Une étude de 2026 relève un écart de logs dans les contributions d’agents de code IA. Ce contrat associe OpenTelemetry, OWASP et des contrôles CI.">
+    <meta property="og:url" content="https://nicolaspieper.com/fr/blog/ai-coding-agents-logging/">
+    <meta property="og:image" content="https://nicolaspieper.com/assets/img/blog/ai-coding-agents-logging-og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Illustration en sticker : un ingénieur inspecte des événements structurés entre un robot de code, une porte de validation et une console d’observabilité">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="article:published_time" content="2026-08-11">
+    <meta property="article:modified_time" content="2026-08-11">
+    <meta property="article:author" content="Nicolas Pieper">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Les agents de code IA ont besoin d’un contrat de logs, pas d’un meilleur prompt">
+    <meta name="twitter:description" content="Une étude de 2026 relève un écart de logs dans les contributions d’agents de code IA. Ce contrat associe OpenTelemetry, OWASP et des contrôles CI.">
+    <meta name="twitter:image" content="https://nicolaspieper.com/assets/img/blog/ai-coding-agents-logging-og.jpg">
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/assets/img/favicon.svg?v=2">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon-96.png?v=2">
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+    <meta name="theme-color" content="#FAF9F5">
+    <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/sourceserif4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/jetbrainsmono-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/css/site.css?v=20260726-design">
+    <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "@id": "https://nicolaspieper.com/fr/blog/ai-coding-agents-logging/#post",
+                "mainEntityOfPage": "https://nicolaspieper.com/fr/blog/ai-coding-agents-logging/",
+                "headline": "Les agents de code IA ont besoin d’un contrat de logs, pas d’un meilleur prompt",
+                "description": "Une étude de 2026 relève un écart de logs dans les contributions d’agents de code IA. Ce contrat associe OpenTelemetry, OWASP et des contrôles CI.",
+                "inLanguage": "fr",
+                "datePublished": "2026-08-11",
+                "dateModified": "2026-08-11",
+                "author": { "@id": "https://nicolaspieper.com/#person" },
+                "publisher": { "@id": "https://nicolaspieper.com/#person" },
+                "image": "https://nicolaspieper.com/assets/img/blog/ai-coding-agents-logging-og.jpg",
+                "isPartOf": { "@id": "https://nicolaspieper.com/fr/blog/#blog" },
+                "keywords": ["agents de code IA", "contrat de logs", "logs structurés", "observabilité logicielle", "OpenTelemetry", "OWASP", "AGENTS.md"]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Aperçu", "item": "https://nicolaspieper.com/fr/" },
+                    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://nicolaspieper.com/fr/blog/" },
+                    { "@type": "ListItem", "position": 3, "name": "Agents de code IA et logs", "item": "https://nicolaspieper.com/fr/blog/ai-coding-agents-logging/" }
+                ]
+            }
+        ]
+    }
+    </script>
+</head>
+<body class="page-work">
+    <a class="skip-link" href="#main">Aller au contenu</a>
+    <header class="site-header">
+        <button class="icon-btn menu-btn" id="menuBtn" aria-label="Ouvrir la navigation" aria-expanded="false" aria-controls="sidebar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path class="menu-line menu-line--top" d="M2 4h12"/><path class="menu-line menu-line--middle" d="M2 8h12"/><path class="menu-line menu-line--bottom" d="M2 12h12"/></svg></button>
+        <a class="brand" href="/fr/" aria-label="Nicolas Pieper"><img class="brand-mark" src="/assets/img/logo-mark.png" width="30" height="30" alt="" aria-hidden="true"><span>Nicolas&nbsp;Pieper</span></a>
+        <nav class="header-nav" aria-label="Navigation principale">
+            <a href="/fr/">Aperçu</a>
+            <a href="/fr/work/">Réalisations</a>
+            <a href="/fr/blog/">Blog</a>
+            <a href="/fr/cv/">CV</a>
+            <a href="/fr/#contact">Contact</a>
+        </nav>
+        <div class="header-actions">
+            <nav class="lang-switch" aria-label="Langue"><a href="/blog/ai-coding-agents-logging/" lang="en" hreflang="en">EN</a><span aria-current="true" lang="fr">FR</span></nav>
+            <a class="icon-btn" href="https://www.linkedin.com/in/nicolaspieper" rel="me noopener" target="_blank" aria-label="Profil LinkedIn (s’ouvre dans un nouvel onglet)"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1.4 1.4 0 1 1 0 2.8 1.4 1.4 0 0 1 0-2.8zM2.4 6h2.4v7.8H2.4zM6.4 6h2.3v1.1h.1c.3-.6 1.1-1.3 2.3-1.3 2.4 0 2.9 1.6 2.9 3.7v4.3h-2.4V9.9c0-.9 0-2.1-1.3-2.1s-1.5 1-1.5 2v4H6.4z"/></svg></a>
+            <button class="icon-btn theme-toggle" id="themeBtn" aria-label="Basculer le mode sombre"><svg class="icon-sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="3.2"/><path d="M8 1.2v1.6M8 13.2v1.6M1.2 8h1.6M13.2 8h1.6M3.2 3.2l1.1 1.1M11.7 11.7l1.1 1.1M3.2 12.8l1.1-1.1M11.7 4.3l1.1-1.1"/></svg><svg class="icon-moon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 9.5A6 6 0 0 1 6.5 2.5a6 6 0 1 0 7 7z"/></svg></button>
+        </div>
+    </header>
+    <div class="backdrop" id="backdrop"></div>
+    <div class="layout">
+        <aside class="sidebar" id="sidebar" aria-label="Navigation des sections">
+            <nav aria-label="Sur cette page">
+                <div class="side-group"><p class="side-title">Sur cette page</p><ul>
+                    <li><a href="#production">Production</a></li>
+                    <li><a href="#study">Ce que révèle l’étude</a></li>
+                    <li><a href="#logging-contract">Le contrat de logs</a></li>
+                    <li><a href="#log-levels">Niveaux de logs</a></li>
+                    <li><a href="#instructions">Consignes du dépôt</a></li>
+                    <li><a href="#enforcement">Contrôles CI</a></li>
+                    <li><a href="#evidence">Des preuves, pas du volume</a></li>
+                </ul></div>
+                <div class="side-group"><p class="side-title">Autres articles</p><ul>
+                    <li><a href="/fr/blog/">Tous les articles</a></li>
+                    <li><a href="/fr/blog/claude-in-the-enterprise/">Claude en entreprise</a></li>
+                    <li><a href="/fr/blog/organizing-the-solutions-team/">Organiser l’équipe Solutions</a></li>
+                    <li><a href="/fr/blog/claude-assisted-by-a-human/">Claude assisté par un humain</a></li>
+                    <li><a href="/fr/blog/ai-in-the-sdlc/">L’IA dans le SDLC</a></li>
+                </ul></div>
+            </nav>
+        </aside>
+        <main class="content" id="main">
+            <nav class="breadcrumb" aria-label="Fil d’Ariane"><a href="/fr/">nicolaspieper.com</a><span class="sep">/</span><a href="/fr/">fr</a><span class="sep">/</span><a href="/fr/blog/">blog</a><span class="sep">/</span><span aria-current="page">ai-coding-agents-logging</span></nav>
+            <article>
+            <header class="page-intro">
+                <p class="eyebrow">Blog · Ingénierie IA</p>
+                <h1>Les agents de code IA ont besoin d’un contrat de logs, pas d’un meilleur prompt.</h1>
+                <p class="post-meta"><time datetime="2026-08-11">11 août 2026</time> · 5 min de lecture · Nicolas Pieper</p>
+                <p class="lead">Un agent de code IA peut produire un changement qui compile, passe les tests et rend malgré tout le système plus difficile à exploiter. La production demande plus que du code généré. Elle demande des preuves qui suivent un contrat.</p>
+            </header>
+            <figure class="post-hero">
+                <img src="/assets/img/blog/ai-coding-agents-logging-hero.webp" width="1200" height="800"
+                     alt="Sticker détouré : un ingénieur inspecte des cartes d’événements structurés qui passent d’un robot de code à une console d’observabilité par une porte de validation"
+                     loading="eager" decoding="async">
+            </figure>
+            <section class="doc-section" id="production" aria-labelledby="production-title">
+                <h2 class="anchor-heading" id="production-title">La production juge le changement en dernier<a class="anchor" href="#production" aria-label="Lien vers cette section">#</a></h2>
+                <p>Un agent de code IA peut livrer un changement qui compile et passe les tests, tout en rendant le système plus difficile à exploiter. À l’incident suivant, le seul nouveau log dit qu’une erreur s’est produite.</p>
+                <p>Je ne considère pas ce changement comme terminé.</p>
+                <p>Comme je l’expliquais dans <a href="/fr/blog/ai-in-the-sdlc/">Coder plus vite n’est pas livrer plus vite</a>, accélérer l’implémentation n’accélère pas tout le cycle de livraison. Les logs en sont un bon exemple : le code arrive plus vite, mais quelqu’un doit encore le rendre compréhensible en production.</p>
+                <p>Cette exigence opérationnelle ne peut rester une préférence informelle. Il lui faut un contrat.</p>
+            </section>
+            <section class="doc-section" id="study" aria-labelledby="study-title">
+                <h2 class="anchor-heading" id="study-title">Les humains réparent discrètement les logs générés par les agents<a class="anchor" href="#study" aria-label="Lien vers cette section">#</a></h2>
+                <p>Une <a href="https://arxiv.org/abs/2604.09409" rel="noopener">prépublication empirique de 2026</a> a étudié 4 550 pull requests agentiques dans 81 dépôts open source. Parmi les 77 dépôts comparables, les agents modifiaient moins souvent les logs que les humains dans 58,4 % des cas.</p>
+                <p>Parmi les 1 308 pull requests où un canal de consignes était observable, seules 61, soit 4,7 %, parlaient explicitement des logs. Les auteurs rapportent 67 % de non-respect des demandes constructives analysées. Les humains ont réalisé 72,5 % des modifications de logs après génération.</p>
+                <p>Il s’agit d’une prépublication, pas d’un référentiel universel. Elle couvre des dépôts, agents et workflows précis. Elle ne prouve pas que tous les agents gèrent mal les logs.</p>
+                <p>Les longueurs de messages sont aussi similaires, et l’écart apparent de densité se réduit largement lorsque la taille des pull requests est prise en compte. L’étude ne dit pas que les agents produisent toujours trop peu de logs. Elle révèle un risque plus précis : terminer la tâche visible tout en oubliant l’exigence opérationnelle.</p>
+            </section>
+            <section class="doc-section" id="logging-contract" aria-labelledby="logging-contract-title">
+                <h2 class="anchor-heading" id="logging-contract-title">Utilisez un code d’événement et un message clair<a class="anchor" href="#logging-contract" aria-label="Lien vers cette section">#</a></h2>
+                <p>Chaque log important doit contenir quatre éléments : un nom d’événement stable, un message technique court, des champs structurés et un contexte de trace relié à l’opération complète.</p>
+                <div class="terminal" role="img" aria-label="Exemple de log structuré avec un nom d’événement, un message clair, une sévérité, un identifiant de trace et un résultat">
+                    <div class="terminal-bar"><i></i><i></i><i></i><span class="terminal-title">structured-event.json</span></div>
+                    <pre>{
+  <span class="t-cmd">"event.name"</span>: "document.delivery.accepted",
+  "severity_text": "INFO",
+  "body": "Document delivery was accepted",
+  "trace_id": "4bf92f3577b34da6",
+  "channel": "api",
+  "outcome": "accepted"
+}</pre>
+                </div>
+                <p>Le code fournit un identifiant stable aux tableaux de bord, alertes et requêtes. Le message permet à un humain de comprendre les faits sans consulter un catalogue. Le texte seul rend l’automatisation dépendante de la formulation. Le code seul ralentit l’analyse. Il faut les deux.</p>
+                <p>Les champs doivent ajouter du contexte sans exposer identifiants, jetons, adresses e-mail ou données personnelles inutiles. Le <a href="https://opentelemetry.io/docs/specs/otel/logs/data-model/" rel="noopener">modèle de logs OpenTelemetry</a> définit déjà événement, sévérité, trace, corps et attributs. Le <a href="https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html" rel="noopener">guide OWASP</a> fixe la limite de sécurité. Je préfère ces modèles à une nouvelle convention par projet.</p>
+            </section>
+            <section class="doc-section" id="log-levels" aria-labelledby="log-levels-title">
+                <h2 class="anchor-heading" id="log-levels-title">Donnez un seul sens à chaque niveau de log<a class="anchor" href="#log-levels" aria-label="Lien vers cette section">#</a></h2>
+                <p>Le contrat doit aussi définir une sémantique stable pour les niveaux.</p>
+                <div class="principles">
+                    <div class="principle"><span class="p-n">01</span><div><h3><code>DEBUG</code></h3><p>Détail de diagnostic destiné au développement ou à une investigation ciblée.</p></div></div>
+                    <div class="principle"><span class="p-n">02</span><div><h3><code>INFO</code></h3><p>Événement important du cycle de vie ou transition d’état terminée normalement.</p></div></div>
+                    <div class="principle"><span class="p-n">03</span><div><h3><code>WARN</code></h3><p>Condition inattendue ou dégradée, mais l’opération peut continuer.</p></div></div>
+                    <div class="principle"><span class="p-n">04</span><div><h3><code>ERROR</code></h3><p>L’opération en cours a échoué et demande une reprise, une nouvelle tentative ou une intervention humaine.</p></div></div>
+                </div>
+                <p>Une exception interceptée n’est pas automatiquement une erreur. Si l’application la traite et termine normalement l’opération demandée, <code>ERROR</code> peut créer un faux signal d’incident. L’inverse est aussi vrai. Un échec métier ne doit pas disparaître dans <code>DEBUG</code> simplement parce que l’application continue de fonctionner.</p>
+            </section>
+            <section class="doc-section" id="instructions" aria-labelledby="instructions-title">
+                <h2 class="anchor-heading" id="instructions-title"><code>AGENTS.md</code> guide, mais ne contrôle pas<a class="anchor" href="#instructions" aria-label="Lien vers cette section">#</a></h2>
+                <p>Un fichier <code>AGENTS.md</code> reste utile. <a href="https://developers.openai.com/codex/agent-configuration/agents-md" rel="noopener">OpenAI le présente</a> comme un emplacement pour les commandes, conventions, attentes de revue et contraintes du dépôt. Chaque session reçoit ainsi le même point de départ.</p>
+                <p>Je garderais la section sur les logs courte : structure attendue, niveaux, données interdites, exemples approuvés et commande de vérification. Pas un manuel de vingt pages.</p>
+                <p>Mais ces consignes ne prouvent pas que le code respecte la règle. L’étude avertit que le langage naturel seul reste peu fiable pour cette exigence non fonctionnelle.</p>
+            </section>
+            <section class="doc-section" id="enforcement" aria-labelledby="enforcement-title">
+                <h2 class="anchor-heading" id="enforcement-title">Déplacez les règles vérifiables dans la CI<a class="anchor" href="#enforcement" aria-label="Lien vers cette section">#</a></h2>
+                <p>Tout ce qui peut être vérifié de façon déterministe doit quitter le prompt et entrer dans la chaîne d’outils.</p>
+                <p>Une API commune peut exiger événement et champs structurés. Un catalogue peut empêcher les codes invalides ou dupliqués. L’analyse statique peut refuser <code>System.out</code>, <code>printStackTrace</code> et les champs interdits. Les tests peuvent vérifier code et résultat sans figer tout le message.</p>
+                <p>La CI doit contrôler les changements humains comme ceux des agents. Le standard ne dépend pas de l’auteur de la pull request.</p>
+                <p>L’automatisation ne peut pas décider si un événement mérite un log ni si son contexte aidera pendant un incident. Cela reste une décision d’ingénierie. Elle retire les défauts mécaniques pour concentrer la revue sur ces choix.</p>
+                <div class="callout">
+                    <span class="co-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M8 7.5v3.5M8 5.2v.1" stroke-linecap="round"/></svg></span>
+                    <p>Quand la même correction revient deux fois en revue, je la traite comme un défaut du processus. Il faut alors améliorer le contrat, l’exemple ou le contrôle automatisé.</p>
+                </div>
+            </section>
+            <section class="doc-section" id="evidence" aria-labelledby="evidence-title">
+                <h2 class="anchor-heading" id="evidence-title">Produisez des preuves, pas du volume<a class="anchor" href="#evidence" aria-label="Lien vers cette section">#</a></h2>
+                <p>De bons logs ne produisent pas plus de lignes. Ils laissent assez de preuves stables pour reconstruire les faits.</p>
+                <p>Ce principe soutient aussi le workflow décrit dans <a href="/fr/blog/claude-in-the-enterprise/">Claude en entreprise</a>. Un agent ne peut analyser un incident qu’avec des faits fiables à corréler. Du bruit non structuré ne devient pas utile parce qu’un modèle peut le lire.</p>
+                <p>Le modèle rédige l’appel. Le contrat en définit la forme. La CI vérifie la mécanique. Un humain reste responsable de l’utilité de l’événement lorsque le système échoue.</p>
+                <p>Cette organisation survivra au prochain modèle, au prochain incident et au prochain ingénieur.</p>
+            </section>
+            </article>
+            <nav class="page-next" aria-label="Continuer"><a href="/fr/blog/">← Tous les articles</a><a class="next-primary" href="/fr/blog/claude-in-the-enterprise/">Lire : Claude en entreprise →</a></nav>
+            <footer class="site-footer">
+            <div class="footer-grid">
+                <div class="footer-id">
+                    <a class="brand" href="/fr/"><img class="brand-mark" src="/assets/img/logo-mark.png" width="30" height="30" alt="" aria-hidden="true"><span>Nicolas&nbsp;Pieper</span></a>
+                    <p class="footer-tag">Engineering Manager · Luxembourg</p>
+                    <p class="footer-exit" aria-hidden="true"><span class="fx-prompt">$</span> exit 0</p>
+                </div>
+                <nav class="footer-col" aria-label="Pages">
+                    <p class="side-title">Pages</p>
+                    <a href="/fr/">Aperçu</a>
+                    <a href="/fr/work/">Réalisations</a>
+                    <a href="/fr/blog/">Blog</a>
+                    <a href="/fr/cv/">CV</a>
+                </nav>
+                <nav class="footer-col" aria-label="Ailleurs">
+                    <p class="side-title">Ailleurs</p>
+                    <a href="https://www.linkedin.com/in/nicolaspieper" rel="me noopener" target="_blank">LinkedIn<span aria-hidden="true"> ↗</span><span class="sr-only"> (s’ouvre dans un nouvel onglet)</span></a>
+                    <a href="https://github.com/nclsppr" rel="me noopener" target="_blank">GitHub<span aria-hidden="true"> ↗</span><span class="sr-only"> (s’ouvre dans un nouvel onglet)</span></a>
+                    <a href="mailto:nicolas@pieper.fr">nicolas@pieper.fr</a>
+                </nav>
+                <nav class="footer-col" aria-label="Site">
+                    <p class="side-title">Site</p>
+                    <a href="/blog/ai-coding-agents-logging/" hreflang="en" lang="en">English version</a>
+                    <a href="/v2022/" rel="nofollow">Archive v2022</a>
+                    <a href="https://github.com/nclsppr/personal" rel="me noopener" target="_blank">Source<span aria-hidden="true"> ↗</span><span class="sr-only"> (s’ouvre dans un nouvel onglet)</span></a>
+                </nav>
+            </div>
+            <div class="footer-base">
+                <p>© 2026 Nicolas Pieper · Luxembourg</p>
+                <p>Composé en Inter, Source Serif 4 &amp; JetBrains Mono. Site statique, sans tracking.</p>
+            </div>
+        </footer>
+        </main>
+    </div>
+    <script src="/assets/js/site.js?v=20260726-design" defer></script>
+</body>
+</html>
