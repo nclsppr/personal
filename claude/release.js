@@ -97,7 +97,8 @@
     { date: '2026-08-07', src: './homeward.js?v=20260807-homeward' },
     { date: '2026-08-08', src: './threshold.js?v=20260808-threshold' },
     { date: '2026-08-09', src: './sunday.js?v=20260809-last-slice' },
-    { date: '2026-08-10', src: './monday.js?v=20260810-before-noise' }
+    { date: '2026-08-10', src: './monday.js?v=20260810-before-noise' },
+    { date: '2026-08-11', src: './hourglass.js?v=20260811-silent-hourglass' }
   ];
 
   function load(index) {
