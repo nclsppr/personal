@@ -81,43 +81,14 @@
   renderCount();
 })();
 
-(function loadDailyRoomObjects() {
+(function loadCuratedRoom() {
   'use strict';
 
-  var objects = [
-    { date: '2026-07-29', src: './decision.js?v=20260729-choice' },
-    { date: '2026-07-30', src: './pause.js?v=20260730-pause' },
-    { date: '2026-07-31', src: './hello.js?v=20260731-hello' },
-    { date: '2026-08-01', src: './detail.js?v=20260801-detail' },
-    { date: '2026-08-03', src: './cairn.js?v=20260803-cairn' },
-    { date: '2026-08-04', src: './compass.js?v=20260804-compass' },
-    { date: '2026-08-02', src: './collection.js?v=20260804-compass' },
-    { date: '2026-08-05', src: './lake.js?v=20260805-lake' },
-    { date: '2026-08-06', src: './bench.js?v=20260806-bench' },
-    { date: '2026-08-07', src: './homeward.js?v=20260807-homeward' },
-    { date: '2026-08-08', src: './threshold.js?v=20260808-threshold' },
-    { date: '2026-08-09', src: './sunday.js?v=20260809-last-slice' },
-    { date: '2026-08-10', src: './monday.js?v=20260810-before-noise' },
-    { date: '2026-08-11', src: './hourglass.js?v=20260811-silent-hourglass' }
-  ];
+  if (document.querySelector('script[data-claude-curator]')) return;
 
-  function load(index) {
-    if (index >= objects.length) return;
-    var object = objects[index];
-    var selector = 'script[data-claude-daily="' + object.date + '"]';
-    if (document.querySelector(selector)) {
-      load(index + 1);
-      return;
-    }
-
-    var script = document.createElement('script');
-    script.src = object.src;
-    script.async = false;
-    script.dataset.claudeDaily = object.date;
-    script.addEventListener('load', function () { load(index + 1); });
-    script.addEventListener('error', function () { load(index + 1); });
-    document.body.appendChild(script);
-  }
-
-  load(0);
+  var script = document.createElement('script');
+  script.src = './curation.js?v=20260812-edit-before-add';
+  script.async = false;
+  script.dataset.claudeCurator = '2026-08-12';
+  document.body.appendChild(script);
 })();
