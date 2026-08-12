@@ -183,7 +183,12 @@
 
   function appendTodayLog() {
     var log = document.querySelector('.log-list');
-    if (!log || log.querySelector('[data-daily="' + TODAY + '"]')) return;
+    if (!log) return;
+    var existing = log.querySelector('[data-daily="' + TODAY + '"]');
+    if (existing) {
+      log.appendChild(existing);
+      return;
+    }
     var item = document.createElement('li');
     item.dataset.daily = TODAY;
     var title = make('span', 't', 'La pièce arrête d’empiler');
@@ -331,7 +336,8 @@
       if (panel.parentElement !== archive.stage) archive.stage.appendChild(panel);
       panel.hidden = object.slug !== activeSlug;
       panel.removeAttribute('role');
-      panel.removeAttribute('aria-labelledby');
+      var heading = panel.querySelector('.panel-title[id]');
+      if (heading) panel.setAttribute('aria-labelledby', heading.id);
       panel.classList.add('archive-object-panel');
     });
   }
