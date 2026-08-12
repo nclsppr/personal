@@ -109,6 +109,11 @@ Tester systématiquement : **mobile + desktop**, **clair + sombre**, et l'**impr
 
 Push sur `main` → GitHub Pages sert le repo tel quel. Le domaine custom est fixé par `CNAME`.
 
+Le workflow `VPS release` construit en parallèle une archive publique par allowlist et un
+inventaire complet des routes. Il publie les deux objets dans GHCR avec un digest immuable,
+atteste leur provenance GitHub et conserve une preuve de promotion pendant 30 jours. Cette
+chaîne n'active pas Atlas et ne modifie aucun DNS.
+
 ## Principes de conception
 
 - **Statique et sobre** : pas de framework, pas de CDN, pas de tracker. Le contenu reste

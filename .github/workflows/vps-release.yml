@@ -1,0 +1,165 @@
+name: VPS release
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: vps-release-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  ORAS_IMAGE: ghcr.io/oras-project/oras:v1.3.0@sha256:6ce045ce069a89934d6666b8b49f9c4c0145201bd6de6dbe2aee267814c55468
+
+jobs:
+  release:
+    name: Publish immutable VPS artifacts
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      attestations: write
+      contents: read
+      id-token: write
+      packages: write
+    steps:
+      - name: Check out the exact source revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Build the allowlisted deterministic release
+        run: ./scripts/build-vps-release "${RUNNER_TEMP}/vps-release" "${GITHUB_SHA}"
+
+      - name: Authenticate to GHCR
+        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish the site and route inventory
+        id: publish
+        shell: bash
+        env:
+          RELEASE_DIRECTORY: ${{ runner.temp }}/vps-release
+        run: |
+          set -Eeuo pipefail
+          site_repository="ghcr.io/${GITHUB_REPOSITORY}/site"
+          routes_repository="ghcr.io/${GITHUB_REPOSITORY}/routes"
+          tag="sha-${GITHUB_SHA}"
+          source="https://github.com/${GITHUB_REPOSITORY}"
+          created_at=$(git show -s --format=%cI "${GITHUB_SHA}")
+
+          publish() {
+            local repository=$1
+            local artifact_type=$2
+            local file=$3
+            local layer_type=$4
+            docker run --rm \
+              --volume "${HOME}/.docker:/root/.docker:ro" \
+              --volume "${RELEASE_DIRECTORY}:/workspace:ro" \
+              --workdir /workspace \
+              "${ORAS_IMAGE}" push \
+              --artifact-type "${artifact_type}" \
+              --annotation "org.opencontainers.image.created=${created_at}" \
+              --annotation "org.opencontainers.image.source=${source}" \
+              --annotation "org.opencontainers.image.revision=${GITHUB_SHA}" \
+              --format json \
+              "${repository}:${tag}" \
+              "${file}:${layer_type}"
+          }
+
+          site_result=$(publish \
+            "${site_repository}" \
+            application/vnd.vps-infra.static-site.v1 \
+            site.tar.gz \
+            application/vnd.vps-infra.static-site.v1+tar+gzip)
+          routes_result=$(publish \
+            "${routes_repository}" \
+            application/vnd.vps-infra.route-inventory.v1 \
+            routes.json \
+            application/vnd.vps-infra.route-inventory.v1+json)
+
+          site_digest=$(jq -er '.digest | select(test("^sha256:[0-9a-f]{64}$"))' <<<"${site_result}")
+          routes_digest=$(jq -er '.digest | select(test("^sha256:[0-9a-f]{64}$"))' <<<"${routes_result}")
+          {
+            printf 'site_name=%s\n' "${site_repository}"
+            printf 'site_digest=%s\n' "${site_digest}"
+            printf 'routes_name=%s\n' "${routes_repository}"
+            printf 'routes_digest=%s\n' "${routes_digest}"
+          } >>"${GITHUB_OUTPUT}"
+
+      - name: Attest the site artifact
+        uses: actions/attest-build-provenance@0f67c3f4856b2e3261c31976d6725780e5e4c373 # v4.1.1
+        with:
+          subject-name: ${{ steps.publish.outputs.site_name }}
+          subject-digest: ${{ steps.publish.outputs.site_digest }}
+          push-to-registry: true
+
+      - name: Attest the route inventory
+        uses: actions/attest-build-provenance@0f67c3f4856b2e3261c31976d6725780e5e4c373 # v4.1.1
+        with:
+          subject-name: ${{ steps.publish.outputs.routes_name }}
+          subject-digest: ${{ steps.publish.outputs.routes_digest }}
+          push-to-registry: true
+
+      - name: Verify both GitHub attestations
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ROUTES_DIGEST: ${{ steps.publish.outputs.routes_digest }}
+          ROUTES_NAME: ${{ steps.publish.outputs.routes_name }}
+          SITE_DIGEST: ${{ steps.publish.outputs.site_digest }}
+          SITE_NAME: ${{ steps.publish.outputs.site_name }}
+        run: |
+          set -Eeuo pipefail
+          gh attestation verify "oci://${SITE_NAME}@${SITE_DIGEST}" --repo "${GITHUB_REPOSITORY}"
+          gh attestation verify "oci://${ROUTES_NAME}@${ROUTES_DIGEST}" --repo "${GITHUB_REPOSITORY}"
+
+      - name: Record immutable release evidence
+        shell: bash
+        env:
+          ROUTES_DIGEST: ${{ steps.publish.outputs.routes_digest }}
+          ROUTES_NAME: ${{ steps.publish.outputs.routes_name }}
+          SITE_DIGEST: ${{ steps.publish.outputs.site_digest }}
+          SITE_NAME: ${{ steps.publish.outputs.site_name }}
+        run: |
+          jq -n \
+            --arg repository "${GITHUB_REPOSITORY}" \
+            --arg revision "${GITHUB_SHA}" \
+            --arg run_id "${GITHUB_RUN_ID}" \
+            --argjson run_attempt "${GITHUB_RUN_ATTEMPT}" \
+            --arg site "${SITE_NAME}@${SITE_DIGEST}" \
+            --arg routes "${ROUTES_NAME}@${ROUTES_DIGEST}" \
+            '{
+              schema: 1,
+              workflow_path: ".github/workflows/vps-release.yml",
+              repository: $repository,
+              source_revision: $revision,
+              run_id: $run_id,
+              run_attempt: $run_attempt,
+              conclusion: "success",
+              site: $site,
+              routes: $routes
+            }' >"${RUNNER_TEMP}/vps-release/evidence.json"
+          {
+            echo '### VPS release'
+            echo
+            echo "Site: \`${SITE_NAME}@${SITE_DIGEST}\`"
+            echo
+            echo "Routes: \`${ROUTES_NAME}@${ROUTES_DIGEST}\`"
+          } >>"${GITHUB_STEP_SUMMARY}"
+
+      - name: Upload promotion evidence
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: vps-release-${{ github.sha }}
+          path: ${{ runner.temp }}/vps-release/evidence.json
+          if-no-files-found: error
+          retention-days: 30

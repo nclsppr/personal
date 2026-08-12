@@ -5,6 +5,15 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-08-12 - Release immuable pour Atlas
+
+- Ajout d'une chaîne VPS distincte de GitHub Pages. Elle assemble uniquement les fichiers
+  publics autorisés, avec des limites de taille et de nombre de fichiers.
+- Publication séparée et attestée de l'archive statique et de son inventaire de routes dans
+  GHCR. Chaque objet est lié au commit source et promu uniquement par digest.
+- Les fichiers internes, les sources éditoriales et les scripts de fabrication restent hors
+  de l'artefact destiné à Atlas.
+
 ## 2026-08-11 - Cinquième article : un contrat de logs pour les agents de code IA
 
 - Nouvel article bilingue « AI coding agents need a logging contract, not a
