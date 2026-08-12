@@ -9,6 +9,8 @@ Historique des interventions sur le site, la plus récente en premier.
 
 - Ajout d'une chaîne VPS distincte de GitHub Pages. Elle assemble uniquement les fichiers
   publics autorisés, avec des limites de taille et de nombre de fichiers.
+- Validation de cette chaîne sur chaque pull request vers `main`, sans connexion à GHCR ni
+  publication d'artefact, afin de rendre le contrôle requérable avant fusion.
 - Publication séparée et attestée de l'archive statique et de son inventaire de routes dans
   GHCR. Chaque objet est lié au commit source et promu uniquement par digest.
 - Les fichiers internes, les sources éditoriales et les scripts de fabrication restent hors
