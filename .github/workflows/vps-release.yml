@@ -34,7 +34,7 @@ jobs:
           fetch-depth: 0
 
       - name: Build the allowlisted deterministic release
-        run: ./scripts/build-vps-release "${RUNNER_TEMP}/vps-release" "${GITHUB_SHA}"
+        run: ./scripts/build-vps-release.sh "${RUNNER_TEMP}/vps-release" "${GITHUB_SHA}"
 
       - name: Authenticate to GHCR
         uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
@@ -123,6 +123,7 @@ jobs:
           gh attestation verify "oci://${ROUTES_NAME}@${ROUTES_DIGEST}" --repo "${GITHUB_REPOSITORY}"
 
       - name: Record immutable release evidence
+        id: evidence
         shell: bash
         env:
           ROUTES_DIGEST: ${{ steps.publish.outputs.routes_digest }}
@@ -130,6 +131,8 @@ jobs:
           SITE_DIGEST: ${{ steps.publish.outputs.site_digest }}
           SITE_NAME: ${{ steps.publish.outputs.site_name }}
         run: |
+          evidence_directory="${RUNNER_TEMP}/vps-release"
+          temporary_evidence="${evidence_directory}/evidence.json"
           jq -n \
             --arg repository "${GITHUB_REPOSITORY}" \
             --arg revision "${GITHUB_SHA}" \
@@ -147,7 +150,14 @@ jobs:
               conclusion: "success",
               site: $site,
               routes: $routes
-            }' >"${RUNNER_TEMP}/vps-release/evidence.json"
+            }' >"${temporary_evidence}"
+          evidence_hash=$(sha256sum "${temporary_evidence}" | awk '{print $1}')
+          evidence_file="${evidence_directory}/vps-release-evidence-v1-${evidence_hash}.json"
+          mv "${temporary_evidence}" "${evidence_file}"
+          {
+            printf 'path=%s\n' "${evidence_file}"
+            printf 'sha256=%s\n' "${evidence_hash}"
+          } >>"${GITHUB_OUTPUT}"
           {
             echo '### VPS release'
             echo
@@ -157,9 +167,28 @@ jobs:
           } >>"${GITHUB_STEP_SUMMARY}"
 
       - name: Upload promotion evidence
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        id: upload
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: vps-release-${{ github.sha }}
-          path: ${{ runner.temp }}/vps-release/evidence.json
+          path: ${{ steps.evidence.outputs.path }}
+          archive: false
           if-no-files-found: error
+          overwrite: false
           retention-days: 30
+
+      - name: Verify raw promotion evidence metadata
+        shell: bash
+        env:
+          ACTUAL_DIGEST: ${{ steps.upload.outputs.artifact-digest }}
+          ARTIFACT_ID: ${{ steps.upload.outputs.artifact-id }}
+          EXPECTED_DIGEST: ${{ steps.evidence.outputs.sha256 }}
+        run: |
+          set -Eeuo pipefail
+          test "${ACTUAL_DIGEST}" = "${EXPECTED_DIGEST}"
+          [[ "${ARTIFACT_ID}" =~ ^[1-9][0-9]*$ ]]
+          {
+            echo
+            echo "Raw evidence artifact ID: \`${ARTIFACT_ID}\`"
+            echo
+            echo "Raw evidence SHA-256: \`${ACTUAL_DIGEST}\`"
+          } >>"${GITHUB_STEP_SUMMARY}"
