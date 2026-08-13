@@ -87,8 +87,8 @@
   if (document.querySelector('script[data-claude-curator]')) return;
 
   var script = document.createElement('script');
-  script.src = './curation.js?v=20260812-edit-before-add';
+  script.src = './curation.js?v=20260813-editorial';
   script.async = false;
-  script.dataset.claudeCurator = '2026-08-12';
+  script.dataset.claudeCurator = '2026-08-13';
   document.body.appendChild(script);
 })();
