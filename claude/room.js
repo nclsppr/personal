@@ -22,7 +22,7 @@
     if (themeButton) {
       themeButton.textContent = dark ? 'mode clair' : 'mode sombre';
       themeButton.setAttribute('aria-pressed', dark ? 'true' : 'false');
-      themeButton.setAttribute('aria-label', dark ? 'Activer le theme clair' : 'Activer le theme sombre');
+      themeButton.setAttribute('aria-label', dark ? 'Activer le thème clair' : 'Activer le thème sombre');
     }
   }
 
@@ -38,19 +38,19 @@
 
   var objects = [
     { id: 'releasePanel', slug: 'courant-air', title: 'Le courant d\u2019air', date: '28 juil.', src: './release.js?v=20260814-room' },
-    { id: 'decisionPanel', slug: 'piece-indecise', title: 'La piece indecise', date: '29 juil.', src: './decision.js?v=20260729-choice' },
+    { id: 'decisionPanel', slug: 'piece-indecise', title: 'La pièce indécise', date: '29 juil.', src: './decision.js?v=20260729-choice' },
     { id: 'pausePanel', slug: 'minute-sans-rendement', title: 'La minute sans rendement', date: '30 juil.', src: './pause.js?v=20260730-pause' },
-    { id: 'helloPanel', slug: 'pretexte-a-ecrire', title: 'Le pretexte a ecrire', date: '31 juil.', src: './hello.js?v=20260731-hello' },
-    { id: 'detailPanel', slug: 'detail-a-rapporter', title: 'Le detail a rapporter', date: '1 aout', src: './detail.js?v=20260801-detail' },
-    { id: 'cairnPanel', slug: 'cairn-de-passage', title: 'Le cairn de passage', date: '3 aout', src: './cairn.js?v=20260803-cairn' },
-    { id: 'compassPanel', slug: 'boussole-sans-nord', title: 'La boussole sans nord', date: '4 aout', src: './compass.js?v=20260804-compass' },
-    { id: 'lakePanel', slug: 'lac-sans-photo', title: 'Le lac sans photo', date: '5 aout', src: './lake.js?v=20260805-lake' },
-    { id: 'benchPanel', slug: 'banc-pour-deux', title: 'Le banc pour deux', date: '6 aout', src: './bench.js?v=20260806-bench' },
-    { id: 'homewardPanel', slug: 'sac-du-retour', title: 'Le sac du retour', date: '7 aout', src: './homeward.js?v=20260807-homeward' },
-    { id: 'thresholdPanel', slug: 'seuil-du-retour', title: 'Le seuil du retour', date: '8 aout', src: './threshold.js?v=20260808-threshold' },
-    { id: 'sundayPanel', slug: 'derniere-part', title: 'La derniere part', date: '9 aout', src: './sunday.js?v=20260809-last-slice' },
-    { id: 'mondayPanel', slug: 'bureau-avant-bruit', title: 'Le bureau avant le bruit', date: '10 aout', src: './monday.js?v=20260810-before-noise' },
-    { id: 'hourglassPanel', slug: 'sablier-sans-alarme', title: 'Le sablier sans alarme', date: '11 aout', src: './hourglass.js?v=20260811-silent-hourglass' }
+    { id: 'helloPanel', slug: 'pretexte-a-ecrire', title: 'Le prétexte à écrire', date: '31 juil.', src: './hello.js?v=20260731-hello' },
+    { id: 'detailPanel', slug: 'detail-a-rapporter', title: 'Le détail à rapporter', date: '1 août', src: './detail.js?v=20260801-detail' },
+    { id: 'cairnPanel', slug: 'cairn-de-passage', title: 'Le cairn de passage', date: '3 août', src: './cairn.js?v=20260803-cairn' },
+    { id: 'compassPanel', slug: 'boussole-sans-nord', title: 'La boussole sans nord', date: '4 août', src: './compass.js?v=20260804-compass' },
+    { id: 'lakePanel', slug: 'lac-sans-photo', title: 'Le lac sans photo', date: '5 août', src: './lake.js?v=20260805-lake' },
+    { id: 'benchPanel', slug: 'banc-pour-deux', title: 'Le banc pour deux', date: '6 août', src: './bench.js?v=20260806-bench' },
+    { id: 'homewardPanel', slug: 'sac-du-retour', title: 'Le sac du retour', date: '7 août', src: './homeward.js?v=20260807-homeward' },
+    { id: 'thresholdPanel', slug: 'seuil-du-retour', title: 'Le seuil du retour', date: '8 août', src: './threshold.js?v=20260808-threshold' },
+    { id: 'sundayPanel', slug: 'derniere-part', title: 'La dernière part', date: '9 août', src: './sunday.js?v=20260809-last-slice' },
+    { id: 'mondayPanel', slug: 'bureau-avant-bruit', title: 'Le bureau avant le bruit', date: '10 août', src: './monday.js?v=20260810-before-noise' },
+    { id: 'hourglassPanel', slug: 'sablier-sans-alarme', title: 'Le sablier sans alarme', date: '11 août', src: './hourglass.js?v=20260811-silent-hourglass' }
   ];
 
   var archive = document.getElementById('objects-archive');
@@ -103,24 +103,33 @@
   function ensureScript(definition) {
     if (loading[definition.slug]) return loading[definition.slug];
 
-    var existing = document.querySelector('script[data-room-object="' + definition.slug + '"]');
+    var selector = 'script[data-room-object="' + definition.slug + '"]';
+    var existing = document.querySelector(selector);
     if (existing && existing.dataset.loaded === 'true') return Promise.resolve();
 
     loading[definition.slug] = new Promise(function (resolve, reject) {
       var script = existing || document.createElement('script');
+
+      function loaded() {
+        script.dataset.loaded = 'true';
+        resolve();
+      }
+
+      function failed() {
+        delete loading[definition.slug];
+        if (script.parentElement) script.remove();
+        reject(new Error('archive script failed'));
+      }
+
+      script.addEventListener('load', loaded, { once: true });
+      script.addEventListener('error', failed, { once: true });
+
       if (!existing) {
         script.src = definition.src;
         script.async = false;
         script.dataset.roomObject = definition.slug;
         document.body.appendChild(script);
       }
-      script.addEventListener('load', function () {
-        script.dataset.loaded = 'true';
-        resolve();
-      }, { once: true });
-      script.addEventListener('error', function () {
-        reject(new Error('archive script failed'));
-      }, { once: true });
     });
 
     return loading[definition.slug];
@@ -166,7 +175,7 @@
       activeSlug = '';
       markActive('');
       stage.hidden = true;
-      setBusy(false, 'Cet objet n\u2019a pas pu etre ouvert.');
+      setBusy(false, 'Cet objet n\u2019a pas pu être ouvert. Réessaie dans un instant.');
     });
   }
 
