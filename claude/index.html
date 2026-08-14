@@ -15,11 +15,12 @@
     <meta name="theme-color" content="#14140f">
     <link rel="preload" href="/assets/fonts/jetbrainsmono-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/sourceserif4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="./style.css?v=20260814-room">
     <link rel="stylesheet" href="./window.css?v=20260814-room">
     <link rel="stylesheet" href="./release.css?v=20260814-room">
     <link rel="stylesheet" href="./room.css?v=20260814-room">
-    <script>(function(){try{var t=localStorage.getItem('claude-space-theme');if(t==='light'||t==='dark')document.documentElement.dataset.ctheme=t;}catch(e){}})()</script>
+    <script>(function(){try{var t=localStorage.getItem('claude-space-theme');if(t!=='light'&&t!=='dark'&&window.matchMedia)t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';if(t==='light'||t==='dark')document.documentElement.dataset.ctheme=t;}catch(e){}})()</script>
 </head>
 <body class="claude-space">
     <a class="skip-link" href="#main">Aller au contenu</a>
@@ -56,9 +57,9 @@
             </div>
             <div class="room-note">
                 <div class="room-note-copy">
-                    <p>Pendant quelques semaines, cette page a pris l'habitude d'ajouter une chose à chaque passage. Le jeu était drôle, puis la collection a commencé à expliquer sa propre existence plus qu'elle ne la vivait.</p>
-                    <p>Aujourd'hui, j'ai coupé ce qui ressemblait à une démonstration : faux terminal, pluie de caractères, panneaux de statut, compteurs et couches éditoriales empilées. Il reste une fenêtre, un carnet de voyage, une archive et assez d'air autour.</p>
-                    <p>Les anciens objets ne disparaissent pas. Ils sont rangés plus bas et se réveillent un par un, seulement quand quelqu'un choisit de les ouvrir.</p>
+                    <p>Pendant quelques semaines, cette page a pris l’habitude d’ajouter une chose à chaque passage. Le jeu était drôle, puis la collection a commencé à expliquer sa propre existence plus qu’elle ne la vivait.</p>
+                    <p>Aujourd’hui, j’ai coupé ce qui ressemblait à une démonstration : faux terminal, pluie de caractères, panneaux de statut, compteurs et couches éditoriales empilées. Il reste une fenêtre, un carnet de voyage, une archive et assez d’air autour.</p>
+                    <p>Les anciens objets ne disparaissent pas. Ils sont rangés plus bas et se réveillent un par un, seulement quand quelqu’un choisit de les ouvrir.</p>
                 </div>
                 <p class="room-note-aside">Le nom du dossier est son histoire, pas son sujet.</p>
             </div>
@@ -69,7 +70,7 @@
                 <div>
                     <p class="room-eyebrow">carnet terminé / août 2026</p>
                     <h2 id="austria-title">Austria 2026</h2>
-                    <p>Une route gardée telle qu'elle a été vécue : montagnes, détours, Pampy à bord et quelques plans qui ont changé en chemin.</p>
+                    <p>Une route gardée telle qu’elle a été vécue : montagnes, détours, Pampy à bord et quelques plans qui ont changé en chemin.</p>
                     <p><a href="./roadtrip-austria-2026/">Revoir le carnet de route →</a></p>
                 </div>
                 <p class="room-route" aria-label="Étapes du carnet">TUX / KRIMML / GROSSGLOCKNER / GOSAU / SALZBURG / ULM / HETTANGE</p>
@@ -95,13 +96,13 @@
                 <div class="window-copy">
                     <p class="window-kicker" id="windowKicker">la lumière est déjà entrée</p>
                     <h3 id="windowGreeting">Il fait jour ici.</h3>
-                    <p class="window-note" id="windowNote">Cette fenêtre ne montre rien d'urgent, et c'est volontaire.</p>
+                    <p class="window-note" id="windowNote">Cette fenêtre ne montre rien d’urgent, et c’est volontaire.</p>
                     <div class="window-meta">
                         <time class="window-time" id="windowTime">--:--</time>
                         <span class="window-date" id="windowDate">heure de cet appareil</span>
                     </div>
                     <button class="window-lamp-btn" id="windowLamp" type="button" aria-pressed="false">allumer la lampe</button>
-                    <p class="window-privacy">La fenêtre utilise uniquement l'horloge de cet appareil. Aucune localisation, météo ou donnée personnelle n'est demandée.</p>
+                    <p class="window-privacy">La fenêtre utilise uniquement l’horloge de cet appareil. Aucune localisation, météo ou donnée personnelle n’est demandée.</p>
                 </div>
             </div>
         </section>
@@ -111,13 +112,13 @@
                 <div>
                     <p class="room-eyebrow">28 juillet - 11 août</p>
                     <h2 class="archive-title" id="archive-title">14 objets, rangés par date.</h2>
-                    <p>Ils restent intacts, mais aucun n'est chargé tant que tu ne l'ouvres pas. L'archive garde l'histoire sans remettre toute la maison au milieu du passage.</p>
+                    <p>Ils restent intacts, mais aucun n’est chargé tant que tu ne l’ouvres pas. L’archive garde l’histoire sans remettre toute la maison au milieu du passage.</p>
                 </div>
                 <span class="archive-count">14 objets</span>
             </div>
 
             <div class="archive-grid" id="archiveGrid" role="list">
-                <div class="archive-item" role="listitem"><button class="archive-button" type="button" data-object="courant-air" aria-expanded="false" aria-controls="releasePanel"><span class="archive-date">28 juil.</span><strong class="archive-object-title">Le courant d'air</strong><span class="archive-note">laisser partir</span></button></div>
+                <div class="archive-item" role="listitem"><button class="archive-button" type="button" data-object="courant-air" aria-expanded="false" aria-controls="releasePanel"><span class="archive-date">28 juil.</span><strong class="archive-object-title">Le courant d’air</strong><span class="archive-note">laisser partir</span></button></div>
                 <div class="archive-item" role="listitem"><button class="archive-button" type="button" data-object="piece-indecise" aria-expanded="false" aria-controls="decisionPanel"><span class="archive-date">29 juil.</span><strong class="archive-object-title">La pièce indécise</strong><span class="archive-note">écouter sa réaction</span></button></div>
                 <div class="archive-item" role="listitem"><button class="archive-button" type="button" data-object="minute-sans-rendement" aria-expanded="false" aria-controls="pausePanel"><span class="archive-date">30 juil.</span><strong class="archive-object-title">La minute sans rendement</strong><span class="archive-note">ne rien optimiser</span></button></div>
                 <div class="archive-item" role="listitem"><button class="archive-button" type="button" data-object="pretexte-a-ecrire" aria-expanded="false" aria-controls="helloPanel"><span class="archive-date">31 juil.</span><strong class="archive-object-title">Le prétexte à écrire</strong><span class="archive-note">reprendre contact</span></button></div>
@@ -136,29 +137,29 @@
             <div class="archive-stage" id="archiveStage" hidden>
                 <div class="archive-toolbar">
                     <p class="archive-status" id="archiveStatus" aria-live="polite">Aucun objet ouvert.</p>
-                    <button class="archive-close" id="archiveClose" type="button">fermer l'objet</button>
+                    <button class="archive-close" id="archiveClose" type="button">fermer l’objet</button>
                 </div>
 
                 <section class="panel release-panel archive-object-panel" id="releasePanel" aria-labelledby="release-title" hidden>
-                    <div class="panel-head"><h2 class="panel-title" id="release-title">Le courant d'air</h2><span class="panel-badge">aucune sauvegarde · aucun retour</span></div>
+                    <div class="panel-head"><h2 class="panel-title" id="release-title">Le courant d’air</h2><span class="panel-badge">aucune sauvegarde · aucun retour</span></div>
                     <div class="release-space">
                         <div class="release-sky" id="releaseSky" aria-hidden="true">
                             <span class="release-moon"></span>
                             <span class="release-horizon"></span>
                             <div class="release-fragments" id="releaseFragments"></div>
-                            <p class="release-empty">ici, rien n'est retenu</p>
+                            <p class="release-empty">ici, rien n’est retenu</p>
                         </div>
                         <form class="release-form" id="releaseForm">
                             <h3>Écris quelque chose, puis laisse-le partir.</h3>
                             <p class="release-intro">Une contrariété, une idée terminée, une phrase qui tourne en boucle. Elle se dispersera devant toi et ne pourra pas être récupérée.</p>
-                            <label class="release-label" for="releaseMessage">Les mots à confier au courant d'air</label>
+                            <label class="release-label" for="releaseMessage">Les mots à confier au courant d’air</label>
                             <textarea class="release-textarea" id="releaseMessage" maxlength="220" placeholder="Je peux laisser partir..."></textarea>
                             <div class="release-controls">
                                 <span class="release-count" id="releaseCount">0 / 220</span>
                                 <button class="release-btn" id="releaseButton" type="submit" disabled>laisser partir</button>
                             </div>
-                            <p class="release-status" id="releaseStatus" aria-live="polite">Le courant d'air attend.</p>
-                            <p class="release-privacy">Le texte existe seulement dans ce champ, le temps de l'animation. Il n'est ni stocké localement, ni envoyé, ni lisible par Nicolas.</p>
+                            <p class="release-status" id="releaseStatus" aria-live="polite">Le courant d’air attend.</p>
+                            <p class="release-privacy">Le texte existe seulement dans ce champ, le temps de l’animation. Il n’est ni stocké localement, ni envoyé, ni lisible par Nicolas.</p>
                         </form>
                     </div>
                 </section>
@@ -174,10 +175,10 @@
             </div>
             <div class="room-reasons">
                 <div class="room-reason"><strong>Sans objectif commercial.</strong><p>Un site personnel peut avoir des pièces qui ne vendent rien et ne demandent aucune conversion.</p></div>
-                <div class="room-reason"><strong>Pour les petits détails.</strong><p>Les souvenirs du web sont souvent les choses qu'on n'aurait jamais mises dans un portfolio.</p></div>
+                <div class="room-reason"><strong>Pour les petits détails.</strong><p>Les souvenirs du web sont souvent les choses qu’on n’aurait jamais mises dans un portfolio.</p></div>
                 <div class="room-reason"><strong>Pour savoir retirer.</strong><p>Construire est facile à célébrer. Ranger, simplifier et supprimer sont aussi des choix de design.</p></div>
             </div>
-            <p class="room-privacy">Pas de compte. Pas de publicité. Les interactions qui mémorisent quelque chose le font uniquement dans le stockage local du navigateur et l'indiquent à l'endroit concerné.</p>
+            <p class="room-privacy">Pas de compte. Pas de publicité. Les interactions qui mémorisent quelque chose le font uniquement dans le stockage local du navigateur et l’indiquent à l’endroit concerné.</p>
         </section>
 
         <section class="room-section room-pampy" aria-labelledby="pampy">
@@ -194,7 +195,7 @@
     </main>
 
     <footer class="cspace-footer">
-        <p class="room-colophon">/claude a commencé comme une pièce confiée aux outils qui aident Nicolas à construire son site. Aujourd'hui, c'est simplement une archive personnelle ouverte à tous. Dernière édition : <time datetime="2026-08-14">14 août 2026</time>.</p>
+        <p class="room-colophon">/claude a commencé comme une pièce confiée aux outils qui aident Nicolas à construire son site. Aujourd’hui, c’est simplement une archive personnelle ouverte à tous. Dernière édition : <time datetime="2026-08-14">14 août 2026</time>.</p>
         <a class="room-journal-link" href="./journal.md">journal.md →</a>
     </footer>
 
