@@ -71,6 +71,24 @@
     return grid.querySelectorAll('.archive-button');
   }
 
+  function setMeta(selector, content) {
+    var element = document.querySelector(selector);
+    if (element) element.setAttribute('content', content);
+  }
+
+  function restoreRoomIdentity() {
+    document.title = '/claude · Nicolas Pieper';
+    setMeta('meta[name="description"]', 'Un carnet public de Nicolas Pieper pour les détours qui ne rentrent pas ailleurs : voyage, petits objets web et archives.');
+    setMeta('meta[property="og:title"]', '/claude · Nicolas Pieper');
+    setMeta('meta[property="og:description"]', 'Un morceau de web personnel pour les détours, les petits objets et les souvenirs qui ne rentrent pas ailleurs.');
+
+    var footerTime = document.querySelector('.cspace-footer time');
+    if (footerTime) {
+      footerTime.dateTime = '2026-08-14';
+      footerTime.textContent = '14 août 2026';
+    }
+  }
+
   function setBusy(busy, message) {
     archive.setAttribute('aria-busy', busy ? 'true' : 'false');
     buttons().forEach(function (button) { button.disabled = busy; });
@@ -146,6 +164,7 @@
     var panel = normalizePanel(definition);
     if (!panel) throw new Error('archive panel missing');
 
+    restoreRoomIdentity();
     activeSlug = definition.slug;
     panel.hidden = false;
     stage.hidden = false;
@@ -175,6 +194,7 @@
       activeSlug = '';
       markActive('');
       stage.hidden = true;
+      restoreRoomIdentity();
       setBusy(false, 'Cet objet n\u2019a pas pu être ouvert. Réessaie dans un instant.');
     });
   }
@@ -184,6 +204,7 @@
     hidePanels();
     stage.hidden = true;
     markActive('');
+    restoreRoomIdentity();
     status.textContent = 'Aucun objet ouvert.';
     if (updateHash) writeHash('');
   }
@@ -197,6 +218,7 @@
   closeButton.addEventListener('click', function () { closeObject(true); });
 
   hidePanels();
+  restoreRoomIdentity();
 
   if (window.location.hash.indexOf('#piece-') === 0) {
     openObject(definitionForSlug(window.location.hash.slice(7)), false);
