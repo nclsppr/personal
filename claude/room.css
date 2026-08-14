@@ -1,4 +1,4 @@
-/* /claude — 14 August 2026
+/* /claude - 14 August 2026
    A calm editorial layer for a personal web page, not a product surface. */
 
 :root {
@@ -53,12 +53,12 @@ a { text-underline-offset: .18em; }
   letter-spacing: -.02em;
 }
 
-.cspace-actions { gap: 10px; }
+.cspace-actions { gap: 10px; align-items: center; }
 
 .room-theme {
   min-width: 82px;
-  height: 32px;
-  padding: 0 10px;
+  min-height: 44px;
+  padding: 0 12px;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: transparent;
@@ -125,7 +125,10 @@ a { text-underline-offset: .18em; }
 
 .room-nav a {
   flex: 0 0 auto;
-  padding: 12px 18px 12px 0;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  padding: 0 18px 0 0;
   margin-right: 18px;
   color: var(--muted);
   font: 500 .68rem/1.2 'JetBrains Mono', ui-monospace, monospace;
@@ -292,7 +295,7 @@ a { text-underline-offset: .18em; }
 .archive-stage[hidden] { display: none; }
 .archive-toolbar { display: flex; justify-content: space-between; gap: 20px; align-items: center; margin-bottom: 20px; }
 .archive-status { margin: 0; color: var(--muted); font: 500 .66rem/1.4 'JetBrains Mono', ui-monospace, monospace; }
-.archive-close { padding: 8px 10px; border: 1px solid var(--border); background: transparent; color: var(--ink-soft); font: 500 .64rem/1 'JetBrains Mono', ui-monospace, monospace; cursor: pointer; }
+.archive-close { min-height: 44px; padding: 8px 12px; border: 1px solid var(--border); background: transparent; color: var(--ink-soft); font: 500 .64rem/1 'JetBrains Mono', ui-monospace, monospace; cursor: pointer; }
 .archive-close:hover { border-color: var(--brand); color: var(--ink); }
 .archive-object-panel { margin-top: 0 !important; box-shadow: none !important; }
 
@@ -341,7 +344,7 @@ a { text-underline-offset: .18em; }
   font-size: .68rem;
 }
 
-.room-colophon { max-width: 650px; line-height: 1.65; }
+.room-colophon { max-width: 650px; margin: 0; line-height: 1.65; }
 .room-journal-link { color: var(--muted); text-decoration: none; white-space: nowrap; }
 .room-journal-link:hover { color: var(--brand); }
 
@@ -371,6 +374,10 @@ a { text-underline-offset: .18em; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}
+
+@media (pointer: coarse) {
+  .archive-button { min-height: 56px; }
 }
 
 @media print {
