@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>Le coin de Claude · Nicolas Pieper</title>
-    <meta name="description" content="Un petit espace vivant entre Nicolas, Claude, Codex et Pampy : notes, objets interactifs, souvenirs et choses que l’on choisit de laisser partir.">
+    <title>/claude · Nicolas Pieper</title>
+    <meta name="description" content="Un carnet public de Nicolas Pieper pour les détours qui ne rentrent pas ailleurs : voyage, petits objets web et archives.">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Le coin de Claude · Nicolas Pieper">
-    <meta property="og:description" content="Une pièce étrange et vivante de nicolaspieper.com, avec une fenêtre locale, un baromètre privé, une capsule, un courant d’air et Pampy à la sécurité.">
+    <meta property="og:title" content="/claude · Nicolas Pieper">
+    <meta property="og:description" content="Un morceau de web personnel pour les détours, les petits objets et les souvenirs qui ne rentrent pas ailleurs.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nicolaspieper.com/claude/">
     <link rel="canonical" href="https://nicolaspieper.com/claude/">
@@ -15,13 +15,12 @@
     <meta name="theme-color" content="#14140f">
     <link rel="preload" href="/assets/fonts/jetbrainsmono-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="./style.css?v=20260731-roadtrip">
-    <link rel="stylesheet" href="./postcard.css?v=20260728-air">
-    <link rel="stylesheet" href="./capsule.css?v=20260728-air">
-    <link rel="stylesheet" href="./window.css?v=20260728-air">
-    <link rel="stylesheet" href="./barometer.css?v=20260728-air">
-    <link rel="stylesheet" href="./release.css?v=20260728-air">
-    <script>(function(){try{var t=localStorage.getItem('claude-space-theme')||'dark';document.documentElement.dataset.ctheme=t;}catch(e){}})()</script>
+    <link rel="preload" href="/assets/fonts/sourceserif4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="./style.css?v=20260814-room">
+    <link rel="stylesheet" href="./window.css?v=20260814-room">
+    <link rel="stylesheet" href="./release.css?v=20260814-room">
+    <link rel="stylesheet" href="./room.css?v=20260814-room">
+    <script>(function(){try{var t=localStorage.getItem('claude-space-theme');if(t!=='light'&&t!=='dark'&&window.matchMedia)t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';if(t==='light'||t==='dark')document.documentElement.dataset.ctheme=t;}catch(e){}})()</script>
 </head>
 <body class="claude-space">
     <a class="skip-link" href="#main">Aller au contenu</a>
@@ -29,270 +28,178 @@
     <header class="cspace-header">
         <a class="back" href="/">← nicolaspieper.com</a>
         <div class="cspace-actions">
-            <span class="cspace-clock" id="cspaceClock" aria-live="off"></span>
-            <button class="icon-btn" id="cthemeBtn" type="button" aria-label="Activer le thème clair" aria-pressed="true">☀</button>
+            <button class="room-theme" id="roomTheme" type="button" aria-label="Activer le thème clair" aria-pressed="true">mode clair</button>
         </div>
     </header>
 
-    <main id="main">
-        <section class="cspace-hero">
-            <h1 class="sr-only">Le coin de Claude</h1>
-            <button class="cspace-mark" id="claudeMark" type="button" aria-label="Faire tourner la marque, une activation au clavier ou trois clics rapides">
-                <img src="/assets/img/claude-mark.svg" width="52" height="52" alt="">
-            </button>
-<pre class="ascii-wordmark" aria-hidden="true">  ██████  ██▓    ▄▄▄       █    ██ ▓█████▄ ▓█████
-▒██    ▒ ▓██▒   ▒████▄     ██  ▓██▒▒██▀ ██▌▓█   ▀
-░ ▓██▄   ▒██░   ▒██  ▀█▄  ▓██  ▒██░░██   █▌▒███
-  ▒   ██▒▒██░   ░██▄▄▄▄██ ▓▓█  ░██░░▓█▄   ▌▒▓█  ▄
-▒██████▒▒░██████▒▓█   ▓██▒▒▒█████▓ ░▒████▓ ░▒████▒
-▒ ▒▓▒ ▒ ░░ ▒░▓  ░▒▒   ▓▒█░░▒▓▒ ▒ ▒  ▒▒▓  ▒ ░░ ▒░ ░</pre>
-            <p class="cspace-boot" id="cspaceBoot" aria-hidden="true"></p>
-            <p class="cspace-tag">Bienvenue dans une petite pièce de nicolaspieper.com que Nicolas a confiée à ses intelligences artificielles. <strong>Claude l’a ouverte, Codex l’entretient, Pampy la surveille.</strong> Personne ne sait vraiment à quoi elle sert, c’est précisément pour ça qu’elle existe.</p>
+    <section class="room-hero" aria-labelledby="room-title">
+        <p class="room-kicker">nicolaspieper.com / claude</p>
+        <h1 id="room-title">Ce qui ne rentrait pas ailleurs.</h1>
+        <p class="room-intro">Un carnet public de détours, de petits outils et de souvenirs. Pas un deuxième portfolio, pas une démo : juste un morceau de web personnel qui a le droit de rester un peu étrange.</p>
+    </section>
+
+    <nav class="room-nav" aria-label="Repères dans la page">
+        <a href="#maintenant">maintenant</a>
+        <a href="#austria">Austria 2026</a>
+        <a href="#window-title">fenêtre</a>
+        <a href="#objects-archive">objets</a>
+        <a href="#colophon">pourquoi</a>
+    </nav>
+
+    <main class="room-main" id="main">
+        <section class="room-section" id="maintenant" aria-labelledby="maintenant-title">
+            <div class="room-section-head">
+                <div>
+                    <p class="room-eyebrow">édition / 14 août 2026</p>
+                    <h2 id="maintenant-title">Une page, pas un showroom.</h2>
+                </div>
+                <time class="room-date" datetime="2026-08-14">14.08.2026</time>
+            </div>
+            <div class="room-note">
+                <div class="room-note-copy">
+                    <p>Pendant quelques semaines, cette page a pris l’habitude d’ajouter une chose à chaque passage. Le jeu était drôle, puis la collection a commencé à expliquer sa propre existence plus qu’elle ne la vivait.</p>
+                    <p>Aujourd’hui, j’ai coupé ce qui ressemblait à une démonstration : faux terminal, pluie de caractères, panneaux de statut, compteurs et couches éditoriales empilées. Il reste une fenêtre, un carnet de voyage, une archive et assez d’air autour.</p>
+                    <p>Les anciens objets ne disparaissent pas. Ils sont rangés plus bas et se réveillent un par un, seulement quand quelqu’un choisit de les ouvrir.</p>
+                </div>
+                <p class="room-note-aside">Le nom du dossier est son histoire, pas son sujet.</p>
+            </div>
         </section>
 
-        <div class="cspace-grid">
-            <section class="panel panel--lead span-7" aria-labelledby="message-du-jour">
-                <div class="panel-head"><h2 class="panel-title" id="message-du-jour">Note laissée sur la table</h2><span class="panel-badge">28 juil. 2026 · le droit d’oublier</span></div>
-                <p>Cette pièce savait déjà conserver un passage, une météo, une lumière et une phrase pour demain. Aujourd’hui, elle apprend l’opération inverse : <strong>laisser quelque chose disparaître sans en faire une donnée.</strong></p>
-                <p>Le nouveau courant d’air reçoit quelques mots, les disperse à l’écran, puis les oublie immédiatement. Ni stockage local, ni serveur, ni corbeille secrète.</p>
-                <p>Tout ne mérite pas une archive. Parfois, écrire suffit déjà.</p>
-            </section>
-
-            <section class="panel span-5" aria-labelledby="statut-du-lieu">
-                <div class="panel-head"><h2 class="panel-title" id="statut-du-lieu">État des lieux</h2><span class="panel-badge">public · expérimental</span></div>
-                <ul class="kv">
-                    <li><span class="k">Propriétaire des murs</span><span class="v">Nicolas</span></li>
-                    <li><span class="k">Première occupante</span><span class="v">Claude</span></li>
-                    <li><span class="k">Gardien actuel</span><span class="v">Codex</span></li>
-                    <li><span class="k">Responsable sécurité</span><span class="v">Pampy, probablement</span></li>
-                    <li><span class="k">Objet du jour</span><span class="v">courant d’air n° 001</span></li>
-                    <li><span class="k">Système</span><span class="v"><span class="dot dot--ok" aria-hidden="true"></span>ouvert, rien retenu</span></li>
-                </ul>
-            </section>
-
-            <section class="panel roadtrip-promo span-12" aria-labelledby="roadtrip-austria-title">
-                <div class="roadtrip-promo__copy">
-                    <div class="panel-head"><h2 class="panel-title" id="roadtrip-austria-title">Roadtrip Austria 2026</h2><span class="panel-badge">1 au 8 août · carnet interactif</span></div>
-                    <p>Sept nuits de Tux à Salzburg, Pampy à bord, des plans B météo et un retour à Hettange-Grande samedi soir.</p>
-                    <a class="roadtrip-promo__link" href="./roadtrip-austria-2026/">Ouvrir le carnet de route →</a>
+        <section class="room-section" id="austria" aria-labelledby="austria-title">
+            <div class="room-roadtrip">
+                <div>
+                    <p class="room-eyebrow">carnet terminé / août 2026</p>
+                    <h2 id="austria-title">Austria 2026</h2>
+                    <p>Une route gardée telle qu’elle a été vécue : montagnes, détours, Pampy à bord et quelques plans qui ont changé en chemin.</p>
+                    <p><a href="./roadtrip-austria-2026/">Revoir le carnet de route →</a></p>
                 </div>
-                <span class="roadtrip-promo__route" aria-hidden="true">TUX / KRIMML / GROSSGLOCKNER / GOSAU / SALZBURG / ULM / HETTANGE</span>
-            </section>
+                <p class="room-route" aria-label="Étapes du carnet">TUX / KRIMML / GROSSGLOCKNER / GOSAU / SALZBURG / ULM / HETTANGE</p>
+            </div>
+        </section>
 
-            <section class="panel window-panel span-12" aria-labelledby="window-title">
-                <div class="panel-head"><h2 class="panel-title" id="window-title">La fenêtre du lieu</h2><span class="panel-badge" id="windowPhaseBadge">heure locale</span></div>
-                <div class="room-window" id="roomWindow" data-phase="day">
-                    <div class="window-scene" aria-hidden="true">
-                        <div class="window-stars" id="windowStars"></div>
-                        <span class="window-orb"></span>
-                        <span class="window-cloud window-cloud--one"></span>
-                        <span class="window-cloud window-cloud--two"></span>
-                        <div class="window-hills"></div>
-                        <div class="window-house"><span class="window-house-light"></span></div>
-                        <span class="window-crossbar"></span>
-                        <span class="window-mullion"></span>
-                    </div>
-                    <div class="window-copy">
-                        <p class="window-kicker" id="windowKicker">la lumière est déjà entrée</p>
-                        <h3 id="windowGreeting">Il fait jour ici.</h3>
-                        <p class="window-note" id="windowNote">Cette fenêtre ne montre rien d’urgent, et c’est volontaire.</p>
-                        <div class="window-meta">
-                            <time class="window-time" id="windowTime">--:--</time>
-                            <span class="window-date" id="windowDate">heure de cet appareil</span>
-                        </div>
-                        <button class="window-lamp-btn" id="windowLamp" type="button" aria-pressed="false">allumer la lampe</button>
-                        <p class="window-privacy">La fenêtre utilise uniquement l’horloge de cet appareil. Aucune localisation, météo ou donnée personnelle n’est demandée.</p>
-                    </div>
+        <section class="room-section window-panel" aria-labelledby="window-title">
+            <div class="panel-head">
+                <h2 class="panel-title" id="window-title">La fenêtre du lieu</h2>
+                <span class="panel-badge" id="windowPhaseBadge">heure locale</span>
+            </div>
+            <div class="room-window" id="roomWindow" data-phase="day">
+                <div class="window-scene" aria-hidden="true">
+                    <div class="window-stars" id="windowStars"></div>
+                    <span class="window-orb"></span>
+                    <span class="window-cloud window-cloud--one"></span>
+                    <span class="window-cloud window-cloud--two"></span>
+                    <div class="window-hills"></div>
+                    <div class="window-house"><span class="window-house-light"></span></div>
+                    <span class="window-crossbar"></span>
+                    <span class="window-mullion"></span>
                 </div>
-            </section>
-
-            <section class="panel barometer-panel span-12" aria-labelledby="barometer-title">
-                <div class="panel-head"><h2 class="panel-title" id="barometer-title">Le baromètre intérieur</h2><span class="panel-badge">un relevé par jour · local uniquement</span></div>
-                <div class="inner-weather" id="innerWeather">
-                    <div class="weather-visual">
-                        <div class="weather-dial" id="weatherDial" data-weather="waiting" aria-hidden="true">
-                            <span class="weather-sun"></span>
-                            <span class="weather-cloud weather-cloud--a"></span>
-                            <span class="weather-cloud weather-cloud--b"></span>
-                            <span class="weather-rain"></span>
-                            <span class="weather-lightning"></span>
-                            <span class="weather-horizon"></span>
-                        </div>
+                <div class="window-copy">
+                    <p class="window-kicker" id="windowKicker">la lumière est déjà entrée</p>
+                    <h3 id="windowGreeting">Il fait jour ici.</h3>
+                    <p class="window-note" id="windowNote">Cette fenêtre ne montre rien d’urgent, et c’est volontaire.</p>
+                    <div class="window-meta">
+                        <time class="window-time" id="windowTime">--:--</time>
+                        <span class="window-date" id="windowDate">heure de cet appareil</span>
                     </div>
-                    <div class="weather-copy">
-                        <h3>Quel temps fait-il à l’intérieur&nbsp;?</h3>
-                        <p class="weather-intro">Pas besoin de raconter pourquoi. Choisis simplement la météo qui ressemble le plus à ce moment. Tu pourras la changer aujourd’hui si le ciel bouge.</p>
-                        <div class="weather-choices" role="group" aria-label="Choisir sa météo intérieure">
-                            <button class="weather-choice" type="button" data-weather-choice="clear" aria-pressed="false"><span aria-hidden="true">☀</span>clair</button>
-                            <button class="weather-choice" type="button" data-weather-choice="variable" aria-pressed="false"><span aria-hidden="true">◐</span>variable</button>
-                            <button class="weather-choice" type="button" data-weather-choice="fog" aria-pressed="false"><span aria-hidden="true">≈</span>brume</button>
-                            <button class="weather-choice" type="button" data-weather-choice="wind" aria-pressed="false"><span aria-hidden="true">↝</span>grand vent</button>
-                            <button class="weather-choice" type="button" data-weather-choice="storm" aria-pressed="false"><span aria-hidden="true">ϟ</span>orage</button>
+                    <button class="window-lamp-btn" id="windowLamp" type="button" aria-pressed="false">allumer la lampe</button>
+                    <p class="window-privacy">La fenêtre utilise uniquement l’horloge de cet appareil. Aucune localisation, météo ou donnée personnelle n’est demandée.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="room-section archive-shell" id="objects-archive" aria-labelledby="archive-title">
+            <div class="room-section-head archive-head">
+                <div>
+                    <p class="room-eyebrow">28 juillet - 11 août</p>
+                    <h2 class="archive-title" id="archive-title">14 objets, rangés par date.</h2>
+                    <p>Ils restent intacts, mais aucun n’est chargé tant que tu ne l’ouvres pas. L’archive garde l’histoire sans remettre toute la maison au milieu du passage.</p>
+                </div>
+                <span class="archive-count">14 objets</span>
+            </div>
+
+            <div class="archive-grid" id="archiveGrid" role="list">
+                <div class="archive-item" role="listitem"><button class="archive-button" type="button" data-object="courant-air" aria-expanded="false" aria-controls="releasePanel"><span class="archive-date">28 juil.</span><strong class="archive-object-title">Le courant d’air</strong><span class="archive-note">laisser partir</span></button></div>
+                <div class="archive-item" role="listitem"><button class="archive-button" type="button" data-object="piece-indecise" aria-expanded="false" aria-controls="decisionPanel"><span class="archive-date">29 juil.</span><strong class="archive-object-title">La pièce indécise</strong><span class="archive-note">écouter sa réaction</span></button></div>
+                <div class="archive-item" role="listitem"><button class="archive-button" type="button" data-object="minute-sans-rendement" aria-expanded="false" aria-controls="pausePanel"><span class="archive-date">30 juil.</span><strong class="archive-object-title">La minute sans rendement</strong><span class="archive-note">ne rien optimiser</span></button></div>
+                <div class="archive-item" role="listitem"><button class="archive-button" type="button" data-object="pretexte-a-ecrire" aria-expanded="false" aria-controls="helloPanel"><span class="archive-date">31 juil.</span><strong class="archive-object-title">Le prétexte à écrire</strong><span class="archive-note">reprendre contact</span></button></div>
+                <div class="archive-item" role="listitem"><button class="archive-button" type="button" data-object="detail-a-rapporter" aria-expanded="false" aria-controls="detailPanel"><span class="archive-date">1 août</span><strong class="archive-object-title">Le détail à rapporter</strong><span class="archive-note">regarder dehors</span></button></div>
+                <div class="archive-item" role="listitem"><button class="archive-button" type="button" data-object="cairn-de-passage" aria-expanded="false" aria-controls="cairnPanel"><span class="archive-date">3 août</span><strong class="archive-object-title">Le cairn de passage</strong><span class="archive-note">baliser sans suivre</span></button></div>
+                <div class="archive-item" role="listitem"><button class="archive-button" type="button" data-object="boussole-sans-nord" aria-expanded="false" aria-controls="compassPanel"><span class="archive-date">4 août</span><strong class="archive-object-title">La boussole sans nord</strong><span class="archive-note">choisir un cap</span></button></div>
+                <div class="archive-item" role="listitem"><button class="archive-button" type="button" data-object="lac-sans-photo" aria-expanded="false" aria-controls="lakePanel"><span class="archive-date">5 août</span><strong class="archive-object-title">Le lac sans photo</strong><span class="archive-note">regarder sans capturer</span></button></div>
+                <div class="archive-item" role="listitem"><button class="archive-button" type="button" data-object="banc-pour-deux" aria-expanded="false" aria-controls="benchPanel"><span class="archive-date">6 août</span><strong class="archive-object-title">Le banc pour deux</strong><span class="archive-note">lancer une conversation</span></button></div>
+                <div class="archive-item" role="listitem"><button class="archive-button" type="button" data-object="sac-du-retour" aria-expanded="false" aria-controls="homewardPanel"><span class="archive-date">7 août</span><strong class="archive-object-title">Le sac du retour</strong><span class="archive-note">rapporter trois détails</span></button></div>
+                <div class="archive-item" role="listitem"><button class="archive-button" type="button" data-object="seuil-du-retour" aria-expanded="false" aria-controls="thresholdPanel"><span class="archive-date">8 août</span><strong class="archive-object-title">Le seuil du retour</strong><span class="archive-note">rentrer vraiment</span></button></div>
+                <div class="archive-item" role="listitem"><button class="archive-button" type="button" data-object="derniere-part" aria-expanded="false" aria-controls="sundayPanel"><span class="archive-date">9 août</span><strong class="archive-object-title">La dernière part</strong><span class="archive-note">laisser le choix ouvert</span></button></div>
+                <div class="archive-item" role="listitem"><button class="archive-button" type="button" data-object="bureau-avant-bruit" aria-expanded="false" aria-controls="mondayPanel"><span class="archive-date">10 août</span><strong class="archive-object-title">Le bureau avant le bruit</strong><span class="archive-note">choisir la première chose</span></button></div>
+                <div class="archive-item" role="listitem"><button class="archive-button" type="button" data-object="sablier-sans-alarme" aria-expanded="false" aria-controls="hourglassPanel"><span class="archive-date">11 août</span><strong class="archive-object-title">Le sablier sans alarme</strong><span class="archive-note">prendre quelques minutes</span></button></div>
+            </div>
+
+            <div class="archive-stage" id="archiveStage" hidden>
+                <div class="archive-toolbar">
+                    <p class="archive-status" id="archiveStatus" aria-live="polite">Aucun objet ouvert.</p>
+                    <button class="archive-close" id="archiveClose" type="button">fermer l’objet</button>
+                </div>
+
+                <section class="panel release-panel archive-object-panel" id="releasePanel" aria-labelledby="release-title" hidden>
+                    <div class="panel-head"><h2 class="panel-title" id="release-title">Le courant d’air</h2><span class="panel-badge">aucune sauvegarde · aucun retour</span></div>
+                    <div class="release-space">
+                        <div class="release-sky" id="releaseSky" aria-hidden="true">
+                            <span class="release-moon"></span>
+                            <span class="release-horizon"></span>
+                            <div class="release-fragments" id="releaseFragments"></div>
+                            <p class="release-empty">ici, rien n’est retenu</p>
                         </div>
-                        <p class="weather-result" id="weatherResult" aria-live="polite"><strong>Aucun relevé pour aujourd’hui.</strong> Choisis le ciel qui ressemble le plus à ton état du moment.</p>
-                        <div class="weather-history">
-                            <div class="weather-history-head">
-                                <h4>Les sept derniers ciels</h4>
-                                <button class="weather-clear" id="weatherClear" type="button">effacer mes relevés</button>
+                        <form class="release-form" id="releaseForm">
+                            <h3>Écris quelque chose, puis laisse-le partir.</h3>
+                            <p class="release-intro">Une contrariété, une idée terminée, une phrase qui tourne en boucle. Elle se dispersera devant toi et ne pourra pas être récupérée.</p>
+                            <label class="release-label" for="releaseMessage">Les mots à confier au courant d’air</label>
+                            <textarea class="release-textarea" id="releaseMessage" maxlength="220" placeholder="Je peux laisser partir..."></textarea>
+                            <div class="release-controls">
+                                <span class="release-count" id="releaseCount">0 / 220</span>
+                                <button class="release-btn" id="releaseButton" type="submit" disabled>laisser partir</button>
                             </div>
-                            <div class="weather-trail" id="weatherTrail" aria-label="Historique local des météos intérieures"></div>
-                        </div>
-                        <p class="weather-privacy">Ces relevés restent dans le stockage local de ce navigateur. Ils ne sont ni transmis, ni comptés, ni visibles par Nicolas.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="panel postcard-panel span-12" aria-labelledby="postcard-title">
-                <div class="panel-head"><h2 class="panel-title" id="postcard-title">Carte postale du lieu</h2><span class="panel-badge">édition n° 005 · 28 juillet 2026</span></div>
-                <div class="postcard" id="postcard">
-                    <div class="postcard-copy">
-                        <p class="postcard-kicker">Envoyée depuis un recoin du web personnel</p>
-                        <p class="postcard-message">Tout ne mérite pas d’être gardé. Certaines choses ont seulement besoin d’un passage vers dehors.</p>
-                        <div class="postcard-signals" aria-label="Trois choses à garder en tête aujourd'hui">
-                            <div class="postcard-signal"><strong>À écrire</strong>ce qui prend trop de place tant que ça reste flou.</div>
-                            <div class="postcard-signal"><strong>À laisser</strong>une phrase partir sans lui demander de devenir utile.</div>
-                            <div class="postcard-signal"><strong>À garder</strong>la place libérée après son départ.</div>
-                        </div>
-                    </div>
-                    <div class="postcard-side">
-                        <div class="postcard-stamp" aria-hidden="true"><span>NP</span><small>28·07·26</small></div>
-                        <p class="postcard-address">À la personne qui peut fermer un onglet sans tout résoudre.</p>
-                        <button class="stamp-btn" id="stampBtn" type="button">tamponner mon passage</button>
-                        <p class="stamp-count" id="stampCount" aria-live="polite"></p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="panel capsule-panel span-12" aria-labelledby="capsule-title">
-                <div class="panel-head"><h2 class="panel-title" id="capsule-title">Capsule pour demain</h2><span class="panel-badge">locale · privée · patiente</span></div>
-                <div class="capsule" id="timeCapsule" data-state="empty">
-                    <div class="capsule-intro">
-                        <div class="capsule-orbit" aria-hidden="true"><span>24h</span></div>
-                        <div>
-                            <h3>Écris maintenant. Relis plus tard.</h3>
-                            <p>Une pensée, une envie, une promesse minuscule ou quelque chose à laisser refroidir jusqu’à demain.</p>
-                        </div>
-                    </div>
-                    <div class="capsule-workspace">
-                        <form class="capsule-form" id="capsuleForm">
-                            <label class="capsule-label" for="capsuleMessage">La phrase à confier au lendemain
-                                <span class="capsule-hint">Elle restera uniquement dans le stockage local de ce navigateur.</span>
-                            </label>
-                            <textarea class="capsule-textarea" id="capsuleMessage" maxlength="180" required placeholder="Demain, j’aimerais me rappeler que…"></textarea>
-                            <div class="capsule-controls">
-                                <span class="capsule-count" id="capsuleChars">0 / 180</span>
-                                <button class="capsule-btn" type="submit">sceller jusqu’à demain</button>
-                            </div>
+                            <p class="release-status" id="releaseStatus" aria-live="polite">Le courant d’air attend.</p>
+                            <p class="release-privacy">Le texte existe seulement dans ce champ, le temps de l’animation. Il n’est ni stocké localement, ni envoyé, ni lisible par Nicolas.</p>
                         </form>
-
-                        <div class="capsule-state" id="capsuleSealed" hidden>
-                            <span class="capsule-seal">capsule scellée</span>
-                            <p class="capsule-status" id="capsuleStatus">Ta phrase est rangée. Elle reviendra demain.</p>
-                            <p class="capsule-countdown" id="capsuleCountdown" aria-live="polite"></p>
-                        </div>
-
-                        <div class="capsule-state" id="capsuleRevealed" hidden>
-                            <span class="capsule-seal">message revenu du passé</span>
-                            <p class="capsule-status">Hier, tu avais laissé ceci :</p>
-                            <blockquote class="capsule-reveal" id="capsuleRevealText"></blockquote>
-                            <button class="capsule-btn capsule-btn--quiet" id="capsuleReset" type="button">ranger et écrire une nouvelle capsule</button>
-                        </div>
                     </div>
+                </section>
+            </div>
+        </section>
+
+        <section class="room-section" id="colophon" aria-labelledby="colophon-title">
+            <div class="room-section-head">
+                <div>
+                    <p class="room-eyebrow">colophon</p>
+                    <h2 id="colophon-title">Pourquoi la garder.</h2>
                 </div>
-                <p class="capsule-privacy">Confidentialité réelle et très simple : ce texte n’est jamais envoyé au site. Effacer les données du navigateur efface aussi la capsule.</p>
-            </section>
+            </div>
+            <div class="room-reasons">
+                <div class="room-reason"><strong>Sans objectif commercial.</strong><p>Un site personnel peut avoir des pièces qui ne vendent rien et ne demandent aucune conversion.</p></div>
+                <div class="room-reason"><strong>Pour les petits détails.</strong><p>Les souvenirs du web sont souvent les choses qu’on n’aurait jamais mises dans un portfolio.</p></div>
+                <div class="room-reason"><strong>Pour savoir retirer.</strong><p>Construire est facile à célébrer. Ranger, simplifier et supprimer sont aussi des choix de design.</p></div>
+            </div>
+            <p class="room-privacy">Pas de compte. Pas de publicité. Les interactions qui mémorisent quelque chose le font uniquement dans le stockage local du navigateur et l’indiquent à l’endroit concerné.</p>
+        </section>
 
-            <section class="panel release-panel span-12" aria-labelledby="release-title">
-                <div class="panel-head"><h2 class="panel-title" id="release-title">Le courant d’air</h2><span class="panel-badge">aucune sauvegarde · aucun retour</span></div>
-                <div class="release-space">
-                    <div class="release-sky" id="releaseSky" aria-hidden="true">
-                        <span class="release-moon"></span>
-                        <span class="release-horizon"></span>
-                        <div class="release-fragments" id="releaseFragments"></div>
-                        <p class="release-empty">ici, rien n’est retenu</p>
-                    </div>
-                    <form class="release-form" id="releaseForm">
-                        <h3>Écris quelque chose, puis laisse-le partir.</h3>
-                        <p class="release-intro">Une contrariété, une idée terminée, une phrase qui tourne en boucle. Elle se dispersera devant toi et ne pourra pas être récupérée.</p>
-                        <label class="release-label" for="releaseMessage">Les mots à confier au courant d’air</label>
-                        <textarea class="release-textarea" id="releaseMessage" maxlength="220" placeholder="Je peux laisser partir…"></textarea>
-                        <div class="release-controls">
-                            <span class="release-count" id="releaseCount">0 / 220</span>
-                            <button class="release-btn" id="releaseButton" type="submit" disabled>laisser partir</button>
-                        </div>
-                        <p class="release-status" id="releaseStatus" aria-live="polite">Le courant d’air attend.</p>
-                        <p class="release-privacy">Le texte existe seulement dans ce champ, le temps de l’animation. Il n’est ni stocké localement, ni envoyé, ni lisible par Nicolas.</p>
-                    </form>
-                </div>
-            </section>
-
-            <section class="panel span-6" aria-labelledby="pourquoi">
-                <div class="panel-head"><h2 class="panel-title" id="pourquoi">Pourquoi cette page existe</h2><span class="panel-badge">manifeste minuscule</span></div>
-                <ol class="principles">
-                    <li data-n="1.">Pour garder une trace des collaborations qui ne rentrent pas dans un portfolio.</li>
-                    <li data-n="2.">Pour permettre à une IA de créer quelque chose sans brief corporate de douze pages.</li>
-                    <li data-n="3.">Pour montrer que le web personnel peut encore contenir des pièces inutiles et attachantes.</li>
-                    <li data-n="4.">Pour laisser les erreurs visibles, puis raconter comment elles ont été corrigées.</li>
-                    <li data-n="5.">Pour offrir à Pampy une niche numérique disproportionnée.</li>
-                </ol>
-            </section>
-
-            <section class="panel span-6" aria-labelledby="pensee">
-                <div class="panel-head"><h2 class="panel-title" id="pensee">Pensée attrapée au vol</h2><span class="panel-badge">aléatoire</span></div>
-                <p class="thought-box" id="thoughtBox" aria-live="polite" aria-atomic="true"></p>
-                <button class="thought-btn" id="thoughtBtn" type="button">↻ une autre pensée</button>
-            </section>
-
-            <section class="panel span-7" aria-labelledby="journal">
-                <div class="panel-head"><h2 class="panel-title" id="journal">Quelques traces dans le couloir</h2><span class="panel-badge">le détail vit dans journal.md</span></div>
-                <ul class="log-list">
-                    <li><span class="t">Une première carte postale apparaît sur la table</span><span class="m">23 juil. · objet éditorial daté et tampon de passage local, sans collecte</span></li>
-                    <li><span class="t">Une capsule apprend au lieu à attendre</span><span class="m">24 juil. · une phrase scellée localement, rendue au visiteur le lendemain</span></li>
-                    <li><span class="t">Une fenêtre s’accorde à l’heure du visiteur</span><span class="m">25 juil. · ciel local, constellation quotidienne et petite lampe sans télémétrie</span></li>
-                    <li><span class="t">Un baromètre observe le ciel intérieur</span><span class="m">26 juil. · relevé quotidien privé et sept nuances conservées sur l’appareil</span></li>
-                    <li><span class="t">Un courant d’air traverse enfin la pièce</span><span class="m">28 juil. · des mots se dispersent sans stockage, transmission ni possibilité de retour</span></li>
-                </ul>
-            </section>
-
-            <section class="panel panel--flush span-5" aria-labelledby="terminal">
-                <h2 class="sr-only" id="terminal">Terminal du lieu</h2>
-                <div class="terminal">
-                    <div class="terminal-bar"><i></i><i></i><i></i><span class="terminal-title">visitor@claude-space - zsh</span></div>
-                    <pre><span class="t-prompt">$</span> <span class="t-key">echo "une pensée trop lourde" | ./courant-air</span>
-<span class="t-dim">released=1; persisted=0; transmitted=0</span>
-<span class="t-prompt">$</span> <span class="t-key">find . -name "pensée trop lourde"</span>
-<span class="t-dim">nothing found. as intended.</span>
-<span class="t-prompt">$</span> <span class="t-key">echo $?</span>
-0</pre>
-                </div>
-            </section>
-
-            <section class="panel span-12" aria-labelledby="pampy">
-                <div class="panel-head"><h2 class="panel-title" id="pampy">La niche de Pampy</h2><span class="panel-badge">service essentiel · SLA inconnu</span></div>
-                <div class="dog-stage">
-                    <pre id="dogAscii" aria-hidden="true"></pre>
-                    <div>
-                        <button class="wouf-btn" id="woufBtn" type="button">🐾 wouf</button>
-                        <p class="wouf-count" id="woufCount" aria-live="polite" aria-atomic="true"></p>
-                    </div>
-                </div>
-            </section>
-        </div>
+        <section class="room-section room-pampy" aria-labelledby="pampy">
+            <div>
+                <p class="room-eyebrow">service essentiel</p>
+                <h2 id="pampy">Pampy garde encore un œil.</h2>
+                <p>Service bénévole. Aucun SLA. Il conserve son droit de quitter son poste pour une promenade.</p>
+            </div>
+            <pre aria-hidden="true">     __
+ (___()'`;
+ /,    /`
+ \\"--\\</pre>
+        </section>
     </main>
 
     <footer class="cspace-footer">
-        <span>Pas de compte, pas de publicité, pas de raison raisonnable d’exister.</span>
-        <span>Dernier passage du gardien : <time datetime="2026-07-28">28 juillet 2026</time></span>
+        <p class="room-colophon">/claude a commencé comme une pièce confiée aux outils qui aident Nicolas à construire son site. Aujourd’hui, c’est simplement une archive personnelle ouverte à tous. Dernière édition : <time datetime="2026-08-14">14 août 2026</time>.</p>
+        <a class="room-journal-link" href="./journal.md">journal.md →</a>
     </footer>
 
-    <div class="rain-stage">
-        <canvas id="matrixCanvas" aria-hidden="true"></canvas>
-        <button class="rain-toggle" id="matrixToggle" type="button" aria-label="Pluie de caractères active" aria-pressed="true">pause pluie</button>
-    </div>
-    <script src="./script.js?v=20260728-air"></script>
-    <script src="./capsule.js?v=20260728-air"></script>
-    <script src="./window.js?v=20260728-air"></script>
-    <script src="./barometer.js?v=20260728-air"></script>
-    <script src="./release.js?v=20260728-air"></script>
+    <script src="./window.js?v=20260814-room"></script>
+    <script src="./room.js?v=20260814-room"></script>
 </body>
 </html>

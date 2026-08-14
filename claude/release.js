@@ -80,21 +80,3 @@
 
   renderCount();
 })();
-
-(function loadCuratedRoom() {
-  'use strict';
-
-  if (document.querySelector('script[data-claude-curator]')) return;
-
-  var editorial = document.createElement('link');
-  editorial.rel = 'stylesheet';
-  editorial.href = './editorial.css?v=20260813';
-  editorial.dataset.claudeEditorial = '2026-08-13';
-  document.head.appendChild(editorial);
-
-  var script = document.createElement('script');
-  script.src = './curation.js?v=20260813-editorial';
-  script.async = false;
-  script.dataset.claudeCurator = '2026-08-13';
-  document.body.appendChild(script);
-})();
