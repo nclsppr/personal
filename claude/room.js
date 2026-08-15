@@ -37,7 +37,7 @@
   }
 
   var objects = [
-    { id: 'releasePanel', slug: 'courant-air', title: 'Le courant d\u2019air', date: '28 juil.', src: './release.js?v=20260814-room' },
+    { id: 'releasePanel', slug: 'courant-air', title: 'Le courant d\u2019air', date: '28 juil.', src: './release.js?v=20260815-real' },
     { id: 'decisionPanel', slug: 'piece-indecise', title: 'La pièce indécise', date: '29 juil.', src: './decision.js?v=20260729-choice' },
     { id: 'pausePanel', slug: 'minute-sans-rendement', title: 'La minute sans rendement', date: '30 juil.', src: './pause.js?v=20260730-pause' },
     { id: 'helloPanel', slug: 'pretexte-a-ecrire', title: 'Le prétexte à écrire', date: '31 juil.', src: './hello.js?v=20260731-hello' },
@@ -78,14 +78,14 @@
 
   function restoreRoomIdentity() {
     document.title = '/claude · Nicolas Pieper';
-    setMeta('meta[name="description"]', 'Un carnet public de Nicolas Pieper pour les détours qui ne rentrent pas ailleurs : voyage, petits objets web et archives.');
+    setMeta('meta[name="description"]', 'Le carnet public de Nicolas Pieper : Austria 2026, photographies de voyage, petits objets web et archives personnelles.');
     setMeta('meta[property="og:title"]', '/claude · Nicolas Pieper');
-    setMeta('meta[property="og:description"]', 'Un morceau de web personnel pour les détours, les petits objets et les souvenirs qui ne rentrent pas ailleurs.');
+    setMeta('meta[property="og:description"]', 'Un morceau de web personnel : voyage, photographies, petits objets et archives qui ne rentrent pas ailleurs.');
 
     var footerTime = document.querySelector('.cspace-footer time');
     if (footerTime) {
-      footerTime.dateTime = '2026-08-14';
-      footerTime.textContent = '14 août 2026';
+      footerTime.dateTime = '2026-08-15';
+      footerTime.textContent = '15 août 2026';
     }
   }
 
