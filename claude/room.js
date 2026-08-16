@@ -6,6 +6,7 @@
   var themeButton = document.getElementById('roomTheme');
   var themeMeta = document.querySelector('meta[name="theme-color"]');
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var roomEdition = { iso: '2026-08-16', label: '16 août 2026' };
 
   function storedTheme() {
     try {
@@ -84,8 +85,8 @@
 
     var footerTime = document.querySelector('.cspace-footer time');
     if (footerTime) {
-      footerTime.dateTime = '2026-08-15';
-      footerTime.textContent = '15 août 2026';
+      footerTime.dateTime = roomEdition.iso;
+      footerTime.textContent = roomEdition.label;
     }
   }
 
