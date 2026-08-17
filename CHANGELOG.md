@@ -5,6 +5,16 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-08-18 - Réconciliation automatique par Atlas
+
+- Documentation de la frontière de déploiement : le workflow `VPS release` publie des
+  artefacts immuables sans secret Atlas, puis le réconciliateur central de `vps-infra`
+  vérifie le HEAD, les checks requis, les attestations et les digests avant activation.
+- Ajout d'une preuve historique bornée : avant cette consolidation documentaire, le commit
+  `328b535b934560fcaf6324383440a3c2a60641c4` était servi sur Atlas avec le site
+  `sha256:61b478b86fd01cc73b1a080fd2a581256032bbb109ee2a47ef155a1dc09d747e` et les routes
+  `sha256:7109f8e15853b15948eaef0c920e5e0f1265d6d74710278b456b4600163f58be`.
+
 ## 2026-08-12 - Release immuable pour Atlas
 
 - Ajout d'une chaîne VPS distincte de GitHub Pages. Elle assemble uniquement les fichiers

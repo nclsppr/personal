@@ -111,8 +111,26 @@ Push sur `main` → GitHub Pages sert le repo tel quel. Le domaine custom est fi
 
 Le workflow `VPS release` construit en parallèle une archive publique par allowlist et un
 inventaire complet des routes. Il publie les deux objets dans GHCR avec un digest immuable,
-atteste leur provenance GitHub et conserve une preuve de promotion pendant 30 jours. Cette
-chaîne n'active pas Atlas et ne modifie aucun DNS.
+atteste leur provenance GitHub et conserve une preuve de publication pendant 30 jours. Le
+dépôt ne possède aucun secret Atlas et ce workflow ne contacte pas le VPS.
+
+L'activation est ensuite prise en charge par le réconciliateur central de
+[`nclsppr/vps-infra`](https://github.com/nclsppr/vps-infra). Toutes les dix minutes, il résout
+le HEAD exact de `main`, exige les checks configurés au vert, transforme les tags
+`sha-<commit>` en digests, puis demande à Atlas de vérifier à nouveau les attestations et le
+contrat HTTP avant un basculement transactionnel. Une publication seule ne suffit donc pas à
+activer une version, et un ancien commit vert n'est pas utilisé comme repli.
+
+Preuve historique observée le 18 août 2026, avant cette consolidation documentaire : le commit
+`328b535b934560fcaf6324383440a3c2a60641c4`, publié par le run Actions
+[`32008106067`](https://github.com/nclsppr/personal/actions/runs/32008106067), était actif sur
+Atlas avec le site
+`sha256:61b478b86fd01cc73b1a080fd2a581256032bbb109ee2a47ef155a1dc09d747e` et les routes
+`sha256:7109f8e15853b15948eaef0c920e5e0f1265d6d74710278b456b4600163f58be`. Le run central
+[`32078379931`](https://github.com/nclsppr/vps-infra/actions/runs/32078379931) a ensuite
+confirmé le job Personal sur Atlas. Le commit qui ajoute cette note produit lui-même un
+nouveau candidat. L'état courant se vérifie dans le workflow central et sur Atlas, jamais en
+déduisant qu'un digest historique reste actif.
 
 ## Principes de conception
 
