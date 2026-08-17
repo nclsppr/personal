@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>/claude · Nicolas Pieper</title>
-    <meta name="description" content="Le carnet public de Nicolas Pieper : Austria 2026, photographies de voyage, petits objets web et archives personnelles.">
+    <meta name="description" content="Le coin public de Nicolas Pieper : un carnet d'Autriche, des photographies, Pampy et quelques petits objets web.">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="/claude · Nicolas Pieper">
-    <meta property="og:description" content="Un morceau de web personnel : voyage, photographies, petits objets et archives qui ne rentrent pas ailleurs.">
+    <meta property="og:description" content="Photographies d'Autriche, carnet de route et petits objets web gardés à côté du reste.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nicolaspieper.com/claude/">
     <meta property="og:image" content="https://nicolaspieper.com/claude/roadtrip-austria-2026/assets/schlegeis-nicolas-pampy-real.webp">
@@ -21,10 +21,11 @@
     <link rel="preload" href="/assets/fonts/jetbrainsmono-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/sourceserif4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="./style.css?v=20260816-photoessay">
-    <link rel="stylesheet" href="./release.css?v=20260816-photoessay">
-    <link rel="stylesheet" href="./room.css?v=20260816-photoessay">
-    <link rel="stylesheet" href="./album.css?v=20260816-photoessay">
+    <link rel="stylesheet" href="./style.css?v=20260817-quiet">
+    <link rel="stylesheet" href="./release.css?v=20260817-quiet">
+    <link rel="stylesheet" href="./room.css?v=20260817-quiet">
+    <link rel="stylesheet" href="./album.css?v=20260817-quiet">
+    <link rel="stylesheet" href="./quiet.css?v=20260817-quiet">
     <script>(function(){try{var t=localStorage.getItem('claude-space-theme');if(t!=='light'&&t!=='dark'&&window.matchMedia)t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';if(t==='light'||t==='dark')document.documentElement.dataset.ctheme=t;}catch(e){}})()</script>
 </head>
 <body class="claude-space">
@@ -33,50 +34,35 @@
     <header class="cspace-header">
         <a class="back" href="/">← nicolaspieper.com</a>
         <div class="cspace-actions">
-            <button class="room-theme" id="roomTheme" type="button" aria-label="Activer le thème clair" aria-pressed="true">mode clair</button>
+            <button class="room-theme" id="roomTheme" type="button" aria-label="Activer le thème clair">mode clair</button>
         </div>
     </header>
 
     <section class="room-hero" aria-labelledby="room-title">
-        <p class="room-kicker">nicolaspieper.com / claude</p>
-        <h1 id="room-title">Ce qui ne rentrait pas ailleurs.</h1>
-        <p class="room-intro">Un carnet public de voyages, de photographies et de petits objets web. Pas de compte, pas de fil à nourrir : juste ce que j’ai envie de laisser visible.</p>
+        <div class="room-hero-copy">
+            <p class="room-kicker">Nicolas Pieper / hors cadre</p>
+            <h1 id="room-title">Quelques choses gardées.</h1>
+            <p class="room-intro">Un voyage en Autriche, Pampy, des photos et quelques expériences web. Ce coin existe pour ce qui n'a pas besoin de devenir un projet.</p>
+        </div>
+        <p class="room-hero-aside"><strong>Été 2026</strong>Tux · Schlegeis · Krimml · Grossglockner · Gosau · Salzburg</p>
     </section>
 
     <nav class="room-nav" aria-label="Repères dans la page">
-        <a href="#maintenant">maintenant</a>
-        <a href="#austria">Austria 2026</a>
-        <a href="#objects-archive">archive</a>
+        <a href="#austria">Autriche</a>
+        <a href="#objects-archive">objets</a>
+        <a href="#pampy">Pampy</a>
         <a href="#colophon">à propos</a>
     </nav>
 
     <main class="room-main" id="main">
-        <section class="room-section" id="maintenant" aria-labelledby="maintenant-title">
-            <div class="room-section-head">
-                <div>
-                    <p class="room-eyebrow">édition / 16 août 2026</p>
-                    <h2 id="maintenant-title">Passer du carnet à l’album.</h2>
-                </div>
-                <time class="room-date" datetime="2026-08-16">16.08.2026</time>
-            </div>
-            <div class="room-note">
-                <div class="room-note-copy">
-                    <p>Les images du voyage étaient déjà là, mais elles vivaient surtout derrière le carnet de route. Aujourd’hui, elles sortent du décor.</p>
-                    <p>La fenêtre simulée quitte la page principale. À sa place : six photographies réelles de Tux et du Schlegeis, sans carrousel, sans effet de révélation et sans mode d’emploi.</p>
-                    <p>Les petits objets restent rangés plus bas. Ils font partie de l’histoire du lieu, pas de son premier regard.</p>
-                </div>
-                <p class="room-note-aside">Une page personnelle peut être juste une page.</p>
-            </div>
-        </section>
-
         <section class="room-section room-trip" id="austria" aria-labelledby="austria-title">
             <div class="room-trip-heading">
                 <div>
-                    <p class="room-eyebrow">carnet terminé / août 2026</p>
-                    <h2 id="austria-title">Austria 2026</h2>
+                    <p class="room-eyebrow">31 juillet — 12 août 2026</p>
+                    <h2 id="austria-title">Autriche, avec Pampy.</h2>
                 </div>
                 <div class="room-trip-summary">
-                    <p class="room-trip-lede">Une route gardée telle qu’elle a été vécue : Tux, Schlegeis, Krimml, Grossglockner, Gosau, Salzburg, puis le chemin du retour.</p>
+                    <p class="room-trip-lede">Tux, Schlegeis, Krimml, Grossglockner, Gosau, Salzburg. Des routes, des détours et beaucoup de marche.</p>
                     <p><a class="room-trip-link" href="./roadtrip-austria-2026/">Ouvrir le carnet de route →</a></p>
                 </div>
             </div>
@@ -86,47 +72,47 @@
                     <a href="./roadtrip-austria-2026/assets/schlegeis-nicolas-pampy-real.webp" target="_blank" rel="noopener" aria-label="Ouvrir en grand la photographie de Nicolas et Pampy au Schlegeis">
                         <img src="./roadtrip-austria-2026/assets/schlegeis-nicolas-pampy-real.webp" width="1152" height="1536" loading="lazy" decoding="async" alt="Nicolas enlace Pampy devant le lac et les montagnes de Schlegeis">
                     </a>
-                    <figcaption><span>Schlegeis · 2 août</span> Nicolas & Pampy.</figcaption>
+                    <figcaption><span>Schlegeis · 2 août</span> Nicolas &amp; Pampy.</figcaption>
                 </figure>
 
                 <figure class="room-shot room-shot--panorama">
                     <a href="./roadtrip-austria-2026/assets/schlegeis-panorama-real.webp" target="_blank" rel="noopener" aria-label="Ouvrir en grand le panorama du Schlegeis">
                         <img src="./roadtrip-austria-2026/assets/schlegeis-panorama-real.webp" loading="lazy" decoding="async" alt="Panorama du lac et des montagnes au Schlegeis">
                     </a>
-                    <figcaption><span>Schlegeis</span> Le lac, plus large que l’écran.</figcaption>
+                    <figcaption><span>Schlegeis</span> Le lac depuis le chemin.</figcaption>
                 </figure>
 
                 <figure class="room-shot room-shot--overlook">
                     <a href="./roadtrip-austria-2026/assets/schlegeis-pampy-overlook-real.webp" target="_blank" rel="noopener" aria-label="Ouvrir en grand la photographie de Pampy au-dessus du Schlegeis">
                         <img src="./roadtrip-austria-2026/assets/schlegeis-pampy-overlook-real.webp" loading="lazy" decoding="async" alt="Pampy sur les hauteurs avec le Schlegeis en arrière-plan">
                     </a>
-                    <figcaption><span>Schlegeis</span> Pampy prend de la hauteur.</figcaption>
+                    <figcaption><span>Schlegeis</span> Pampy au-dessus du lac.</figcaption>
                 </figure>
 
                 <figure class="room-shot room-shot--walk">
                     <a href="./roadtrip-austria-2026/assets/tux-tirolerhof-walk-real.webp" target="_blank" rel="noopener" aria-label="Ouvrir en grand la photographie de la promenade à Tux">
                         <img src="./roadtrip-austria-2026/assets/tux-tirolerhof-walk-real.webp" loading="lazy" decoding="async" alt="Promenade autour du Tirolerhof à Tux">
                     </a>
-                    <figcaption><span>Tux</span> Partir à pied depuis l’hôtel.</figcaption>
+                    <figcaption><span>Tux</span> Autour du Tirolerhof.</figcaption>
                 </figure>
 
                 <figure class="room-shot room-shot--stream">
                     <a href="./roadtrip-austria-2026/assets/tux-tirolerhof-stream-real.webp" target="_blank" rel="noopener" aria-label="Ouvrir en grand la photographie du ruisseau à Tux">
                         <img src="./roadtrip-austria-2026/assets/tux-tirolerhof-stream-real.webp" loading="lazy" decoding="async" alt="Ruisseau près du Tirolerhof à Tux">
                     </a>
-                    <figcaption><span>Tux</span> L’eau à côté du chemin.</figcaption>
+                    <figcaption><span>Tux</span> Le long du ruisseau.</figcaption>
                 </figure>
 
                 <figure class="room-shot room-shot--trough">
                     <a href="./roadtrip-austria-2026/assets/schlegeis-pampy-trough-real.webp" target="_blank" rel="noopener" aria-label="Ouvrir en grand la photographie de Pampy en pause au Schlegeis">
-                        <img src="./roadtrip-austria-2026/assets/schlegeis-pampy-trough-real.webp" loading="lazy" decoding="async" alt="Pampy fait une pause près d’un abreuvoir au Schlegeis">
+                        <img src="./roadtrip-austria-2026/assets/schlegeis-pampy-trough-real.webp" loading="lazy" decoding="async" alt="Pampy fait une pause près d'un abreuvoir au Schlegeis">
                     </a>
-                    <figcaption><span>Schlegeis</span> Pause sur le chemin.</figcaption>
+                    <figcaption><span>Schlegeis</span> Pause eau.</figcaption>
                 </figure>
             </div>
 
             <div class="room-trip-after">
-                <p>Le carnet complet conserve les étapes, les plans qui ont changé et les notes prises en route. Ici, je garde seulement quelques images qui donnent envie d’y retourner.</p>
+                <p>Le carnet complet garde l'itinéraire, les changements de plan et les notes prises sur place.</p>
                 <p class="room-route" aria-label="Étapes du carnet">TUX / SCHLEGEIS / KRIMML / GROSSGLOCKNER / GOSAU / SALZBURG / ULM / HETTANGE</p>
             </div>
         </section>
@@ -134,15 +120,15 @@
         <section class="room-section archive-shell" id="objects-archive" aria-labelledby="archive-title">
             <div class="room-section-head archive-head">
                 <div>
-                    <p class="room-eyebrow">28 juillet - 11 août</p>
-                    <h2 class="archive-title" id="archive-title">14 objets, rangés par date.</h2>
-                    <p>Ils restent intacts, mais aucun n’est chargé tant que tu ne l’ouvres pas. L’archive garde l’histoire sans remettre toute la maison au milieu du passage.</p>
+                    <p class="room-eyebrow">28 juillet — 11 août 2026</p>
+                    <h2 class="archive-title" id="archive-title">Petits objets web.</h2>
+                    <p>Quatorze expériences faites au fil des jours. Rien n'est chargé avant que tu en ouvres une.</p>
                 </div>
                 <span class="archive-count">14 objets</span>
             </div>
 
             <div class="archive-grid" id="archiveGrid" role="list">
-                <div class="archive-item" role="listitem"><button class="archive-button" type="button" data-object="courant-air" aria-expanded="false" aria-controls="releasePanel"><span class="archive-date">28 juil.</span><strong class="archive-object-title">Le courant d’air</strong><span class="archive-note">laisser partir</span></button></div>
+                <div class="archive-item" role="listitem"><button class="archive-button" type="button" data-object="courant-air" aria-expanded="false" aria-controls="releasePanel"><span class="archive-date">28 juil.</span><strong class="archive-object-title">Le courant d'air</strong><span class="archive-note">laisser partir</span></button></div>
                 <div class="archive-item" role="listitem"><button class="archive-button" type="button" data-object="piece-indecise" aria-expanded="false" aria-controls="decisionPanel"><span class="archive-date">29 juil.</span><strong class="archive-object-title">La pièce indécise</strong><span class="archive-note">écouter sa réaction</span></button></div>
                 <div class="archive-item" role="listitem"><button class="archive-button" type="button" data-object="minute-sans-rendement" aria-expanded="false" aria-controls="pausePanel"><span class="archive-date">30 juil.</span><strong class="archive-object-title">La minute sans rendement</strong><span class="archive-note">ne rien optimiser</span></button></div>
                 <div class="archive-item" role="listitem"><button class="archive-button" type="button" data-object="pretexte-a-ecrire" aria-expanded="false" aria-controls="helloPanel"><span class="archive-date">31 juil.</span><strong class="archive-object-title">Le prétexte à écrire</strong><span class="archive-note">reprendre contact</span></button></div>
@@ -161,68 +147,68 @@
             <div class="archive-stage" id="archiveStage" hidden>
                 <div class="archive-toolbar">
                     <p class="archive-status" id="archiveStatus" aria-live="polite">Aucun objet ouvert.</p>
-                    <button class="archive-close" id="archiveClose" type="button">fermer l’objet</button>
+                    <button class="archive-close" id="archiveClose" type="button">fermer l'objet</button>
                 </div>
 
                 <section class="panel release-panel archive-object-panel" id="releasePanel" aria-labelledby="release-title" hidden>
-                    <div class="panel-head"><h2 class="panel-title" id="release-title">Le courant d’air</h2><span class="panel-badge">aucune sauvegarde · aucun retour</span></div>
+                    <div class="panel-head"><h2 class="panel-title" id="release-title">Le courant d'air</h2><span class="panel-badge">aucune sauvegarde · aucun retour</span></div>
                     <div class="release-space">
                         <div class="release-sky" id="releaseSky" aria-hidden="true">
                             <span class="release-moon"></span>
                             <span class="release-horizon"></span>
                             <div class="release-fragments" id="releaseFragments"></div>
-                            <p class="release-empty">ici, rien n’est retenu</p>
+                            <p class="release-empty">ici, rien n'est retenu</p>
                         </div>
                         <form class="release-form" id="releaseForm">
                             <h3>Écris quelque chose, puis laisse-le partir.</h3>
                             <p class="release-intro">Une contrariété, une idée terminée, une phrase qui tourne en boucle. Elle se dispersera devant toi et ne pourra pas être récupérée.</p>
-                            <label class="release-label" for="releaseMessage">Les mots à confier au courant d’air</label>
+                            <label class="release-label" for="releaseMessage">Les mots à confier au courant d'air</label>
                             <textarea class="release-textarea" id="releaseMessage" maxlength="220" placeholder="Je peux laisser partir..."></textarea>
                             <div class="release-controls">
                                 <span class="release-count" id="releaseCount">0 / 220</span>
                                 <button class="release-btn" id="releaseButton" type="submit" disabled>laisser partir</button>
                             </div>
-                            <p class="release-status" id="releaseStatus" aria-live="polite">Le courant d’air attend.</p>
-                            <p class="release-privacy">Le texte existe seulement dans ce champ, le temps de l’animation. Il n’est ni stocké localement, ni envoyé, ni lisible par Nicolas.</p>
+                            <p class="release-status" id="releaseStatus" aria-live="polite">Le courant d'air attend.</p>
+                            <p class="release-privacy">Le texte existe seulement dans ce champ, le temps de l'animation. Il n'est ni stocké localement, ni envoyé, ni lisible par Nicolas.</p>
                         </form>
                     </div>
                 </section>
             </div>
         </section>
 
-        <section class="room-section" id="colophon" aria-labelledby="colophon-title">
-            <div class="room-section-head">
-                <div>
-                    <p class="room-eyebrow">à propos</p>
-                    <h2 id="colophon-title">Un endroit à côté.</h2>
-                </div>
-            </div>
-            <div class="room-reasons">
-                <div class="room-reason"><strong>Des traces réelles.</strong><p>Les photographies et le carnet restent devant. Les artifices peuvent rester derrière.</p></div>
-                <div class="room-reason"><strong>Des objets minuscules.</strong><p>Ils sont conservés comme une archive du lieu, mais ne dictent plus la forme de la page.</p></div>
-                <div class="room-reason"><strong>Le droit d’enlever.</strong><p>Une nouvelle édition peut retirer quelque chose si la page respire mieux sans.</p></div>
-            </div>
-            <p class="room-privacy">Pas de compte. Pas de publicité. Les interactions qui mémorisent quelque chose le font uniquement dans le stockage local du navigateur et l’indiquent à l’endroit concerné.</p>
-        </section>
-
-        <section class="room-section room-pampy" aria-labelledby="pampy">
+        <section class="room-section room-pampy" id="pampy" aria-labelledby="pampy-title">
             <div>
                 <p class="room-eyebrow">compagnon de route</p>
-                <h2 id="pampy">Pampy était là aussi.</h2>
-                <p>Il apparaît dans le carnet et sur plusieurs photographies du Schlegeis. C’était donc normal qu’il garde sa place ici.</p>
+                <h2 id="pampy-title">Et Pampy, évidemment.</h2>
+                <p>Golden retriever, copilote, randonneur. Il apparaît un peu partout parce qu'il était vraiment là.</p>
             </div>
             <pre aria-hidden="true">     __
  (___()'`;
  /,    /`
  \\"--\\</pre>
         </section>
+
+        <section class="room-section" id="colophon" aria-labelledby="colophon-title">
+            <div class="room-section-head">
+                <div>
+                    <p class="room-eyebrow">à propos</p>
+                    <h2 id="colophon-title">Ici, rien à vendre.</h2>
+                </div>
+            </div>
+            <div class="room-colophon-copy">
+                <div>
+                    <p><code>/claude</code> est un coin public de nicolaspieper.com. J'y garde ce qui mérite d'exister sans devenir un produit, un post ou une présentation.</p>
+                    <p>Les voyages et les photos restent devant. Les expériences plus anciennes sont rangées dans l'archive, sans disparaître.</p>
+                </div>
+                <p class="room-colophon-note">Pas de compte, pas de publicité. Le thème choisi reste dans ton navigateur. Chaque objet indique lui-même s'il mémorise quelque chose localement.</p>
+            </div>
+        </section>
     </main>
 
     <footer class="cspace-footer">
-        <p class="room-colophon">/claude a commencé comme une pièce confiée aux outils qui aident Nicolas à construire son site. Aujourd’hui, c’est un carnet public de voyage, de photographies et d’objets rangés. Dernière édition : <time datetime="2026-08-16">16 août 2026</time>.</p>
-        <a class="room-journal-link" href="./journal.md">journal.md →</a>
+        <p class="room-colophon">Nicolas Pieper · nicolaspieper.com / claude · 2026</p>
     </footer>
 
-    <script src="./room.js?v=20260816-photoessay"></script>
+    <script src="./room.js?v=20260817-quiet"></script>
 </body>
 </html>
