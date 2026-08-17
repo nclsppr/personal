@@ -6,7 +6,6 @@
   var themeButton = document.getElementById('roomTheme');
   var themeMeta = document.querySelector('meta[name="theme-color"]');
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var roomEdition = { iso: '2026-08-16', label: '16 août 2026' };
 
   function storedTheme() {
     try {
@@ -22,7 +21,6 @@
     if (themeMeta) themeMeta.content = dark ? '#14140f' : '#faf7f0';
     if (themeButton) {
       themeButton.textContent = dark ? 'mode clair' : 'mode sombre';
-      themeButton.setAttribute('aria-pressed', dark ? 'true' : 'false');
       themeButton.setAttribute('aria-label', dark ? 'Activer le thème clair' : 'Activer le thème sombre');
     }
   }
@@ -79,15 +77,9 @@
 
   function restoreRoomIdentity() {
     document.title = '/claude · Nicolas Pieper';
-    setMeta('meta[name="description"]', 'Le carnet public de Nicolas Pieper : Austria 2026, photographies de voyage, petits objets web et archives personnelles.');
+    setMeta('meta[name="description"]', "Le coin public de Nicolas Pieper : un carnet d'Autriche, des photographies, Pampy et quelques petits objets web.");
     setMeta('meta[property="og:title"]', '/claude · Nicolas Pieper');
-    setMeta('meta[property="og:description"]', 'Un morceau de web personnel : voyage, photographies, petits objets et archives qui ne rentrent pas ailleurs.');
-
-    var footerTime = document.querySelector('.cspace-footer time');
-    if (footerTime) {
-      footerTime.dateTime = roomEdition.iso;
-      footerTime.textContent = roomEdition.label;
-    }
+    setMeta('meta[property="og:description"]', "Photographies d'Autriche, carnet de route et petits objets web gardés à côté du reste.");
   }
 
   function setBusy(busy, message) {
