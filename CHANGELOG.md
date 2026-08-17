@@ -10,6 +10,9 @@ Historique des interventions sur le site, la plus récente en premier.
 - Documentation de la frontière de déploiement : le workflow `VPS release` publie des
   artefacts immuables sans secret Atlas, puis le réconciliateur central de `vps-infra`
   vérifie le HEAD, les checks requis, les attestations et les digests avant activation.
+- Ajout dans le README d'une procédure courte et directement visible pour publier depuis une
+  pull request vers `main`, attendre la release, ou demander un passage central immédiat sans
+  modifier `vps-infra`.
 - Ajout d'une preuve historique bornée : avant cette consolidation documentaire, le commit
   `328b535b934560fcaf6324383440a3c2a60641c4` était servi sur Atlas avec le site
   `sha256:61b478b86fd01cc73b1a080fd2a581256032bbb109ee2a47ef155a1dc09d747e` et les routes

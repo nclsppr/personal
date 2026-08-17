@@ -11,6 +11,36 @@ CV HTML avec PDF téléchargeables. Statique, sans framework ni dépendance runt
 > L'historique détaillé des interventions est dans [`CHANGELOG.md`](CHANGELOG.md).
 > Les règles pour les interventions automatisées sont dans [`AGENTS.md`](AGENTS.md).
 
+## Comment déployer sur Atlas
+
+Pour une modification normale du site, il ne faut modifier ni le code ni le contrat de
+`vps-infra` :
+
+1. créer une branche dans ce dépôt, faire la modification et ouvrir une pull request vers
+   `main` ;
+2. attendre le check `Validate VPS release`, puis fusionner la pull request ;
+3. vérifier que le workflow
+   [`VPS release`](https://github.com/nclsppr/personal/actions/workflows/vps-release.yml) du
+   nouveau commit `main` est vert ;
+4. attendre le prochain passage du workflow central, planifié toutes les dix minutes mais
+   susceptible d'être retardé par GitHub Actions. Atlas active le nouveau digest seulement
+   si le HEAD, les checks, les attestations et les probes restent valides.
+
+Pour relancer la réconciliation immédiatement après la publication verte, sans changer de
+fichier ni fournir de SHA ou de digest :
+
+```sh
+gh workflow run deploy-static-releases.yml \
+  --repo nclsppr/vps-infra \
+  --ref main
+```
+
+Ce dispatch examine Personal, Papers Empire et la démo statique Parkventory. Les tuples déjà
+actifs deviennent des no-op. Une modification de `vps-infra` est nécessaire uniquement pour
+changer la politique de déploiement, les checks requis, l'intégration Caddy ou l'activation
+d'un profil, jamais pour publier un contenu normal. Le diagnostic détaillé est dans le
+[runbook central](https://github.com/nclsppr/vps-infra/blob/main/docs/operations/static-release-reconciliation.md).
+
 ## Aperçu
 
 - **Bilingue par URLs distinctes** (`/` EN, `/fr/` FR) avec `hreflang` réciproques - pages
