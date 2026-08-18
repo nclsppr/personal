@@ -22,9 +22,9 @@ Pour une modification normale du site, il ne faut modifier ni le code ni le cont
 3. vérifier que le workflow
    [`VPS release`](https://github.com/nclsppr/personal/actions/workflows/vps-release.yml) du
    nouveau commit `main` est vert ;
-4. attendre le prochain passage du workflow central, planifié toutes les dix minutes mais
-   susceptible d'être retardé par GitHub Actions. Atlas active le nouveau digest seulement
-   si le HEAD, les checks, les attestations et les probes restent valides.
+4. attendre le prochain passage du workflow central, planifié toutes les dix minutes en
+   best-effort : GitHub Actions peut retarder son exécution. Atlas active le nouveau digest
+   seulement si le HEAD, les checks, les attestations et les probes restent valides.
 
 Pour relancer la réconciliation immédiatement après la publication verte, sans changer de
 fichier ni fournir de SHA ou de digest :
@@ -145,8 +145,9 @@ atteste leur provenance GitHub et conserve une preuve de publication pendant 30 
 dépôt ne possède aucun secret Atlas et ce workflow ne contacte pas le VPS.
 
 L'activation est ensuite prise en charge par le réconciliateur central de
-[`nclsppr/vps-infra`](https://github.com/nclsppr/vps-infra). Toutes les dix minutes, il résout
-le HEAD exact de `main`, exige les checks configurés au vert, transforme les tags
+[`nclsppr/vps-infra`](https://github.com/nclsppr/vps-infra). Son workflow est planifié toutes
+les dix minutes en best-effort : GitHub Actions peut retarder son exécution. À chaque passage,
+il résout le HEAD exact de `main`, exige les checks configurés au vert, transforme les tags
 `sha-<commit>` en digests, puis demande à Atlas de vérifier à nouveau les attestations et le
 contrat HTTP avant un basculement transactionnel. Une publication seule ne suffit donc pas à
 activer une version, et un ancien commit vert n'est pas utilisé comme repli.
