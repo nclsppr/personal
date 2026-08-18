@@ -53,6 +53,7 @@
   ];
 
   var archive = document.getElementById('objects-archive');
+  var archiveDetails = document.getElementById('archiveDetails');
   var grid = document.getElementById('archiveGrid');
   var stage = document.getElementById('archiveStage');
   var status = document.getElementById('archiveStatus');
@@ -60,7 +61,7 @@
   var activeSlug = '';
   var loading = {};
 
-  if (!archive || !grid || !stage || !status || !closeButton) return;
+  if (!archive || !archiveDetails || !grid || !stage || !status || !closeButton) return;
 
   function definitionForSlug(slug) {
     return objects.find(function (item) { return item.slug === slug; });
@@ -75,11 +76,11 @@
     if (element) element.setAttribute('content', content);
   }
 
-  function restoreRoomIdentity() {
+  function restorePageIdentity() {
     document.title = '/claude · Nicolas Pieper';
-    setMeta('meta[name="description"]', "Le coin public de Nicolas Pieper : un carnet d'Autriche, des photographies, Pampy et quelques petits objets web.");
+    setMeta('meta[name="description"]', "Un coin personnel de Nicolas Pieper : photos d'Autriche avec Pampy, carnet de route et archive de petits objets web.");
     setMeta('meta[property="og:title"]', '/claude · Nicolas Pieper');
-    setMeta('meta[property="og:description"]', "Photographies d'Autriche, carnet de route et petits objets web gardés à côté du reste.");
+    setMeta('meta[property="og:description"]', "Autriche 2026 avec Pampy, photographies, carnet de route et quelques expériences web conservées en archive.");
   }
 
   function setBusy(busy, message) {
@@ -157,7 +158,8 @@
     var panel = normalizePanel(definition);
     if (!panel) throw new Error('archive panel missing');
 
-    restoreRoomIdentity();
+    restorePageIdentity();
+    archiveDetails.open = true;
     activeSlug = definition.slug;
     panel.hidden = false;
     stage.hidden = false;
@@ -179,6 +181,7 @@
       return;
     }
 
+    archiveDetails.open = true;
     setBusy(true, 'Ouverture de l\u2019objet...');
     ensureScript(definition).then(function () {
       showObject(definition, updateHash);
@@ -187,8 +190,8 @@
       activeSlug = '';
       markActive('');
       stage.hidden = true;
-      restoreRoomIdentity();
-      setBusy(false, 'Cet objet n\u2019a pas pu être ouvert. Réessaie dans un instant.');
+      restorePageIdentity();
+      setBusy(false, 'Cet objet n\u2019a pas pu être ouvert.');
     });
   }
 
@@ -197,7 +200,7 @@
     hidePanels();
     stage.hidden = true;
     markActive('');
-    restoreRoomIdentity();
+    restorePageIdentity();
     status.textContent = 'Aucun objet ouvert.';
     if (updateHash) writeHash('');
   }
@@ -210,10 +213,15 @@
 
   closeButton.addEventListener('click', function () { closeObject(true); });
 
+  archiveDetails.addEventListener('toggle', function () {
+    if (!archiveDetails.open && activeSlug) closeObject(true);
+  });
+
   hidePanels();
-  restoreRoomIdentity();
+  restorePageIdentity();
 
   if (window.location.hash.indexOf('#piece-') === 0) {
+    archiveDetails.open = true;
     openObject(definitionForSlug(window.location.hash.slice(7)), false);
   }
 })();
