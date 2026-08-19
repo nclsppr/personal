@@ -36,7 +36,7 @@
   }
 
   var objects = [
-    { id: 'releasePanel', slug: 'courant-air', title: 'Le courant d\u2019air', date: '28 juil.', src: './release.js?v=20260815-real' },
+    { id: 'releasePanel', slug: 'courant-air', title: 'Le courant d\u2019air', date: '28 juil.', src: './release.js?v=20260819-archive', css: './release.css?v=20260819-archive' },
     { id: 'decisionPanel', slug: 'piece-indecise', title: 'La pièce indécise', date: '29 juil.', src: './decision.js?v=20260729-choice' },
     { id: 'pausePanel', slug: 'minute-sans-rendement', title: 'La minute sans rendement', date: '30 juil.', src: './pause.js?v=20260730-pause' },
     { id: 'helloPanel', slug: 'pretexte-a-ecrire', title: 'Le prétexte à écrire', date: '31 juil.', src: './hello.js?v=20260731-hello' },
@@ -60,6 +60,7 @@
   var closeButton = document.getElementById('archiveClose');
   var activeSlug = '';
   var loading = {};
+  var styleLoading = {};
 
   if (!archive || !archiveDetails || !grid || !stage || !status || !closeButton) return;
 
@@ -78,9 +79,9 @@
 
   function restorePageIdentity() {
     document.title = '/claude · Nicolas Pieper';
-    setMeta('meta[name="description"]', "Un coin personnel de Nicolas Pieper : photos d'Autriche avec Pampy, carnet de route et archive de petits objets web.");
+    setMeta('meta[name="description"]', "Un carnet photo personnel de Nicolas Pieper : Autriche 2026 avec Pampy, notes de route et une petite archive web.");
     setMeta('meta[property="og:title"]', '/claude · Nicolas Pieper');
-    setMeta('meta[property="og:description"]', "Autriche 2026 avec Pampy, photographies, carnet de route et quelques expériences web conservées en archive.");
+    setMeta('meta[property="og:description"]', "Autriche 2026 avec Pampy : photographies, carnet de route et quelques petites choses web gardées en archive.");
   }
 
   function setBusy(busy, message) {
@@ -112,36 +113,76 @@
     return panel;
   }
 
-  function ensureScript(definition) {
-    if (loading[definition.slug]) return loading[definition.slug];
+  function ensureStyle(definition) {
+    if (!definition.css) return Promise.resolve();
+    if (styleLoading[definition.slug]) return styleLoading[definition.slug];
 
-    var selector = 'script[data-room-object="' + definition.slug + '"]';
+    var selector = 'link[data-room-style="' + definition.slug + '"]';
     var existing = document.querySelector(selector);
     if (existing && existing.dataset.loaded === 'true') return Promise.resolve();
 
-    loading[definition.slug] = new Promise(function (resolve, reject) {
-      var script = existing || document.createElement('script');
+    styleLoading[definition.slug] = new Promise(function (resolve, reject) {
+      var link = existing || document.createElement('link');
 
       function loaded() {
-        script.dataset.loaded = 'true';
+        link.dataset.loaded = 'true';
         resolve();
       }
 
       function failed() {
-        delete loading[definition.slug];
-        if (script.parentElement) script.remove();
-        reject(new Error('archive script failed'));
+        delete styleLoading[definition.slug];
+        if (link.parentElement) link.remove();
+        reject(new Error('archive stylesheet failed'));
       }
 
-      script.addEventListener('load', loaded, { once: true });
-      script.addEventListener('error', failed, { once: true });
+      link.addEventListener('load', loaded, { once: true });
+      link.addEventListener('error', failed, { once: true });
 
       if (!existing) {
-        script.src = definition.src;
-        script.async = false;
-        script.dataset.roomObject = definition.slug;
-        document.body.appendChild(script);
+        link.rel = 'stylesheet';
+        link.href = definition.css;
+        link.dataset.roomStyle = definition.slug;
+        document.head.appendChild(link);
       }
+    });
+
+    return styleLoading[definition.slug];
+  }
+
+  function ensureScript(definition) {
+    if (loading[definition.slug]) return loading[definition.slug];
+
+    loading[definition.slug] = ensureStyle(definition).then(function () {
+      var selector = 'script[data-room-object="' + definition.slug + '"]';
+      var existing = document.querySelector(selector);
+      if (existing && existing.dataset.loaded === 'true') return;
+
+      return new Promise(function (resolve, reject) {
+        var script = existing || document.createElement('script');
+
+        function loaded() {
+          script.dataset.loaded = 'true';
+          resolve();
+        }
+
+        function failed() {
+          if (script.parentElement) script.remove();
+          reject(new Error('archive script failed'));
+        }
+
+        script.addEventListener('load', loaded, { once: true });
+        script.addEventListener('error', failed, { once: true });
+
+        if (!existing) {
+          script.src = definition.src;
+          script.async = false;
+          script.dataset.roomObject = definition.slug;
+          document.body.appendChild(script);
+        }
+      });
+    }).catch(function (error) {
+      delete loading[definition.slug];
+      throw error;
     });
 
     return loading[definition.slug];
