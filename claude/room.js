@@ -2,41 +2,24 @@
   'use strict';
 
   var root = document.documentElement;
-  var themeKey = 'claude-space-theme';
-  var themeButton = document.getElementById('roomTheme');
   var themeMeta = document.querySelector('meta[name="theme-color"]');
+  var colorScheme = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function storedTheme() {
-    try {
-      var value = localStorage.getItem(themeKey);
-      if (value === 'light' || value === 'dark') return value;
-    } catch (error) {}
-    return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-  }
-
-  function applyTheme(theme) {
-    var dark = theme !== 'light';
+  function applySystemTheme() {
+    var dark = colorScheme && colorScheme.matches;
     root.dataset.ctheme = dark ? 'dark' : 'light';
-    if (themeMeta) themeMeta.content = dark ? '#14140f' : '#faf7f0';
-    if (themeButton) {
-      themeButton.textContent = dark ? 'mode clair' : 'mode sombre';
-      themeButton.setAttribute('aria-label', dark ? 'Activer le thème clair' : 'Activer le thème sombre');
-    }
+    if (themeMeta) themeMeta.content = dark ? '#171711' : '#f3efe5';
   }
 
-  applyTheme(storedTheme());
-
-  if (themeButton) {
-    themeButton.addEventListener('click', function () {
-      var next = root.dataset.ctheme === 'dark' ? 'light' : 'dark';
-      applyTheme(next);
-      try { localStorage.setItem(themeKey, next); } catch (error) {}
-    });
+  applySystemTheme();
+  if (colorScheme) {
+    if (colorScheme.addEventListener) colorScheme.addEventListener('change', applySystemTheme);
+    else if (colorScheme.addListener) colorScheme.addListener(applySystemTheme);
   }
 
   var objects = [
-    { id: 'releasePanel', slug: 'courant-air', title: 'Le courant d\u2019air', date: '28 juil.', src: './release.js?v=20260819-archive', css: './release.css?v=20260819-archive' },
+    { id: 'releasePanel', slug: 'courant-air', title: 'Le courant d\u2019air', date: '28 juil.', src: './release.js?v=20260821-archive', css: './release.css?v=20260821-archive' },
     { id: 'decisionPanel', slug: 'piece-indecise', title: 'La pièce indécise', date: '29 juil.', src: './decision.js?v=20260729-choice' },
     { id: 'pausePanel', slug: 'minute-sans-rendement', title: 'La minute sans rendement', date: '30 juil.', src: './pause.js?v=20260730-pause' },
     { id: 'helloPanel', slug: 'pretexte-a-ecrire', title: 'Le prétexte à écrire', date: '31 juil.', src: './hello.js?v=20260731-hello' },
@@ -78,10 +61,10 @@
   }
 
   function restorePageIdentity() {
-    document.title = '/claude · Nicolas Pieper';
-    setMeta('meta[name="description"]', "Un carnet photo personnel de Nicolas Pieper : Autriche 2026 avec Pampy, notes de route et une petite archive web.");
-    setMeta('meta[property="og:title"]', '/claude · Nicolas Pieper');
-    setMeta('meta[property="og:description"]', "Autriche 2026 avec Pampy : photographies, carnet de route et quelques petites choses web gardées en archive.");
+    document.title = 'Carnets · Nicolas Pieper';
+    setMeta('meta[name="description"]', 'Photos, carnets de route et petites expériences web personnelles de Nicolas Pieper.');
+    setMeta('meta[property="og:title"]', 'Carnets · Nicolas Pieper');
+    setMeta('meta[property="og:description"]', 'Un coin personnel de nicolaspieper.com : photos, carnet d’Autriche 2026 et petites choses web gardées en archive.');
   }
 
   function setBusy(busy, message) {
@@ -119,7 +102,7 @@
 
     var selector = 'link[data-room-style="' + definition.slug + '"]';
     var existing = document.querySelector(selector);
-    if (existing && existing.dataset.loaded === 'true') return Promise.resolve();
+    if (existing && (existing.dataset.loaded === 'true' || existing.sheet)) return Promise.resolve();
 
     styleLoading[definition.slug] = new Promise(function (resolve, reject) {
       var link = existing || document.createElement('link');
