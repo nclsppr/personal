@@ -9,7 +9,7 @@
   function applySystemTheme() {
     var dark = colorScheme && colorScheme.matches;
     root.dataset.ctheme = dark ? 'dark' : 'light';
-    if (themeMeta) themeMeta.content = dark ? '#171711' : '#f3efe5';
+    if (themeMeta) themeMeta.content = dark ? '#151511' : '#f3efe5';
   }
 
   applySystemTheme();
@@ -61,10 +61,10 @@
   }
 
   function restorePageIdentity() {
-    document.title = 'Carnets · Nicolas Pieper';
-    setMeta('meta[name="description"]', 'Photos, carnets de route et petites expériences web personnelles de Nicolas Pieper.');
-    setMeta('meta[property="og:title"]', 'Carnets · Nicolas Pieper');
-    setMeta('meta[property="og:description"]', 'Un coin personnel de nicolaspieper.com : photos, carnet d’Autriche 2026 et petites choses web gardées en archive.');
+    document.title = '/claude · Nicolas Pieper';
+    setMeta('meta[name="description"]', 'Un carnet photo personnel de Nicolas Pieper, avec Pampy sur les routes d’Autriche et quelques expériences web gardées en archive.');
+    setMeta('meta[property="og:title"]', '/claude · Nicolas Pieper');
+    setMeta('meta[property="og:description"]', 'Nicolas, Pampy, l’Autriche en 2026 et quelques essais web gardés dans un tiroir.');
   }
 
   function setBusy(busy, message) {
