@@ -9,7 +9,7 @@
   function applySystemTheme() {
     var dark = colorScheme && colorScheme.matches;
     root.dataset.ctheme = dark ? 'dark' : 'light';
-    if (themeMeta) themeMeta.content = dark ? '#151511' : '#f3efe5';
+    if (themeMeta) themeMeta.content = dark ? '#262624' : '#FAF9F5';
   }
 
   applySystemTheme();
@@ -42,6 +42,7 @@
   var status = document.getElementById('archiveStatus');
   var closeButton = document.getElementById('archiveClose');
   var activeSlug = '';
+  var lastTrigger = null;
   var loading = {};
   var styleLoading = {};
 
@@ -55,6 +56,10 @@
     return grid.querySelectorAll('.archive-button');
   }
 
+  function buttonForSlug(slug) {
+    return grid.querySelector('.archive-button[data-object="' + slug + '"]');
+  }
+
   function setMeta(selector, content) {
     var element = document.querySelector(selector);
     if (element) element.setAttribute('content', content);
@@ -62,9 +67,9 @@
 
   function restorePageIdentity() {
     document.title = '/claude · Nicolas Pieper';
-    setMeta('meta[name="description"]', 'Un carnet photo personnel de Nicolas Pieper, avec Pampy sur les routes d’Autriche et quelques expériences web gardées en archive.');
+    setMeta('meta[name="description"]', 'Photos, notes et petites expériences web de Nicolas Pieper. Un carnet d\u2019Autriche avec Pampy et quatorze objets archivés.');
     setMeta('meta[property="og:title"]', '/claude · Nicolas Pieper');
-    setMeta('meta[property="og:description"]', 'Nicolas, Pampy, l’Autriche en 2026 et quelques essais web gardés dans un tiroir.');
+    setMeta('meta[property="og:description"]', 'Un carnet d\u2019Autriche avec Pampy, puis quatorze petites expériences web gardées en archive.');
   }
 
   function setBusy(busy, message) {
@@ -191,17 +196,34 @@
     status.textContent = definition.title + ' · ' + definition.date;
     if (updateHash) writeHash(definition.slug);
 
-    if (!reduceMotion) {
-      window.requestAnimationFrame(function () {
-        stage.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    }
+    window.requestAnimationFrame(function () {
+      stage.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    });
   }
 
-  function openObject(definition, updateHash) {
+  function restoreTriggerFocus() {
+    var target = lastTrigger && document.contains(lastTrigger) ? lastTrigger : archiveDetails.querySelector('summary');
+    if (!target) return;
+    window.requestAnimationFrame(function () { target.focus(); });
+  }
+
+  function closeObject(updateHash, restoreFocus) {
+    activeSlug = '';
+    hidePanels();
+    stage.hidden = true;
+    markActive('');
+    restorePageIdentity();
+    status.textContent = 'Aucun objet ouvert.';
+    if (updateHash) writeHash('');
+    if (restoreFocus) restoreTriggerFocus();
+  }
+
+  function openObject(definition, updateHash, trigger) {
     if (!definition) return;
+    if (trigger) lastTrigger = trigger;
+
     if (activeSlug === definition.slug) {
-      closeObject(updateHash);
+      closeObject(updateHash, true);
       return;
     }
 
@@ -219,33 +241,33 @@
     });
   }
 
-  function closeObject(updateHash) {
-    activeSlug = '';
-    hidePanels();
-    stage.hidden = true;
-    markActive('');
-    restorePageIdentity();
-    status.textContent = 'Aucun objet ouvert.';
-    if (updateHash) writeHash('');
-  }
-
   grid.addEventListener('click', function (event) {
     var button = event.target.closest('.archive-button');
     if (!button) return;
-    openObject(definitionForSlug(button.dataset.object), true);
+    openObject(definitionForSlug(button.dataset.object), true, button);
   });
 
-  closeButton.addEventListener('click', function () { closeObject(true); });
+  closeButton.addEventListener('click', function () {
+    closeObject(true, true);
+  });
 
   archiveDetails.addEventListener('toggle', function () {
-    if (!archiveDetails.open && activeSlug) closeObject(true);
+    if (!archiveDetails.open && activeSlug) closeObject(true, false);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key !== 'Escape' || !activeSlug) return;
+    event.preventDefault();
+    closeObject(true, true);
   });
 
   hidePanels();
   restorePageIdentity();
 
   if (window.location.hash.indexOf('#piece-') === 0) {
+    var initialSlug = window.location.hash.slice(7);
     archiveDetails.open = true;
-    openObject(definitionForSlug(window.location.hash.slice(7)), false);
+    lastTrigger = buttonForSlug(initialSlug);
+    openObject(definitionForSlug(initialSlug), false, lastTrigger);
   }
 })();
