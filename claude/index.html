@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>/claude · Nicolas Pieper</title>
-    <meta name="description" content="Un carnet photo personnel de Nicolas Pieper, avec Pampy sur les routes d’Autriche et quelques expériences web gardées en archive.">
+    <meta name="description" content="Photos, notes et petites expériences web de Nicolas Pieper. Un carnet d’Autriche avec Pampy et quatorze objets archivés.">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="/claude · Nicolas Pieper">
-    <meta property="og:description" content="Nicolas, Pampy, l’Autriche en 2026 et quelques essais web gardés dans un tiroir.">
+    <meta property="og:description" content="Un carnet d’Autriche avec Pampy, puis quatorze petites expériences web gardées en archive.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nicolaspieper.com/claude/">
     <meta property="og:image" content="https://nicolaspieper.com/claude/roadtrip-austria-2026/assets/schlegeis-nicolas-pampy-real.webp">
@@ -17,79 +17,64 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://nicolaspieper.com/claude/">
     <link rel="icon" type="image/svg+xml" sizes="any" href="/assets/img/claude-mark.svg">
-    <meta name="theme-color" content="#f3efe5">
+    <meta name="theme-color" content="#FAF9F5">
+    <link rel="preload" href="/assets/fonts/sourceserif4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/jetbrainsmono-var-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="./folio.css?v=20260822-contact-sheet">
+    <link rel="stylesheet" href="./folio.css?v=20260823-one-story">
 </head>
 <body class="claude-space">
     <a class="skip-link" href="#main">Aller au contenu</a>
 
     <header class="site-head">
         <a class="site-name" href="/">Nicolas Pieper</a>
-        <p>/claude · 2026</p>
+        <p>/claude</p>
     </header>
 
     <main id="main" class="site-main">
-        <article class="feature feature--lead" id="austria" aria-labelledby="austria-title">
-            <figure class="feature-photo">
+        <article class="lead" id="austria" aria-labelledby="austria-title">
+            <div class="lead-copy">
+                <p class="eyebrow">Autriche · été 2026</p>
+                <h1 id="austria-title">Autriche<br>2026</h1>
+                <p class="lede">Tux, Schlegeis, Krimml, Grossglockner, Gosau, Salzburg. Quelques jours sur la route avec Pampy. Les photos de Tux et du Schlegeis, puis les étapes du retour.</p>
+
+                <dl class="trip-facts">
+                    <div>
+                        <dt>dates</dt>
+                        <dd>31.07 - 12.08.26</dd>
+                    </div>
+                    <div>
+                        <dt>avec</dt>
+                        <dd>Pampy</dd>
+                    </div>
+                </dl>
+
+                <a class="text-link" href="./roadtrip-austria-2026/">Ouvrir le carnet <span aria-hidden="true">↗</span></a>
+            </div>
+
+            <figure class="lead-photo">
                 <a href="./roadtrip-austria-2026/" aria-label="Ouvrir le carnet Autriche 2026">
                     <img src="./roadtrip-austria-2026/assets/schlegeis-nicolas-pampy-real.webp" width="1152" height="1536" fetchpriority="high" decoding="async" alt="Nicolas enlace Pampy devant le lac et les montagnes de Schlegeis">
                 </a>
-                <figcaption><span>Schlegeis · Tyrol</span><span>02.08.26</span></figcaption>
+                <figcaption>
+                    <span>Schlegeis · Tyrol</span>
+                    <span>02.08.26</span>
+                </figcaption>
             </figure>
-
-            <div class="feature-copy">
-                <p class="entry-no">01 / Autriche</p>
-                <h1 id="austria-title">Nicolas<br>+ Pampy.</h1>
-                <p class="feature-date">31.07 — 12.08.26</p>
-                <p>Tux, Schlegeis, Krimml, Grossglockner, Gosau, Salzburg. Une route, un chien de 40 kg, et les photos qu’on avait encore envie de regarder une fois rentrés.</p>
-                <a class="text-link" href="./roadtrip-austria-2026/">Voir le carnet complet <span aria-hidden="true">↗</span></a>
-            </div>
         </article>
-
-        <section class="contact-sheet" aria-labelledby="contact-title">
-            <header class="section-head">
-                <p class="entry-no">Planche-contact</p>
-                <h2 id="contact-title">Quatre autres vues.</h2>
-            </header>
-
-            <div class="contact-grid">
-                <a href="./roadtrip-austria-2026/" class="contact-item">
-                    <img src="./roadtrip-austria-2026/assets/schlegeis-panorama-real.webp" loading="lazy" decoding="async" alt="Lac et montagnes au Schlegeis vus depuis le chemin">
-                    <span class="contact-index">01</span>
-                    <span class="contact-caption">Schlegeis · le chemin</span>
-                </a>
-                <a href="./roadtrip-austria-2026/" class="contact-item">
-                    <img src="./roadtrip-austria-2026/assets/tux-tirolerhof-walk-real.webp" loading="lazy" decoding="async" alt="Chemin de promenade autour du Tirolerhof à Tux">
-                    <span class="contact-index">02</span>
-                    <span class="contact-caption">Tux · autour du Tirolerhof</span>
-                </a>
-                <a href="./roadtrip-austria-2026/" class="contact-item contact-item--portrait">
-                    <img src="./roadtrip-austria-2026/assets/schlegeis-pampy-overlook-real.webp" loading="lazy" decoding="async" alt="Pampy sur les hauteurs avec le Schlegeis en arrière-plan">
-                    <span class="contact-index">03</span>
-                    <span class="contact-caption">Pampy · au-dessus du lac</span>
-                </a>
-                <a href="./roadtrip-austria-2026/" class="contact-item">
-                    <img src="./roadtrip-austria-2026/assets/tux-tirolerhof-stream-real.webp" loading="lazy" decoding="async" alt="Ruisseau près du Tirolerhof à Tux">
-                    <span class="contact-index">04</span>
-                    <span class="contact-caption">Tux · le ruisseau</span>
-                </a>
-            </div>
-        </section>
 
         <section class="archive" id="objects-archive" aria-labelledby="archive-title">
             <details class="archive-disclosure" id="archiveDetails">
                 <summary>
                     <span>
-                        <small class="entry-no">02 / archive</small>
-                        <strong class="archive-summary-title" id="archive-title">14 essais web</strong>
-                        <small class="archive-summary-meta">28 juillet — 11 août 2026</small>
+                        <small class="eyebrow">Petites choses web</small>
+                        <strong class="archive-summary-title" id="archive-title">14 objets</strong>
+                        <small class="archive-summary-meta">28.07 - 11.08.26</small>
                     </span>
                 </summary>
 
                 <div class="archive-body">
-                    <p class="archive-intro">Une série fabriquée cet été. Les objets restent jouables ici, mais aucun n’est chargé avant d’être ouvert.</p>
+                    <p class="archive-intro">Quatorze petites expériences faites entre fin juillet et mi-août. Leur code n’est chargé qu’au moment où on les ouvre, et rien n’est envoyé ailleurs.</p>
 
                     <div class="archive-grid" id="archiveGrid" role="list">
                         <div class="archive-item" role="listitem"><button class="archive-button" type="button" data-object="courant-air" aria-expanded="false" aria-controls="releasePanel"><span class="archive-date">28.07</span><strong class="archive-object-title">Le courant d'air</strong></button></div>
@@ -107,6 +92,10 @@
                         <div class="archive-item" role="listitem"><button class="archive-button" type="button" data-object="bureau-avant-bruit" aria-expanded="false" aria-controls="mondayPanel"><span class="archive-date">10.08</span><strong class="archive-object-title">Le bureau avant le bruit</strong></button></div>
                         <div class="archive-item" role="listitem"><button class="archive-button" type="button" data-object="sablier-sans-alarme" aria-expanded="false" aria-controls="hourglassPanel"><span class="archive-date">11.08</span><strong class="archive-object-title">Le sablier sans alarme</strong></button></div>
                     </div>
+
+                    <noscript>
+                        <p class="archive-noscript">Les objets interactifs demandent JavaScript. Le carnet photo, lui, reste entièrement accessible sans.</p>
+                    </noscript>
 
                     <div class="archive-stage" id="archiveStage" hidden>
                         <div class="archive-toolbar">
@@ -143,16 +132,16 @@
         </section>
 
         <section class="colophon" aria-label="À propos de cette page">
-            <p class="entry-no">03 / note</p>
-            <p>Photos personnelles, HTML/CSS/JS, pas d’analytics sur cette page. Les 14 essais tournent uniquement dans le navigateur.</p>
+            <p class="eyebrow">Colophon</p>
+            <p>Photos personnelles. HTML, CSS et JavaScript. Pas d’analytics sur cette page.</p>
         </section>
     </main>
 
     <footer class="site-foot">
         <p>Nicolas Pieper · 2026</p>
-        <p>photos, notes, HTML</p>
+        <p>photos + web</p>
     </footer>
 
-    <script src="./room.js?v=20260822-contact-sheet"></script>
+    <script src="./room.js?v=20260823-one-story"></script>
 </body>
 </html>
