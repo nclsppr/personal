@@ -5,6 +5,12 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-08-23 - Configuration des skills d'ingénierie
+
+- GitHub Issues devient le suivi déclaré pour les tickets et les spécifications des skills.
+- Les cinq labels de triage canoniques sont conservés sans renommage.
+- Le dépôt adopte un contexte de domaine unique, documenté sous `docs/agents/` sans créer de contexte ou d'ADR vide.
+
 ## 2026-08-18 - Réconciliation automatique par Atlas
 
 - Documentation de la frontière de déploiement : le workflow `VPS release` publie des
