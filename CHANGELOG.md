@@ -10,6 +10,7 @@ Historique des interventions sur le site, la plus récente en premier.
 - GitHub Issues devient le suivi déclaré pour les tickets et les spécifications des skills.
 - Les cinq labels de triage canoniques sont conservés sans renommage.
 - Le dépôt adopte un contexte de domaine unique, documenté sous `docs/agents/` sans créer de contexte ou d'ADR vide.
+- La lecture structurée et les limites explicites évitent les files de triage tronquées.
 
 ## 2026-08-18 - Réconciliation automatique par Atlas
 
