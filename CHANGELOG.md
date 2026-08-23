@@ -5,18 +5,18 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-08-23 - Registre des secrets Atlas obligatoire
+
+- Ajout d'une règle d'intervention qui impose la mise à jour du registre des
+  secrets Atlas dans `nclsppr/vps-infra` avant de terminer toute tâche qui
+  prévoit ou exige le déploiement, la rotation ou la révocation d'un secret.
+
 ## 2026-08-23 - Configuration des skills d'ingénierie
 
 - GitHub Issues devient le suivi déclaré pour les tickets et les spécifications des skills.
 - Les cinq labels de triage canoniques sont conservés sans renommage.
 - Le dépôt adopte un contexte de domaine unique, documenté sous `docs/agents/` sans créer de contexte ou d'ADR vide.
 - La lecture structurée et les limites explicites évitent les files de triage tronquées.
-
-## 2026-08-23 - Registre des secrets Atlas obligatoire
-
-- Ajout d'une règle d'intervention qui impose la mise à jour du registre des
-  secrets Atlas dans `nclsppr/vps-infra` avant de terminer toute tâche qui
-  prévoit ou exige le déploiement, la rotation ou la révocation d'un secret.
 
 ## 2026-08-18 - Réconciliation automatique par Atlas
 
