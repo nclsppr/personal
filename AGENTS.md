@@ -84,6 +84,21 @@ Voir [`README.md`](README.md) pour l'architecture et [`CHANGELOG.md`](CHANGELOG.
   **Le système de design complet (couleurs, typo, mesures, mouvement, familles d'images
   Swiss vs sticker et blocs de prompt) est dans [`DESIGN.md`](DESIGN.md).**
 
+## Agent skills
+
+### Issue tracker
+
+Les tickets et les spécifications des skills vivent dans GitHub Issues. Voir `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Le triage utilise les cinq labels canoniques sans renommage. Voir `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Le dépôt utilise le mode `single-context` pour ses éventuels documents de
+domaine et ADR. Voir `docs/agents/domain.md`.
+
 ## Avant de committer
 
 Tester la modification sur : **mobile + desktop**, **clair + sombre**, et l'**impression**

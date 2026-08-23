@@ -139,6 +139,9 @@ Tester systématiquement : **mobile + desktop**, **clair + sombre**, et l'**impr
 
 Push sur `main` → GitHub Pages sert le repo tel quel. Le domaine custom est fixé par `CNAME`.
 
+Les fichiers `docs/agents/*.md` sont donc des instructions publiques du dépôt. Aucune page ni
+le sitemap ne les lie. L'allowlist de `scripts/build-vps-release.sh` les exclut de l'artefact Atlas.
+
 Le workflow `VPS release` construit en parallèle une archive publique par allowlist et un
 inventaire complet des routes. Il publie les deux objets dans GHCR avec un digest immuable,
 atteste leur provenance GitHub et conserve une preuve de publication pendant 30 jours. Le
