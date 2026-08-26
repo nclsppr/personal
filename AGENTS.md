@@ -3,10 +3,6 @@
 Règles pour toute intervention automatisée (Claude Code, Codex, etc.) sur ce dépôt.
 Voir [`README.md`](README.md) pour l'architecture et [`CHANGELOG.md`](CHANGELOG.md) pour l'historique.
 
-## Secrets Atlas
-
-- Toute tâche qui prévoit ou exige le déploiement, la rotation ou la révocation d'un secret sur Atlas doit aussi mettre à jour `nclsppr/vps-infra` avant sa clôture. Ajouter ou mettre à jour ce secret dans `secrets/registry.json`, le registre canonique requis pour reconstruire Atlas depuis un hôte vierge. Versionner seulement le contrat et les métadonnées, jamais la valeur, un condensat dérivé de la valeur, un fichier déchiffré ou un chemin source privé. Si la tâche n'autorise pas la modification de `vps-infra`, signaler le blocage et ne pas déclarer le travail terminé.
-
 ## Vérité et contenu
 
 - Ne jamais inventer de métrique, de responsabilité, de client, de produit ou de technologie.

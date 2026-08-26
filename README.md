@@ -11,35 +11,25 @@ CV HTML avec PDF téléchargeables. Statique, sans framework ni dépendance runt
 > L'historique détaillé des interventions est dans [`CHANGELOG.md`](CHANGELOG.md).
 > Les règles pour les interventions automatisées sont dans [`AGENTS.md`](AGENTS.md).
 
-## Comment déployer sur Atlas
+## Comment publier sur GitHub Pages
 
-Pour une modification normale du site, il ne faut modifier ni le code ni le contrat de
-`vps-infra` :
+Le dépôt et GitHub Pages forment l'unique chaîne de publication :
 
 1. créer une branche dans ce dépôt, faire la modification et ouvrir une pull request vers
    `main` ;
-2. attendre le check `Validate VPS release`, puis fusionner la pull request ;
-3. vérifier que le workflow
-   [`VPS release`](https://github.com/nclsppr/personal/actions/workflows/vps-release.yml) du
-   nouveau commit `main` est vert ;
-4. attendre le prochain passage du workflow central, planifié toutes les dix minutes en
-   best-effort : GitHub Actions peut retarder son exécution. Atlas active le nouveau digest
-   seulement si le HEAD, les checks, les attestations et les probes restent valides.
+2. attendre le check requis `Validate site`, puis fusionner la pull request ;
+3. attendre que GitHub Pages indique `built` pour le commit exact de `main` ;
+4. vérifier le domaine public, les routes modifiées et leurs métadonnées canoniques.
 
-Pour relancer la réconciliation immédiatement après la publication verte, sans changer de
-fichier ni fournir de SHA ou de digest :
+La dernière publication se vérifie avec :
 
 ```sh
-gh workflow run deploy-static-releases.yml \
-  --repo nclsppr/vps-infra \
-  --ref main
+gh api repos/nclsppr/personal/pages/builds/latest \
+  --jq '{status, commit, error}'
 ```
 
-Ce dispatch examine Personal, Papers Empire et la démo statique Parkventory. Les tuples déjà
-actifs deviennent des no-op. Une modification de `vps-infra` est nécessaire uniquement pour
-changer la politique de déploiement, les checks requis, l'intégration Caddy ou l'activation
-d'un profil, jamais pour publier un contenu normal. Le diagnostic détaillé est dans le
-[runbook central](https://github.com/nclsppr/vps-infra/blob/main/docs/operations/static-release-reconciliation.md).
+Le champ `commit` doit correspondre au HEAD de `main`. Un build vert plus ancien ne prouve
+pas que la dernière version est publiée.
 
 ## Aperçu
 
@@ -133,6 +123,9 @@ gardent la même structure, les mêmes sections/ancres, et chaque texte est la t
 Un hook `git commit` (`~/Developer/.claude/hooks/check-i18n-parity.py`) bloque le commit si
 la parité *structurelle* diverge. La parité *sémantique* reste vérifiée par relecture.
 
+Le workflow `Site validation` exécute aussi `python3 scripts/validate-site.py`. Il vérifie le
+domaine canonique, les fichiers indispensables, les routes du sitemap et la structure bilingue.
+
 Tester systématiquement : **mobile + desktop**, **clair + sombre**, et l'**impression** du CV.
 
 ## Déploiement
@@ -140,31 +133,8 @@ Tester systématiquement : **mobile + desktop**, **clair + sombre**, et l'**impr
 Push sur `main` → GitHub Pages sert le repo tel quel. Le domaine custom est fixé par `CNAME`.
 
 Les fichiers `docs/agents/*.md` sont donc des instructions publiques du dépôt. Aucune page ni
-le sitemap ne les lie. L'allowlist de `scripts/build-vps-release.sh` les exclut de l'artefact Atlas.
-
-Le workflow `VPS release` construit en parallèle une archive publique par allowlist et un
-inventaire complet des routes. Il publie les deux objets dans GHCR avec un digest immuable,
-atteste leur provenance GitHub et conserve une preuve de publication pendant 30 jours. Le
-dépôt ne possède aucun secret Atlas et ce workflow ne contacte pas le VPS.
-
-L'activation est ensuite prise en charge par le réconciliateur central de
-[`nclsppr/vps-infra`](https://github.com/nclsppr/vps-infra). Son workflow est planifié toutes
-les dix minutes en best-effort : GitHub Actions peut retarder son exécution. À chaque passage,
-il résout le HEAD exact de `main`, exige les checks configurés au vert, transforme les tags
-`sha-<commit>` en digests, puis demande à Atlas de vérifier à nouveau les attestations et le
-contrat HTTP avant un basculement transactionnel. Une publication seule ne suffit donc pas à
-activer une version, et un ancien commit vert n'est pas utilisé comme repli.
-
-Preuve historique observée le 18 août 2026, avant cette consolidation documentaire : le commit
-`328b535b934560fcaf6324383440a3c2a60641c4`, publié par le run Actions
-[`32008106067`](https://github.com/nclsppr/personal/actions/runs/32008106067), était actif sur
-Atlas avec le site
-`sha256:61b478b86fd01cc73b1a080fd2a581256032bbb109ee2a47ef155a1dc09d747e` et les routes
-`sha256:7109f8e15853b15948eaef0c920e5e0f1265d6d74710278b456b4600163f58be`. Le run central
-[`32078379931`](https://github.com/nclsppr/vps-infra/actions/runs/32078379931) a ensuite
-confirmé le job Personal sur Atlas. Le commit qui ajoute cette note produit lui-même un
-nouveau candidat. L'état courant se vérifie dans le workflow central et sur Atlas, jamais en
-déduisant qu'un digest historique reste actif.
+le sitemap ne les lie. Seuls les fichiers du dépôt explicitement accessibles par une URL sont
+servis par GitHub Pages.
 
 ## Principes de conception
 

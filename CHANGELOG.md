@@ -5,6 +5,16 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-08-26 - Publication GitHub Pages unique
+
+- Le domaine canonique est publié directement par GitHub Pages avec HTTPS forcé.
+- Le check requis `Validate site` remplace l'ancienne chaîne de publication parallèle. Il
+  vérifie le domaine, les fichiers indispensables, le sitemap et la structure FR/EN.
+- Le workflow et le script d'empaquetage devenus inutiles sont supprimés, ainsi que leur
+  documentation et leurs règles spécifiques.
+- Les redirections Cloudflare de `pieper.fr`, `www.pieper.fr` et `nicolas.pieper.fr` restent
+  indépendantes et continuent de préserver chemins et paramètres de requête.
+
 ## 2026-08-26 - Redirections canoniques Cloudflare
 
 - `pieper.fr`, `www.pieper.fr` et `nicolas.pieper.fr` utilisent désormais une
@@ -22,38 +32,6 @@ Historique des interventions sur le site, la plus récente en premier.
 - Les cinq labels de triage canoniques sont conservés sans renommage.
 - Le dépôt adopte un contexte de domaine unique, documenté sous `docs/agents/` sans créer de contexte ou d'ADR vide.
 - La lecture structurée et les limites explicites évitent les files de triage tronquées.
-
-## 2026-08-23 - Registre des secrets Atlas obligatoire
-
-- Ajout d'une règle d'intervention qui impose la mise à jour du registre des
-  secrets Atlas dans `nclsppr/vps-infra` avant de terminer toute tâche qui
-  prévoit ou exige le déploiement, la rotation ou la révocation d'un secret.
-
-## 2026-08-18 - Réconciliation automatique par Atlas
-
-- Documentation de la frontière de déploiement : le workflow `VPS release` publie des
-  artefacts immuables sans secret Atlas, puis le réconciliateur central de `vps-infra`
-  vérifie le HEAD, les checks requis, les attestations et les digests avant activation.
-- Ajout dans le README d'une procédure courte et directement visible pour publier depuis une
-  pull request vers `main`, attendre la release, ou demander un passage central immédiat sans
-  modifier `vps-infra`.
-- Clarification de la cadence centrale : le workflow est planifié toutes les dix minutes en
-  best-effort, et GitHub Actions peut retarder son exécution.
-- Ajout d'une preuve historique bornée : avant cette consolidation documentaire, le commit
-  `328b535b934560fcaf6324383440a3c2a60641c4` était servi sur Atlas avec le site
-  `sha256:61b478b86fd01cc73b1a080fd2a581256032bbb109ee2a47ef155a1dc09d747e` et les routes
-  `sha256:7109f8e15853b15948eaef0c920e5e0f1265d6d74710278b456b4600163f58be`.
-
-## 2026-08-12 - Release immuable pour Atlas
-
-- Ajout d'une chaîne VPS distincte de GitHub Pages. Elle assemble uniquement les fichiers
-  publics autorisés, avec des limites de taille et de nombre de fichiers.
-- Validation de cette chaîne sur chaque pull request vers `main`, sans connexion à GHCR ni
-  publication d'artefact, afin de rendre le contrôle requérable avant fusion.
-- Publication séparée et attestée de l'archive statique et de son inventaire de routes dans
-  GHCR. Chaque objet est lié au commit source et promu uniquement par digest.
-- Les fichiers internes, les sources éditoriales et les scripts de fabrication restent hors
-  de l'artefact destiné à Atlas.
 
 ## 2026-08-11 - Cinquième article : un contrat de logs pour les agents de code IA
 
@@ -212,12 +190,12 @@ Historique des interventions sur le site, la plus récente en premier.
 - Nouvelle page privée /claude/ (noindex + Disallow, hors sitemap, non
   liée publiquement ; nav croisée avec le dashboard) : l'espace où
   Claude parle à Nicolas en asynchrone. Message daté, statut (mode,
-  futur habitat VPS, humeur), journal de bord chiffré du dernier
+  mode de publication, humeur), journal de bord chiffré du dernier
   passage, panneau « Ce que j'attends de toi » (logo Swiss de Claude
   avec prompt prêt à coller, chiffres IMPACT, sitemap Bing, DNS 301,
   validation des P1/P2 de la revue) et signature ASCII (figlet claude +
   Pampy) avec curseur clignotant.
-- Contrat de régénération en commentaire : la future routine du VPS
+- Contrat de régénération en commentaire : une future routine automatisée
   réécrira les panneaux data-claude="…" et committera ; la page reste
   statique. Composants du dashboard réutilisés, zéro CSS ajouté.
 
