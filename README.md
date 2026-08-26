@@ -5,7 +5,7 @@ ivoire/encre, un seul accent (International Orange `#FF4F00`), bilingue FR/EN,
 CV HTML avec PDF téléchargeables. Statique, sans framework ni dépendance runtime.
 
 **Production :** [nicolaspieper.com](https://nicolaspieper.com) (canonique) ·
-`nicolas.pieper.fr` (redirection 301)
+`pieper.fr`, `www.pieper.fr` et `nicolas.pieper.fr` (redirections Cloudflare 308)
 **Hébergement :** GitHub Pages · **Stack :** HTML / CSS / JS statique, zéro framework, zéro CDN.
 
 > L'historique détaillé des interventions est dans [`CHANGELOG.md`](CHANGELOG.md).
