@@ -5,6 +5,17 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-08-26 - Redirections canoniques Cloudflare
+
+- `pieper.fr`, `www.pieper.fr` et `nicolas.pieper.fr` utilisent désormais une
+  redirection permanente `308` à l'edge Cloudflare vers `https://nicolaspieper.com`.
+- Les chemins et les paramètres de requête sont conservés. Les anciens liens arrivent
+  donc sur leur URL équivalente sans créer de contenu dupliqué.
+- Les trois noms web utilisent des DNS proxifiés sans origine. Les enregistrements mail,
+  les TXT et `nas.pieper.fr` restent inchangés.
+- Le domaine canonique, les balises `hreflang`, le sitemap et `robots.txt` restent limités
+  à `nicolaspieper.com`.
+
 ## 2026-08-23 - Configuration des skills d'ingénierie
 
 - GitHub Issues devient le suivi déclaré pour les tickets et les spécifications des skills.
