@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="554" height="560" viewBox="0 0 554 560"
+     role="img" aria-labelledby="title desc">
+  <title id="title">Parkventory logo</title>
+  <desc id="desc">Acid-green stylized letter P with four parking-space tiles, one cyan, on a transparent background.</desc>
+
+  <g fill="#C8F814">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="
+      M 14 1
+      H 370
+      C 471 1 553 83 553 185
+      C 553 273 498 336 424 336
+      H 203
+      C 193 336 187 342 187 352
+      V 546
+      C 187 554 181 559 173 559
+      H 14
+      C 6 559 1 554 1 546
+      V 14
+      C 1 6 6 1 14 1
+      Z
+
+      M 66 45
+      C 56 45 50 51 50 61
+      V 481
+      C 50 491 56 497 66 497
+      H 123
+      C 133 497 139 491 139 481
+      V 306
+      C 139 296 145 290 155 290
+      H 399
+      C 455 290 493 241 493 177
+      C 493 104 436 45 366 45
+      Z"/>
+
+    <rect x="216" y="365" width="91" height="90" rx="14"/>
+    <rect x="216" y="475" width="91" height="85" rx="14"/>
+    <rect x="328" y="475" width="91" height="85" rx="14"/>
+  </g>
+
+  <rect x="328" y="365" width="91" height="90" rx="14" fill="#14C9D3"/>
+</svg>

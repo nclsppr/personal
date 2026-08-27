@@ -149,6 +149,8 @@
     '/fr/': ['/', '/fr/'],
     '/work/': ['/work/', '/fr/work/'],
     '/fr/work/': ['/work/', '/fr/work/'],
+    '/projects/': ['/projects/', '/fr/projects/'],
+    '/fr/projects/': ['/projects/', '/fr/projects/'],
     '/cv/': ['/cv/', '/fr/cv/'],
     '/fr/cv/': ['/cv/', '/fr/cv/'],
     '/blog/': ['/blog/', '/fr/blog/'],

@@ -2,9 +2,11 @@
 """Validate the static site contracts used by GitHub Pages."""
 
 from pathlib import Path
+import json
 import re
 import sys
 import xml.etree.ElementTree as ET
+from typing import Optional
 from urllib.parse import urlparse
 
 
@@ -18,8 +20,21 @@ def validate_required_files(errors: list[str]) -> None:
         "CNAME",
         "index.html",
         "fr/index.html",
+        "projects/index.html",
+        "fr/projects/index.html",
         "robots.txt",
         "sitemap.xml",
+        "assets/img/projects/surplasse-logo.webp",
+        "assets/img/projects/papers-empire-logo.webp",
+        "assets/img/projects/parkventory-logo.svg",
+        "assets/img/projects/fouranu-logo.png",
+        "assets/img/projects/monflorian-logo.webp",
+        "assets/img/projects/projects-social-card.jpg",
+        "assets/img/projects/surplasse-social-card.png",
+        "assets/img/projects/papers-empire-social-card.jpg",
+        "assets/img/projects/parkventory-social-card.png",
+        "assets/img/projects/fouranu-social-card.jpg",
+        "assets/img/projects/monflorian-social-card.png",
     )
     for relative in required:
         if not (ROOT / relative).is_file():
@@ -41,6 +56,7 @@ def local_anchors(content: str) -> set[str]:
 def validate_language_parity(errors: list[str]) -> None:
     pairs = (
         ("index.html", "fr/index.html"),
+        ("projects/index.html", "fr/projects/index.html"),
         ("cv/index.html", "fr/cv/index.html"),
     )
     for english_path, french_path in pairs:
@@ -56,6 +72,83 @@ def validate_language_parity(errors: list[str]) -> None:
         errors.append('fr/index.html must declare lang="fr"')
 
 
+def meta_value(content: str, attribute: str, key: str) -> Optional[str]:
+    pattern = rf'<meta[^>]*\b{attribute}="{re.escape(key)}"[^>]*\bcontent="([^"]+)"'
+    match = re.search(pattern, content)
+    return match.group(1) if match else None
+
+
+def link_value(content: str, rel: str, hreflang: Optional[str] = None) -> Optional[str]:
+    if hreflang:
+        pattern = rf'<link[^>]*\brel="{re.escape(rel)}"[^>]*\bhreflang="{re.escape(hreflang)}"[^>]*\bhref="([^"]+)"'
+    else:
+        pattern = rf'<link[^>]*\brel="{re.escape(rel)}"[^>]*\bhref="([^"]+)"'
+    match = re.search(pattern, content)
+    return match.group(1) if match else None
+
+
+def validate_projects(errors: list[str]) -> None:
+    pages = (
+        {
+            "path": "projects/index.html",
+            "title": "Projects by Nicolas Pieper | Web products and engineering systems",
+            "canonical": "https://nicolaspieper.com/projects/",
+            "language": "en",
+            "alternate": "https://nicolaspieper.com/fr/projects/",
+            "attribution": "Products and systems I initiate and lead, from idea to production. I build them with AI coding assistants, then review, test and verify every release.",
+        },
+        {
+            "path": "fr/projects/index.html",
+            "title": "Projets de Nicolas Pieper | Produits web et systèmes d’ingénierie",
+            "canonical": "https://nicolaspieper.com/fr/projects/",
+            "language": "fr",
+            "alternate": "https://nicolaspieper.com/projects/",
+            "attribution": "Des produits et des systèmes que j’initie et pilote, de l’idée à la production. Je les construis avec des assistants IA, puis je relis, teste et vérifie chaque livraison.",
+        },
+    )
+    expected_projects = ["surplasse", "papers-empire", "parkventory", "four-a-nu", "mon-florian"]
+    social_card = "https://nicolaspieper.com/assets/img/projects/projects-social-card.jpg"
+
+    for page in pages:
+        content = (ROOT / page["path"]).read_text(encoding="utf-8")
+        title_match = re.search(r"<title>([^<]+)</title>", content)
+        if not title_match or title_match.group(1) != page["title"]:
+            errors.append(f"unexpected title: {page['path']}")
+        if page["attribution"] not in content:
+            errors.append(f"missing approved attribution: {page['path']}")
+        if link_value(content, "canonical") != page["canonical"]:
+            errors.append(f"unexpected canonical: {page['path']}")
+        if link_value(content, "alternate", page["language"]) != page["canonical"]:
+            errors.append(f"missing self hreflang: {page['path']}")
+        other_language = "fr" if page["language"] == "en" else "en"
+        if link_value(content, "alternate", other_language) != page["alternate"]:
+            errors.append(f"missing paired hreflang: {page['path']}")
+        if link_value(content, "alternate", "x-default") != "https://nicolaspieper.com/projects/":
+            errors.append(f"unexpected x-default: {page['path']}")
+        if meta_value(content, "property", "og:image") != social_card:
+            errors.append(f"unexpected og:image: {page['path']}")
+        if meta_value(content, "name", "twitter:image") != social_card:
+            errors.append(f"unexpected twitter:image: {page['path']}")
+
+        project_ids = re.findall(r'<section class="doc-section project-entry" id="([a-z0-9-]+)"', content)
+        if project_ids != expected_projects:
+            errors.append(f"project order mismatch: {page['path']}")
+
+        json_blocks = re.findall(r'<script type="application/ld\+json">\s*(.*?)\s*</script>', content, re.S)
+        if len(json_blocks) != 1:
+            errors.append(f"expected one JSON-LD block: {page['path']}")
+            continue
+        try:
+            graph = json.loads(json_blocks[0]).get("@graph", [])
+        except json.JSONDecodeError as exc:
+            errors.append(f"invalid JSON-LD in {page['path']}: {exc}")
+            continue
+        schema_types = {node.get("@type") for node in graph if isinstance(node, dict)}
+        required_types = {"CollectionPage", "ItemList", "BreadcrumbList"}
+        if not required_types.issubset(schema_types):
+            errors.append(f"missing project JSON-LD types: {page['path']}")
+
+
 def local_path_for_url(path: str) -> Path:
     relative = path.lstrip("/")
     if not relative or path.endswith("/"):
@@ -65,7 +158,10 @@ def local_path_for_url(path: str) -> Path:
 
 def validate_sitemap(errors: list[str]) -> None:
     sitemap = ET.parse(ROOT / "sitemap.xml")
-    namespace = {"sitemap": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+    namespace = {
+        "sitemap": "http://www.sitemaps.org/schemas/sitemap/0.9",
+        "image": "http://www.google.com/schemas/sitemap-image/1.1",
+    }
     locations = sitemap.findall("sitemap:url/sitemap:loc", namespace)
     if not locations:
         errors.append("sitemap.xml contains no URLs")
@@ -80,11 +176,24 @@ def validate_sitemap(errors: list[str]) -> None:
         if not local_path_for_url(parsed.path).is_file():
             errors.append(f"sitemap URL has no matching file: {value}")
 
+    image_locations = sitemap.findall("sitemap:url/image:image/image:loc", namespace)
+    if not image_locations:
+        errors.append("sitemap.xml contains no image entries")
+    for location in image_locations:
+        value = (location.text or "").strip()
+        parsed = urlparse(value)
+        if parsed.scheme != "https" or parsed.netloc != CANONICAL_HOST:
+            errors.append(f"non-canonical sitemap image URL: {value}")
+            continue
+        if not local_path_for_url(parsed.path).is_file():
+            errors.append(f"sitemap image has no matching file: {value}")
+
 
 def main() -> int:
     errors: list[str] = []
     validate_required_files(errors)
     validate_language_parity(errors)
+    validate_projects(errors)
     validate_sitemap(errors)
 
     if errors:

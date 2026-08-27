@@ -34,6 +34,11 @@ courant (AA : `--accent-ink`). Un seul accent sur le site, pas de
 palette secondaire. Les statuts (dashboard) sont toujours doublés d'un
 libellé texte, jamais couleur seule.
 
+Exception encadrée : les couleurs canoniques des produits peuvent apparaître
+uniquement dans leurs logos et cartes de partage, posés dans un cadre neutre
+`--project-frame`. Elles ne deviennent jamais des tokens, fonds de section,
+boutons ou couleurs de statut du site.
+
 ## 3. Typographie
 
 - **Source Serif 4** : titres (h1, h2 de sections, gros chiffres).
@@ -67,6 +72,13 @@ libellé texte, jamais couleur seule.
 - Page Réalisations : un index de lecture précède le flux éditorial.
   Sur mobile, les stickers reviennent dans le flux pour préserver une
   mesure de texte confortable.
+- Page Projets : un sommaire numéroté ouvre un flux éditorial de cinq
+  produits, séparés par des filets. Chaque entrée met en regard une colonne
+  de lecture et sa carte sociale complète. La section Outils et fondations
+  reste secondaire et ne reprend pas le traitement des produits.
+- Accueil, section Projets : répertoire compact avec logos et texte. Les cartes
+  sociales complètes restent réservées aux pages `/projects/` et
+  `/fr/projects/`.
 
 ## 5. Composants
 
@@ -169,6 +181,15 @@ d'articles) ou `square composition` (mascottes, portraits).
   de PNG brut de générateur dans le repo.
 - Une image = un usage. Pas de sticker dans l'UI fonctionnelle, pas de
   pictogramme Swiss au milieu d'une scène illustrée.
+
+### Identités de projets existantes
+
+Les logos et cartes de produits ne sont ni réinterprétés ni recolorés. Les
+copies et dérivés locaux suivent les sources et empreintes consignées dans
+`assets/img/projects/PROVENANCE.md`. Un cadre blanc neutre protège leur rendu
+dans les thèmes clair et sombre. Les fichiers lourds peuvent être remplacés
+par un dérivé WebP transparent, avec le master, son empreinte et la commande
+de transformation documentés.
 
 ## 8. Thèmes clair / sombre
 

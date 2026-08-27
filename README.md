@@ -53,6 +53,8 @@ pas que la dernière version est publiée.
 | `/fr/` | `fr/index.html` | Homepage française |
 | `/work/` | `work/index.html` | Études de cas et leadership en anglais |
 | `/fr/work/` | `fr/work/index.html` | Études de cas et leadership en français |
+| `/projects/` | `projects/index.html` | Produits et systèmes personnels en anglais |
+| `/fr/projects/` | `fr/projects/index.html` | Produits et systèmes personnels en français |
 | `/cv/` | `cv/index.html` | CV anglais avec PDF pré-généré téléchargeable |
 | `/fr/cv/` | `fr/cv/index.html` | CV français avec PDF pré-généré téléchargeable |
 | `/blog/` | `blog/index.html` | Index des articles en anglais |
@@ -73,6 +75,7 @@ assets/
   js/    site.js            (thème · sidebar · scrollspy · deep-link langue)
   fonts/ woff2 variables (Inter · Source Serif 4 · JetBrains Mono, subsets latin/-ext)
   img/   logo, favicons, portraits, image OpenGraph
+    projects/ logos dérivés, cartes produit canoniques, carte OpenGraph et provenance
   docs/  CV PDF pré-générés en anglais et en français
 claude/
   style.css · script.js     (socle autonome)
@@ -114,17 +117,28 @@ Après une modification des CV HTML, régénérer les deux PDF depuis le serveur
 Assets images/favicons régénérés à la main via les outils macOS natifs (`sips`, `qlmanage`) ;
 voir le `CHANGELOG.md` pour les commandes utilisées.
 
+La carte de partage des pages Projets est issue d'un gabarit HTML versionné :
+
+```sh
+./scripts/generate-projects-og-image.sh
+```
+
+Les sources, empreintes SHA-256 et transformations des visuels produit sont consignées dans
+[`assets/img/projects/PROVENANCE.md`](assets/img/projects/PROVENANCE.md).
+
 ## Validation
 
-Avant chaque commit touchant le site, la **parité FR/EN** doit être vérifiée : `/` et `/fr/`
-gardent la même structure, les mêmes sections/ancres, et chaque texte est la traduction
-équivalente (aucun texte source oublié, aucun placeholder).
+Avant chaque commit touchant le site, la **parité FR/EN** doit être vérifiée : `/` et `/fr/`,
+ainsi que `/projects/` et `/fr/projects/`, gardent la même structure, les mêmes
+sections/ancres, et chaque texte est la traduction équivalente (aucun texte source oublié,
+aucun placeholder).
 
 Un hook `git commit` (`~/Developer/.claude/hooks/check-i18n-parity.py`) bloque le commit si
 la parité *structurelle* diverge. La parité *sémantique* reste vérifiée par relecture.
 
 Le workflow `Site validation` exécute aussi `python3 scripts/validate-site.py`. Il vérifie le
-domaine canonique, les fichiers indispensables, les routes du sitemap et la structure bilingue.
+domaine canonique, les fichiers indispensables, les routes et images du sitemap, la structure
+bilingue et les contrats de métadonnées des pages Projets.
 
 Tester systématiquement : **mobile + desktop**, **clair + sombre**, et l'**impression** du CV.
 
