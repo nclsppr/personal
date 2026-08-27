@@ -28,7 +28,8 @@ def validate_required_files(errors: list[str]) -> None:
         "assets/img/projects/papers-empire-logo.webp",
         "assets/img/projects/parkventory-logo.svg",
         "assets/img/projects/fouranu-logo.png",
-        "assets/img/projects/monflorian-logo.webp",
+        "assets/img/projects/monflorian-avatar-v2.webp",
+        "assets/img/projects/monflorian-wordmark.webp",
         "assets/img/projects/projects-social-card.jpg",
         "assets/img/projects/surplasse-social-card.png",
         "assets/img/projects/papers-empire-social-card.jpg",
@@ -107,7 +108,7 @@ def validate_projects(errors: list[str]) -> None:
         },
     )
     expected_projects = ["surplasse", "papers-empire", "parkventory", "four-a-nu", "mon-florian"]
-    social_card = "https://nicolaspieper.com/assets/img/projects/projects-social-card.jpg"
+    social_card = "https://nicolaspieper.com/assets/img/projects/projects-social-card.jpg?v=2"
 
     for page in pages:
         content = (ROOT / page["path"]).read_text(encoding="utf-8")
@@ -147,6 +148,58 @@ def validate_projects(errors: list[str]) -> None:
         required_types = {"CollectionPage", "ItemList", "BreadcrumbList"}
         if not required_types.issubset(schema_types):
             errors.append(f"missing project JSON-LD types: {page['path']}")
+
+
+def validate_home_project_links(errors: list[str]) -> None:
+    expected_urls = [
+        "https://surplasse.com/",
+        "https://papersempire.com/",
+        "https://parkventory.com/",
+        "https://fouranu.com/",
+        "https://monflorian.com/",
+    ]
+    monflorian_assets = (
+        "/assets/img/projects/monflorian-avatar-v2.webp",
+        "/assets/img/projects/monflorian-wordmark.webp",
+    )
+
+    for path in ("index.html", "fr/index.html"):
+        content = (ROOT / path).read_text(encoding="utf-8")
+        urls = re.findall(r'<a class="project-compact" href="([^"]+)"', content)
+        if urls != expected_urls:
+            errors.append(f"home project link order mismatch: {path}")
+        project_contents = re.findall(
+            r'<a class="project-compact"[^>]*>(.*?)</a>', content, re.S
+        )
+        if len(project_contents) != len(expected_urls):
+            errors.append(f"home project markup count mismatch: {path}")
+        if any(re.search(r"<a\b", block) for block in project_contents):
+            errors.append(f"nested home project link: {path}")
+        project_tags = re.findall(r'<a class="project-compact"[^>]*>', content)
+        if any(
+            'target="_blank"' not in tag or 'rel="noopener"' not in tag
+            for tag in project_tags
+        ):
+            errors.append(f"home project external-link contract mismatch: {path}")
+        for asset in monflorian_assets:
+            if asset not in content:
+                errors.append(f"missing Mon Florian V2 asset in {path}: {asset}")
+
+    for path in ("projects/index.html", "fr/projects/index.html"):
+        content = (ROOT / path).read_text(encoding="utf-8")
+        for asset in monflorian_assets:
+            if asset not in content:
+                errors.append(f"missing Mon Florian V2 asset in {path}: {asset}")
+
+    retired_asset = ROOT / "assets/img/projects/monflorian-logo.webp"
+    if retired_asset.exists():
+        errors.append("retired Mon Florian logo must not exist")
+
+    for html_path in ROOT.rglob("*.html"):
+        if "v2022" in html_path.parts:
+            continue
+        if "monflorian-logo.webp" in html_path.read_text(encoding="utf-8"):
+            errors.append(f"retired Mon Florian logo referenced by {html_path.relative_to(ROOT)}")
 
 
 def local_path_for_url(path: str) -> Path:
@@ -194,6 +247,7 @@ def main() -> int:
     validate_required_files(errors)
     validate_language_parity(errors)
     validate_projects(errors)
+    validate_home_project_links(errors)
     validate_sitemap(errors)
 
     if errors:

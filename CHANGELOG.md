@@ -5,6 +5,17 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-08-27 - Liens directs des projets et identité Mon Florian V2
+
+- Les cinq entrées Projets des accueils sont désormais des liens natifs vers
+  les sites des produits. Le lien placé sous la liste continue de mener au hub
+  bilingue qui présente leur contexte et leur état en détail.
+- Le lockup Mon Florian assemble désormais le portrait V2 actif et le
+  mot-symbole canonique, sur les accueils, le hub et sa carte de partage. Son
+  URL de partage est versionnée pour invalider les anciens aperçus en cache.
+- Les validateurs contrôlent l'ordre exact des cinq destinations, la parité
+  FR/EN et l'absence de l'ancien logo combiné.
+
 ## 2026-08-27 - Hub bilingue des projets
 
 - Ajout de `/projects/` et `/fr/projects/`, avec cinq produits dans un flux

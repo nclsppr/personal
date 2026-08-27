@@ -14,17 +14,14 @@ Les couleurs propres aux projets restent confinées aux cadres éditoriaux de la
 | `parkventory-social-card.png` | https://parkventory.com/parkventory-social-card.png | `fd2ccf37d786492a13379920712b9c6400858216abe0110139edd5cd8db061bf` | Copie byte-identique, déploiement public vérifié en PNG 1200 x 630 |
 | `fouranu-logo.png` | https://fouranu.com/brand/logo-fouranu.png | `ef9a6a452622c18f66ac5f9db4619e17648253d9a68ffed5441c632ba11f0c66` | Copie byte-identique |
 | `fouranu-social-card.jpg` | https://fouranu.com/og/four-a-nu-default-v2.jpg | `cf593fd469c3d490a50ac9824921bbf73fb26e39cd321456ab6b17ff7786f2ba` | Copie byte-identique |
-| `monflorian-logo.webp` | https://monflorian.com/assets/monflorian-logo.png | `5d374bb83b6e191db53d3cd302c2542b3a9d02a89ab98992cd566dd3d75176a6` | Dérivé transparent 800 x 267, réutilisation autorisée par Nicolas |
+| `monflorian-avatar-v2.webp` | https://monflorian.com/assets/florian-v2-original-web.webp | `5d8e314db20eb8feac45dc059fede71c6ae808f96c1b6cb73c4c2fb39a877da9` | Copie byte-identique, portrait V2 actif 384 x 384 |
+| `monflorian-wordmark.webp` | https://monflorian.com/assets/monflorian-wordmark-web.webp | `941c00869e36c83fd261c4d6195d219479e8685cb203c594d84f0b9e91cef966` | Copie byte-identique, mot-symbole actif 338 x 181 |
 | `monflorian-social-card.png` | https://monflorian.com/assets/monflorian-social-card.png | `530f2127e049c37c88370ed81d67ff7e027076346b41a7f6815317d374e48061` | Copie byte-identique, réutilisation autorisée par Nicolas |
-| `projects-social-card.jpg` | `scripts/projects-og-template.html` | `8cebcfbac9ed2a4f7a1588fe60c5b2109e40805ae48b9c4fc275d5006e34f08c` | Carte du hub générée localement |
+| `projects-social-card.jpg` | `scripts/projects-og-template.html` | `05e370e6082584f2e53f41d441ef9c03ddf2f241093a4eb42fc2ebcf9db6a9b7` | Carte du hub générée localement, 1200 x 630 |
 
-Le master du logo Mon Florian est un PNG transparent de 2172 x 724, SHA-256
-`40b062b5c99b4adacfba105fda1801d9e743c25953d94be119e4fec1e48dd161`.
-Le dérivé local est produit avec :
-
-```sh
-cwebp -quiet -q 90 -alpha_q 100 -m 6 -resize 800 0 monflorian-logo.png -o monflorian-logo.webp
-```
+Le lockup Mon Florian est composé en HTML et CSS à partir du portrait V2 et du
+mot-symbole actifs. Aucun dérivé combiné n'est conservé, afin que le portrait
+puisse évoluer sans recréer un logo figé.
 
 Le master du logo Surplasse est un SVG de 906 x 198, SHA-256
 `b6f99cc8232d15edfa2a6401267188395a098da05bfe6cdd00638934539fec4e`.

@@ -86,6 +86,19 @@
   }
   .logo-frame img { display: block; width: auto; max-width: 260px; max-height: 42px; object-fit: contain; }
   .logo-frame img.logo-large { max-height: 54px; }
+  .logo-frame .monflorian-lockup {
+    display: grid;
+    grid-template-columns: minmax(0, 0.58fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 3px;
+    width: 170px;
+  }
+  .logo-frame .monflorian-lockup img {
+    width: 100%;
+    max-width: none;
+    max-height: none;
+    height: auto;
+  }
   .foundation {
     display: flex;
     justify-content: flex-end;
@@ -115,7 +128,7 @@
         <div class="project"><span class="number">02</span><div class="logo-frame"><img class="logo-large" src="../assets/img/projects/papers-empire-logo.webp" alt=""></div></div>
         <div class="project"><span class="number">03</span><div class="logo-frame"><img class="logo-large" src="../assets/img/projects/parkventory-logo.svg" alt=""></div></div>
         <div class="project"><span class="number">04</span><div class="logo-frame"><img class="logo-large" src="../assets/img/projects/fouranu-logo.png" alt=""></div></div>
-        <div class="project"><span class="number">05</span><div class="logo-frame"><img class="logo-large" src="../assets/img/projects/monflorian-logo.webp" alt=""></div></div>
+        <div class="project"><span class="number">05</span><div class="logo-frame"><span class="monflorian-lockup" aria-hidden="true"><img src="../assets/img/projects/monflorian-avatar-v2.webp" alt=""><img src="../assets/img/projects/monflorian-wordmark.webp" alt=""></span></div></div>
       </div>
       <div class="foundation">FOUNDATION.md</div>
     </section>
