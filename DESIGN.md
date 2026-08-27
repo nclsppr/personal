@@ -191,6 +191,10 @@ dans les thèmes clair et sombre. Les fichiers lourds peuvent être remplacés
 par un dérivé WebP transparent, avec le master, son empreinte et la commande
 de transformation documentés.
 
+Le lockup Mon Florian assemble toujours le portrait V2 actif et le mot-symbole
+canonique comme deux assets séparés. L'ancien master combiné ne doit pas être
+réutilisé, car il fige un avatar retiré.
+
 ## 8. Thèmes clair / sombre
 
 Tout composant doit fonctionner dans les deux thèmes via les tokens,
