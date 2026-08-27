@@ -5,6 +5,25 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-08-27 - Hub bilingue des projets
+
+- Ajout de `/projects/` et `/fr/projects/`, avec cinq produits dans un flux
+  éditorial et Project Foundation dans une section secondaire consacrée aux
+  outils et fondations.
+- Les accueils proposent un répertoire compact après les réalisations
+  sélectionnées. La navigation globale et les CV donnent accès aux pages
+  Projets dans les deux langues.
+- Chaque description distingue explicitement ce qui est en ligne, en test,
+  en préparation ou encore à valider. L'assistance IA est attribuée avec une
+  relecture, des tests et une vérification humaine de chaque livraison.
+- Les logos canoniques et les cinq cartes produit sont intégrés avec leur
+  provenance et leur empreinte. Les dérivés WebP lourds ou incompatibles avec
+  les règles typographiques du dépôt restent reliés à leur master documenté.
+- Canonical, `hreflang`, Open Graph, Twitter, JSON-LD `CollectionPage`,
+  `ItemList` et `BreadcrumbList`, sitemap images et `llms.txt` couvrent les
+  nouvelles pages. Les validateurs contrôlent leur ordre, leur parité et leurs
+  métadonnées.
+
 ## 2026-08-26 - Publication GitHub Pages unique
 
 - Le domaine canonique est publié directement par GitHub Pages avec HTTPS forcé.

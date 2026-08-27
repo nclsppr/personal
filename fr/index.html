@@ -47,7 +47,7 @@
     <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/sourceserif4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/jetbrainsmono-var-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/assets/css/site.css?v=20260726-design">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20260827-projects">
 
     <!-- Prevent theme flash -->
     <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
@@ -131,6 +131,7 @@
         <nav class="header-nav" aria-label="Navigation principale">
             <a href="/fr/" aria-current="page">Aperçu</a>
             <a href="/fr/work/">Réalisations</a>
+            <a href="/fr/projects/">Projets</a>
             <a href="/fr/blog/">Blog</a>
             <a href="/fr/cv/">CV</a>
             <a href="#contact">Contact</a>
@@ -168,6 +169,7 @@
                     <p class="side-title">Temps forts</p>
                     <ul>
                         <li><a href="#selected-work">Réalisations sélectionnées</a></li>
+                        <li><a href="#projects">Projets</a></li>
                         <li><a href="#leadership">Leadership</a></li>
                         <li><a href="#from-the-blog">Sur le blog</a></li>
                     </ul>
@@ -301,6 +303,40 @@
                 </div>
             </section>
 
+            <!-- ============================= PROJETS ============================= -->
+            <section class="doc-section" id="projects" aria-labelledby="projects-title">
+                <h2 class="anchor-heading" id="projects-title">Projets<a class="anchor" href="#projects" aria-label="Lien vers cette section">#</a></h2>
+                <p>Des produits et des systèmes que j’initie et pilote, de l’idée à la production. Je les construis avec des assistants IA, puis je relis, teste et vérifie chaque livraison.</p>
+                <div class="project-compact-list">
+                    <article class="project-compact">
+                        <div class="project-compact-logo"><img class="project-logo--wide" src="/assets/img/projects/surplasse-logo.webp" width="906" height="198" alt="Logo Surplasse" loading="lazy" decoding="async"></div>
+                        <h3>Surplasse</h3>
+                        <p>Commande directe pour les restaurants. MVP en cours ; production transactionnelle non ouverte.</p>
+                    </article>
+                    <article class="project-compact">
+                        <div class="project-compact-logo"><img class="project-logo--square" src="/assets/img/projects/papers-empire-logo.webp" width="700" height="560" alt="Logo Papers Empire" loading="lazy" decoding="async"></div>
+                        <h3>Papers Empire</h3>
+                        <p>Un jeu idle gratuit dans le navigateur, en ligne et sans compte.</p>
+                    </article>
+                    <article class="project-compact">
+                        <div class="project-compact-logo"><img class="project-logo--mark" src="/assets/img/projects/parkventory-logo.svg" width="554" height="560" alt="Logo Parkventory" loading="lazy" decoding="async"></div>
+                        <h3>Parkventory</h3>
+                        <p>Partage de places de parking entre collègues. Bêta publique ; le parcours complet à deux membres reste à valider.</p>
+                    </article>
+                    <article class="project-compact">
+                        <div class="project-compact-logo"><img class="project-logo--wide" src="/assets/img/projects/fouranu-logo.png" width="480" height="172" alt="Logo Four à Nu" loading="lazy" decoding="async"></div>
+                        <h3>Four à Nu</h3>
+                        <p>Guides documentaires sourcés sur le matériel de pizza. Aucun essai physique Four à Nu n’est encore publié.</p>
+                    </article>
+                    <article class="project-compact">
+                        <div class="project-compact-logo"><img class="project-logo--wide" src="/assets/img/projects/monflorian-logo.webp" width="800" height="267" alt="Logo Mon Florian" loading="lazy" decoding="async"></div>
+                        <h3>Mon Florian</h3>
+                        <p>Une première proposition privée de voyage à relire. Génération réelle, envoi et paiement fermés.</p>
+                    </article>
+                </div>
+                <p class="projects-more"><a class="text-link" href="/fr/projects/">Découvrir tous les projets et Project Foundation <span aria-hidden="true">→</span></a></p>
+            </section>
+
             <!-- ============================= LEADERSHIP ============================= -->
             <section class="doc-section" id="leadership" aria-labelledby="leadership-title">
                 <h2 class="anchor-heading" id="leadership-title">Leadership<a class="anchor" href="#leadership" aria-label="Lien vers cette section">#</a></h2>
@@ -373,6 +409,7 @@
                     <p class="side-title">Pages</p>
                     <a href="/fr/" aria-current="page">Aperçu</a>
                     <a href="/fr/work/">Réalisations</a>
+                    <a href="/fr/projects/">Projets</a>
                     <a href="/fr/blog/">Blog</a>
                     <a href="/fr/cv/">CV</a>
                 </nav>
@@ -396,6 +433,6 @@
         </main>
     </div>
 
-    <script src="/assets/js/site.js?v=20260726-design" defer></script>
+    <script src="/assets/js/site.js?v=20260827-projects" defer></script>
 </body>
 </html>

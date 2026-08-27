@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """PreToolUse(Bash) hook - bloque `git commit` sur le site perso bilingue
-tant que /index.html (EN) et /fr/index.html (FR) ne sont pas structurellement
-synchronisés. Garantit la « règle de parité FR/EN » avant chaque commit.
+tant que les paires de pages EN et FR ne sont pas structurellement synchronisées.
+Garantit la « règle de parité FR/EN » avant chaque commit.
 
 Ne se déclenche que dans le dépôt qui contient index.html + fr/index.html ;
 inerte partout ailleurs. La parité *sémantique* (chaque texte bien traduit)
@@ -50,34 +50,44 @@ def main():
         with open(p, encoding="utf-8") as f:
             return f.read()
 
-    en = read(os.path.join(repo, "index.html"))
-    fr = read(os.path.join(repo, "fr", "index.html"))
-
     section_ids = lambda h: set(re.findall(r'<section[^>]*\bid="([a-z0-9-]+)"', h))
     nav_anchors = lambda h: set(re.findall(r'href="(#[a-z0-9-]+)"', h))
 
     errors = []
 
-    en_ids, fr_ids = section_ids(en), section_ids(fr)
-    if en_ids != fr_ids:
-        errors.append("Sections désynchronisées - EN seulement: {} | FR seulement: {}".format(
-            sorted(en_ids - fr_ids) or "-", sorted(fr_ids - en_ids) or "-"))
-
-    en_nav, fr_nav = nav_anchors(en), nav_anchors(fr)
-    if en_nav != fr_nav:
-        errors.append("Ancres de nav désynchronisées - EN seulement: {} | FR seulement: {}".format(
-            sorted(en_nav - fr_nav) or "-", sorted(fr_nav - en_nav) or "-"))
-
     def crumb(h):
         mm = re.search(r'<nav class="breadcrumb[^"]*".*?<span aria-current="page">([^<]*)</span>', h, re.S)
         return mm.group(1).strip() if mm else None
 
-    fr_crumb = crumb(fr)
-    if fr_crumb in ("fr", "en", None):
-        errors.append('Fil d’Ariane FR suspect: "{}" (doit être un libellé traduit, pas le code langue).'.format(fr_crumb))
+    pairs = (
+        ("index.html", "fr/index.html"),
+        ("projects/index.html", "fr/projects/index.html"),
+    )
+    for en_path, fr_path in pairs:
+        en_full = os.path.join(repo, en_path)
+        fr_full = os.path.join(repo, fr_path)
+        if not os.path.isfile(en_full) or not os.path.isfile(fr_full):
+            errors.append("Paire bilingue manquante: {} | {}".format(en_path, fr_path))
+            continue
+        en = read(en_full)
+        fr = read(fr_full)
 
-    if not re.search(r'<html[^>]*\blang="fr"', fr):
-        errors.append('fr/index.html: attribut lang="fr" manquant sur <html>.')
+        en_ids, fr_ids = section_ids(en), section_ids(fr)
+        if en_ids != fr_ids:
+            errors.append("Sections désynchronisées ({} | {}) - EN seulement: {} | FR seulement: {}".format(
+                en_path, fr_path, sorted(en_ids - fr_ids) or "-", sorted(fr_ids - en_ids) or "-"))
+
+        en_nav, fr_nav = nav_anchors(en), nav_anchors(fr)
+        if en_nav != fr_nav:
+            errors.append("Ancres de nav désynchronisées ({} | {}) - EN seulement: {} | FR seulement: {}".format(
+                en_path, fr_path, sorted(en_nav - fr_nav) or "-", sorted(fr_nav - en_nav) or "-"))
+
+        fr_crumb = crumb(fr)
+        if fr_crumb in ("fr", "en", None):
+            errors.append('Fil d’Ariane FR suspect dans {}: "{}".'.format(fr_path, fr_crumb))
+
+        if not re.search(r'<html[^>]*\blang="fr"', fr):
+            errors.append('{}: attribut lang="fr" manquant sur <html>.'.format(fr_path))
 
     if errors:
         sys.stderr.write("⛔ Parité FR/EN - commit bloqué. Corrige puis recommite :\n")

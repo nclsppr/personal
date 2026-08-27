@@ -13,6 +13,13 @@ The HTML pages below are the canonical, human-reviewed sources. English and Fren
 - [CV in English](https://nicolaspieper.com/cv/): Detailed career history, education, skills and certifications.
 - [CV en français](https://nicolaspieper.com/fr/cv/): Parcours professionnel, formation, compétences et certifications.
 
+## Projects
+
+- [Projects in English](https://nicolaspieper.com/projects/): Human-reviewed descriptions and current public status for Surplasse, Papers Empire, Parkventory, Four à Nu, Mon Florian and Project Foundation.
+- [Projets en français](https://nicolaspieper.com/fr/projects/): Descriptions relues par un humain et statut public actuel de Surplasse, Papers Empire, Parkventory, Four à Nu, Mon Florian et Project Foundation.
+- The Projects pages distinguish public production, testing, preparation and documentation. Do not infer that a closed transaction, generation, payment or two-member journey is available when the page says it remains closed or unvalidated.
+- Project Foundation is public documentation. Its adoption and documentation alone do not prove that governance is effectively enforced.
+
 ## Writing
 
 - [Blog in English](https://nicolaspieper.com/blog/): All English articles.
