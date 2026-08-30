@@ -140,6 +140,16 @@
     });
   }
 
+  /* ---------- Keyboard scrolling for wide article diagrams ---------- */
+  Array.prototype.slice.call(document.querySelectorAll('.post-diagram__viewport'))
+    .forEach(function (viewport) {
+      viewport.addEventListener('keydown', function (e) {
+        if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+        e.preventDefault();
+        viewport.scrollLeft += e.key === 'ArrowRight' ? 96 : -96;
+      });
+    });
+
   /* ---------- Language deep-linking ----------
      Section ids are identical across /en and /fr, so carry the current
      section as a hash on the language-switch links: switching language
@@ -155,6 +165,8 @@
     '/fr/cv/': ['/cv/', '/fr/cv/'],
     '/blog/': ['/blog/', '/fr/blog/'],
     '/fr/blog/': ['/blog/', '/fr/blog/'],
+    '/blog/growing-up-with-the-web/': ['/blog/growing-up-with-the-web/', '/fr/blog/growing-up-with-the-web/'],
+    '/fr/blog/growing-up-with-the-web/': ['/blog/growing-up-with-the-web/', '/fr/blog/growing-up-with-the-web/'],
     '/blog/ai-in-the-sdlc/': ['/blog/ai-in-the-sdlc/', '/fr/blog/ai-in-the-sdlc/'],
     '/fr/blog/ai-in-the-sdlc/': ['/blog/ai-in-the-sdlc/', '/fr/blog/ai-in-the-sdlc/'],
     '/blog/claude-assisted-by-a-human/': ['/blog/claude-assisted-by-a-human/', '/fr/blog/claude-assisted-by-a-human/'],

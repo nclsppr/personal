@@ -59,8 +59,8 @@ pas que la dernière version est publiée.
 | `/fr/cv/` | `fr/cv/index.html` | CV français avec PDF pré-généré téléchargeable |
 | `/blog/` | `blog/index.html` | Index des articles en anglais |
 | `/fr/blog/` | `fr/blog/index.html` | Index des articles en français |
-| `/blog/<article>/` | `blog/*/index.html` | Cinq articles en anglais |
-| `/fr/blog/<article>/` | `fr/blog/*/index.html` | Cinq articles en français |
+| `/blog/<article>/` | `blog/*/index.html` | Six articles en anglais |
+| `/fr/blog/<article>/` | `fr/blog/*/index.html` | Six articles en français |
 | `/dashboard/` | `dashboard/index.html` | Morning brief expérimental, données d’exemple, non indexé |
 | `/claude/` | `claude/index.html` | Easter egg public, indexé et hors navigation principale |
 | `/claude/roadtrip-austria-2026/` | `claude/roadtrip-austria-2026/index.html` | Carnet de route interactif et local pour le voyage en Autriche |
