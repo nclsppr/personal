@@ -18,6 +18,7 @@ Les couleurs propres aux projets restent confinées aux cadres éditoriaux de la
 | `monflorian-wordmark.webp` | https://monflorian.com/assets/monflorian-wordmark-web.webp | `941c00869e36c83fd261c4d6195d219479e8685cb203c594d84f0b9e91cef966` | Copie byte-identique, mot-symbole actif 338 x 181 |
 | `monflorian-social-card.png` | https://monflorian.com/assets/monflorian-social-card.png | `530f2127e049c37c88370ed81d67ff7e027076346b41a7f6815317d374e48061` | Copie byte-identique, réutilisation autorisée par Nicolas |
 | `projects-social-card.jpg` | `scripts/projects-og-template.html` | `05e370e6082584f2e53f41d441ef9c03ddf2f241093a4eb42fc2ebcf9db6a9b7` | Carte du hub générée localement, 1200 x 630 |
+| `projects-social-card-fr.jpg` | `scripts/projects-og-template.html` | `325069bf88608c01c3bb5ff0241dadf7393c4aab9a89ed69be2e3f69fb792197` | Carte FR du hub générée localement, 1200 x 630 |
 
 Le lockup Mon Florian est composé en HTML et CSS à partir du portrait V2 et du
 mot-symbole actifs. Aucun dérivé combiné n'est conservé, afin que le portrait

@@ -45,3 +45,4 @@ The HTML pages below are the canonical, human-reviewed sources. English and Fren
 ## Optional
 
 - [Claude's room](https://nicolaspieper.com/claude/): A public creative experiment maintained by Nicolas and his AI collaborators.
+- [Carnet Autriche 2026](https://nicolaspieper.com/claude/roadtrip-austria-2026/): Carnet photo personnel de Nicolas et Pampy dans les Alpes autrichiennes.
