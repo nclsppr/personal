@@ -3,7 +3,6 @@
 set -euo pipefail
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-OUTPUT_FILE="$PROJECT_ROOT/assets/img/projects/projects-social-card.jpg"
 CHROME_BIN="${CHROME:-/Applications/Google Chrome.app/Contents/MacOS/Google Chrome}"
 
 if [[ ! -x "$CHROME_BIN" ]]; then
@@ -14,16 +13,22 @@ fi
 TEMP_DIR="$(mktemp -d)"
 cleanup() { rm -r "$TEMP_DIR"; }
 trap cleanup EXIT
-PNG_FILE="$TEMP_DIR/projects-social-card.png"
+render_card() {
+  local lang="$1"
+  local output="$2"
+  local png_file="$TEMP_DIR/projects-social-card-$lang.png"
+  "$CHROME_BIN" \
+    --headless=new --disable-gpu \
+    --window-size=1200,630 \
+    --hide-scrollbars \
+    --force-device-scale-factor=1 \
+    --virtual-time-budget=8000 \
+    --screenshot="$png_file" \
+    "file://$PROJECT_ROOT/scripts/projects-og-template.html?lang=$lang" >/dev/null 2>&1
 
-"$CHROME_BIN" \
-  --headless=new --disable-gpu \
-  --window-size=1200,630 \
-  --hide-scrollbars \
-  --force-device-scale-factor=1 \
-  --virtual-time-budget=8000 \
-  --screenshot="$PNG_FILE" \
-  "file://$PROJECT_ROOT/scripts/projects-og-template.html" >/dev/null 2>&1
+  /usr/bin/sips -s format jpeg -s formatOptions 90 "$png_file" --out "$PROJECT_ROOT/$output" >/dev/null
+  echo "Generated $output ($(stat -f %z "$PROJECT_ROOT/$output") bytes)"
+}
 
-/usr/bin/sips -s format jpeg -s formatOptions 90 "$PNG_FILE" --out "$OUTPUT_FILE" >/dev/null
-echo "Generated $(basename "$OUTPUT_FILE") ($(stat -f %z "$OUTPUT_FILE") bytes)"
+render_card en assets/img/projects/projects-social-card.jpg
+render_card fr assets/img/projects/projects-social-card-fr.jpg

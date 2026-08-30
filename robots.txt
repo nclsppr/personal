@@ -5,15 +5,20 @@ User-agent: *
 # Keep non-canonical sources, tooling and experiments out of the crawl surface.
 Disallow: /v2022/
 Disallow: /infos/
-Disallow: /dashboard/
 Disallow: /.claude/
+Disallow: /.github/
+Disallow: /.gitignore
+Allow: /scripts/og-template.html
+Allow: /scripts/projects-og-template.html
 Disallow: /scripts/
+Disallow: /docs/
 Disallow: /AGENTS.md
 Disallow: /CHANGELOG.md
 Disallow: /DESIGN.md
 Disallow: /README.md
 Disallow: /skills-lock.json
 Disallow: /claude/journal.md
+Disallow: /assets/img/projects/PROVENANCE.md
 Allow: /
 
 Sitemap: https://nicolaspieper.com/sitemap.xml

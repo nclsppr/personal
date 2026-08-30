@@ -22,12 +22,15 @@ contenu, tirets longs interdits, parité FR/EN) restent définies dans
 - `meta description` : 140 à 160 caractères, résume l'angle, pas de superlatifs.
 - `canonical` + `hreflang` ×3 (en, fr, x-default vers la version EN).
 - Open Graph : `og:type article`, `og:title`, `og:description`, `og:url`,
-  `og:image` (voir § Sticker), `og:locale` + alternate,
-  `article:published_time`, `article:author`.
-- Twitter Card `summary_large_image` (mêmes valeurs).
+  `og:image` (voir § Sticker), `og:image:type`, dimensions 1200×630,
+  `og:image:alt`, `og:locale` + alternate, `article:published_time`,
+  `article:modified_time`, `article:author` vers la page profil.
+- Twitter Card `summary_large_image` : titre, description, image et texte
+  alternatif identiques aux valeurs Open Graph.
 - JSON-LD : `BlogPosting` (`@id` = URL + `#post`, `author`/`publisher` =
-  `@id` person du site, `isPartOf` = blog de la langue, `keywords` 5 à 7)
-  et `BreadcrumbList` (Aperçu / Blog / Article).
+  `@id` person du site, `mainEntityOfPage` = canonical, langue, dates,
+  image sociale, `isPartOf` = blog de la langue, `keywords` 5 à 7)
+  et `BreadcrumbList` (Aperçu / Blog / Article, dernier item = canonical).
 - Icônes, `theme-color`, preloads des trois polices, script anti-flash du
   thème : copier du squelette, ne pas réinventer.
 
@@ -128,8 +131,10 @@ sans texte, composition large 3:2).
 5. **Chaîne de lecture** : le `next-primary` de l'ancien dernier article
    pointe vers le nouveau.
 6. **sitemap.xml** : deux entrées (EN + FR) avec hreflang ×3,
-   `lastmod` du jour, `changefreq yearly`, `priority 0.6`.
-7. **CHANGELOG.md** : une entrée datée décrivant l'article.
+   `lastmod` du jour et l'image sociale représentative. Ne pas ajouter
+   `changefreq` ni `priority`, ignorés par les moteurs et rejetés par le validateur.
+7. **llms.txt** : deux liens canoniques et un résumé fidèle de chaque langue.
+8. **CHANGELOG.md** : une entrée datée décrivant l'article.
 
 ## 8. Vérifications avant commit
 
@@ -144,6 +149,8 @@ sans texte, composition large 3:2).
 - [ ] Liens internes cliqués (lang-switch, cartes, page-next, sidebar).
 - [ ] Les hooks de commit passeront : parité FR/EN, tirets, PDF CV non
       concernés.
+- [ ] `python3 scripts/validate-site.py` passe, notamment pour `hreflang`,
+      JSON-LD, sitemap, `llms.txt` et métadonnées sociales.
 - [ ] Commit (message impératif français) + push, sans redemander.
 
 ## 9. Après publication

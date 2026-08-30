@@ -181,6 +181,12 @@ d'articles) ou `square composition` (mascottes, portraits).
   de PNG brut de générateur dans le repo.
 - Une image = un usage. Pas de sticker dans l'UI fonctionnelle, pas de
   pictogramme Swiss au milieu d'une scène illustrée.
+- Les cartes de partage font 1200x630. Les pages principales avec du texte dans
+  la carte ont une sortie distincte par langue. Une illustration d'article sans
+  texte peut rester commune aux versions EN et FR avec un texte alternatif localisé.
+- `scripts/og-template.html` compose les cartes Accueil, Réalisations, CV, Blog,
+  Claude et carnet Autriche avec les actifs existants. `scripts/projects-og-template.html`
+  conserve la grille propre aux identités produit.
 
 ### Identités de projets existantes
 

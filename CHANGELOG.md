@@ -5,6 +5,31 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-08-31 - Passe SEO globale et cartes sociales localisées
+
+- Les 24 pages indexables ont désormais un contrat commun : titre et description
+  concis, canonical, `hreflang` quand une traduction existe, Open Graph complet,
+  carte Twitter avec texte alternatif et données structurées adaptées au contenu.
+- Accueil, Réalisations, Projets, CV et Blog disposent de cartes 1200x630 propres à
+  chaque page et à chaque langue. Les articles conservent leurs illustrations sans
+  texte, partagées entre les versions EN et FR.
+- `/claude/` et le carnet Autriche reçoivent des cartes fondées sur la vraie photo,
+  sans réactiver l’ancienne carte postale au texte incorrect. Le carnet expose aussi
+  ses dates, son auteur, son schéma `Article` et les dimensions de ses photos. Il est
+  désormais référencé dans `llms.txt` avec sa source canonique.
+- Le sitemap existant reste la source canonique des 24 URL, retire les indications
+  ignorées `changefreq` et `priority`, actualise les `lastmod` et associe une image
+  représentative à chaque page.
+- Le dashboard reste public mais non indexable. Il n’est plus bloqué dans
+  `robots.txt`, afin que les moteurs puissent lire son `noindex`. Les gabarits HTML
+  de fabrication sont eux aussi explicitement `noindex`.
+- Le validateur couvre désormais tout le site : correspondance exacte avec le
+  sitemap, canonicals, langues, `hreflang`, JSON-LD, métadonnées sociales, types MIME,
+  dimensions 1200x630, couverture de `llms.txt` et parité structurelle des onze
+  couples EN/FR.
+- Le template maison des futurs articles reprend ce même contrat, sans les champs
+  sitemap ignorés, afin qu’un nouvel article reste publiable dès sa création.
+
 ## 2026-08-30 - Réécriture et nouveau sticker du parcours numérique
 
 - L’article bilingue ouvre désormais sur la vente de `wii-fr.com`, puis

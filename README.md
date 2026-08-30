@@ -63,7 +63,7 @@ pas que la dernière version est publiée.
 | `/fr/blog/<article>/` | `fr/blog/*/index.html` | Six articles en français |
 | `/dashboard/` | `dashboard/index.html` | Morning brief expérimental, données d’exemple, non indexé |
 | `/claude/` | `claude/index.html` | Easter egg public, indexé et hors navigation principale |
-| `/claude/roadtrip-austria-2026/` | `claude/roadtrip-austria-2026/index.html` | Carnet de route interactif et local pour le voyage en Autriche |
+| `/claude/roadtrip-austria-2026/` | `claude/roadtrip-austria-2026/index.html` | Carnet photo public du voyage en Autriche |
 | `/llms.txt` | `llms.txt` | Index éditorial concis pour les agents et outils d'IA |
 | `/400.html` à `/504.html` | `4xx.html`, `5xx.html` | Dix pages d’erreur bilingues |
 | `/v2022/` | `v2022/` | Archive de la version 2022 (non indexée) |
@@ -74,12 +74,12 @@ assets/
   css/   site.css · cv.css · dashboard.css
   js/    site.js            (thème · sidebar · scrollspy · deep-link langue)
   fonts/ woff2 variables (Inter · Source Serif 4 · JetBrains Mono, subsets latin/-ext)
-  img/   logo, favicons, portraits, image OpenGraph
-    projects/ logos dérivés, cartes produit canoniques, carte OpenGraph et provenance
+  img/   logo, favicons, portraits, cartes Open Graph localisées
+    projects/ logos dérivés, cartes produit canoniques, cartes Open Graph et provenance
   docs/  CV PDF pré-générés en anglais et en français
 claude/
   style.css · script.js     (socle autonome)
-  roadtrip-austria-2026/    (itinéraire, checklist locale et illustrations)
+  roadtrip-austria-2026/    (carnet photo public et illustrations)
   postcard.css              (carte postale et tampon local)
   capsule.css · capsule.js  (capsule conservée dans le navigateur)
   window.css · window.js    (fenêtre accordée à l'heure locale)
@@ -117,11 +117,18 @@ Après une modification des CV HTML, régénérer les deux PDF depuis le serveur
 Assets images/favicons régénérés à la main via les outils macOS natifs (`sips`, `qlmanage`) ;
 voir le `CHANGELOG.md` pour les commandes utilisées.
 
-La carte de partage des pages Projets est issue d'un gabarit HTML versionné :
+Les cartes de partage des pages principales et des pages Projets sont issues de
+gabarits HTML versionnés. Les variantes EN et FR sont générées ensemble :
 
 ```sh
+./scripts/generate-og-image.sh
 ./scripts/generate-projects-og-image.sh
 ```
+
+Le premier script produit les cartes Accueil, Réalisations, CV, Blog, Claude et
+le carnet Autriche.
+Le second conserve la composition dédiée aux identités produit. Toutes les sorties
+font 1200x630 et sont vérifiées par le validateur global.
 
 Les sources, empreintes SHA-256 et transformations des visuels produit sont consignées dans
 [`assets/img/projects/PROVENANCE.md`](assets/img/projects/PROVENANCE.md).
@@ -136,9 +143,10 @@ aucun placeholder).
 Un hook `git commit` (`~/Developer/.claude/hooks/check-i18n-parity.py`) bloque le commit si
 la parité *structurelle* diverge. La parité *sémantique* reste vérifiée par relecture.
 
-Le workflow `Site validation` exécute aussi `python3 scripts/validate-site.py`. Il vérifie le
-domaine canonique, les fichiers indispensables, les routes et images du sitemap, la structure
-bilingue et les contrats de métadonnées des pages Projets.
+Le workflow `Site validation` exécute aussi `python3 scripts/validate-site.py`. Il vérifie les
+24 pages indexables, leur correspondance exacte avec le sitemap, les images, canonicals,
+langues, `hreflang`, données structurées, métadonnées Open Graph et Twitter, ainsi que la
+structure des onze couples bilingues et la couverture canonique de `llms.txt`.
 
 Tester systématiquement : **mobile + desktop**, **clair + sombre**, et l'**impression** du CV.
 

@@ -1,48 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://nicolaspieper.com/</loc>
-    <lastmod>2026-08-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-08-31</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/"/>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/og-home.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://nicolaspieper.com/fr/</loc>
-    <lastmod>2026-08-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-08-31</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/"/>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/og-home-fr.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://nicolaspieper.com/work/</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-08-31</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/work/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/work/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/work/"/>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/og-work.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://nicolaspieper.com/fr/work/</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-08-31</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/work/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/work/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/work/"/>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/og-work-fr.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://nicolaspieper.com/projects/</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-08-31</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/projects/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/projects/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/projects/"/>
@@ -55,13 +47,11 @@
   </url>
   <url>
     <loc>https://nicolaspieper.com/fr/projects/</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-08-31</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/projects/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/projects/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/projects/"/>
-    <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/projects-social-card.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/projects-social-card-fr.jpg</image:loc></image:image>
     <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/surplasse-social-card.png</image:loc></image:image>
     <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/papers-empire-social-card.jpg</image:loc></image:image>
     <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/parkventory-social-card.png</image:loc></image:image>
@@ -70,160 +60,140 @@
   </url>
   <url>
     <loc>https://nicolaspieper.com/cv/</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-08-31</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/cv/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/cv/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/cv/"/>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/og-cv.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://nicolaspieper.com/fr/cv/</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-08-31</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/cv/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/cv/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/cv/"/>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/og-cv-fr.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://nicolaspieper.com/blog/</loc>
-    <lastmod>2026-08-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-08-31</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/"/>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/og-blog.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://nicolaspieper.com/fr/blog/</loc>
-    <lastmod>2026-08-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-08-31</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/"/>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/og-blog-fr.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://nicolaspieper.com/blog/growing-up-with-the-web/</loc>
-    <lastmod>2026-08-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-08-31</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/growing-up-with-the-web/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/growing-up-with-the-web/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/growing-up-with-the-web/"/>
-    <image:image><image:loc>https://nicolaspieper.com/assets/img/blog/growing-up-with-the-web-hero.webp?v=2</image:loc></image:image>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/blog/growing-up-with-the-web-og.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://nicolaspieper.com/fr/blog/growing-up-with-the-web/</loc>
-    <lastmod>2026-08-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-08-31</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/growing-up-with-the-web/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/growing-up-with-the-web/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/growing-up-with-the-web/"/>
-    <image:image><image:loc>https://nicolaspieper.com/assets/img/blog/growing-up-with-the-web-hero.webp?v=2</image:loc></image:image>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/blog/growing-up-with-the-web-og.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://nicolaspieper.com/blog/claude-in-the-enterprise/</loc>
-    <lastmod>2026-08-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-08-31</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/claude-in-the-enterprise/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/claude-in-the-enterprise/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/claude-in-the-enterprise/"/>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/blog/claude-in-the-enterprise-og.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://nicolaspieper.com/fr/blog/claude-in-the-enterprise/</loc>
-    <lastmod>2026-08-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-08-31</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/claude-in-the-enterprise/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/claude-in-the-enterprise/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/claude-in-the-enterprise/"/>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/blog/claude-in-the-enterprise-og.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://nicolaspieper.com/blog/organizing-the-solutions-team/</loc>
-    <lastmod>2026-08-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-08-31</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/organizing-the-solutions-team/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/organizing-the-solutions-team/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/organizing-the-solutions-team/"/>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/blog/organizing-the-solutions-team-og.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://nicolaspieper.com/fr/blog/organizing-the-solutions-team/</loc>
-    <lastmod>2026-08-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-08-31</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/organizing-the-solutions-team/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/organizing-the-solutions-team/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/organizing-the-solutions-team/"/>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/blog/organizing-the-solutions-team-og.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://nicolaspieper.com/blog/claude-assisted-by-a-human/</loc>
-    <lastmod>2026-08-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-08-31</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/claude-assisted-by-a-human/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/claude-assisted-by-a-human/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/claude-assisted-by-a-human/"/>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/blog/claude-assisted-by-a-human-og.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://nicolaspieper.com/fr/blog/claude-assisted-by-a-human/</loc>
-    <lastmod>2026-08-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-08-31</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/claude-assisted-by-a-human/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/claude-assisted-by-a-human/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/claude-assisted-by-a-human/"/>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/blog/claude-assisted-by-a-human-og.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://nicolaspieper.com/blog/ai-in-the-sdlc/</loc>
-    <lastmod>2026-08-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-08-31</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/ai-in-the-sdlc/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/ai-in-the-sdlc/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/ai-in-the-sdlc/"/>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/blog/ai-in-the-sdlc-og.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://nicolaspieper.com/fr/blog/ai-in-the-sdlc/</loc>
-    <lastmod>2026-08-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-08-31</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/ai-in-the-sdlc/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/ai-in-the-sdlc/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/ai-in-the-sdlc/"/>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/blog/ai-in-the-sdlc-og.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://nicolaspieper.com/blog/ai-coding-agents-logging/</loc>
-    <lastmod>2026-08-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-08-31</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/ai-coding-agents-logging/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/ai-coding-agents-logging/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/ai-coding-agents-logging/"/>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/blog/ai-coding-agents-logging-og.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://nicolaspieper.com/fr/blog/ai-coding-agents-logging/</loc>
-    <lastmod>2026-08-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-08-31</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/ai-coding-agents-logging/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/ai-coding-agents-logging/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/ai-coding-agents-logging/"/>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/blog/ai-coding-agents-logging-og.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://nicolaspieper.com/claude/</loc>
-    <lastmod>2026-07-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <lastmod>2026-08-31</lastmod>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/og-claude.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://nicolaspieper.com/claude/roadtrip-austria-2026/</loc>
-    <lastmod>2026-07-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <lastmod>2026-08-31</lastmod>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/og-roadtrip.png</image:loc></image:image>
   </url>
 </urlset>

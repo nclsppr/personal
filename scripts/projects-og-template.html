@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
 <style>
   @font-face {
     font-family: 'Inter';
@@ -117,10 +118,10 @@
   <main class="canvas">
     <section class="intro">
       <div class="brand"><img src="../assets/img/logo-mark.png" alt=""><span>Nicolas Pieper</span></div>
-      <p class="eyebrow">From idea to production</p>
-      <h1>Projects.</h1>
-      <p class="tagline">Web products and engineering systems, led and verified by a human.</p>
-      <p class="url">nicolaspieper.com/projects</p>
+      <p class="eyebrow" id="eyebrow">From idea to production</p>
+      <h1 id="title">Projects.</h1>
+      <p class="tagline" id="tagline">Web products and engineering systems, led and verified by a human.</p>
+      <p class="url" id="url">nicolaspieper.com/projects</p>
     </section>
     <section aria-label="Five products">
       <div class="ledger">
@@ -133,5 +134,14 @@
       <div class="foundation">FOUNDATION.md</div>
     </section>
   </main>
+  <script>
+    if (new URLSearchParams(window.location.search).get('lang') === 'fr') {
+      document.documentElement.lang = 'fr';
+      document.getElementById('eyebrow').textContent = 'De l’idée à la production';
+      document.getElementById('title').textContent = 'Projets.';
+      document.getElementById('tagline').textContent = 'Produits web et systèmes d’ingénierie, pilotés et vérifiés par un humain.';
+      document.getElementById('url').textContent = 'nicolaspieper.com/fr/projects';
+    }
+  </script>
 </body>
 </html>
