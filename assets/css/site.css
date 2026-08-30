@@ -1416,6 +1416,7 @@ a.card:hover { text-decoration: none; border-color: var(--accent); box-shadow: v
   display: block;
   width: 100%;
   height: auto;
+  filter: drop-shadow(0 6px 14px var(--sticker-shadow-ink));
   transform: rotate(-1.2deg);
   transition: transform 0.25s cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -1489,6 +1490,76 @@ a.card:hover { text-decoration: none; border-color: var(--accent); box-shadow: v
   font-size: 0.72rem;
   color: var(--muted);
   margin-top: 8px;
+}
+
+/* Chronologie éditoriale : une liste HTML reste lisible sans JavaScript.
+   Les numéros portent l'ordre ; la ligne orange ne fait que relier les
+   étapes et ne transmet aucune information seule. */
+.content article .journey-timeline { max-width: 38rem; }
+.journey-timeline {
+  margin: 28px 0 34px;
+  padding: 18px 0 16px;
+  border-top: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--border-strong);
+}
+.journey-timeline__label {
+  margin: 0 0 18px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 650;
+  color: var(--accent-ink);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.journey-timeline ol {
+  position: relative;
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0 0 0 44px;
+  list-style: none;
+  counter-reset: journey-step;
+}
+.journey-timeline ol::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  bottom: 14px;
+  width: 2px;
+  background: var(--accent);
+}
+.journey-timeline li {
+  position: relative;
+  display: grid;
+  gap: 2px;
+  counter-increment: journey-step;
+}
+.journey-timeline li::before {
+  content: counter(journey-step, decimal-leading-zero);
+  position: absolute;
+  z-index: 1;
+  left: -44px;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--accent-ink);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 650;
+  line-height: 28px;
+  text-align: center;
+}
+.journey-timeline strong { font-size: 0.9rem; line-height: 1.4; }
+.journey-timeline li span { color: var(--ink-soft); font-size: 0.86rem; line-height: 1.5; }
+.journey-timeline figcaption {
+  margin-top: 18px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
 }
 
 /* Functional article models. They summarize an argument with rules and
