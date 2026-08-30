@@ -5,6 +5,23 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-08-30 - Sixième article : j’ai grandi avec le web
+
+- Nouvel article bilingue « I grew up with the web »
+  (`/blog/growing-up-with-the-web/`). Il relie les premiers jeux et l’ETAJV
+  aux forums, à `wii-fr.com`, aux années PageRank, à eRepublik, puis à
+  l’électronique et aux études d’ingénieur.
+- Sticker panoramique original intégré en WebP transparent, avec un câble
+  orange qui traverse les époques. Sa variante Open Graph 1200x630 est
+  aplatie sur le fond ivoire du site.
+- Le blog accueille désormais les notes personnelles aux côtés des notes
+  d’ingénierie. Les index, les extraits de l’accueil et la section
+  « Au-delà de l’ingénierie » rendent ce parcours trouvable dans les deux
+  langues.
+- Sidebars, chaîne de lecture, conservation de l’ancre entre les langues,
+  parcours horizontal au clavier, JSON-LD, sitemap avec image, `llms.txt` et
+  documentation du dépôt intègrent le sixième article.
+
 ## 2026-08-27 - Liens directs des projets et identité Mon Florian V2
 
 - Les cinq entrées Projets des accueils sont désormais des liens natifs vers
