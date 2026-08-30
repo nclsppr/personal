@@ -5,6 +5,21 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-08-30 - Réécriture et nouveau sticker du parcours numérique
+
+- L’article bilingue ouvre désormais sur la vente de `wii-fr.com`, puis
+  reprend le fil des jeux, de l’ETAJV, de phpBB, de l’électronique et des
+  systèmes à grande échelle dans sept sections plus descriptives.
+- Le nouveau sticker fourni par Nicolas remplace le premier visuel. Son alpha
+  a été nettoyé, le dessin recentré avec une marge sûre, puis décliné en héros
+  WebP transparent et en image Open Graph 1200x630 sur fond ivoire.
+- Une chronologie HTML ordonnée remplace le schéma générique. Le câble orange
+  est dessiné en CSS, tandis que les numéros et les libellés préservent le sens
+  sans couleur ni JavaScript.
+- Les titres, descriptions, auteurs, cartes d’index, extraits d’accueil,
+  données structurées, sitemap et `llms.txt` reflètent le nouvel angle « de
+  phpBB à l’ingénierie » dans les deux langues.
+
 ## 2026-08-30 - Sixième article : j’ai grandi avec le web
 
 - Nouvel article bilingue « I grew up with the web »

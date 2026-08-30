@@ -24,8 +24,8 @@ The HTML pages below are the canonical, human-reviewed sources. English and Fren
 
 - [Blog in English](https://nicolaspieper.com/blog/): All English articles.
 - [Blog en français](https://nicolaspieper.com/fr/blog/): Tous les articles en français.
-- [I grew up with the web](https://nicolaspieper.com/blog/growing-up-with-the-web/): A personal history from early games and offline guides to forums, wii-fr.com, eRepublik, electronics and engineering.
-- [J’ai grandi avec le web](https://nicolaspieper.com/fr/blog/growing-up-with-the-web/): Un parcours personnel des premiers jeux et guides hors ligne jusqu’aux forums, à wii-fr.com, eRepublik, l’électronique et l’ingénierie.
+- [I grew up with the web: from phpBB to engineering](https://nicolaspieper.com/blog/growing-up-with-the-web/): Almost thirty years from early games and ETAJV to forums, wii-fr.com, electronics, systems at scale and engineering management.
+- [J’ai grandi avec le web : de phpBB à l’ingénierie](https://nicolaspieper.com/fr/blog/growing-up-with-the-web/): Presque trente ans des premiers jeux et de l’ETAJV aux forums, à wii-fr.com, l’électronique, les systèmes à grande échelle et le management d’ingénierie.
 - [AI coding agents need a logging contract, not a better prompt](https://nicolaspieper.com/blog/ai-coding-agents-logging/): A practical logging contract that combines structured events, security rules and CI checks for AI-generated code.
 - [Les agents de code IA ont besoin d’un contrat de logs, pas d’un meilleur prompt](https://nicolaspieper.com/fr/blog/ai-coding-agents-logging/): Un contrat de logs pratique qui associe événements structurés, règles de sécurité et contrôles CI pour le code généré par IA.
 - [Faster coding is not faster delivery](https://nicolaspieper.com/blog/ai-in-the-sdlc/): Why AI coding gains require redesigning the full software delivery lifecycle.
