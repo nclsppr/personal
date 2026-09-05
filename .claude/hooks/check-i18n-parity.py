@@ -62,6 +62,7 @@ def main():
     pairs = (
         ("index.html", "fr/index.html"),
         ("projects/index.html", "fr/projects/index.html"),
+        ("objects/index.html", "fr/objects/index.html"),
     )
     for en_path, fr_path in pairs:
         en_full = os.path.join(repo, en_path)

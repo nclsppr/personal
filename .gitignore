@@ -7,3 +7,6 @@
 .agents/
 .claude/skills/*
 !.claude/skills/add-article/
+
+# Local browser review evidence
+.impeccable/review/

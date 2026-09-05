@@ -55,6 +55,8 @@ pas que la dernière version est publiée.
 | `/fr/work/` | `fr/work/index.html` | Études de cas et leadership en français |
 | `/projects/` | `projects/index.html` | Produits et systèmes personnels en anglais |
 | `/fr/projects/` | `fr/projects/index.html` | Produits et systèmes personnels en français |
+| `/objects/` | `objects/index.html` | Objets possédés et envies d'achat en anglais |
+| `/fr/objects/` | `fr/objects/index.html` | Objets possédés et envies d'achat en français |
 | `/cv/` | `cv/index.html` | CV anglais avec PDF pré-généré téléchargeable |
 | `/fr/cv/` | `fr/cv/index.html` | CV français avec PDF pré-généré téléchargeable |
 | `/blog/` | `blog/index.html` | Index des articles en anglais |
@@ -76,6 +78,7 @@ assets/
   fonts/ woff2 variables (Inter · Source Serif 4 · JetBrains Mono, subsets latin/-ext)
   img/   logo, favicons, portraits, cartes Open Graph localisées
     projects/ logos dérivés, cartes produit canoniques, cartes Open Graph et provenance
+    objects/ visuels des objets, provenance et cartes Open Graph localisées
   docs/  CV PDF pré-générés en anglais et en français
 claude/
   style.css · script.js     (socle autonome)
@@ -136,17 +139,22 @@ Les sources, empreintes SHA-256 et transformations des visuels produit sont cons
 ## Validation
 
 Avant chaque commit touchant le site, la **parité FR/EN** doit être vérifiée : `/` et `/fr/`,
-ainsi que `/projects/` et `/fr/projects/`, gardent la même structure, les mêmes
-sections/ancres, et chaque texte est la traduction équivalente (aucun texte source oublié,
-aucun placeholder).
+ainsi que les couples `/projects/` et `/fr/projects/`, `/objects/` et `/fr/objects/`,
+gardent la même structure, les mêmes sections/ancres, et chaque texte est la traduction
+équivalente (aucun texte source oublié, aucun placeholder).
 
 Un hook `git commit` (`~/Developer/.claude/hooks/check-i18n-parity.py`) bloque le commit si
 la parité *structurelle* diverge. La parité *sémantique* reste vérifiée par relecture.
 
 Le workflow `Site validation` exécute aussi `python3 scripts/validate-site.py`. Il vérifie les
-24 pages indexables, leur correspondance exacte avec le sitemap, les images, canonicals,
+26 pages indexables, leur correspondance exacte avec le sitemap, les images, canonicals,
 langues, `hreflang`, données structurées, métadonnées Open Graph et Twitter, ainsi que la
-structure des onze couples bilingues et la couverture canonique de `llms.txt`.
+structure des douze couples bilingues et la couverture canonique de `llms.txt`.
+Le catalogue `data/objects.json` alimente les deux pages Objets via
+`python3 scripts/generate-objects.py`. La validation contrôle les statuts de possession,
+la parité des objets, la synchronisation des pages générées et les liens Amazon.fr avec
+le tag affilié `nclsppr-21`. Les [consignes d’ajout](docs/objects/ADDING-OBJECTS.md)
+détaillent les faits, variantes, photographies, preuves et liens à préserver.
 
 Tester systématiquement : **mobile + desktop**, **clair + sombre**, et l'**impression** du CV.
 

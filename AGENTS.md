@@ -39,6 +39,21 @@ Voir [`README.md`](README.md) pour l'architecture et [`CHANGELOG.md`](CHANGELOG.
   soit généré via ChatGPT avec son accord explicite ; jamais d'image
   référencée avant d'exister.
 
+## Collection d’objets
+
+- La page `/objects/` et sa version `/fr/objects/` sont générées depuis
+  `data/objects.json`. Suivre [les consignes d’ajout](docs/objects/ADDING-OBJECTS.md).
+- Chaque clic sur un objet doit ouvrir une fiche proposant le produit Amazon.fr
+  exact vérifié ou plusieurs pistes proches explicitement identifiées.
+  Identifiant affilié : **`nclsppr-21`**. Aucun autre tag, ASIN inventé ou lien
+  d’accessoire présenté comme l’objet complet.
+- Distinguer possessions et envies, conserver les deux langues et les variantes
+  inconnues, ne jamais inventer l’avis ou l’expérience de Nicolas.
+- Conserver les mentions d’affiliation, les preuves des liens et la provenance
+  des photographies. Un crédit ou un téléchargement ne vaut pas licence.
+- Préserver la présentation de boutique demandée, le gris, les vrais packshots,
+  la navigation clavier et les détails HTML utilisables sans JavaScript.
+
 ## CV PDF
 
 - Les PDF téléchargeables (`/assets/docs/nicolas-pieper-cv-en.pdf` et `…-fr.pdf`) sont le

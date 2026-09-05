@@ -1,0 +1,946 @@
+{
+  "affiliateTag": "nclsppr-21",
+  "updatedAt": "2026-09-05",
+  "objects": [
+    {
+      "id": "herman-miller-cosm",
+      "status": "owned",
+      "brand": "Herman Miller",
+      "name": "Cosm",
+      "variant": {
+        "fr": "Orange",
+        "en": "Orange"
+      },
+      "note": {
+        "fr": "Ma Cosm orange, avec cette silhouette si particulière.",
+        "en": "My orange Cosm, with its distinctive silhouette."
+      },
+      "source": "https://www.hermanmiller.com/en_mde/resources/3d-models-and-planning-tools/product-models/individual/cosm-chair-high-back-leaf-arms/",
+      "image": {
+        "src": "/assets/img/objects/herman-miller-cosm.webp",
+        "source": "https://frstore.hermanmiller.com/cdn/shop/products/cosm_gal_hi_can_l_01_5ccb8e86-745b-4595-b12e-f46ed4b2590d.jpg?v=1665752703",
+        "sourcePage": "https://www.hermanmiller.com/en_mde/resources/3d-models-and-planning-tools/product-models/individual/cosm-chair-high-back-leaf-arms/",
+        "credit": "Herman Miller",
+        "match": "illustrative-back-arm-variant",
+        "checkedAt": "2026-09-05",
+        "rights": "Copyright retained by the source. Source access does not establish a reuse licence; no separate licence grant recorded.",
+        "width": 933,
+        "height": 1100,
+        "sha256": "bd182340b5a60b9340de52006ae2bf49dd5189c6d541262503ef5fdeb47491a4",
+        "alt": {
+          "fr": "Herman Miller Cosm, Orange",
+          "en": "Herman Miller Cosm, Orange"
+        },
+        "caption": {
+          "fr": "Cosm Canyon, dossier haut et accoudoirs Leaf. La configuration exacte de la mienne reste à préciser.",
+          "en": "Cosm in Canyon with a high back and Leaf Arms. My exact configuration is still to be confirmed."
+        }
+      },
+      "links": [
+        {
+          "kind": "search",
+          "name": "Herman Miller Sayl",
+          "label": {
+            "fr": "Explorer le Herman Miller Sayl sur Amazon.fr",
+            "en": "Explore Herman Miller Sayl on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/s?k=Herman%20Miller%20Sayl&tag=nclsppr-21",
+          "asin": null,
+          "relation": "related",
+          "checkedAt": "2026-09-05",
+          "verification": "search_not_offer",
+          "evidence": "https://www.hermanmiller.com/products/seating/performance-work-chairs/sayl-chairs.html",
+          "researchNote": "Another design office chair. Distinct product; no identical ergonomics claim."
+        },
+        {
+          "kind": "search",
+          "name": "Steelcase Series 1",
+          "label": {
+            "fr": "Explorer le Steelcase Series 1 sur Amazon.fr",
+            "en": "Explore Steelcase Series 1 on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/s?k=Steelcase%20Series%201&tag=nclsppr-21",
+          "asin": null,
+          "relation": "related",
+          "checkedAt": "2026-09-05",
+          "verification": "search_not_offer",
+          "evidence": "https://www.steelcase.com/products/office-chairs/steelcase-series-1/",
+          "researchNote": "Another ergonomic office chair. Not the orange Cosm."
+        }
+      ],
+      "researchNotes": [
+        "Official Canyon high-back Leaf Arms photo. User back height and phrase montants aliens unconfirmed."
+      ]
+    },
+    {
+      "id": "gozney-dome-2",
+      "status": "owned",
+      "brand": "Gozney",
+      "name": "Dome 2",
+      "variant": {
+        "fr": "Beige · Bone",
+        "en": "Beige · Bone"
+      },
+      "note": {
+        "fr": "Le four à pizza de ma collection, dans sa finition beige.",
+        "en": "The pizza oven in my collection, in its beige finish."
+      },
+      "source": "https://eu.gozney.com/fr-fr/products/dome-gen-2",
+      "image": {
+        "src": "/assets/img/objects/gozney-dome-2.webp",
+        "source": "https://eu.gozney.com/cdn/shop/files/Dome_Bone.png?v=1757368763",
+        "sourcePage": "https://eu.gozney.com/fr-fr/products/dome-gen-2",
+        "credit": "Gozney",
+        "match": "exact",
+        "checkedAt": "2026-09-05",
+        "rights": "Copyright retained by the source. Source access does not establish a reuse licence; no separate licence grant recorded.",
+        "width": 1100,
+        "height": 1100,
+        "sha256": "9b2eb0a282218bc65f66c6062ea0b816dca5a41463a26565a85e9510512c1b6a",
+        "alt": {
+          "fr": "Gozney Dome 2, Beige · Bone",
+          "en": "Gozney Dome 2, Beige · Bone"
+        }
+      },
+      "links": [
+        {
+          "kind": "alternative",
+          "name": "Explore Ooni Koda 2 Pro on Amazon.fr",
+          "label": {
+            "fr": "Explorer l’Ooni Koda 2 Pro sur Amazon.fr",
+            "en": "Explore Ooni Koda 2 Pro on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/dp/B0F5443PMQ?tag=nclsppr-21",
+          "asin": "B0F5443PMQ",
+          "relation": "related",
+          "checkedAt": "2026-09-05",
+          "verification": "registry_previously_verified_live_fetch_unavailable",
+          "evidence": "https://fouranu.com/ooni/koda-2-pro/",
+          "researchNote": "Different outdoor pizza oven, gas only. ASIN from Four a Nu origin/main registry checked 2026-08-31; live Amazon fetch not verified in this run."
+        },
+        {
+          "kind": "alternative",
+          "name": "Explore Witt ETNA Rotante on Amazon.fr",
+          "label": {
+            "fr": "Explorer le Witt ETNA Rotante sur Amazon.fr",
+            "en": "Explore Witt ETNA Rotante on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/dp/B0C4PY8QBV?tag=nclsppr-21",
+          "asin": "B0C4PY8QBV",
+          "relation": "related",
+          "checkedAt": "2026-09-05",
+          "verification": "registry_previously_verified_live_fetch_unavailable",
+          "evidence": "https://www.wittpizza.com/en-us",
+          "researchNote": "Different gas oven with rotating stone. ASIN from Four a Nu origin/main registry checked 2026-08-31; live Amazon fetch not verified in this run."
+        }
+      ],
+      "researchNotes": [
+        "Official pale beige color name Bone. Not Dome XL."
+      ]
+    },
+    {
+      "id": "dji-romo-p2",
+      "status": "owned",
+      "brand": "DJI",
+      "name": "ROMO P2",
+      "variant": {
+        "fr": "Aspirateur robot",
+        "en": "Robot vacuum"
+      },
+      "note": {
+        "fr": "Le robot aspirateur DJI que j’ai chez moi.",
+        "en": "The DJI robot vacuum I have at home."
+      },
+      "source": "https://store.dji.com/de/product/dji-romo-p-2-water-tank-version",
+      "image": {
+        "src": "/assets/img/objects/dji-romo-p2.webp",
+        "source": "https://se-cdn.djiits.com/tpc/uploads/spu/cover/27bbf7a21c219459dc3d3fdc8363bfa5%40ultra.png?format=webp",
+        "sourcePage": "https://store.dji.com/de/product/dji-romo-p-2-water-tank-version",
+        "credit": "DJI",
+        "match": "exact",
+        "checkedAt": "2026-09-05",
+        "rights": "Copyright retained by the source. Source access does not establish a reuse licence; no separate licence grant recorded.",
+        "width": 1100,
+        "height": 1100,
+        "sha256": "2f35bff482df795fb7e0a30711728bf957eeb9813b1e60dbebba0b786e627387",
+        "alt": {
+          "fr": "DJI ROMO P2, Aspirateur robot",
+          "en": "DJI ROMO P2, Robot vacuum"
+        }
+      },
+      "links": [
+        {
+          "kind": "search",
+          "name": "DJI ROMO P2 aspirateur robot",
+          "label": {
+            "fr": "Rechercher le DJI ROMO P2 sur Amazon.fr",
+            "en": "Search DJI ROMO P2 on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/s?k=DJI%20ROMO%20P2%20aspirateur%20robot&tag=nclsppr-21",
+          "asin": null,
+          "relation": "requested",
+          "checkedAt": "2026-09-05",
+          "verification": "search_not_offer",
+          "evidence": "https://store.dji.com/fr/event/dji-romo-series",
+          "researchNote": "Search only. Results, exact match and availability are not verified."
+        },
+        {
+          "kind": "search",
+          "name": "DJI ROMO P aspirateur robot",
+          "label": {
+            "fr": "Explorer le DJI ROMO P sur Amazon.fr",
+            "en": "Explore DJI ROMO P on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/s?k=DJI%20ROMO%20P%20aspirateur%20robot&tag=nclsppr-21",
+          "asin": null,
+          "relation": "related",
+          "checkedAt": "2026-09-05",
+          "verification": "search_not_offer",
+          "evidence": "https://store.dji.com/fr/event/dji-romo-series",
+          "researchNote": "Previous generation, not P2. A deliberately labeled alternative."
+        }
+      ],
+      "researchNotes": [
+        "Exact DJI Store P2 water-tank transparent packshot. Visually verified single product on transparent background."
+      ]
+    },
+    {
+      "id": "project-debut-pro-s",
+      "status": "owned",
+      "brand": "Pro-Ject",
+      "name": "Debut PRO S",
+      "variant": {
+        "fr": "Platine vinyle",
+        "en": "Turntable"
+      },
+      "note": {
+        "fr": "Ma platine vinyle, dans la version Debut PRO S.",
+        "en": "My turntable, in the Debut PRO S version."
+      },
+      "source": "https://project-audio.fr/debut-pro-s/",
+      "image": {
+        "src": "/assets/img/objects/project-debut-pro-s.webp",
+        "source": "https://www.project-audio.com/wp-content/uploads/2022/06/Debut-PRO-S-cutout-scaled.jpg",
+        "sourcePage": "https://project-audio.fr/debut-pro-s/",
+        "credit": "Pro-Ject Audio Systems",
+        "match": "exact",
+        "checkedAt": "2026-09-05",
+        "rights": "Copyright retained by the source. Source access does not establish a reuse licence; no separate licence grant recorded.",
+        "width": 1100,
+        "height": 713,
+        "sha256": "9a1d2a748145ebc03f51aa34168a0315005071da571fe5eb5ad1e664cac9e433",
+        "alt": {
+          "fr": "Pro-Ject Debut PRO S, Platine vinyle",
+          "en": "Pro-Ject Debut PRO S, Turntable"
+        }
+      },
+      "links": [
+        {
+          "kind": "search",
+          "name": "Pro-Ject Debut PRO S",
+          "label": {
+            "fr": "Rechercher la Debut PRO S sur Amazon.fr",
+            "en": "Search Debut PRO S on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/s?k=Pro-Ject%20Debut%20PRO%20S&tag=nclsppr-21",
+          "asin": null,
+          "relation": "requested",
+          "checkedAt": "2026-09-05",
+          "verification": "search_not_offer",
+          "evidence": "https://www.devialet.com/media/dvl_media/DebutPROS-EN.pdf",
+          "researchNote": "Search only. Results, exact match and availability are not verified."
+        },
+        {
+          "kind": "search",
+          "name": "Pro-Ject Debut EVO 2",
+          "label": {
+            "fr": "Explorer la Debut EVO 2 sur Amazon.fr",
+            "en": "Explore Debut EVO 2 on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/s?k=Pro-Ject%20Debut%20EVO%202&tag=nclsppr-21",
+          "asin": null,
+          "relation": "related",
+          "checkedAt": "2026-09-05",
+          "verification": "search_not_offer",
+          "evidence": "https://www.project-audio.com/en/product/debut-evo-2/",
+          "researchNote": "Related manual turntable in another range. Not PRO S, PRO S Balanced or an identical cartridge."
+        }
+      ],
+      "researchNotes": [
+        "Original 2022 Debut PRO S cutout photo still served in successor Balanced gallery. Exact original appearance. White background, visually inspected."
+      ]
+    },
+    {
+      "id": "macbook-pro-16-m1-pro",
+      "status": "owned",
+      "brand": "Apple",
+      "name": "MacBook Pro",
+      "variant": {
+        "fr": "16 pouces · M1 Pro",
+        "en": "16-inch · M1 Pro"
+      },
+      "note": {
+        "fr": "Mon MacBook Pro 16 pouces, équipé de la puce M1 Pro.",
+        "en": "My 16-inch MacBook Pro, with the M1 Pro chip."
+      },
+      "source": "https://support.apple.com/fr-fr/111901",
+      "image": {
+        "src": "/assets/img/objects/macbook-pro-16-m1-pro.webp",
+        "source": "https://cdsassets.apple.com/live/SZLF0YNV/images/sp/111901_mbp16-gray.png",
+        "sourcePage": "https://support.apple.com/fr-fr/111901",
+        "credit": "Apple",
+        "match": "model-color-unspecified",
+        "checkedAt": "2026-09-05",
+        "rights": "Copyright retained by the source. Source access does not establish a reuse licence; no separate licence grant recorded.",
+        "width": 1100,
+        "height": 698,
+        "sha256": "f1185899b3f9d0a6f33ef1c0e050504859ffbca443ae837e61d2c9e80549a63b",
+        "alt": {
+          "fr": "Apple MacBook Pro, 16 pouces · M1 Pro",
+          "en": "Apple MacBook Pro, 16-inch · M1 Pro"
+        }
+      },
+      "links": [
+        {
+          "kind": "exact",
+          "name": "View MacBook Pro 16 M1 Pro on Amazon.fr",
+          "label": {
+            "fr": "Voir le MacBook Pro 16 M1 Pro sur Amazon.fr",
+            "en": "View MacBook Pro 16 M1 Pro on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/dp/B09JRW1N7F?tag=nclsppr-21",
+          "asin": "B09JRW1N7F",
+          "relation": "same_model_specific_configuration",
+          "checkedAt": "2026-09-05",
+          "verification": "amazon_product_title_verified",
+          "evidence": "https://www.amazon.fr/dp/B09JRW1N7F/ref=fr_a_macbook_3",
+          "researchNote": "Amazon product title verified: 2021, 16 inches, M1 Pro 10 CPU/16 GPU, 16 GB RAM, 512 GB SSD, space gray. User memory, storage and color unknown; do not state this is their exact configuration.",
+          "note": {
+            "fr": "16 Go, 512 Go, gris sidéral",
+            "en": "16 GB, 512 GB, space grey"
+          }
+        },
+        {
+          "kind": "search",
+          "name": "Apple MacBook Pro 16 M5 Pro",
+          "label": {
+            "fr": "Explorer les MacBook Pro 16 récents sur Amazon.fr",
+            "en": "Explore recent MacBook Pro 16 models on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/s?k=Apple%20MacBook%20Pro%2016%20M5%20Pro&tag=nclsppr-21",
+          "asin": null,
+          "relation": "related",
+          "checkedAt": "2026-09-05",
+          "verification": "search_not_offer",
+          "evidence": "https://www.apple.com/fr/shop/browse/apps/home",
+          "researchNote": "Later generation, not the owned M1 Pro."
+        }
+      ],
+      "researchNotes": [
+        "Exact 2021 M1 Pro family. Image Space Gray; owned finish, RAM and storage unspecified."
+      ]
+    },
+    {
+      "id": "apple-studio-display",
+      "status": "owned",
+      "brand": "Apple",
+      "name": "Studio Display",
+      "variant": {
+        "fr": "Écran",
+        "en": "Display"
+      },
+      "note": {
+        "fr": "L’écran Apple de ma collection.",
+        "en": "The Apple display in my collection."
+      },
+      "source": "https://support.apple.com/fr-fr/126265",
+      "image": {
+        "src": "/assets/img/objects/apple-studio-display.webp",
+        "source": "https://cdsassets.apple.com/live/7WUAS350/images/mac/studio-display-2022-with-tilt-adjustable-stand.png",
+        "sourcePage": "https://support.apple.com/fr-fr/126265",
+        "credit": "Apple",
+        "match": "illustrative-generation",
+        "checkedAt": "2026-09-05",
+        "rights": "Copyright retained by the source. Source access does not establish a reuse licence; no separate licence grant recorded.",
+        "width": 1100,
+        "height": 437,
+        "sha256": "09889ae1026e73574537ad1ff1e010a90ebbe2b8111c1b06f5498baecdffdf0e",
+        "alt": {
+          "fr": "Apple Studio Display, Écran",
+          "en": "Apple Studio Display, Display"
+        },
+        "caption": {
+          "fr": "Visuel Studio Display 2022. Génération, verre et pied de mon exemplaire à préciser.",
+          "en": "2022 Studio Display pictured. My display’s generation, glass and stand are still to be confirmed."
+        }
+      },
+      "links": [
+        {
+          "kind": "alternative",
+          "name": "View a Studio Display variant on Amazon.fr",
+          "label": {
+            "fr": "Voir une variante du Studio Display sur Amazon.fr",
+            "en": "View a Studio Display variant on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/dp/B0DZDBPX43?tag=nclsppr-21",
+          "asin": "B0DZDBPX43",
+          "relation": "same_family_specific_configuration",
+          "checkedAt": "2026-09-05",
+          "verification": "amazon_product_title_verified",
+          "evidence": "https://www.amazon.fr/dp/B0DZDBPX43",
+          "researchNote": "Amazon title verified: nano-texture glass, tilt-adjustable stand, listing marked 2025. User glass, stand and generation unspecified; label as variant.",
+          "note": {
+            "fr": "verre nano-texturé, pied inclinable",
+            "en": "nano-texture glass, tilt-adjustable stand"
+          }
+        },
+        {
+          "kind": "search",
+          "name": "ASUS ProArt PA27JCV",
+          "label": {
+            "fr": "Explorer l’ASUS ProArt PA27JCV sur Amazon.fr",
+            "en": "Explore ASUS ProArt PA27JCV on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/s?k=ASUS%20ProArt%20PA27JCV&tag=nclsppr-21",
+          "asin": null,
+          "relation": "related",
+          "checkedAt": "2026-09-05",
+          "verification": "search_not_offer",
+          "evidence": "https://www.asus.com/us/displays-desktops/monitors/proart/proart-display-5k-pa27jcv/",
+          "researchNote": "Another 27-inch 5K display; not the same camera, audio, ports or construction."
+        }
+      ],
+      "researchNotes": [
+        "2022 and 2026 generations exist. User generation and stand unspecified. Photo depicts 2022 tilt-adjustable stand."
+      ]
+    },
+    {
+      "id": "keychron-k3-max",
+      "status": "owned",
+      "brand": "Keychron",
+      "name": "K3 Max",
+      "variant": {
+        "fr": "Gris · clavier mécanique",
+        "en": "Grey · mechanical keyboard"
+      },
+      "note": {
+        "fr": "Mon clavier Keychron K3 Max gris.",
+        "en": "My grey Keychron K3 Max keyboard."
+      },
+      "source": "https://www.keychron.com/products/keychron-k3-max-qmk-via-wireless-custom-mechanical-keyboard",
+      "image": {
+        "src": "/assets/img/objects/keychron-k3-max.webp",
+        "source": "https://www.keychron.com/cdn/shop/files/K3_Max.png?v=1732193847&width=1600",
+        "sourcePage": "https://www.keychron.com/products/keychron-k3-max-qmk-via-wireless-custom-mechanical-keyboard",
+        "credit": "Keychron",
+        "match": "model-layout-switch-unspecified",
+        "checkedAt": "2026-09-05",
+        "rights": "Copyright retained by the source. Source access does not establish a reuse licence; no separate licence grant recorded.",
+        "width": 600,
+        "height": 226,
+        "sha256": "51e0b75467c555c2dd4d01cc2fe8ff9465a01026ae0b55630b92ec0c090bd20a",
+        "alt": {
+          "fr": "Keychron K3 Max, Gris · clavier mécanique",
+          "en": "Keychron K3 Max, Grey · mechanical keyboard"
+        }
+      },
+      "links": [
+        {
+          "kind": "search",
+          "name": "Keychron K3 Max clavier",
+          "label": {
+            "fr": "Rechercher le Keychron K3 Max sur Amazon.fr",
+            "en": "Search Keychron K3 Max on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/s?k=Keychron%20K3%20Max%20clavier&tag=nclsppr-21",
+          "asin": null,
+          "relation": "requested",
+          "checkedAt": "2026-09-05",
+          "verification": "search_not_offer",
+          "evidence": "https://keychron.fr/products/keychron-k3-max-qmk-via-clavier-mecanique-personnalise-sans-fil",
+          "researchNote": "Search only. Results, exact match and availability are not verified."
+        },
+        {
+          "kind": "search",
+          "name": "Logitech MX Mechanical Mini clavier AZERTY",
+          "label": {
+            "fr": "Explorer le Logitech MX Mechanical Mini sur Amazon.fr",
+            "en": "Explore Logitech MX Mechanical Mini on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/s?k=Logitech%20MX%20Mechanical%20Mini%20clavier%20AZERTY&tag=nclsppr-21",
+          "asin": null,
+          "relation": "related",
+          "checkedAt": "2026-09-05",
+          "verification": "search_not_offer",
+          "evidence": "https://www.logitech.com/en-us/shop/p/mx-mechanical",
+          "researchNote": "Another compact low-profile mechanical wireless keyboard. Layout and switches must be checked."
+        }
+      ],
+      "researchNotes": [
+        "Clean official gray ANSI model illustration. Owned layout and switch type unspecified."
+      ]
+    },
+    {
+      "id": "apple-watch-ultra",
+      "status": "owned",
+      "brand": "Apple",
+      "name": "Watch Ultra",
+      "variant": {
+        "fr": "Montre",
+        "en": "Watch"
+      },
+      "note": {
+        "fr": "L’Apple Watch Ultra que je possède.",
+        "en": "The Apple Watch Ultra I own."
+      },
+      "source": "https://support.apple.com/fr-fr/111852",
+      "image": {
+        "src": "/assets/img/objects/apple-watch-ultra.webp",
+        "source": "https://cdsassets.apple.com/live/SZLF0YNV/images/sp/111852_apple-watch-ultra.png",
+        "sourcePage": "https://support.apple.com/fr-fr/111852",
+        "credit": "Apple",
+        "match": "illustrative-generation-band",
+        "checkedAt": "2026-09-05",
+        "rights": "Copyright retained by the source. Source access does not establish a reuse licence; no separate licence grant recorded.",
+        "width": 918,
+        "height": 653,
+        "sha256": "951a2eca4f6d3f4adad4db62ab5d86bf85c99a9a712740736d91e96e8c0aeea0",
+        "alt": {
+          "fr": "Apple Watch Ultra, Montre",
+          "en": "Apple Watch Ultra, Watch"
+        },
+        "caption": {
+          "fr": "Visuel de l’Apple Watch Ultra 2022 avec deux bracelets. Ma génération et mon bracelet restent à préciser.",
+          "en": "2022 Apple Watch Ultra shown with two bands. My generation and band are still to be confirmed."
+        }
+      },
+      "links": [
+        {
+          "kind": "search",
+          "name": "Apple Watch Ultra 49 mm",
+          "label": {
+            "fr": "Rechercher l’Apple Watch Ultra sur Amazon.fr",
+            "en": "Search Apple Watch Ultra on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/s?k=Apple%20Watch%20Ultra%2049%20mm&tag=nclsppr-21",
+          "asin": null,
+          "relation": "requested",
+          "checkedAt": "2026-09-05",
+          "verification": "search_not_offer",
+          "evidence": "https://support.apple.com/fr-fr/111852",
+          "researchNote": "Search only. Results, exact match and availability are not verified."
+        },
+        {
+          "kind": "alternative",
+          "name": "Explore Apple Watch Ultra 3 on Amazon.fr",
+          "label": {
+            "fr": "Explorer l’Apple Watch Ultra 3 sur Amazon.fr",
+            "en": "Explore Apple Watch Ultra 3 on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/dp/B0FQFQM5FD?tag=nclsppr-21",
+          "asin": "B0FQFQM5FD",
+          "relation": "related_later_generation",
+          "checkedAt": "2026-09-05",
+          "verification": "amazon_product_title_verified",
+          "evidence": "https://www.amazon.fr/dp/B0FQFQM5FD",
+          "researchNote": "Amazon title verified: Ultra3 GPS+Cellular49mm, natural titanium, blue/bright-blue Trail Loop. User generation and strap are unknown. Do not label owned watch Ultra3."
+        }
+      ],
+      "researchNotes": [
+        "Photo original 2022 Ultra. User generation and strap unspecified."
+      ]
+    },
+    {
+      "id": "spark-verstappen-japan-2025",
+      "status": "owned",
+      "brand": "Spark",
+      "name": "Red Bull RB21",
+      "variant": {
+        "fr": "Verstappen · Japon 2025 · 1:18",
+        "en": "Verstappen · Japan 2025 · 1:18"
+      },
+      "note": {
+        "fr": "Ma miniature Spark de la Red Bull de Max Verstappen au Grand Prix du Japon 2025, à l’échelle 1:18.",
+        "en": "My 1:18 Spark miniature of Max Verstappen’s Red Bull from the 2025 Japanese Grand Prix."
+      },
+      "source": "https://www.sparkmodelshop.com/de/en/red-bull-racing-rb21-no.1-oracle-red-bull-racing-winner-japanese-gp-2025-max-verstappen/18s1004-de",
+      "image": {
+        "src": "/assets/img/objects/spark-verstappen-japan-2025.webp",
+        "source": "https://spark-shopware.fra1.cdn.digitaloceanspaces.com/media/8b/0b/56/1784570508/9519bc48dfaf4cf18df0efc2c67322e4.webp?ts=1787893886",
+        "sourcePage": "https://www.sparkmodelshop.com/de/en/red-bull-racing-rb21-no.1-oracle-red-bull-racing-winner-japanese-gp-2025-max-verstappen/18s1004-de",
+        "credit": "Spark Model Shop",
+        "match": "model-variant-unspecified",
+        "checkedAt": "2026-09-05",
+        "rights": "Copyright retained by the source. Source access does not establish a reuse licence; no separate licence grant recorded.",
+        "width": 1100,
+        "height": 733,
+        "sha256": "0fa4c57fc261352014efb79d4367108e4609744dd0af5ab5088536c79c835a5d",
+        "alt": {
+          "fr": "Spark Red Bull RB21, Verstappen · Japon 2025 · 1:18",
+          "en": "Spark Red Bull RB21, Verstappen · Japan 2025 · 1:18"
+        }
+      },
+      "links": [
+        {
+          "kind": "search",
+          "name": "Spark 18S1004 Verstappen Japon 2025 1 18",
+          "label": {
+            "fr": "Rechercher la Spark 18S1004 sur Amazon.fr",
+            "en": "Search Spark 18S1004 on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/s?k=Spark%2018S1004%20Verstappen%20Japon%202025%201%2018&tag=nclsppr-21",
+          "asin": null,
+          "relation": "requested",
+          "checkedAt": "2026-09-05",
+          "verification": "search_not_offer",
+          "evidence": "https://www.miniatures-minichamps.com/fr/f1-2025/915152572-red-bull-rb21-with-pitboard-1-maxverstappen-f1-winner-japon-2025-spark-18s1004.html",
+          "researchNote": "Search only. Results, exact match and availability are not verified."
+        },
+        {
+          "kind": "search",
+          "name": "Bburago Red Bull RB19 Verstappen 1 18",
+          "label": {
+            "fr": "Explorer les Red Bull 1:18 Bburago sur Amazon.fr",
+            "en": "Explore Bburago Red Bull 1:18 models on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/s?k=Bburago%20Red%20Bull%20RB19%20Verstappen%201%2018&tag=nclsppr-21",
+          "asin": null,
+          "relation": "related",
+          "checkedAt": "2026-09-05",
+          "verification": "search_not_offer",
+          "evidence": "https://www.maistolatam.com/wp-content/uploads/2024/04/2024-Bburago-Catalog_HD.pdf",
+          "researchNote": "Different maker, season, model and livery. Not the Japan2025 Spark edition."
+        }
+      ],
+      "researchNotes": [
+        "Standard match 18S1004; special driver-figure variants exist. Product image not actual full-size F1 car."
+      ]
+    },
+    {
+      "id": "ipad-pro-11-m4",
+      "status": "owned",
+      "brand": "Apple",
+      "name": "iPad Pro",
+      "variant": {
+        "fr": "11 pouces · M4",
+        "en": "11-inch · M4"
+      },
+      "note": {
+        "fr": "Mon iPad Pro 11 pouces, équipé de la puce M4.",
+        "en": "My 11-inch iPad Pro, with the M4 chip."
+      },
+      "source": "https://support.apple.com/fr-fr/119892",
+      "image": {
+        "src": "/assets/img/objects/ipad-pro-11-m4.webp",
+        "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/refurb-ipad-pro-11inch-8th-gen-wifi-space-black-202512?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=NlFPcjRNNHN6R2NSYmRWVHhzR3RncWozWHZrUkVsYVVyS0hVRGlPYStneGk1amNxRVA4K3BURElZaVM4Vjdrb29XMkdOZ210VUJ3Wm9NZ2dNKzB4R1RMSTcybW1vVkcwVHJGeEg0dGpXcjBjL0FEaGEyU1dNZlE1WFRZNnhFUWljalVvSXJJTWk3N0Nnb2E5eDRuYXJn",
+        "sourcePage": "https://support.apple.com/fr-fr/119892",
+        "credit": "Apple",
+        "match": "model-color-unspecified",
+        "checkedAt": "2026-09-05",
+        "rights": "Copyright retained by the source. Source access does not establish a reuse licence; no separate licence grant recorded.",
+        "width": 1100,
+        "height": 1100,
+        "sha256": "11734661f582e40279d96eb83ef8faff48a864d71b673fdad8f053a9fa8e46db",
+        "alt": {
+          "fr": "Apple iPad Pro, 11 pouces · M4",
+          "en": "Apple iPad Pro, 11-inch · M4"
+        }
+      },
+      "links": [
+        {
+          "kind": "alternative",
+          "name": "View iPad Pro 11 M4 on Amazon.fr",
+          "label": {
+            "fr": "Voir l’iPad Pro 11 M4 sur Amazon.fr",
+            "en": "View iPad Pro 11 M4 on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/dp/B0D3J7JRL4?tag=nclsppr-21",
+          "asin": "B0D3J7JRL4",
+          "relation": "same_model_variant_unconfirmed",
+          "checkedAt": "2026-09-05",
+          "verification": "amazon_comparison_table_link_verified",
+          "evidence": "https://www.amazon.fr/Apple-iPad-Air-Horizontale-Autonomie/dp/B0D3J7Q6PS",
+          "researchNote": "Amazon’s Apple comparison table links iPadProM4 11-inch to this ASIN. Direct target fetch unavailable. Storage, finish and connectivity not verified against user."
+        },
+        {
+          "kind": "alternative",
+          "name": "Explore iPad Air 11 M2 on Amazon.fr",
+          "label": {
+            "fr": "Explorer l’iPad Air 11 M2 sur Amazon.fr",
+            "en": "Explore iPad Air 11 M2 on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/dp/B0D3J7Q6PS?tag=nclsppr-21",
+          "asin": "B0D3J7Q6PS",
+          "relation": "related",
+          "checkedAt": "2026-09-05",
+          "verification": "amazon_product_title_verified",
+          "evidence": "https://www.amazon.fr/Apple-iPad-Air-Horizontale-Autonomie/dp/B0D3J7Q6PS",
+          "researchNote": "Amazon title verified: iPadAir11 M2 128GB WiFi blue. Different model, display and generation from iPadProM4."
+        }
+      ],
+      "researchNotes": [
+        "Apple official refurb M4 11-inch photo, space black, front/rear. Owned color and configuration unspecified."
+      ]
+    },
+    {
+      "id": "devialet-phantom-opera",
+      "status": "wishlist",
+      "brand": "Devialet",
+      "name": "Phantom Ultimate",
+      "variant": {
+        "fr": "Édition Opéra de Paris",
+        "en": "Opéra de Paris edition"
+      },
+      "note": {
+        "fr": "L’édition Opéra de Paris fait partie de mes envies. Le visuel montre le modèle 108 dB ; le format de mon choix reste à préciser.",
+        "en": "The Opéra de Paris edition is on my wishlist. The photo shows the 108 dB model; my preferred size is still to be confirmed."
+      },
+      "source": "https://www.devialet.com/fr-fr/phantom-speaker/phantom-ultimate-108db/phantom-ultimate-108db-opera/",
+      "image": {
+        "src": "/assets/img/objects/devialet-phantom-opera.webp",
+        "source": "https://assets.devialet.com/media/dvl_media/FD262_Visual_Packshot_Devialet_Phantom_Ultimate_108dB_ODP_2_1.png",
+        "sourcePage": "https://www.devialet.com/fr-fr/phantom-speaker/phantom-ultimate-108db/phantom-ultimate-108db-opera/",
+        "credit": "Devialet",
+        "match": "family",
+        "checkedAt": "2026-09-05",
+        "rights": "Copyright retained by the source. Source access does not establish a reuse licence; no separate licence grant recorded.",
+        "width": 1100,
+        "height": 1100,
+        "sha256": "65008f06ffb13557773b6962e5f55cdc4c53daffb4c3d26c4b636a22de9789a6",
+        "alt": {
+          "fr": "Devialet Phantom Ultimate, Édition Opéra de Paris",
+          "en": "Devialet Phantom Ultimate, Opéra de Paris edition"
+        },
+        "caption": {
+          "fr": "Visuel du Phantom Ultimate 108 dB Opéra de Paris. Le format souhaité reste à préciser.",
+          "en": "Phantom Ultimate 108 dB Opéra de Paris pictured. My preferred size is still to be confirmed."
+        }
+      },
+      "links": [
+        {
+          "kind": "search",
+          "name": "Sonos Era 300",
+          "label": {
+            "fr": "Explorer Sonos Era 300 sur Amazon.fr",
+            "en": "Explore Sonos Era 300 on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/s?k=Sonos%20Era%20300&tag=nclsppr-21",
+          "asin": null,
+          "relation": "related",
+          "checkedAt": "2026-09-05",
+          "verification": "search_not_offer",
+          "evidence": "https://support.sonos.com/en/article/set-up-your-sonos-era-300",
+          "researchNote": "Another wireless home speaker, not a Phantom or an equivalent power claim."
+        },
+        {
+          "kind": "search",
+          "name": "Bang Olufsen Beosound 2",
+          "label": {
+            "fr": "Explorer Beosound 2 sur Amazon.fr",
+            "en": "Explore Beosound 2 on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/s?k=Bang%20Olufsen%20Beosound%202&tag=nclsppr-21",
+          "asin": null,
+          "relation": "related",
+          "checkedAt": "2026-09-05",
+          "verification": "search_not_offer",
+          "evidence": "https://support.bang-olufsen.com/hc/en-us/articles/360039688292-Beosound-2",
+          "researchNote": "Another sculptural home speaker; seller and generation require checking."
+        }
+      ],
+      "researchNotes": [
+        "Current Ultimate family has 98 dB and 108 dB Opera variants. Exact size not specified by user.",
+        "Official page image identified as Ultimate 108 dB Opéra de Paris; user size unresolved."
+      ]
+    },
+    {
+      "id": "ooni-halo-pro",
+      "status": "wishlist",
+      "brand": "Ooni",
+      "name": "Halo Pro",
+      "variant": {
+        "fr": "Gris anthracite · pétrin à spirale",
+        "en": "Charcoal grey · spiral mixer"
+      },
+      "note": {
+        "fr": "Le Halo Pro gris anthracite est le pétrin que j’aimerais m’offrir.",
+        "en": "The charcoal grey Halo Pro is the mixer I would like to buy."
+      },
+      "source": "https://eu.ooni.com/fr/products/ooni-halo-pro-spiral-mixer",
+      "image": {
+        "src": "/assets/img/objects/ooni-halo-pro.webp",
+        "source": "https://eu.ooni.com/cdn/shop/files/Halo-Grey-Reddot2.jpg?v=1744075926",
+        "sourcePage": "https://eu.ooni.com/fr/products/ooni-halo-pro-spiral-mixer",
+        "credit": "Ooni",
+        "match": "exact",
+        "checkedAt": "2026-09-05",
+        "rights": "Copyright retained by the source. Source access does not establish a reuse licence; no separate licence grant recorded.",
+        "width": 1100,
+        "height": 1100,
+        "sha256": "3cabf8dba0a520a8f09cc733a6cda00d81f0a288b189038b768585371c4e53e2",
+        "alt": {
+          "fr": "Ooni Halo Pro, Gris anthracite · pétrin à spirale",
+          "en": "Ooni Halo Pro, Charcoal grey · spiral mixer"
+        }
+      },
+      "links": [
+        {
+          "kind": "search",
+          "name": "Search the grey Halo Pro on Amazon.fr",
+          "label": {
+            "fr": "Rechercher le Halo Pro gris sur Amazon.fr",
+            "en": "Search the grey Halo Pro on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/s?k=Ooni%20Halo%20Pro%20gris&tag=nclsppr-21",
+          "asin": "B0FPXDMSFZ",
+          "relation": "requested_model",
+          "checkedAt": "2026-09-05",
+          "verification": "registry_previously_verified_live_fetch_unavailable",
+          "evidence": "https://fouranu.com/ooni/halo-core-ou-halo-pro/",
+          "researchNote": "ASIN found in current local origin/main Four a Nu registry, checked there 2026-08-31. Exact gray variant and live offer need review. Direct Amazon fetch unavailable in this run."
+        },
+        {
+          "kind": "alternative",
+          "name": "Explore Halo Core on Amazon.fr",
+          "label": {
+            "fr": "Explorer le Halo Core sur Amazon.fr",
+            "en": "Explore Halo Core on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/dp/B0H629MKNC?tag=nclsppr-21",
+          "asin": "B0H629MKNC",
+          "relation": "related",
+          "checkedAt": "2026-09-05",
+          "verification": "registry_previously_verified_live_fetch_unavailable",
+          "evidence": "https://fouranu.com/ooni/halo-core-ou-halo-pro/",
+          "researchNote": "Smaller mixer, not the Halo Pro. ASIN source is Four a Nu origin/main registry checked 2026-08-31; live fetch unavailable."
+        }
+      ],
+      "researchNotes": [
+        "Official hero white background includes Red Dot award badge."
+      ]
+    },
+    {
+      "id": "big-green-egg-large",
+      "status": "wishlist",
+      "brand": "Big Green Egg",
+      "name": "Large",
+      "variant": {
+        "fr": "Kamado",
+        "en": "Kamado"
+      },
+      "note": {
+        "fr": "Un Big Green Egg, dans le format Large. Il est sur ma liste d’envies.",
+        "en": "A Big Green Egg in the Large size. It is on my wishlist."
+      },
+      "source": "https://www.biggreenegg.eu/fr/produits/modeles/large",
+      "image": {
+        "src": "/assets/img/objects/big-green-egg-large.webp",
+        "source": "https://assets.biggreenegg.eu/app/uploads/2019/07/31162431/topimage-2019-19061-eggs-800x800-large.png",
+        "sourcePage": "https://www.biggreenegg.eu/fr/produits/modeles/large",
+        "credit": "Big Green Egg",
+        "match": "exact",
+        "checkedAt": "2026-09-05",
+        "rights": "Copyright retained by the source. Source access does not establish a reuse licence; no separate licence grant recorded.",
+        "width": 800,
+        "height": 800,
+        "sha256": "52a8c4097b5086b150e1be76b5dce2e615a3fb3f950f748a34cf564e649c8acd",
+        "alt": {
+          "fr": "Big Green Egg Large, Kamado",
+          "en": "Big Green Egg Large, Kamado"
+        }
+      },
+      "links": [
+        {
+          "kind": "search",
+          "name": "Kamado Joe Classic II",
+          "label": {
+            "fr": "Explorer le Kamado Joe Classic II sur Amazon.fr",
+            "en": "Explore Kamado Joe Classic II on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/s?k=Kamado%20Joe%20Classic%20II&tag=nclsppr-21",
+          "asin": null,
+          "relation": "related",
+          "checkedAt": "2026-09-05",
+          "verification": "search_not_offer",
+          "evidence": "https://www.kamadojoe.com/collections/series-ii/products/classic-joe-ii",
+          "researchNote": "Related ceramic charcoal barbecue, different brand and design."
+        },
+        {
+          "kind": "search",
+          "name": "Weber Summit Kamado",
+          "label": {
+            "fr": "Explorer le Weber Summit Kamado sur Amazon.fr",
+            "en": "Explore Weber Summit Kamado on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/s?k=Weber%20Summit%20Kamado&tag=nclsppr-21",
+          "asin": null,
+          "relation": "related",
+          "checkedAt": "2026-09-05",
+          "verification": "search_not_offer",
+          "evidence": "https://www.weber.com/US/en/charcoal/summit-kamado/",
+          "researchNote": "Related charcoal barbecue, different construction and size."
+        }
+      ],
+      "researchNotes": []
+    },
+    {
+      "id": "iphone-18-pro-max",
+      "status": "wishlist",
+      "brand": "Apple",
+      "name": "iPhone 18 Pro Max",
+      "variant": {
+        "fr": "Rouge · mon souhait",
+        "en": "Red · my wish"
+      },
+      "note": {
+        "fr": "C’est une envie, pas une annonce : je rêve de ce modèle en rouge. Au 5 septembre 2026, cette référence et cette couleur ne sont pas confirmées par Apple.",
+        "en": "A wish, not an announcement: I would love this model in red. As of 5 September 2026, Apple has not confirmed this model and colour."
+      },
+      "source": "https://www.apple.com/fr/shop/buy-iphone",
+      "image": {
+        "src": null,
+        "source": null,
+        "sourcePage": "https://www.apple.com/fr/shop/buy-iphone",
+        "credit": "Apple",
+        "match": "unannounced",
+        "checkedAt": "2026-09-05",
+        "rights": "Copyright retained by the source. Source access does not establish a reuse licence; no separate licence grant recorded."
+      },
+      "links": [
+        {
+          "kind": "search",
+          "name": "Apple iPhone 17 Pro Max",
+          "label": {
+            "fr": "Explorer l’iPhone 17 Pro Max sur Amazon.fr",
+            "en": "Explore iPhone 17 Pro Max on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/s?k=Apple%20iPhone%2017%20Pro%20Max&tag=nclsppr-21",
+          "asin": null,
+          "relation": "related",
+          "checkedAt": "2026-09-05",
+          "verification": "search_not_offer",
+          "evidence": "https://www.apple.com/fr/shop/buy-iphone",
+          "researchNote": "Existing generation, distinct from the desired unannounced phone and finish."
+        },
+        {
+          "kind": "search",
+          "name": "Apple iPhone 16 Pro Max",
+          "label": {
+            "fr": "Explorer l’iPhone 16 Pro Max sur Amazon.fr",
+            "en": "Explore iPhone 16 Pro Max on Amazon.fr"
+          },
+          "url": "https://www.amazon.fr/s?k=Apple%20iPhone%2016%20Pro%20Max&tag=nclsppr-21",
+          "asin": null,
+          "relation": "related",
+          "checkedAt": "2026-09-05",
+          "verification": "search_not_offer",
+          "evidence": "https://www.apple.com/fr/shop/buy-iphone",
+          "researchNote": "Earlier generation. Neither result nor photo should be called an iPhone 18."
+        }
+      ],
+      "researchNotes": [
+        "Not announced by Apple as of 2026-09-05. No official photograph. Keep as stated wish, without technical claims, availability or invented rendering."
+      ]
+    }
+  ]
+}

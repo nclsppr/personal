@@ -372,6 +372,7 @@ img { max-width: 100%; height: auto; }
 }
 
 .side-group { margin-bottom: 22px; }
+.sidebar-site-nav { display: none; }
 /* Étiquettes de groupes en <p class="side-title"> : des <h2> dans la sidebar
    précédaient le h1 de la page dans le plan des titres (navigation lecteur
    d'écran) ; les repères de landmarks suffisent. */
@@ -1735,6 +1736,7 @@ a.card:hover { text-decoration: none; border-color: var(--accent); box-shadow: v
   .layout { grid-template-columns: minmax(0, 1fr); }
 
   .menu-btn { display: grid; }
+  .sidebar-site-nav { display: block; }
 
   .sidebar {
     position: fixed;
