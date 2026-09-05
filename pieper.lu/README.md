@@ -8,7 +8,9 @@ publication. Le dernier chapitre conclut : « Vous avez lu Pieper. »
 
 - Bleu royal `#1535D1`, papier ivoire `#F7F4E9`.
 - Cormorant Garamond pour la grande typographie et les italiques, Manrope pour la lecture.
-- Deux illustrations originales générées, entre gravure, architecture de papier et tramage.
+- Deux illustrations originales générées, entre gravure, architecture de papier et tramage,
+  et un portrait caché de Nicolas et Pampy, adapté depuis leur photographie.
+- Aucun emoji ni flèche Unicode susceptible d'être affichée comme un pictogramme coloré.
 - Composition d'édition, grands changements d'échelle, filets fins, chapitre bleu,
   léger mouvement d'entrée et marque-page de lecture. Animation réduite respectée.
 - Les références Hermès, Nous Research et Stripe inspirent respectivement le soin de
@@ -26,6 +28,15 @@ Le contenu et les liens restent utilisables sans JavaScript.
 Le contenu professionnel et les états des projets reprennent le site personnel existant
 au 5 septembre 2026. Les liens sortants ouvrent leur destination dans le même onglet.
 Le contact utilise l'adresse existante `nicolas@pieper.fr`.
+
+## La page cachée
+
+Dans le passage consacré à Pampy, son nom ouvre un portrait de Nicolas et de son chien,
+en gravure tramée bleu royal et ivoire. Le lien reste discret, avec un soulignement pointillé.
+La fenêtre native se ferme avec « Refermer », Échap ou un clic sur le fond, puis redonne
+le focus au lien. Elle fonctionne au clavier et au toucher. Sans JavaScript ou sans
+support de `dialog.showModal()`, le même lien ouvre directement l'image.
+La photo source n'est pas incluse dans le dépôt ; seule son adaptation est intégrée.
 
 ## Mise en ligne sur le futur domaine
 
