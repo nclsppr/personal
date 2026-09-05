@@ -161,6 +161,8 @@
     '/fr/work/': ['/work/', '/fr/work/'],
     '/projects/': ['/projects/', '/fr/projects/'],
     '/fr/projects/': ['/projects/', '/fr/projects/'],
+    '/objects/': ['/objects/', '/fr/objects/'],
+    '/fr/objects/': ['/objects/', '/fr/objects/'],
     '/cv/': ['/cv/', '/fr/cv/'],
     '/fr/cv/': ['/cv/', '/fr/cv/'],
     '/blog/': ['/blog/', '/fr/blog/'],

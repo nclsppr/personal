@@ -59,6 +59,22 @@
     <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/monflorian-social-card.png</image:loc></image:image>
   </url>
   <url>
+    <loc>https://nicolaspieper.com/objects/</loc>
+    <lastmod>2026-09-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/objects/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/objects/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/objects/"/>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/objects/og-objects-en.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://nicolaspieper.com/fr/objects/</loc>
+    <lastmod>2026-09-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/objects/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/objects/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/objects/"/>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/objects/og-objects-fr.png</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://nicolaspieper.com/cv/</loc>
     <lastmod>2026-08-31</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/cv/"/>

@@ -5,6 +5,19 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-09-05 - Collection personnelle d’objets et d’envies
+
+- Ajout des pages `/objects/` et `/fr/objects/` : dix objets possédés et quatre
+  envies, présentés dans une grille de boutique sur fond gris avec treize vrais
+  packshots. L’iPhone 18 Pro Max rouge reste une envie non annoncée, sans faux visuel.
+- Chaque objet ouvre une fiche accessible avec ses liens Amazon.fr, le tag
+  `nclsppr-21`, une distinction entre modèle, variante, alternative et recherche,
+  et une mention d’affiliation. Aucun prix, stock ou avis inventé.
+- Catalogue bilingue, provenance des images et liens, génération déterministe,
+  consignes pour les futurs agents et contrôles intégrés au validateur du site.
+- Navigation du site et menus mobiles actualisés, parité FR/EN, cartes sociales
+  localisées, sitemap et llms.txt. Les deux PDF CV sont régénérés avec la navigation.
+
 ## 2026-08-31 - Passe SEO globale et cartes sociales localisées
 
 - Les 24 pages indexables ont désormais un contrat commun : titre et description

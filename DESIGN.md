@@ -208,3 +208,37 @@ sans surcharge dédiée si possible. Les stickers à bord die-cut blanc et
 fond transparent passent tels quels sur les deux fonds ; c'est une des
 raisons du standard. Vérification avant commit : clair + sombre,
 desktop + mobile (AGENTS.md).
+
+## 9. Collection d’objets
+
+`/objects/` et `/fr/objects/` déclinent le site en boutique de luxe sobre,
+avec de vrais packshots et les mêmes polices. Cette surface conserve son
+traitement propre dans `assets/css/objects.css` : fond gris clair (`#F1F0EE`),
+filets gris (`#D7D5D0`), puis fond charbon (`#262624`) et filets (`#4C4B45`)
+en thème sombre. L’International Orange souligne la sélection et les statuts.
+
+- **La photographie mène.** Les packshots provenant des sources documentées
+  restent entiers, sans recadrage du produit, sur des supports carrés clairs
+  (`#FAFAFA`) conservés en thème sombre. Cette exception locale aux familles
+  Swiss et sticker préserve les couleurs réelles des objets. Un souhait sans
+  image officielle confirmée reçoit un traitement typographique explicite.
+- **Une grille ouverte.** Le catalogue, plafonné à 1480 px, occupe la largeur
+  disponible sans colonne latérale sur desktop. Trois colonnes deviennent
+  deux à 760 px et moins. Des filets séparent les filtres et les sections ;
+  les objets n’ont ni cadre de carte ni ombre décorative. Source Serif 4 porte
+  le titre centré et les titres de sections ; Inter porte les noms, marques,
+  variantes et commandes.
+- **Une fiche accessible.** Chaque objet est un `details` avec `summary`,
+  utilisable au clavier et sans JavaScript. JavaScript ajoute les filtres
+  avec `aria-pressed` et un dialogue natif : photo et texte côte à côte,
+  puis empilés sur mobile. La fermeture, Échap et le retour arrière rendent
+  le focus à l’objet ; les ancres permettent de partager une fiche.
+- **Des libellés précis.** Possessions et envies restent distinctes dans les
+  deux langues. Une variante inconnue, une photographie illustrative, une
+  alternative et une recherche Amazon restent nommées comme telles. Aucun
+  prix, stock, avis ni essai personnel inventé. Les crédits et les mentions
+  d’affiliation restent lisibles près des liens ; le tag est `nclsppr-21`.
+
+Le catalogue est généré depuis `data/objects.json`. Toute évolution suit
+[les consignes d’ajout](docs/objects/ADDING-OBJECTS.md), notamment pour les
+preuves des références, les droits photographiques et la parité FR/EN.

@@ -20,6 +20,12 @@ The HTML pages below are the canonical, human-reviewed sources. English and Fren
 - The Projects pages distinguish public production, testing, preparation and documentation. Do not infer that a closed transaction, generation, payment or two-member journey is available when the page says it remains closed or unvalidated.
 - Project Foundation is public documentation. Its adoption and documentation alone do not prove that governance is effectively enforced.
 
+## Objects
+
+- [Objects in English](https://nicolaspieper.com/objects/): Objects Nicolas owns and enjoys, alongside a separate wishlist. Product links may be Amazon.fr affiliate links.
+- [Objets en français](https://nicolaspieper.com/fr/objects/): Objets que Nicolas possède et apprécie, et envies d'achat présentées séparément. Les liens produit peuvent être affiliés Amazon.fr.
+- Wishlist entries are intentions, not ownership, tests or purchase recommendations. Related products and search results are identified separately from exact product links.
+
 ## Writing
 
 - [Blog in English](https://nicolaspieper.com/blog/): All English articles.

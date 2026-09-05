@@ -7,12 +7,14 @@ from datetime import date, datetime
 from html import unescape
 from pathlib import Path
 import json
+import hashlib
 import re
 import struct
+import subprocess
 import sys
 import xml.etree.ElementTree as ET
 from typing import Optional
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, urlparse
 from zoneinfo import ZoneInfo
 
 
@@ -38,6 +40,12 @@ def validate_required_files(errors: list[str]) -> None:
         "fr/work/index.html",
         "projects/index.html",
         "fr/projects/index.html",
+        "objects/index.html",
+        "fr/objects/index.html",
+        "data/objects.json",
+        "scripts/generate-objects.py",
+        "assets/img/objects/og-objects-en.png",
+        "assets/img/objects/og-objects-fr.png",
         "cv/index.html",
         "fr/cv/index.html",
         "blog/index.html",
@@ -94,6 +102,7 @@ def validate_language_parity(errors: list[str]) -> None:
         ("index.html", "fr/index.html"),
         ("work/index.html", "fr/work/index.html"),
         ("projects/index.html", "fr/projects/index.html"),
+        ("objects/index.html", "fr/objects/index.html"),
         ("cv/index.html", "fr/cv/index.html"),
         ("blog/index.html", "fr/blog/index.html"),
         (
@@ -285,6 +294,8 @@ def expected_schema_types(relative: Path) -> set[str]:
             "BreadcrumbList",
         },
         "cv/index.html": {"Person", "ProfilePage", "BreadcrumbList"},
+        "objects/index.html": {"CollectionPage", "ItemList", "BreadcrumbList"},
+        "fr/objects/index.html": {"CollectionPage", "ItemList", "BreadcrumbList"},
         "fr/cv/index.html": {"Person", "ProfilePage", "BreadcrumbList"},
         "blog/index.html": {"Blog", "BreadcrumbList"},
         "fr/blog/index.html": {"Blog", "BreadcrumbList"},
@@ -705,6 +716,149 @@ def validate_projects(errors: list[str]) -> None:
             errors.append(f"project order mismatch: {page['path']}")
 
 
+def validate_objects(errors: list[str]) -> None:
+    """Keep ownership, bilingual catalog content and affiliate destinations explicit."""
+    catalog_path = ROOT / "data/objects.json"
+    if not catalog_path.is_file():
+        return
+    try:
+        catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        errors.append(f"invalid object catalog JSON: {exc}")
+        return
+    if not isinstance(catalog, dict):
+        errors.append("object catalog must be a JSON object")
+        return
+    affiliate_tag = catalog.get("affiliateTag")
+    if affiliate_tag != "nclsppr-21":
+        errors.append("object catalog must use affiliateTag nclsppr-21")
+    objects = catalog.get("objects")
+    if not isinstance(objects, list) or not objects:
+        errors.append("object catalog must contain a non-empty objects array")
+        return
+
+    object_ids: list[str] = []
+    affiliate_urls: set[str] = set()
+    for item in objects:
+        if not isinstance(item, dict):
+            errors.append("object catalog entry must be an object")
+            continue
+        object_id = item.get("id")
+        if not isinstance(object_id, str) or not re.fullmatch(
+            r"[a-z0-9]+(?:-[a-z0-9]+)*", object_id
+        ):
+            errors.append(f"invalid catalog object ID: {object_id}")
+            continue
+        if object_id in object_ids:
+            errors.append(f"duplicate catalog object ID: {object_id}")
+        object_ids.append(object_id)
+        if item.get("status") not in {"owned", "wishlist"}:
+            errors.append(f"invalid ownership status: {object_id}")
+        for field in ("variant", "note"):
+            localized = item.get(field)
+            if not isinstance(localized, dict) or any(
+                not isinstance(localized.get(language), str)
+                or not localized[language].strip()
+                for language in ("en", "fr")
+            ):
+                errors.append(f"missing bilingual {field}: {object_id}")
+        links = item.get("links")
+        if not isinstance(links, list) or not links:
+            errors.append(f"object must offer a product or related search: {object_id}")
+            continue
+        if not any(isinstance(link, dict) and link.get("kind") == "exact" for link in links) and len(links) < 2:
+            errors.append(f"object without an exact link must offer multiple paths: {object_id}")
+        product_image = item.get("image", {})
+        if product_image.get("src"):
+            image_file = ROOT / product_image["src"].lstrip("/")
+            if not image_file.is_file():
+                errors.append(f"missing object image: {object_id}")
+            elif hashlib.sha256(image_file.read_bytes()).hexdigest() != product_image.get("sha256"):
+                errors.append(f"object image differs from provenance: {object_id}")
+            for field in ("source", "sourcePage", "credit", "rights", "checkedAt"):
+                if not product_image.get(field):
+                    errors.append(f"missing image provenance {field}: {object_id}")
+            if not all(product_image.get("alt", {}).get(language) for language in ("en", "fr")):
+                errors.append(f"missing bilingual image description: {object_id}")
+        for link in links:
+            if not isinstance(link, dict):
+                errors.append(f"invalid product link: {object_id}")
+                continue
+            if link.get("kind") not in {"exact", "alternative", "search"}:
+                errors.append(f"unclassified product link: {object_id}")
+            destination = link.get("url")
+            if not isinstance(destination, str):
+                errors.append(f"missing product link URL: {object_id}")
+                continue
+            parsed = urlparse(destination)
+            if parsed.scheme != "https" or parsed.netloc not in {
+                "amazon.fr", "www.amazon.fr"
+            }:
+                errors.append(f"product link must target Amazon.fr: {object_id}")
+            if parse_qs(parsed.query).get("tag") != ["nclsppr-21"]:
+                errors.append(f"incorrect Amazon affiliate tag: {object_id}")
+            if link.get("kind") == "exact" and not re.search(
+                r"/(?:dp|gp/product)/[A-Z0-9]{10}(?:/|$)", parsed.path
+            ):
+                errors.append(f"exact product link requires an ASIN: {object_id}")
+            affiliate_urls.add(destination)
+
+    for relative in ("objects/index.html", "fr/objects/index.html"):
+        if not (ROOT / relative).is_file():
+            continue
+        content = read(relative)
+        rendered_ids = re.findall(r'\bdata-object-id="([^"]+)"', content)
+        if len(rendered_ids) != len(object_ids) or set(rendered_ids) != set(object_ids):
+            errors.append(f"rendered object catalog differs from source: {relative}")
+        rendered_urls: set[str] = set()
+        for tag in re.findall(r"<a\b[^>]*>", content):
+            attributes = dict(re.findall(r'([\w:-]+)="([^"]*)"', tag))
+            href = unescape(attributes.get("href", ""))
+            if urlparse(href).netloc not in {"amazon.fr", "www.amazon.fr"}:
+                continue
+            rendered_urls.add(href)
+            if parse_qs(urlparse(href).query).get("tag") != ["nclsppr-21"]:
+                errors.append(f"rendered Amazon link has incorrect tag: {relative}")
+            rel = set(attributes.get("rel", "").split())
+            if "sponsored" not in rel:
+                errors.append(f"Amazon affiliate link lacks sponsored rel: {relative}")
+            if attributes.get("target") == "_blank" and "noopener" not in rel:
+                errors.append(f"Amazon new-tab link lacks noopener: {relative}")
+        if rendered_urls != affiliate_urls:
+            errors.append(f"rendered affiliate destinations differ from catalog: {relative}")
+
+    generated = subprocess.run(
+        [sys.executable, str(ROOT / "scripts/generate-objects.py"), "--check"],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if generated.returncode:
+        detail = (generated.stdout or generated.stderr).strip()
+        errors.append(f"object pages need regeneration: {detail}")
+
+
+def validate_navigation(errors: list[str]) -> None:
+    """Keep the catalog discoverable in the shared desktop and mobile navigation."""
+    for path in html_pages():
+        relative = path.relative_to(ROOT)
+        content = path.read_text(encoding="utf-8")
+        if "noindex" in (meta_value(content, "name", "robots") or ""):
+            continue
+        if 'class="header-nav"' not in content:
+            continue
+        route = "/fr/objects/" if relative.parts[0] == "fr" else "/objects/"
+        for pattern, label in (
+            (r'<nav class="header-nav"[^>]*>.*?</nav>', "header"),
+            (r'<footer class="site-footer"[^>]*>.*?</footer>', "footer"),
+            (r'<aside class="sidebar"[^>]*>.*?</aside>', "mobile sidebar"),
+        ):
+            block = re.search(pattern, content, re.S)
+            if block is None or f'href="{route}"' not in block.group(0):
+                errors.append(f"missing Objects link in {label}: {relative}")
+
+
 def validate_home_project_links(errors: list[str]) -> None:
     expected_urls = [
         "https://surplasse.com/",
@@ -959,6 +1113,8 @@ def main() -> int:
     validate_noindex_surfaces(errors)
     indexable = validate_global_metadata(errors)
     validate_projects(errors)
+    validate_objects(errors)
+    validate_navigation(errors)
     validate_home_project_links(errors)
     validate_sitemap(errors, indexable)
     validate_robots(errors, indexable)
