@@ -5,6 +5,16 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-09-07 - Assistance et confidentialité de l’atelier
+
+- Actualisation FR/EN des pages `/app/` et `/fr/app/` pour les six défis de
+  l’atelier « Sous pression » : simulation hors ligne, aide, objectifs et rejeu.
+- Distinction entre résultats terminés enregistrés localement et essai en cours
+  limité à sa fenêtre ouverte ; réinitialisation de l’atelier et partage volontaire.
+- Inventaire des données locales actualisé sans collecte ni synchronisation
+  applicative. Scénarios fictifs et crédits pédagogiques explicités.
+- Pages préparées pour la version native, sans annonce de disponibilité App Store.
+
 ## 2026-09-07 - Assistance de l’application native
 
 - Pages publiques `/app/` et `/fr/app/` avec assistance et confidentialité de
