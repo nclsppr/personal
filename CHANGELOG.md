@@ -5,6 +5,14 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-09-07 - Assistance de l’application native
+
+- Pages publiques `/app/` et `/fr/app/` avec assistance et confidentialité de
+  l’application Nicolas Pieper, sans annonce de disponibilité App Store.
+- Description du stockage local, des notes, des sauvegardes système, du partage
+  volontaire et des liens externes. Parité FR/EN et présentation du site conservées.
+- Ces pages utilitaires restent accessibles directement et en noindex.
+
 ## 2026-09-05 - Collection personnelle d’objets et d’envies
 
 - Ajout des pages `/objects/` et `/fr/objects/` : dix objets possédés et quatre
