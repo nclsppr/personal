@@ -31,6 +31,12 @@ gh api repos/nclsppr/personal/pages/builds/latest \
 Le champ `commit` doit correspondre au HEAD de `main`. Un build vert plus ancien ne prouve
 pas que la dernière version est publiée.
 
+## Aperçu local
+
+`npm run dev` sert les fichiers statiques sur le port 4173, sans installation ni
+compilation. Le serveur utilise uniquement les modules standard de Node.js.
+La page cadeau Kirow est documentée dans [`kirow/README.md`](kirow/README.md).
+
 ## Aperçu
 
 - **Bilingue par URLs distinctes** (`/` EN, `/fr/` FR) avec `hreflang` réciproques - pages

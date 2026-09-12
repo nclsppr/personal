@@ -1,0 +1,1 @@
+{"name":"kirow-gift-page","private":true,"type":"module","scripts":{"build":"node build.mjs && python3 generate-pages.py"},"devDependencies":{"esbuild":"0.25.11","three":"0.180.0","three-gpu-pathtracer":"0.0.24"}}

@@ -1106,9 +1106,48 @@ def validate_llms(
         errors.append(f"non-indexable page present in llms.txt: {value}")
 
 
+def validate_kirow(errors: list[str]) -> None:
+    """Keep the gift routes, inventory and local renderer deliverable together."""
+    import csv
+    paths = ("kirow/index.html", "kirow/en/index.html")
+    pages = [read(path) for path in paths]
+    if section_ids(pages[0]) != section_ids(pages[1]) or local_anchors(pages[0]) != local_anchors(pages[1]):
+        errors.append("Kirow FR/EN structure differs")
+    for path, content, lang, route in zip(paths, pages, ("fr", "en"), ("/kirow/", "/kirow/en/")):
+        if f'<html lang="{lang}">' not in content or "noindex" not in (meta_value(content, "name", "robots") or ""):
+            errors.append(f"Kirow language/noindex contract: {path}")
+        if link_value(content, "canonical") != CANONICAL_ORIGIN + route:
+            errors.append(f"Kirow canonical: {path}")
+        if alternate_links(content) != {"fr": CANONICAL_ORIGIN + "/kirow/", "en": CANONICAL_ORIGIN + "/kirow/en/"}:
+            errors.append(f"Kirow alternates: {path}")
+        for asset in re.findall(r'(?:src|href)="(/kirow/[^"#?]+)"', content):
+            if not (ROOT / asset.lstrip("/")).exists():
+                errors.append(f"Missing Kirow resource: {asset}")
+        for script in re.findall(r'<script[^>]+src="([^"]+)"', content):
+            if not script.startswith("/kirow/"):
+                errors.append(f"Kirow script must be self-hosted: {script}")
+        rows = list(csv.reader((ROOT / f"kirow/assets/inventory-{lang}.csv").read_text(encoding="utf-8-sig").splitlines()))
+        if sum(int(row[-1]) for row in rows[1:]) != 400:
+            errors.append(f"Kirow {lang} inventory must match the 400-piece set")
+    blueprint = json.loads(read("kirow/src/blueprint-data.json"))
+    if len(blueprint["bricks"]) != 400 or len(blueprint["steps"]) != 32:
+        errors.append("Kirow blueprint disagrees with packaging")
+    ldraw = read("kirow/assets/kirow-etude.ldr").splitlines()
+    if sum(line.startswith("1 ") for line in ldraw) != 400 or ldraw.count("0 STEP") != 32:
+        errors.append("Kirow LDraw inventory/steps disagree with the page")
+    for step in range(1, 33):
+        if not (ROOT / f"kirow/assets/manual/step-{step:02d}.jpg").is_file():
+            errors.append(f"Kirow manual image {step} missing")
+    for path in (ROOT / "kirow/assets").glob("*.js"):
+        for dependency in re.findall(r'"(\./[^" ]+\.js)"', path.read_text()):
+            if not (path.parent / dependency).is_file():
+                errors.append(f"Kirow renderer chunk missing: {dependency}")
+
+
 def main() -> int:
     errors: list[str] = []
     validate_required_files(errors)
+    validate_kirow(errors)
     validate_language_parity(errors)
     validate_noindex_surfaces(errors)
     indexable = validate_global_metadata(errors)
