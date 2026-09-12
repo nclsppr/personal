@@ -1,24 +1,52 @@
-﻿Part ID,Piece,Colour,Quantity
-3001,Brick 2 × 4,Yellow,64
-3010,Brick 1 × 4,Yellow,56
-3460,Plate 1 × 8,Dark grey,39
-3001,Brick 2 × 4,Black,35
-3020,Plate 2 × 4,Yellow,31
-3031,Plate 4 × 4,Yellow,30
-3062b,Round brick 1 × 1,Black,16
-3005,Brick 1 × 1,Yellow,16
-3062b,Round brick 1 × 1,Yellow,16
-3031,Plate 4 × 4,Black,12
-3010,Brick 1 × 4,Dark grey,12
-3035,Plate 4 × 8,Black,12
-3003,Brick 2 × 2,Dark grey,12
-3003,Brick 2 × 2,Yellow,12
-3035,Plate 4 × 8,Dark grey,10
-3024,Plate 1 × 1,Red,4
-3001,Brick 2 × 4,Dark grey,4
-3034,Plate 2 × 8,Yellow,4
-3031,Plate 4 × 4,Dark grey,4
-3710,Plate 1 × 4,Black,4
-3004,Brick 1 × 2,Yellow,4
-3008,Brick 1 × 8,Yellow,2
-3020,Plate 2 × 4,Black,1
+﻿LEGO design ID,Catalogue ID,Element ID,Piece,Colour,Quantity,Verification,Sources,Checked on
+3001,3001,,Brick 2 × 4,Yellow,64,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3001,2026-09-12
+3010,3010,,Brick 1 × 4,Yellow,54,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3010,2026-09-12
+3001,3001,,Brick 2 × 4,Black,35,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3001,2026-09-12
+3020,3020,,Plate 2 × 4,Yellow,31,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3020,2026-09-12
+3031,3031,,Plate 4 × 4,Yellow,30,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3031,2026-09-12
+3005,3005,,Brick 1 × 1,Yellow,16,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3005,2026-09-12
+57878,57878,4496343,RC train wheel Ø 16.6 / 23 mm,Black,16,Part and colour documented,https://www.toypro.com/es/product/3710/tren-rueda-rc/negro,2026-09-12
+3031,3031,,Plate 4 × 4,Black,12,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3031,2026-09-12
+3010,3010,,Brick 1 × 4,Dark Bluish Gray,12,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3010,2026-09-12
+3035,3035,,Plate 4 × 8,Black,12,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3035,2026-09-12
+3003,3003,,Brick 2 × 2,Dark Bluish Gray,12,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3003,2026-09-12
+3003,3003,,Brick 2 × 2,Yellow,12,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3003,2026-09-12
+3035,3035,,Plate 4 × 8,Dark Bluish Gray,10,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3035,2026-09-12
+60592,60592,,Window frame 1 × 2 × 2,Yellow,10,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=60592,2026-09-12
+60601,60601,,Glass for window 1 × 2 × 2,Trans-Clear,10,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=60601,2026-09-12
+3062,3062,306224,"Round brick 1 × 1, open stud",Yellow,8,Part and colour documented,https://www.toypro.com/us/product/807/brick-1-x-1-round/yellow | https://www.bricklink.com/v2/catalog/catalogitem.page?P=3062,2026-09-12
+2878,2878,"287826, 287876, 4207399",RC train wheel holder,Black,8,Part and colour documented,https://www.toypro.com/gb/product/3712/train-wheel-rc-train-holder/black,2026-09-12
+,x1687,,Metal train axle 5 studs,Chrome Silver,8,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=x1687 | https://library.ldraw.org/library/official/parts/57877c01.dat,2026-09-12
+2412,2412b,,Grille tile 1 × 2 with bottom groove,Black,8,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=2412b,2026-09-12
+53401,53401,"4279714, 6037688, 6070018, 6539540",Straight track 16 × 8,Dark Bluish Gray,5,Part and colour documented,https://www.toypro.com/es/product/1675/via-del-tren-recta/gris-azulado-oscuro,2026-09-12
+3024,3024,,Plate 1 × 1,Red,4,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3024,2026-09-12
+3001,3001,,Brick 2 × 4,Dark Bluish Gray,4,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3001,2026-09-12
+3034,3034,,Plate 2 × 8,Yellow,4,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3034,2026-09-12
+3031,3031,,Plate 4 × 4,Dark Bluish Gray,4,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3031,2026-09-12
+3710,3710,,Plate 1 × 4,Black,4,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3710,2026-09-12
+3004,3004,,Brick 1 × 2,Yellow,4,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3004,2026-09-12
+2429,2429,,"Swivel hinge 1 × 4, base",Yellow,4,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=2429,2026-09-12
+2430,2430,,"Swivel hinge 1 × 4, top",Yellow,4,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=2430,2026-09-12
+2780,2780,,Technic friction pin 2L,Black,4,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=2780,2026-09-12
+4185,4185,,Technic pulley Ø 24 mm,Black,4,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=4185,2026-09-12
+3008,3008,,Brick 1 × 8,Yellow,2,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3008,2026-09-12
+3680,3680,,"Turntable 2 × 2, base",Black,2,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3680,2026-09-12
+3679,3679,,"Turntable 2 × 2, top",Light Bluish Gray,2,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3679,2026-09-12
+4022,4022,,Train buffer beam,Black,2,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=4022,2026-09-12
+2920,2920,"292026, 292076, 4299239",Train coupling magnet holder,Black,2,Part and colour documented,https://www.toypro.com/fr/product/18507/accouplement-de-train-nouveau/noir,2026-09-12
+73092,73092,,Cylindrical train coupling magnet,Black,2,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=73092,2026-09-12
+3701,3701,,Technic brick 1 × 4 with holes,Yellow,2,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3701,2026-09-12
+3713,3713,,Technic bush,Light Bluish Gray,2,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3713,2026-09-12
+2486,2486,"4106812, 4189225",Railing 1 × 8 × 2,Yellow,2,Part and colour documented,https://www.toypro.com/us/product/3739/bar-1-x-8-x-2/yellow,2026-09-12
+4073,4073,,Round plate 1 × 1,White,2,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=4073,2026-09-12
+3020,3020,,Plate 2 × 4,Black,1,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3020,2026-09-12
+18939,18939,,"Technic 60-tooth turntable, base",Light Bluish Gray,1,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=18939,2026-09-12
+18938,18938,,"Technic 60-tooth bevel turntable, top",Black,1,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=18938,2026-09-12
+4079,4079,,Seat 2 × 2,Black,1,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=4079,2026-09-12
+4592,4592,,Control lever base,Black,1,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=4592,2026-09-12
+4593,4593,,Control lever,Black,1,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=4593,2026-09-12
+3707,3707,,Technic axle 8L,Black,1,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3707,2026-09-12
+,61927c01,,"Technic linear actuator, type 1, dark bluish gray ends",Light Bluish Gray,1,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=61927c01&idColor=86,2026-09-12
+70644,70644,,Large metal Technic hook,Black,1,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=70644,2026-09-12
+,x77ac50,,Thin cord 50 cm,Black,1,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=x77ac50,2026-09-12
+4073,4073,,Round plate 1 × 1,Trans-Orange,1,Part and colour documented,https://www.bricklink.com/v2/catalog/catalogitem.page?P=4073,2026-09-12

@@ -1107,8 +1107,29 @@ def validate_llms(
 
 
 def validate_kirow(errors: list[str]) -> None:
-    """Keep the gift routes, inventory and local renderer deliverable together."""
+    """Keep sourced parts, both languages and rendered deliverables consistent."""
     import csv
+    from collections import Counter
+    blueprint = json.loads(read("kirow/src/blueprint-data.json"))
+    parts = blueprint["bricks"] + blueprint.get("specials", [])
+    inventory = blueprint["inventory"]
+    variants = {row["key"]: row for row in blueprint.get("evidence", {}).get("variants", [])}
+    counts = Counter()
+    for part in parts:
+        counts[part["part"] + "-" + part["color"]] += part.get("quantity", 1)
+        if part["part"] not in blueprint["catalog"] or not 1 <= part["step"] <= 32:
+            errors.append("Kirow contains an unknown part or assembly step")
+    if counts != Counter({row["key"]: row["count"] for row in inventory}):
+        errors.append("Kirow catalogue inventory disagrees with the scene instances")
+    if set(counts) != set(variants):
+        errors.append("Every Kirow part and colour requires its own evidence record")
+    for key, variant in variants.items():
+        if variant.get("shapeStatus") != "verified" or variant.get("colorStatus") != "verified":
+            errors.append(f"Kirow unverified shape or colour: {key}")
+        sources = variant.get("sources", [])
+        if not sources or any(not source.get("url", "").startswith("https://") or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", source.get("checkedAt", "")) for source in sources):
+            errors.append(f"Kirow evidence missing source/date: {key}")
+    total = sum(counts.values())
     paths = ("kirow/index.html", "kirow/en/index.html")
     pages = [read(path) for path in paths]
     if section_ids(pages[0]) != section_ids(pages[1]) or local_anchors(pages[0]) != local_anchors(pages[1]):
@@ -1120,21 +1141,46 @@ def validate_kirow(errors: list[str]) -> None:
             errors.append(f"Kirow canonical: {path}")
         if alternate_links(content) != {"fr": CANONICAL_ORIGIN + "/kirow/", "en": CANONICAL_ORIGIN + "/kirow/en/"}:
             errors.append(f"Kirow alternates: {path}")
-        for asset in re.findall(r'(?:src|href)="(/kirow/[^"#?]+)"', content):
-            if not (ROOT / asset.lstrip("/")).exists():
+        for asset in re.findall(r'(?:src|href)="(/kirow/[^"]+)"', content):
+            asset_path = asset.split("?", 1)[0].split("#", 1)[0]
+            if not (ROOT / asset_path.lstrip("/")).exists():
                 errors.append(f"Missing Kirow resource: {asset}")
         for script in re.findall(r'<script[^>]+src="([^"]+)"', content):
             if not script.startswith("/kirow/"):
                 errors.append(f"Kirow script must be self-hosted: {script}")
-        rows = list(csv.reader((ROOT / f"kirow/assets/inventory-{lang}.csv").read_text(encoding="utf-8-sig").splitlines()))
-        if sum(int(row[-1]) for row in rows[1:]) != 400:
-            errors.append(f"Kirow {lang} inventory must match the 400-piece set")
-    blueprint = json.loads(read("kirow/src/blueprint-data.json"))
-    if len(blueprint["bricks"]) != 400 or len(blueprint["steps"]) != 32:
+        if re.search(r"cadeau|\bgift\b|ray tracing|pathtrace|990150", content, re.IGNORECASE):
+            errors.append(f"Kirow contains removed edition/rendering content: {path}")
+        if meta_value(content, "name", "theme-color") != "#ffcf00":
+            errors.append(f"Kirow browser theme must match the yellow header: {path}")
+        for row in inventory:
+            if row["part"]["id"] not in content:
+                errors.append(f"Kirow page is missing part reference {row['part']['id']}: {path}")
+        rows = list(csv.DictReader((ROOT / f"kirow/assets/inventory-{lang}.csv").read_text(encoding="utf-8-sig").splitlines()))
+        quantity = "Quantité" if lang == "fr" else "Quantity"
+        if sum(int(row[quantity]) for row in rows) != total:
+            errors.append(f"Kirow {lang} CSV disagrees with the complete model inventory")
+        catalogue_id = "Référence catalogue" if lang == "fr" else "Catalogue ID"
+        colour = "Couleur" if lang == "fr" else "Colour"
+        if len(rows) != len(inventory) or len({(row[catalogue_id],row[colour]) for row in rows}) != len(rows):
+            errors.append(f"Kirow {lang} CSV variants are incomplete or duplicated")
+    if len(blueprint["steps"]) != 32:
         errors.append("Kirow blueprint disagrees with packaging")
     ldraw = read("kirow/assets/kirow-etude.ldr").splitlines()
-    if sum(line.startswith("1 ") for line in ldraw) != 400 or ldraw.count("0 STEP") != 32:
+    if ldraw.count("0 STEP") != 32:
         errors.append("Kirow LDraw inventory/steps disagree with the page")
+    for row in inventory:
+        if row["part"]["id"] not in "\n".join(ldraw):
+            errors.append(f"Kirow LDraw omits the reference {row['part']['id']}")
+    manifest_path = ROOT / "kirow/assets/model-manifest.json"
+    if not manifest_path.is_file():
+        errors.append("Kirow model artifact manifest is missing")
+    else:
+        manifest = json.loads(manifest_path.read_text())
+        for category in ("sources", "outputs"):
+            for relative, expected in manifest[category].items():
+                path = ROOT / "kirow" / relative
+                if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != expected:
+                    errors.append(f"Kirow rendered assets must be regenerated: {relative}")
     for step in range(1, 33):
         if not (ROOT / f"kirow/assets/manual/step-{step:02d}.jpg").is_file():
             errors.append(f"Kirow manual image {step} missing")
