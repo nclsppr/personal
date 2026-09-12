@@ -101,7 +101,7 @@ story += [p('Inventaire complet','KirowTitle'),p(f'{TOTAL} éléments · {len(DA
 
 destination=ROOT/'assets/kirow-fascicule.pdf'
 doc=SimpleDocTemplate(str(destination),pagesize=A4,rightMargin=19*mm,leftMargin=19*mm,topMargin=22*mm,bottomMargin=22*mm,
-                      title='Kirow sur rails · Fascicule de construction',author='Atelier Kirow')
+                      title='Kirow sur rails · Fascicule de construction',author='Nicolas Pieper')
 doc.build(story,onFirstPage=page_frame,onLaterPages=page_frame)
 
 # A source change must not silently leave an obsolete PDF, preview or LDraw file.

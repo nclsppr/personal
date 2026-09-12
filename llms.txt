@@ -20,6 +20,12 @@ The HTML pages below are the canonical, human-reviewed sources. English and Fren
 - The Projects pages distinguish public production, testing, preparation and documentation. Do not infer that a closed transaction, generation, payment or two-member journey is available when the page says it remains closed or unvalidated.
 - Project Foundation is public documentation. Its adoption and documentation alone do not prove that governance is effectively enforced.
 
+## Brick Atelier
+
+- [Kirow on rails in English](https://nicolaspieper.com/kirow/en/): Nicolas Pieper’s independent brick interpretation of the SNCF Kirow railway crane, with an interactive 3D model, documented LEGO part references and 32 illustrated steps. The downloadable PDF guide is in French.
+- [Kirow sur rails en français](https://nicolaspieper.com/kirow/): Interprétation indépendante en briques de la grue ferroviaire Kirow SNCF, une création de Nicolas Pieper avec maquette 3D interactive, références de pièces LEGO documentées et 32 étapes illustrées.
+- This is an independent construction study, not an official LEGO, KIROW or SNCF set. Physical assembly, connections and lifting capability have not been validated. Brand names identify the inspiration and documented parts, not a commercial partnership.
+
 ## Objects
 
 - [Objects in English](https://nicolaspieper.com/objects/): Objects Nicolas owns and enjoys, alongside a separate wishlist. Product links may be Amazon.fr affiliate links.

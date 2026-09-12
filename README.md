@@ -153,7 +153,7 @@ Un hook `git commit` (`~/Developer/.claude/hooks/check-i18n-parity.py`) bloque l
 la parité *structurelle* diverge. La parité *sémantique* reste vérifiée par relecture.
 
 Le workflow `Site validation` exécute aussi `python3 scripts/validate-site.py`. Il vérifie les
-26 pages indexables, leur correspondance exacte avec le sitemap, les images, canonicals,
+28 pages indexables, leur correspondance exacte avec le sitemap, les images, canonicals,
 langues, `hreflang`, données structurées, métadonnées Open Graph et Twitter, ainsi que la
 structure des douze couples bilingues et la couverture canonique de `llms.txt`.
 Le catalogue `data/objects.json` alimente les deux pages Objets via

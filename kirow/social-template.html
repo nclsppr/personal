@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
+<title>Brick Atelier · Social artwork template</title>
+<style>
+@font-face{font-family:Inter;src:url('../assets/fonts/inter-var-latin.woff2')}*{box-sizing:border-box}body{margin:0;background:#17191b;color:#fff;font-family:Inter,Arial,sans-serif}.card{position:relative;width:1200px;height:630px;overflow:hidden;display:grid;grid-template-columns:390px 810px}.copy{position:relative;z-index:1;padding:38px 32px;display:flex;flex-direction:column}.brand{display:flex;align-items:center;gap:13px;font-size:17px;font-weight:850;letter-spacing:-.4px;line-height:1.1}.brand img{width:49px;height:49px;padding:3px;background:#ffcf00;border-radius:3px}h1{margin:48px 0 16px;font-size:78px;font-weight:900;line-height:.94;letter-spacing:-5px;color:#ffcf00}h1 span{display:block;font-size:48px;line-height:1.1;letter-spacing:-2.8px;margin-top:7px}.description{font-size:20px;line-height:1.5;margin:0;max-width:310px;color:#f0f0ea}.detail{margin:22px 0 0;font-size:12px;letter-spacing:.08em;color:#c8ccc8;text-transform:uppercase}.byline{margin-top:auto;font-size:15px;line-height:1.6}.byline strong{display:block;font-size:19px}.art{position:relative;background:#9db194}.art img{width:100%;height:100%;object-fit:cover}.caption{position:absolute;left:28px;right:28px;bottom:23px;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:11px;color:#17191b}.caption b{background:#ffcf00;padding:8px 11px;letter-spacing:.03em}.caption span{font-weight:700;background:#ffffffd9;padding:8px 11px}.rule{position:absolute;top:0;left:0;right:0;height:7px;background:#ffcf00}
+.square .card{width:1080px;height:1080px;display:block}.square .copy{height:270px;padding:30px 44px;display:block}.square .brand{font-size:16px}.square .brand img{width:44px;height:44px}.square h1{position:absolute;left:44px;top:97px;margin:0;font-size:84px;letter-spacing:-5px}.square h1 span{display:inline;font-size:50px;margin-left:20px;letter-spacing:-3px}.square .description{position:absolute;top:200px;left:44px;font-size:20px;max-width:none}.square .detail{position:absolute;right:44px;top:32px;margin:0}.square .byline{position:absolute;right:44px;top:78px;font-size:13px;text-align:right}.square .byline strong{font-size:17px}.square .art{height:810px}.square .art img{height:745px;object-fit:cover;object-position:center bottom}.square .caption{bottom:22px;left:44px;right:44px;font-size:16px}
+</style>
+</head>
+<body><article class="card"><div class="copy"><div class="brand"><img src="assets/brick-atelier-mark.svg" width="49" height="49" alt="">BRICK<br>ATELIER</div><h1>KIROW<span id="title">SUR RAILS.</span></h1><p class="description" id="description">La grue SNCF,<br>réimaginée en briques.</p><p class="detail" id="detail">Modèle 3D · 32 étapes</p><div class="byline"><span id="by">Une création de</span><strong>Nicolas Pieper</strong></div></div><div class="art"><img src="assets/preview.jpg" width="1600" height="1100" alt=""><div class="caption"><b id="disclosure">CRÉATION NON OFFICIELLE</b><span>nicolaspieper.com/kirow</span></div></div><div class="rule"></div></article>
+<script>
+const params=new URLSearchParams(location.search);
+if(params.get('format')==='square')document.body.classList.add('square');
+if(params.get('lang')==='en'){
+ document.documentElement.lang='en';
+ document.getElementById('title').textContent='ON RAILS.';
+ document.getElementById('description').innerHTML='The SNCF crane,<br>reimagined in bricks.';
+ document.getElementById('detail').textContent='3D model · 32 steps';
+ document.getElementById('by').textContent='Created by';
+ document.getElementById('disclosure').textContent='UNOFFICIAL CREATION';
+ document.querySelector('.caption span').textContent='nicolaspieper.com/kirow/en';
+}
+</script></body></html>

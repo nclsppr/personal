@@ -6,8 +6,11 @@ calculé depuis les instances du modèle, avec les rails, les roues, le vitrage 
 les mécanismes. Les quantités, références LEGO, couleurs et sources sont communes
 à la page, au lecteur d'étapes et aux inventaires téléchargeables.
 
-Les deux pages sont en `noindex, nofollow`, hors navigation et sitemap.
-Elles restent publiques : le lien n'est pas un contrôle d'accès.
+Les deux pages sont publiques et indexables, reliées depuis les pages Projets et
+présentes dans le sitemap. Elles portent des adresses canoniques, des alternances
+FR/EN, des données structurées de création et des miniatures sociales localisées.
+La création est attribuée à Nicolas Pieper avec un lien vers son site.
+Les demandes aux moteurs sont décrites dans `../docs/kirow-indexing.md`.
 
 ## Architecture
 
@@ -33,6 +36,7 @@ npm ci
 npm run build
 npm run render-assets
 python3 generate-documents.py
+./generate-social-assets.sh
 ```
 
 Depuis la racine, `npm run dev` démarre un aperçu statique sans dépendance.
@@ -92,8 +96,31 @@ Les licences des ressources tierces sont conservées dans les ressources livrée
 
 ## Vérification
 
+`node kirow/scripts/check-assembly.mjs`, après compilation et rendu, vérifie les
+contacts des quatre pieds, les pivots de charnières et l’axe de flèche dans les
+coordonnées sources et dans les matrices réellement exportées par la scène.
+
 `python3 scripts/validate-site.py` depuis la racine contrôle notamment les routes,
 les langues, les fichiers locaux, l'inventaire et les 32 illustrations.
 Vérifier après modification la présentation mobile et ordinateur, les deux thèmes,
 le lecteur, les sources, la recherche, le clavier et la lecture sans JavaScript.
 La validation de l'assemblage physique reste distincte de ces contrôles numériques.
+
+## Identité et partage
+
+`editorial_page.py` ajoute le concept de coffret et le guide ferroviaire fictif.
+La figurine illustre les conseils et reste hors inventaire. Le coffret est une
+illustration non officielle, pas un produit commercialisé ou approuvé. Les
+originaux et les prompts des images sont conservés sous `assets/originals/` et
+dans `assets/VISUAL-PROVENANCE.md`. Le logo à quatre tenons est vectoriel.
+
+`share_page.py`, `assets/share.css` et `assets/share.js` proposent les liens SMS,
+email et X, le partage natif lorsqu'il est disponible, la copie du lien avec
+secours manuel et une image carrée pour Instagram. Aucun message n'est envoyé
+automatiquement. Le partage natif et les aperçus dépendent du navigateur et du
+service destinataire.
+
+Les quatre images sociales sont des rendus de `social-template.html` avec la
+vraie vue assemblée, et non des reconstitutions générées par IA. Après toute
+modification du modèle, régénérer ces images après `render-assets`, et incrémenter
+la version de leur URL dans les métadonnées si elles ont déjà été publiées.

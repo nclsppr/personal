@@ -34,7 +34,7 @@
   </url>
   <url>
     <loc>https://nicolaspieper.com/projects/</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/projects/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/projects/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/projects/"/>
@@ -47,7 +47,7 @@
   </url>
   <url>
     <loc>https://nicolaspieper.com/fr/projects/</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/projects/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/projects/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/projects/"/>
@@ -211,5 +211,23 @@
     <loc>https://nicolaspieper.com/claude/roadtrip-austria-2026/</loc>
     <lastmod>2026-08-31</lastmod>
     <image:image><image:loc>https://nicolaspieper.com/assets/img/og-roadtrip.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://nicolaspieper.com/kirow/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/kirow/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/kirow/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/kirow/"/>
+    <image:image><image:loc>https://nicolaspieper.com/kirow/assets/kirow-social-fr.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nicolaspieper.com/kirow/assets/preview.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://nicolaspieper.com/kirow/en/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/kirow/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/kirow/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/kirow/"/>
+    <image:image><image:loc>https://nicolaspieper.com/kirow/assets/kirow-social-en.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nicolaspieper.com/kirow/assets/preview.jpg</image:loc></image:image>
   </url>
 </urlset>
