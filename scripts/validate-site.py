@@ -298,6 +298,8 @@ def expected_schema_types(relative: Path) -> set[str]:
         "fr/objects/index.html": {"CollectionPage", "ItemList", "BreadcrumbList"},
         "kirow/index.html": {"WebPage", "CreativeWork", "Person", "ImageObject"},
         "kirow/en/index.html": {"WebPage", "CreativeWork", "Person", "ImageObject"},
+        "kirow/grande-echelle/index.html": {"WebPage", "CreativeWork", "Person", "ImageObject"},
+        "kirow/en/large-scale/index.html": {"WebPage", "CreativeWork", "Person", "ImageObject"},
         "fr/cv/index.html": {"Person", "ProfilePage", "BreadcrumbList"},
         "blog/index.html": {"Blog", "BreadcrumbList"},
         "fr/blog/index.html": {"Blog", "BreadcrumbList"},
@@ -1210,10 +1212,161 @@ def validate_kirow(errors: list[str]) -> None:
                 errors.append(f"Kirow renderer chunk missing: {dependency}")
 
 
+
+def validate_kirow_large_scale(errors: list[str]) -> None:
+    """Validate the second model independently of the original 452-piece miniature."""
+    import csv
+    from collections import Counter
+
+    base = ROOT / "kirow/large-scale"
+    data_path = base / "src/model-data.json"
+    if not data_path.is_file():
+        errors.append("Kirow large-scale model data is missing")
+        return
+    try:
+        model = json.loads(data_path.read_text(encoding="utf-8"))
+        pieces, inventory, steps = model["pieces"], model["inventory"], model["steps"]
+        catalogue, colours = model["catalog"], model["colors"]
+        variants = {row["key"]: row for row in model["evidence"]["variants"]}
+        counts = Counter()
+        step_numbers = [step["number"] for step in steps]
+        if not steps or step_numbers != list(range(1, len(steps) + 1)):
+            errors.append("Kirow large-scale steps must be non-empty and consecutive")
+        for step in steps:
+            if any(not isinstance(step.get(key), str) or not step[key].strip() for key in ("title", "titleEn", "description", "descriptionEn")):
+                errors.append(f"Kirow large-scale step lacks FR/EN content: {step.get('number')}")
+        for piece in pieces:
+            counts[piece["part"] + "-" + piece["color"]] += piece.get("quantity", 1)
+            if piece["part"] not in catalogue or piece["color"] not in colours or piece["step"] not in step_numbers:
+                errors.append("Kirow large-scale contains an unknown part, colour or step")
+        expected_inventory = Counter({row["key"]: row["count"] for row in inventory})
+        if not counts or counts != expected_inventory or len(inventory) != len(expected_inventory):
+            errors.append("Kirow large-scale inventory differs from its scene instances")
+        if set(counts) != set(variants):
+            errors.append("Every Kirow large-scale part and colour requires its own evidence")
+        for key, variant in variants.items():
+            if variant.get("shapeStatus") != "verified" or variant.get("colorStatus") != "verified":
+                errors.append(f"Kirow large-scale unverified shape or colour: {key}")
+            sources = variant.get("sources", [])
+            if not sources or any(not source.get("url", "").startswith("https://") or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", source.get("checkedAt", "")) for source in sources):
+                errors.append(f"Kirow large-scale evidence lacks a source and date: {key}")
+        total = sum(counts.values())
+        crane_total, transport_total = model["cranePieceCount"], model["transportPieceCount"]
+        first_transport = model["transportFirstStep"]
+        if total != model["totalPieceCount"] or crane_total + transport_total != total or transport_total <= 0:
+            errors.append("Kirow crane and transport totals differ from the complete inventory")
+        if sum(piece.get("quantity", 1) for piece in pieces if piece["step"] < first_transport) != crane_total:
+            errors.append("Kirow crane count differs from the crane-only stages")
+        if not 1 < first_transport <= len(steps):
+            errors.append("Kirow transport stages are missing or invalid")
+    except (KeyError, TypeError, ValueError) as exc:
+        errors.append(f"Invalid Kirow large-scale data contract: {exc}")
+        return
+
+    routes = {"fr": "/kirow/grande-echelle/", "en": "/kirow/en/large-scale/"}
+    alternates = {lang: CANONICAL_ORIGIN + route for lang, route in routes.items()}
+    alternates["x-default"] = alternates["fr"]
+    pages = []
+    required_ids = {
+        "scene-host", "start-3d", "touch-exit", "render-status", "theme", "reset", "capture",
+        "download-ldraw", "step-select", "step-image", "step-number", "step-title",
+        "step-description", "step-parts", "previous-step", "next-step",
+    }
+    ranges = {"elevation": (0, 65, 12), "slew": (-180, 180, 0), "extension": (0, 100, 35),
+              "outriggers": (0, 100, 100), "hook": (3, 30, 12), "explode": (0, 100, 0)}
+    for lang, route in routes.items():
+        relative = route.lstrip("/") + "index.html"
+        path = ROOT / relative
+        if not path.is_file():
+            errors.append(f"Missing Kirow large-scale page: {relative}")
+            continue
+        content = path.read_text(encoding="utf-8")
+        pages.append(content)
+        if f'<html lang="{lang}">' not in content:
+            errors.append(f"Kirow large-scale page has incorrect language: {relative}")
+        if alternate_links(content) != alternates:
+            errors.append(f"Kirow large-scale alternates differ: {relative}")
+        if meta_value(content, "property", "og:image") != CANONICAL_ORIGIN + f"/kirow/large-scale/assets/social-{lang}.jpg?v=1":
+            errors.append(f"Kirow large-scale social card must match the model and language: {relative}")
+        footer = re.search(r"<footer\b[^>]*>(.*?)</footer>", content, re.S)
+        if footer is None or not re.search(r'<a\b[^>]*href="https://nicolaspieper\.com/"[^>]*rel="author"', footer.group(1)) or "Nicolas Pieper" not in footer.group(1):
+            errors.append(f"Kirow large-scale footer must credit and link Nicolas Pieper: {relative}")
+        schema = json_ld_nodes(Path(relative), content, errors)
+        works = [node for node in schema if "CreativeWork" in node_types(node)]
+        if len(works) != 1 or linked_url(works[0].get("creator")) != CANONICAL_ORIGIN + "/#person":
+            errors.append(f"Kirow large-scale structured data lacks its creator: {relative}")
+        if json_ld_types(schema) & {"Product", "Offer", "AggregateRating", "Review"}:
+            errors.append(f"Kirow large-scale must remain a non-commercial study: {relative}")
+        identifiers = re.findall(r'\bid="([^"]+)"', content)
+        if len(identifiers) != len(set(identifiers)):
+            errors.append(f"Kirow large-scale has duplicate HTML IDs: {relative}")
+        if not required_ids <= set(identifiers):
+            errors.append(f"Kirow large-scale controller markup is incomplete: {relative}")
+        for key, (low, high, value) in ranges.items():
+            control = re.search(r'<input\b(?=[^>]*\bid="' + key + r'")[^>]*>', content)
+            if control is None or any(f'{name}="{expected}"' not in control.group(0) for name, expected in (("min", low), ("max", high), ("value", value))) or f'id="{key}-value"' not in content:
+                errors.append(f"Kirow large-scale controller range is wrong: {key} in {relative}")
+        for group, values in (("view", ("hero", "side", "front", "top", "detail")), ("toggle", ("night", "auto")), ("pose", ("transport", "working"))):
+            for value in values:
+                if f'data-{group}="{value}"' not in content:
+                    errors.append(f"Kirow large-scale missing {group} {value}: {relative}")
+        mini = "/kirow/" if lang == "fr" else "/kirow/en/"
+        if f'href="{mini}"' not in content or f'href="{route}"' not in read(mini.lstrip("/") + "index.html"):
+            errors.append(f"Both Kirow versions require reciprocal crawlable links: {relative}")
+        for kind, expected in (("crane", crane_total), ("transport", transport_total), ("total", total)):
+            count_tag = re.search(r'<td data-count="' + kind + r'">([^<]+)</td>', content)
+            if count_tag is None or re.sub(r"[ ,]", "", count_tag.group(1)) != str(expected):
+                errors.append(f"Kirow large-scale count breakdown differs: {kind} in {relative}")
+        if 'id="transport"' not in content or '/kirow/large-scale/assets/transport.jpg?v=1' not in content:
+            errors.append(f"Kirow large-scale transport view is missing: {relative}")
+        for row in inventory:
+            if f'id="piece-{row["key"]}"' not in content or str(row["part"]["id"]) not in content:
+                errors.append(f"Kirow large-scale HTML inventory lacks {row['key']}: {relative}")
+        for step in steps:
+            if f'id="all-step-parts-{step["number"]}"' not in content:
+                errors.append(f"Kirow large-scale static guide lacks step {step['number']}: {relative}")
+        for resource in set(re.findall(r'(?:src|href)="(/kirow/[^"#]+)', content)):
+            resource_path = unescape(resource).split("?", 1)[0]
+            if not (ROOT / resource_path.lstrip("/")).exists():
+                errors.append(f"Missing Kirow large-scale resource: {resource}")
+        for script in re.findall(r'<script[^>]+src="([^"]+)"', content):
+            if not script.startswith("/kirow/"):
+                errors.append(f"Kirow large-scale scripts must be self-hosted: {script}")
+        csv_path = base / f"assets/inventory-{lang}.csv"
+        if csv_path.is_file():
+            try:
+                csv_rows = list(csv.DictReader(csv_path.read_text(encoding="utf-8-sig").splitlines()))
+                quantity = "Quantité" if lang == "fr" else "Quantity"
+                if len(csv_rows) != len(inventory) or sum(int(row[quantity]) for row in csv_rows) != total:
+                    errors.append(f"Kirow large-scale {lang} CSV differs from the model inventory")
+            except (KeyError, ValueError) as exc:
+                errors.append(f"Invalid Kirow large-scale {lang} inventory CSV: {exc}")
+        else:
+            errors.append(f"Missing Kirow large-scale {lang} inventory CSV")
+        pdf_path = base / f"assets/building-guide-{lang}.pdf"
+        if not pdf_path.is_file() or not pdf_path.read_bytes().startswith(b"%PDF-"):
+            errors.append(f"Kirow large-scale requires a valid {lang} PDF guide")
+    if len(pages) == 2 and (section_ids(pages[0]) != section_ids(pages[1]) or local_anchors(pages[0]) != local_anchors(pages[1])):
+        errors.append("Kirow large-scale FR/EN structure differs")
+    for step in steps:
+        if not (base / f"assets/manual/step-{step['number']:02d}.jpg").is_file():
+            errors.append(f"Kirow large-scale manual image {step['number']} missing")
+    ldraw_path = base / "assets/kirow-large-scale.ldr"
+    if not ldraw_path.is_file():
+        errors.append("Kirow large-scale LDraw export is missing")
+    elif ldraw_path.read_text(encoding="utf-8").splitlines().count("0 STEP") != len(steps):
+        errors.append("Kirow large-scale LDraw steps differ from the model")
+    for path in (base / "assets").glob("*.js"):
+        for dependency in re.findall(r'"(\./[^" ]+\.js)"', path.read_text(encoding="utf-8")):
+            if not (path.parent / dependency).is_file():
+                errors.append(f"Kirow large-scale renderer chunk missing: {dependency}")
+
+
 def main() -> int:
     errors: list[str] = []
     validate_required_files(errors)
     validate_kirow(errors)
+    validate_kirow_large_scale(errors)
     validate_language_parity(errors)
     validate_noindex_surfaces(errors)
     indexable = validate_global_metadata(errors)

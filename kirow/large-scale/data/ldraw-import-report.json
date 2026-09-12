@@ -1,0 +1,445 @@
+{
+  "source": "https://library.ldraw.org/library/official/",
+  "archiveSource": "https://library.ldraw.org/library/updates/complete.zip",
+  "archiveSha256": "d2a695868ed2b3957c45b022a6451908edab22cc043179dd61d18dd382b35e11",
+  "license": "CC BY 4.0",
+  "coordinateConvention": {
+    "unit": "stud",
+    "lduPerStud": 20,
+    "up": "Y",
+    "origin": "centred X/Z footprint, lowest Y",
+    "resized": false,
+    "offset": "Subtract this vector after LDraw x/20, -y/20, z/20 conversion."
+  },
+  "catalogueParts": {
+    "wheel56908": "56908",
+    "roundPlate11213": "11213",
+    "t12": "3069b",
+    "t14": "2431",
+    "t18": "4162",
+    "slope45_2x2": "3039",
+    "slopeCurved2x2": "15068",
+    "wedgeLeft43710": "43710",
+    "wedgeRight43711": "43711",
+    "windshield6x3": "62360",
+    "technic16": "3703",
+    "axle12": "3708",
+    "axle16": "50451",
+    "bar4": "30374",
+    "clip11": "15712",
+    "round22": "3941",
+    "actuatorLong40918": "40918-f1",
+    "frame43": "60594",
+    "windowGlass43": "60603"
+  },
+  "imported": [
+    "56908",
+    "11213",
+    "3069b",
+    "2431",
+    "4162",
+    "3039",
+    "15068",
+    "43710",
+    "43711",
+    "62360",
+    "3703",
+    "3708",
+    "50451",
+    "30374",
+    "15712",
+    "3941",
+    "40918-f1",
+    "60594",
+    "60603",
+    "40918-f2",
+    "u9487c01",
+    "62274c02",
+    "47157"
+  ],
+  "geometryOnlySubassemblies": [
+    "40918-f2",
+    "u9487c01",
+    "62274c02",
+    "47157"
+  ],
+  "failures": {},
+  "parts": {
+    "56908": {
+      "size": [
+        5.40007,
+        5.40007,
+        3.3
+      ],
+      "offset": [
+        0.0,
+        -2.700035,
+        0.0
+      ],
+      "triangles": 6874
+    },
+    "11213": {
+      "size": [
+        6.0,
+        0.60001,
+        6.0
+      ],
+      "offset": [
+        0.0,
+        -0.40001499999999995,
+        0.0
+      ],
+      "triangles": 4576
+    },
+    "3069b": {
+      "size": [
+        2.0,
+        0.4,
+        1.0
+      ],
+      "offset": [
+        0.0,
+        -0.4,
+        0.0
+      ],
+      "triangles": 44
+    },
+    "2431": {
+      "size": [
+        4.0,
+        0.4,
+        1.0
+      ],
+      "offset": [
+        0.0,
+        -0.4,
+        0.0
+      ],
+      "triangles": 188
+    },
+    "4162": {
+      "size": [
+        8.0,
+        0.4,
+        1.0
+      ],
+      "offset": [
+        0.0,
+        -0.4,
+        0.0
+      ],
+      "triangles": 380
+    },
+    "3039": {
+      "size": [
+        2.0,
+        1.4,
+        2.0
+      ],
+      "offset": [
+        0.0,
+        -1.2,
+        -0.5
+      ],
+      "triangles": 352
+    },
+    "15068": {
+      "size": [
+        2.0,
+        0.8,
+        2.0
+      ],
+      "offset": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "triangles": 286
+    },
+    "43710": {
+      "size": [
+        2.0,
+        1.4,
+        4.0
+      ],
+      "offset": [
+        0.5,
+        -1.2,
+        -1.5
+      ],
+      "triangles": 621
+    },
+    "43711": {
+      "size": [
+        2.0,
+        1.4,
+        4.0
+      ],
+      "offset": [
+        -0.5,
+        -1.2,
+        -1.5
+      ],
+      "triangles": 621
+    },
+    "62360": {
+      "size": [
+        6.0,
+        1.2,
+        2.9902
+      ],
+      "offset": [
+        0.0,
+        -1.2,
+        -0.9951000000000001
+      ],
+      "triangles": 816
+    },
+    "3703": {
+      "size": [
+        16.0,
+        1.4,
+        1.0
+      ],
+      "offset": [
+        0.0,
+        -1.2,
+        0.0
+      ],
+      "triangles": 6402
+    },
+    "3708": {
+      "size": [
+        11.95,
+        0.6,
+        0.6
+      ],
+      "offset": [
+        0.0,
+        -0.3,
+        0.0
+      ],
+      "triangles": 176
+    },
+    "50451": {
+      "size": [
+        15.95,
+        0.6,
+        0.6
+      ],
+      "offset": [
+        0.0,
+        -0.3,
+        0.0
+      ],
+      "triangles": 176
+    },
+    "30374": {
+      "size": [
+        0.4,
+        4.0,
+        0.4
+      ],
+      "offset": [
+        0.0,
+        -4.0,
+        0.0
+      ],
+      "triangles": 64
+    },
+    "15712": {
+      "size": [
+        1.0,
+        0.9,
+        1.0
+      ],
+      "offset": [
+        0.0,
+        -0.4,
+        0.0
+      ],
+      "triangles": 122
+    },
+    "3941": {
+      "size": [
+        2.00005,
+        1.4,
+        2.00005
+      ],
+      "offset": [
+        0.0,
+        -1.2,
+        0.0
+      ],
+      "triangles": 624
+    },
+    "40918-f1": {
+      "size": [
+        1.90002,
+        2.4,
+        14.9
+      ],
+      "offset": [
+        0.0,
+        -1.45,
+        6.5
+      ],
+      "triangles": 2638
+    },
+    "60594": {
+      "size": [
+        4.0,
+        3.8,
+        1.0
+      ],
+      "offset": [
+        0.0,
+        -3.6,
+        0.0
+      ],
+      "triangles": 570
+    },
+    "60603": {
+      "size": [
+        3.7,
+        3.0,
+        0.4
+      ],
+      "offset": [
+        0.0,
+        -2.8,
+        0.0
+      ],
+      "triangles": 430
+    },
+    "40918-f2": {
+      "size": [
+        1.90002,
+        2.4,
+        22.9
+      ],
+      "offset": [
+        0.0,
+        -1.45,
+        10.5
+      ],
+      "triangles": 2638
+    },
+    "u9487c01": {
+      "size": [
+        1.90002,
+        2.4,
+        12.85
+      ],
+      "offset": [
+        0.0,
+        -1.45,
+        5.4750000000000005
+      ],
+      "triangles": 1744
+    },
+    "62274c02": {
+      "size": [
+        1.0,
+        1.0,
+        10.8
+      ],
+      "offset": [
+        0.0,
+        -0.5,
+        -3.9499999999999997
+      ],
+      "triangles": 696
+    },
+    "47157": {
+      "size": [
+        0.9,
+        0.9,
+        1.1
+      ],
+      "offset": [
+        0.0,
+        -0.45,
+        0.55
+      ],
+      "triangles": 198
+    }
+  },
+  "assemblies": {
+    "actuatorLong40918": {
+      "catalogueId": "40918c01",
+      "retracted": "40918-f1",
+      "extended": "40918-f2",
+      "sourceAxis": "Z",
+      "travelStuds": 8,
+      "note": "The centred offsets differ between poses. Restore each source origin before assembling or animating children. Subassemblies are not separate inventory items.",
+      "sourceChildTransformsLDU": [
+        {
+          "part": "47157",
+          "color": 4,
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          "matrix": [
+            0,
+            1,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "part": "u9487c01",
+          "color": 16,
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          "matrix": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "part": "62274c02",
+          "color": 72,
+          "translationRetracted": [
+            0,
+            0,
+            250
+          ],
+          "translationExtended": [
+            0,
+            0,
+            410
+          ],
+          "matrix": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ]
+    }
+  }
+}

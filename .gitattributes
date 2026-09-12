@@ -1,0 +1,4 @@
+# Generated illustrated guides are binary PDF artifacts.
+kirow/large-scale/assets/*.pdf binary
+# CSV uses its conventional CRLF record separators.
+kirow/large-scale/assets/*.csv whitespace=cr-at-eol

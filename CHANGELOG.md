@@ -5,6 +5,22 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-09-12 - Kirow à grande échelle et convoi de transport
+
+- Seconde version indépendante de la grue, rapprochée des quatre photographies
+  fournies par Nicolas : capot allongé, cabine latérale à grandes baies et face
+  inclinée, huit essieux, trois sections de flèche et deux vérins.
+- Miniature conservée, avec un sélecteur pour retrouver les deux versions.
+- Convoi de transport avec deux wagons, flèche repliée sur son berceau,
+  patins relevés et contrepoids déplacé sur le wagon arrière.
+- Pièces aux dimensions de catalogue, imports LDraw documentés et rendu par
+  instances ; soleil de fin de journée et secours graphique sur mobile.
+- Pages FR/EN, vues de détail, notices bilingues, inventaires, LDraw et cartes
+  de partage générés depuis la même source. Les quantités distinguent la grue
+  du complément de transport.
+- Contrôles des raccords visibles et de la cinématique, sans revendication de
+  validation physique. Les photographies de référence ne sont pas republiées.
+
 ## 2026-09-12 - Kirow, couleurs franches, heure dorée et coffret lumineux
 
 - Mode heure dorée retravaillé, avec les libellés « Heure dorée » en français

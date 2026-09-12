@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parent.parent
 ORIGIN = "https://nicolaspieper.com"
 KEY_FILE = ROOT / "indexnow-key.txt"
 KEY_URL = f"{ORIGIN}/indexnow-key.txt"
-URLS = (f"{ORIGIN}/kirow/", f"{ORIGIN}/kirow/en/")
+URLS = tuple(ORIGIN + path for path in ("/kirow/", "/kirow/en/", "/kirow/grande-echelle/", "/kirow/en/large-scale/"))
 ENDPOINT = "https://api.indexnow.org/indexnow"
 
 
@@ -94,7 +94,7 @@ def main():
         if response.status == 202:
             print("IndexNow HTTP 202: URLs received; verification key validation is pending.")
         else:
-            print("IndexNow HTTP 200: both URLs were submitted successfully.")
+            print(f"IndexNow HTTP 200: {len(URLS)} URLs were submitted successfully.")
         print("This confirms receipt only. Crawling, indexing and ranking are not guaranteed.")
 
 
