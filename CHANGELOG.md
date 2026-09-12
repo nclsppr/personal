@@ -5,6 +5,22 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-09-12 - Kirow, assemblage corrigé et partage public
+
+- Correction des stabilisateurs : colonnes reliées aux bras après le rehaussement
+  du châssis, ajout de huit pièces référencées et inventaires recalculés.
+- Origines communes des charnières rétablies, axe de flèche aligné sur les trous
+  des supports et pivot de rotation corrigé. Rendus, LDraw et fascicule régénérés.
+- Ouverture du référencement des deux langues, métadonnées sociales complètes,
+  adresses canoniques, données structurées et découverte par Projets et sitemap.
+- Création attribuée à Nicolas Pieper, avec lien NicolasPieper.com en pied de page.
+- Miniatures FR/EN issues du modèle réel, formats partage de lien et Instagram ;
+  liens SMS, email et X, partage natif et copie du lien avec secours manuel.
+- Logo Brick Atelier vectoriel à quatre tenons, concept de coffret non officiel
+  et guide ferroviaire fictif en gilet orange. Originaux et prompts conservés.
+- Outil de notification IndexNow après vérification de la publication ; distinction
+  entre soumission aux moteurs, indexation effective et classement.
+
 ## 2026-09-12 - Kirow, pièces référencées et paysage ferroviaire
 
 - Révision de la maquette : rails, roues, vitrages et mécanismes associés à des

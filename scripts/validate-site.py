@@ -296,6 +296,8 @@ def expected_schema_types(relative: Path) -> set[str]:
         "cv/index.html": {"Person", "ProfilePage", "BreadcrumbList"},
         "objects/index.html": {"CollectionPage", "ItemList", "BreadcrumbList"},
         "fr/objects/index.html": {"CollectionPage", "ItemList", "BreadcrumbList"},
+        "kirow/index.html": {"WebPage", "CreativeWork", "Person", "ImageObject"},
+        "kirow/en/index.html": {"WebPage", "CreativeWork", "Person", "ImageObject"},
         "fr/cv/index.html": {"Person", "ProfilePage", "BreadcrumbList"},
         "blog/index.html": {"Blog", "BreadcrumbList"},
         "fr/blog/index.html": {"Blog", "BreadcrumbList"},
@@ -1135,12 +1137,30 @@ def validate_kirow(errors: list[str]) -> None:
     if section_ids(pages[0]) != section_ids(pages[1]) or local_anchors(pages[0]) != local_anchors(pages[1]):
         errors.append("Kirow FR/EN structure differs")
     for path, content, lang, route in zip(paths, pages, ("fr", "en"), ("/kirow/", "/kirow/en/")):
-        if f'<html lang="{lang}">' not in content or "noindex" not in (meta_value(content, "name", "robots") or ""):
-            errors.append(f"Kirow language/noindex contract: {path}")
+        robots = (meta_value(content, "name", "robots") or "").lower()
+        if f'<html lang="{lang}">' not in content or "noindex" in robots or "nofollow" in robots:
+            errors.append(f"Kirow must be correctly localized and indexable: {path}")
         if link_value(content, "canonical") != CANONICAL_ORIGIN + route:
             errors.append(f"Kirow canonical: {path}")
-        if alternate_links(content) != {"fr": CANONICAL_ORIGIN + "/kirow/", "en": CANONICAL_ORIGIN + "/kirow/en/"}:
+        if alternate_links(content) != {"fr": CANONICAL_ORIGIN + "/kirow/", "en": CANONICAL_ORIGIN + "/kirow/en/", "x-default": CANONICAL_ORIGIN + "/kirow/"}:
             errors.append(f"Kirow alternates: {path}")
+        social_image = CANONICAL_ORIGIN + f"/kirow/assets/kirow-social-{lang}.jpg?v=1"
+        if meta_value(content, "property", "og:image") != social_image:
+            errors.append(f"Kirow requires its localized social card: {path}")
+        if meta_value(content, "name", "author") != "Nicolas Pieper":
+            errors.append(f"Kirow requires its creator attribution: {path}")
+        footer = re.search(r"<footer\b[^>]*>(.*?)</footer>", content, re.S)
+        if footer is None or not re.search(r'<a\b[^>]*href="https://nicolaspieper\.com/"[^>]*rel="author"', footer.group(1)) or "Nicolas Pieper" not in footer.group(1):
+            errors.append(f"Kirow footer must credit and link to Nicolas Pieper: {path}")
+        project_page = read("fr/projects/index.html" if lang == "fr" else "projects/index.html")
+        if f'href="{route}"' not in project_page:
+            errors.append(f"Kirow requires a crawlable link from the projects page: {path}")
+        schema = json_ld_nodes(Path(path), content, errors)
+        model_nodes = [node for node in schema if "CreativeWork" in node_types(node)]
+        if len(model_nodes) != 1 or linked_url(model_nodes[0].get("creator")) != CANONICAL_ORIGIN + "/#person":
+            errors.append(f"Kirow structured data must identify its creator: {path}")
+        if json_ld_types(schema) & {"Product", "Offer", "AggregateRating", "Review"}:
+            errors.append(f"Kirow is a personal study, without commerce or review markup: {path}")
         for asset in re.findall(r'(?:src|href)="(/kirow/[^"]+)"', content):
             asset_path = asset.split("?", 1)[0].split("#", 1)[0]
             if not (ROOT / asset_path.lstrip("/")).exists():

@@ -169,7 +169,9 @@ export const CATALOG:Record<string,Part>={
   "designId": "3062"
  }
 };
-export type Brick={part:string;color:ColorName;x:number;y:number;z:number;ry:number;rx?:number;rz?:number;step:number;group:string};
+export type Brick={part:string;color:ColorName;x:number;y:number;z:number;ry:number;rx?:number;rz?:number;step:number;group:string;ldrawOrigin?:boolean};
+// Shared assembly datums. LDraw joints use their source origin, not a bounding box centre.
+export const ASSEMBLY={chassisLift:1.4375,outriggerOriginY:6.0375,outriggerArmY:.2,boomPivotY:5.9,boomPivotLocalY:.4};
 export const STEPS=[
  [
   "La voie",
@@ -316,8 +318,14 @@ export function createBlueprint(){
  for(let x=-16;x<=16;x+=8)for(const z of [-2,2])add('chassis',7,'p48','dark',x,7,z);
  for(const x of [-22,22]){add('chassis',8,'p48','black',x,4.2,0,Math.PI/2);add('chassis',8,'b18','yellow',x,4.6,0,Math.PI/2);for(const z of [-3,3])add('chassis',8,'p11','red',x,5.8,z);}
  for(const x of [-15,15])for(const z of [-1,1]){
-  const g=`leg${x}${z}`;for(let i=0;i<2;i++)add(g,9,'b24',i?'yellow':'dark',0,.2,z*(i*4+1),Math.PI/2);
-  add(g,9,'p44','black',0,-5,z*6);for(let j=0;j<4;j++)add(g,9,'b22',j<3?'dark':'yellow',0,-4.6+j*1.2,z*6);add(g,9,'p28','yellow',0,1.4,z*3,Math.PI/2);
+  const g=`leg${x}${z}`,armY=ASSEMBLY.outriggerArmY;
+  for(let i=0;i<2;i++)add(g,9,'b24',i?'yellow':'dark',0,armY,z*(i*4+1),Math.PI/2);
+  // Five real bricks and two footing plates reach the arm on the same grid.
+  // Derive from the joint above so a wheel-height correction cannot detach the column.
+  const columnBottom=armY-5*CATALOG.b22.h;
+  for(let j=0;j<2;j++)add(g,9,'p44','black',0,columnBottom-(2-j)*CATALOG.p44.h,z*6);
+  for(let j=0;j<5;j++)add(g,9,'b22',j<4?'dark':'yellow',0,columnBottom+j*CATALOG.b22.h,z*6);
+  add(g,9,'p28','yellow',0,armY+CATALOG.b24.h,z*3,Math.PI/2);
  }
  for(const x of [-2,2])add('chassis',10,'p44','black',x,7.4,0);
  for(let x=-12;x<=8;x+=4)for(const z of [-3,-1,1,3])add('turret',11,'p24','yellow',x,0,z);
@@ -346,8 +354,7 @@ export function createBlueprint(){
  for(const x of [-20,20])for(const z of [-3,3])add('chassis',31,'r11','yellow',x,7.4,z);
  for(const x of [-13,-6])for(const z of [-4.5,4.5])add('turret',31,'r11','yellow',x,0,z);
  for(const b of bricks){
-  if(['rearBogie','frontBogie','chassis'].includes(b.group))b.y+=1.4375;
-  if(b.group.startsWith('leg')&&b.y<0)b.y-=1.4375;
+  if(['rearBogie','frontBogie','chassis'].includes(b.group))b.y+=ASSEMBLY.chassisLift;
  }
  return bricks;
 }
@@ -709,6 +716,7 @@ export const ALL_CATALOG:Record<string,Part>={...CATALOG,...SPECIAL_CATALOG};
 export function createSpecials(){
  const parts:Brick[]=[];
  const add=(group:string,step:number,part:string,color:ColorName,x:number,y:number,z:number,ry=0,rx=0,rz=0)=>parts.push({part,color,x,y,z,ry,rx,rz,step,group});
+ const addAtLDrawOrigin=(...args:Parameters<typeof add>)=>{add(...args);parts[parts.length-1].ldrawOrigin=true;};
  for(const x of [-32,-16,0,16,32])add('track',1,'rail53401','dark',x,.1,0);
  for(const g of ['rearBogie','frontBogie']){
   for(const x of [-4.5,-1.5,1.5,4.5]){
@@ -726,8 +734,9 @@ export function createSpecials(){
  }
  for(const x of [-15,15])for(const z of [-1,1]){
   const g=`leg${x}${z}`;
-  add(g,9,'hinge2429','yellow',0,1.8,z,Math.PI/2);
-  add(g,9,'hinge2430','yellow',0,1.8,z*3,Math.PI/2);
+  // Both halves share the official hinge origin. Their centred footprints differ.
+  addAtLDrawOrigin(g,9,'hinge2429','yellow',0,2.2,z*2,z*Math.PI/2);
+  addAtLDrawOrigin(g,9,'hinge2430','yellow',0,2.2,z*2,z*Math.PI/2);
  }
  add('chassis',10,'turnBase18939','gray',-4,7.4,0);
  add('chassis',10,'turnTop18938','black',-4,8.4,0);
@@ -740,8 +749,8 @@ export function createSpecials(){
  add('cab',20,'leverBase4592','black',5,1.6,5);
  add('cab',20,'lever4593','black',5,1.8,5);
  for(const z of [-2.5,2.5])add('turret',22,'pivotBrick3701','yellow',0,5.2,z);
- add('turret',22,'axle8','black',0,5.8,0);
- for(const z of [-3.5,3.5])add('turret',22,'bush3713','gray',0,5.8,z);
+ addAtLDrawOrigin('turret',22,'axle8','black',0,ASSEMBLY.boomPivotY,0,Math.PI/2);
+ for(const z of [-3.5,3.5])addAtLDrawOrigin('turret',22,'bush3713','gray',0,ASSEMBLY.boomPivotY,z);
  add('turret',22,'actuator61927','gray',3,3,0);
  for(const z of [-1.5,1.5]){
   add('turret',22,'pin2780','black',3,3,z);
@@ -754,7 +763,7 @@ export function createSpecials(){
  for(const z of [-4.5,4.5])add('turret',31,'railing2486','yellow',-9.5,1.2,z);
  for(const z of [3.5,6.5])add('cab',31,'lamp4073','white',6.5,7.6,z);
  add('cab',31,'lamp4073','amber',1,7.6,5);
- for(const p of parts)if(p.group==='chassis'||(p.group.endsWith('Bogie')&&p.step===3))p.y+=1.4375;
+ for(const p of parts)if(p.group==='chassis'||(p.group.endsWith('Bogie')&&p.step===3))p.y+=ASSEMBLY.chassisLift;
  return parts;
 }
 export const SPECIALS=createSpecials();

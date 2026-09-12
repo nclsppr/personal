@@ -6,7 +6,7 @@ import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { SSAOPass } from 'three/addons/postprocessing/SSAOPass.js';
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
-import { BRICKS,CATALOG,SPECIALS,ALL_CATALOG,COLORS,STEPS, type Brick } from './blueprint';
+import { BRICKS,CATALOG,SPECIALS,ALL_CATALOG,COLORS,STEPS,ASSEMBLY, type Brick } from './blueprint';
 import officialGeometry from '../data/ldraw-geometry.json';
 type OfficialPart={id:string;offset:number[];size:number[];groups:Record<string,number[]>};
 const LDRAW_GEOMETRY=officialGeometry as Record<string,OfficialPart>;
@@ -141,6 +141,7 @@ export function createScene(host:HTMLElement,onStatus:(s:string)=>void):SceneAPI
   const p=ALL_CATALOG[b.part],id=b.part==='actuator61927'?'61927-f1':p.ldrawId;
   if(!id||!LDRAW_GEOMETRY[id])throw new Error(`Official geometry missing for ${p.id}`);
   const source=LDRAW_GEOMETRY[id],object=new T.Group();object.position.set(b.x,b.y,b.z);object.rotation.set(b.rx||0,b.ry,b.rz||0);object.userData.part=b.part;object.userData.ldrawId=id;object.userData.step=b.step;groups[b.group].add(object);specialObjects.set(b,object);
+  if(b.ldrawOrigin)object.position.add(new T.Vector3(...source.offset as [number,number,number]).applyEuler(object.rotation));
   for(const [color,vertices] of Object.entries(source.groups)){
    const cacheKey=id+':'+color;let geometry=officialCache.get(cacheKey);
    if(!geometry){geometry=new T.BufferGeometry();geometry.setAttribute('position',new T.Float32BufferAttribute(vertices,3));geometry.computeVertexNormals();officialCache.set(cacheKey,geometry);}
@@ -196,9 +197,10 @@ export function createScene(host:HTMLElement,onStatus:(s:string)=>void):SceneAPI
   const e=settings.explode/100,a=T.MathUtils.degToRad(settings.elevation);
   groups.turret.position.set(-4,11.8375+e*9,0);groups.turret.rotation.y=T.MathUtils.degToRad(settings.slew);
   groups.counter.position.set(-1-e*9,e*5,0);groups.cab.position.set(0,e*8,1+e*8);
-  groups.boom.position.set(0,5.5+e*12,0);groups.boom.rotation.z=a;groups.jib.position.set(e*9,e*3,0);
+  // Rotate around the axle through the Technic support holes, not the boom's lower corner.
+  groups.boom.position.set(ASSEMBLY.boomPivotLocalY*Math.sin(a),ASSEMBLY.boomPivotY-ASSEMBLY.boomPivotLocalY*Math.cos(a)+e*12,0);groups.boom.rotation.z=a;groups.jib.position.set(e*9,e*3,0);
   groups.rearBogie.position.y=-e*.7;groups.frontBogie.position.y=-e*.7;
-  for(const x of [-15,15])for(const z of [-1,1])groups[`leg${x}${z}`].position.set(x,6.0375,z*(2+e*6));
+  for(const x of [-15,15])for(const z of [-1,1])groups[`leg${x}${z}`].position.set(x,ASSEMBLY.outriggerOriginY,z*(2+e*6));
   const tip=new T.Vector3(42+e*9,1,0).applyAxisAngle(new T.Vector3(0,0,1),a).add(groups.boom.position);
   groups.hook.position.copy(tip).add(new T.Vector3(0,-settings.hook-3.8,0));
   cables.forEach((m,i)=>{const z=i===0?-.6:.6;setRod(m,tip.clone().add(new T.Vector3(0,0,z)),groups.hook.position.clone().add(new T.Vector3(0,3.5,z)));});
