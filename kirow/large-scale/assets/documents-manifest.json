@@ -111,13 +111,13 @@
     "assets/manual/step-105.jpg": "93cd11035bf3fe09f1f717ba343ea06df86bc5cbdd0b984f74759f6896d41603",
     "assets/manual/step-106.jpg": "05f109b6f36e238aa01daf9a39503ec21fa888fa172481b0ab0747e5ce010c03",
     "assets/manual/step-107.jpg": "adc21232a944b750417d5bc1b2a7169a97874379a8f1091b4f4156eafebf799f",
-    "assets/render-manifest.json": "48443ccf3b507a44e3d5037fd648983b82fbf2d99853b0f603e927dd4ff083f2"
+    "assets/render-manifest.json": "94835554a1d15e7e538ec2fc32cf7f8173c27cfef798e7101741a53381052df3"
   },
   "outputs": {
     "assets/inventory-fr.csv": "85fa3e19a6414ac3821a312ae39663eb95911f496535e3dcdc537585cfafc2e3",
     "assets/inventory-en.csv": "9ca4131ab8ada369bb21b5fbab30e15ce98053f3de54cd2795411e275c517d73",
-    "assets/building-guide-fr.pdf": "99d7748150d27935908809e2b9b4afe847977170cea7d44e341e7c75d9bd77fc",
-    "assets/building-guide-en.pdf": "a524529d41cc4b8a904f70f5b069393b2e8ef093f441702b8f1aa3de7537edef"
+    "assets/building-guide-fr.pdf": "96932477c63d6ac0dac49b8080b7888e37c9b1812c1f0f09ff6f661893e4a1fb",
+    "assets/building-guide-en.pdf": "beee36f080ff39c7cb303a7b0e44d4b0bc616f958f0966dba1b57bf2a9ed990b"
   },
   "documents": {
     "fr": {

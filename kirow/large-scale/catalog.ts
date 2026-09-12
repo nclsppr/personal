@@ -245,4 +245,3 @@ export const NEW_COLORS = {
 };
 
 export const NEW_PARTS_EVIDENCE = partsEvidence;
-
