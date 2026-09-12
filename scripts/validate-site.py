@@ -1144,7 +1144,7 @@ def validate_kirow(errors: list[str]) -> None:
             errors.append(f"Kirow canonical: {path}")
         if alternate_links(content) != {"fr": CANONICAL_ORIGIN + "/kirow/", "en": CANONICAL_ORIGIN + "/kirow/en/", "x-default": CANONICAL_ORIGIN + "/kirow/"}:
             errors.append(f"Kirow alternates: {path}")
-        social_image = CANONICAL_ORIGIN + f"/kirow/assets/kirow-social-{lang}.jpg?v=1"
+        social_image = CANONICAL_ORIGIN + f"/kirow/assets/kirow-social-{lang}.jpg?v=2"
         if meta_value(content, "property", "og:image") != social_image:
             errors.append(f"Kirow requires its localized social card: {path}")
         if meta_value(content, "name", "author") != "Nicolas Pieper":

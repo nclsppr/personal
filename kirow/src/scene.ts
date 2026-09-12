@@ -28,7 +28,8 @@ export function createScene(host:HTMLElement,onStatus:(s:string)=>void):SceneAPI
  const isMobile=host.clientWidth<600;
  const initialWidth=Math.max(1,host.clientWidth),initialHeight=Math.max(1,host.clientHeight);
  renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,isMobile?1.5:1.8));renderer.setSize(initialWidth,initialHeight);
- renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.18;renderer.outputColorSpace=T.SRGBColorSpace;
+ // Preserve saturated plastic colours while gently compressing bright reflections.
+ renderer.toneMapping=T.NeutralToneMapping;renderer.toneMappingExposure=1;renderer.outputColorSpace=T.SRGBColorSpace;
  renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;
  renderer.domElement.setAttribute('aria-label',english?'3D brick model of the Kirow crane. Drag to orbit, pinch or use the scroll wheel to zoom.':'Maquette 3D de la grue Kirow en briques. Faites glisser pour tourner, pincez ou utilisez la molette pour zoomer.');
  renderer.domElement.setAttribute('role','img');renderer.domElement.tabIndex=0;
@@ -55,22 +56,42 @@ export function createScene(host:HTMLElement,onStatus:(s:string)=>void):SceneAPI
  renderer.domElement.addEventListener('webglcontextrestored',onContextRestored);
  renderer.debug.onShaderError=rendererUnavailable;
  // The sky is scenery, not a building part. The panorama also supplies the model reflections.
+ const sunsetPosition=new T.Vector3(-62,8,-38),sunsetDirection=sunsetPosition.clone().normalize();
  function sky(evening:boolean){
   const w=768,h=384,pixels=new Float32Array(w*h*4);
   const zenith=new T.Color(evening?'#416a91':'#6bb0dc'),horizon=new T.Color(evening?'#d4bfba':'#b8d9e9');
   const cloudColor=new T.Color(evening?'#efd9bd':'#ffffff');
+  const sunsetBands=[
+   {height:0,color:new T.Color('#ffc986')},{height:.035,color:new T.Color('#f69b85')},
+   {height:.075,color:new T.Color('#dab0bc')},{height:.14,color:new T.Color('#91abc8')},
+   {height:1,color:new T.Color('#5c8eb8')}
+  ];
+  const sunsetGround=new T.Color('#665542'),sunGlow=new T.Color('#ffd39a'),sunDisc=new T.Color('#fff1c4');
   for(let y=0;y<h;y++)for(let x=0;x<w;x++){
    const u=x/w,v=1-y/h,altitude=Math.cos(v*Math.PI),color=altitude>=0?horizon.clone().lerp(zenith,Math.pow(altitude,.42)):horizon.clone();
+   if(evening){
+    const height=Math.max(0,altitude),upper=sunsetBands.findIndex(stop=>stop.height>=height),index=Math.max(1,upper);
+    const low=sunsetBands[index-1],high=sunsetBands[index];
+    color.copy(low.color).lerp(high.color,T.MathUtils.smoothstep(height,low.height,high.height));
+    if(altitude<0)color.lerp(sunsetGround,Math.pow(T.MathUtils.smoothstep(-altitude,.1,1),.7));
+    const azimuth=(u-.5)*Math.PI*2,horizontal=Math.sqrt(Math.max(0,1-altitude*altitude));
+    const angle=Math.acos(T.MathUtils.clamp(horizontal*Math.cos(azimuth)*sunsetDirection.x+altitude*sunsetDirection.y+horizontal*Math.sin(azimuth)*sunsetDirection.z,-1,1));
+    // The sun is painted into the bounded panorama, not an overbright HDR emitter.
+    color.lerp(sunGlow,.55*Math.exp(-((angle/.18)**2)));
+    color.lerp(sunDisc,1-T.MathUtils.smoothstep(angle,.009,.018));
+   }
    let cloud=0;
-   for(const [cx,cy,sx,sy] of [[.1,.35,.09,.025],[.32,.41,.11,.018],[.63,.32,.12,.028],[.86,.4,.1,.019]]){
+   for(const [cx,cy,sx,sy] of evening?[[.1,.46,.14,.0035],[.42,.475,.2,.002],[.72,.455,.12,.004],[.91,.47,.16,.0025]]:[[.1,.35,.09,.025],[.32,.41,.11,.018],[.63,.32,.12,.028],[.86,.4,.1,.019]]){
     const dx=Math.min(Math.abs(u-cx),1-Math.abs(u-cx));
     const wisps=.67+.33*Math.sin(u*103+Math.sin(v*157)*1.8);
     cloud+=Math.exp(-((dx/sx)**2+((v-cy)/sy)**2)*2)*wisps;
    }
-   color.lerp(cloudColor,Math.min(.72,cloud*.65));
+   color.lerp(evening?sunGlow:cloudColor,Math.min(evening?.42:.72,cloud*(evening?.4:.65)));
    const i=(y*w+x)*4;pixels[i]=color.r;pixels[i+1]=color.g;pixels[i+2]=color.b;pixels[i+3]=1;
   }
-  const texture=new T.DataTexture(pixels,w,h,T.RGBAFormat,T.FloatType);texture.mapping=T.EquirectangularReflectionMapping;texture.needsUpdate=true;return texture;
+  const texture=new T.DataTexture(pixels,w,h,T.RGBAFormat,T.FloatType);texture.colorSpace=T.LinearSRGBColorSpace;
+  texture.magFilter=texture.minFilter=renderer.extensions.has('OES_texture_float_linear')?T.LinearFilter:T.NearestFilter;
+  texture.mapping=T.EquirectangularReflectionMapping;texture.needsUpdate=true;return texture;
  }
  const daySky=sky(false),eveningSky=sky(true);scene.environment=daySky;scene.background=daySky;
  const key=new T.DirectionalLight('#fff4dc',3.8);key.position.set(-25,70,35);key.castShadow=true;key.shadow.mapSize.set(2048,2048);key.shadow.camera.left=-65;key.shadow.camera.right=65;key.shadow.camera.top=65;key.shadow.camera.bottom=-65;key.shadow.camera.far=190;key.shadow.normalBias=.05;key.shadow.bias=-.00012;scene.add(key);
@@ -89,7 +110,7 @@ export function createScene(host:HTMLElement,onStatus:(s:string)=>void):SceneAPI
  const floor=new T.Mesh(new T.PlaneGeometry(3000,3000),groundMat);floor.rotation.x=-Math.PI/2;floor.position.y=-.44;floor.receiveShadow=true;scene.add(floor);
  const ballastMat=new T.MeshPhysicalMaterial({color:'#c6c5b7',map:ballastTexture,roughness:1});
  const ballast=new T.Mesh(new RoundedBoxGeometry(83,.5,10.2,1,.2),ballastMat);ballast.position.y=-.2;ballast.receiveShadow=true;ballast.castShadow=true;scene.add(ballast);
- const mats:Record<string,T.MeshPhysicalMaterial>={};for(const [name,c] of Object.entries(COLORS))mats[name]=new T.MeshPhysicalMaterial({color:c.hex,roughness:name==='black'?.28:.235,metalness:0,clearcoat:.42,clearcoatRoughness:.19,ior:1.46,envMapIntensity:1});
+ const mats:Record<string,T.MeshPhysicalMaterial>={};for(const [name,c] of Object.entries(COLORS))mats[name]=new T.MeshPhysicalMaterial({color:c.hex,roughness:name==='black'?.28:.235,metalness:0,clearcoat:.28,clearcoatRoughness:.19,ior:1.46,envMapIntensity:1});
  mats.glass.transparent=true;mats.glass.opacity=.35;mats.glass.roughness=.12;mats.glass.depthWrite=false;
  mats.metal.metalness=.9;mats.metal.roughness=.2;mats.amber.transparent=true;mats.amber.opacity=.75;
  const detailMeshes:T.Mesh[]=[];
@@ -215,10 +236,12 @@ export function createScene(host:HTMLElement,onStatus:(s:string)=>void):SceneAPI
  }
  pose();
  function lighting(){
-  scene.background=scene.environment=settings.night?eveningSky:daySky;scene.backgroundIntensity=1;scene.fog=new T.Fog(settings.night?'#d4bfba':'#b8d9e9',220,900);
-  groundMat.color.set(settings.night?'#bbc4aa':'#e2e7d7');scene.environmentIntensity=settings.night?.72:.9;
-  key.intensity=settings.night?2.8:3.2;key.color.set(settings.night?'#ffcca0':'#fff4df');key.position.set(-25,settings.night?32:70,35);
-  fill.intensity=settings.night?.65:.9;rim.intensity=settings.night?.7:1.0;ambient.intensity=settings.night?.34:.65;ambient.color.set(settings.night?'#abc6e2':'#dceeff');ambient.groundColor.set('#657247');renderer.toneMappingExposure=settings.night?1.02:1.06;
+  scene.background=scene.environment=settings.night?eveningSky:daySky;scene.backgroundIntensity=1;scene.fog=new T.Fog(settings.night?'#ffc986':'#b8d9e9',220,900);
+  groundMat.color.set(settings.night?'#d8caad':'#e2e7d7');scene.environmentIntensity=settings.night?.65:.75;
+  key.intensity=settings.night?3.4:3.2;key.color.set(settings.night?'#ffc578':'#fff4df');key.position.copy(settings.night?sunsetPosition:new T.Vector3(-25,70,35));
+  fill.intensity=settings.night?1.45:.9;fill.color.set(settings.night?'#e3ecff':'#d7e6ff');fill.position.set(35,settings.night?32:35,settings.night?48:-45);
+  rim.intensity=settings.night?1.15:1.0;rim.color.set(settings.night?'#ffd5a0':'#e0ecff');
+  ambient.intensity=settings.night?.48:.65;ambient.color.set(settings.night?'#f6dac2':'#dceeff');ambient.groundColor.set(settings.night?'#716343':'#657247');renderer.toneMappingExposure=settings.night?1.02:1;
  }
  lighting();frameModel();
  const resize=new ResizeObserver(()=>{if(disposed||contextLost)return;const w=host.clientWidth,h=host.clientHeight;if(!w||!h)return;camera.aspect=w/h;camera.updateProjectionMatrix();renderer.setSize(w,h);composer.setSize(w,h);if(!manualCamera)frameModel();dirty=true;});resize.observe(host);

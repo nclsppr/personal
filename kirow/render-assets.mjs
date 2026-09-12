@@ -8,6 +8,7 @@ import { tmpdir } from 'node:os';
 import { resolve, join, extname } from 'node:path';
 import { randomBytes, createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { once } from 'node:events';
 
 const root = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const kirow = join(root, 'kirow');
@@ -82,5 +83,13 @@ try {
     await done;
     if(JSON.stringify(sourceHashes)!==JSON.stringify(await hashes(inputNames)))throw Error('Scene sources changed during rendering; regenerate assets.');
     await writeFile(join(kirow,'assets/render-manifest.json'),JSON.stringify({sources:sourceHashes,outputs:await hashes(renderedNames.map(name=>'assets/'+name))},null,2)+'\n');
-  } finally {clearTimeout(timer);child?.kill();await new Promise(r=>server.close(r));}
-} finally {await rm(temp,{recursive:true,force:true});}
+  } finally {
+    clearTimeout(timer);
+    if(child?.pid && child.exitCode===null && child.signalCode===null){
+      const stopped=once(child,'exit'),forceStop=setTimeout(()=>child.kill('SIGKILL'),3000);
+      child.kill();
+      try{await stopped;}finally{clearTimeout(forceStop);}
+    }
+    await new Promise(r=>server.close(r));
+  }
+} finally {await rm(temp,{recursive:true,force:true,maxRetries:5,retryDelay:100});}
