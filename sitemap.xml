@@ -230,4 +230,24 @@
     <image:image><image:loc>https://nicolaspieper.com/kirow/assets/kirow-social-en.jpg</image:loc></image:image>
     <image:image><image:loc>https://nicolaspieper.com/kirow/assets/preview.jpg</image:loc></image:image>
   </url>
+  <url>
+    <loc>https://nicolaspieper.com/kirow/grande-echelle/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/kirow/grande-echelle/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/kirow/en/large-scale/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/kirow/grande-echelle/"/>
+    <image:image><image:loc>https://nicolaspieper.com/kirow/large-scale/assets/social-fr.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nicolaspieper.com/kirow/large-scale/assets/preview.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nicolaspieper.com/kirow/large-scale/assets/transport.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://nicolaspieper.com/kirow/en/large-scale/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/kirow/grande-echelle/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/kirow/en/large-scale/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/kirow/grande-echelle/"/>
+    <image:image><image:loc>https://nicolaspieper.com/kirow/large-scale/assets/social-en.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nicolaspieper.com/kirow/large-scale/assets/preview.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nicolaspieper.com/kirow/large-scale/assets/transport.jpg</image:loc></image:image>
+  </url>
 </urlset>

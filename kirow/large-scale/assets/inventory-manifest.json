@@ -1,0 +1,10 @@
+{
+  "sources": {
+    "src/model-data.json": "8548994d3ee27748c154eef2fb893b9ff6da4ad3358bf1d05c958cef26bc87f9",
+    "generate-documents.py": "6fda7f22c3bd3beade8dd2c45ef69925f8c0b34bab279b4da0f495653efc493b"
+  },
+  "outputs": {
+    "assets/inventory-fr.csv": "85fa3e19a6414ac3821a312ae39663eb95911f496535e3dcdc537585cfafc2e3",
+    "assets/inventory-en.csv": "9ca4131ab8ada369bb21b5fbab30e15ce98053f3de54cd2795411e275c517d73"
+  }
+}

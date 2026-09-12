@@ -24,6 +24,8 @@ The HTML pages below are the canonical, human-reviewed sources. English and Fren
 
 - [Kirow on rails in English](https://nicolaspieper.com/kirow/en/): Nicolas Pieper’s independent brick interpretation of the SNCF Kirow railway crane, with an interactive 3D model, documented LEGO part references and 32 illustrated steps. The downloadable PDF guide is in French.
 - [Kirow sur rails en français](https://nicolaspieper.com/kirow/): Interprétation indépendante en briques de la grue ferroviaire Kirow SNCF, une création de Nicolas Pieper avec maquette 3D interactive, références de pièces LEGO documentées et 32 étapes illustrées.
+- [Large-scale Kirow in English](https://nicolaspieper.com/kirow/en/large-scale/): A separate, more detailed SNCF crane study by Nicolas Pieper with working and transport views, two accompanying wagons, a complete sourced inventory and illustrated English PDF guide. The headline count covers the crane and its base track; the complete inventory also includes the wagons and extra track.
+- [Kirow à grande échelle en français](https://nicolaspieper.com/kirow/grande-echelle/): Une seconde étude plus détaillée de la grue SNCF par Nicolas Pieper, avec vues en intervention et en transport, deux wagons d’accompagnement, inventaire complet sourcé et fascicule PDF illustré en français. Le compte mis en avant comprend la grue et sa voie de base ; l’inventaire complet ajoute les wagons et la voie complémentaire.
 - This is an independent construction study, not an official LEGO, KIROW or SNCF set. Physical assembly, connections and lifting capability have not been validated. Brand names identify the inspiration and documented parts, not a commercial partnership.
 
 ## Objects

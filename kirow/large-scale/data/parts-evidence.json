@@ -1,0 +1,1346 @@
+{
+  "checkedAt": "2026-09-12",
+  "scope": "Additional catalogue references and attested colors for the separate large-scale digital model",
+  "note": "Ces preuves complètent le catalogue du petit modèle. Elles établissent l’existence des pièces et des couleurs, pas la solidité ni la compatibilité de tous les assemblages. Les géométries LDraw sont importées à taille réelle. Les quantités du modèle numérique ne constituent pas une liste d’achat validée.",
+  "noteEn": "This evidence supplements the small model catalogue. It establishes the existence of parts and colors, not the strength or compatibility of every assembly. LDraw geometry is imported at actual size. Digital-model quantities are not a validated shopping list.",
+  "variants": [
+    {
+      "key": "wheel56908-black",
+      "part": "wheel56908",
+      "color": "black",
+      "catalogueId": "56908",
+      "designId": "56908",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Jante Technic de 43,2 mm × 26 mm",
+      "nameEn": "Technic wheel 43.2 mm × 26 mm",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Black",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=56908",
+          "title": "BrickLink · 56908 · Black",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=56908&colorID=11&in=A",
+          "title": "BrickLink · 56908 · Black · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "wheel56908-gray",
+      "part": "wheel56908",
+      "color": "gray",
+      "catalogueId": "56908",
+      "designId": "56908",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Jante Technic de 43,2 mm × 26 mm",
+      "nameEn": "Technic wheel 43.2 mm × 26 mm",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Light Bluish Gray",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=56908",
+          "title": "BrickLink · 56908 · Light Bluish Gray",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=56908&colorID=86&in=A",
+          "title": "BrickLink · 56908 · Light Bluish Gray · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "roundPlate11213-black",
+      "part": "roundPlate11213",
+      "color": "black",
+      "catalogueId": "11213",
+      "designId": "11213",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Plaque ronde 6 × 6 avec trou et tenon d’encliquetage",
+      "nameEn": "Round plate 6 × 6 with hole and snap stud",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Black",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=11213",
+          "title": "BrickLink · 11213 · Black",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=11213&colorID=11&in=A",
+          "title": "BrickLink · 11213 · Black · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "roundPlate11213-dark",
+      "part": "roundPlate11213",
+      "color": "dark",
+      "catalogueId": "11213",
+      "designId": "11213",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Plaque ronde 6 × 6 avec trou et tenon d’encliquetage",
+      "nameEn": "Round plate 6 × 6 with hole and snap stud",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Dark Bluish Gray",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=11213",
+          "title": "BrickLink · 11213 · Dark Bluish Gray",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=11213&colorID=85&in=A",
+          "title": "BrickLink · 11213 · Dark Bluish Gray · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "roundPlate11213-gray",
+      "part": "roundPlate11213",
+      "color": "gray",
+      "catalogueId": "11213",
+      "designId": "11213",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Plaque ronde 6 × 6 avec trou et tenon d’encliquetage",
+      "nameEn": "Round plate 6 × 6 with hole and snap stud",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Light Bluish Gray",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=11213",
+          "title": "BrickLink · 11213 · Light Bluish Gray",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=11213&colorID=86&in=A",
+          "title": "BrickLink · 11213 · Light Bluish Gray · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "roundPlate11213-yellow",
+      "part": "roundPlate11213",
+      "color": "yellow",
+      "catalogueId": "11213",
+      "designId": "11213",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Plaque ronde 6 × 6 avec trou et tenon d’encliquetage",
+      "nameEn": "Round plate 6 × 6 with hole and snap stud",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Yellow",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=11213",
+          "title": "BrickLink · 11213 · Yellow",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=11213&colorID=3&in=A",
+          "title": "BrickLink · 11213 · Yellow · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "t12-yellow",
+      "part": "t12",
+      "color": "yellow",
+      "catalogueId": "3069",
+      "designId": "3069",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Tuile 1 × 2",
+      "nameEn": "Tile 1 × 2",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Yellow",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3069",
+          "title": "BrickLink · 3069 · Yellow",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=3069&colorID=3&in=A",
+          "title": "BrickLink · 3069 · Yellow · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "t12-black",
+      "part": "t12",
+      "color": "black",
+      "catalogueId": "3069",
+      "designId": "3069",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Tuile 1 × 2",
+      "nameEn": "Tile 1 × 2",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Black",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3069",
+          "title": "BrickLink · 3069 · Black",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=3069&colorID=11&in=A",
+          "title": "BrickLink · 3069 · Black · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "t12-dark",
+      "part": "t12",
+      "color": "dark",
+      "catalogueId": "3069",
+      "designId": "3069",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Tuile 1 × 2",
+      "nameEn": "Tile 1 × 2",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Dark Bluish Gray",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3069",
+          "title": "BrickLink · 3069 · Dark Bluish Gray",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=3069&colorID=85&in=A",
+          "title": "BrickLink · 3069 · Dark Bluish Gray · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "t14-yellow",
+      "part": "t14",
+      "color": "yellow",
+      "catalogueId": "2431",
+      "designId": "2431",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Tuile 1 × 4",
+      "nameEn": "Tile 1 × 4",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Yellow",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=2431",
+          "title": "BrickLink · 2431 · Yellow",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=2431&colorID=3&in=A",
+          "title": "BrickLink · 2431 · Yellow · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "t14-black",
+      "part": "t14",
+      "color": "black",
+      "catalogueId": "2431",
+      "designId": "2431",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Tuile 1 × 4",
+      "nameEn": "Tile 1 × 4",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Black",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=2431",
+          "title": "BrickLink · 2431 · Black",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=2431&colorID=11&in=A",
+          "title": "BrickLink · 2431 · Black · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "t14-dark",
+      "part": "t14",
+      "color": "dark",
+      "catalogueId": "2431",
+      "designId": "2431",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Tuile 1 × 4",
+      "nameEn": "Tile 1 × 4",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Dark Bluish Gray",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=2431",
+          "title": "BrickLink · 2431 · Dark Bluish Gray",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=2431&colorID=85&in=A",
+          "title": "BrickLink · 2431 · Dark Bluish Gray · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "t18-yellow",
+      "part": "t18",
+      "color": "yellow",
+      "catalogueId": "4162",
+      "designId": "4162",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Tuile 1 × 8",
+      "nameEn": "Tile 1 × 8",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Yellow",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=4162",
+          "title": "BrickLink · 4162 · Yellow",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=4162&colorID=3&in=A",
+          "title": "BrickLink · 4162 · Yellow · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "t18-black",
+      "part": "t18",
+      "color": "black",
+      "catalogueId": "4162",
+      "designId": "4162",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Tuile 1 × 8",
+      "nameEn": "Tile 1 × 8",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Black",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=4162",
+          "title": "BrickLink · 4162 · Black",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=4162&colorID=11&in=A",
+          "title": "BrickLink · 4162 · Black · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "t18-dark",
+      "part": "t18",
+      "color": "dark",
+      "catalogueId": "4162",
+      "designId": "4162",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Tuile 1 × 8",
+      "nameEn": "Tile 1 × 8",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Dark Bluish Gray",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=4162",
+          "title": "BrickLink · 4162 · Dark Bluish Gray",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=4162&colorID=85&in=A",
+          "title": "BrickLink · 4162 · Dark Bluish Gray · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "slope45_2x2-yellow",
+      "part": "slope45_2x2",
+      "color": "yellow",
+      "catalogueId": "3039",
+      "designId": "3039",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Brique inclinée à 45° 2 × 2",
+      "nameEn": "Slope 45° 2 × 2",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Yellow",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3039",
+          "title": "BrickLink · 3039 · Yellow",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=3039&colorID=3&in=A",
+          "title": "BrickLink · 3039 · Yellow · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "slope45_2x2-black",
+      "part": "slope45_2x2",
+      "color": "black",
+      "catalogueId": "3039",
+      "designId": "3039",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Brique inclinée à 45° 2 × 2",
+      "nameEn": "Slope 45° 2 × 2",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Black",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3039",
+          "title": "BrickLink · 3039 · Black",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=3039&colorID=11&in=A",
+          "title": "BrickLink · 3039 · Black · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "slope45_2x2-dark",
+      "part": "slope45_2x2",
+      "color": "dark",
+      "catalogueId": "3039",
+      "designId": "3039",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Brique inclinée à 45° 2 × 2",
+      "nameEn": "Slope 45° 2 × 2",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Dark Bluish Gray",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3039",
+          "title": "BrickLink · 3039 · Dark Bluish Gray",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=3039&colorID=85&in=A",
+          "title": "BrickLink · 3039 · Dark Bluish Gray · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "slopeCurved2x2-yellow",
+      "part": "slopeCurved2x2",
+      "color": "yellow",
+      "catalogueId": "15068",
+      "designId": "15068",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Pente courbe 2 × 2 × 2/3",
+      "nameEn": "Curved slope 2 × 2 × 2/3",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Yellow",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=15068",
+          "title": "BrickLink · 15068 · Yellow",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=15068&colorID=3&in=A",
+          "title": "BrickLink · 15068 · Yellow · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "slopeCurved2x2-black",
+      "part": "slopeCurved2x2",
+      "color": "black",
+      "catalogueId": "15068",
+      "designId": "15068",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Pente courbe 2 × 2 × 2/3",
+      "nameEn": "Curved slope 2 × 2 × 2/3",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Black",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=15068",
+          "title": "BrickLink · 15068 · Black",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=15068&colorID=11&in=A",
+          "title": "BrickLink · 15068 · Black · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "slopeCurved2x2-dark",
+      "part": "slopeCurved2x2",
+      "color": "dark",
+      "catalogueId": "15068",
+      "designId": "15068",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Pente courbe 2 × 2 × 2/3",
+      "nameEn": "Curved slope 2 × 2 × 2/3",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Dark Bluish Gray",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=15068",
+          "title": "BrickLink · 15068 · Dark Bluish Gray",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=15068&colorID=85&in=A",
+          "title": "BrickLink · 15068 · Dark Bluish Gray · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "wedgeLeft43710-yellow",
+      "part": "wedgeLeft43710",
+      "color": "yellow",
+      "catalogueId": "43710",
+      "designId": "43710",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Brique biseautée 4 × 2, gauche",
+      "nameEn": "Wedge 4 × 2, left",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Yellow",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=43710",
+          "title": "BrickLink · 43710 · Yellow",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=43710&colorID=3&in=A",
+          "title": "BrickLink · 43710 · Yellow · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "wedgeLeft43710-black",
+      "part": "wedgeLeft43710",
+      "color": "black",
+      "catalogueId": "43710",
+      "designId": "43710",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Brique biseautée 4 × 2, gauche",
+      "nameEn": "Wedge 4 × 2, left",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Black",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=43710",
+          "title": "BrickLink · 43710 · Black",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=43710&colorID=11&in=A",
+          "title": "BrickLink · 43710 · Black · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "wedgeLeft43710-dark",
+      "part": "wedgeLeft43710",
+      "color": "dark",
+      "catalogueId": "43710",
+      "designId": "43710",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Brique biseautée 4 × 2, gauche",
+      "nameEn": "Wedge 4 × 2, left",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Dark Bluish Gray",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=43710",
+          "title": "BrickLink · 43710 · Dark Bluish Gray",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=43710&colorID=85&in=A",
+          "title": "BrickLink · 43710 · Dark Bluish Gray · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "wedgeRight43711-yellow",
+      "part": "wedgeRight43711",
+      "color": "yellow",
+      "catalogueId": "43711",
+      "designId": "43711",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Brique biseautée 4 × 2, droite",
+      "nameEn": "Wedge 4 × 2, right",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Yellow",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=43711",
+          "title": "BrickLink · 43711 · Yellow",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=43711&colorID=3&in=A",
+          "title": "BrickLink · 43711 · Yellow · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "wedgeRight43711-black",
+      "part": "wedgeRight43711",
+      "color": "black",
+      "catalogueId": "43711",
+      "designId": "43711",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Brique biseautée 4 × 2, droite",
+      "nameEn": "Wedge 4 × 2, right",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Black",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=43711",
+          "title": "BrickLink · 43711 · Black",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=43711&colorID=11&in=A",
+          "title": "BrickLink · 43711 · Black · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "wedgeRight43711-dark",
+      "part": "wedgeRight43711",
+      "color": "dark",
+      "catalogueId": "43711",
+      "designId": "43711",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Brique biseautée 4 × 2, droite",
+      "nameEn": "Wedge 4 × 2, right",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Dark Bluish Gray",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=43711",
+          "title": "BrickLink · 43711 · Dark Bluish Gray",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=43711&colorID=85&in=A",
+          "title": "BrickLink · 43711 · Dark Bluish Gray · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "windshield6x3-transblack",
+      "part": "windshield6x3",
+      "color": "transblack",
+      "catalogueId": "62360",
+      "designId": "62360",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Pare-brise courbe 3 × 6 × 1",
+      "nameEn": "Curved windscreen 3 × 6 × 1",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Trans-Black",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=62360",
+          "title": "BrickLink · 62360 · Trans-Black",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=62360&colorID=251&in=A",
+          "title": "BrickLink · 62360 · Trans-Black · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "technic16-black",
+      "part": "technic16",
+      "color": "black",
+      "catalogueId": "3703",
+      "designId": "3703",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Brique Technic 1 × 16 avec trous",
+      "nameEn": "Technic brick 1 × 16 with holes",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Black",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3703",
+          "title": "BrickLink · 3703 · Black",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=3703&colorID=11&in=A",
+          "title": "BrickLink · 3703 · Black · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "technic16-dark",
+      "part": "technic16",
+      "color": "dark",
+      "catalogueId": "3703",
+      "designId": "3703",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Brique Technic 1 × 16 avec trous",
+      "nameEn": "Technic brick 1 × 16 with holes",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Dark Bluish Gray",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3703",
+          "title": "BrickLink · 3703 · Dark Bluish Gray",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=3703&colorID=85&in=A",
+          "title": "BrickLink · 3703 · Dark Bluish Gray · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "technic16-yellow",
+      "part": "technic16",
+      "color": "yellow",
+      "catalogueId": "3703",
+      "designId": "3703",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Brique Technic 1 × 16 avec trous",
+      "nameEn": "Technic brick 1 × 16 with holes",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Yellow",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3703",
+          "title": "BrickLink · 3703 · Yellow",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=3703&colorID=3&in=A",
+          "title": "BrickLink · 3703 · Yellow · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "axle12-black",
+      "part": "axle12",
+      "color": "black",
+      "catalogueId": "3708",
+      "designId": "3708",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Axe Technic 12L",
+      "nameEn": "Technic axle 12L",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Black",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3708",
+          "title": "BrickLink · 3708 · Black",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=3708&colorID=11&in=A",
+          "title": "BrickLink · 3708 · Black · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "axle16-black",
+      "part": "axle16",
+      "color": "black",
+      "catalogueId": "50451",
+      "designId": "50451",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Axe Technic 16L",
+      "nameEn": "Technic axle 16L",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Black",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=50451",
+          "title": "BrickLink · 50451 · Black",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=50451&colorID=11&in=A",
+          "title": "BrickLink · 50451 · Black · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "bar4-black",
+      "part": "bar4",
+      "color": "black",
+      "catalogueId": "30374",
+      "designId": "30374",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Barre 4L",
+      "nameEn": "Bar 4L",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Black",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=30374",
+          "title": "BrickLink · 30374 · Black",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=30374&colorID=11&in=A",
+          "title": "BrickLink · 30374 · Black · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "bar4-dark",
+      "part": "bar4",
+      "color": "dark",
+      "catalogueId": "30374",
+      "designId": "30374",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Barre 4L",
+      "nameEn": "Bar 4L",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Dark Bluish Gray",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=30374",
+          "title": "BrickLink · 30374 · Dark Bluish Gray",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=30374&colorID=85&in=A",
+          "title": "BrickLink · 30374 · Dark Bluish Gray · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "bar4-yellow",
+      "part": "bar4",
+      "color": "yellow",
+      "catalogueId": "30374",
+      "designId": "30374",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Barre 4L",
+      "nameEn": "Bar 4L",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Yellow",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=30374",
+          "title": "BrickLink · 30374 · Yellow",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=30374&colorID=3&in=A",
+          "title": "BrickLink · 30374 · Yellow · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "clip11-black",
+      "part": "clip11",
+      "color": "black",
+      "catalogueId": "15712",
+      "designId": "15712",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Tuile 1 × 1 avec clip ouvert",
+      "nameEn": "Modified tile 1 × 1 with open clip",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Black",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=15712",
+          "title": "BrickLink · 15712 · Black",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=15712&colorID=11&in=A",
+          "title": "BrickLink · 15712 · Black · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "clip11-yellow",
+      "part": "clip11",
+      "color": "yellow",
+      "catalogueId": "15712",
+      "designId": "15712",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Tuile 1 × 1 avec clip ouvert",
+      "nameEn": "Modified tile 1 × 1 with open clip",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Yellow",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=15712",
+          "title": "BrickLink · 15712 · Yellow",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=15712&colorID=3&in=A",
+          "title": "BrickLink · 15712 · Yellow · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "clip11-dark",
+      "part": "clip11",
+      "color": "dark",
+      "catalogueId": "15712",
+      "designId": "15712",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Tuile 1 × 1 avec clip ouvert",
+      "nameEn": "Modified tile 1 × 1 with open clip",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Dark Bluish Gray",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=15712",
+          "title": "BrickLink · 15712 · Dark Bluish Gray",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=15712&colorID=85&in=A",
+          "title": "BrickLink · 15712 · Dark Bluish Gray · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "round22-black",
+      "part": "round22",
+      "color": "black",
+      "catalogueId": "3941",
+      "designId": "3941",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Brique ronde 2 × 2 avec trou d’axe",
+      "nameEn": "Round brick 2 × 2 with axle hole",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Black",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3941",
+          "title": "BrickLink · 3941 · Black",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=3941&colorID=11&in=A",
+          "title": "BrickLink · 3941 · Black · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "round22-dark",
+      "part": "round22",
+      "color": "dark",
+      "catalogueId": "3941",
+      "designId": "3941",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Brique ronde 2 × 2 avec trou d’axe",
+      "nameEn": "Round brick 2 × 2 with axle hole",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Dark Bluish Gray",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3941",
+          "title": "BrickLink · 3941 · Dark Bluish Gray",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=3941&colorID=85&in=A",
+          "title": "BrickLink · 3941 · Dark Bluish Gray · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "round22-yellow",
+      "part": "round22",
+      "color": "yellow",
+      "catalogueId": "3941",
+      "designId": "3941",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Brique ronde 2 × 2 avec trou d’axe",
+      "nameEn": "Round brick 2 × 2 with axle hole",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Yellow",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3941",
+          "title": "BrickLink · 3941 · Yellow",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=3941&colorID=3&in=A",
+          "title": "BrickLink · 3941 · Yellow · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "actuatorLong40918-gray",
+      "part": "actuatorLong40918",
+      "color": "gray",
+      "catalogueId": "40918c01",
+      "designId": null,
+      "referenceType": "catalogue-assembly",
+      "elementIds": [],
+      "name": "Vérin linéaire Technic long, assemblage",
+      "nameEn": "Long Technic linear actuator assembly",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Light Bluish Gray",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=40918c01",
+          "title": "BrickLink · 40918c01 · Light Bluish Gray",
+          "checkedAt": "2026-09-12"
+        },
+        {
+          "url": "https://www.bricklink.com/catalogItemIn.asp?P=40918c01&colorID=86&in=A",
+          "title": "BrickLink · 40918c01 · Light Bluish Gray · inventories",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Référence et couleur attestées sur une fiche de pièce et dans sa liste de couleurs connues. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "The reference and color appear on a part page and its known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "p24-dark",
+      "part": "p24",
+      "color": "dark",
+      "catalogueId": "3020",
+      "designId": "3020",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Plaque 2 × 4",
+      "nameEn": "Plate 2 × 4",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Dark Bluish Gray",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3020",
+          "title": "BrickLink · 3020 · Dark Bluish Gray",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "La plaque 3020 est attestée en gris bleuté foncé dans la liste des couleurs connues de BrickLink. Aucune disponibilité commerciale ni liaison mécanique n’est déduite de cette preuve.",
+      "evidenceNoteEn": "Plate 3020 appears in Dark Bluish Gray in the BrickLink known-color list. This evidence does not establish stock availability or a mechanical connection."
+    },
+    {
+      "key": "frame43-yellow",
+      "part": "frame43",
+      "color": "yellow",
+      "catalogueId": "60594",
+      "designId": "60594",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Cadre de fenêtre 1 × 4 × 3 sans attaches de volet",
+      "nameEn": "Window frame 1 × 4 × 3 without shutter tabs",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Yellow",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=60594",
+          "title": "BrickLink · 60594 · Yellow",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Pièce et couleur attestées dans le catalogue BrickLink. Le catalogue confirme la compatibilité du cadre 60594 et du panneau 60603. La variante noire est opaque ; aucune variante Trans-Black n’est revendiquée.",
+      "evidenceNoteEn": "Part and color are attested in the BrickLink catalogue. The catalogue confirms that frame 60594 and pane 60603 fit together. The Black variant is opaque; no Trans-Black variant is claimed."
+    },
+    {
+      "key": "windowGlass43-glass",
+      "part": "windowGlass43",
+      "color": "glass",
+      "catalogueId": "60603",
+      "designId": "60603",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Panneau ouvrant pour fenêtre 1 × 4 × 3",
+      "nameEn": "Opening pane for window 1 × 4 × 3",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Trans-Clear",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=60603",
+          "title": "BrickLink · 60603 · Trans-Clear",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Pièce et couleur attestées dans le catalogue BrickLink. Le catalogue confirme la compatibilité du cadre 60594 et du panneau 60603. La variante noire est opaque ; aucune variante Trans-Black n’est revendiquée.",
+      "evidenceNoteEn": "Part and color are attested in the BrickLink catalogue. The catalogue confirms that frame 60594 and pane 60603 fit together. The Black variant is opaque; no Trans-Black variant is claimed."
+    },
+    {
+      "key": "windowGlass43-black",
+      "part": "windowGlass43",
+      "color": "black",
+      "catalogueId": "60603",
+      "designId": "60603",
+      "referenceType": "design",
+      "elementIds": [],
+      "name": "Panneau ouvrant pour fenêtre 1 × 4 × 3",
+      "nameEn": "Opening pane for window 1 × 4 × 3",
+      "shapeStatus": "verified",
+      "colorStatus": "verified",
+      "colorName": "Black",
+      "sources": [
+        {
+          "url": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=60603",
+          "title": "BrickLink · 60603 · Black",
+          "checkedAt": "2026-09-12"
+        }
+      ],
+      "evidenceNote": "Pièce et couleur attestées dans le catalogue BrickLink. Le catalogue confirme la compatibilité du cadre 60594 et du panneau 60603. La variante noire est opaque ; aucune variante Trans-Black n’est revendiquée.",
+      "evidenceNoteEn": "Part and color are attested in the BrickLink catalogue. The catalogue confirms that frame 60594 and pane 60603 fit together. The Black variant is opaque; no Trans-Black variant is claimed."
+    }
+  ],
+  "exceptions": [
+    {
+      "key": "wheel-and-flange",
+      "name": "Roue 56908 et plaque ronde 11213",
+      "nameEn": "Wheel 56908 and round plate 11213",
+      "status": "connection-unverified",
+      "note": "La roue mesure 43,2 mm de diamètre et la plaque 6 tenons. Leur rapprochement peut évoquer une roue ferroviaire, mais la fixation de la plaque à la jante, le guidage sur rail et l’écartement demandent un essai physique. La roue 56908 n’est pas attestée ici en gris bleuté foncé.",
+      "noteEn": "The wheel is 43.2 mm in diameter and the plate spans 6 studs. Together they can suggest a railway wheel, but plate-to-rim attachment, rail guidance and track gauge require a physical test. Wheel 56908 is not attested here in Dark Bluish Gray."
+    },
+    {
+      "key": "tile-3069-variant",
+      "name": "Tuile 3069, variante LDraw 3069b",
+      "nameEn": "Tile 3069, LDraw variant 3069b",
+      "status": "catalogue-mould-variant",
+      "note": "Le catalogue BrickLink regroupe les variantes de moule sous 3069 et indique 3069b comme ancien identifiant. Le rendu utilise le dessin officiel LDraw 3069b à rainure inférieure.",
+      "noteEn": "BrickLink groups mould variants under 3069 and lists 3069b as an alternate item number. The rendering uses official LDraw 3069b with a bottom groove."
+    },
+    {
+      "key": "transparent-black",
+      "name": "Noir transparent récent",
+      "nameEn": "Current Trans-Black",
+      "status": "verified-color-mapping",
+      "note": "Le pare-brise 62360 est attesté en Trans-Black, couleur BrickLink 251. Le rendu emploie LDraw 10375. Cette couleur se distingue de Trans-Brown et de l’ancien noir transparent des capteurs infrarouges.",
+      "noteEn": "Windscreen 62360 is attested in Trans-Black, BrickLink color 251. Rendering uses LDraw 10375. This color is distinct from Trans-Brown and the older infrared-lens transparent black."
+    },
+    {
+      "key": "long-actuator",
+      "name": "Vérin long 40918c01",
+      "nameEn": "Long actuator 40918c01",
+      "status": "catalogue-assembly",
+      "note": "40918c01 est une référence d’assemblage du catalogue BrickLink, pas un numéro de dessin LEGO revendiqué. Les poses officielles LDraw 40918-f1 et 40918-f2 documentent une translation de 8 tenons du piston. Les sous-assemblages géométriques ne sont pas des pièces supplémentaires à compter.",
+      "noteEn": "40918c01 is a BrickLink catalogue assembly reference, not a claimed LEGO design number. Official LDraw poses 40918-f1 and 40918-f2 document 8 studs of piston travel. Geometry subassemblies are not additional inventory parts."
+    },
+    {
+      "key": "rectangular-window",
+      "name": "Cadre 60594 et panneau 60603",
+      "nameEn": "Frame 60594 and pane 60603",
+      "status": "catalogue-fit-verified",
+      "note": "Les deux fiches BrickLink indiquent cette association de cadre et panneau. 60603 est attestée en transparent incolore et en noir opaque, pas en Trans-Black. Le dessin officiel LDraw 60603 est un alias de 86210.",
+      "noteEn": "Both BrickLink pages list this frame and pane pairing. 60603 is attested in Trans-Clear and opaque Black, not in Trans-Black. Official LDraw 60603 is an alias of 86210."
+    }
+  ]
+}

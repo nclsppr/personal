@@ -1,0 +1,284 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-12",
+  "subject": "Grue Kirow SNCF de Dijon",
+  "facts": [
+    {
+      "id": "sncf-published-length",
+      "label": "Longueur communiquée par SNCF Réseau",
+      "value": 14,
+      "unit": "m",
+      "status": "verified_primary_statement",
+      "sourceIds": ["sncf-bully-2026"],
+      "locator": "Page 3, Relever la locomotive grâce à une grue exceptionnelle",
+      "limitation": "Les extrémités de mesure et la configuration de la flèche ne sont pas précisées. Ce n'est pas un plan coté."
+    },
+    {
+      "id": "sncf-published-mass",
+      "label": "Masse communiquée par SNCF Réseau",
+      "value": 108,
+      "unit": "t",
+      "status": "verified_primary_statement",
+      "sourceIds": ["sncf-bully-2026"],
+      "locator": "Page 3, Relever la locomotive grâce à une grue exceptionnelle",
+      "limitation": "La composition de cette masse n'est pas détaillée."
+    },
+    {
+      "id": "sncf-published-maximum-lift",
+      "label": "Capacité de levage maximale communiquée par SNCF Réseau",
+      "value": 150,
+      "unit": "t",
+      "status": "verified_primary_statement",
+      "sourceIds": ["sncf-bully-2026"],
+      "locator": "Page 3, Relever la locomotive grâce à une grue exceptionnelle",
+      "limitation": "Aucune courbe de charge n'est fournie. La capacité maximale ne s'applique pas à toutes les portées et ne décrit pas la capacité du modèle en briques."
+    },
+    {
+      "id": "sncf-published-rotation",
+      "label": "Rotation communiquée par SNCF Réseau",
+      "value": 360,
+      "unit": "degree",
+      "status": "verified_primary_statement",
+      "sourceIds": ["sncf-bully-2026"],
+      "locator": "Page 3, Relever la locomotive grâce à une grue exceptionnelle",
+      "limitation": "Le communiqué ne détaille pas les axes de rotation ni leurs limites par configuration."
+    }
+  ],
+  "observations": [
+    {
+      "id": "silhouette",
+      "label": "Superstructure basse et longue",
+      "observation": "L'ensemble réel présente une superstructure dense au-dessus du châssis, avec la flèche dans son axe supérieur.",
+      "designDirection": "Allonger la superstructure et réduire l'impression de cabine et de coffre isolés sur une plateforme vide du modèle compact.",
+      "evidenceType": "visual_observation",
+      "sourceIds": ["ciry-photos-in-kleinspoor", "beretta-sncf-2007"],
+      "locator": "Notice p. 14 et vue de transport Beretta",
+      "dimensionStatus": "uncalibrated_visual_proportions"
+    },
+    {
+      "id": "chassis",
+      "label": "Longerons et équipements du châssis",
+      "observation": "Les photographies distinguent un châssis sombre, les équipements sous caisse et les traverses de tête.",
+      "designDirection": "Représenter longerons, ouvertures, tampons et équipements au lieu d'une poutre uniforme.",
+      "evidenceType": "visual_observation",
+      "sourceIds": ["ciry-photos-in-kleinspoor"],
+      "locator": "Notice p. 14",
+      "dimensionStatus": "uncalibrated_visual_proportions"
+    },
+    {
+      "id": "running-gear",
+      "label": "Huit essieux",
+      "observation": "Les vues SNCF montrent deux trucks de quatre essieux. Le constructeur décrit huit essieux pour la famille Multi Tasker 1200.",
+      "designDirection": "Conserver les huit essieux et rendre distincts les boîtes d'essieux, les suspensions et les groupes de roues.",
+      "evidenceType": "visual_and_family_documentation",
+      "sourceIds": ["ciry-photos-in-kleinspoor", "kirow-multitasker-fr"],
+      "locator": "Notice p. 14 ; brochure Kirow p. 14",
+      "dimensionStatus": "axle_spacing_not_verified"
+    },
+    {
+      "id": "cab",
+      "label": "Cabine latérale asymétrique",
+      "observation": "La cabine est allongée sur un côté, avec des vitrages sombres et une face avant inclinée.",
+      "designDirection": "Remplacer l'aspect de cage à petites fenêtres carrées par des vitrages en bande et un nez incliné.",
+      "evidenceType": "visual_observation",
+      "sourceIds": ["ciry-photos-in-kleinspoor"],
+      "locator": "Notice p. 14, vues du côté droit",
+      "dimensionStatus": "uncalibrated_visual_proportions"
+    },
+    {
+      "id": "telescopic-boom",
+      "label": "Trois corps de flèche",
+      "observation": "La notice de reproduction SNCF distingue un corps principal, un corps médian et un corps interne. La photographie en transport montre les emboîtements.",
+      "designDirection": "Modéliser trois sections emboîtées, leurs réductions de section, leurs colliers et leurs guidages.",
+      "evidenceType": "visual_and_model_documentation",
+      "sourceIds": ["kleinspoor-830b", "beretta-sncf-2007"],
+      "locator": "Notice p. 1 et 3 ; vue de transport Beretta",
+      "dimensionStatus": "section_lengths_and_travel_not_verified"
+    },
+    {
+      "id": "luffing-cylinders",
+      "label": "Vérins latéraux de relevage",
+      "observation": "Les vues des deux côtés et la notice de reproduction documentent deux vérins sous la flèche.",
+      "designDirection": "Différencier les corps, tiges et ancrages des deux vérins latéraux.",
+      "evidenceType": "visual_and_model_documentation",
+      "sourceIds": ["ciry-photos-in-kleinspoor", "kleinspoor-830b"],
+      "locator": "Notice p. 1, 3 et 14",
+      "dimensionStatus": "cylinder_dimensions_and_stroke_not_verified"
+    },
+    {
+      "id": "boom-head-and-hook",
+      "label": "Tête de flèche et mouflage",
+      "observation": "La vue d'ensemble présente une tête compacte à chevrons ; la reproduction distingue les poulies et les passages de câble.",
+      "designDirection": "Intégrer les poulies à la tête et ajuster la taille du bloc de crochet à la silhouette entière.",
+      "evidenceType": "visual_and_model_documentation",
+      "sourceIds": ["beretta-sncf-2007", "kleinspoor-830b"],
+      "locator": "Vue de transport Beretta ; notice p. 13",
+      "dimensionStatus": "hook_dimensions_and_exact_reeving_not_verified"
+    },
+    {
+      "id": "counterweight",
+      "label": "Bras arrière et contrepoids distincts",
+      "observation": "Les références distinguent le capot moteur, le bras arrière télescopique et les éléments emboîtés du contrepoids SNCF.",
+      "designDirection": "Construire ces volumes séparément, avec un contrepoids comportant un cadre ouvert.",
+      "evidenceType": "visual_and_model_documentation",
+      "sourceIds": ["ciry-photos-in-kleinspoor", "kleinspoor-830b"],
+      "locator": "Notice p. 3, 13 et 14",
+      "dimensionStatus": "counterweight_dimensions_and_mass_not_verified"
+    },
+    {
+      "id": "outriggers",
+      "label": "Quatre appuis orientables",
+      "observation": "Les photographies montrent des appuis repliés contre le châssis et la notice de reproduction en dénombre quatre.",
+      "designDirection": "Distinguer bras orientable, vérin vertical, pied et plaque de répartition ; éviter les piliers massifs du modèle compact.",
+      "evidenceType": "visual_and_model_documentation",
+      "sourceIds": ["ciry-photos-in-kleinspoor", "kleinspoor-830b"],
+      "locator": "Notice p. 1, 2 et 14",
+      "dimensionStatus": "support_spread_and_stroke_not_verified"
+    },
+    {
+      "id": "equipment-details",
+      "label": "Équipements et maintenance",
+      "observation": "Les vues latérales montrent portes, grilles, treuil, tuyaux, échappement et volants de frein.",
+      "designDirection": "Distribuer ces détails selon les faces documentées pour augmenter la fidélité, avec une livrée datée cohérente.",
+      "evidenceType": "visual_observation",
+      "sourceIds": ["ciry-photos-in-kleinspoor"],
+      "locator": "Notice p. 14",
+      "dimensionStatus": "uncalibrated_visual_proportions"
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "probable-variant",
+      "label": "Désignation KRC 1210 probable",
+      "status": "probable_not_primary_verified",
+      "value": "KRC 1210, souvent désignée par le nom de famille KRC 1200",
+      "sourceIds": ["kleinspoor-830b", "beretta-sncf-2007"],
+      "explanation": "La notice titre KRC 1200 mais nomme KRC 1210 dans son texte. Le reportage photographique attribue KRC 1210 à la machine. Aucune plaque constructeur lisible n'a été vérifiée.",
+      "publicationRule": "Utiliser Kirow SNCF de Dijon comme nom prudent. Ne pas présenter 1200, 1210 ou 1500 comme une désignation certaine à partir de ce relevé."
+    },
+    {
+      "id": "design-chassis-length",
+      "label": "Longueur cible du châssis en briques",
+      "status": "design_target",
+      "value": 88,
+      "unit": "stud",
+      "studPitchMm": 8,
+      "modelLengthMm": 704,
+      "nominalScaleDenominator": 19.8863636364,
+      "calculation": "14000 / (88 * 8)",
+      "sourceIds": ["sncf-bully-2026"],
+      "explanation": "88 tenons est une cible de conception. Le rapprochement avec les 14 m communiqués donne un ordre de grandeur 1:20. Il ne constitue pas une calibration photographique exacte et les extrémités de mesure SNCF ne sont pas définies.",
+      "publicationRule": "Présenter environ 1:20 comme une hypothèse de proportions, jamais comme une échelle exacte certifiée."
+    },
+    {
+      "id": "unverified-dimensions",
+      "label": "Largeur, hauteur et entraxes",
+      "status": "proportion_estimates_only",
+      "dimensions": [
+        {"id": "width", "verifiedRealValue": null, "unit": "mm"},
+        {"id": "height", "verifiedRealValue": null, "unit": "mm"},
+        {"id": "bogie-centre-spacing", "verifiedRealValue": null, "unit": "mm"},
+        {"id": "axle-spacing", "verifiedRealValue": null, "unit": "mm"}
+      ],
+      "sourceIds": ["ciry-photos-in-kleinspoor", "beretta-sncf-2007"],
+      "explanation": "Aucune cote SNCF vérifiée n'est disponible ici pour ces dimensions. Les valeurs retenues dans le modèle seront des estimations visuelles ou des contraintes de construction en briques.",
+      "publicationRule": "Ne pas convertir les dimensions du modèle en cotes de la grue réelle ni les présenter comme vérifiées."
+    },
+    {
+      "id": "piece-count-target",
+      "label": "Objectif de quantité de pièces",
+      "status": "design_target",
+      "compactModelPieceCount": 452,
+      "targetMultiplier": 10,
+      "approximateTargetPieceCount": 4520,
+      "sourceIds": [],
+      "explanation": "L'objectif d'environ dix fois le modèle compact guide la conception. Il ne décrit pas un inventaire produit et n'impose pas une multiplication par dix des dimensions linéaires.",
+      "publicationRule": "Afficher le compte réel calculé depuis la nomenclature propre à la grande version."
+    },
+    {
+      "id": "variant-and-livery-consistency",
+      "label": "Cohérence de la variante et de la livrée",
+      "status": "design_constraint",
+      "sourceIds": ["ciry-photos-in-kleinspoor", "beretta-sncf-2007", "kirow-multitasker-fr"],
+      "explanation": "Les références montrent plusieurs dates et la brochure constructeur couvre une famille de variantes. Une caractéristique d'un autre opérateur n'est pas une cote SNCF.",
+      "publicationRule": "Choisir une configuration documentée ; ne pas combiner silencieusement plusieurs machines ou périodes."
+    }
+  ],
+  "sources": [
+    {
+      "id": "sncf-bully-2026",
+      "title": "Bully-les-Mines : SNCF Réseau mobilisée pour une reprise des circulations le 18 avril",
+      "publisher": "SNCF Réseau",
+      "sourceType": "operator_press_release",
+      "url": "https://www.sncf-reseau.com/medias-publics/2026-04/cp_bully_les_mines-vdiff_0.pdf?VersionId=qjcw0Mvq.2V4.dojOLVVHdMMeSVGyfDG",
+      "publishedAt": "2026-04-08",
+      "accessedAt": "2026-09-12",
+      "relevantPages": [3],
+      "scope": "Faits communiqués par l'opérateur sur la grue acheminée depuis Dijon.",
+      "reuse": "Référence textuelle uniquement ; aucun fichier source copié dans le dépôt."
+    },
+    {
+      "id": "sncf-dijon-2025",
+      "title": "La grue Kirow, unique en France, en action à Dijon !",
+      "publisher": "SNCF Réseau",
+      "sourceType": "operator_press_release_page",
+      "url": "https://www.sncf-reseau.com/fr/cp/bourgogne-franche-comte/grue-kirow-unique-en-france-en-action-dijon",
+      "publishedAt": "2025-10-01",
+      "accessedAt": "2026-09-12",
+      "scope": "Contexte de la démonstration à Dijon. Le titre ne précise pas la variante constructeur.",
+      "reuse": "Lien de référence uniquement."
+    },
+    {
+      "id": "kleinspoor-830b",
+      "title": "Kit Kirow KRC 1200 SNCF, notice 830 B",
+      "publisher": "Kleinspoor",
+      "sourceType": "scale_model_manufacturer_instructions",
+      "url": "https://www.kleinspoor.nl/830%20B%20frans%204-2017.pdf",
+      "publishedAt": "2017-04",
+      "accessedAt": "2026-09-12",
+      "relevantPages": [1, 2, 3, 4, 13, 14],
+      "scope": "Documentation d'une reproduction : architecture des sous-ensembles et désignation probable, pas une fiche constructeur de la grue réelle.",
+      "reuse": "Référence interne uniquement. Aucun PDF ni visuel de la maquette copié dans le dépôt."
+    },
+    {
+      "id": "ciry-photos-in-kleinspoor",
+      "title": "Photographies de la grue Kirow SNCF, côtés gauche et droit",
+      "author": "Bernard Ciry",
+      "publisher": "Kleinspoor",
+      "sourceType": "real_crane_photographs_in_model_documentation",
+      "url": "https://www.kleinspoor.nl/830%20B%20frans%204-2017.pdf",
+      "publishedAt": "2017-04",
+      "photographedAt": null,
+      "accessedAt": "2026-09-12",
+      "relevantPages": [14],
+      "scope": "Six photographies réelles créditées Bernard Ciry, distinctes des photographies de maquette du même PDF. Date de prise de vue non vérifiée.",
+      "reuse": "Droits conservés par leurs titulaires. Consultation interne ; aucune autorisation de republication déduite du crédit. Aucune photographie copiée dans le dépôt."
+    },
+    {
+      "id": "beretta-sncf-2007",
+      "title": "Grue Kirow SNCF en Suisse, vue en configuration de transport",
+      "author": "Oliver Beretta, crédit photographique du message",
+      "publisher": "STTX, message de florian",
+      "sourceType": "attributed_photographic_report",
+      "url": "https://www.forum.sttx.fr/viewtopic.php?f=79&t=8864",
+      "publishedAt": "2007-07-10",
+      "photographedAt": null,
+      "accessedAt": "2026-09-12",
+      "locator": "Premier message, photographie sncf_uas80879799900-6_1.jpg",
+      "scope": "Vue de transport et désignation KRC 1210 attribuée par le reportage. La plaque constructeur n'a pas été vérifiée visuellement.",
+      "reuse": "Référence visuelle interne ; aucune licence de republication vérifiée. Aucune photographie copiée dans le dépôt."
+    },
+    {
+      "id": "kirow-multitasker-fr",
+      "title": "Multi Tasker 100 / 250 / 810 / 1000 / 1200 / 1600, grue ferroviaire",
+      "publisher": "Kirow Ardelt GmbH",
+      "sourceType": "crane_manufacturer_family_brochure",
+      "url": "https://www.kirow.de/fileadmin/template-2021/downloads/Multi_Tasker/MultiTasker_FR_020718.pdf",
+      "publishedAt": null,
+      "accessedAt": "2026-09-12",
+      "relevantPages": [14],
+      "scope": "Caractéristiques de la famille Multi Tasker 1200, dont les huit essieux. La date de publication et l'applicabilité de chaque option à la grue SNCF ne sont pas vérifiées.",
+      "reuse": "Référence documentaire uniquement. Aucun PDF ni visuel constructeur copié dans le dépôt."
+    }
+  ]
+}
