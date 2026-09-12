@@ -5,6 +5,19 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-09-12 - Coffret Kirow en briques
+
+- Page cadeau `/kirow/` et traduction `/kirow/en/`, avec une direction artistique
+  de boîte de collection jaune et noire, les logos KIROW/SNCF et le set fictif 990150.
+- Maquette Three.js de 400 briques : commandes de levage, tourelle, vue éclatée,
+  studio PBR et ray tracing progressif optionnel. Moteur et ressources auto-hébergés.
+- Fascicule PDF français de 32 étapes, lecteur bilingue, inventaires CSV et modèle
+  LDraw. Les interfaces mécaniques et la construction physique restent à valider.
+- Mise en page iPhone, activation tactile de la 3D, thèmes clair/sombre et aperçu
+  statique si WebGL est indisponible. Routes en noindex, hors menus et sitemap.
+- Aperçu local du dépôt avec un serveur Node sans dépendance, sans changement
+  du déploiement GitHub Pages.
+
 ## 2026-09-07 - Assistance et confidentialité de l’atelier
 
 - Actualisation FR/EN des pages `/app/` et `/fr/app/` pour les six défis de
