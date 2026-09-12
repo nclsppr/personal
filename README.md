@@ -35,7 +35,7 @@ pas que la dernière version est publiée.
 
 `npm run dev` sert les fichiers statiques sur le port 4173, sans installation ni
 compilation. Le serveur utilise uniquement les modules standard de Node.js.
-La page cadeau Kirow est documentée dans [`kirow/README.md`](kirow/README.md).
+La maquette ferroviaire Kirow est documentée dans [`kirow/README.md`](kirow/README.md).
 
 ## Aperçu
 

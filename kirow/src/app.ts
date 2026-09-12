@@ -7,7 +7,7 @@ const controlStart=$<HTMLButtonElement>('activate-controls');
 const touch=matchMedia('(pointer: coarse)').matches;
 let api:SceneAPI|null=null,loading=false,failed=false,pageActive=true,activation=0;
 let controlVisible=false,sectionVisible=false,controlsEngaged=false;
-let settings:SceneSettings={elevation:24,slew:0,hook:9,explode:0,night:true,auto:false,step:32,mode:'realtime'};
+let settings:SceneSettings={elevation:24,slew:0,hook:9,explode:0,night:false,auto:false,step:32};
 const initial={...settings};
 const inputs=Array.from(document.querySelectorAll<HTMLInputElement>('.pose-input'));
 const toggles=Array.from(document.querySelectorAll<HTMLButtonElement>('[data-toggle]'));
@@ -15,7 +15,7 @@ const liveButtons=Array.from(document.querySelectorAll<HTMLButtonElement>('[data
 function setStatus(text:string){status.textContent=text;const mirror=$('control-status');if(mirror)mirror.textContent=text;}
 function enableControls(enabled:boolean,note=messages.unavailable){for(const el of [...inputs,...toggles,...liveButtons])el.disabled=!enabled;$('live-note').textContent=enabled?messages.activeNote:note;}
 function refresh(){for(const input of inputs){input.value=String(settings[input.id as keyof SceneSettings]);$(`${input.id}-value`).textContent=input.value+input.dataset.unit;}
- for(const button of toggles){const key=button.dataset.toggle!;button.setAttribute('aria-pressed',String(key==='mode'?settings.mode==='pathtrace':Boolean(settings[key as keyof SceneSettings])));}}
+ for(const button of toggles){const key=button.dataset.toggle!;button.setAttribute('aria-pressed',String(Boolean(settings[key as keyof SceneSettings])));}}
 function syncViewer(){
  const healthy=Boolean(api&&!failed);
  showcase.classList.toggle('is-live',healthy&&host.parentElement===heroMount);
@@ -57,20 +57,39 @@ exit.addEventListener('click',()=>{
  (inControls&&controlStart?controlStart:start).focus({preventScroll:true});
 });
 host.addEventListener('kirow-renderer-unavailable',fallback);
-host.addEventListener('kirow-renderer-restored',()=>{failed=false;settings.mode='realtime';api?.update(settings);refresh();enableControls(true);syncViewer();});
-host.addEventListener('kirow-mode-fallback',()=>{settings.mode='realtime';refresh();});
+host.addEventListener('kirow-renderer-restored',()=>{failed=false;api?.update(settings);refresh();enableControls(true);syncViewer();});
 for(const input of inputs)input.addEventListener('input',()=>{(settings as unknown as Record<string,unknown>)[input.id]=Number(input.value);$(`${input.id}-value`).textContent=input.value+input.dataset.unit;api?.update(settings);});
-for(const button of toggles)button.addEventListener('click',()=>{const key=button.dataset.toggle!;if(key==='mode')settings.mode=settings.mode==='realtime'?'pathtrace':'realtime';else (settings as unknown as Record<string,unknown>)[key]=!settings[key as keyof SceneSettings];refresh();api?.update(settings);});
+for(const button of toggles)button.addEventListener('click',()=>{const key=button.dataset.toggle!;(settings as unknown as Record<string,unknown>)[key]=!settings[key as keyof SceneSettings];refresh();api?.update(settings);});
 for(const button of Array.from(document.querySelectorAll<HTMLButtonElement>('[data-view]')))button.addEventListener('click',()=>api?.view(button.dataset.view!));
 $('capture').addEventListener('click',()=>api?.capture());
 $('reset').addEventListener('click',()=>{settings={...initial};refresh();api?.update(settings);api?.view('hero');select.value='32';updateStep();});
 const select=$<HTMLSelectElement>('step-select');
-function updateStep(){const step=Number(select.value),option=select.selectedOptions[0],title=option.textContent!.split(' · ').slice(1).join(' · ');$('step-number').textContent=String(step).padStart(2,'0');$('step-title').textContent=title;$('step-description').textContent=option.dataset.description!;const image=$<HTMLImageElement>('step-image');image.src=`/kirow/assets/manual/step-${String(step).padStart(2,'0')}.jpg`;image.alt=title;$<HTMLButtonElement>('previous-step').disabled=step===1;$<HTMLButtonElement>('next-step').disabled=step===32;settings.step=step;api?.update(settings);}
+function updateStep(){const step=Number(select.value),option=select.selectedOptions[0],title=option.textContent!.split(' · ').slice(1).join(' · ');$('step-number').textContent=String(step).padStart(2,'0');$('step-title').textContent=title;$('step-description').textContent=option.dataset.description!;$('step-parts').replaceChildren(...Array.from($(`all-step-parts-${step}`).childNodes,node=>node.cloneNode(true)));const image=$<HTMLImageElement>('step-image');image.src=`/kirow/assets/manual/step-${String(step).padStart(2,'0')}.jpg?v=2`;image.alt=title;$<HTMLButtonElement>('previous-step').disabled=step===1;$<HTMLButtonElement>('next-step').disabled=step===32;settings.step=step;api?.update(settings);}
 select.disabled=false;select.addEventListener('change',updateStep);
 $('step-title').setAttribute('aria-live','polite');$('step-title').setAttribute('aria-atomic','true');
 $('previous-step').addEventListener('click',()=>{select.value=String(Math.max(1,Number(select.value)-1));updateStep();});
 $('next-step').addEventListener('click',()=>{select.value=String(Math.min(32,Number(select.value)+1));updateStep();});
 updateStep();
+const partSearch=$<HTMLInputElement>('part-search');
+const inventoryRows=Array.from(document.querySelectorAll<HTMLTableRowElement>('#inventory-table tbody tr'));
+const normalize=(value:string)=>value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+function searchParts(){
+ const terms=normalize(partSearch.value).trim().split(/\s+/).filter(Boolean);
+ let visible=0;
+ for(const row of inventoryRows){const haystack=normalize(row.dataset.search!);row.hidden=!terms.every(term=>haystack.includes(term));if(!row.hidden)visible++;}
+ $('search-status').textContent=messages.searchCount.replace('{visible}',String(visible)).replace('{total}',String(inventoryRows.length));
+ $('search-empty').hidden=visible!==0;
+}
+$('inventory-search').hidden=false;
+partSearch.addEventListener('input',searchParts);
+$('clear-search').addEventListener('click',()=>{partSearch.value='';searchParts();partSearch.focus();});
+document.addEventListener('click',event=>{
+ const anchor=event.target instanceof Element?event.target.closest<HTMLAnchorElement>('a[href^="#piece-"]'):null;
+ if(!anchor)return;
+ $<HTMLDetailsElement>('inventory').open=true;
+ partSearch.value='';searchParts();
+});
+searchParts();
 const theme=$('theme');let dark=matchMedia('(prefers-color-scheme: dark)').matches;
 try{const saved=sessionStorage.getItem('kirow-page-theme');if(saved)dark=saved==='dark';}catch{}
 function applyTheme(){document.body.classList.toggle('dark',dark);theme.setAttribute('aria-pressed',String(dark));}

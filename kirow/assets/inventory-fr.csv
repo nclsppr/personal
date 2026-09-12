@@ -1,24 +1,52 @@
-﻿Référence,Pièce,Couleur,Quantité
-3001,Brique 2 × 4,Jaune,64
-3010,Brique 1 × 4,Jaune,56
-3460,Plaque 1 × 8,Gris foncé,39
-3001,Brique 2 × 4,Noir,35
-3020,Plaque 2 × 4,Jaune,31
-3031,Plaque 4 × 4,Jaune,30
-3062b,Brique ronde 1 × 1,Noir,16
-3005,Brique 1 × 1,Jaune,16
-3062b,Brique ronde 1 × 1,Jaune,16
-3031,Plaque 4 × 4,Noir,12
-3010,Brique 1 × 4,Gris foncé,12
-3035,Plaque 4 × 8,Noir,12
-3003,Brique 2 × 2,Gris foncé,12
-3003,Brique 2 × 2,Jaune,12
-3035,Plaque 4 × 8,Gris foncé,10
-3024,Plaque 1 × 1,Rouge,4
-3001,Brique 2 × 4,Gris foncé,4
-3034,Plaque 2 × 8,Jaune,4
-3031,Plaque 4 × 4,Gris foncé,4
-3710,Plaque 1 × 4,Noir,4
-3004,Brique 1 × 2,Jaune,4
-3008,Brique 1 × 8,Jaune,2
-3020,Plaque 2 × 4,Noir,1
+﻿Référence LEGO,Référence catalogue,Identifiant élément,Pièce,Couleur,Quantité,Vérification,Sources,Date de vérification
+3001,3001,,Brique 2 × 4,Jaune,64,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3001,2026-09-12
+3010,3010,,Brique 1 × 4,Jaune,54,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3010,2026-09-12
+3001,3001,,Brique 2 × 4,Noir,35,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3001,2026-09-12
+3020,3020,,Plaque 2 × 4,Jaune,31,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3020,2026-09-12
+3031,3031,,Plaque 4 × 4,Jaune,30,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3031,2026-09-12
+3005,3005,,Brique 1 × 1,Jaune,16,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3005,2026-09-12
+57878,57878,4496343,"Roue ferroviaire RC Ø 16,6 / 23 mm",Noir,16,Pièce et couleur documentées,https://www.toypro.com/es/product/3710/tren-rueda-rc/negro,2026-09-12
+3031,3031,,Plaque 4 × 4,Noir,12,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3031,2026-09-12
+3010,3010,,Brique 1 × 4,Gris bleuté foncé,12,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3010,2026-09-12
+3035,3035,,Plaque 4 × 8,Noir,12,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3035,2026-09-12
+3003,3003,,Brique 2 × 2,Gris bleuté foncé,12,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3003,2026-09-12
+3003,3003,,Brique 2 × 2,Jaune,12,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3003,2026-09-12
+3035,3035,,Plaque 4 × 8,Gris bleuté foncé,10,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3035,2026-09-12
+60592,60592,,Cadre de fenêtre 1 × 2 × 2,Jaune,10,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=60592,2026-09-12
+60601,60601,,Vitre pour fenêtre 1 × 2 × 2,Transparent incolore,10,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=60601,2026-09-12
+3062,3062,306224,"Brique ronde 1 × 1, tenon creux",Jaune,8,Pièce et couleur documentées,https://www.toypro.com/us/product/807/brick-1-x-1-round/yellow | https://www.bricklink.com/v2/catalog/catalogitem.page?P=3062,2026-09-12
+2878,2878,"287826, 287876, 4207399",Support de roues ferroviaires RC,Noir,8,Pièce et couleur documentées,https://www.toypro.com/gb/product/3712/train-wheel-rc-train-holder/black,2026-09-12
+,x1687,,Essieu ferroviaire métallique 5 tenons,Argent chromé,8,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=x1687 | https://library.ldraw.org/library/official/parts/57877c01.dat,2026-09-12
+2412,2412b,,"Tuile grille 1 × 2, rainure dessous",Noir,8,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=2412b,2026-09-12
+53401,53401,"4279714, 6037688, 6070018, 6539540",Voie droite 16 × 8,Gris bleuté foncé,5,Pièce et couleur documentées,https://www.toypro.com/es/product/1675/via-del-tren-recta/gris-azulado-oscuro,2026-09-12
+3024,3024,,Plaque 1 × 1,Rouge,4,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3024,2026-09-12
+3001,3001,,Brique 2 × 4,Gris bleuté foncé,4,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3001,2026-09-12
+3034,3034,,Plaque 2 × 8,Jaune,4,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3034,2026-09-12
+3031,3031,,Plaque 4 × 4,Gris bleuté foncé,4,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3031,2026-09-12
+3710,3710,,Plaque 1 × 4,Noir,4,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3710,2026-09-12
+3004,3004,,Brique 1 × 2,Jaune,4,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3004,2026-09-12
+2429,2429,,"Charnière orientable 1 × 4, base",Jaune,4,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=2429,2026-09-12
+2430,2430,,"Charnière orientable 1 × 4, dessus",Jaune,4,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=2430,2026-09-12
+2780,2780,,Cheville Technic à friction 2 tenons,Noir,4,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=2780,2026-09-12
+4185,4185,,Poulie Technic Ø 24 mm,Noir,4,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=4185,2026-09-12
+3008,3008,,Brique 1 × 8,Jaune,2,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3008,2026-09-12
+3680,3680,,"Plateau tournant 2 × 2, base",Noir,2,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3680,2026-09-12
+3679,3679,,"Plateau tournant 2 × 2, dessus",Gris bleuté clair,2,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3679,2026-09-12
+4022,4022,,Traverse de tampons ferroviaires,Noir,2,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=4022,2026-09-12
+2920,2920,"292026, 292076, 4299239",Support d’aimant d’attelage,Noir,2,Pièce et couleur documentées,https://www.toypro.com/fr/product/18507/accouplement-de-train-nouveau/noir,2026-09-12
+73092,73092,,Aimant cylindrique d’attelage,Noir,2,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=73092,2026-09-12
+3701,3701,,Brique Technic 1 × 4 à trous,Jaune,2,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3701,2026-09-12
+3713,3713,,Bague d’arrêt Technic,Gris bleuté clair,2,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3713,2026-09-12
+2486,2486,"4106812, 4189225",Garde-corps 1 × 8 × 2,Jaune,2,Pièce et couleur documentées,https://www.toypro.com/us/product/3739/bar-1-x-8-x-2/yellow,2026-09-12
+4073,4073,,Plaque ronde 1 × 1,Blanc,2,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=4073,2026-09-12
+3020,3020,,Plaque 2 × 4,Noir,1,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3020,2026-09-12
+18939,18939,,"Couronne Technic 60 dents, base",Gris bleuté clair,1,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=18939,2026-09-12
+18938,18938,,"Couronne Technic 60 dents biseautées, dessus",Noir,1,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=18938,2026-09-12
+4079,4079,,Siège 2 × 2,Noir,1,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=4079,2026-09-12
+4592,4592,,Socle du levier de commande,Noir,1,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=4592,2026-09-12
+4593,4593,,Levier de commande,Noir,1,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=4593,2026-09-12
+3707,3707,,Axe Technic 8 tenons,Noir,1,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=3707,2026-09-12
+,61927c01,,"Vérin linéaire Technic, type 1, embouts gris foncé",Gris bleuté clair,1,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=61927c01&idColor=86,2026-09-12
+70644,70644,,Grand crochet Technic en métal,Noir,1,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=70644,2026-09-12
+,x77ac50,,Ficelle fine 50 cm,Noir,1,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=x77ac50,2026-09-12
+4073,4073,,Plaque ronde 1 × 1,Transparent orange,1,Pièce et couleur documentées,https://www.bricklink.com/v2/catalog/catalogitem.page?P=4073,2026-09-12

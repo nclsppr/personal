@@ -5,6 +5,20 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-09-12 - Kirow, pièces référencées et paysage ferroviaire
+
+- Révision de la maquette : rails, roues, vitrages et mécanismes associés à des
+  références existantes, preuves datées par couleur et géométries LDraw officielles.
+- Références exactes dans les deux langues, les étapes, l'inventaire consultable
+  sans JavaScript et les exports. Distinction entre dessins LEGO, variantes de
+  catalogue, marquages personnalisés et validation physique encore nécessaire.
+- Ciel, herbe et ballast dans la scène et les illustrations. Suppression du ray
+  tracing optionnel et de ses dépendances ; conservation du rendu en temps réel.
+- Haut de page entièrement jaune, sans bandeau noir, en-tête opaque persistant
+  et couleur Safari harmonisée. Retrait de la présentation comme cadeau.
+- Régénération du fascicule, des illustrations et du LDraw depuis la scène
+  commune ; contrôle automatique de leurs empreintes et de l'inventaire complet.
+
 ## 2026-09-12 - Coffret Kirow en briques
 
 - Page cadeau `/kirow/` et traduction `/kirow/en/`, avec une direction artistique
