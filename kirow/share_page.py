@@ -68,7 +68,7 @@ def render_share(lang):
     email = "mailto:?" + urlencode({"subject": d["title"], "body": body}, quote_via=quote)
     sms = "sms:?body=" + quote(url, safe="")
     x_url = "https://x.com/intent/tweet?" + urlencode({"text": d["text"], "url": url, "lang": lang}, quote_via=quote)
-    asset = f"/kirow/assets/kirow-instagram-{lang}.jpg"
+    asset = f"/kirow/assets/kirow-instagram-{lang}.jpg?v=2"
     messages = " ".join(
         f'data-{key.replace("_", "-")}="{escape(d[key], quote=True)}"'
         for key in (

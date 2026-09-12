@@ -28,12 +28,12 @@ def render_packaging(lang):
     fr = lang == 'fr'
     eye = '04 / L’imaginaire prend forme' if fr else '04 / Bringing the idea to life'
     title = 'Et si la grue avait son coffret ?' if fr else 'What if the crane had its own box?'
-    copy = ('Une boîte de collection imaginée pour cette création de Nicolas Pieper. Jaune ferroviaire, noir atelier et silhouette de la maquette : l’univers Brick Atelier jusque sur l’emballage.' if fr else
-            'A collector’s box imagined for this creation by Nicolas Pieper. Railway yellow, workshop black and the model’s silhouette bring the Brick Atelier identity to the packaging.')
-    note = ('Illustration de concept générée par IA à partir du rendu 3D. Aucun coffret commercialisé, aucune affiliation à LEGO, KIROW ou SNCF.' if fr else
-            'AI-generated concept illustration based on the 3D rendering. No box is offered for sale; no affiliation with LEGO, KIROW or SNCF.')
+    copy = ('Une boîte de collection imaginée pour cette création de Nicolas Pieper. Un jaune lumineux, du bleu ciel, la brique rouge et blanche de Brick Atelier, les logos SNCF et KIROW et notre guide en gilet orange entourent la maquette.' if fr else
+            'A collector’s box imagined for this creation by Nicolas Pieper. Bright yellow, sky blue, Brick Atelier’s red and white brick, the SNCF and KIROW logos and our guide in an orange vest frame the model.')
+    note = ('Illustration de concept générée par IA à partir du rendu 3D. Le personnage en gilet orange est une illustration hors inventaire. Aucun coffret commercialisé, aucune affiliation à LEGO, KIROW ou SNCF.' if fr else
+            'AI-generated concept illustration based on the 3D rendering. The character in an orange vest is an illustration outside the parts inventory. No box is offered for sale; no affiliation with LEGO, KIROW or SNCF.')
     label = 'Concept non officiel' if fr else 'Unofficial concept'
-    alt = ('Concept de boîte Brick Atelier Kirow jaune et noire, montrant la grue en briques sur rails et le nom Nicolas Pieper.' if fr else
-           'Yellow and black Brick Atelier Kirow box concept showing the brick railway crane and Nicolas Pieper’s name.')
+    alt = ('Concept de coffret jaune et bleu ciel avec la grue Kirow en briques, le logo Brick Atelier rouge et blanc, les logos SNCF et KIROW et un guide en gilet orange.' if fr else
+           'Bright yellow and sky blue box concept with the Kirow brick crane, the red and white Brick Atelier logo, SNCF and KIROW logos and a guide in an orange vest.')
     link = 'Voir le coffret en grand' if fr else 'View the box in full size'
-    return f'''<section class="section packaging" id="coffret" aria-labelledby="packaging-title"><figure><a href="/kirow/assets/kirow-box.jpg" aria-label="{link}"><img src="/kirow/assets/kirow-box.webp" width="1200" height="800" alt="{alt}" loading="lazy"></a><figcaption>{note}</figcaption></figure><div class="packaging-copy"><p class="eyebrow">{eye}</p><h2 id="packaging-title">{title}</h2><p>{copy}</p><p><span class="concept-label">{label}</span></p><a class="packaging-link" href="/kirow/assets/kirow-box.jpg">{link} ↗</a></div></section>'''
+    return f'''<section class="section packaging" id="coffret" aria-labelledby="packaging-title"><figure><a href="/kirow/assets/kirow-box.jpg?v=2" aria-label="{link}"><img src="/kirow/assets/kirow-box.webp?v=2" width="1200" height="800" alt="{alt}" loading="lazy"></a><figcaption>{note}</figcaption></figure><div class="packaging-copy"><p class="eyebrow">{eye}</p><h2 id="packaging-title">{title}</h2><p>{copy}</p><p><span class="concept-label">{label}</span></p><a class="packaging-link" href="/kirow/assets/kirow-box.jpg?v=2">{link} ↗</a></div></section>'''

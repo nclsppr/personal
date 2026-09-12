@@ -5,6 +5,23 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-09-12 - Kirow, couleurs franches, heure dorée et coffret lumineux
+
+- Mode heure dorée retravaillé, avec les libellés « Heure dorée » en français
+  et « Golden hour » en anglais dans les pages générées.
+- Nouveau concept de coffret lumineux reprenant la grue, les logos SNCF et
+  KIROW et une minifig ferroviaire en gilet orange. Création non officielle.
+- Logo Brick Atelier rouge et blanc recentré sur sa grille, avec le même
+  alignement pour le logo du site, le favicon et les visuels de partage.
+- Éclairage de la scène ajusté pour restituer un jaune plus vif et des noirs
+  plus profonds, sans modifier les références ni les couleurs de catalogue.
+- Aperçu, 32 illustrations, fascicule PDF et cartes sociales FR/EN synchronisés
+  avec le même modèle 3D et sa nouvelle présentation.
+- Versions des ressources actualisées pour renouveler les aperçus, les documents,
+  le logo et les miniatures dans les navigateurs et les applications de partage.
+- Filtrage du ciel adapté aux capacités graphiques et fermeture de Chrome
+  attendue avant le nettoyage des fichiers temporaires de rendu.
+
 ## 2026-09-12 - Kirow, assemblage corrigé et partage public
 
 - Correction des stabilisateurs : colonnes reliées aux bras après le rehaussement
