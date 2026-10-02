@@ -1745,6 +1745,11 @@ a.card:hover { text-decoration: none; border-color: var(--accent); box-shadow: v
     border-bottom: 1px solid var(--border);
   }
 
+  /* CV and Objects place the drawer outside the header-offset layout. */
+  html:not(.sidebar-ready) body > .sidebar {
+    margin-top: var(--header-offset);
+  }
+
   .sidebar-ready .sidebar {
     position: fixed;
     inset: var(--header-offset) auto 0 0;

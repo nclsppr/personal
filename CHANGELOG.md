@@ -10,6 +10,8 @@ Historique des interventions sur le site, la plus récente en premier.
 - Navigation du site et sommaire visibles dans le flux sur mobile lorsque
   JavaScript est désactivé ou que le script partagé ne charge pas.
 - Tiroir et bouton de menu activés seulement après installation des interactions.
+- Navigation de secours des pages CV et Objets décalée sous l’en-tête fixe,
+  dans les deux langues, pour garder les premiers liens entièrement visibles.
 - Vérification des pages principales FR/EN sur mobile et desktop, en clair et
   sombre, ainsi que du clavier, du thème, des fiches Objets et des liens internes.
 
