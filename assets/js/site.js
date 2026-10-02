@@ -138,6 +138,8 @@
     window.addEventListener('resize', function () {
       if (window.innerWidth > 980 && sidebar.classList.contains('open')) setSidebar(false);
     });
+    // Hide the static mobile navigation only after its controls are ready.
+    document.documentElement.classList.add('sidebar-ready');
   }
 
   /* ---------- Keyboard scrolling for wide article diagrams ---------- */

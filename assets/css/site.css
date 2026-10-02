@@ -1735,10 +1735,17 @@ a.card:hover { text-decoration: none; border-color: var(--accent); box-shadow: v
      (the terminal <pre> is ~625px wide), which forced a 665px layout on phones */
   .layout { grid-template-columns: minmax(0, 1fr); }
 
-  .menu-btn { display: grid; }
+  .sidebar-ready .menu-btn { display: grid; }
   .sidebar-site-nav { display: block; }
 
   .sidebar {
+    position: static;
+    height: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sidebar-ready .sidebar {
     position: fixed;
     inset: var(--header-offset) auto 0 0;
     width: min(320px, 85vw);
@@ -1753,7 +1760,7 @@ a.card:hover { text-decoration: none; border-color: var(--accent); box-shadow: v
     box-shadow: none;
     overscroll-behavior: contain;
   }
-  .sidebar.open {
+  .sidebar-ready .sidebar.open {
     transform: translateX(0);
     visibility: visible;
     transition: transform 0.22s ease, visibility 0s;
