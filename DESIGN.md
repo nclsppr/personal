@@ -154,12 +154,17 @@ Usages : portrait de l'accueil, stickers des études de cas, héros
 d'articles de blog, Pampy (404, Beyond engineering). Dès qu'une image
 met en scène des personnages, une métaphore ou une émotion : sticker.
 
-Bloc de prompt (le canon de la série) :
+Pour les articles, joindre comme références de dessin les stickers de
+« Claude en entreprise » et de l’article sur les logs. Leur parenté tient à
+la finesse du trait de plume, aux hachures et au grain du papier. La scène
+montre un geste à l’échelle d’un établi, dans une silhouette découpée.
 
-> Die-cut sticker style illustration, flat vector look, bold dark
-> charcoal outlines (#171716), warm muted ivory and sand tones, exactly
+Bloc de prompt à adapter à la référence illustrée :
+
+> Hand-inked die-cut illustration, fine crosshatching, dark
+> charcoal lines (#171716), warm muted ivory and sand tones, exactly
 > one accent color: International Orange (#FF4F00) on two or three
-> small elements only, subtle paper grain texture, soft rounded shapes,
+> small elements only, natural paper grain and hand-drawn detail,
 > thick white die-cut border around the whole composition, isolated on
 > a transparent background, soft drop shadow, no text, no letters, no
 > logos.
@@ -191,9 +196,12 @@ d'articles) ou `square composition` (mascottes, portraits).
 
 Les logos et cartes de produits ne sont ni réinterprétés ni recolorés. Les
 copies et dérivés locaux suivent les sources et empreintes consignées dans
-`assets/img/projects/PROVENANCE.md`. Les logos détourés se posent directement sur le fond de page. Si une
-partie de la marque manque de contraste, un fin filet en épouse le contour dans
-le thème concerné. Les illustrations officielles gardent leur propre fond. Les fichiers lourds peuvent être remplacés
+`assets/img/projects/PROVENANCE.md`. Les logos détourés se posent
+directement sur le fond de page. Sur fond sombre, un liseré ivoire épouse la
+silhouette de chaque marque, y compris les deux éléments de Mon Florian. Il est
+plus fin dans la liste de l’accueil. Sur fond clair, seul le P vert pâle de
+Parkventory a besoin d’un filet. Les illustrations officielles gardent leur
+propre fond. Les fichiers lourds peuvent être remplacés
 par un dérivé WebP transparent, avec le master, son empreinte et la commande
 de transformation documentés.
 
