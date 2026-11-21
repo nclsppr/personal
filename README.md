@@ -61,6 +61,8 @@ La maquette ferroviaire Kirow est documentée dans [`kirow/README.md`](kirow/REA
 | `/fr/work/` | `fr/work/index.html` | Études de cas et leadership en français |
 | `/projects/` | `projects/index.html` | Produits et systèmes personnels en anglais |
 | `/fr/projects/` | `fr/projects/index.html` | Produits et systèmes personnels en français |
+| `/projects/turbo-miette/` | `projects/turbo-miette/index.html` | Turbo Miette, jeu de course et captures en anglais |
+| `/fr/projects/turbo-miette/` | `fr/projects/turbo-miette/index.html` | Turbo Miette, jeu de course et captures en français |
 | `/objects/` | `objects/index.html` | Objets possédés et envies d'achat en anglais |
 | `/fr/objects/` | `fr/objects/index.html` | Objets possédés et envies d'achat en français |
 | `/cv/` | `cv/index.html` | CV anglais avec PDF pré-généré téléchargeable |
