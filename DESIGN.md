@@ -217,6 +217,13 @@ propre fond. Les fichiers lourds peuvent être remplacés
 par un dérivé WebP transparent, avec le master, son empreinte et la commande
 de transformation documentés.
 
+Sur l’accueil, le format carré a un côté de 3,5 rem dans un emplacement de
+4,25 rem de haut. Sur la page Projets, il passe à 5,25 rem dans un
+emplacement de 6,25 rem de haut. Les signatures horizontales gagnent en
+largeur et le blason de Papers Empire compense les marges transparentes de
+son fichier. Pour vérifier un ajustement, comparer les sept dessins à leur
+taille réelle sur les deux pages, en clair et en sombre.
+
 Le lockup Mon Florian assemble toujours le portrait V2 actif et le mot-symbole
 canonique comme deux assets séparés. L'ancien master combiné ne doit pas être
 réutilisé, car il fige un avatar retiré.
