@@ -67,8 +67,8 @@ La maquette ferroviaire Kirow est documentée dans [`kirow/README.md`](kirow/REA
 | `/fr/cv/` | `fr/cv/index.html` | CV français avec PDF pré-généré téléchargeable |
 | `/blog/` | `blog/index.html` | Index des articles en anglais |
 | `/fr/blog/` | `fr/blog/index.html` | Index des articles en français |
-| `/blog/<article>/` | `blog/*/index.html` | Six articles en anglais |
-| `/fr/blog/<article>/` | `fr/blog/*/index.html` | Six articles en français |
+| `/blog/<article>/` | `blog/*/index.html` | Articles en anglais |
+| `/fr/blog/<article>/` | `fr/blog/*/index.html` | Articles en français |
 | `/dashboard/` | `dashboard/index.html` | Morning brief expérimental, données d’exemple, non indexé |
 | `/claude/` | `claude/index.html` | Easter egg public, indexé et hors navigation principale |
 | `/claude/roadtrip-austria-2026/` | `claude/roadtrip-austria-2026/index.html` | Carnet photo public du voyage en Autriche |
@@ -153,9 +153,9 @@ Un hook `git commit` (`~/Developer/.claude/hooks/check-i18n-parity.py`) bloque l
 la parité *structurelle* diverge. La parité *sémantique* reste vérifiée par relecture.
 
 Le workflow `Site validation` exécute aussi `python3 scripts/validate-site.py`. Il vérifie les
-28 pages indexables, leur correspondance exacte avec le sitemap, les images, canonicals,
+pages indexables, leur correspondance exacte avec le sitemap, les images, canonicals,
 langues, `hreflang`, données structurées, métadonnées Open Graph et Twitter, ainsi que la
-structure des douze couples bilingues et la couverture canonique de `llms.txt`.
+structure des couples bilingues et la couverture canonique de `llms.txt`.
 Le catalogue `data/objects.json` alimente les deux pages Objets via
 `python3 scripts/generate-objects.py`. La validation contrôle les statuts de possession,
 la parité des objets, la synchronisation des pages générées et les liens Amazon.fr avec

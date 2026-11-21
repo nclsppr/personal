@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Articles sur l’ingénierie, l’IA et le leadership · Nicolas Pieper</title>
-    <meta name="description" content="Notes sur le leadership d’ingénierie, l’IA et les plateformes sécurisées, avec les jeux, communautés et web des débuts qui façonnent ma pratique.">
+    <meta name="description" content="J’écris sur les plateformes dont mon équipe s’occupe, les projets que je développe avec l’IA et les jeux et forums qui m’ont donné envie de coder.">
     <meta name="author" content="Nicolas Pieper">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://nicolaspieper.com/fr/blog/">
@@ -14,20 +14,20 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Nicolas Pieper">
     <meta property="og:title" content="Articles sur l’ingénierie, l’IA et le leadership">
-    <meta property="og:description" content="Notes sur le leadership d’ingénierie, l’IA et les plateformes sécurisées, avec les jeux, communautés et web des débuts qui façonnent ma pratique.">
+    <meta property="og:description" content="J’écris sur les plateformes dont mon équipe s’occupe, les projets que je développe avec l’IA et les jeux et forums qui m’ont donné envie de coder.">
     <meta property="og:url" content="https://nicolaspieper.com/fr/blog/">
-    <meta property="og:image" content="https://nicolaspieper.com/assets/img/og-blog-fr.png?v=1">
+    <meta property="og:image" content="https://nicolaspieper.com/assets/img/og-blog-fr.png?v=2">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Notes d’ingénierie et personnelles de Nicolas Pieper, avec trois illustrations d’articles">
+    <meta property="og:image:alt" content="Carnet de bord de Nicolas Pieper, illustré par trois articles du blog">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:locale:alternate" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Articles sur l’ingénierie, l’IA et le leadership">
-    <meta name="twitter:description" content="Notes sur le leadership d’ingénierie, l’IA et les plateformes sécurisées, avec les jeux, communautés et web des débuts qui façonnent ma pratique.">
-    <meta name="twitter:image" content="https://nicolaspieper.com/assets/img/og-blog-fr.png?v=1">
-    <meta name="twitter:image:alt" content="Notes d’ingénierie et personnelles de Nicolas Pieper, avec trois illustrations d’articles">
+    <meta name="twitter:description" content="J’écris sur les plateformes dont mon équipe s’occupe, les projets que je développe avec l’IA et les jeux et forums qui m’ont donné envie de coder.">
+    <meta name="twitter:image" content="https://nicolaspieper.com/assets/img/og-blog-fr.png?v=2">
+    <meta name="twitter:image:alt" content="Carnet de bord de Nicolas Pieper, illustré par trois articles du blog">
     <link rel="icon" type="image/svg+xml" sizes="any" href="/assets/img/favicon.svg?v=2">
     <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon-96.png?v=2">
     <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
@@ -35,7 +35,7 @@
     <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/sourceserif4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/jetbrainsmono-var-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/assets/css/site.css?v=20260905-objects">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20261121">
     <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
     <script type="application/ld+json">
     {
@@ -46,10 +46,11 @@
                 "@id": "https://nicolaspieper.com/fr/blog/#blog",
                 "url": "https://nicolaspieper.com/fr/blog/",
                 "name": "Nicolas Pieper · Blog",
-                "description": "Notes sur le leadership d’ingénierie, l’IA et les plateformes sécurisées, avec les jeux, communautés et web des débuts qui façonnent ma pratique.",
+                "description": "J’écris sur les plateformes dont mon équipe s’occupe, les projets que je développe avec l’IA et les jeux et forums qui m’ont donné envie de coder.",
                 "inLanguage": "fr",
                 "author": { "@id": "https://nicolaspieper.com/#person" },
                 "blogPost": [
+                    { "@id": "https://nicolaspieper.com/fr/blog/building-guteneo/#post" },
                     { "@id": "https://nicolaspieper.com/fr/blog/growing-up-with-the-web/#post" },
                     { "@id": "https://nicolaspieper.com/fr/blog/ai-coding-agents-logging/#post" },
                     { "@id": "https://nicolaspieper.com/fr/blog/ai-in-the-sdlc/#post" },
@@ -107,9 +108,10 @@
             <nav aria-label="Sur cette page">
                 <div class="side-group"><p class="side-title">Articles</p><ul>
                     <li><a href="#all-articles">Tous les articles</a></li>
+                    <li><a href="#building-guteneo">Construire Guteneo</a></li>
                     <li><a href="#growing-up-with-the-web">De phpBB à l’ingénierie</a></li>
                     <li><a href="#ai-coding-agents-logging">Agents de code IA et logs</a></li>
-                    <li><a href="#ai-in-the-sdlc">L’IA dans le SDLC</a></li>
+                    <li><a href="#ai-in-the-sdlc">L’IA dans le cycle de développement</a></li>
                     <li><a href="#claude-assisted-by-a-human">Claude assisté par un humain</a></li>
                     <li><a href="#organizing-the-solutions-team">Organiser l’équipe Solutions</a></li>
                     <li><a href="#claude-in-the-enterprise">Claude en entreprise</a></li>
@@ -122,50 +124,56 @@
         </aside>
         <main class="content" id="main">
             <nav class="breadcrumb" aria-label="Fil d’Ariane"><a href="/fr/">nicolaspieper.com</a><span class="sep">/</span><a href="/fr/">fr</a><span class="sep">/</span><span aria-current="page">blog</span></nav>
-            <header class="page-intro"><p class="eyebrow">Blog</p><h1>Notes de pratique.</h1><p class="lead">Ce que j’apprends en dirigeant une équipe d’ingénierie et en construisant des plateformes sécurisées, avec les jeux, les communautés et le web des débuts qui ont façonné ma façon de construire. Court, concret, écrit pour être utile plutôt que pour avoir raison.</p></header>
+            <header class="page-intro"><p class="eyebrow">Blog</p><h1>Carnet de bord</h1><p class="lead">J’écris sur les plateformes dont mon équipe s’occupe, les projets que je développe avec l’IA et les jeux et forums qui m’ont donné envie de coder.</p></header>
             <section class="doc-section" id="all-articles" aria-labelledby="all-articles-title">
                 <h2 class="anchor-heading" id="all-articles-title">Tous les articles<a class="anchor" href="#all-articles" aria-label="Lien vers cette section">#</a></h2>
                 <div class="blog-list">
-                    <article class="blog-featured" id="growing-up-with-the-web">
+                    <article class="blog-featured" id="building-guteneo">
                         <figure class="blog-featured-media">
-                            <img src="/assets/img/blog/growing-up-with-the-web-hero.webp?v=2" width="1200" height="480" alt="" loading="eager" fetchpriority="high" decoding="async">
+                            <img src="/assets/img/blog/building-guteneo-hero.webp" width="1200" height="800" alt="" loading="eager" fetchpriority="high" decoding="async">
                         </figure>
                         <div class="blog-featured-content">
-                            <p class="post-meta"><time datetime="2026-08-30">30 août 2026</time> <span class="post-min">5 min de lecture</span> <span class="post-cat">Parcours personnel</span></p>
-                            <h3>J’ai grandi avec le web : de phpBB à l’ingénierie</h3>
-                            <p>De Sonic et l’ETAJV à phpBB, wii-fr.com, l’électronique et les systèmes à grande échelle : presque trente ans sur le même câble orange.</p>
-                            <a class="text-link" href="/fr/blog/growing-up-with-the-web/">Lire l’article <span aria-hidden="true">→</span></a>
+                            <p class="post-meta"><time datetime="2026-11-21">21 novembre 2026</time> <span class="post-min">4 min de lecture</span> <span class="post-cat">Retour d’expérience</span></p>
+                            <h3>Guteneo, du brouillon à la boîte aux lettres</h3>
+                            <p>Pourquoi vérifier le code postal avant de valider un courrier ? Ce détail raconte une bonne partie du travail que j’ai fait avec Codex sur Guteneo.</p>
+                            <a class="text-link" href="/fr/blog/building-guteneo/">Lire l’article <span aria-hidden="true">→</span></a>
                         </div>
                     </article>
                     <div class="blog-compact-list">
+                        <article class="work-summary blog-compact" id="growing-up-with-the-web">
+                            <p class="post-meta"><time datetime="2026-08-30">30 août 2026</time> <span class="post-min">5 min de lecture</span> <span class="post-cat">Parcours personnel</span></p>
+                            <h3>J’ai grandi avec le web : de phpBB à l’ingénierie</h3>
+                            <p>J’ai acheté wii-fr.com à treize ans. L’histoire avait commencé avec Sonic, les astuces de Pokémon et mes premiers thèmes phpBB.</p>
+                            <a class="text-link" href="/fr/blog/growing-up-with-the-web/">Lire l’article <span aria-hidden="true">→</span></a>
+                        </article>
                         <article class="work-summary blog-compact" id="ai-coding-agents-logging">
                             <p class="post-meta"><time datetime="2026-08-11">11 août 2026</time> <span class="post-min">5 min de lecture</span> <span class="post-cat">Ingénierie IA</span></p>
                             <h3>Les agents de code IA ont besoin d’un contrat de logs, pas d’un meilleur prompt</h3>
-                            <p>Les agents de code IA peuvent passer les tests tout en laissant de mauvaises preuves en production. Un contrat pratique associe événements structurés, règles de sécurité et contrôles CI.</p>
+                            <p>Quand un changement casse en production, qu’est-ce que l’ingénieur de garde trouvera dans les logs ? Je demande les mêmes traces à un collègue et à un agent.</p>
                             <a class="text-link" href="/fr/blog/ai-coding-agents-logging/">Lire l’article <span aria-hidden="true">→</span></a>
                         </article>
                         <article class="work-summary blog-compact" id="ai-in-the-sdlc">
                             <p class="post-meta"><time datetime="2026-07-17">17 juillet 2026</time> <span class="post-min">5 min de lecture</span> <span class="post-cat">Ingénierie IA</span></p>
                             <h3>Coder plus vite n’est pas livrer plus vite</h3>
-                            <p>Notes sur la vidéo AI in the SDLC d’IBM Technology : les gains du codage sont absorbés par le cycle de livraison, et la solution est de repenser le cycle autour de l’IA. Avec la vidéo et un diagramme.</p>
+                            <p>Même si le code est prêt, il faut encore trouver un relecteur ou attendre un environnement de test. Je reprends la vidéo de Cedric Clyburn pour IBM Technology à la lumière de mon quotidien.</p>
                             <a class="text-link" href="/fr/blog/ai-in-the-sdlc/">Lire l’article <span aria-hidden="true">→</span></a>
                         </article>
                         <article class="work-summary blog-compact" id="claude-assisted-by-a-human">
                             <p class="post-meta"><time datetime="2026-06-02">2 juin 2026</time> <span class="post-min">5 min de lecture</span> <span class="post-cat">Futur du travail</span></p>
                             <h3>Le futur du travail, c’est Claude assisté par un humain</h3>
-                            <p>Nous avons commencé avec un humain assisté par l’IA. Les rôles s’inversent discrètement, et les humains qui s’épanouiront seront ceux qui dirigent, vérifient et assument la responsabilité.</p>
+                            <p>Claude peut écrire un premier jet et préparer une migration. Je passe davantage de temps à préciser la demande, à lire le diff et à vérifier ce qu’on va livrer.</p>
                             <a class="text-link" href="/fr/blog/claude-assisted-by-a-human/">Lire l’article <span aria-hidden="true">→</span></a>
                         </article>
                         <article class="work-summary blog-compact" id="organizing-the-solutions-team">
                             <p class="post-meta"><time datetime="2026-04-21">21 avril 2026</time> <span class="post-min">5 min de lecture</span> <span class="post-cat">Management</span></p>
                             <h3>Comment j’organise l’équipe d’ingénierie Solutions</h3>
-                            <p>Le modèle de fonctionnement derrière une équipe et un portefeuille : des responsables nommés avec leurs suppléants, une vue unique des priorités et une autonomie nourrie de contexte.</p>
+                            <p>Comment dix ingénieurs se répartissent plusieurs plateformes, prennent le relais pendant les congés et décident quand un correctif passe avant une nouvelle fonctionnalité.</p>
                             <a class="text-link" href="/fr/blog/organizing-the-solutions-team/">Lire l’article <span aria-hidden="true">→</span></a>
                         </article>
                         <article class="work-summary blog-compact" id="claude-in-the-enterprise">
                             <p class="post-meta"><time datetime="2026-02-10">10 février 2026</time> <span class="post-min">6 min de lecture</span> <span class="post-cat">Ingénierie IA</span></p>
                             <h3>Claude en entreprise, de l’architecture à la production</h3>
-                            <p>Pourquoi je reviens toujours à Claude, et comment une équipe d’ingénierie peut l’utiliser sur tout le cycle de vie sans renoncer à la sécurité, à la confidentialité ni au discernement.</p>
+                            <p>Une migration Java, une revue de code, un compte rendu d’incident. Voilà où Claude nous aide et comment on travaille avec des informations sensibles.</p>
                             <a class="text-link" href="/fr/blog/claude-in-the-enterprise/">Lire l’article <span aria-hidden="true">→</span></a>
                         </article>
                     </div>
@@ -203,11 +211,11 @@
             </div>
             <div class="footer-base">
                 <p>© 2026 Nicolas Pieper · Luxembourg</p>
-                <p>Composé en Inter, Source Serif 4 &amp; JetBrains Mono. Site statique, sans tracking.</p>
+                <p>Inter, Source Serif 4 et JetBrains Mono. Site statique, sans suivi.</p>
             </div>
         </footer>
         </main>
     </div>
-    <script src="/assets/js/site.js?v=20260905-objects" defer></script>
+    <script src="/assets/js/site.js?v=20261121" defer></script>
 </body>
 </html>

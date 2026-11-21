@@ -24,7 +24,7 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="fr_FR">
     <meta property="article:published_time" content="2026-07-17">
-    <meta property="article:modified_time" content="2026-07-17">
+    <meta property="article:modified_time" content="2026-11-21">
     <meta property="article:author" content="https://nicolaspieper.com/">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Faster coding is not faster delivery">
@@ -38,7 +38,7 @@
     <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/sourceserif4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/jetbrainsmono-var-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/assets/css/site.css?v=20260905-objects">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20261121">
     <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
     <script type="application/ld+json">
     {
@@ -52,7 +52,7 @@
                 "description": "Notes on IBM Technology’s video AI in the SDLC: why coding gains get absorbed by the delivery lifecycle, the over- and under-delegation traps, and what redesigning around AI changes.",
                 "inLanguage": "en",
                 "datePublished": "2026-07-17",
-                "dateModified": "2026-07-17",
+                "dateModified": "2026-11-21",
                 "author": { "@id": "https://nicolaspieper.com/#person" },
                 "publisher": { "@id": "https://nicolaspieper.com/#person" },
                 "image": "https://nicolaspieper.com/assets/img/blog/ai-in-the-sdlc-og.jpg",
@@ -117,6 +117,7 @@
                 </ul></div>
                 <div class="side-group"><p class="side-title">More articles</p><ul>
                     <li><a href="/blog/">All articles</a></li>
+                    <li><a href="/blog/building-guteneo/">Building Guteneo</a></li>
                     <li><a href="/blog/growing-up-with-the-web/">I grew up with the web</a></li>
                     <li><a href="/blog/claude-in-the-enterprise/">Claude in the enterprise</a></li>
                     <li><a href="/blog/organizing-the-solutions-team/">Organizing the Solutions team</a></li>
@@ -132,7 +133,7 @@
                 <p class="eyebrow">Blog · AI engineering</p>
                 <h1>Faster coding is not faster delivery.</h1>
                 <p class="post-meta"><time datetime="2026-07-17">July 17, 2026</time> · 5 min read · Nicolas Pieper</p>
-                <p class="lead">A video landed in my feed that says out loud what I keep drawing on whiteboards: AI has made coding dramatically faster, and software delivery barely noticed. Cedric Clyburn of IBM Technology explains why in twelve minutes, and his answer resonates with everything I see at work.</p>
+                <p class="lead">Why does a change still take so long to reach production when we wrote the code faster? I often end up drawing that question on a whiteboard. In a twelve-minute video for IBM Technology, Cedric Clyburn follows a change all the way through delivery. I recognised a lot of my working day in it.</p>
             </header>
             <figure class="post-hero">
                 <img src="/assets/img/blog/ai-in-the-sdlc-hero.webp" width="1200" height="800"
@@ -160,13 +161,13 @@
             </section>
             <section class="doc-section" id="two-traps" aria-labelledby="two-traps-title">
                 <h2 class="anchor-heading" id="two-traps-title">Two ways to fail<a class="anchor" href="#two-traps" aria-label="Link to this section">#</a></h2>
-                <p>The video describes AI adoption as a spectrum with a trap at each end, and I have watched teams, mine included, step into both.</p>
+                <p>Clyburn describes two ways to divide up the work badly. I’ve watched teams fall into both traps, my own included.</p>
                 <p><strong>Over-delegation</strong>: hand a frontier model a big ambiguous problem, “build me an e-commerce platform”, and let it run. Every unstated decision about payments, authentication and shipping gets made silently by the model, which returns thousands of lines nobody has read. Review becomes the bottleneck, and the back-and-forth burns everything the generation saved.</p>
                 <p><strong>Under-delegation</strong>: the senior engineer keeps all the planning and hands the model crumbs, write this function, scan this file for SQL injection. The code that comes back is good, but the intellectual heavy lifting stays entirely human, so the lifecycle barely accelerates. This is the trap disciplined teams fall into, precisely because their discipline protects them from the first one. Our own <a href="/blog/claude-in-the-enterprise/">guardrails</a> keep us safe from over-delegation; the honest question is whether they sometimes keep us too far on the timid side.</p>
             </section>
             <section class="doc-section" id="redesign" aria-labelledby="redesign-title">
                 <h2 class="anchor-heading" id="redesign-title">Redesigning around AI<a class="anchor" href="#redesign" aria-label="Link to this section">#</a></h2>
-                <p>The heart of the video is a reframe: stop bolting AI onto the existing lifecycle and redesign the lifecycle around it. Phase by phase, that looks like this:</p>
+                <p>What stayed with me was how much of this work happens before and after we write the code. Clyburn goes through it stage by stage.</p>
                 <div class="principles">
                     <div class="principle"><span class="p-n">01</span><div><h3>Requirements and design</h3><p>Synthesize the unstructured mass of surveys, user reports and stakeholder emails into user stories, and let agents mine production logs and bug reports so the next iteration starts from what actually fails.</p></div></div>
                     <div class="principle"><span class="p-n">02</span><div><h3>Build</h3><p>Small, well-defined tasks instead of vibe-coded systems: a specification the model can read and follow, subagents for research, for pulling data through MCP servers and for editing, and shared context files so every team gets consistent output.</p></div></div>
@@ -290,7 +291,7 @@
         </footer>
         </main>
     </div>
-    <script src="/assets/js/site.js?v=20260905-objects" defer></script>
+    <script src="/assets/js/site.js?v=20261121" defer></script>
     <script>
     /* Façade vidéo : l’iframe youtube-nocookie n’est créée qu’au clic.
        Sans JavaScript, la façade reste un lien vers YouTube. */

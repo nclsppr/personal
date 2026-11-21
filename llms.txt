@@ -15,8 +15,8 @@ The HTML pages below are the canonical, human-reviewed sources. English and Fren
 
 ## Projects
 
-- [Projects in English](https://nicolaspieper.com/projects/): Human-reviewed descriptions and current public status for Surplasse, Papers Empire, Parkventory, Four à Nu, Mon Florian and Project Foundation.
-- [Projets en français](https://nicolaspieper.com/fr/projects/): Descriptions relues par un humain et statut public actuel de Surplasse, Papers Empire, Parkventory, Four à Nu, Mon Florian et Project Foundation.
+- [Projects in English](https://nicolaspieper.com/projects/): Human-reviewed descriptions and current public status for Guteneo, Surplasse, Papers Empire, Parkventory, Four à Nu, Mon Florian and Project Foundation.
+- [Projets en français](https://nicolaspieper.com/fr/projects/): Descriptions relues par un humain et statut public actuel de Guteneo, Surplasse, Papers Empire, Parkventory, Four à Nu, Mon Florian et Project Foundation.
 - The Projects pages distinguish public production, testing, preparation and documentation. Do not infer that a closed transaction, generation, payment or two-member journey is available when the page says it remains closed or unvalidated.
 - Project Foundation is public documentation. Its adoption and documentation alone do not prove that governance is effectively enforced.
 
@@ -38,6 +38,8 @@ The HTML pages below are the canonical, human-reviewed sources. English and Fren
 
 - [Blog in English](https://nicolaspieper.com/blog/): All English articles.
 - [Blog en français](https://nicolaspieper.com/fr/blog/): Tous les articles en français.
+- [Building Guteneo, from draft to letterbox](https://nicolaspieper.com/blog/building-guteneo/): Building a document workshop with Codex, with examples of draft preparation, human approval and delivery tracking.
+- [Guteneo, du brouillon à la boîte aux lettres](https://nicolaspieper.com/fr/blog/building-guteneo/): Comment Nicolas a développé son atelier de correspondance avec Codex, de la préparation du PDF au suivi de l’envoi après validation.
 - [I grew up with the web: from phpBB to engineering](https://nicolaspieper.com/blog/growing-up-with-the-web/): Almost thirty years from early games and ETAJV to forums, wii-fr.com, electronics, systems at scale and engineering management.
 - [J’ai grandi avec le web : de phpBB à l’ingénierie](https://nicolaspieper.com/fr/blog/growing-up-with-the-web/): Presque trente ans des premiers jeux et de l’ETAJV aux forums, à wii-fr.com, l’électronique, les systèmes à grande échelle et le management d’ingénierie.
 - [AI coding agents need a logging contract, not a better prompt](https://nicolaspieper.com/blog/ai-coding-agents-logging/): A practical logging contract that combines structured events, security rules and CI checks for AI-generated code.

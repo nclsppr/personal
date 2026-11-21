@@ -111,6 +111,7 @@
 
   if (menuBtn && sidebar) {
     menuBtn.addEventListener('click', function () {
+      sidebar.classList.add('has-opened');
       setSidebar(!sidebar.classList.contains('open'));
     });
     if (backdrop) backdrop.addEventListener('click', function () { setSidebar(false); });

@@ -36,15 +36,6 @@
   .brand { display: flex; align-items: center; gap: 15px; margin-bottom: 70px; }
   .brand img { width: 52px; height: 52px; border-radius: 7px; }
   .brand span { font-size: 22px; font-weight: 650; }
-  .eyebrow {
-    margin: 0 0 14px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 17px;
-    font-weight: 650;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #C23C00;
-  }
   h1 {
     margin: 0;
     font-family: 'Source Serif 4', serif;
@@ -63,12 +54,13 @@
   .ledger { align-self: center; border-top: 1px solid #CFCCC0; border-bottom: 1px solid #CFCCC0; }
   .project {
     display: grid;
-    grid-template-columns: 45px 1fr;
+    grid-template-columns: 40px 1fr auto;
     align-items: center;
-    min-height: 89px;
+    min-height: 74px;
     border-top: 1px solid #E3E1D7;
   }
   .project:first-child { border-top: 0; }
+  .project-kind { font-size: 18px; color: #66655E; }
   .number {
     font-family: 'JetBrains Mono', monospace;
     font-size: 14px;
@@ -78,15 +70,13 @@
   .logo-frame {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     height: 64px;
-    padding: 4px 20px;
-    background: #FFFFFF;
-    border: 1px solid #E3E1D7;
-    border-radius: 4px;
   }
   .logo-frame img { display: block; width: auto; max-width: 260px; max-height: 42px; object-fit: contain; }
   .logo-frame img.logo-large { max-height: 54px; }
+  .logo-frame .logo-caption { margin-left: 16px; font-weight: 650; font-size: 24px; }
+  .logo-frame .lime-mark { filter: drop-shadow(0 0 1px #66655E); }
   .logo-frame .monflorian-lockup {
     display: grid;
     grid-template-columns: minmax(0, 0.58fr) minmax(0, 1fr);
@@ -118,18 +108,18 @@
   <main class="canvas">
     <section class="intro">
       <div class="brand"><img src="../assets/img/logo-mark.png" alt=""><span>Nicolas Pieper</span></div>
-      <p class="eyebrow" id="eyebrow">From idea to production</p>
-      <h1 id="title">Projects.</h1>
-      <p class="tagline" id="tagline">Web products and engineering systems, led and verified by a human.</p>
+      <h1 id="title">Projects</h1>
+      <p class="tagline" id="tagline">Run a print shop, prepare a letter or share a parking space with a colleague.</p>
       <p class="url" id="url">nicolaspieper.com/projects</p>
     </section>
-    <section aria-label="Five products">
+    <section aria-label="Projects">
       <div class="ledger">
-        <div class="project"><span class="number">01</span><div class="logo-frame"><img src="../assets/img/projects/surplasse-logo.webp" alt=""></div></div>
-        <div class="project"><span class="number">02</span><div class="logo-frame"><img class="logo-large" src="../assets/img/projects/papers-empire-logo.webp" alt=""></div></div>
-        <div class="project"><span class="number">03</span><div class="logo-frame"><img class="logo-large" src="../assets/img/projects/parkventory-logo.svg" alt=""></div></div>
-        <div class="project"><span class="number">04</span><div class="logo-frame"><img class="logo-large" src="../assets/img/projects/fouranu-logo.png" alt=""></div></div>
-        <div class="project"><span class="number">05</span><div class="logo-frame"><span class="monflorian-lockup" aria-hidden="true"><img src="../assets/img/projects/monflorian-avatar-v2.webp" alt=""><img src="../assets/img/projects/monflorian-wordmark.webp" alt=""></span></div></div>
+        <div class="project"><span class="number">01</span><div class="logo-frame"><img class="logo-large" src="../assets/img/projects/guteneo-logo.webp" alt=""><span class="logo-caption">Guteneo</span></div><span class="project-kind" data-fr="Documents">Documents</span></div>
+        <div class="project"><span class="number">02</span><div class="logo-frame"><img src="../assets/img/projects/surplasse-logo.webp" alt=""></div><span class="project-kind" data-fr="Commande à table">Table orders</span></div>
+        <div class="project"><span class="number">03</span><div class="logo-frame"><img class="logo-large" src="../assets/img/projects/papers-empire-logo.webp" alt=""><span class="logo-caption">Papers Empire</span></div><span class="project-kind" data-fr="Jeu de gestion">Idle game</span></div>
+        <div class="project"><span class="number">04</span><div class="logo-frame"><img class="logo-large lime-mark" src="../assets/img/projects/parkventory-logo.svg" alt=""><span class="logo-caption">Parkventory</span></div><span class="project-kind" data-fr="Stationnement">Parking</span></div>
+        <div class="project"><span class="number">05</span><div class="logo-frame"><img class="logo-large" src="../assets/img/projects/fouranu-logo.png" alt=""></div><span class="project-kind" data-fr="Matériel à pizza">Pizza equipment</span></div>
+        <div class="project"><span class="number">06</span><div class="logo-frame"><span class="monflorian-lockup" aria-hidden="true"><img src="../assets/img/projects/monflorian-avatar-v2.webp" alt=""><img src="../assets/img/projects/monflorian-wordmark.webp" alt=""></span></div><span class="project-kind" data-fr="Voyage">Travel</span></div>
       </div>
       <div class="foundation">FOUNDATION.md</div>
     </section>
@@ -137,9 +127,9 @@
   <script>
     if (new URLSearchParams(window.location.search).get('lang') === 'fr') {
       document.documentElement.lang = 'fr';
-      document.getElementById('eyebrow').textContent = 'De l’idée à la production';
-      document.getElementById('title').textContent = 'Projets.';
-      document.getElementById('tagline').textContent = 'Produits web et systèmes d’ingénierie, pilotés et vérifiés par un humain.';
+      document.querySelectorAll('.project-kind').forEach(item => { item.textContent = item.dataset.fr; });
+      document.getElementById('title').textContent = 'Projets';
+      document.getElementById('tagline').textContent = 'Une imprimerie à faire tourner, un courrier à préparer, une place de parking à partager.';
       document.getElementById('url').textContent = 'nicolaspieper.com/fr/projects';
     }
   </script>

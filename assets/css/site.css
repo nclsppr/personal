@@ -68,7 +68,6 @@
   --muted: #66655E;
   --border: #E3E1D7;
   --border-strong: #CFCCC0;
-  --project-frame: #FFFFFF;
 
   /* Brand accent - International Orange, from the logo (#FF4F00) */
   --brand: #FF4F00;           /* the pure brand orange - logo, boldest moments */
@@ -116,7 +115,6 @@
   --muted: #9F9D93;
   --border: #3B3A36;
   --border-strong: #4C4B45;
-  --project-frame: #FFFFFF;
 
   --brand: #FF4F00;
   --accent: #FF4F00;
@@ -695,7 +693,7 @@ hr {
 .project-index > .eyebrow { margin-bottom: 10px; }
 .project-index ol {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   max-width: none;
   margin: 0;
   padding: 0;
@@ -743,20 +741,21 @@ hr {
 .project-logo-frame {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-height: 88px;
-  margin-bottom: 22px;
-  padding: 16px 20px;
-  overflow: hidden;
-  background: var(--project-frame);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-sm);
+  min-height: 66px;
+  margin-bottom: 18px;
 }
 .project-logo { display: block; width: auto; max-width: 100%; object-fit: contain; }
 .project-logo--wide { max-height: 54px; }
 .project-logo--square { max-height: 66px; }
 .project-logo--mark { max-height: 62px; }
+
+/* A fine edge keeps pale or dark ink legible without a tile behind the logo. */
+:root[data-theme="light"] .project-logo--edge-light,
+:root[data-theme="dark"] .project-logo--edge-dark,
+:root[data-theme="dark"] .monflorian-lockup img:last-child {
+  filter: drop-shadow(.65px 0 0 var(--muted)) drop-shadow(-.65px 0 0 var(--muted))
+    drop-shadow(0 .65px 0 var(--muted)) drop-shadow(0 -.65px 0 var(--muted));
+}
 .project-status {
   margin: 1.35rem 0;
   padding: 12px 0 12px 16px;
@@ -781,9 +780,8 @@ hr {
 .project-media img {
   display: block;
   width: 100%;
-  aspect-ratio: 1200 / 630;
-  object-fit: cover;
-  background: var(--project-frame);
+  height: auto;
+  background: var(--bg-raised);
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-sm);
 }
@@ -851,11 +849,7 @@ hr {
   justify-content: center;
   width: 100%;
   min-height: 58px;
-  padding: 8px 12px;
-  overflow: hidden;
-  background: var(--project-frame);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  padding: 4px;
 }
 .project-compact-logo img { display: block; width: auto; max-width: 100%; max-height: 38px; object-fit: contain; }
 .project-compact-logo .project-logo--square,
@@ -904,7 +898,7 @@ hr {
   .project-index li:nth-child(n + 3) { border-top: 1px solid var(--border); }
   .project-index li:nth-child(4) { border-left: 1px solid var(--border); }
   .page-projects .project-entry { grid-template-columns: 1fr; gap: 22px; padding-top: 2.4rem; margin-top: 3.6rem; }
-  .project-logo-frame { width: min(220px, 72%); min-height: 72px; }
+  .project-logo-frame { width: min(220px, 72%); }
   .project-media { margin-top: 4px; }
   .foundation-entry { grid-template-columns: 1fr; }
   .foundation-mark { min-height: 96px; }
@@ -1760,10 +1754,12 @@ a.card:hover { text-decoration: none; border-color: var(--accent); box-shadow: v
     padding: 24px max(20px, var(--safe-left)) max(40px, calc(24px + var(--safe-bottom)));
     transform: translateX(-102%);
     visibility: hidden; /* keeps off-screen links out of the tab order */
-    transition: transform 0.22s ease, visibility 0s 0.22s;
     z-index: 40;
     box-shadow: none;
     overscroll-behavior: contain;
+  }
+  .sidebar-ready .sidebar.has-opened {
+    transition: transform 0.22s ease, visibility 0s 0.22s;
   }
   .sidebar-ready .sidebar.open {
     transform: translateX(0);

@@ -24,7 +24,7 @@
     <meta property="og:locale" content="fr_FR">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="article:published_time" content="2026-02-10">
-    <meta property="article:modified_time" content="2026-02-10">
+    <meta property="article:modified_time" content="2026-11-21">
     <meta property="article:author" content="https://nicolaspieper.com/">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Claude en entreprise, de l’architecture à la production">
@@ -38,7 +38,7 @@
     <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/sourceserif4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/jetbrainsmono-var-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/assets/css/site.css?v=20260905-objects">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20261121">
     <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
     <script type="application/ld+json">
     {
@@ -52,7 +52,7 @@
                 "description": "Comment une équipe d’ingénierie utilise Claude sur l’architecture, la modernisation du legacy, la revue de code, la livraison et la production, dans de vraies contraintes de sécurité et de confidentialité.",
                 "inLanguage": "fr",
                 "datePublished": "2026-02-10",
-                "dateModified": "2026-02-10",
+                "dateModified": "2026-11-21",
                 "author": { "@id": "https://nicolaspieper.com/#person" },
                 "publisher": { "@id": "https://nicolaspieper.com/#person" },
                 "image": "https://nicolaspieper.com/assets/img/blog/claude-in-the-enterprise-og.jpg",
@@ -110,7 +110,7 @@
                 <div class="side-group"><p class="side-title">Sur cette page</p><ul>
                     <li><a href="#why-claude">Pourquoi Claude</a></li>
                     <li><a href="#architecture">Architecture</a></li>
-                    <li><a href="#code">Code et legacy</a></li>
+                    <li><a href="#code">Code existant</a></li>
                     <li><a href="#delivery">Revue et livraison</a></li>
                     <li><a href="#production">Production</a></li>
                     <li><a href="#guardrails">Garde-fous</a></li>
@@ -118,10 +118,11 @@
                 </ul></div>
                 <div class="side-group"><p class="side-title">Autres articles</p><ul>
                     <li><a href="/fr/blog/">Tous les articles</a></li>
+                    <li><a href="/fr/blog/building-guteneo/">Construire Guteneo</a></li>
                     <li><a href="/fr/blog/growing-up-with-the-web/">J’ai grandi avec le web</a></li>
                     <li><a href="/fr/blog/organizing-the-solutions-team/">Organiser l’équipe Solutions</a></li>
                     <li><a href="/fr/blog/claude-assisted-by-a-human/">Claude assisté par un humain</a></li>
-                    <li><a href="/fr/blog/ai-in-the-sdlc/">L’IA dans le SDLC</a></li>
+                    <li><a href="/fr/blog/ai-in-the-sdlc/">L’IA dans le cycle de développement</a></li>
                     <li><a href="/fr/blog/ai-coding-agents-logging/">Agents de code IA et logs</a></li>
                 </ul></div>
             </nav>
@@ -133,7 +134,7 @@
                 <p class="eyebrow">Blog · Ingénierie assistée par IA</p>
                 <h1>Claude en entreprise, de l’architecture à la production.</h1>
                 <p class="post-meta"><time datetime="2026-02-10">10 février 2026</time> · 6 min de lecture · Nicolas Pieper</p>
-                <p class="lead">J’ai passé dix ans à construire des plateformes où une erreur finit sur un relevé bancaire ou dans la cuisine de quelqu’un. Les outils m’impressionnent rarement. Claude m’a impressionné, et il continue de le faire là où ça compte le plus : dans le cœur ingrat du logiciel d’entreprise.</p>
+                <p class="lead">J’ai passé dix ans à travailler sur des plateformes où une erreur peut se retrouver sur un relevé bancaire ou dans la cuisine de quelqu’un. C’est sur ce genre de logiciel que Claude a gagné sa place dans ma boîte à outils, entre une migration Java et une enquête sur un incident.</p>
             </header>
             <figure class="post-hero">
                 <img src="/assets/img/blog/claude-in-the-enterprise-hero.webp" width="1200" height="675"
@@ -142,31 +143,31 @@
             </figure>
             <section class="doc-section" id="why-claude" aria-labelledby="why-claude-title">
                 <h2 class="anchor-heading" id="why-claude-title">Pourquoi Claude, et pourquoi maintenant<a class="anchor" href="#why-claude" aria-label="Lien vers cette section">#</a></h2>
-                <p>Mon attachement à Claude ne tient pas de la magie. Il tient de l’amplitude. Le même assistant qui débat d’un compromis d’architecture le matin relit une migration Java avant midi, rédige un runbook l’après-midi et lit une stack trace en fin de journée. Un travail qui attendait qu’un des quatre spécialistes trouve une heure de libre commence désormais par une bonne question.</p>
+                <p>Ce qui me plaît chez Claude, c’est de pouvoir passer d’un sujet à l’autre. Le même assistant qui débat d’un compromis d’architecture le matin relit une migration Java avant midi, rédige un runbook l’après-midi et lit une stack trace en fin de journée. Un travail qui attendait qu’un des quatre spécialistes trouve une heure de libre commence désormais par une bonne question.</p>
                 <p>J’aime aussi son tempérament. Claude lit avant d’écrire. Il demande quelle est la contrainte au lieu de supposer qu’il n’y en a pas. Et il accepte qu’on lui dise qu’il a tort, ce qui n’est pas le cas de tous les outils ni de tous les ingénieurs, moi compris les mauvais jours.</p>
             </section>
             <section class="doc-section" id="architecture" aria-labelledby="architecture-title">
-                <h2 class="anchor-heading" id="architecture-title">Architecture : un sparring partner qui lit tout<a class="anchor" href="#architecture" aria-label="Lien vers cette section">#</a></h2>
+                <h2 class="anchor-heading" id="architecture-title">Mettre un choix d’architecture à l’épreuve<a class="anchor" href="#architecture" aria-label="Lien vers cette section">#</a></h2>
                 <p>L’architecture en entreprise est surtout de l’archéologie. Avant de dessiner la cible, il faut comprendre des années de logique métier accumulée, des décisions à moitié documentées et des dépendances que personne ne se souvient d’avoir créées. Claude est le premier outil que j’utilise capable de tout lire, le code comme les documents, et de tout tenir dans une seule conversation.</p>
-                <p>Notre façon de l’utiliser est volontairement adversariale : propose trois options, puis attaque chacune. Où casse-t-elle sous la charge ? Que coûte-t-elle à exploiter ? Que suppose-t-elle du système legacy qui est faux ? Un modèle qui défend brillamment la mauvaise option est dangereux, donc <strong>la décision reste toujours chez nous</strong>. Ce que Claude supprime, c’est la page blanche et les angles morts, pas la responsabilité.</p>
+                <p>On demande à Claude de proposer trois options, puis de trouver les failles de chacune. À partir de quelle charge risque-t-elle de casser ? Combien coûtera-t-elle à exploiter ? Quelle hypothèse sur l’existant faut-il vérifier ? Ses objections nous aident à repérer ce qu’on avait oublié. Il peut aussi défendre avec assurance une mauvaise idée. <strong>C’est l’équipe qui tranche.</strong></p>
             </section>
             <section class="doc-section" id="code" aria-labelledby="code-title">
-                <h2 class="anchor-heading" id="code-title">Code : le legacy d’abord, le greenfield ensuite<a class="anchor" href="#code" aria-label="Lien vers cette section">#</a></h2>
+                <h2 class="anchor-heading" id="code-title">Moderniser le code qui tourne déjà<a class="anchor" href="#code" aria-label="Lien vers cette section">#</a></h2>
                 <p>Le débat public sur le code assisté par IA est obsédé par les projets neufs. L’essentiel de la valeur en entreprise se trouve à l’opposé : des applications établies qui doivent continuer à tourner pendant qu’on les modernise. C’est là que Claude m’a le plus surpris.</p>
                 <p>Monter de version un framework sur toute une application, démêler une classe que trois générations de développeurs ont étendue, écrire les tests qu’un module n’a jamais eus avant d’y toucher : c’est un travail patient et minutieux, exactement ce pour quoi un assistant infatigable excelle. L’ingénieur fixe la direction et les invariants ; Claude fait la longue marche à travers les fichiers ; le diff est relu comme n’importe quel autre diff.</p>
             </section>
             <section class="doc-section" id="delivery" aria-labelledby="delivery-title">
                 <h2 class="anchor-heading" id="delivery-title">Revue, tests et livraison<a class="anchor" href="#delivery" aria-label="Lien vers cette section">#</a></h2>
-                <p>Une seconde paire d’yeux qui ne fatigue jamais change l’économie de la qualité. Notre habitude est simple : Claude relit d’abord, les humains relisent avec ses conclusions en main. Le relecteur humain cesse de brûler son attention sur la couche mécanique, le nommage, les bugs évidents, les cas limites oubliés, et la consacre à ce qui le requiert vraiment : ce changement fait-il ce qu’il faut pour le produit ?</p>
+                <p>Chez nous, Claude fait une première relecture. Il relève un nom ambigu, une erreur évidente ou un cas limite oublié. Quand un ingénieur ouvre le diff, il a déjà ces remarques sous les yeux et peut se concentrer sur le fond. Est-ce bien le changement dont le produit a besoin ?</p>
                 <ul class="checklist">
                     <li>Demander une revue avant d’ouvrir la pull request, pas après</li>
-                    <li>Faire écrire ou challenger les tests par l’assistant, puis les faire juger par l’auteur</li>
-                    <li>Le laisser lire le pipeline : jobs instables et étapes lentes sont des motifs, et il est bon avec les motifs</li>
+                    <li>Demander à Claude d’écrire ou de critiquer les tests, puis les faire relire par l’auteur du changement</li>
+                    <li>Lui faire comparer les exécutions du pipeline pour repérer les étapes qui ralentissent ou échouent régulièrement</li>
                 </ul>
             </section>
             <section class="doc-section" id="production" aria-labelledby="production-title">
                 <h2 class="anchor-heading" id="production-title">Production : incidents et runbooks<a class="anchor" href="#production" aria-label="Lien vers cette section">#</a></h2>
-                <p>C’est en production que l’affection est devenue sérieuse. Pendant un incident, la ressource la plus rare est un lecteur calme. Claude lit la stack trace, les changements récents et les logs sans paniquer, et propose des hypothèses par ordre de vraisemblance. Ensuite, il rédige le postmortem pendant que les détails sont encore chauds, et écrit le runbook que tout le monde jugeait nécessaire et que personne n’avait le temps d’écrire.</p>
+                <p>C’est pendant les incidents que j’apprécie le plus son aide. Claude peut rapprocher une trace d’erreur, les logs et les derniers changements, puis proposer des hypothèses à vérifier dans l’ordre. Une fois le service rétabli, il peut préparer le compte rendu et la procédure qui manquait pour la prochaine fois.</p>
                 <div class="terminal" role="img" aria-label="Terminal montrant une commande claude demandant de lire une stack trace et les derniers déploiements, puis de classer les causes probables">
                     <div class="terminal-bar"><i></i><i></i><i></i><span class="terminal-title">nicolas@pieper.fr - zsh</span></div>
                     <pre><span class="t-prompt">$</span> <span class="t-cmd">claude "lis cette stack trace et les trois derniers</span>
@@ -178,7 +179,7 @@
                 <p>Nous construisons des plateformes pour des institutions financières et des organisations du secteur public. Ici, la confidentialité n’est pas une préférence, c’est le produit. Utiliser Claude dans ce contexte est tout à fait possible, à condition que les règles existent avant l’enthousiasme.</p>
                 <ul class="checklist">
                     <li>Les données confidentielles et clients restent hors des prompts, sans exception</li>
-                    <li>Un outillage et des comptes approuvés, pour ne pas découvrir plus tard du shadow AI</li>
+                    <li>Des outils et des comptes approuvés pour éviter les usages de l’IA dont personne dans l’équipe n’a connaissance</li>
                     <li>La même exigence de revue pour chaque changement, tapé ou généré</li>
                     <li>Un humain porte tout ce qui part en production, avec son nom dessus</li>
                 </ul>
@@ -190,7 +191,7 @@
             <section class="doc-section" id="adoption" aria-labelledby="adoption-title">
                 <h2 class="anchor-heading" id="adoption-title">L’adoption est un travail de management<a class="anchor" href="#adoption" aria-label="Lien vers cette section">#</a></h2>
                 <p>Les outils ne s’adoptent pas tout seuls. Ce qui a fonctionné chez nous n’a rien de spectaculaire : commencer avec les ingénieurs curieux, les laisser montrer de vraies sessions aux autres, et rester honnête sur les échecs autant que sur les réussites. Le jour où un sceptique regarde un collègue démêler en un après-midi ce qui aurait pris une semaine, la conversation change d’elle-même.</p>
-                <p>Ma conclusion, après avoir vécu avec Claude sur tout le cycle de vie, est simple. L’important n’est pas qu’il écrive du code. L’important, c’est que <strong>chaque étape du cycle gagne un second cerveau</strong>, et que l’équipe décide, délibérément, où ce cerveau est le bienvenu. Cette décision, c’est ça le leadership d’ingénierie aujourd’hui.</p>
+                <p>Je garde Claude à portée de main pour relire une architecture, préparer une migration ou comprendre un incident. C’est à l’équipe de choisir où son aide vaut le coup et qui vérifiera le résultat. Cette décision fait désormais partie de mon travail de manager.</p>
             </section>
             </article>
             <nav class="page-next" aria-label="Continuer"><a href="/fr/blog/">← Tous les articles</a><a class="next-primary" href="/fr/blog/organizing-the-solutions-team/">Suite : Organiser l’équipe Solutions →</a></nav>
@@ -225,11 +226,11 @@
             </div>
             <div class="footer-base">
                 <p>© 2026 Nicolas Pieper · Luxembourg</p>
-                <p>Composé en Inter, Source Serif 4 &amp; JetBrains Mono. Site statique, sans tracking.</p>
+                <p>Inter, Source Serif 4 et JetBrains Mono. Site statique, sans suivi.</p>
             </div>
         </footer>
         </main>
     </div>
-    <script src="/assets/js/site.js?v=20260905-objects" defer></script>
+    <script src="/assets/js/site.js?v=20261121" defer></script>
 </body>
 </html>
