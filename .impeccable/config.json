@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "files": [
+          "assets/css/site.css"
+        ],
+        "createdAt": "2026-11-21T14:01:51.823Z",
+        "reason": "La charte du site (DESIGN.md, Typographie) prescrit Inter pour le texte courant et les commandes. Ces deux déclarations chargent ses sous-ensembles latin et latin étendu."
+      }
+    ]
+  }
+}

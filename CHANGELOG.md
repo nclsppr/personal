@@ -18,6 +18,8 @@ Historique des interventions sur le site, la plus récente en premier.
 - Présentation des logos directement sur les fonds du site, avec un contour
   discret si nécessaire. Nouvelles cartes de partage Projets, Blog et
   Réalisations, visuel du carnet Japon de Mon Florian et carte anglaise de Parkventory.
+- Le statut de chaque projet s’aligne sur sa description. Le libellé « Statut »
+  suffit à identifier la disponibilité du produit en clair comme en sombre.
 - Sur mobile, le tiroir de navigation s’anime à la première ouverture.
   La navigation sans JavaScript reste disponible dans le flux de lecture.
 
