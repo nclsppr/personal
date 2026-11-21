@@ -739,6 +739,7 @@ hr {
 .project-copy > h2 { margin: 0.7rem 0 1rem; }
 .project-number { margin: 0 0 14px; }
 .project-logo-frame {
+  --cutline: 2px;
   display: flex;
   align-items: center;
   min-height: 66px;
@@ -749,12 +750,21 @@ hr {
 .project-logo--square { max-height: 66px; }
 .project-logo--mark { max-height: 62px; }
 
-/* A fine edge keeps pale or dark ink legible without a tile behind the logo. */
-:root[data-theme="light"] .project-logo--edge-light,
-:root[data-theme="dark"] .project-logo--edge-dark,
-:root[data-theme="dark"] .monflorian-lockup img:last-child {
+/* The lime Parkventory mark needs a little definition on ivory. */
+:root[data-theme="light"] .project-logo--edge-light {
   filter: drop-shadow(.65px 0 0 var(--muted)) drop-shadow(-.65px 0 0 var(--muted))
     drop-shadow(0 .65px 0 var(--muted)) drop-shadow(0 -.65px 0 var(--muted));
+}
+
+/* In dark mode the paper edge follows the transparent artwork, including both
+   pieces of the Mon Florian lockup. Scale it down for the homepage directory. */
+:root[data-theme="dark"] :is(.project-logo-frame, .project-compact-logo) img {
+  --cutline-inverse: calc(-1 * var(--cutline));
+  filter:
+    drop-shadow(var(--cutline) 0 0 var(--ink))
+    drop-shadow(var(--cutline-inverse) 0 0 var(--ink))
+    drop-shadow(0 var(--cutline) 0 var(--ink))
+    drop-shadow(0 var(--cutline-inverse) 0 var(--ink));
 }
 .project-status {
   margin: 1.35rem 0;
@@ -842,6 +852,7 @@ hr {
 .project-compact:focus-visible { background: var(--accent-glow); text-decoration: none; }
 .project-compact:is(:hover, :focus-visible) h3 { text-decoration: underline; text-underline-offset: 3px; }
 .project-compact-logo {
+  --cutline: 1.3px;
   display: flex;
   align-items: center;
   justify-content: center;

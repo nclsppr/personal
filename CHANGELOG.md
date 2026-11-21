@@ -15,8 +15,8 @@ Historique des interventions sur le site, la plus récente en premier.
   entre articles, du sitemap et de `llms.txt`.
 - Relecture des textes de l’accueil, des réalisations, du CV, des projets,
   de la collection et du blog. Les deux CV téléchargeables ont été régénérés.
-- Présentation des logos directement sur les fonds du site, avec un contour
-  discret si nécessaire. Nouvelles cartes de partage Projets, Blog et
+- Sur fond sombre, un liseré ivoire suit la découpe des six logos, y compris
+  le portrait et le mot-symbole de Mon Florian. Nouvelles cartes de partage Projets, Blog et
   Réalisations, visuel du carnet Japon de Mon Florian et carte anglaise de Parkventory.
 - Le statut de chaque projet s’aligne sur sa description. Le libellé « Statut »
   suffit à identifier la disponibilité du produit en clair comme en sombre.
@@ -26,9 +26,11 @@ Historique des interventions sur le site, la plus récente en premier.
 <details>
 <summary>Illustration de l’article Guteneo</summary>
 
-Le générateur d’images intégré à Codex a produit le sticker à partir de cette consigne.
+Le générateur d’images intégré à Codex a redessiné l’atelier de correspondance
+avec les stickers de « Claude en entreprise » et de l’article sur les logs
+comme références. Le robot tend l’épreuve au relecteur près de la presse.
 
-> Illustration pour le blog de Nicolas Pieper, large composition horizontale 3:2. Sur une petite table de correspondance, une main tient une lettre par un coin pour la relire. Un stylo plume posé en travers, une enveloppe ouverte et un tampon encreur attendent à côté. Cadrage rapproché, composition basse et compacte, diagonale de la feuille vers l’enveloppe, gestes et objets immédiatement lisibles en miniature. Sticker découpé d’un seul tenant, gros trait d’encre charbon #171716, ivoire et sable, grain papier discret, deux touches d’orange #FF4F00 sur le capuchon et le manche du tampon, large bord blanc. Fond réellement transparent. Sur la feuille, quelques lignes abstraites. Aucun mot, aucune lettre, aucun logo.
+> Refais entièrement l’illustration Guteneo de la première référence. Les deuxième et troisième références sont les originaux de la même série éditoriale : retrouve fidèlement leur dessin à la plume, leur échelle et leurs personnages. Nouvelle scène : un petit atelier de correspondance vu de trois quarts. À gauche le petit robot aux articulations mécaniques, corps ivoire et visière noire, sort l’épreuve d’une petite presse d’imprimeur. Au centre le personnage aux cheveux noirs ébouriffés, lunettes rondes et surchemise gris olive relit la lettre au-dessus du plateau de composition. À droite une enveloppe ouverte avec un petit timbre orange et un tampon de bois attendent sur l’établi. Un seul geste lisible : le robot tend l’épreuve au relecteur. Un bac de papier et quelques caractères d’imprimerie donnent l’échelle. Trait fin d’épaisseur irrégulière, noir de suie un peu sec, fines hachures à main levée, veinage du bois, minuscules réserves d’encre sur papier ivoire fibreux. Une illustration de carnet d’atelier scannée et découpée. Garder l’orange pour deux petits détails. Silhouette horizontale unique, plutôt basse et étendue, composition entière avec un peu d’air à tous les bords, contour die-cut en papier crème à la forme, fond extérieur transparent. Utiliser les deux références de style pour la précision du dessin et la densité des détails. Pas de gros contour vectoriel, de main géante, de mots, de lettres lisibles ni de logo.
 
 Le fichier WebP conserve la transparence. La version JPEG de partage utilise le fond ivoire du site.
 
