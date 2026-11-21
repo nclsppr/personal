@@ -758,8 +758,6 @@ hr {
 }
 .project-status {
   margin: 1.35rem 0;
-  padding: 12px 0 12px 16px;
-  border-left: 3px solid var(--accent);
   color: var(--ink-soft);
 }
 .project-status > span {
