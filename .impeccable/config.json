@@ -11,6 +11,140 @@
         ],
         "createdAt": "2026-11-21T14:01:51.823Z",
         "reason": "La charte du site (DESIGN.md, Typographie) prescrit Inter pour le texte courant et les commandes. Ces deux déclarations chargent ses sous-ensembles latin et latin étendu."
+      },
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "files": [
+          "blog/building-guteneo/index.html",
+          "blog/index.html",
+          "fr/blog/building-guteneo/index.html",
+          "fr/blog/claude-in-the-enterprise/index.html",
+          "fr/blog/growing-up-with-the-web/index.html",
+          "fr/blog/index.html",
+          "fr/blog/organizing-the-solutions-team/index.html",
+          "fr/cv/index.html",
+          "fr/index.html",
+          "fr/objects/index.html",
+          "fr/projects/index.html",
+          "fr/projects/turbo-miette/index.html",
+          "fr/work/index.html",
+          "index.html",
+          "objects/index.html",
+          "projects/index.html",
+          "projects/turbo-miette/index.html",
+          "scripts/og-template.html",
+          "scripts/projects-og-template.html",
+          "work/index.html"
+        ],
+        "createdAt": "2026-11-21T17:47:29.594Z",
+        "reason": "La charte typographique (DESIGN.md) prescrit Inter pour le corps de texte, les commandes et leurs cartes de partage."
+      },
+      {
+        "rule": "organic-clip-path",
+        "value": "*",
+        "files": [
+          "blog/building-guteneo/index.html",
+          "blog/index.html",
+          "fr/blog/building-guteneo/index.html",
+          "fr/blog/claude-in-the-enterprise/index.html",
+          "fr/blog/growing-up-with-the-web/index.html",
+          "fr/blog/index.html",
+          "fr/blog/organizing-the-solutions-team/index.html",
+          "fr/cv/index.html",
+          "fr/index.html",
+          "fr/objects/index.html",
+          "fr/projects/index.html",
+          "fr/projects/turbo-miette/index.html",
+          "fr/work/index.html",
+          "index.html",
+          "objects/index.html",
+          "projects/index.html",
+          "projects/turbo-miette/index.html",
+          "work/index.html"
+        ],
+        "createdAt": "2026-11-21T17:47:29.620Z",
+        "reason": "Nicolas a demandé deux morceaux de scotch sur les prises de vue. Le polygone commun de .workshop-shot découpe leurs bords déchirés. Le détecteur le signale aussi sur les pages qui chargent le style sans afficher de tirage."
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "fr/index.html",
+          "index.html"
+        ],
+        "createdAt": "2026-11-21T17:47:29.644Z",
+        "reason": "Vérification des accueils dans Chromium : les chiffres ont au moins 17 px côté séparateur et les bords extérieurs sont ouverts. Le panneau contact dispose de 24 à 40 px de marge intérieure."
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "blog/building-guteneo/index.html",
+          "fr/blog/building-guteneo/index.html"
+        ],
+        "createdAt": "2026-11-21T17:47:29.670Z",
+        "reason": "Vérification du film dans le navigateur : les enfants signalés sont les pistes, la source et le lien de repli du lecteur natif. La légende se trouve sous la vidéo."
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "scripts/projects-og-template.html"
+        ],
+        "createdAt": "2026-11-21T17:47:29.697Z",
+        "reason": "Vérification de la carte à sa taille de diffusion 1200 x 630 : le texte de la grille est à au moins 14,5 px des filets."
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "fr/blog/organizing-the-solutions-team/index.html"
+        ],
+        "createdAt": "2026-11-21T17:47:29.722Z",
+        "reason": "Vérification de la liste du modèle d’organisation : le texte est à 19 px du filet vertical sur ordinateur et à 16 px du filet horizontal sur mobile. Les premières cases sont ouvertes."
+      },
+      {
+        "rule": "kicker-above-heading",
+        "value": "*",
+        "files": [
+          "fr/index.html",
+          "index.html"
+        ],
+        "createdAt": "2026-11-21T17:47:29.748Z",
+        "reason": "L’en-tête du portfolio identifie le métier de Nicolas et son lieu de travail, deux informations distinctes de son titre de présentation."
+      },
+      {
+        "rule": "kicker-above-heading",
+        "value": "*",
+        "files": [
+          "fr/projects/index.html",
+          "projects/index.html"
+        ],
+        "createdAt": "2026-11-21T17:47:29.776Z",
+        "reason": "DESIGN.md distingue la rubrique Outils et fondations des sept produits. Son intitulé situe la section méthodologique."
+      },
+      {
+        "rule": "kicker-above-heading",
+        "value": "*",
+        "files": [
+          "fr/projects/turbo-miette/index.html",
+          "projects/turbo-miette/index.html"
+        ],
+        "createdAt": "2026-11-21T17:47:29.802Z",
+        "reason": "La fiche de Turbo Miette précise dès l’en-tête le statut du prototype en développement, distinct du nom du jeu."
+      },
+      {
+        "rule": "kicker-above-heading",
+        "value": "*",
+        "files": [
+          "blog/building-guteneo/index.html",
+          "fr/blog/building-guteneo/index.html",
+          "fr/blog/claude-in-the-enterprise/index.html",
+          "fr/blog/organizing-the-solutions-team/index.html"
+        ],
+        "createdAt": "2026-11-21T17:47:29.829Z",
+        "reason": "Le gabarit d’article versionné (.claude/skills/add-article/TEMPLATE.md, section 3) prescrit un surtitre portant la catégorie éditoriale avant le titre."
       }
     ]
   }

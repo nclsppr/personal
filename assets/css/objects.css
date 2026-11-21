@@ -27,7 +27,7 @@
 .object-open { position: absolute; right: 16px; bottom: 16px; display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid #d4d3d0; border-radius: 50%; color: #45443f; background: #fafafa; }
 .object-open svg { width: 12px; height: 12px; }
 .object-card summary:hover .object-open { background: #171716; color: white; border-color: #171716; }
-.object-brand { display: block; margin: 19px 0 5px; color: var(--muted); font-size: .68rem; font-weight: 500; text-transform: uppercase; letter-spacing: .09em; }
+.object-brand { display: block; margin: 19px 0 5px; color: var(--muted); font-size: .75rem; font-weight: 500; text-transform: uppercase; letter-spacing: .09em; }
 .object-card h3 { margin: 0 0 6px; font-family: var(--font-sans); font-size: 1rem; font-weight: 500; line-height: 1.4; }
 .object-variant { display: block; font-size: .78rem; line-height: 1.55; color: var(--muted); }
 .object-photo--wish { align-content: center; gap: 18px; color: #45443f; padding: 28px; text-align: center; }
@@ -47,7 +47,7 @@
 .object-link strong { font-size: .87rem; font-weight: 500; }
 .object-link span { font-size: .73rem; line-height: 1.5; color: var(--muted); }
 .object-link svg { position: absolute; right: 0; top: 19px; width: 13px; height: 13px; }
-.object-detail .object-disclosure, .object-detail .object-credit { font-size: .69rem; line-height: 1.6; color: var(--muted); }
+.object-detail .object-disclosure, .object-detail .object-credit { font-size: .875rem; line-height: 1.6; color: var(--muted); }
 .object-source { display: inline-block; margin-top: 15px; color: var(--ink-soft); font-size: .76rem; }
 .collection-note { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--collection-line); }
 .collection-note h2 { font: 400 1.5rem var(--font-serif); margin: 0 0 14px; }
@@ -87,7 +87,7 @@ body.object-opened { overflow: hidden; }
  .collection-section > header { margin-bottom: 18px; }
  .collection-section h2 { font-size: 1.45rem; }
  .collection-section > header p { font-size: .7rem; }
- .object-brand { margin-top: 14px; font-size: .62rem; }
+ .object-brand { margin-top: 14px; }
  .object-card h3 { font-size: .87rem; }
  .object-variant { font-size: .72rem; }
  .object-open { width: 27px; height: 27px; right: 10px; bottom: 10px; }

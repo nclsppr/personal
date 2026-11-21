@@ -376,7 +376,7 @@ img { max-width: 100%; height: auto; }
    d'écran) ; les repères de landmarks suffisent. */
 .side-group > .side-title {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.09em;
@@ -719,7 +719,7 @@ hr {
 .project-index span,
 .project-number {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 650;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -805,7 +805,7 @@ hr {
   display: block;
   margin-bottom: 3px;
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 650;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -1444,7 +1444,7 @@ a.card:hover { text-decoration: none; border-color: var(--accent); box-shadow: v
 .footer-exit .fx-prompt { color: var(--accent); }
 .footer-col .side-title {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.09em;

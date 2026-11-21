@@ -65,7 +65,7 @@ def render(lang):
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{t['seo']}"><meta name="twitter:description" content="{e(t['description'])}"><meta name="twitter:image" content="{ORIGIN}/assets/img/objects/og-objects-{lang}.png?v=1"><meta name="twitter:image:alt" content="{t['title']} {t['signature']}">
 <link rel="icon" type="image/png" href="/assets/img/favicon.png"><link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png"><meta name="theme-color" content="#FAF9F5">
 <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/sourceserif4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=20261121"><link rel="stylesheet" href="/assets/css/objects.css?v=1">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261121-lisibilite"><link rel="stylesheet" href="/assets/css/objects.css?v=2">
 <script>(function(){{try{{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}}catch(e){{}}}})()</script>
 <script type="application/ld+json">{json.dumps(schema,ensure_ascii=False,separators=(',',':'))}</script>
 </head><body class="page-objects"><a class="skip-link" href="#main">{t['skip']}</a>

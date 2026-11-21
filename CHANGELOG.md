@@ -5,6 +5,16 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-11-21 - Lisibilité des petits textes
+
+- Les repères de navigation, numéros et statuts de projets ainsi que les marques
+  de la collection passent à 12 px. Les crédits photo et mentions d’affiliation
+  des fiches objets passent à 14 px.
+- Les titres des pages Projets, Blog et Réalisations suivent directement le
+  fil d’Ariane dans les deux langues.
+- Le contrôle de conception documente les exceptions vérifiées pour Inter,
+  le ruban des tirages, les espacements mesurés et les surtitres informatifs.
+
 ## 2026-11-21 - Taille des logos de projets
 
 - Sur l’accueil, les sept identités occupent un emplacement de même hauteur.
