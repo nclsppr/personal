@@ -56,7 +56,7 @@
     display: grid;
     grid-template-columns: 40px 1fr auto;
     align-items: center;
-    min-height: 65px;
+    min-height: 59px;
     border-top: 1px solid #E3E1D7;
   }
   .project:first-child { border-top: 0; }
@@ -71,12 +71,20 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    height: 60px;
+    height: 56px;
   }
   .logo-frame img { display: block; width: auto; max-width: 260px; max-height: 42px; object-fit: contain; }
+  .project-turbo .logo-frame { height: 111px; }
+  .project-turbo img { max-height: 105px; }
   .logo-frame img.logo-large { max-height: 54px; }
   .logo-frame .logo-caption { margin-left: 16px; font-weight: 650; font-size: 24px; }
-  .logo-frame .lime-mark { filter: drop-shadow(0 0 1px #66655E); }
+  .logo-frame .lime-mark {
+    width: 54px;
+    height: 54px;
+    padding: 6px;
+    background: #262624;
+    border-radius: 7px;
+  }
   .logo-frame .monflorian-lockup {
     display: grid;
     grid-template-columns: minmax(0, 0.58fr) minmax(0, 1fr);
@@ -115,7 +123,7 @@
     <section aria-label="Projects">
       <div class="ledger">
         <div class="project"><span class="number">01</span><div class="logo-frame"><img class="logo-large" src="../assets/img/projects/guteneo-logo.webp" alt=""><span class="logo-caption">Guteneo</span></div><span class="project-kind" data-fr="Documents">Documents</span></div>
-        <div class="project"><span class="number">02</span><div class="logo-frame"><img class="logo-large" src="../assets/img/projects/turbo-miette/emblem.webp" alt=""><span class="logo-caption">Turbo Miette</span></div><span class="project-kind" data-fr="Jeu de course">Racing game</span></div>
+        <div class="project project-turbo"><span class="number">02</span><div class="logo-frame"><img src="../assets/img/projects/turbo-miette/emblem.webp" alt="Turbo Miette"></div><span class="project-kind" data-fr="Jeu de course">Racing game</span></div>
         <div class="project"><span class="number">03</span><div class="logo-frame"><img src="../assets/img/projects/surplasse-logo.webp" alt=""></div><span class="project-kind" data-fr="Commande à table">Table orders</span></div>
         <div class="project"><span class="number">04</span><div class="logo-frame"><img class="logo-large" src="../assets/img/projects/papers-empire-logo.webp" alt=""><span class="logo-caption">Papers Empire</span></div><span class="project-kind" data-fr="Jeu de gestion">Idle game</span></div>
         <div class="project"><span class="number">05</span><div class="logo-frame"><img class="logo-large lime-mark" src="../assets/img/projects/parkventory-logo.svg" alt=""><span class="logo-caption">Parkventory</span></div><span class="project-kind" data-fr="Stationnement">Parking</span></div>
