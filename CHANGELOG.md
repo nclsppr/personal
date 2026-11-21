@@ -5,6 +5,15 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-11-21 - Taille des logos de projets
+
+- Sur l’accueil, les sept identités occupent un emplacement de même hauteur.
+  La page Projets reprend les mêmes proportions à une échelle supérieure.
+  Le dessin de Turbo Miette tient dans la même hauteur que le timbre Guteneo.
+  Le blason de Papers Empire gagne en lisibilité malgré ses marges transparentes.
+- Sur l’accueil, les extraits du blog passent sur une colonne avant que leurs
+  liens de lecture ne dépassent de la page.
+
 ## 2026-11-21 - Le garage de Turbo Miette et les logos en thème sombre
 
 - L’écran titre de Turbo Miette ouvre sa fiche et illustre son entrée dans les
