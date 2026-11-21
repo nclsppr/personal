@@ -10,6 +10,7 @@ Le portrait, les deux plans et leur voix sont documentés dans le [dossier Guten
 | --- | --- | --- | --- |
 | `guteneo-logo.webp` | https://guteneo.com/brand/gutenberg-guteneo-stamp-transparent.webp | `c84a227827fa6d7586d4f632ca0ab41475f94faeeec1ac0e9b0eaba989cd2c04` | Timbre de communication de Guteneo, dérivé transparent 192 x 192 |
 | `guteneo-social-card.png` | https://guteneo.com/social/guteneo-share-neutral-20261003-v2.png | `5fb4d32786416896f10bce9a6a035465f9edf9705de7cdd4406afd21b74552d4` | Copie identique de la carte de partage du site officiel, 1200 x 630 |
+| `surplasse-app-icon.svg` | https://surplasse.com/brand/surplasse-app-icon.svg | `2f9b5fc9f05c24ad9bfd51704cd55bd5e9d7142ec60e419e631e87ea68eedef7` | Icône officielle de l’application, 1024 x 1024. Seul le texte de la balise title a été adapté. |
 | `surplasse-logo.webp` | https://surplasse.com/brand/surplasse-logo-horizontal.svg | `7974f4bfa032d4a10e79d8c00c3dafd0cced91bbf9e458de9be9f4d6d29b52fa` | Dérivé transparent 906 x 198, WebP sans perte |
 | `surplasse-social-card.png` | https://nclsppr.github.io/surplasse/brand/surplasse-social-card.png | `bbd48883feb31d7c0b03bee55766c3c8f746e0f00bdc0073cd16520cef1cc3ab` | Copie byte-identique de la preview upstream fusionnée, URL apex non activée |
 | `papers-empire-logo.webp` | https://papersempire.com/assets/brand/papers-empire-logo-v2-cutout.webp | `414e2dcbbe2ab181ef63c88d3fd4427c1e507b0feec168c29e8e02c0d2aebc10` | Copie byte-identique |
@@ -23,8 +24,8 @@ Le portrait, les deux plans et leur voix sont documentés dans le [dossier Guten
 | `monflorian-wordmark.webp` | https://monflorian.com/assets/monflorian-wordmark-web.webp | `941c00869e36c83fd261c4d6195d219479e8685cb203c594d84f0b9e91cef966` | Copie byte-identique, mot-symbole actif 338 x 181 |
 | `monflorian-tokyo.webp` | https://monflorian.com/v2/media/japan-tokyo-couple-720.webp | `f99b3f3cf0079c04fdf122aa92c1ab2db387ff2caf587a5d248091a15902dc8c` | Variante officielle 720 x 480 de l’illustration du carnet Japon, identique à la source |
 | `monflorian-social-card.png` | https://monflorian.com/assets/monflorian-social-card.png | `530f2127e049c37c88370ed81d67ff7e027076346b41a7f6815317d374e48061` | Ancienne carte publique, conservée à son URL historique. Réutilisation autorisée par Nicolas |
-| `projects-social-card.jpg` | `scripts/projects-og-template.html` | `25879301b89c62e91c606ef0bbc2d4fdb66dc1976beeb5fad09235ba6aa3ddbe` | Carte du hub générée localement, 1200 x 630 |
-| `projects-social-card-fr.jpg` | `scripts/projects-og-template.html` | `da7997f688d5d2124246ea6b27f778573425d4f32cb2f86fd525a01c1521f960` | Carte FR du hub générée localement, 1200 x 630 |
+| `projects-social-card.jpg` | `scripts/projects-og-template.html` | `5cc6c55f6cd08009bb465d62fe121bcb0e3dcdd845b0c0619639c2de2917ccd3` | Carte du hub générée localement, 1200 x 630 |
+| `projects-social-card-fr.jpg` | `scripts/projects-og-template.html` | `4ed207ebebf0eb7a9e7e5df0ec20d1be85855e9318a5be1343f3b5ac7c74e6f3` | Carte FR du hub générée localement, 1200 x 630 |
 
 Les visuels Guteneo reprennent le timbre de la marque, fourni par Nicolas pour
 les communications publiques du produit. Le 21 novembre 2026, la carte a été

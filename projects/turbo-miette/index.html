@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Turbo Miette, toy car racing at home · Nicolas Pieper</title>
-    <meta name="description" content="A toy car racing game in development. Eight drivers, three tracks around the house and a local duel on one screen. Take a look at the races inside the game.">
+    <meta name="description" content="Meet the eight drivers in the Turbo Miette garage, then head onto three toy car tracks around the house. Screenshots from the game show the title, cars and races.">
     <meta name="author" content="Nicolas Pieper">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://nicolaspieper.com/projects/turbo-miette/">
@@ -14,20 +14,20 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Nicolas Pieper">
     <meta property="og:title" content="Turbo Miette, toy car racing at home">
-    <meta property="og:description" content="A toy car racing game in development. Eight drivers, three tracks around the house and a local duel on one screen. Take a look at the races inside the game.">
+    <meta property="og:description" content="Meet the eight drivers in the Turbo Miette garage, then head onto three toy car tracks around the house. Screenshots from the game show the title, cars and races.">
     <meta property="og:url" content="https://nicolaspieper.com/projects/turbo-miette/">
-    <meta property="og:image" content="https://nicolaspieper.com/assets/img/projects/turbo-miette/race-social.jpg">
+    <meta property="og:image" content="https://nicolaspieper.com/assets/img/projects/turbo-miette/race-social.jpg?v=2">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="The Turbo Miette emblem with Lola Pop and her car, beside the view from her wheel on the kitchen table">
+    <meta property="og:image:alt" content="The blue Turbo Miette title screen, with Lola and her car above the game logo on the left and the yellow “À table !” button on the right">
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="fr_FR">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Turbo Miette, toy car racing at home">
-    <meta name="twitter:description" content="A toy car racing game in development. Eight drivers, three tracks around the house and a local duel on one screen. Take a look at the races inside the game.">
-    <meta name="twitter:image" content="https://nicolaspieper.com/assets/img/projects/turbo-miette/race-social.jpg">
-    <meta name="twitter:image:alt" content="The Turbo Miette emblem with Lola Pop and her car, beside the view from her wheel on the kitchen table">
+    <meta name="twitter:description" content="Meet the eight drivers in the Turbo Miette garage, then head onto three toy car tracks around the house. Screenshots from the game show the title, cars and races.">
+    <meta name="twitter:image" content="https://nicolaspieper.com/assets/img/projects/turbo-miette/race-social.jpg?v=2">
+    <meta name="twitter:image:alt" content="The blue Turbo Miette title screen, with Lola and her car above the game logo on the left and the yellow “À table !” button on the right">
     <link rel="icon" type="image/svg+xml" sizes="any" href="/assets/img/favicon.svg?v=2">
     <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon-96.png?v=2">
     <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
@@ -35,7 +35,7 @@
     <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/sourceserif4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/jetbrainsmono-var-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/assets/css/site.css?v=20261121-atelier">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20261121-garage">
     <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
     <script type="application/ld+json">
 {
@@ -46,8 +46,8 @@
       "@id": "https://nicolaspieper.com/projects/turbo-miette/#page",
       "url": "https://nicolaspieper.com/projects/turbo-miette/",
       "name": "Turbo Miette, toy car racing at home",
-      "description": "A toy car racing game in development. Eight drivers, three tracks around the house and a local duel on one screen. Take a look at the races inside the game.",
-      "image": "https://nicolaspieper.com/assets/img/projects/turbo-miette/race-social.jpg",
+      "description": "Meet the eight drivers in the Turbo Miette garage, then head onto three toy car tracks around the house. Screenshots from the game show the title, cars and races.",
+      "image": "https://nicolaspieper.com/assets/img/projects/turbo-miette/race-social.jpg?v=2",
       "inLanguage": "en",
       "mainEntity": {
         "@id": "https://nicolaspieper.com/projects/turbo-miette/#game"
@@ -139,6 +139,7 @@
             </nav>
             <nav aria-label="On this page">
                 <div class="side-group"><p class="side-title">On this page</p><ul>
+                    <li><a href="#drivers">The drivers</a></li>
                     <li><a href="#circuits">On the tracks</a></li>
                     <li><a href="#race">The race</a></li>
                     <li><a href="#development">In the workshop</a></li>
@@ -150,22 +151,40 @@
             <header class="page-intro">
                 <p class="eyebrow">Game in development</p>
                 <h1>Turbo Miette</h1>
-                <p class="lead">A mug becomes an obstacle, the edge of a bed becomes a cliff, and the garage floor becomes a straight. In Turbo Miette I race pocket-sized cars around human-sized rooms.</p>
+                <p class="lead">In Turbo Miette, you pick a driver in the garage and race between breakfast mugs, across a bed or under a workbench. When you’re the size of a toy car, the edge of a table is quite a drop.</p>
+                <figure class="workshop-shot game-title-shot">
+                    <img src="/assets/img/projects/turbo-miette/title-screen.webp" width="1600" height="736" alt="Lola drives a cyan car over the Turbo Miette logo. A yellow button to the right invites you to the table." loading="eager" fetchpriority="high" decoding="async">
+                    <figcaption>Lola Pop opens the game in La Popcornette. Choose “À table !” to enter the garage.</figcaption>
+                </figure>
             </header>
+            <section class="doc-section workshop-gallery" id="drivers" aria-labelledby="drivers-title">
+                <h2 class="anchor-heading" id="drivers-title">Meet the drivers<a class="anchor" href="#drivers" aria-label="Link to this section">#</a></h2>
+                <figure class="workshop-shot">
+                    <img src="/assets/img/projects/turbo-miette/driver-selection.webp" width="1600" height="736" alt="The eight garage portraits, from Rita Piment to Malia Doux. Malia and her dog Pampy are selected on the last card." loading="lazy" decoding="async">
+                    <figcaption>All eight drivers are available from the first race. Malia Doux takes Pampy along in La Bricabrac, her brick-built car. <a href="/assets/img/projects/turbo-miette/driver-selection.webp">See the portraits at full size</a></figcaption>
+                </figure>
+            </section>
             <section class="doc-section workshop-gallery" id="circuits" aria-labelledby="circuits-title">
                 <h2 class="anchor-heading" id="circuits-title">On the tracks<a class="anchor" href="#circuits" aria-label="Link to this section">#</a></h2>
-                <figure class="workshop-shot">
-                    <img src="/assets/img/projects/turbo-miette/kitchen-cockpit.webp" width="1440" height="960" alt="A pink cockpit looking across a wooden table, with a mug in the way and a track map in the corner" loading="eager" decoding="async">
-                    <figcaption><strong>Tartines en cavale.</strong> From the seat of La Popcornette, mugs and plates tower over the track. The mini-map shows which gate to aim for next.</figcaption>
-                </figure>
-                <figure class="workshop-shot">
-                    <img src="/assets/img/projects/turbo-miette/bedroom-start.webp" width="1440" height="960" alt="Overhead view of the starting grid on a purple checked duvet, beside a rainbow ramp" loading="lazy" decoding="async">
-                    <figcaption><strong>Dodo Rodéo.</strong> The race starts on the duvet. A rainbow ramp leads off the bed and into the rest of the room.</figcaption>
-                </figure>
-                <figure class="workshop-shot">
-                    <img src="/assets/img/projects/turbo-miette/garage-start.webp" width="1440" height="960" alt="Steering wheel and dashboard over the blue garage floor, facing the door and an orange ball" loading="lazy" decoding="async">
-                    <figcaption><strong>Boucan au garage.</strong> Down at floor level, the ball by the door gives you a sense of the car’s size. The course threads between the tools and the legs of the workbench.</figcaption>
-                </figure>
+                <div class="race-carousel" id="race-slides" role="region" aria-roledescription="carousel" aria-label="Screenshots of the three tracks" tabindex="0">
+                    <figure class="workshop-shot">
+                        <img src="/assets/img/projects/turbo-miette/kitchen-cockpit.webp" width="1440" height="960" alt="A pink cockpit looking across a wooden table, with a mug in the way and a track map in the corner" loading="lazy" decoding="async">
+                        <figcaption><strong>Tartines en cavale.</strong> From the seat of La Popcornette, mugs and plates tower over the track. The mini-map shows which gate to aim for next.</figcaption>
+                    </figure>
+                    <figure class="workshop-shot">
+                        <img src="/assets/img/projects/turbo-miette/bedroom-start.webp" width="1440" height="960" alt="Overhead view of the starting grid on a purple checked duvet, beside a rainbow ramp" loading="lazy" decoding="async">
+                        <figcaption><strong>Dodo Rodéo.</strong> The race starts on the duvet. A rainbow ramp leads off the bed and into the rest of the room.</figcaption>
+                    </figure>
+                    <figure class="workshop-shot">
+                        <img src="/assets/img/projects/turbo-miette/garage-start.webp" width="1440" height="960" alt="Steering wheel and dashboard over the blue garage floor, facing the door and an orange ball" loading="lazy" decoding="async">
+                        <figcaption><strong>Boucan au garage.</strong> Down at floor level, the ball by the door gives you a sense of the car’s size. The course threads between the tools and the legs of the workbench.</figcaption>
+                    </figure>
+                </div>
+                <div class="race-controls" role="group" aria-label="Track navigation" hidden>
+                    <button type="button" data-race-prev aria-label="Previous track" aria-controls="race-slides"><span aria-hidden="true">←</span></button>
+                    <span data-race-count aria-live="polite" aria-atomic="true">1 / 3</span>
+                    <button type="button" data-race-next aria-label="Next track" aria-controls="race-slides"><span aria-hidden="true">→</span></button>
+                </div>
             </section>
             <section class="doc-section" id="race" aria-labelledby="race-title">
                 <h2 class="anchor-heading" id="race-title">The race<a class="anchor" href="#race" aria-label="Link to this section">#</a></h2>
@@ -175,7 +194,7 @@
             <section class="doc-section" id="development" aria-labelledby="development-title">
                 <h2 class="anchor-heading" id="development-title">In the workshop<a class="anchor" href="#development" aria-label="Link to this section">#</a></h2>
                 <p>I’m developing the prototype in Swift. The racing rules run independently of the scenery. RealityKit handles the cars, the rooms and the lighting. A gate counts the same way whether you see it from overhead or from behind the wheel.</p>
-                <p>The game is in development for Mac, iPhone and iPad. All three screenshots come from races in the iPad simulator.</p>
+                <p>The game is in development for Mac, iPhone and iPad. The menus were captured in the iPhone simulator and the races in the iPad simulator.</p>
             </section>
             <nav class="page-next" aria-label="Continue"><a href="/projects/#turbo-miette">← Back to projects</a></nav>
             <footer class="site-footer">
@@ -189,6 +208,7 @@
             </footer>
         </main>
     </div>
+    <script src="/assets/js/turbo-gallery.js?v=1" defer></script>
     <script src="/assets/js/site.js?v=20261121" defer></script>
 </body>
 </html>

@@ -5,6 +5,20 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-11-21 - Le garage de Turbo Miette et les logos en thème sombre
+
+- L’écran titre de Turbo Miette ouvre sa fiche et illustre son entrée dans les
+  Projets. L’écran suivant présente les huit pilotes du garage. Les trois courses
+  se parcourent en carrousel, au doigt, à la souris ou au clavier.
+- L’emblème illustré gagne de la place sur l’accueil, dans le répertoire et sur
+  les cartes de partage. La carte dédiée au jeu reprend son véritable écran titre.
+- Suppression du contour ajouté aux logos en thème sombre. Le P de Parkventory
+  retrouve ses cases vertes et cyan sur le fond de page. Sur fond clair, il
+  reprend le support anthracite de l’application. Les lettrages de Four à Nu
+  et de Mon Florian disposent d’un fond ajusté en thème sombre. Surplasse
+  affiche son icône officielle sur l’accueil et son logo horizontal dans le
+  répertoire.
+
 ## 2026-11-21 - Turbo Miette et les essais de Gutenberg
 
 - Turbo Miette rejoint l’accueil et le répertoire des projets. Sa fiche en

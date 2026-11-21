@@ -739,7 +739,6 @@ hr {
 .project-copy > h2 { margin: 0.7rem 0 1rem; }
 .project-number { margin: 0 0 14px; }
 .project-logo-frame {
-  --cutline: 2px;
   display: flex;
   align-items: center;
   min-height: 66px;
@@ -749,22 +748,20 @@ hr {
 .project-logo--wide { max-height: 54px; }
 .project-logo--square { max-height: 66px; }
 .project-logo--mark { max-height: 62px; }
+.project-logo--turbo { width: min(100%, 13.5rem); }
 
-/* The lime Parkventory mark needs a little definition on ivory. */
-:root[data-theme="light"] .project-logo--edge-light {
-  filter: drop-shadow(.65px 0 0 var(--muted)) drop-shadow(-.65px 0 0 var(--muted))
-    drop-shadow(0 .65px 0 var(--muted)) drop-shadow(0 -.65px 0 var(--muted));
+/* Parkventory uses the same light-theme backing as the app. */
+:root:not([data-theme="dark"]) .project-logo--parkventory {
+  padding: 5px;
+  border-radius: 7px;
+  background: #262624;
 }
 
-/* In dark mode the paper edge follows the transparent artwork, including both
-   pieces of the Mon Florian lockup. Scale it down for the homepage directory. */
-:root[data-theme="dark"] :is(.project-logo-frame, .project-compact-logo) img {
-  --cutline-inverse: calc(-1 * var(--cutline));
-  filter:
-    drop-shadow(var(--cutline) 0 0 var(--ink))
-    drop-shadow(var(--cutline-inverse) 0 0 var(--ink))
-    drop-shadow(0 var(--cutline) 0 var(--ink))
-    drop-shadow(0 var(--cutline-inverse) 0 var(--ink));
+/* Only the two dark-ink wordmarks need paper beneath the lettering. */
+:root[data-theme="dark"] :is(.project-logo--fouranu, .monflorian-lockup) {
+  padding: 5px 8px;
+  border-radius: 4px;
+  background: #d8d2c2;
 }
 .project-status {
   margin: 1.35rem 0;
@@ -803,7 +800,9 @@ hr {
 /* Taped prints for gameplay captures and workshop footage. The strips sit
    at the top corners so the video controls and captions remain unobstructed. */
 .workshop-gallery { max-width: 45rem; }
+.workshop-shot.game-title-shot { max-width: 45rem; margin-top: 2rem; }
 .workshop-gallery > h2 { margin: 0 0 2rem; }
+.workshop-gallery + .workshop-gallery { padding-top: 2rem; }
 .workshop-gallery .workshop-shot + .workshop-shot { margin-top: clamp(28px, 4vw, 48px); }
 .workshop-shot {
   --tape-paper: rgb(219 196 145 / 86%);
@@ -860,6 +859,62 @@ hr {
   .workshop-excerpt .workshop-shot { width: min(calc(100% - 16px), 17rem); }
 }
 
+.race-carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  overflow-x: scroll;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+}
+.race-carousel > .workshop-shot,
+.race-carousel > .workshop-shot + .workshop-shot {
+  margin: 20px 16px 12px;
+  scroll-snap-align: center;
+}
+.race-carousel::-webkit-scrollbar { height: 12px; }
+.race-carousel::-webkit-scrollbar-track { background: var(--bg-inset); }
+.race-carousel::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border: 3px solid var(--bg-inset);
+  border-radius: 8px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .race-carousel { scroll-behavior: smooth; }
+}
+.race-controls:not([hidden]) {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+.race-controls button {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+.race-controls button:hover { background: var(--bg-raised); }
+.race-controls button[aria-disabled="true"] {
+  color: var(--muted);
+  background: var(--bg);
+  border-style: dashed;
+  cursor: default;
+}
+.race-controls [data-race-count] {
+  color: var(--muted);
+  font: 0.8rem var(--font-mono);
+}
+@media print {
+  .race-carousel { display: block; overflow: visible; }
+  .race-controls:not([hidden]) { display: none; }
+}
+
 .tools-foundations { padding-top: 3rem; margin-top: 5.5rem; }
 .tools-foundations > h2 { margin-top: 0; }
 .foundation-entry {
@@ -912,7 +967,6 @@ hr {
 .project-compact:focus-visible { background: var(--accent-glow); text-decoration: none; }
 .project-compact:is(:hover, :focus-visible) h3 { text-decoration: underline; text-underline-offset: 3px; }
 .project-compact-logo {
-  --cutline: 1.3px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -923,6 +977,7 @@ hr {
 .project-compact-logo img { display: block; width: auto; max-width: 100%; max-height: 38px; object-fit: contain; }
 .project-compact-logo .project-logo--square,
 .project-compact-logo .project-logo--mark { max-height: 42px; }
+.project-compact-logo .project-logo--turbo { width: 100%; max-height: none; }
 .monflorian-lockup {
   display: grid;
   grid-template-columns: minmax(0, 0.58fr) minmax(0, 1fr);

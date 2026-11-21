@@ -207,10 +207,12 @@ travail lui-même.
 Les logos et cartes de produits ne sont ni réinterprétés ni recolorés. Les
 copies et dérivés locaux suivent les sources et empreintes consignées dans
 `assets/img/projects/PROVENANCE.md`. Les logos détourés se posent
-directement sur le fond de page. Sur fond sombre, un liseré ivoire épouse la
-silhouette de chaque marque, y compris les deux éléments de Mon Florian. Il est
-plus fin dans la liste de l’accueil. Sur fond clair, seul le P vert pâle de
-Parkventory a besoin d’un filet. Les illustrations officielles gardent leur
+directement sur le fond de page. En sombre, le P vert et cyan de Parkventory garde ses
+quatre cases et ses contreformes sur le fond de page. En clair, il reprend le
+petit carré anthracite de l’application. Les lettrages sombres de Four à Nu et
+de Mon Florian se posent sur un fond de papier ajusté à leur taille. L’accueil utilise l’icône orange de l’application Surplasse à côté de son
+nom. Le répertoire présente le logo horizontal complet, en orange sur le
+fond de page. Les autres marques gardent leur transparence. Les illustrations officielles gardent leur
 propre fond. Les fichiers lourds peuvent être remplacés
 par un dérivé WebP transparent, avec le master, son empreinte et la commande
 de transformation documentés.

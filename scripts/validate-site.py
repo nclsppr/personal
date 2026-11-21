@@ -710,7 +710,7 @@ def validate_projects(errors: list[str]) -> None:
             "alternate": f"{CANONICAL_ORIGIN}/fr/projects/",
             "social_card": (
                 f"{CANONICAL_ORIGIN}/assets/img/projects/"
-                "projects-social-card.jpg?v=4"
+                "projects-social-card.jpg?v=5"
             ),
             "attribution": (
                 "I started these projects and decide what to build next. AI assistants "
@@ -726,7 +726,7 @@ def validate_projects(errors: list[str]) -> None:
             "alternate": f"{CANONICAL_ORIGIN}/projects/",
             "social_card": (
                 f"{CANONICAL_ORIGIN}/assets/img/projects/"
-                "projects-social-card-fr.jpg?v=3"
+                "projects-social-card-fr.jpg?v=4"
             ),
             "attribution": (
                 "J’ai lancé ces projets et je décide de la suite. Les assistants IA "
