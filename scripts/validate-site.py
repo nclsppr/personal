@@ -14,7 +14,7 @@ import subprocess
 import sys
 import xml.etree.ElementTree as ET
 from typing import Optional
-from urllib.parse import parse_qs, urlparse
+from urllib.parse import parse_qs, urljoin, urlparse
 from zoneinfo import ZoneInfo
 
 
@@ -40,6 +40,8 @@ def validate_required_files(errors: list[str]) -> None:
         "fr/work/index.html",
         "projects/index.html",
         "fr/projects/index.html",
+        "projects/turbo-miette/index.html",
+        "fr/projects/turbo-miette/index.html",
         "objects/index.html",
         "fr/objects/index.html",
         "data/objects.json",
@@ -67,6 +69,8 @@ def validate_required_files(errors: list[str]) -> None:
         "assets/img/og-roadtrip.png",
         "assets/img/projects/guteneo-logo.webp",
         "assets/img/projects/guteneo-social-card.png",
+        "assets/img/projects/guteneo-workshop/PROVENANCE.md",
+        "assets/img/projects/turbo-miette/PROVENANCE.md",
         "assets/img/projects/surplasse-logo.webp",
         "assets/img/projects/papers-empire-logo.webp",
         "assets/img/projects/parkventory-logo.svg",
@@ -105,6 +109,7 @@ def validate_language_parity(errors: list[str]) -> None:
         ("index.html", "fr/index.html"),
         ("work/index.html", "fr/work/index.html"),
         ("projects/index.html", "fr/projects/index.html"),
+        ("projects/turbo-miette/index.html", "fr/projects/turbo-miette/index.html"),
         ("objects/index.html", "fr/objects/index.html"),
         ("cv/index.html", "fr/cv/index.html"),
         ("blog/index.html", "fr/blog/index.html"),
@@ -135,6 +140,9 @@ def validate_language_parity(errors: list[str]) -> None:
         ),
     )
     for english_path, french_path in pairs:
+        if not (ROOT / english_path).is_file() or not (ROOT / french_path).is_file():
+            errors.append(f"missing bilingual pair: {english_path} and {french_path}")
+            continue
         english = read(english_path)
         french = read(french_path)
         if section_ids(english) != section_ids(french):
@@ -297,6 +305,8 @@ def expected_schema_types(relative: Path) -> set[str]:
             "ItemList",
             "BreadcrumbList",
         },
+        "projects/turbo-miette/index.html": {"WebPage", "VideoGame", "BreadcrumbList"},
+        "fr/projects/turbo-miette/index.html": {"WebPage", "VideoGame", "BreadcrumbList"},
         "cv/index.html": {"Person", "ProfilePage", "BreadcrumbList"},
         "objects/index.html": {"CollectionPage", "ItemList", "BreadcrumbList"},
         "fr/objects/index.html": {"CollectionPage", "ItemList", "BreadcrumbList"},
@@ -391,6 +401,15 @@ def validate_img_dimensions(relative: Path, content: str, errors: list[str]) -> 
             errors.append(f"image missing width/height in {relative}: {label}")
 
 
+def validate_media_sources(relative: Path, content: str, errors: list[str]) -> None:
+    page_url = canonical_url_for_html(ROOT / relative)
+    for tag in re.findall(r"<(?:img|source|video|track)\b[^>]*>", content, re.S):
+        for source in re.findall(r'\s(?:src|poster)="([^"]+)"', tag):
+            local = local_path_for_absolute_url(urljoin(page_url, unescape(source)))
+            if local is not None and not local.is_file():
+                errors.append(f"missing local media in {relative}: {source}")
+
+
 def validate_global_metadata(
     errors: list[str],
 ) -> dict[str, tuple[Path, str]]:
@@ -403,6 +422,7 @@ def validate_global_metadata(
         content = path.read_text(encoding="utf-8")
         robots = (meta_value(content, "name", "robots") or "").lower()
         validate_img_dimensions(relative, content, errors)
+        validate_media_sources(relative, content, errors)
 
         if "noindex" in robots:
             continue
@@ -562,6 +582,29 @@ def validate_global_metadata(
             if primary.get("inLanguage") != language:
                 errors.append(f"JSON-LD language mismatch in {relative}")
 
+            if "VideoGame" in required_types:
+                games = [node for node in nodes if "VideoGame" in node_types(node)]
+                game_id = f"{CANONICAL_ORIGIN}/projects/turbo-miette/#game"
+                if len(games) != 1 or games[0].get("@id") != game_id:
+                    errors.append(f"expected one shared Turbo Miette game identity in {relative}")
+                elif linked_url(primary.get("mainEntity")) != game_id:
+                    errors.append(f"WebPage mainEntity must refer to Turbo Miette in {relative}")
+                else:
+                    game = games[0]
+                    platforms = game.get("gamePlatform")
+                    if not isinstance(platforms, list) or not all(
+                        os_name in platforms for os_name in ("macOS", "iOS", "iPadOS")
+                    ):
+                        errors.append(f"missing Turbo Miette game platforms in {relative}")
+                    if linked_url(game.get("creator")) != f"{CANONICAL_ORIGIN}/#person":
+                        errors.append(f"unexpected VideoGame creator in {relative}")
+                    emblem = "/assets/img/projects/turbo-miette/emblem.webp"
+                    if (
+                        CANONICAL_ORIGIN + emblem not in image_urls(game.get("image"))
+                        or not local_path_for_url(emblem).is_file()
+                    ):
+                        errors.append(f"missing local VideoGame image in {relative}")
+
         if og["type"] == "article":
             article_nodes = [
                 node
@@ -644,17 +687,30 @@ def validate_noindex_surfaces(errors: list[str]) -> None:
             errors.append(f"expected noindex: {relative}")
 
 
+def project_destinations(language: str) -> dict[str, str]:
+    prefix = "/fr" if language == "fr" else ""
+    return {
+        "guteneo": "https://guteneo.com/",
+        "turbo-miette": f"{prefix}/projects/turbo-miette/",
+        "surplasse": "https://surplasse.com/",
+        "papers-empire": "https://papersempire.com/",
+        "parkventory": "https://parkventory.com/",
+        "four-a-nu": "https://fouranu.com/",
+        "mon-florian": "https://monflorian.com/",
+    }
+
+
 def validate_projects(errors: list[str]) -> None:
     pages = (
         {
             "path": "projects/index.html",
-            "title": "Personal web projects · Nicolas Pieper",
+            "title": "Websites and games · Nicolas Pieper",
             "canonical": f"{CANONICAL_ORIGIN}/projects/",
             "language": "en",
             "alternate": f"{CANONICAL_ORIGIN}/fr/projects/",
             "social_card": (
                 f"{CANONICAL_ORIGIN}/assets/img/projects/"
-                "projects-social-card.jpg?v=3"
+                "projects-social-card.jpg?v=4"
             ),
             "attribution": (
                 "I started these projects and decide what to build next. AI assistants "
@@ -664,13 +720,13 @@ def validate_projects(errors: list[str]) -> None:
         },
         {
             "path": "fr/projects/index.html",
-            "title": "Mes projets web · Nicolas Pieper",
+            "title": "Mes sites et mes jeux · Nicolas Pieper",
             "canonical": f"{CANONICAL_ORIGIN}/fr/projects/",
             "language": "fr",
             "alternate": f"{CANONICAL_ORIGIN}/projects/",
             "social_card": (
                 f"{CANONICAL_ORIGIN}/assets/img/projects/"
-                "projects-social-card-fr.jpg?v=2"
+                "projects-social-card-fr.jpg?v=3"
             ),
             "attribution": (
                 "J’ai lancé ces projets et je décide de la suite. Les assistants IA "
@@ -679,15 +735,6 @@ def validate_projects(errors: list[str]) -> None:
             ),
         },
     )
-    expected_projects = [
-        "guteneo",
-        "surplasse",
-        "papers-empire",
-        "parkventory",
-        "four-a-nu",
-        "mon-florian",
-    ]
-
     for page in pages:
         content = read(page["path"])
         if title_value(content) != page["title"]:
@@ -721,8 +768,32 @@ def validate_projects(errors: list[str]) -> None:
             r'<section class="doc-section project-entry" id="([a-z0-9-]+)"',
             content,
         )
-        if project_ids != expected_projects:
+        destinations = project_destinations(page["language"])
+        if project_ids != list(destinations):
             errors.append(f"project order mismatch: {page['path']}")
+        item_lists = [
+            node for node in json_ld_nodes(Path(page["path"]), content, errors)
+            if "ItemList" in node_types(node)
+        ]
+        if len(item_lists) != 1:
+            errors.append(f"expected one project ItemList: {page['path']}")
+            continue
+        urls = [urljoin(CANONICAL_ORIGIN, url) for url in destinations.values()]
+        urls.append("https://nclsppr.github.io/project-foundation/")
+        items = item_lists[0].get("itemListElement")
+        if (
+            not isinstance(items, list)
+            or len(items) != len(urls)
+            or item_lists[0].get("numberOfItems") != len(urls)
+        ):
+            errors.append(f"incorrect project ItemList count: {page['path']}")
+            continue
+        entries = [
+            (item.get("position"), item.get("url"))
+            for item in items if isinstance(item, dict)
+        ]
+        if entries != list(enumerate(urls, 1)):
+            errors.append(f"incorrect project ItemList entries: {page['path']}")
 
 
 def validate_objects(errors: list[str]) -> None:
@@ -869,14 +940,6 @@ def validate_navigation(errors: list[str]) -> None:
 
 
 def validate_home_project_links(errors: list[str]) -> None:
-    expected_urls = [
-        "https://guteneo.com/",
-        "https://surplasse.com/",
-        "https://papersempire.com/",
-        "https://parkventory.com/",
-        "https://fouranu.com/",
-        "https://monflorian.com/",
-    ]
     monflorian_assets = (
         "/assets/img/projects/monflorian-avatar-v2.webp",
         "/assets/img/projects/monflorian-wordmark.webp",
@@ -884,6 +947,8 @@ def validate_home_project_links(errors: list[str]) -> None:
 
     for path in ("index.html", "fr/index.html"):
         content = read(path)
+        language = "fr" if path.startswith("fr/") else "en"
+        expected_urls = list(project_destinations(language).values())
         urls = re.findall(r'<a class="project-compact" href="([^"]+)"', content)
         if urls != expected_urls:
             errors.append(f"home project link order mismatch: {path}")
@@ -895,11 +960,16 @@ def validate_home_project_links(errors: list[str]) -> None:
         if any(re.search(r"<a\b", block) for block in project_contents):
             errors.append(f"nested home project link: {path}")
         project_tags = re.findall(r'<a class="project-compact"[^>]*>', content)
-        if any(
-            'target="_blank"' not in tag or 'rel="noopener"' not in tag
-            for tag in project_tags
-        ):
-            errors.append(f"home project external-link contract mismatch: {path}")
+        for tag in project_tags:
+            attributes = dict(re.findall(r'([\w:-]+)="([^"]*)"', tag))
+            if attributes.get("href", "").startswith("/"):
+                if attributes.get("target", "_self") != "_self":
+                    errors.append(f"local project must open in the same tab: {path}")
+            elif (
+                attributes.get("target") != "_blank"
+                or "noopener" not in attributes.get("rel", "").split()
+            ):
+                errors.append(f"home project external-link contract mismatch: {path}")
         for asset in monflorian_assets:
             if asset not in content:
                 errors.append(f"missing Mon Florian V2 asset in {path}: {asset}")

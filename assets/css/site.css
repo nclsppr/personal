@@ -693,7 +693,7 @@ hr {
 .project-index > .eyebrow { margin-bottom: 10px; }
 .project-index ol {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   max-width: none;
   margin: 0;
   padding: 0;
@@ -800,6 +800,66 @@ hr {
   color: var(--muted);
 }
 
+/* Taped prints for gameplay captures and workshop footage. The strips sit
+   at the top corners so the video controls and captions remain unobstructed. */
+.workshop-gallery { max-width: 45rem; }
+.workshop-gallery > h2 { margin: 0 0 2rem; }
+.workshop-gallery .workshop-shot + .workshop-shot { margin-top: clamp(28px, 4vw, 48px); }
+.workshop-shot {
+  --tape-paper: rgb(219 196 145 / 86%);
+  position: relative;
+  align-self: start;
+  min-width: 0;
+  margin: 12px 8px 0;
+}
+.workshop-shot::before,
+.workshop-shot::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 1px;
+  width: clamp(44px, 5vw, 66px);
+  height: clamp(15px, 1.6vw, 21px);
+  background: var(--tape-paper);
+  box-shadow: inset 0 1px rgb(255 255 255 / 30%);
+  clip-path: polygon(1% 0, 100% 3%, 97% 22%, 100% 38%, 97% 58%, 100% 78%, 98% 100%, 0 97%, 3% 74%, 0 55%, 3% 32%, 0 16%);
+  pointer-events: none;
+}
+.workshop-shot::before { left: -11px; transform: rotate(-26deg); }
+.workshop-shot::after { right: -11px; transform: rotate(22deg); }
+.workshop-shot img,
+.workshop-shot video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 4px solid #f1ecdc;
+  border-radius: 1px;
+  box-shadow: 0 3px 7px rgb(23 23 22 / 15%);
+}
+.workshop-shot figcaption {
+  margin-top: 10px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.workshop-excerpt {
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(18px, 3vw, 36px);
+}
+.workshop-excerpt details { margin-block: 1rem; }
+.workshop-excerpt summary {
+  width: fit-content;
+  padding-block: 10px;
+  color: var(--ink);
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  .workshop-excerpt { grid-template-columns: 1fr; }
+  .workshop-excerpt .workshop-shot { width: min(calc(100% - 16px), 17rem); }
+}
+
 .tools-foundations { padding-top: 3rem; margin-top: 5.5rem; }
 .tools-foundations > h2 { margin-top: 0; }
 .foundation-entry {
@@ -894,7 +954,7 @@ hr {
 
 @media (max-width: 820px) {
   .project-index ol { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .project-index li:nth-child(4) { border-left: 0; }
+  .project-index li:nth-child(3n + 1) { border-left: 0; }
   .project-index li:nth-child(n + 4) { border-top: 1px solid var(--border); }
   .page-projects .project-entry { grid-template-columns: minmax(15rem, 0.9fr) minmax(18rem, 1.1fr); gap: 28px; }
   .project-compact { grid-template-columns: 104px minmax(120px, 0.55fr) minmax(180px, 1.45fr); gap: 12px 18px; }
@@ -902,8 +962,7 @@ hr {
 
 @media (max-width: 640px) {
   .project-index ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .project-index li:nth-child(3),
-  .project-index li:nth-child(5) { border-left: 0; }
+  .project-index li:nth-child(odd) { border-left: 0; }
   .project-index li:nth-child(n + 3) { border-top: 1px solid var(--border); }
   .project-index li:nth-child(4) { border-left: 1px solid var(--border); }
   .page-projects .project-entry { grid-template-columns: 1fr; gap: 22px; padding-top: 2.4rem; margin-top: 3.6rem; }
@@ -1396,6 +1455,7 @@ a.card:hover { text-decoration: none; border-color: var(--accent); box-shadow: v
 .content article .page-intro .lead { max-width: 38rem; }
 .content article .post-hero,
 .content article .post-diagram,
+.content article .workshop-excerpt,
 .content article .video-facade { max-width: 45rem; }
 .post-meta {
   font-family: var(--font-mono);

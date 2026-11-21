@@ -39,7 +39,8 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/projects/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/projects/"/>
     <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/projects-social-card.jpg</image:loc></image:image>
-    <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/guteneo-social-card.png</image:loc></image:image>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/guteneo-workshop/gutenberg-character.webp</image:loc></image:image>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/turbo-miette/kitchen-cockpit.webp</image:loc></image:image>
     <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/surplasse-social-card.png</image:loc></image:image>
     <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/papers-empire-social-card.jpg</image:loc></image:image>
     <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/parkventory-social-card-en.png</image:loc></image:image>
@@ -53,12 +54,35 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/projects/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/projects/"/>
     <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/projects-social-card-fr.jpg</image:loc></image:image>
-    <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/guteneo-social-card.png</image:loc></image:image>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/guteneo-workshop/gutenberg-character.webp</image:loc></image:image>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/turbo-miette/kitchen-cockpit.webp</image:loc></image:image>
     <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/surplasse-social-card.png</image:loc></image:image>
     <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/papers-empire-social-card.jpg</image:loc></image:image>
     <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/parkventory-social-card.png</image:loc></image:image>
     <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/fouranu-social-card.jpg</image:loc></image:image>
     <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/monflorian-tokyo.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://nicolaspieper.com/projects/turbo-miette/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/projects/turbo-miette/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/projects/turbo-miette/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/projects/turbo-miette/"/>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/turbo-miette/race-social.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/turbo-miette/kitchen-cockpit.webp</image:loc></image:image>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/turbo-miette/bedroom-start.webp</image:loc></image:image>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/turbo-miette/garage-start.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://nicolaspieper.com/fr/projects/turbo-miette/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicolaspieper.com/projects/turbo-miette/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/projects/turbo-miette/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/projects/turbo-miette/"/>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/turbo-miette/race-social.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/turbo-miette/kitchen-cockpit.webp</image:loc></image:image>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/turbo-miette/bedroom-start.webp</image:loc></image:image>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/turbo-miette/garage-start.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://nicolaspieper.com/objects/</loc>
@@ -115,6 +139,7 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/building-guteneo/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/building-guteneo/"/>
     <image:image><image:loc>https://nicolaspieper.com/assets/img/blog/building-guteneo-og.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/guteneo-workshop/gutenberg-fax-web-poster.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://nicolaspieper.com/fr/blog/building-guteneo/</loc>
@@ -123,6 +148,7 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/building-guteneo/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/building-guteneo/"/>
     <image:image><image:loc>https://nicolaspieper.com/assets/img/blog/building-guteneo-og.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nicolaspieper.com/assets/img/projects/guteneo-workshop/gutenberg-fax-web-poster.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://nicolaspieper.com/blog/growing-up-with-the-web/</loc>

@@ -73,7 +73,7 @@ boutons ou couleurs de statut du site.
   mesure de texte confortable.
 - Page Projets : un sommaire numéroté ouvre un répertoire de
   produits, séparés par des filets. Chaque entrée met en regard une colonne
-  de lecture et sa carte sociale complète. La section Outils et fondations
+  de lecture et un visuel du projet (capture de jeu, étude de personnage ou carte sociale). La section Outils et fondations
   reste secondaire et ne reprend pas le traitement des produits.
 - Accueil, section Projets : répertoire compact avec logos et texte. Les cartes
   sociales complètes restent réservées aux pages `/projects/` et
@@ -191,6 +191,16 @@ d'articles) ou `square composition` (mascottes, portraits).
 - `scripts/og-template.html` compose les cartes Accueil, Réalisations, CV, Blog,
   Claude et carnet Autriche avec les actifs existants. `scripts/projects-og-template.html`
   conserve la grille propre aux identités produit.
+
+### Photos d’atelier et captures de jeu
+
+Une capture de jeu, une étude de personnage ou une prise de vue du projet peut
+être présentée comme un tirage scotché à la page. Utiliser une figure
+`workshop-shot` avec un fin bord de papier ivoire et deux morceaux de ruban
+en haut. L’image reste droite et entière. Sous le tirage, une courte légende
+situe la scène. Pour une vidéo, le ruban laisse les commandes libres et la
+lecture démarre au clic. Réserver ce traitement aux images qui montrent le
+travail lui-même.
 
 ### Identités de projets existantes
 

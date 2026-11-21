@@ -5,6 +5,19 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-11-21 - Turbo Miette et les essais de Gutenberg
+
+- Turbo Miette rejoint l’accueil et le répertoire des projets. Sa fiche en
+  français et en anglais présente les courses en solo et à deux, avec trois
+  captures du jeu sur simulateur iPad, de la table du petit-déjeuner au garage.
+- Le portrait de Gutenberg dans son atelier ouvre le retour d’expérience
+  Guteneo au passage consacré à sa voix. L’extrait de 17 secondes conserve le
+  son de deux plans du film d’essai, au fax puis à la tablette. Le lecteur
+  propose des sous-titres français et anglais et la transcription figure à côté.
+- Les captures et les images de l’atelier sont présentées comme des tirages
+  fixés par deux morceaux de ruban. Les cartes de partage Projets passent à
+  sept projets.
+
 ## 2026-11-21 - Guteneo et relecture du site
 
 - Ajout de Guteneo à l’accueil et aux projets personnels. Le nouvel article,

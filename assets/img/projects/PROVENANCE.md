@@ -3,6 +3,8 @@
 Les logos et cartes ci-dessous sont des copies locales ou des dérivés fidèles des assets
 canoniques des projets.
 Les couleurs propres aux projets restent confinées aux cadres éditoriaux de la page Projets.
+Les sources des vues de course figurent dans le [dossier Turbo Miette](turbo-miette/PROVENANCE.md).
+Le portrait, les deux plans et leur voix sont documentés dans le [dossier Gutenberg](guteneo-workshop/PROVENANCE.md).
 
 | Fichier local | Source canonique | SHA-256 | État |
 | --- | --- | --- | --- |
@@ -21,8 +23,8 @@ Les couleurs propres aux projets restent confinées aux cadres éditoriaux de la
 | `monflorian-wordmark.webp` | https://monflorian.com/assets/monflorian-wordmark-web.webp | `941c00869e36c83fd261c4d6195d219479e8685cb203c594d84f0b9e91cef966` | Copie byte-identique, mot-symbole actif 338 x 181 |
 | `monflorian-tokyo.webp` | https://monflorian.com/v2/media/japan-tokyo-couple-720.webp | `f99b3f3cf0079c04fdf122aa92c1ab2db387ff2caf587a5d248091a15902dc8c` | Variante officielle 720 x 480 de l’illustration du carnet Japon, identique à la source |
 | `monflorian-social-card.png` | https://monflorian.com/assets/monflorian-social-card.png | `530f2127e049c37c88370ed81d67ff7e027076346b41a7f6815317d374e48061` | Ancienne carte publique, conservée à son URL historique. Réutilisation autorisée par Nicolas |
-| `projects-social-card.jpg` | `scripts/projects-og-template.html` | `bbda1b26e90fdd427f7a4967a857852f93173dfa7ca88f201c7964e6dd3788f5` | Carte du hub générée localement, 1200 x 630 |
-| `projects-social-card-fr.jpg` | `scripts/projects-og-template.html` | `6374eafd22c9b644697592e9a3ac0da2dc718f4976c52f361272d954d75d2381` | Carte FR du hub générée localement, 1200 x 630 |
+| `projects-social-card.jpg` | `scripts/projects-og-template.html` | `25879301b89c62e91c606ef0bbc2d4fdb66dc1976beeb5fad09235ba6aa3ddbe` | Carte du hub générée localement, 1200 x 630 |
+| `projects-social-card-fr.jpg` | `scripts/projects-og-template.html` | `da7997f688d5d2124246ea6b27f778573425d4f32cb2f86fd525a01c1521f960` | Carte FR du hub générée localement, 1200 x 630 |
 
 Les visuels Guteneo reprennent le timbre de la marque, fourni par Nicolas pour
 les communications publiques du produit. Le 21 novembre 2026, la carte a été
