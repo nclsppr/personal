@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Building Guteneo, from draft to letterbox · Nicolas Pieper</title>
+    <meta name="description" content="I built Guteneo with Codex to prepare PDFs and track what happens to them. Project notes on templates, recipients and when someone actually approves a letter.">
+    <meta name="author" content="Nicolas Pieper">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://nicolaspieper.com/blog/building-guteneo/">
+    <link rel="alternate" hreflang="en" href="https://nicolaspieper.com/blog/building-guteneo/">
+    <link rel="alternate" hreflang="fr" href="https://nicolaspieper.com/fr/blog/building-guteneo/">
+    <link rel="alternate" hreflang="x-default" href="https://nicolaspieper.com/blog/building-guteneo/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Nicolas Pieper">
+    <meta property="og:title" content="Building Guteneo, from draft to letterbox">
+    <meta property="og:description" content="I built Guteneo with Codex to prepare PDFs and track what happens to them. Project notes on templates, recipients and when someone actually approves a letter.">
+    <meta property="og:url" content="https://nicolaspieper.com/blog/building-guteneo/">
+    <meta property="og:image" content="https://nicolaspieper.com/assets/img/blog/building-guteneo-og.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="A hand checks a letter beside an open envelope, a fountain pen and a stamp.">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="fr_FR">
+    <meta property="article:published_time" content="2026-11-21">
+    <meta property="article:modified_time" content="2026-11-21">
+    <meta property="article:author" content="https://nicolaspieper.com/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Building Guteneo, from draft to letterbox">
+    <meta name="twitter:description" content="I built Guteneo with Codex to prepare PDFs and track what happens to them. Project notes on templates, recipients and when someone actually approves a letter.">
+    <meta name="twitter:image" content="https://nicolaspieper.com/assets/img/blog/building-guteneo-og.jpg">
+    <meta name="twitter:image:alt" content="A hand checks a letter beside an open envelope, a fountain pen and a stamp.">
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/assets/img/favicon.svg?v=2">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon-96.png?v=2">
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+    <meta name="theme-color" content="#FAF9F5">
+    <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/sourceserif4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/jetbrainsmono-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/css/site.css?v=20261121">
+    <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "@id": "https://nicolaspieper.com/blog/building-guteneo/#post",
+                "mainEntityOfPage": "https://nicolaspieper.com/blog/building-guteneo/",
+                "headline": "Building Guteneo, from draft to letterbox",
+                "description": "I built Guteneo with Codex to prepare PDFs and track what happens to them. Project notes on templates, recipients and when someone actually approves a letter.",
+                "inLanguage": "en",
+                "datePublished": "2026-11-21",
+                "dateModified": "2026-11-21",
+                "author": {
+                    "@id": "https://nicolaspieper.com/#person"
+                },
+                "publisher": {
+                    "@id": "https://nicolaspieper.com/#person"
+                },
+                "image": "https://nicolaspieper.com/assets/img/blog/building-guteneo-og.jpg",
+                "isPartOf": {
+                    "@id": "https://nicolaspieper.com/blog/#blog"
+                },
+                "keywords": [
+                    "Guteneo",
+                    "Codex",
+                    "PDF",
+                    "postal mail",
+                    "document templates",
+                    "AI-assisted development"
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Overview",
+                        "item": "https://nicolaspieper.com/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "https://nicolaspieper.com/blog/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Building Guteneo, from draft to letterbox",
+                        "item": "https://nicolaspieper.com/blog/building-guteneo/"
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+</head>
+<body class="page-work">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path class="menu-line menu-line--top" d="M2 4h12"/><path class="menu-line menu-line--middle" d="M2 8h12"/><path class="menu-line menu-line--bottom" d="M2 12h12"/></svg></button>
+        <a class="brand" href="/" aria-label="Nicolas Pieper"><img class="brand-mark" src="/assets/img/logo-mark.png" width="30" height="30" alt="" aria-hidden="true"><span>Nicolas&nbsp;Pieper</span></a>
+        <nav class="header-nav" aria-label="Main">
+            <a href="/">Overview</a>
+            <a href="/work/">Work</a>
+            <a href="/projects/">Projects</a>
+            <a href="/objects/">Objects</a>
+            <a href="/blog/">Blog</a>
+            <a href="/cv/">CV</a>
+            <a href="/#contact">Contact</a>
+        </nav>
+        <div class="header-actions">
+            <nav class="lang-switch" aria-label="Language"><span aria-current="true" lang="en">EN</span><a href="/fr/blog/building-guteneo/" lang="fr" hreflang="fr">FR</a></nav>
+            <a class="icon-btn" href="https://www.linkedin.com/in/nicolaspieper" rel="me noopener" target="_blank" aria-label="LinkedIn profile (opens in a new tab)"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1.4 1.4 0 1 1 0 2.8 1.4 1.4 0 0 1 0-2.8zM2.4 6h2.4v7.8H2.4zM6.4 6h2.3v1.1h.1c.3-.6 1.1-1.3 2.3-1.3 2.4 0 2.9 1.6 2.9 3.7v4.3h-2.4V9.9c0-.9 0-2.1-1.3-2.1s-1.5 1-1.5 2v4H6.4z"/></svg></a>
+            <button class="icon-btn theme-toggle" id="themeBtn" aria-label="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="3.2"/><path d="M8 1.2v1.6M8 13.2v1.6M1.2 8h1.6M13.2 8h1.6M3.2 3.2l1.1 1.1M11.7 11.7l1.1 1.1M3.2 12.8l1.1-1.1M11.7 4.3l1.1-1.1"/></svg><svg class="icon-moon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 9.5A6 6 0 0 1 6.5 2.5a6 6 0 1 0 7 7z"/></svg></button>
+        </div>
+    </header>
+    <div class="backdrop" id="backdrop"></div>
+    <div class="layout">
+        <aside class="sidebar" id="sidebar" aria-label="Section navigation">
+            <nav class="side-group sidebar-site-nav" aria-label="Site">
+                <p class="side-title">Pages</p>
+                <ul>
+                    <li><a href="/">Overview</a></li>
+                    <li><a href="/work/">Work</a></li>
+                    <li><a href="/projects/">Projects</a></li>
+                    <li><a href="/objects/">Objects</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/cv/">CV</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <nav aria-label="On this page">
+                <div class="side-group"><p class="side-title">On this page</p><ul>
+                    <li><a href="#original">The original document</a></li>
+                    <li><a href="#studio">Studio templates</a></li>
+                    <li><a href="#approval">Signing off</a></li>
+                    <li><a href="#recipient">Receiving documents</a></li>
+                    <li><a href="#tracking">Tracking a delivery</a></li>
+                    <li><a href="#together">Working with Codex</a></li>
+                </ul></div>
+                <div class="side-group"><p class="side-title">More articles</p><ul>
+                    <li><a href="/blog/">All articles</a></li>
+                    <li><a href="/blog/growing-up-with-the-web/">I grew up with the web</a></li>
+                    <li><a href="/blog/ai-coding-agents-logging/">AI coding agents and logging</a></li>
+                    <li><a href="/blog/ai-in-the-sdlc/">AI in the SDLC</a></li>
+                    <li><a href="/blog/claude-assisted-by-a-human/">Claude assisted by a human</a></li>
+                    <li><a href="/blog/organizing-the-solutions-team/">Organizing the Solutions team</a></li>
+                    <li><a href="/blog/claude-in-the-enterprise/">Claude in the enterprise</a></li>
+                </ul></div>
+            </nav>
+        </aside>
+        <main class="content" id="main">
+            <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">nicolaspieper.com</a><span class="sep">/</span><a href="/blog/">blog</a><span class="sep">/</span><span aria-current="page">building-guteneo</span></nav>
+            <article>
+            <header class="page-intro">
+                <p class="eyebrow">Blog · Project notes</p>
+                <h1>Building Guteneo, from draft to letterbox.</h1>
+                <p class="post-meta"><time datetime="2026-11-21">November 21, 2026</time> · 4 min read · <a rel="author" href="/">Nicolas Pieper</a></p>
+                <p class="lead">Suppose I ask my assistant to draft a letter for a local association. It suggests some wording, I change a sentence, and I’m happy with the letter. Have I just given it permission to put the letter in the post? That question shaped the way I built Guteneo with Codex.</p>
+            </header>
+            <figure class="post-hero">
+                <img src="/assets/img/blog/building-guteneo-hero.webp" width="1200" height="800"
+                     alt="A hand checks a letter beside an open envelope, a fountain pen and a stamp."
+                     loading="eager" fetchpriority="high" decoding="async">
+            </figure>
+            <section class="doc-section" id="original" aria-labelledby="original-title">
+                <h2 class="anchor-heading" id="original-title">Start with the right letter<a class="anchor" href="#original" aria-label="Link to this section">#</a></h2>
+                <p>You can start in a conversation with a connected assistant or upload a finished PDF directly to Guteneo. The person who prepared that file may have spent time getting a page break right or signed the letter before scanning it. I want to be able to hand back exactly the file they gave me. Guteneo keeps the uploaded PDF intact and calculates a fingerprint for the file. I can use it to check that the PDF matches the original down to the last byte.</p>
+                <p>Postal mail gave us a nice problem to solve. Getting the address to line up with the window of an envelope can mean adding a page. That produces a second PDF for review before sending. When I open the original again, my letter has the same page breaks and the signature is right where I left it.</p>
+            </section>
+            <section class="doc-section" id="studio" aria-labelledby="studio-title">
+                <h2 class="anchor-heading" id="studio-title">One template, several recipients<a class="anchor" href="#studio" aria-label="Link to this section">#</a></h2>
+                <p>Take the same association. It wants to write to its members, each of whom should see their own name and membership reference in the letter. In Studio, you lay out the page, match spreadsheet columns to fields in the letter, then check that the name and reference appear in the right places. Once you’ve published the template, you can generate the PDFs and select the ones to take into Correspondence.</p>
+                <p>One of my favourite details lives in the postcode column. If the software decides that 06000 is a number, the first zero disappears. That digit matters if your letter is going to Nice. Studio lets you treat that column as text. Another detail matters when I edit a template later. Each PDF keeps a record of the template version it came from, so I can find the exact one I used for the letter to Nice.</p>
+            </section>
+            <section class="doc-section" id="approval" aria-labelledby="approval-title">
+                <h2 class="anchor-heading" id="approval-title">Signing off on the proof<a class="anchor" href="#approval" aria-label="Link to this section">#</a></h2>
+                <p>French printers call it a <em>bon à tirer</em>. You look at a proof and give the printer the go-ahead to print that particular version. In Guteneo, the person approving a dispatch sees the document, its destination, the chosen channel and the quoted price or spending cap. There’s still time to spot a typo in the address or decide the letter should go by email. If they change the address or the delivery method, they have to approve the revised version.</p>
+                <p>That’s where an assistant earns its place for me. I can ask it to write the letter and prepare a fax, email or piece of postal mail. By default I approve the details in the browser. If I decide to delegate certain confirmations, expert mode lets an administrator set the limits of that delegation, give it an end date and revoke it.</p>
+            </section>
+            <section class="doc-section" id="recipient" aria-labelledby="recipient-title">
+                <h2 class="anchor-heading" id="recipient-title">On the receiving end<a class="anchor" href="#recipient" aria-label="Link to this section">#</a></h2>
+                <p>Now suppose I’m the recipient. I need to read my letter without joining the association’s workspace. That’s what My documents is for. When someone prepares a secure share, they choose who can view the document, for how long and with which permissions. My invitation gives me access to my own letter. The other members get to keep theirs to themselves.</p>
+                <p>There’s a choice worth explaining up front. The sender can revoke shared access before it expires. If I’ve already saved a personal copy with the sender’s permission, it remains available for the agreed period. As a sender, I’d want to see that detail right beside the checkbox.</p>
+            </section>
+            <section class="doc-section" id="tracking" aria-labelledby="tracking-title">
+                <h2 class="anchor-heading" id="tracking-title">What does “sent” mean?<a class="anchor" href="#tracking" aria-label="Link to this section">#</a></h2>
+                <p>A mail server can accept an email. A printer can hand an envelope to the postal service. Both steps deserve a place in the tracking view. In either case, whether the recipient has read the letter is still an open question.</p>
+                <p>If a provider is slow to reply, sending the request again might put the same letter in the post twice. Guteneo keeps the dispatch open for investigation. You can come back with its reference and see what the provider has confirmed.</p>
+            </section>
+            <section class="doc-section" id="together" aria-labelledby="together-title">
+                <h2 class="anchor-heading" id="together-title">What I’ll take from working with Codex<a class="anchor" href="#together" aria-label="Link to this section">#</a></h2>
+                <p>One change I remember particularly well began with an edit to the interface copy. Codex and I shortened the labels. While checking the workshop overview, we also found a link that could move under your pointer when the rest of the page finished loading. Our test points at the link, waits for the remaining data to appear, then clicks. It checks that you land on the page you were aiming for. A screenshot taken after everything had loaded would have looked impeccable. <a href="https://github.com/nclsppr/guteneo/releases/tag/v1.2.1">The release notes describe the test.</a></p>
+                <p>That’s a habit I’ll take into my next project with Codex. When I review a change, I want to describe what someone will actually do, then try it myself. Guteneo is in beta. For a first look, <a href="https://guteneo.com/how-it-works/?lang=en">the public demo walks through a fictional dispatch</a>.</p>
+            </section>
+            </article>
+            <nav class="page-next" aria-label="Continue"><a href="/blog/">← All articles</a><a class="next-primary" href="/blog/claude-in-the-enterprise/">Claude in the enterprise →</a></nav>
+            <footer class="site-footer">
+            <div class="footer-grid">
+                <div class="footer-id">
+                    <a class="brand" href="/"><img class="brand-mark" src="/assets/img/logo-mark.png" width="30" height="30" alt="" aria-hidden="true"><span>Nicolas&nbsp;Pieper</span></a>
+                    <p class="footer-tag">Engineering Manager · Luxembourg</p>
+                    <p class="footer-exit" aria-hidden="true"><span class="fx-prompt">$</span> exit 0</p>
+                </div>
+                <nav class="footer-col" aria-label="Pages">
+                    <p class="side-title">Pages</p>
+                    <a href="/">Overview</a>
+                    <a href="/work/">Work</a>
+                    <a href="/projects/">Projects</a>
+                    <a href="/objects/">Objects</a>
+                    <a href="/blog/">Blog</a>
+                    <a href="/cv/">CV</a>
+                </nav>
+                <nav class="footer-col" aria-label="Elsewhere">
+                    <p class="side-title">Elsewhere</p>
+                    <a href="https://www.linkedin.com/in/nicolaspieper" rel="me noopener" target="_blank">LinkedIn<span aria-hidden="true"> ↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+                    <a href="https://github.com/nclsppr" rel="me noopener" target="_blank">GitHub<span aria-hidden="true"> ↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+                    <a href="mailto:nicolas@pieper.fr">nicolas@pieper.fr</a>
+                </nav>
+                <nav class="footer-col" aria-label="Site">
+                    <p class="side-title">Site</p>
+                    <a href="/fr/blog/building-guteneo/" hreflang="fr" lang="fr">Version française</a>
+                    <a href="/v2022/" rel="nofollow">v2022 archive</a>
+                    <a href="https://github.com/nclsppr/personal" rel="me noopener" target="_blank">Source<span aria-hidden="true"> ↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+                </nav>
+            </div>
+            <div class="footer-base">
+                <p>© 2026 Nicolas Pieper · Luxembourg</p>
+                <p>Set in Inter, Source Serif 4 &amp; JetBrains Mono. Static site, no tracking.</p>
+            </div>
+        </footer>
+        </main>
+    </div>
+    <script src="/assets/js/site.js?v=20261121" defer></script>
+</body>
+</html>

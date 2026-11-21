@@ -65,6 +65,8 @@ def validate_required_files(errors: list[str]) -> None:
         "assets/img/og-blog-fr.png",
         "assets/img/og-claude.png",
         "assets/img/og-roadtrip.png",
+        "assets/img/projects/guteneo-logo.webp",
+        "assets/img/projects/guteneo-social-card.png",
         "assets/img/projects/surplasse-logo.webp",
         "assets/img/projects/papers-empire-logo.webp",
         "assets/img/projects/parkventory-logo.svg",
@@ -77,8 +79,9 @@ def validate_required_files(errors: list[str]) -> None:
         "assets/img/projects/surplasse-social-card.png",
         "assets/img/projects/papers-empire-social-card.jpg",
         "assets/img/projects/parkventory-social-card.png",
+        "assets/img/projects/parkventory-social-card-en.png",
         "assets/img/projects/fouranu-social-card.jpg",
-        "assets/img/projects/monflorian-social-card.png",
+        "assets/img/projects/monflorian-tokyo.webp",
     )
     for relative in required:
         if not (ROOT / relative).is_file():
@@ -105,6 +108,7 @@ def validate_language_parity(errors: list[str]) -> None:
         ("objects/index.html", "fr/objects/index.html"),
         ("cv/index.html", "fr/cv/index.html"),
         ("blog/index.html", "fr/blog/index.html"),
+        ("blog/building-guteneo/index.html", "fr/blog/building-guteneo/index.html"),
         (
             "blog/growing-up-with-the-web/index.html",
             "fr/blog/growing-up-with-the-web/index.html",
@@ -644,38 +648,39 @@ def validate_projects(errors: list[str]) -> None:
     pages = (
         {
             "path": "projects/index.html",
-            "title": "Web products and engineering systems · Nicolas Pieper",
+            "title": "Personal web projects · Nicolas Pieper",
             "canonical": f"{CANONICAL_ORIGIN}/projects/",
             "language": "en",
             "alternate": f"{CANONICAL_ORIGIN}/fr/projects/",
             "social_card": (
                 f"{CANONICAL_ORIGIN}/assets/img/projects/"
-                "projects-social-card.jpg?v=2"
+                "projects-social-card.jpg?v=3"
             ),
             "attribution": (
-                "Products and systems I initiate and lead, from idea to "
-                "production. I build them with AI coding assistants, then "
-                "review, test and verify every release."
+                "I started these projects and decide what to build next. AI assistants "
+                "help me write the code. For each release, I review the changes, "
+                "test them and check the result."
             ),
         },
         {
             "path": "fr/projects/index.html",
-            "title": "Produits web et systèmes d’ingénierie · Nicolas Pieper",
+            "title": "Mes projets web · Nicolas Pieper",
             "canonical": f"{CANONICAL_ORIGIN}/fr/projects/",
             "language": "fr",
             "alternate": f"{CANONICAL_ORIGIN}/projects/",
             "social_card": (
                 f"{CANONICAL_ORIGIN}/assets/img/projects/"
-                "projects-social-card-fr.jpg?v=1"
+                "projects-social-card-fr.jpg?v=2"
             ),
             "attribution": (
-                "Des produits et des systèmes que j’initie et pilote, de "
-                "l’idée à la production. Je les construis avec des assistants "
-                "IA, puis je relis, teste et vérifie chaque livraison."
+                "J’ai lancé ces projets et je décide de la suite. Les assistants IA "
+                "m’aident à écrire le code. À chaque mise en ligne, je relis les "
+                "changements, je les teste et je vérifie le résultat."
             ),
         },
     )
     expected_projects = [
+        "guteneo",
         "surplasse",
         "papers-empire",
         "parkventory",
@@ -865,6 +870,7 @@ def validate_navigation(errors: list[str]) -> None:
 
 def validate_home_project_links(errors: list[str]) -> None:
     expected_urls = [
+        "https://guteneo.com/",
         "https://surplasse.com/",
         "https://papersempire.com/",
         "https://parkventory.com/",

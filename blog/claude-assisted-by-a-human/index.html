@@ -24,7 +24,7 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="fr_FR">
     <meta property="article:published_time" content="2026-06-02">
-    <meta property="article:modified_time" content="2026-06-02">
+    <meta property="article:modified_time" content="2026-11-21">
     <meta property="article:author" content="https://nicolaspieper.com/">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="The future of work is Claude assisted by a human">
@@ -38,7 +38,7 @@
     <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/sourceserif4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/jetbrainsmono-var-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/assets/css/site.css?v=20260905-objects">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20261121">
     <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
     <script type="application/ld+json">
     {
@@ -52,7 +52,7 @@
                 "description": "The roles are flipping: from a human assisted by AI to Claude assisted by a human. What that changes for engineers, juniors and teams, and what stays irreducibly human.",
                 "inLanguage": "en",
                 "datePublished": "2026-06-02",
-                "dateModified": "2026-06-02",
+                "dateModified": "2026-11-21",
                 "author": { "@id": "https://nicolaspieper.com/#person" },
                 "publisher": { "@id": "https://nicolaspieper.com/#person" },
                 "image": "https://nicolaspieper.com/assets/img/blog/claude-assisted-by-a-human-og.jpg",
@@ -117,6 +117,7 @@
                 </ul></div>
                 <div class="side-group"><p class="side-title">More articles</p><ul>
                     <li><a href="/blog/">All articles</a></li>
+                    <li><a href="/blog/building-guteneo/">Building Guteneo</a></li>
                     <li><a href="/blog/growing-up-with-the-web/">I grew up with the web</a></li>
                     <li><a href="/blog/claude-in-the-enterprise/">Claude in the enterprise</a></li>
                     <li><a href="/blog/organizing-the-solutions-team/">Organizing the Solutions team</a></li>
@@ -132,7 +133,7 @@
                 <p class="eyebrow">Blog · Future of work</p>
                 <h1>The future of work is Claude assisted by a human.</h1>
                 <p class="post-meta"><time datetime="2026-06-02">June 2, 2026</time> · 5 min read · Nicolas Pieper</p>
-                <p class="lead">For a while the phrase was “a human assisted by AI”. Watch a modern engineering session honestly and the description no longer fits. The model does the work; the human directs it, verifies it and answers for it. That flip changes more than tooling, and I think it is good news.</p>
+                <p class="lead">At first Claude finished lines of code for me. Now I can describe a change, let it work across several files and spend most of the session reviewing its choices. My part in the work has changed, and I like where that leaves me.</p>
             </header>
             <figure class="post-hero">
                 <img src="/assets/img/blog/claude-assisted-by-a-human-hero.webp" width="1200" height="800"
@@ -141,12 +142,12 @@
             </figure>
             <section class="doc-section" id="the-flip" aria-labelledby="the-flip-title">
                 <h2 class="anchor-heading" id="the-flip-title">The quiet flip<a class="anchor" href="#the-flip" aria-label="Link to this section">#</a></h2>
-                <p>Nobody announced it. One month the assistant completed lines; a few months later it completed functions; then one day you realize the session has inverted. You describe an outcome, Claude works across the codebase, and your keyboard time is spent reading, questioning and deciding. The human is no longer the one being assisted. The human is the assistance: the judgment wrapped around the machine that produces.</p>
+                <p>It happened gradually. After individual lines came whole functions. Once I can describe what I want and read the resulting diff, my job is to spot the assumptions Claude made along the way.</p>
                 <p>Resisting the observation out of pride seems pointless to me. The interesting question is what the human role becomes when production is no longer the bottleneck.</p>
             </section>
             <section class="doc-section" id="what-claude-carries" aria-labelledby="what-claude-carries-title">
                 <h2 class="anchor-heading" id="what-claude-carries-title">What the model now carries<a class="anchor" href="#what-claude-carries" aria-label="Link to this section">#</a></h2>
-                <p>In our daily reality, Claude carries the long reading, the first draft of almost everything, the mechanical layers of a migration, the tests nobody enjoyed writing, the first pass of review and the documentation that used to be a guilty backlog. It carries breadth: it does not care whether the file is Java, SQL, YAML or a ten-year-old shell script.</p>
+                <p>On our team we ask Claude to read through a large codebase, draft the documentation or carry the same edit across a migration. It also writes tests and does a first review. We can go from Java to SQL to YAML or a ten-year-old shell script in the same session.</p>
                 <p>What it produces is not always right. It is, however, always <em>available</em>, and available changes behavior: you explore three designs instead of defending the only one you had time to build.</p>
             </section>
             <section class="doc-section" id="what-stays-human" aria-labelledby="what-stays-human-title">
@@ -191,8 +192,8 @@
             </section>
             <section class="doc-section" id="limits" aria-labelledby="limits-title">
                 <h2 class="anchor-heading" id="limits-title">Where the flip stops, for now<a class="anchor" href="#limits" aria-label="Link to this section">#</a></h2>
-                <p>I want to stay honest about the boundary. Ambiguous product intent, organizational tension, incidents whose context lives in people’s heads, decisions that trade one stakeholder’s pain against another’s: this is where the human is not assisting anyone, the human is simply doing the work. And in regulated environments, accountability is structural: someone must be answerable, and it cannot be a model.</p>
-                <p>So no, I do not think engineers are becoming spectators. Direction, verification and responsibility were always the senior part of the job. The tools finally caught up with that truth, and they are pushing everyone toward it. A future where the machine produces and the human is fully occupied with judgment does not sound like a demotion to me. It sounds like the job, distilled.</p>
+                <p>Sometimes I need to go and talk to someone. The product brief may be unclear, two teams may be at odds, or one colleague may be the only person who remembers what led to an incident. In a regulated environment we also need to be able to say who made a decision and why.</p>
+                <p>I like the part of the job where I read a change, ask for a fix, decide it can go live and answer for it the next day. Giving Claude more of the coding leaves me more time for that work.</p>
             </section>
             </article>
             <nav class="page-next" aria-label="Continue"><a href="/blog/">← All articles</a><a class="next-primary" href="/blog/ai-in-the-sdlc/">Next: Faster coding is not faster delivery →</a></nav>
@@ -232,6 +233,6 @@
         </footer>
         </main>
     </div>
-    <script src="/assets/js/site.js?v=20260905-objects" defer></script>
+    <script src="/assets/js/site.js?v=20261121" defer></script>
 </body>
 </html>

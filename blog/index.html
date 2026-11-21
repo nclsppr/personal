@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Engineering, AI and leadership articles · Nicolas Pieper</title>
-    <meta name="description" content="Notes on engineering leadership, AI and secure platforms, with the games, communities and early web that shape how I build today.">
+    <meta name="description" content="I write about the platforms my team looks after, the projects I build with AI and the games and forums where I first learned to code.">
     <meta name="author" content="Nicolas Pieper">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://nicolaspieper.com/blog/">
@@ -14,9 +14,9 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Nicolas Pieper">
     <meta property="og:title" content="Engineering, AI and leadership articles">
-    <meta property="og:description" content="Notes on engineering leadership, AI and secure platforms, with the games, communities and early web that shape how I build today.">
+    <meta property="og:description" content="I write about the platforms my team looks after, the projects I build with AI and the games and forums where I first learned to code.">
     <meta property="og:url" content="https://nicolaspieper.com/blog/">
-    <meta property="og:image" content="https://nicolaspieper.com/assets/img/og-blog.png?v=1">
+    <meta property="og:image" content="https://nicolaspieper.com/assets/img/og-blog.png?v=2">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -25,8 +25,8 @@
     <meta property="og:locale:alternate" content="fr_FR">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Engineering, AI and leadership articles">
-    <meta name="twitter:description" content="Notes on engineering leadership, AI and secure platforms, with the games, communities and early web that shape how I build today.">
-    <meta name="twitter:image" content="https://nicolaspieper.com/assets/img/og-blog.png?v=1">
+    <meta name="twitter:description" content="I write about the platforms my team looks after, the projects I build with AI and the games and forums where I first learned to code.">
+    <meta name="twitter:image" content="https://nicolaspieper.com/assets/img/og-blog.png?v=2">
     <meta name="twitter:image:alt" content="Engineering and personal notes by Nicolas Pieper, with three article illustrations">
     <link rel="icon" type="image/svg+xml" sizes="any" href="/assets/img/favicon.svg?v=2">
     <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon-96.png?v=2">
@@ -35,7 +35,7 @@
     <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/sourceserif4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/jetbrainsmono-var-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/assets/css/site.css?v=20260905-objects">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20261121">
     <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
     <script type="application/ld+json">
     {
@@ -46,10 +46,11 @@
                 "@id": "https://nicolaspieper.com/blog/#blog",
                 "url": "https://nicolaspieper.com/blog/",
                 "name": "Nicolas Pieper · Blog",
-                "description": "Notes on engineering leadership, AI and secure platforms, with the games, communities and early web that shape how I build today.",
+                "description": "I write about the platforms my team looks after, the projects I build with AI and the games and forums where I first learned to code.",
                 "inLanguage": "en",
                 "author": { "@id": "https://nicolaspieper.com/#person" },
                 "blogPost": [
+                    { "@id": "https://nicolaspieper.com/blog/building-guteneo/#post" },
                     { "@id": "https://nicolaspieper.com/blog/growing-up-with-the-web/#post" },
                     { "@id": "https://nicolaspieper.com/blog/ai-coding-agents-logging/#post" },
                     { "@id": "https://nicolaspieper.com/blog/ai-in-the-sdlc/#post" },
@@ -107,6 +108,7 @@
             <nav aria-label="On this page">
                 <div class="side-group"><p class="side-title">Articles</p><ul>
                     <li><a href="#all-articles">All articles</a></li>
+                    <li><a href="#building-guteneo">Building Guteneo</a></li>
                     <li><a href="#growing-up-with-the-web">From phpBB to engineering</a></li>
                     <li><a href="#ai-coding-agents-logging">AI coding agents and logging</a></li>
                     <li><a href="#ai-in-the-sdlc">AI in the SDLC</a></li>
@@ -122,50 +124,56 @@
         </aside>
         <main class="content" id="main">
             <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">nicolaspieper.com</a><span class="sep">/</span><span aria-current="page">blog</span></nav>
-            <header class="page-intro"><p class="eyebrow">Blog</p><h1>Notes from practice.</h1><p class="lead">What I learn while leading an engineering team and building secure platforms, plus the games, communities and early web that shaped how I build. Short, concrete and written to be useful, not to be right.</p></header>
+            <header class="page-intro"><p class="eyebrow">Blog</p><h1>Field notes</h1><p class="lead">I write about the platforms my team looks after, the projects I build with AI and the games and forums where I first learned to code.</p></header>
             <section class="doc-section" id="all-articles" aria-labelledby="all-articles-title">
                 <h2 class="anchor-heading" id="all-articles-title">All articles<a class="anchor" href="#all-articles" aria-label="Link to this section">#</a></h2>
                 <div class="blog-list">
-                    <article class="blog-featured" id="growing-up-with-the-web">
+                    <article class="blog-featured" id="building-guteneo">
                         <figure class="blog-featured-media">
-                            <img src="/assets/img/blog/growing-up-with-the-web-hero.webp?v=2" width="1200" height="480" alt="" loading="eager" fetchpriority="high" decoding="async">
+                            <img src="/assets/img/blog/building-guteneo-hero.webp" width="1200" height="800" alt="" loading="eager" fetchpriority="high" decoding="async">
                         </figure>
                         <div class="blog-featured-content">
-                            <p class="post-meta"><time datetime="2026-08-30">August 30, 2026</time> <span class="post-min">5 min read</span> <span class="post-cat">Personal journey</span></p>
-                            <h3>I grew up with the web: from phpBB to engineering</h3>
-                            <p>From Sonic and ETAJV to phpBB, wii-fr.com, electronics and systems at scale: almost thirty years on the same orange cable.</p>
-                            <a class="text-link" href="/blog/growing-up-with-the-web/">Read the article <span aria-hidden="true">→</span></a>
+                            <p class="post-meta"><time datetime="2026-11-21">November 21, 2026</time> <span class="post-min">4 min read</span> <span class="post-cat">Project notes</span></p>
+                            <h3>Building Guteneo, from draft to letterbox</h3>
+                            <p>A walkthrough of the PDF workshop I built with Codex, from checking a recipient’s postcode to finding out what happened to a letter.</p>
+                            <a class="text-link" href="/blog/building-guteneo/">Read the article <span aria-hidden="true">→</span></a>
                         </div>
                     </article>
                     <div class="blog-compact-list">
+                        <article class="work-summary blog-compact" id="growing-up-with-the-web">
+                            <p class="post-meta"><time datetime="2026-08-30">August 30, 2026</time> <span class="post-min">5 min read</span> <span class="post-cat">Personal journey</span></p>
+                            <h3>I grew up with the web: from phpBB to engineering</h3>
+                            <p>I bought wii-fr.com at thirteen. That story started with Sonic, Pokémon guides and my first phpBB themes.</p>
+                            <a class="text-link" href="/blog/growing-up-with-the-web/">Read the article <span aria-hidden="true">→</span></a>
+                        </article>
                         <article class="work-summary blog-compact" id="ai-coding-agents-logging">
                             <p class="post-meta"><time datetime="2026-08-11">August 11, 2026</time> <span class="post-min">5 min read</span> <span class="post-cat">AI engineering</span></p>
                             <h3>AI coding agents need a logging contract, not a better prompt</h3>
-                            <p>AI coding agents can pass the tests and still leave poor production evidence. A practical contract combines structured events, security rules and CI checks.</p>
+                            <p>What should an engineer find in the logs when a change goes live and something breaks? I use the same logging rules for code written by a colleague or an agent.</p>
                             <a class="text-link" href="/blog/ai-coding-agents-logging/">Read the article <span aria-hidden="true">→</span></a>
                         </article>
                         <article class="work-summary blog-compact" id="ai-in-the-sdlc">
                             <p class="post-meta"><time datetime="2026-07-17">July 17, 2026</time> <span class="post-min">5 min read</span> <span class="post-cat">AI engineering</span></p>
                             <h3>Faster coding is not faster delivery</h3>
-                            <p>Notes on IBM Technology’s AI in the SDLC video: coding gains get absorbed by the delivery lifecycle, and the fix is redesigning the lifecycle around AI. With the video and one diagram.</p>
+                            <p>A pull request can still spend a day waiting for review or a test environment. I look at what happens on either side of coding with Cedric Clyburn’s video for IBM Technology.</p>
                             <a class="text-link" href="/blog/ai-in-the-sdlc/">Read the article <span aria-hidden="true">→</span></a>
                         </article>
                         <article class="work-summary blog-compact" id="claude-assisted-by-a-human">
                             <p class="post-meta"><time datetime="2026-06-02">June 2, 2026</time> <span class="post-min">5 min read</span> <span class="post-cat">Future of work</span></p>
                             <h3>The future of work is Claude assisted by a human</h3>
-                            <p>We started with a human assisted by AI. The roles are quietly flipping, and the humans who thrive will be the ones who direct, verify and take responsibility.</p>
+                            <p>Claude can write the first draft and work through a migration. I spend more of my time deciding what to ask for, reading the diff and checking what we’ll ship.</p>
                             <a class="text-link" href="/blog/claude-assisted-by-a-human/">Read the article <span aria-hidden="true">→</span></a>
                         </article>
                         <article class="work-summary blog-compact" id="organizing-the-solutions-team">
                             <p class="post-meta"><time datetime="2026-04-21">April 21, 2026</time> <span class="post-min">5 min read</span> <span class="post-cat">Management</span></p>
                             <h3>How I organize the Solutions engineering team</h3>
-                            <p>The operating model behind one team and one portfolio: named owners with backups, a single view of priorities and autonomy fed by context.</p>
+                            <p>How ten engineers share responsibility for several platforms, cover for each other and decide which fixes come before a new feature.</p>
                             <a class="text-link" href="/blog/organizing-the-solutions-team/">Read the article <span aria-hidden="true">→</span></a>
                         </article>
                         <article class="work-summary blog-compact" id="claude-in-the-enterprise">
                             <p class="post-meta"><time datetime="2026-02-10">February 10, 2026</time> <span class="post-min">6 min read</span> <span class="post-cat">AI engineering</span></p>
                             <h3>Claude in the enterprise, from architecture to production</h3>
-                            <p>Why I keep coming back to Claude, and how an engineering team can use it across the whole lifecycle without giving up on security, confidentiality or judgment.</p>
+                            <p>A Java migration, a code review, an incident report. Where Claude fits into our team’s work and how we handle sensitive information.</p>
                             <a class="text-link" href="/blog/claude-in-the-enterprise/">Read the article <span aria-hidden="true">→</span></a>
                         </article>
                     </div>
@@ -208,6 +216,6 @@
         </footer>
         </main>
     </div>
-    <script src="/assets/js/site.js?v=20260905-objects" defer></script>
+    <script src="/assets/js/site.js?v=20261121" defer></script>
 </body>
 </html>

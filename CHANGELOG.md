@@ -5,6 +5,33 @@ Historique des interventions sur le site, la plus récente en premier.
 
 ---
 
+## 2026-11-21 - Guteneo et relecture du site
+
+- Ajout de Guteneo à l’accueil et aux projets personnels. Le nouvel article,
+  « Guteneo, du brouillon à la boîte aux lettres », raconte la création avec
+  Codex, la préparation des PDF, le bon à tirer et le suivi des envois.
+- Article disponible en français et en anglais, avec un sticker original
+  et une image de partage. Mise à jour des index du blog, de la navigation
+  entre articles, du sitemap et de `llms.txt`.
+- Relecture des textes de l’accueil, des réalisations, du CV, des projets,
+  de la collection et du blog. Les deux CV téléchargeables ont été régénérés.
+- Présentation des logos directement sur les fonds du site, avec un contour
+  discret si nécessaire. Nouvelles cartes de partage Projets, Blog et
+  Réalisations, visuel du carnet Japon de Mon Florian et carte anglaise de Parkventory.
+- Sur mobile, le tiroir de navigation s’anime à la première ouverture.
+  La navigation sans JavaScript reste disponible dans le flux de lecture.
+
+<details>
+<summary>Illustration de l’article Guteneo</summary>
+
+Le générateur d’images intégré à Codex a produit le sticker à partir de cette consigne.
+
+> Illustration pour le blog de Nicolas Pieper, large composition horizontale 3:2. Sur une petite table de correspondance, une main tient une lettre par un coin pour la relire. Un stylo plume posé en travers, une enveloppe ouverte et un tampon encreur attendent à côté. Cadrage rapproché, composition basse et compacte, diagonale de la feuille vers l’enveloppe, gestes et objets immédiatement lisibles en miniature. Sticker découpé d’un seul tenant, gros trait d’encre charbon #171716, ivoire et sable, grain papier discret, deux touches d’orange #FF4F00 sur le capuchon et le manche du tampon, large bord blanc. Fond réellement transparent. Sur la feuille, quelques lignes abstraites. Aucun mot, aucune lettre, aucun logo.
+
+Le fichier WebP conserve la transparence. La version JPEG de partage utilise le fond ivoire du site.
+
+</details>
+
 ## 2026-10-02 - Navigation mobile utilisable sans JavaScript
 
 - Navigation du site et sommaire visibles dans le flux sur mobile lorsque

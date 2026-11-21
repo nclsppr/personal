@@ -35,8 +35,7 @@ palette secondaire. Les statuts (dashboard) sont toujours doublés d'un
 libellé texte, jamais couleur seule.
 
 Exception encadrée : les couleurs canoniques des produits peuvent apparaître
-uniquement dans leurs logos et cartes de partage, posés dans un cadre neutre
-`--project-frame`. Elles ne deviennent jamais des tokens, fonds de section,
+dans leurs logos et cartes de partage. Elles ne deviennent jamais des tokens, fonds de section,
 boutons ou couleurs de statut du site.
 
 ## 3. Typographie
@@ -72,7 +71,7 @@ boutons ou couleurs de statut du site.
 - Page Réalisations : un index de lecture précède le flux éditorial.
   Sur mobile, les stickers reviennent dans le flux pour préserver une
   mesure de texte confortable.
-- Page Projets : un sommaire numéroté ouvre un flux éditorial de cinq
+- Page Projets : un sommaire numéroté ouvre un répertoire de
   produits, séparés par des filets. Chaque entrée met en regard une colonne
   de lecture et sa carte sociale complète. La section Outils et fondations
   reste secondaire et ne reprend pas le traitement des produits.
@@ -192,8 +191,9 @@ d'articles) ou `square composition` (mascottes, portraits).
 
 Les logos et cartes de produits ne sont ni réinterprétés ni recolorés. Les
 copies et dérivés locaux suivent les sources et empreintes consignées dans
-`assets/img/projects/PROVENANCE.md`. Un cadre blanc neutre protège leur rendu
-dans les thèmes clair et sombre. Les fichiers lourds peuvent être remplacés
+`assets/img/projects/PROVENANCE.md`. Les logos détourés se posent directement sur le fond de page. Si une
+partie de la marque manque de contraste, un fin filet en épouse le contour dans
+le thème concerné. Les illustrations officielles gardent leur propre fond. Les fichiers lourds peuvent être remplacés
 par un dérivé WebP transparent, avec le master, son empreinte et la commande
 de transformation documentés.
 

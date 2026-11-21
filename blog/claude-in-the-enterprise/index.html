@@ -24,7 +24,7 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="fr_FR">
     <meta property="article:published_time" content="2026-02-10">
-    <meta property="article:modified_time" content="2026-02-10">
+    <meta property="article:modified_time" content="2026-11-21">
     <meta property="article:author" content="https://nicolaspieper.com/">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Claude in the enterprise, from architecture to production">
@@ -38,7 +38,7 @@
     <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/sourceserif4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/jetbrainsmono-var-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/assets/css/site.css?v=20260905-objects">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20261121">
     <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
     <script type="application/ld+json">
     {
@@ -52,7 +52,7 @@
                 "description": "How an engineering team uses Claude across architecture, legacy modernization, code review, delivery and production, inside real security and confidentiality constraints.",
                 "inLanguage": "en",
                 "datePublished": "2026-02-10",
-                "dateModified": "2026-02-10",
+                "dateModified": "2026-11-21",
                 "author": { "@id": "https://nicolaspieper.com/#person" },
                 "publisher": { "@id": "https://nicolaspieper.com/#person" },
                 "image": "https://nicolaspieper.com/assets/img/blog/claude-in-the-enterprise-og.jpg",
@@ -118,6 +118,7 @@
                 </ul></div>
                 <div class="side-group"><p class="side-title">More articles</p><ul>
                     <li><a href="/blog/">All articles</a></li>
+                    <li><a href="/blog/building-guteneo/">Building Guteneo</a></li>
                     <li><a href="/blog/growing-up-with-the-web/">I grew up with the web</a></li>
                     <li><a href="/blog/organizing-the-solutions-team/">Organizing the Solutions team</a></li>
                     <li><a href="/blog/claude-assisted-by-a-human/">Claude assisted by a human</a></li>
@@ -133,7 +134,7 @@
                 <p class="eyebrow">Blog · AI-assisted engineering</p>
                 <h1>Claude in the enterprise, from architecture to production.</h1>
                 <p class="post-meta"><time datetime="2026-02-10">February 10, 2026</time> · 6 min read · Nicolas Pieper</p>
-                <p class="lead">I have spent ten years building platforms where a mistake shows up in a bank statement or in somebody’s kitchen. I am not easily impressed by tools. Claude impressed me, and it keeps impressing me where it matters most: in the unglamorous middle of enterprise software.</p>
+                <p class="lead">I spent ten years working on platforms where a mistake can show up on a bank statement or in somebody’s kitchen. Claude earned a place in my toolkit on that kind of software, somewhere between a Java migration and an incident investigation.</p>
             </header>
             <figure class="post-hero">
                 <img src="/assets/img/blog/claude-in-the-enterprise-hero.webp" width="1200" height="675"
@@ -157,7 +158,7 @@
             </section>
             <section class="doc-section" id="delivery" aria-labelledby="delivery-title">
                 <h2 class="anchor-heading" id="delivery-title">Review, tests and delivery<a class="anchor" href="#delivery" aria-label="Link to this section">#</a></h2>
-                <p>A second pair of eyes that never gets tired changes the economics of quality. Our habit is simple: Claude reviews first, humans review with the findings in hand. The human reviewer stops burning attention on the mechanical layer, naming, obvious bugs, missed edge cases, and spends it on what actually requires them: does this change do the right thing for the product?</p>
+                <p>Claude takes the first pass on our team. It can pick up an ambiguous name, an obvious bug or a missed edge case. When an engineer opens the diff, those findings are already there and they can give their attention to the harder question. Is this the right change for the product?</p>
                 <ul class="checklist">
                     <li>Ask for a review before opening the pull request, not after</li>
                     <li>Have the tests written or challenged by the assistant, then judged by the author</li>
@@ -166,7 +167,7 @@
             </section>
             <section class="doc-section" id="production" aria-labelledby="production-title">
                 <h2 class="anchor-heading" id="production-title">Production: incidents and runbooks<a class="anchor" href="#production" aria-label="Link to this section">#</a></h2>
-                <p>Production is where the affection became serious. During an incident, the scarcest resource is a calm reader. Claude reads the stack trace, the recent changes and the logs without panic, and proposes hypotheses in order of likelihood. Afterwards, it drafts the postmortem while the details are still warm, and writes the runbook that everyone agreed should exist and nobody had time to write.</p>
+                <p>I value its help most during an incident. Claude can read the stack trace alongside the logs and recent changes, then suggest which hypotheses to test first. Once the service is back it can draft the incident report and the runbook we wished we had.</p>
                 <div class="terminal" role="img" aria-label="Terminal showing a claude command asking to read a stack trace and the last deploys, and to rank hypotheses">
                     <div class="terminal-bar"><i></i><i></i><i></i><span class="terminal-title">nicolas@pieper.fr - zsh</span></div>
                     <pre><span class="t-prompt">$</span> <span class="t-cmd">claude "read this stack trace and the last three</span>
@@ -190,7 +191,7 @@
             <section class="doc-section" id="adoption" aria-labelledby="adoption-title">
                 <h2 class="anchor-heading" id="adoption-title">Adoption is a management job<a class="anchor" href="#adoption" aria-label="Link to this section">#</a></h2>
                 <p>Tools do not adopt themselves. What worked for us was unspectacular: start with the engineers who are curious, let them show real sessions to the others, and be honest about the failures as well as the wins. The moment a skeptic watches a colleague untangle in an afternoon something that would have taken a week, the conversation changes on its own.</p>
-                <p>My conclusion after living with Claude across the whole lifecycle is simple. The point is not that it writes code. The point is that <strong>every stage of the lifecycle gains a second brain</strong>, and the team decides, deliberately, where that brain is welcome. That decision is engineering leadership now.</p>
+                <p>I keep Claude handy for an architecture review, a migration or an incident. The team chooses where its help is worthwhile and who will check the result. Making that call is now part of my job as a manager.</p>
             </section>
             </article>
             <nav class="page-next" aria-label="Continue"><a href="/blog/">← All articles</a><a class="next-primary" href="/blog/organizing-the-solutions-team/">Next: Organizing the Solutions team →</a></nav>
@@ -230,6 +231,6 @@
         </footer>
         </main>
     </div>
-    <script src="/assets/js/site.js?v=20260905-objects" defer></script>
+    <script src="/assets/js/site.js?v=20261121" defer></script>
 </body>
 </html>

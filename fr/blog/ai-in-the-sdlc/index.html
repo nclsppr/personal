@@ -24,7 +24,7 @@
     <meta property="og:locale" content="fr_FR">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="article:published_time" content="2026-07-17">
-    <meta property="article:modified_time" content="2026-07-17">
+    <meta property="article:modified_time" content="2026-11-21">
     <meta property="article:author" content="https://nicolaspieper.com/">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Coder plus vite n’est pas livrer plus vite">
@@ -38,7 +38,7 @@
     <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/sourceserif4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/jetbrainsmono-var-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/assets/css/site.css?v=20260905-objects">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20261121">
     <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#262624':'#FAF9F5';}catch(e){}})()</script>
     <script type="application/ld+json">
     {
@@ -49,10 +49,10 @@
                 "@id": "https://nicolaspieper.com/fr/blog/ai-in-the-sdlc/#post",
                 "mainEntityOfPage": "https://nicolaspieper.com/fr/blog/ai-in-the-sdlc/",
                 "headline": "Coder plus vite n’est pas livrer plus vite",
-                "description": "Notes sur la vidéo AI in the SDLC d’IBM Technology : pourquoi les gains du codage sont absorbés par le cycle de livraison, les pièges de sur- et sous-délégation, et ce que change une refonte du cycle autour de l’IA.",
+                "description": "Notes sur la vidéo AI in the SDLC d’IBM Technology : pourquoi les gains du codage sont absorbés par le cycle de livraison, les deux pièges qu’on rencontre en déléguant du travail à un modèle, et ce que change une refonte du cycle autour de l’IA.",
                 "inLanguage": "fr",
                 "datePublished": "2026-07-17",
-                "dateModified": "2026-07-17",
+                "dateModified": "2026-11-21",
                 "author": { "@id": "https://nicolaspieper.com/#person" },
                 "publisher": { "@id": "https://nicolaspieper.com/#person" },
                 "image": "https://nicolaspieper.com/assets/img/blog/ai-in-the-sdlc-og.jpg",
@@ -117,6 +117,7 @@
                 </ul></div>
                 <div class="side-group"><p class="side-title">Autres articles</p><ul>
                     <li><a href="/fr/blog/">Tous les articles</a></li>
+                    <li><a href="/fr/blog/building-guteneo/">Construire Guteneo</a></li>
                     <li><a href="/fr/blog/growing-up-with-the-web/">J’ai grandi avec le web</a></li>
                     <li><a href="/fr/blog/claude-in-the-enterprise/">Claude en entreprise</a></li>
                     <li><a href="/fr/blog/organizing-the-solutions-team/">Organiser l’équipe Solutions</a></li>
@@ -132,7 +133,7 @@
                 <p class="eyebrow">Blog · Ingénierie IA</p>
                 <h1>Coder plus vite n’est pas livrer plus vite.</h1>
                 <p class="post-meta"><time datetime="2026-07-17">17 juillet 2026</time> · 5 min de lecture · Nicolas Pieper</p>
-                <p class="lead">Une vidéo est arrivée dans mon fil qui dit tout haut ce que je dessine sans cesse sur des tableaux blancs : l’IA a rendu le codage spectaculairement plus rapide, et la livraison logicielle s’en est à peine aperçue. Cedric Clyburn, d’IBM Technology, explique pourquoi en douze minutes, et sa réponse résonne avec tout ce que je vois au travail.</p>
+                <p class="lead">Pourquoi une modification attend-elle toujours aussi longtemps avant d’arriver en production alors qu’on l’a codée plus vite ? C’est une question que je dessine souvent au tableau. Dans une vidéo de douze minutes pour IBM Technology, Cedric Clyburn suit tout le trajet d’une modification. J’y ai reconnu une bonne partie de mon quotidien.</p>
             </header>
             <figure class="post-hero">
                 <img src="/assets/img/blog/ai-in-the-sdlc-hero.webp" width="1200" height="800"
@@ -160,19 +161,19 @@
             </section>
             <section class="doc-section" id="two-traps" aria-labelledby="two-traps-title">
                 <h2 class="anchor-heading" id="two-traps-title">Deux façons d’échouer<a class="anchor" href="#two-traps" aria-label="Lien vers cette section">#</a></h2>
-                <p>La vidéo décrit l’adoption de l’IA comme un spectre avec un piège à chaque extrémité, et j’ai vu des équipes, la mienne comprise, marcher dans les deux.</p>
-                <p><strong>La sur-délégation</strong> : confier à un modèle frontière un gros problème ambigu, « construis-moi une plateforme e-commerce », et le laisser courir. Chaque décision non formulée sur les paiements, l’authentification ou la livraison est prise en silence par le modèle, qui rend des milliers de lignes que personne n’a lues. La revue devient le goulot d’étranglement, et les allers-retours brûlent tout ce que la génération avait fait gagner.</p>
-                <p><strong>La sous-délégation</strong> : l’ingénieur senior garde toute la planification et tend des miettes au modèle, écris cette fonction, scanne ce fichier pour les injections SQL. Le code rendu est bon, mais tout le travail intellectuel reste humain, et le cycle n’accélère presque pas. C’est le piège des équipes disciplinées, précisément parce que leur discipline les protège du premier. Nos propres <a href="/fr/blog/claude-in-the-enterprise/">garde-fous</a> nous préservent de la sur-délégation ; la question honnête est de savoir s’ils ne nous gardent pas parfois trop du côté timide.</p>
+                <p>Clyburn décrit deux façons de mal répartir le travail avec l’IA. J’ai vu des équipes tomber dans les deux pièges, y compris la mienne.</p>
+                <p><strong>Tout déléguer d’un coup.</strong> Prenez un modèle très performant et donnez-lui une demande floue, « construis-moi une plateforme e-commerce ». Faute de précisions, il tranche lui-même les questions de paiement, d’authentification et de livraison. On récupère des milliers de lignes à relire. Le temps gagné à les écrire peut vite passer en corrections.</p>
+                <p><strong>Presque tout garder pour soi.</strong> L’ingénieur senior fait tout le travail de conception. Il demande au modèle d’écrire une fonction ou de chercher des injections SQL dans un fichier. Le code est bon, mais l’essentiel du travail repose encore sur l’ingénieur et la livraison avance à peine. Nos <a href="/fr/blog/claude-in-the-enterprise/">garde-fous</a> nous évitent souvent le premier piège. Je me demande parfois si, à force de prudence, on ne tombe pas dans le second.</p>
             </section>
             <section class="doc-section" id="redesign" aria-labelledby="redesign-title">
                 <h2 class="anchor-heading" id="redesign-title">Repenser le cycle autour de l’IA<a class="anchor" href="#redesign" aria-label="Lien vers cette section">#</a></h2>
-                <p>Le cœur de la vidéo est un recadrage : cesser de coller l’IA sur le cycle existant et repenser le cycle autour d’elle. Phase par phase, cela ressemble à ceci :</p>
+                <p>J’ai surtout retenu ce que l’IA peut apporter avant et après l’écriture du code. Clyburn reprend les étapes une par une.</p>
                 <div class="principles">
-                    <div class="principle"><span class="p-n">01</span><div><h3>Besoins et conception</h3><p>Synthétiser la masse non structurée d’enquêtes, de retours utilisateurs et d’emails en user stories, et laisser des agents fouiller les logs de production et les rapports de bugs pour que l’itération suivante parte de ce qui échoue réellement.</p></div></div>
+                    <div class="principle"><span class="p-n">01</span><div><h3>Besoins et conception</h3><p>Synthétiser la masse non structurée d’enquêtes, de retours utilisateurs et d’emails en user stories, et laisser des agents fouiller les logs de production et les rapports de bugs pour préparer la suite à partir des problèmes rencontrés.</p></div></div>
                     <div class="principle"><span class="p-n">02</span><div><h3>Code</h3><p>Des tâches petites et bien définies plutôt que des systèmes vibe-codés : une spécification que le modèle peut lire et suivre, des sous-agents pour la recherche, pour puiser des données via des serveurs MCP et pour l’édition, et des fichiers de contexte partagés pour des sorties cohérentes d’une équipe à l’autre.</p></div></div>
                     <div class="principle"><span class="p-n">03</span><div><h3>Test</h3><p>Générer les données de test directement depuis la user story, et laisser le modèle lire la stack trace de 3 h du matin sans la panique de 3 h du matin.</p></div></div>
                     <div class="principle"><span class="p-n">04</span><div><h3>Livraison et exploitation</h3><p>Les modèles parlent déjà couramment l’infrastructure as code, des playbooks Ansible aux manifestes Kubernetes.</p></div></div>
-                    <div class="principle"><span class="p-n">05</span><div><h3>Legacy</h3><p>Expliquer et rétro-concevoir les systèmes que plus personne ne comprend vraiment, ce qui est une assez bonne description de mon quotidien.</p></div></div>
+                    <div class="principle"><span class="p-n">05</span><div><h3>Applications existantes</h3><p>Remonter le fil du code pour expliquer comment fonctionne un système que plus personne ne connaît vraiment. Je me reconnais assez bien dans cette partie.</p></div></div>
                 </div>
             </section>
             <section class="doc-section" id="one-picture" aria-labelledby="one-picture-title">
@@ -240,7 +241,7 @@
                         <text x="644" y="160" font-size="9.5" class="d-accent">en hausse</text>
                     </svg>
                     </div>
-                    <figcaption>Accélérer une case nourrit les files d’attente autour. Repenser chaque case déplace le résultat.</figcaption>
+                    <figcaption>Quand seul le code accélère, les modifications attendent toujours les tests, la revue et la mise en production. Le second schéma montre où l’IA peut intervenir à chacune de ces étapes.</figcaption>
                 </figure>
             </section>
             <section class="doc-section" id="outcomes" aria-labelledby="outcomes-title">
@@ -285,12 +286,12 @@
             </div>
             <div class="footer-base">
                 <p>© 2026 Nicolas Pieper · Luxembourg</p>
-                <p>Composé en Inter, Source Serif 4 &amp; JetBrains Mono. Site statique, sans tracking.</p>
+                <p>Inter, Source Serif 4 et JetBrains Mono. Site statique, sans suivi.</p>
             </div>
         </footer>
         </main>
     </div>
-    <script src="/assets/js/site.js?v=20260905-objects" defer></script>
+    <script src="/assets/js/site.js?v=20261121" defer></script>
     <script>
     /* Façade vidéo : l'iframe youtube-nocookie n'est créée qu'au clic.
        Sans JavaScript, la façade reste un lien vers YouTube. */
